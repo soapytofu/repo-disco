@@ -1,0 +1,31 @@
+language: dafny
+agenda:
+  _target_: agenda.LocalAgenda
+  language: dafny
+  logger:
+    _target_: logger.noop.NoOpLogger
+  max_attempts: 2
+  checkpoint_path: /n/home13/sophiezeng/formal-disco/outputs/extension-pilot-20261014-022417/agenda.pkl
+  checkpoint_interval: 1
+  benchmark_codebase_time: null
+  sort_every: 100
+scheduler:
+  _target_: scheduler.RoundRobinScheduler
+  language: dafny
+  turn_fuel: 1
+  workers:
+  - _target_: worker.editor_worker.EditorWorker
+    language: dafny
+    distill: all
+    llm:
+      _target_: langchain_openai.ChatOpenAI
+      model: gpt-5.6-luna
+      reasoning_effort: low
+      max_tokens: 4096
+      timeout: 90
+      max_retries: 0
+hydra:
+  run:
+    dir: /n/home13/sophiezeng/formal-disco/outputs/extension-pilot-20261014-022417
+  job:
+    chdir: false
