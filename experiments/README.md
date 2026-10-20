@@ -12,8 +12,9 @@ These are successive experiments on **one program family**, not independent benc
 | [extension-001](extension-001/README.md) | 2026-10-14 | Can we extend it with algebraic properties? | `gpt-5.6-luna` / OpenAI | **FAIL — parse error:** declarations split a method signature from its body |
 | [repair-001](repair-001/README.md) | 2026-10-20 | Can Claude repair the failed extension using verifier feedback? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **FAIL — parse error:** malformed diff anchors led to incorrect brace deletion |
 | [repair-002](repair-002/README.md) | 2026-10-20 | Can a fresh attempt follow clarified anchor syntax with strict validation? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **FAIL — malformed edit rejected; input unchanged.** 885 input / 166 output tokens |
+| [repair-003](repair-003/README.md) | 2026-10-20 | Can a complete-program response repair the same input? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **PASS:** 4 verified, 0 errors after verifier-only recheck; 541 input / 372 output tokens |
 
-Both repair trials start from the original failed extension; repair-002 does not continue repair-001's modified checkpoint.
+All three repair trials start from the original failed extension. They do not continue one another's modified output.
 
 **What the programs contain**
 
@@ -21,6 +22,7 @@ Both repair trials start from the original failed extension; repair-002 does not
 - **Extension:** adds `MaxCommutative` and `TestMaxAlgebra`, attempting commutativity, idempotence, and associativity. The file fails parsing, so these additions are **not verified**. [Failed code](extension-001/extended-program.dfy) · [Verifier error](extension-001/verifier-output.txt).
 - **Repair:** Claude proposed moving the separated method body, but malformed diff anchors were silently ignored by the patch code. The resulting file still fails parsing. [Failed repair](repair-001/failed-repair.dfy) · [Diagnosis and evidence](repair-001/README.md).
 - **Fresh repair-002:** the clarified prompt still produced malformed anchors, which the fixed reader rejected before any change or new Dafny verification. [Recorded prompt and result](repair-002/README.md).
+- **Complete-program repair-003:** one model request produced a complete source file retaining the intended specifications. The first verifier call timed out; the unchanged file then passed with a longer limit. [Verified output and evidence](repair-003/README.md).
 - **Diagnostic candidate (not a model trial):** adding the two missing anchor delimiters restores the intended block arrangement. [Candidate](repair-001/anchor-normalization-candidate.dfy); **PASS — 4 verified, 0 errors**, reported from Cannon on 2026-10-20. [Verifier output](repair-001/anchor-normalization-verifier-output.txt). Original contracts and intended algebraic checks are retained; no additional model call.
 
 ## Setup checks

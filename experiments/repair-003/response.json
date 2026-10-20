@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\n// A verified integer maximum utility: the result is one of the inputs and\n// is greater than or equal to both.\n\nfunction Max(a: int, b: int): int\n  ensures Max(a, b) == a || Max(a, b) == b\n  ensures Max(a, b) >= a && Max(a, b) >= b\n{\n  if a >= b then a else b\n}\n\nmethod TestMax(a: int, b: int)\n{\n  var result := Max(a, b);\n  assert result == a || result == b;\n  assert result >= a && result >= b;\n}\n\nlemma MaxCommutative(a: int, b: int)\n ensures Max(a, b) == Max(b, a)\n{\n if a >= b {\n   assert Max(a, b) == a;\n   if b >= a {\n     assert a == b;\n     assert Max(b, a) == b;\n   } else {\n     assert Max(b, a) == a;\n   }\n } else {\n   assert Max(a, b) == b;\n   assert Max(b, a) == b;\n }\n}\n\nmethod TestMaxAlgebra(a: int, b: int, c: int)\n{\n MaxCommutative(a, b);\n assert Max(a, b) == Max(b, a);\n assert Max(a, a) == a;\n assert Max(Max(a, b), c) == Max(a, Max(b, c));\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 541,
+    "output_tokens": 372,
+    "total_tokens": 913,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

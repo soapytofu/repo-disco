@@ -13,8 +13,9 @@ This guide records the setup used for the first RepoDisco pilots. Last updated O
 | OpenAI generation pilot | 2 verified, 0 errors |
 | OpenAI extension pilot | Failed with a Dafny parse error; retained for diagnosis |
 | AWS Bedrock / Claude Sonnet connection | Successful; 13 input and 5 output tokens |
+| Claude complete-program repair (repair-003) | 4 verified, 0 errors after verifier-only timeout recheck; 541 input and 372 output tokens |
 
-The AWS check confirms model access. A [Claude repair experiment](../../experiments/repair-001/README.md) subsequently ran but failed parsing; a separate assisted formatting correction passed with 4 verified, 0 errors. Multi-module repository experiments have not yet been completed. The installation commands consolidate the working setup; they are not a fully pinned environment lockfile.
+The AWS check confirms model access. A [Claude repair experiment](../../experiments/repair-001/README.md) subsequently ran but failed parsing; a separate assisted formatting correction passed with 4 verified, 0 errors. A later [complete-program repair](../../experiments/repair-003/README.md) passed with one model request and no manual code correction, after a verifier-only timeout recheck. Multi-module repository experiments have not yet been completed. The installation commands consolidate the working setup; they are not a fully pinned environment lockfile.
 
 ## 1. Resume an existing Cannon setup
 
