@@ -14,7 +14,7 @@ This guide records the setup used for the first RepoDisco pilots. Last updated O
 | OpenAI extension pilot | Failed with a Dafny parse error; retained for diagnosis |
 | AWS Bedrock / Claude Sonnet connection | Successful; 13 input and 5 output tokens |
 
-The AWS check confirms model access. A Claude repair experiment and multi-module repository experiments have **not** yet been completed. The installation commands consolidate the working setup; they are not a fully pinned environment lockfile.
+The AWS check confirms model access. A [Claude repair experiment](../../experiments/repair-001/README.md) subsequently ran but failed parsing; a separate formatting-corrected candidate awaits verification. Multi-module repository experiments have not yet been completed. The installation commands consolidate the working setup; they are not a fully pinned environment lockfile.
 
 ## 1. Resume an existing Cannon setup
 
@@ -222,7 +222,7 @@ Token usage: {'inputTokens': 13, 'outputTokens': 5, 'totalTokens': 18, 'cacheRea
 
 The model ID is the one tested on October 20, 2026. Availability and permitted models can change. An authorization failure may require the lab administrator to check permissions; re-entering the same key will not fix missing model access.
 
-**Framework integration remains a next step.** Loading a Bedrock key does not convert existing OpenAI experiments to Claude. The worker's own `llm` configuration must select `langchain_aws.ChatBedrockConverse` and the intended model/region. Existing OpenAI pilot configs have been preserved.
+**Framework integration was exercised in [repair-001](../../experiments/repair-001/README.md).** Loading a Bedrock key does not convert existing OpenAI experiments to Claude. The worker's own `llm` configuration must select `langchain_aws.ChatBedrockConverse` and the intended model/region. Existing OpenAI pilot configs have been preserved.
 
 ## 5. OpenAI access, optional fallback
 
@@ -280,7 +280,7 @@ The extension configuration contains paths from the original cluster run and sho
 
 Checkpoints under `outputs/` and exported `discoveries/` are ignored by Git. The readable experiment evidence is committed under `experiments/`. Cloning GitHub therefore does not restore the original checkpoint. Only load pickle checkpoints you trust.
 
-For the next repair experiment, preserve the failed program and verifier message, make a bounded Claude repair attempt, then save the prompt/config, generated change, verifier output, token usage, and outcome. Check that the original specifications and intended declarations remain intact: verifier success alone does not establish that a repair preserved the task.
+For each repair experiment, preserve the failed program and verifier message, make a bounded repair attempt, then save the prompt/config, generated change, verifier output, token usage, and outcome. Check that the original specifications and intended declarations remain intact: verifier success alone does not establish that a repair preserved the task.
 
 ## 7. Save results and reconnect
 

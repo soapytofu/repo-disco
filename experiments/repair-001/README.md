@@ -1,40 +1,58 @@
-# repair-001 — Repair the failed extension with Claude
+# repair-001 — Claude repair of the failed extension
 
-**Status: RUNNING at the last user report on October 20, 2026. Result pending.**
+**Outcome: FAIL — one Dafny parse error after one additional repair attempt.** Date: 2026-10-20.
 
 | Field | Record |
 | --- | --- |
-| Question | Can the repair worker fix the parse error while preserving the intended program and specifications? |
+| Question | Can the repair worker fix the extension while preserving its intended specifications? |
 | Parent | [extension-001](../extension-001/README.md) |
-| Input program | [Failed extension](../extension-001/extended-program.dfy) |
-| Feedback | [Dafny parse error](../extension-001/verifier-output.txt) |
 | Configured model / provider | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock, `us-east-1` |
-| Configured budget | 1 additional agenda attempt; at most 4,096 output tokens; automatic request retries disabled |
-| Worker | `worker.llm_fixer.LLMFixer` |
-| Configured timeouts | 15-second connection, 90-second read, 300-second outer process limit |
-| Run directory | Timestamped `outputs/claude-repair-…/`; exact path pending |
-| Actual calls / token usage / measured cost | Not yet received |
-| Verifier result / preservation review | Pending |
+| Run ID | `claude-repair-20261020-132111-493558` |
+| Budget / observed attempts | 1 additional attempt; cumulative count reached 3 from 2; one model invocation appears in the supplied log |
+| Configured output limit | 4,096 tokens; automatic request retries disabled |
+| Environment reported before launch | `repodisco`; boto3 1.43.115; langchain-aws 1.9.0 |
+| Verifier | Previously established Dafny 4.11.0 / Z3 4.12.1 setup; versions not reprinted in this run |
+| Result | `program.dfy(36,1): Error: this symbol not expected in MethodSpec`; 1 parse error |
+| Final repair task status | `ATTEMPTED`; scheduler stopped normally at the cumulative attempt limit |
+| Token usage / measured cost | Not captured in the supplied log |
+| Exact cluster source revision / resolved config | Not yet collected from Cannon |
 
-The launch instructions copy the original checkpoint to a separate run and set the cumulative attempt limit to the stored count plus one. This record documents the requested run; its artifacts and actual settings still need to be collected from Cannon.
+**What happened:** Claude correctly described the separated `TestMax` body and proposed moving it back. However, both anchor lines in its text diff lacked the closing `@@` required by the patch format. The patch code ignored these malformed lines. Subsequent searches matched repeated braces in the wrong location, removing the opening brace of `TestMaxAlgebra` and leaving a stray block.
 
-## Evidence to archive after completion
+**Diagnosis reproduced locally:** applying the saved response to the saved input with the repository's `apply_text_diff` reproduces the logged failed output (ignoring trailing newlines). This is a malformed model edit combined with silent acceptance by the patch code. It is not evidence that the mathematical properties are false.
 
-- Exact run directory, source revision, and relevant package versions.
-- Resolved run configuration and scheduler log.
-- Model prompt/response or diff, and the resulting program if one was produced.
-- Verifier stdout/stderr and final task status.
-- Token usage if recorded; otherwise explicitly mark it not captured.
+**Preservation review:** the resulting text retains `Max`'s contracts, `TestMax`'s assertions, the commutativity lemma, and the algebraic checks. No new proof bypass was observed in this text. But the file does not parse, so this is **not a successful verified repair**.
 
-## Completion review
+**Statistics caveat:** the log's `total_verified_programs: 1` and 16 verified lines refer to the previously accepted dataset program. They do not mean this repaired extension verified.
 
-1. Did Dafny parse and verify the resulting file? Record the exact counts/errors.
-2. Were `Max`'s contracts and the original `TestMax` assertions retained?
-3. Were the commutativity lemma and the intended idempotence/associativity checks retained?
-4. Were any proof bypasses introduced, such as assumptions or disabled verification?
+## Saved evidence
 
-A verifier pass alone is not sufficient to mark task preservation as confirmed. If the attempt fails, retain the failed artifact and record whether the failure was in the API call, diff application, parsing, or proof verification.
+Extracted from the user-supplied terminal transcript; these are not a direct export of the cluster checkpoint.
 
-This is a single mixed-model generation → extension → repair sequence, not a controlled OpenAI-versus-Claude comparison.
+- [Input program](input-program.dfy)
+- [Model response, including malformed diff](model-response.txt)
+- [Failed repair output](failed-repair.dfy)
+- [Verifier stdout](verifier-output.txt); verifier stderr was empty in the transcript
+- [Scheduler transcript excerpt](scheduler-excerpt.log), with the absolute checkout prefix replaced by `<CHECKOUT>/`
+- [Local reproduction script](reproduce-patch.py)
+
+The resolved configuration, full serialized prompt, and cluster checkpoint have not been archived here. The checkpoint remains at `outputs/claude-repair-20261020-132111-493558/agenda.pkl` on Cannon.
+
+## Separate diagnostic candidate — not yet verified
+
+Adding only the two missing closing `@@` markers to the saved diff produces [this candidate](anchor-normalization-candidate.dfy). It restores the intended block arrangement while retaining the original contracts and new checks.
+
+This is a **human/agent-assisted formatting correction**, not Claude's original output and not another model trial. It has not yet been run through Dafny.
+
+From the repository root:
+
+```bash
+python experiments/repair-001/reproduce-patch.py
+dafny verify experiments/repair-001/anchor-normalization-candidate.dfy
+```
+
+The first command uses no API and does not modify files. The second runs the local verifier; neither makes a model request. Record the verifier result separately from the failed model attempt.
+
+**Next engineering step:** make malformed or unmatched patch anchors explicit errors, with a regression test for this recorded case, before collecting larger-scale edit success rates. That code change has not been made in this documentation commit.
 
 [All experiments](../README.md).

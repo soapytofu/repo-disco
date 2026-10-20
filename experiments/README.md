@@ -10,13 +10,14 @@ These are successive experiments on **one program family**, not three independen
 | --- | --- | --- | --- | --- |
 | [pilot-001](pilot-001/README.md) | 2026-10-14 | Can we generate and verify an integer maximum utility? | `gpt-5.6-luna` / OpenAI | **PASS:** 2 verified, 0 errors |
 | [extension-001](extension-001/README.md) | 2026-10-14 | Can we extend it with algebraic properties? | `gpt-5.6-luna` / OpenAI | **FAIL — parse error:** declarations split a method signature from its body |
-| [repair-001](repair-001/README.md) | 2026-10-20 | Can Claude repair the failed extension using verifier feedback? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **RUNNING at last report; result pending** |
+| [repair-001](repair-001/README.md) | 2026-10-20 | Can Claude repair the failed extension using verifier feedback? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **FAIL — parse error:** malformed diff anchors led to incorrect brace deletion |
 
 **What the programs contain**
 
 - **Generation:** `Max(a, b)` returns one of its inputs and is at least as large as both. `TestMax` checks those properties. [Verified code](pilot-001/verified-program.dfy).
 - **Extension:** adds `MaxCommutative` and `TestMaxAlgebra`, attempting commutativity, idempotence, and associativity. The file fails parsing, so these additions are **not verified**. [Failed code](extension-001/extended-program.dfy) · [Verifier error](extension-001/verifier-output.txt).
-- **Repair:** starts from that failed extension. We will check both verification and preservation of the original contracts, declarations, and intended algebraic checks. No repaired code or outcome has been received yet.
+- **Repair:** Claude proposed moving the separated method body, but malformed diff anchors were silently ignored by the patch code. The resulting file still fails parsing. [Failed repair](repair-001/failed-repair.dfy) · [Diagnosis and evidence](repair-001/README.md).
+- **Diagnostic candidate (not a model trial):** adding the two missing anchor delimiters restores the intended block arrangement. [Candidate](repair-001/anchor-normalization-candidate.dfy); Dafny verification is pending.
 
 ## Setup checks
 
