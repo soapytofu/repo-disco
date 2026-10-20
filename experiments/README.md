@@ -17,7 +17,7 @@ These are successive experiments on **one program family**, not three independen
 - **Generation:** `Max(a, b)` returns one of its inputs and is at least as large as both. `TestMax` checks those properties. [Verified code](pilot-001/verified-program.dfy).
 - **Extension:** adds `MaxCommutative` and `TestMaxAlgebra`, attempting commutativity, idempotence, and associativity. The file fails parsing, so these additions are **not verified**. [Failed code](extension-001/extended-program.dfy) · [Verifier error](extension-001/verifier-output.txt).
 - **Repair:** Claude proposed moving the separated method body, but malformed diff anchors were silently ignored by the patch code. The resulting file still fails parsing. [Failed repair](repair-001/failed-repair.dfy) · [Diagnosis and evidence](repair-001/README.md).
-- **Diagnostic candidate (not a model trial):** adding the two missing anchor delimiters restores the intended block arrangement. [Candidate](repair-001/anchor-normalization-candidate.dfy); Dafny verification is pending.
+- **Diagnostic candidate (not a model trial):** adding the two missing anchor delimiters restores the intended block arrangement. [Candidate](repair-001/anchor-normalization-candidate.dfy); **PASS — 4 verified, 0 errors**, reported from Cannon on 2026-10-20. [Verifier output](repair-001/anchor-normalization-verifier-output.txt). Original contracts and intended algebraic checks are retained; no additional model call.
 
 ## Setup checks
 

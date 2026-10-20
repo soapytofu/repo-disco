@@ -4,7 +4,7 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
 
-**[Experiment log](experiments/README.md):** program lineage, concise results, and links to saved evidence. The generation pilot passed; the extension failed parsing; the Claude repair also failed parsing after malformed diff anchors were silently ignored. A separate formatting-corrected candidate awaits verification. Multi-module evaluation remains a next step.
+**[Experiment log](experiments/README.md):** program lineage, concise results, and links to saved evidence. The generation pilot passed; the extension failed parsing; the Claude repair also failed parsing after malformed diff anchors were silently ignored. A separate assisted formatting correction passed Dafny with 4 verified, 0 errors. Multi-module evaluation remains a next step.
 
 ---
 

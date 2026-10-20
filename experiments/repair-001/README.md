@@ -1,6 +1,6 @@
 # repair-001 — Claude repair of the failed extension
 
-**Outcome: FAIL — one Dafny parse error after one additional repair attempt.** Date: 2026-10-20.
+**Model attempt: FAIL — one Dafny parse error. Assisted correction: PASS — 4 verified, 0 errors.** Date: 2026-10-20.
 
 | Field | Record |
 | --- | --- |
@@ -38,11 +38,15 @@ Extracted from the user-supplied terminal transcript; these are not a direct exp
 
 The resolved configuration, full serialized prompt, and cluster checkpoint have not been archived here. The checkpoint remains at `outputs/claude-repair-20261020-132111-493558/agenda.pkl` on Cannon.
 
-## Separate diagnostic candidate — not yet verified
+## Separate assisted correction — verified
 
 Adding only the two missing closing `@@` markers to the saved diff produces [this candidate](anchor-normalization-candidate.dfy). It restores the intended block arrangement while retaining the original contracts and new checks.
 
-This is a **human/agent-assisted formatting correction**, not Claude's original output and not another model trial. It has not yet been run through Dafny.
+This is a **human/agent-assisted formatting correction**, not Claude's original output and not another model trial. Sophie ran the saved candidate through Dafny on Cannon and reported **4 verified, 0 errors** on October 20, 2026. [Reported verifier output](anchor-normalization-verifier-output.txt).
+
+**Preservation review of the verified candidate:** the `Max` contracts and original `TestMax` assertions remain intact. `MaxCommutative` and the commutativity, idempotence, and associativity checks in `TestMaxAlgebra` are retained. No assumptions or verification-disabling attributes were introduced in the saved candidate. The correction changed only the diff delimiters before reapplying it; no additional model request was made.
+
+**Interpretation:** the proposed structural repair yields a verified program when its edit locations are interpreted correctly. This supports investigating the patch-format boundary; it does not turn the original autonomous attempt into a pass or establish general repair reliability. The original failed checkpoint and its `ATTEMPTED` status remain unchanged by this standalone verifier run.
 
 From the repository root:
 
@@ -51,7 +55,7 @@ python experiments/repair-001/reproduce-patch.py
 dafny verify experiments/repair-001/anchor-normalization-candidate.dfy
 ```
 
-The first command uses no API and does not modify files. The second runs the local verifier; neither makes a model request. Record the verifier result separately from the failed model attempt.
+The first command uses no API and does not modify files. The second runs the local verifier; neither makes a model request. The reported result above is recorded separately from the failed model attempt.
 
 **Next engineering step:** make malformed or unmatched patch anchors explicit errors, with a regression test for this recorded case, before collecting larger-scale edit success rates. That code change has not been made in this documentation commit.
 
