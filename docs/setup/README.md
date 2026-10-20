@@ -342,6 +342,29 @@ Research commands must still run in an allocated compute job. The assistant shou
 
 **Shell environments are separate:** this shares authentication, not the Bedrock key loaded in an earlier terminal. A new model-running session needs its own approved credential setup. Do not print a key or send it through chat. The patch tests and Dafny checks require no model key.
 
+For a bounded model run, the tested one-use handoff is created in the **original Cannon terminal** where the key is loaded:
+
+```bash
+python - <<'PY'
+import getpass
+import os
+from pathlib import Path
+
+key = os.environ.get('AWS_BEARER_TOKEN_BEDROCK') or getpass.getpass('Bedrock API key (hidden): ')
+if not key.strip():
+    raise SystemExit('No key entered; nothing saved.')
+path = Path.home() / '.repodisco-bedrock-handoff'
+fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+with os.fdopen(fd, 'w') as f:
+    f.write(key.strip())
+print('Private key handoff ready.')
+PY
+```
+
+The [recorded one-attempt runner](../../experiments/repair-002/runner.py) checks the handoff's owner/type/permissions, loads it into its own process, and deletes the file before making the model call. It never prints the key. A successful [direct run](../../experiments/repair-002/README.md) confirmed this credential flow and captured token usage, though the model's edit itself failed format validation.
+
+The handoff is single-use, not persistent model access: another model-running process needs another handoff. Do not recreate it while a run is using it. If the run is cancelled before the file is consumed, remove the unused handoff from Cannon.
+
 After all assistant-run commands have finished, you can close the shared connection from your Mac:
 
 ```bash

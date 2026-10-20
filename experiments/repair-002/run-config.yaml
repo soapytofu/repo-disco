@@ -1,0 +1,30 @@
+agenda:
+  _target_: agenda.LocalAgenda
+  language: dafny
+  max_attempts: 3
+  checkpoint_path: <CHECKOUT>/outputs/bedrock-repair-20261020T174429-927120Z/agenda.pkl
+  checkpoint_interval: 1
+  benchmark_codebase_time: null
+  sort_every: 100
+  logger:
+    _target_: logger.noop.NoOpLogger
+scheduler:
+  _target_: scheduler.RoundRobinScheduler
+  language: dafny
+  turn_fuel: 1
+  workers:
+  - _target_: worker.llm_fixer.LLMFixer
+    language: dafny
+    distill: all
+    llm:
+      _target_: langchain_aws.ChatBedrockConverse
+      _convert_: all
+      model: us.anthropic.claude-sonnet-4-6
+      region_name: us-east-1
+      max_tokens: 4096
+      config:
+        _target_: botocore.config.Config
+        connect_timeout: 15
+        read_timeout: 90
+        retries:
+          total_max_attempts: 1

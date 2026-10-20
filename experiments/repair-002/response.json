@@ -1,0 +1,14 @@
+{
+  "content": "The issue is that the method `TestMax` is missing its body - the body appears at the end of the file disconnected from the method declaration.\n\n@@ method TestMax(a: int, b: int)\n- method TestMax(a: int, b: int)\n+ method TestMax(a: int, b: int)\n+ {\n+   var result := Max(a, b);\n+   assert result == a || result == b;\n+   assert result >= a && result >= b;\n+ }\n@@ {\n-  {\n-   var result := Max(a, b);\n-   assert result == a || result == b;\n-   assert result >= a && result >= b;\n- }",
+  "usage_metadata": {
+    "input_tokens": 885,
+    "output_tokens": 166,
+    "total_tokens": 1051,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn",
+  "model_id": null
+}

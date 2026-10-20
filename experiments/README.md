@@ -4,19 +4,23 @@ A concise record of what we tried, which program changed, and what the evidence 
 
 ## Integer-maximum program: generation → extension → repair
 
-These are successive experiments on **one program family**, not three independent benchmark problems.
+These are successive experiments on **one program family**, not independent benchmark problems.
 
 | Experiment | Date | Question | Model / provider | Outcome |
 | --- | --- | --- | --- | --- |
 | [pilot-001](pilot-001/README.md) | 2026-10-14 | Can we generate and verify an integer maximum utility? | `gpt-5.6-luna` / OpenAI | **PASS:** 2 verified, 0 errors |
 | [extension-001](extension-001/README.md) | 2026-10-14 | Can we extend it with algebraic properties? | `gpt-5.6-luna` / OpenAI | **FAIL — parse error:** declarations split a method signature from its body |
 | [repair-001](repair-001/README.md) | 2026-10-20 | Can Claude repair the failed extension using verifier feedback? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **FAIL — parse error:** malformed diff anchors led to incorrect brace deletion |
+| [repair-002](repair-002/README.md) | 2026-10-20 | Can a fresh attempt follow clarified anchor syntax with strict validation? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | **FAIL — malformed edit rejected; input unchanged.** 885 input / 166 output tokens |
+
+Both repair trials start from the original failed extension; repair-002 does not continue repair-001's modified checkpoint.
 
 **What the programs contain**
 
 - **Generation:** `Max(a, b)` returns one of its inputs and is at least as large as both. `TestMax` checks those properties. [Verified code](pilot-001/verified-program.dfy).
 - **Extension:** adds `MaxCommutative` and `TestMaxAlgebra`, attempting commutativity, idempotence, and associativity. The file fails parsing, so these additions are **not verified**. [Failed code](extension-001/extended-program.dfy) · [Verifier error](extension-001/verifier-output.txt).
 - **Repair:** Claude proposed moving the separated method body, but malformed diff anchors were silently ignored by the patch code. The resulting file still fails parsing. [Failed repair](repair-001/failed-repair.dfy) · [Diagnosis and evidence](repair-001/README.md).
+- **Fresh repair-002:** the clarified prompt still produced malformed anchors, which the fixed reader rejected before any change or new Dafny verification. [Recorded prompt and result](repair-002/README.md).
 - **Diagnostic candidate (not a model trial):** adding the two missing anchor delimiters restores the intended block arrangement. [Candidate](repair-001/anchor-normalization-candidate.dfy); **PASS — 4 verified, 0 errors**, reported from Cannon on 2026-10-20. [Verifier output](repair-001/anchor-normalization-verifier-output.txt). Original contracts and intended algebraic checks are retained; no additional model call.
 
 ## Setup checks
