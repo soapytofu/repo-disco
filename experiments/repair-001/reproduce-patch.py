@@ -1,4 +1,4 @@
-"""Reproduce the recorded patch failure without a model call or Dafny run."""
+"""Check recorded patch handling without a model call or Dafny run."""
 
 from pathlib import Path
 import sys
@@ -11,9 +11,15 @@ from patch import apply_text_diff
 
 before = (HERE / "input-program.dfy").read_text()
 response = (HERE / "model-response.txt").read_text()
-observed = (HERE / "failed-repair.dfy").read_text()
-actual = apply_text_diff(before, response)
-assert actual.rstrip("\n") == observed.rstrip("\n")
+try:
+    actual = apply_text_diff(before, response)
+except ValueError as error:
+    assert "Malformed anchor" in str(error)
+    print("The patch reader now rejects the recorded malformed response.")
+else:
+    observed = (HERE / "failed-repair.dfy").read_text()
+    assert actual.rstrip("\n") == observed.rstrip("\n")
+    print("Reproduced the historical failure with the older patch reader.")
 
 malformed_anchors = [
     line
@@ -28,8 +34,8 @@ normalized = "\n".join(
 ) + "\n"
 candidate = apply_text_diff(before, normalized)
 saved_candidate = (HERE / "anchor-normalization-candidate.dfy").read_text()
-assert candidate == saved_candidate
+assert candidate.rstrip("\n") == saved_candidate.rstrip("\n")
 
-print("Reproduced the recorded failed repair.")
 print("Adding the two closing anchor delimiters reproduces the saved candidate.")
 print("No model request or Dafny verification was performed.")
+

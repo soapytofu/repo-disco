@@ -33,6 +33,10 @@ These establish that the tools work; they are not research benchmark results.
 
 The setup sample and generated pilot are separate files, despite both involving maximum utilities.
 
+## Engineering validation
+
+[patch-validation-001](patch-validation-001/README.md), 2026-10-20: the patch reader now rejects malformed or unmatched edit directives, and prompts explicitly require both anchor delimiters. **39 tests passed on Cannon; the assisted candidate remained at 4 verified, 0 errors.** No model calls were made. This is an infrastructure validation, not another generation/repair trial.
+
 ## How to record future experiments
 
 Copy [the short record template](TEMPLATE.md) into a new experiment directory. Add one row above and link the actual input/output program, resolved configuration, model response, and verifier output. Retain failed attempts as well as successes.

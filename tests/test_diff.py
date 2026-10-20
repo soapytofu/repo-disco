@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+from pathlib import Path
+
+import pytest
+
 from patch import compute_text_diff, apply_text_diff
 
 
@@ -261,3 +265,53 @@ def test_identical_files():
     diff = compute_text_diff(text, text)
     assert diff == ""
     assert apply_text_diff(text, diff) == text
+
+
+def test_recorded_claude_repair_rejects_malformed_anchors():
+    evidence = Path(__file__).resolve().parents[1] / "experiments" / "repair-001"
+    before = (evidence / "input-program.dfy").read_text()
+    response = (evidence / "model-response.txt").read_text()
+    with pytest.raises(ValueError, match="Malformed anchor"):
+        apply_text_diff(before, response)
+
+
+def test_recorded_repair_with_explicitly_corrected_anchors():
+    evidence = Path(__file__).resolve().parents[1] / "experiments" / "repair-001"
+    before = (evidence / "input-program.dfy").read_text()
+    response = (evidence / "model-response.txt").read_text()
+    corrected = "\n".join(
+        line + " @@" if line.startswith("@@") and not line.endswith("@@") else line
+        for line in response.splitlines()
+    )
+    expected = (evidence / "anchor-normalization-candidate.dfy").read_text()
+    assert apply_text_diff(before, corrected).rstrip("\n") == expected.rstrip("\n")
+
+
+@pytest.mark.parametrize("anchor", ["@@ a", "@@", "  @@ a"])
+def test_malformed_anchor_cannot_fall_through_to_edit(anchor):
+    with pytest.raises(ValueError, match="Malformed anchor"):
+        apply_text_diff("a\n{\nb\n}\n", anchor + "\n- {\n")
+
+
+@pytest.mark.parametrize(
+    ("diff", "message"),
+    [
+        ("@@ missing @@\n+ inserted", "Unmatched anchor sequence"),
+        ("@@ a @@\n@@ missing @@\n+ inserted", "Unmatched anchor sequence"),
+        ("+ inserted\n@@ missing @@", "Unmatched anchor sequence"),
+        ("= missing\n+ inserted", "Unmatched keep directive"),
+        ("- missing\n+ inserted", "Unmatched delete directive"),
+    ],
+)
+def test_unmatched_directives_raise_instead_of_returning_partial_edits(diff, message):
+    before = "a\nb\n"
+    with pytest.raises(ValueError, match=message):
+        apply_text_diff(before, diff)
+
+
+def test_valid_anchor_with_surrounding_whitespace():
+    assert apply_text_diff("a\nb\n", "  @@ a @@  \n+ inserted") == "a\ninserted\nb\n"
+
+
+def test_empty_anchor_and_explanatory_prose_remain_supported():
+    assert apply_text_diff("a\n", "Explanation.\n@@@@\n+ inserted") == "inserted\na\n"

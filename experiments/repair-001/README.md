@@ -34,7 +34,7 @@ Extracted from the user-supplied terminal transcript; these are not a direct exp
 - [Failed repair output](failed-repair.dfy)
 - [Verifier stdout](verifier-output.txt); verifier stderr was empty in the transcript
 - [Scheduler transcript excerpt](scheduler-excerpt.log), with the absolute checkout prefix replaced by `<CHECKOUT>/`
-- [Local reproduction script](reproduce-patch.py)
+- [Local reproduction script](reproduce-patch.py): confirms rejection with the fixed reader; can also reproduce the historical result with the older reader
 
 The resolved configuration, full serialized prompt, and cluster checkpoint have not been archived here. The checkpoint remains at `outputs/claude-repair-20261020-132111-493558/agenda.pkl` on Cannon.
 
@@ -57,6 +57,6 @@ dafny verify experiments/repair-001/anchor-normalization-candidate.dfy
 
 The first command uses no API and does not modify files. The second runs the local verifier; neither makes a model request. The reported result above is recorded separately from the failed model attempt.
 
-**Next engineering step:** make malformed or unmatched patch anchors explicit errors, with a regression test for this recorded case, before collecting larger-scale edit success rates. That code change has not been made in this documentation commit.
+**Engineering follow-up completed:** the patch reader now rejects malformed or unmatched anchor/keep/delete directives with an explicit error, without returning a partially edited program. The repair/extension prompts now explicitly require closing `@@` markers. [Validation record](../patch-validation-001/README.md): 39 tests passed on Cannon; the assisted candidate still verifies. The historical failed attempt above is unchanged.
 
 [All experiments](../README.md).

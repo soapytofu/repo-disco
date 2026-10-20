@@ -320,6 +320,36 @@ Common checks:
 - **Missing Python module:** confirm `python --version` and `mamba activate repodisco` before installing anything.
 - **Allocation almost over:** save readable results and request a new session before starting another experiment.
 
+## 8. Let the research assistant run Cannon commands directly
+
+The assistant can use a separate SSH session through a connection you authenticate on your Mac. It cannot control the existing macOS Terminal window through this app. This workflow was tested on October 20, 2026.
+
+In a **new local Mac terminal tab**, run:
+
+```bash
+ssh -M -S "$HOME/.ssh/repodisco-codex.sock" -o ControlPersist=30m sophiezeng@login.rc.fas.harvard.edu
+```
+
+Complete the normal FASRC password and two-factor prompts yourself, then leave the tab open. The assistant can use the local control socket to run SSH commands without receiving your password or verification code. `ControlPersist=30m` allows the connection to remain for up to 30 minutes while idle after its initial session ends.
+
+Example read-only check from the Mac:
+
+```bash
+ssh -S "$HOME/.ssh/repodisco-codex.sock" -o BatchMode=yes sophiezeng@login.rc.fas.harvard.edu hostname
+```
+
+Research commands must still run in an allocated compute job. The assistant should inspect `squeue` and use the actual active allocation, rather than assuming a job ID or compute node remains valid. The tested route used `srun --jobid=<ACTIVE_JOB_ID> --overlap -N1 -n1 -c2` and `mamba run -n repodisco` within that allocation.
+
+**Shell environments are separate:** this shares authentication, not the Bedrock key loaded in an earlier terminal. A new model-running session needs its own approved credential setup. Do not print a key or send it through chat. The patch tests and Dafny checks require no model key.
+
+After all assistant-run commands have finished, you can close the shared connection from your Mac:
+
+```bash
+ssh -S "$HOME/.ssh/repodisco-codex.sock" -O exit sophiezeng@login.rc.fas.harvard.edu
+```
+
+This ends the shared SSH connection and may disconnect sessions using it. Reauthenticate when a later work session needs access.
+
 ## References
 
 - [Harvard Cannon quickstart](https://docs.rc.fas.harvard.edu/kb/quickstart-guide/)

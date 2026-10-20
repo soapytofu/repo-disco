@@ -114,6 +114,8 @@ def apply_text_diff(text: str, diff: str) -> str:
 
     Matching uses stripped text of the line (without trailing whitespace/newlines).
     Inserted lines end with a newline.
+    Malformed anchors or unmatched anchor/keep/delete directives raise ValueError.
+    No partially edited result is returned on failure. Non-directive prose is ignored.
     """
     lines = text.splitlines(keepends=True)
     cursor = 0
@@ -138,22 +140,35 @@ def apply_text_diff(text: str, diff: str) -> str:
     # Parse diff lines, grouping consecutive anchors into sequences.
     diff_lines = diff.splitlines()
     pending_anchors: list[str] = []
+    anchor_start_line = 0
 
     def flush_anchors():
         nonlocal cursor, pending_anchors
         if not pending_anchors:
             return
         j = find_sequence(pending_anchors, cursor)
-        if j is not None:
-            cursor = j + len(pending_anchors)
+        if j is None:
+            raise ValueError(
+                f"Unmatched anchor sequence at diff line {anchor_start_line}: "
+                f"{pending_anchors!r}"
+            )
+        cursor = j + len(pending_anchors)
         pending_anchors = []
 
-    for raw in diff_lines:
+    for line_number, raw in enumerate(diff_lines, 1):
         if not raw:
             continue
-        if raw.startswith("@@") and raw.endswith("@@"):
-            anchor = raw[2:-2]
+        anchor_line = raw.strip()
+        if anchor_line.startswith("@@"):
+            if len(anchor_line) < 4 or not anchor_line.endswith("@@"):
+                raise ValueError(
+                    f"Malformed anchor at diff line {line_number}: "
+                    "expected @@ context @@"
+                )
+            anchor = anchor_line[2:-2]
             if anchor:
+                if not pending_anchors:
+                    anchor_start_line = line_number
                 pending_anchors.append(anchor)
             # else: empty anchor = no-op
             continue
@@ -168,17 +183,24 @@ def apply_text_diff(text: str, diff: str) -> str:
 
         if op == '=':
             j = find_forward(payload, cursor)
-            if j is not None:
-                cursor = j + 1
+            if j is None:
+                raise ValueError(
+                    f"Unmatched keep directive at diff line {line_number}: {payload!r}"
+                )
+            cursor = j + 1
         elif op == '-':
             j = find_forward(payload, cursor)
-            if j is not None:
-                del lines[j]
-                cursor = j
+            if j is None:
+                raise ValueError(
+                    f"Unmatched delete directive at diff line {line_number}: {payload!r}"
+                )
+            del lines[j]
+            cursor = j
         elif op == '+':
             lines.insert(cursor, payload + "\n")
             cursor += 1
 
+    flush_anchors()
     return "".join(lines)
 
 
