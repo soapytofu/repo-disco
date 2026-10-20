@@ -4,7 +4,7 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
 
-Recorded experiments: [successful generation pilot](experiments/pilot-001/README.md) · [failed extension pilot](experiments/extension-001/README.md). AWS Claude access has been tested; the Claude repair experiment and multi-module evaluation remain next steps.
+**[Experiment log](experiments/README.md):** program lineage, concise results, and links to saved evidence. The generation pilot passed; the extension failed parsing; the Claude repair was reported running on October 20, 2026, with results pending. Multi-module evaluation remains a next step.
 
 ---
 
