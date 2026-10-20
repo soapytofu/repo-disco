@@ -1,3 +1,13 @@
+# RepoDisco
+
+Research on extending verified program discovery toward multi-module repositories, built on Formal Disco.
+
+**Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
+
+Recorded experiments: [successful generation pilot](experiments/pilot-001/README.md) · [failed extension pilot](experiments/extension-001/README.md). AWS Claude access has been tested; the Claude repair experiment and multi-module evaluation remain next steps.
+
+---
+
 [![arXiv](https://img.shields.io/badge/arXiv-2607.04631-pink.svg)](https://arxiv.org/abs/2607.04631)
 
 # Formal Disco
