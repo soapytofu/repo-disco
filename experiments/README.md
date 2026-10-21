@@ -33,6 +33,14 @@ All three repair trials start from the original failed extension. They do not co
 
 Five cases × two formats × five repetitions. The maximum case reuses the earlier pilot; these are not 50 independent problems. All 38 verified candidates match reviewed reference repairs apart from whitespace. [Per-trial log](format-comparison-001/TRIALS.md) · [Raw evidence and limitations](format-comparison-001/README.md) · [Proposal timeline and next milestone](../docs/research-progress.md).
 
+## Two-module repository prototype
+
+| Experiment | Date | Question | Outcome |
+| --- | --- | --- | --- |
+| [two-module-001](two-module-001/README.md) | 2026-10-21 | Can the harness distinguish client-only verification from full-repository validity and protect a two-module API? | **12/12 expected verifier outcomes**, 6 offline edit-policy tests; zero model calls in the deterministic run. Claude repair pilot authorized up to 5 calls, awaiting private credential handoff. |
+
+The implementation-bug control passes client-only verification but fails whole-repository verification; the weakened-contract control fails the unchanged client. Neither a local pass nor a weakened specification counts as an accepted repair. This is a minimal infrastructure fixture, not a repository benchmark.
+
 ## Setup checks
 
 These establish that the tools work; they are not research benchmark results.

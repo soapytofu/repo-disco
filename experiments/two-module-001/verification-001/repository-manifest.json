@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "repository_id": "two-module-increment",
+  "entry_point": "Client.dfy",
+  "modules": [
+    {
+      "id": "Arithmetic",
+      "file": "Arithmetic.dfy",
+      "depends_on": [],
+      "exports": [
+        {
+          "symbol": "Arithmetic.Increment",
+          "kind": "method",
+          "parameters": "x: int",
+          "returns": "y: int",
+          "requires": [],
+          "ensures": [
+            "y == x + 1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Client",
+      "file": "Client.dfy",
+      "depends_on": [
+        "Arithmetic"
+      ],
+      "imports": {
+        "A": "Arithmetic"
+      },
+      "exports": [
+        {
+          "symbol": "Client.IncrementTwice",
+          "kind": "method",
+          "parameters": "x: int",
+          "returns": "y: int",
+          "requires": [],
+          "ensures": [
+            "y == x + 2"
+          ]
+        }
+      ],
+      "api_uses": [
+        {
+          "symbol": "Arithmetic.Increment",
+          "call_sites": 2
+        }
+      ],
+      "assertions": [
+        "first == x + 1",
+        "y == x + 2"
+      ]
+    }
+  ],
+  "structural_variables": {
+    "module_count": 2,
+    "dependency_edges": 1,
+    "maximum_dependency_depth_edges": 1,
+    "shared_helper_lemmas": 0,
+    "provider_call_sites_in_client": 2
+  },
+  "verification_policy": {
+    "whole_repository": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "Client.dfy"
+    ],
+    "module_checks": "Client-only verification checks the consumer against imported contracts; it does not establish provider correctness.",
+    "primary_success": "whole_repository exit 0 with nonempty verifier summary",
+    "individual_specification_success": "not measured in this prototype; aggregate obligation count is not this metric"
+  },
+  "repair_policy": {
+    "editable_file": "Arithmetic.dfy",
+    "editable_region": "body of Arithmetic.Increment only",
+    "protected_files": [
+      "Client.dfy"
+    ],
+    "protected_elements": [
+      "module and method declarations",
+      "all preconditions and postconditions",
+      "client assertions"
+    ],
+    "reference_repair_origin": "assistant-authored deterministic restoration; not an independent model trial"
+  }
+}
