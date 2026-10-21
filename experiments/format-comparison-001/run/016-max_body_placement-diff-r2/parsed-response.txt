@@ -1,0 +1,22 @@
+The issue is that the method `TestMax` is missing its body. The orphaned `{...}` block at the end should be attached to it.
+
+@@
+method TestMax(a: int, b: int)
+@@
+- lemma MaxCommutative(a: int, b: int)
++ {
++   var result := Max(a, b);
++   assert result == a || result == b;
++   assert result >= a && result >= b;
++ }
++ 
++ lemma MaxCommutative(a: int, b: int)
+@@ assert Max(Max(a, b), c) == Max(a, Max(b, c));
+@@
+= }
+= 
+- {
+-   var result := Max(a, b);
+-   assert result == a || result == b;
+-   assert result >= a && result >= b;
+- }

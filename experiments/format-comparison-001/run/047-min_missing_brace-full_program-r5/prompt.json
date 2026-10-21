@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "You are an expert Dafny developer. Repair the supplied program using the verifier feedback. Preserve all existing declarations, preconditions, postconditions, and assertions. Do not strengthen preconditions, weaken specifications, remove checks, introduce assumptions, or disable verification. Make only the changes needed to repair the program. Return only the COMPLETE corrected Dafny source, optionally inside one dafny code fence. Do not return a diff."
+  },
+  {
+    "role": "user",
+    "content": "Program:\nfunction Min(a: int, b: int): int\n  ensures Min(a, b) == a || Min(a, b) == b\n  ensures Min(a, b) <= a && Min(a, b) <= b\n{\n  if a <= b then a else b\n}\n\nmethod CheckMin(a: int, b: int)\n{\n  var m := Min(a, b);\n  assert m == a || m == b;\n  assert m <= a && m <= b;\n\n\nVerifier feedback:\nprogram.dfy(13,0): Error: rbrace expected\n1 parse errors detected in program.dfy\n"
+  }
+]

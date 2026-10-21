@@ -1,6 +1,6 @@
 # Experiment log
 
-A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 20, 2026.
+A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 21, 2026.
 
 ## Integer-maximum program: generation → extension → repair
 
@@ -24,6 +24,14 @@ All three repair trials start from the original failed extension. They do not co
 - **Fresh repair-002:** the clarified prompt still produced malformed anchors, which the fixed reader rejected before any change or new Dafny verification. [Recorded prompt and result](repair-002/README.md).
 - **Complete-program repair-003:** one model request produced a complete source file retaining the intended specifications. The first verifier call timed out; the unchanged file then passed with a longer limit. [Verified output and evidence](repair-003/README.md).
 - **Diagnostic candidate (not a model trial):** adding the two missing anchor delimiters restores the intended block arrangement. [Candidate](repair-001/anchor-normalization-candidate.dfy); **PASS — 4 verified, 0 errors**, reported from Cannon on 2026-10-20. [Verifier output](repair-001/anchor-normalization-verifier-output.txt). Original contracts and intended algebraic checks are retained; no additional model call.
+
+## Paired repair-format pilot
+
+| Experiment | Date | Question | Model / provider | Outcome |
+| --- | --- | --- | --- | --- |
+| [format-comparison-001](format-comparison-001/README.md) | 2026-10-20–21 | Does response format affect repair reliability across five small Dafny cases? | `us.anthropic.claude-sonnet-4-6` / AWS Bedrock | 50 calls: complete programs **25/25 verified**; custom diffs **13/25 verified, 12 patch rejections**; 28,600 tokens |
+
+Five cases × two formats × five repetitions. The maximum case reuses the earlier pilot; these are not 50 independent problems. All 38 verified candidates match reviewed reference repairs apart from whitespace. [Per-trial log](format-comparison-001/TRIALS.md) · [Raw evidence and limitations](format-comparison-001/README.md) · [Proposal timeline and next milestone](../docs/research-progress.md).
 
 ## Setup checks
 

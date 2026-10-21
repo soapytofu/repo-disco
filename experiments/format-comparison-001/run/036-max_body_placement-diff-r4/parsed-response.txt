@@ -1,0 +1,17 @@
+The issue is that the `TestMax` method declaration is missing its body, and the body appears later as an orphaned block. Let me fix this by attaching the body to the `TestMax` method.
+
+@@ method TestMax(a: int, b: int) @@
++ {
++   var result := Max(a, b);
++   assert result == a || result == b;
++   assert result >= a && result >= b;
++ }
+ lemma MaxCommutative(a: int, b: int)
+@@ assert Max(Max(a, b), c) == Max(a, Max(b, c)); @@
+ }
+- 
+- {
+-   var result := Max(a, b);
+-   assert result == a || result == b;
+-   assert result >= a && result >= b;
+- }

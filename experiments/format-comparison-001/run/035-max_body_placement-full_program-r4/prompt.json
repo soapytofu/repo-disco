@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "You are an expert Dafny developer. Repair the supplied program using the verifier feedback. Preserve all existing declarations, preconditions, postconditions, and assertions. Do not strengthen preconditions, weaken specifications, remove checks, introduce assumptions, or disable verification. Make only the changes needed to repair the program. Return only the COMPLETE corrected Dafny source, optionally inside one dafny code fence. Do not return a diff."
+  },
+  {
+    "role": "user",
+    "content": "Program:\n// A verified integer maximum utility: the result is one of the inputs and\n// is greater than or equal to both.\n\nfunction Max(a: int, b: int): int\n  ensures Max(a, b) == a || Max(a, b) == b\n  ensures Max(a, b) >= a && Max(a, b) >= b\n{\n  if a >= b then a else b\n}\n\nmethod TestMax(a: int, b: int)\nlemma MaxCommutative(a: int, b: int)\n ensures Max(a, b) == Max(b, a)\n{\n if a >= b {\n   assert Max(a, b) == a;\n   if b >= a {\n     assert a == b;\n     assert Max(b, a) == b;\n   } else {\n     assert Max(b, a) == a;\n   }\n } else {\n   assert Max(a, b) == b;\n   assert Max(b, a) == b;\n }\n}\n\nmethod TestMaxAlgebra(a: int, b: int, c: int)\n{\n MaxCommutative(a, b);\n assert Max(a, b) == Max(b, a);\n assert Max(a, a) == a;\n assert Max(Max(a, b), c) == Max(a, Max(b, c));\n}\n\n{\n  var result := Max(a, b);\n  assert result == a || result == b;\n  assert result >= a && result >= b;\n}\n\nVerifier feedback:\nprogram.dfy(37,0): Error: this symbol not expected in Dafny\n   |\n37 | {\n   | ^\n\n1 parse errors detected in program.dfy\n"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "content": "The issue is that the `TestMax` method body is disconnected from its declaration. The `{...}` block appears after `TestMaxAlgebra`'s closing brace instead of being attached to `TestMax`.\n\n@@ method TestMax(a: int, b: int) @@\n+ {\n+   var result := Max(a, b);\n+   assert result == a || result == b;\n+   assert result >= a && result >= b;\n+ }\n@@ {\n= var result := Max(a, b);\n- assert result == a || result == b;\n- assert result >= a && result >= b;\n- }",
+  "usage_metadata": {
+    "input_tokens": 668,
+    "output_tokens": 150,
+    "total_tokens": 818,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

@@ -1,0 +1,13 @@
+{
+  "content": "The issue is that the method `TestMax` body got separated from its declaration. The closing brace block at the end needs to be attached to `TestMax`.\n\n@@ method TestMax(a: int, b: int) @@\n+ {\n+   var result := Max(a, b);\n+   assert result == a || result == b;\n+   assert result >= a && result >= b;\n+ }\n@@ method TestMaxAlgebra(a: int, b: int, c: int) @@\n= {\n=  MaxCommutative(a, b);\n=  assert Max(a, b) == Max(b, a);\n=  assert Max(a, a) == a;\n=  assert Max(Max(a, b), c) == Max(a, Max(b, c));\n= }\n- \n- {\n-   var result := Max(a, b);\n-   assert result == a || result == b;\n-   assert result >= a && result >= b;\n- }",
+  "usage_metadata": {
+    "input_tokens": 668,
+    "output_tokens": 238,
+    "total_tokens": 906,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

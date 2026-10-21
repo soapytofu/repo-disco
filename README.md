@@ -4,7 +4,9 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
 
-**[Experiment log](experiments/README.md):** verified generation, a failed extension, two failed diff-based repairs, and [a successful complete-program repair](experiments/repair-003/README.md). The latest model-generated program retained the intended specifications and passed Dafny with 4 verified, 0 errors after a verifier-only timeout recheck. Exact prompts, responses, token usage, and verification records are archived. Multi-module evaluation remains a next step.
+**[Experiment log](experiments/README.md):** generation, extension, and repair pilots, plus a completed [50-call repair-format comparison](experiments/format-comparison-001/README.md). Complete-program responses verified in 25/25 trials; custom diffs verified in 13/25, with 12 patches rejected. These are five single-file cases repeated across formats, not a repository-level benchmark. Exact prompts, responses, usage, and verifier logs are archived.
+
+**[Proposal timeline and next milestone](docs/research-progress.md):** finalize the repository representation, then implement and validate a two-module repository with dependency context and whole-repository verification/repair.
 
 ---
 

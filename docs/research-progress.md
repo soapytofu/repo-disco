@@ -1,0 +1,34 @@
+# Research progress and next milestone
+
+Status: October 21, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+
+| Proposal phase | Planned work | Current status / next action |
+| --- | --- | --- |
+| Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | Tooling, verified single-program generation, extension/repair pilots, and a 50-call format pilot are recorded. Published baseline evaluation is not reproduced. Finalize representation and metric definitions before claiming this phase complete. |
+| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Next implementation milestone.** No multi-module experiment has been completed yet. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Follow successful two-module validation; vary structure while matching size/specification counts. |
+| Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
+| Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## Immediate work: finish design, then validate two modules
+
+The following is an implementation recommendation based on the proposal, not a new experimental result.
+
+1. **Freeze repository representation and measurement.** Define a manifest listing module/file IDs, imports/dependencies, exported APIs, specifications, reusable lemmas, and verification state. Record edits and verification output against an immutable source revision. Distinguish individual-specification success, module verification, and full-repository completion; do not substitute Dafny's aggregate verified-obligation count for a specification-level metric.
+2. **Build a minimal verified two-module fixture.** Start with a lower-level arithmetic utility and an importing client that relies on its contract. Verify the complete repository through a defined entry point. Keep specifications fixed outside the worker's permitted edit scope.
+3. **Create a controlled failure and demonstrate repair.** Introduce one implementation/proof failure whose effect reaches a dependent module. Give the worker local context plus the dependency/API map. Start with complete-file output for a bounded target file, informed by format-comparison-001; reverify the whole repository after every accepted edit. Preserve failed attempts, exact model context, and unaffected-module checks.
+4. **Define a matched control before scaling.** Match module count, specification count, and approximate code size, while reducing cross-module dependence. Confirm the manifest and task generator can represent both structures. This establishes the design for Weeks 5–6 rather than prematurely claiming a controlled corpus.
+
+### Acceptance criteria for the next milestone
+
+- A small two-module repository verifies before mutation, with explicit dependency and API metadata.
+- A documented mutation causes the intended verification failure.
+- The repair loop records exact context, model response, edit validation, per-module diagnostics, whole-repository outcome, attempts, and token usage.
+- The accepted repair preserves required specifications and unrelated code; a verified dependent client still checks the intended contract.
+- A repeatable command reproduces verification from the archived sources, with pinned versions and no secrets.
+
+The 50-call budget for format-comparison-001 is exhausted. Design, fixture implementation, and local verifier checks can proceed without additional paid model requests. Set a separate bounded call budget before launching a new model-backed batch.
+
+## Scope checkpoint for mentor discussion
+
+Share the completed setup and repair-format evidence, and confirm the minimal repository task, controlled variables, and intended model/agent configurations with Nada. The central research question concerns dependency and shared-proof structure versus repository completion; additional single-file format trials should serve that goal rather than delay the two-module prototype. Fine-tuning remains a later milestone after there is a useful verified corpus and a defensible held-out split.

@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\nfunction Abs(x: int): int\n  ensures Abs(x) >= 0\n  ensures Abs(x) == x || Abs(x) == -x\n{\n  if x >= 0 then x else -x\n}\n\nmethod CheckAbs(x: int)\n{\n  var a := Abs(x);\n  assert a >= 0;\n  assert a == x || a == -x;\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 331,
+    "output_tokens": 110,
+    "total_tokens": 441,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

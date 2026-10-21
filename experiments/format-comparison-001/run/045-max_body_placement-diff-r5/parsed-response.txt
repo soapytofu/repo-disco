@@ -1,0 +1,13 @@
+The issue is that the `TestMax` method body is disconnected from its declaration. The `{...}` block appears after `TestMaxAlgebra`'s closing brace instead of being attached to `TestMax`.
+
+@@ method TestMax(a: int, b: int) @@
++ {
++   var result := Max(a, b);
++   assert result == a || result == b;
++   assert result >= a && result >= b;
++ }
+@@ {
+= var result := Max(a, b);
+- assert result == a || result == b;
+- assert result >= a && result >= b;
+- }

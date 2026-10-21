@@ -1,0 +1,13 @@
+{
+  "content": "The loop invariant needs to capture the relationship between `s`, `i`. Let me add the proper invariant:\n\n```dafny\nmethod SumToN(n: nat) returns (s: nat)\n  ensures 2 * s == n * (n + 1)\n{\n  s := 0;\n  var i: nat := 0;\n  while i < n\n    invariant i <= n\n    invariant 2 * s == i * (i + 1)\n    decreases n - i\n  {\n    i := i + 1;\n    s := s + i;\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 321,
+    "output_tokens": 150,
+    "total_tokens": 471,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

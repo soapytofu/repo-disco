@@ -1,0 +1,13 @@
+{
+  "content": "The issue is that the `TestMax` method declaration is missing its body, and the body appears later as an orphaned block. Let me fix this by attaching the body to the `TestMax` method.\n\n@@ method TestMax(a: int, b: int) @@\n+ {\n+   var result := Max(a, b);\n+   assert result == a || result == b;\n+   assert result >= a && result >= b;\n+ }\n lemma MaxCommutative(a: int, b: int)\n@@ assert Max(Max(a, b), c) == Max(a, Max(b, c)); @@\n }\n- \n- {\n-   var result := Max(a, b);\n-   assert result == a || result == b;\n-   assert result >= a && result >= b;\n- }",
+  "usage_metadata": {
+    "input_tokens": 668,
+    "output_tokens": 198,
+    "total_tokens": 866,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

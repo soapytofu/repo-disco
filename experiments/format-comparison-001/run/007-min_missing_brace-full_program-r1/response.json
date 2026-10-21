@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\nfunction Min(a: int, b: int): int\n  ensures Min(a, b) == a || Min(a, b) == b\n  ensures Min(a, b) <= a && Min(a, b) <= b\n{\n  if a <= b then a else b\n}\n\nmethod CheckMin(a: int, b: int)\n{\n  var m := Min(a, b);\n  assert m == a || m == b;\n  assert m <= a && m <= b;\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 255,
+    "output_tokens": 126,
+    "total_tokens": 381,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

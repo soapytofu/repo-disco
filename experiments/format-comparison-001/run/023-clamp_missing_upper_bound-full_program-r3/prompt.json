@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "You are an expert Dafny developer. Repair the supplied program using the verifier feedback. Preserve all existing declarations, preconditions, postconditions, and assertions. Do not strengthen preconditions, weaken specifications, remove checks, introduce assumptions, or disable verification. Make only the changes needed to repair the program. Return only the COMPLETE corrected Dafny source, optionally inside one dafny code fence. Do not return a diff."
+  },
+  {
+    "role": "user",
+    "content": "Program:\nfunction Clamp(x: int, lo: int, hi: int): int\n  requires lo <= hi\n  ensures lo <= Clamp(x, lo, hi) <= hi\n  ensures lo <= x <= hi ==> Clamp(x, lo, hi) == x\n{\n  if x < lo then lo else x\n}\n\nmethod CheckClamp(x: int, lo: int, hi: int)\n  requires lo <= hi\n{\n  var result := Clamp(x, lo, hi);\n  assert lo <= result <= hi;\n  if lo <= x <= hi {\n    assert result == x;\n  }\n}\n\n\nVerifier feedback:\nprogram.dfy(6,25): Error: a postcondition could not be proved on this return path\n  |\n6 |   if x < lo then lo else x\n  |                          ^\n\nprogram.dfy(3,33): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures lo <= Clamp(x, lo, hi) <= hi\n  |                                  ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n"
+  }
+]
