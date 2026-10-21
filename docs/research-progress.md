@@ -5,7 +5,7 @@ Status: October 21, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | Tooling, verified single-program generation, extension/repair pilots, and a 50-call format pilot are recorded. Published baseline evaluation is not reproduced. Finalize representation and metric definitions before claiming this phase complete. |
-| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **In progress:** two-module-001 implements a minimal manifest, API/client dependency, whole-repository verification, and protected edit policy. All 12 deterministic checks passed. A bounded model-repair pilot is awaiting credentials; general context construction and generation are not yet implemented. |
+| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **In progress:** two-module-001 implements a minimal manifest, API/client dependency, whole-repository verification, and protected edit policy. All 12 deterministic checks passed. Claude repaired the provider on its first call with the client unchanged and the whole repository verified. General context construction and generation are not yet implemented. |
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Follow successful two-module validation; vary structure while matching size/specification counts. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
@@ -27,7 +27,7 @@ The following is an implementation recommendation based on the proposal, not a n
 - The accepted repair preserves required specifications and unrelated code; a verified dependent client still checks the intended contract.
 - A repeatable command reproduces verification from the archived sources, with pinned versions and no secrets.
 
-The 50-call budget for format-comparison-001 is exhausted. Design, fixture implementation, and local verifier checks can proceed without additional paid model requests. A separate budget of up to 5 Claude calls is now authorized for the two-module repair pilot, stopping at first success; it is awaiting the private key handoff.
+The 50-call budget for format-comparison-001 is exhausted. Design, fixture implementation, and local verifier checks can proceed without additional paid model requests. The separately authorized two-module repair pilot used 1 of at most 5 Claude calls and stopped on first success. Four calls were not dispatched. This pilot is complete; define the next task and its budget before a new batch.
 
 ## Scope checkpoint for mentor discussion
 

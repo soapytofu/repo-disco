@@ -6,7 +6,7 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **[Experiment log](experiments/README.md):** generation, extension, and repair pilots, plus a completed [50-call repair-format comparison](experiments/format-comparison-001/README.md). Complete-program responses verified in 25/25 trials; custom diffs verified in 13/25, with 12 patches rejected. These are five single-file cases repeated across formats, not a repository-level benchmark. Exact prompts, responses, usage, and verifier logs are archived.
 
-**[Two-module prototype](experiments/two-module-001/README.md):** the initial dependency manifest and whole-repository verification checks are implemented; all 12 expected verifier outcomes and 6 edit-policy tests passed. The bounded Claude repair pilot is awaiting credentials. See [timeline and next milestones](docs/research-progress.md).
+**[Two-module prototype](experiments/two-module-001/README.md):** the initial dependency manifest and whole-repository verification checks are implemented; all 12 expected verifier outcomes and 6 edit-policy tests passed. Claude repaired the protected provider on the first call; the unchanged client and whole repository verified. See [timeline and next milestones](docs/research-progress.md).
 
 ---
 

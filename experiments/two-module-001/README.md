@@ -31,7 +31,11 @@ The user authorized up to **5 new Claude calls**, separate from the completed 50
 
 Six offline tests check acceptance of the reference body, rejection of contract weakening, assumptions, extra methods, and verification attributes, plus acceptance of a syntactically allowed but incorrect expression to ensure the guard is not an oracle for the answer.
 
-Model execution status and results will be recorded separately from the deterministic reference repair. A private key handoff is required before dispatch; it is deleted on loading and never added to the archive.
+**Model result: SUCCESS on attempt 1**, October 21, 2026, Slurm job **54468692**. Claude Sonnet 4.6 (`us.anthropic.claude-sonnet-4-6`, Bedrock `us-east-1`) changed the provider body from `y := x - 1` to `y := x + 1`. The signature and contract were preserved, and `Client.dfy` remained byte-for-byte unchanged. Provider, client-only, and whole-repository checks all exited 0; whole-repository output was **2 verified, 0 errors**. The pilot stopped immediately, using **1 of the authorized maximum 5 calls**; the other four were not dispatched.
+
+Usage: **1,110 input + 56 output = 1,166 tokens**; billing cost not captured. This is a model-generated repair, separate from the assistant-authored reference control above. The assistant read the generated source and confirmed it matches the baseline apart from whitespace. See [preservation review](model-preservation-review.json), [call ledger](model-repair-001/ledger.json), [exact prompt](model-repair-001/attempt-01/prompt.json), [response](model-repair-001/attempt-01/response.json), and [whole-repository output](model-repair-001/attempt-01/whole_repository-stdout.txt).
+
+The [protocol](model-repair-001/protocol.json) records versions, original repository revision, and the 4,096-output-token cap. [Model batch stdout](model-batch-54468692.log) and [stderr](model-batch-54468692.err) capture execution. The key handoff was deleted at load, and the runner cleared its environment at completion. No credential is archived.
 
 ## Evidence and reproduction
 

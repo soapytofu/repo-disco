@@ -1,0 +1,55 @@
+{
+  "calls_dispatched": 1,
+  "max_calls": 5,
+  "completed": [
+    {
+      "attempt": 1,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 1110,
+        "output_tokens": 56,
+        "total_tokens": 1166,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "protected_client_sha256": "202bbd25cf0b4ec18914ea39092151067b84b596d882bc704fc53f8cbf86f5f5",
+      "verification": [
+        {
+          "scope": "provider",
+          "command": [
+            "dafny",
+            "verify",
+            "Arithmetic.dfy"
+          ],
+          "exit_code": 0,
+          "seconds": 26.042
+        },
+        {
+          "scope": "client_only",
+          "command": [
+            "dafny",
+            "verify",
+            "Client.dfy"
+          ],
+          "exit_code": 0,
+          "seconds": 4.826
+        },
+        {
+          "scope": "whole_repository",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "Client.dfy"
+          ],
+          "exit_code": 0,
+          "seconds": 5.97
+        }
+      ]
+    }
+  ],
+  "current": null,
+  "finished_at_utc": "2026-10-21T23:29:47.309655+00:00"
+}
