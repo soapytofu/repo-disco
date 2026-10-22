@@ -1,6 +1,6 @@
 # composition-pilot-001: composing contracts with full source context
 
-**Status (October 22, 2026):** all three tasks and the paired 12-call pilot are built. Six offline tests passed. Verifier controls are queued as Cannon job 54727417 (moved from test to shared CPU partition); model calls have not started and are gated on all reference/negative checks passing.
+**Status (October 22, 2026):** all three tasks and the paired 12-call pilot are built. Six offline tests passed. Verifier controls are queued as Cannon job 54727417 (moved from test to shared CPU partition); model job **54729460** is queued with `afterok:54727417` and will start unattended only if every control matches its expectation. No model calls had started at submission. See [submission record](submission.json).
 
 ## Question
 
