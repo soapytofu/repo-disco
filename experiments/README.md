@@ -41,6 +41,10 @@ Five cases × two formats × five repetitions. The maximum case reuses the earli
 
 The implementation-bug control passes client-only verification but fails whole-repository verification; the weakened-contract control fails the unchanged client. Neither a local pass nor a weakened specification counts as an accepted repair. This is a minimal infrastructure fixture, not a repository benchmark.
 
+## Exported-lemma context pilot
+
+[context-pilot-001](context-pilot-001/README.md), October 21, 2026: an opaque-function proof task with a protected provider and an editable client proof. **12/12 control checks matched expectations; 7 offline checks passed.** The planned comparison is four local-only versus four API-context single-request trials. Prepared and awaiting credentials; no model results yet. [Verifier control log](context-pilot-001/VERIFICATION.md).
+
 ## Setup checks
 
 These establish that the tools work; they are not research benchmark results.

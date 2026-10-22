@@ -32,3 +32,7 @@ The 50-call budget for format-comparison-001 is exhausted. Design, fixture imple
 ## Scope checkpoint for mentor discussion
 
 Share the completed setup and repair-format evidence, and confirm the minimal repository task, controlled variables, and intended model/agent configurations with Nada. The central research question concerns dependency and shared-proof structure versus repository completion; additional single-file format trials should serve that goal rather than delay the two-module prototype. Fine-tuning remains a later milestone after there is a useful verified corpus and a defensible held-out split.
+
+## Follow-up context task (October 21)
+
+[context-pilot-001](../experiments/context-pilot-001/README.md) now supplies a verified opaque-function/helper-lemma fixture. All 12 expected control outcomes were confirmed on Cannon. Seven offline checks protect the proof boundary and confirm that the provider API appendix is the only prompt difference. An eight-call paired pilot is prepared, pending the private key handoff. This tests exported-lemma information access on one designed task; broader dependency reasoning and matched controls remain future work.

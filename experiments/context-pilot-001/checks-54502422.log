@@ -1,0 +1,12 @@
+reference provider PASS expected= True
+reference client_only PASS expected= True
+reference whole_repository PASS expected= True
+missing-proof provider PASS expected= True
+missing-proof client_only VERIFICATION_FAILURE expected= True
+missing-proof whole_repository VERIFICATION_FAILURE expected= True
+assert-only provider PASS expected= True
+assert-only client_only VERIFICATION_FAILURE expected= True
+assert-only whole_repository VERIFICATION_FAILURE expected= True
+unproved-provider provider VERIFICATION_FAILURE expected= True
+unproved-provider client_only PASS expected= True
+unproved-provider whole_repository VERIFICATION_FAILURE expected= True

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "repository_id": "opaque-magnitude-lemma",
+  "entry_point": "Client.dfy",
+  "modules": [
+    {
+      "id": "MagnitudeFacts",
+      "file": "MagnitudeFacts.dfy",
+      "depends_on": [],
+      "export_mode": "provides; bodies hidden from importing module",
+      "exports": [
+        {
+          "symbol": "MagnitudeFacts.Magnitude",
+          "kind": "opaque function",
+          "signature": "Magnitude(x: int): int",
+          "ensures": []
+        },
+        {
+          "symbol": "MagnitudeFacts.EstablishLowerBound",
+          "kind": "lemma",
+          "signature": "EstablishLowerBound(x: int)",
+          "ensures": [
+            "Magnitude(x) >= 0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Client",
+      "file": "Client.dfy",
+      "depends_on": [
+        "MagnitudeFacts"
+      ],
+      "import_alias": "F",
+      "target": "ClientNonnegative(x: int)",
+      "ensures": [
+        "F.Magnitude(x) >= 0"
+      ]
+    }
+  ],
+  "edit_policy": "Only the body of ClientNonnegative; all other source bytes protected",
+  "evaluation": "Whole-repository verification including the provider; no aggregate-obligation-to-specification conversion",
+  "context_conditions": {
+    "local_only": "Client source, target contract, common instructions and broken verifier feedback; no provider API listing",
+    "api_context": "Same content plus provider exported signatures/contracts and dependency map; no provider implementation or reference proof"
+  },
+  "limitations": [
+    "Single designed fixture; four repetitions are not four distinct tasks",
+    "Tests access to an exported lemma and API lookup, not broad repository reasoning",
+    "Context length differs and is not token-matched",
+    "Local-only model may guess a helper name; no browsing/tools/retrieval in either condition"
+  ]
+}
