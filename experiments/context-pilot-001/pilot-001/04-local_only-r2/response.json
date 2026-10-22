@@ -1,0 +1,13 @@
+{
+  "content": "Read-only MagnitudeFacts.dfy context: the provider is immutable, so I need to figure out what lemmas/functions are available. Based on the typical structure of such problems, there's likely a lemma `MagnitudeNonnegative` in the `MagnitudeFacts` module.\n\n```dafny\ninclude \"MagnitudeFacts.dfy\"\n\nmodule Client {\n  import F = MagnitudeFacts\n\n  lemma ClientNonnegative(x: int)\n    ensures F.Magnitude(x) >= 0\n  {\n    F.MagnitudeNonnegative(x);\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 325,
+    "output_tokens": 155,
+    "total_tokens": 480,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

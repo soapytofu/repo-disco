@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: October 21, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: October 22, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -35,4 +35,4 @@ Share the completed setup and repair-format evidence, and confirm the minimal re
 
 ## Follow-up context task (October 21)
 
-[context-pilot-001](../experiments/context-pilot-001/README.md) now supplies a verified opaque-function/helper-lemma fixture. All 12 expected control outcomes were confirmed on Cannon. Seven offline checks protect the proof boundary and confirm that the provider API appendix is the only prompt difference. An eight-call paired pilot is prepared, pending the private key handoff. This tests exported-lemma information access on one designed task; broader dependency reasoning and matched controls remain future work.
+[context-pilot-001](../experiments/context-pilot-001/README.md) now supplies a verified opaque-function/helper-lemma fixture. All 12 expected control outcomes were confirmed on Cannon. Seven offline checks protect the proof boundary and confirm that the provider API appendix is the only prompt difference. The eight-call paired pilot completed October 22: API context 4/4 whole-repository passes, local-only 0/4. All local-only failures were guessed nonexistent helper names, not failed mathematical proofs. This tests exported-lemma information access on one designed task; broader dependency reasoning and matched controls remain future work.

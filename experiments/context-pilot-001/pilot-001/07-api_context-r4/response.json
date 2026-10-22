@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\ninclude \"MagnitudeFacts.dfy\"\n\nmodule Client {\n  import F = MagnitudeFacts\n\n  lemma ClientNonnegative(x: int)\n    ensures F.Magnitude(x) >= 0\n  {\n    F.EstablishLowerBound(x);\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 407,
+    "output_tokens": 84,
+    "total_tokens": 491,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

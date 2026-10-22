@@ -1,0 +1,13 @@
+{
+  "content": "Read-only MagnitudeFacts.dfy content (provider):\n\nI need to see the provider file to know what lemmas are available. Based on the typical pattern for this kind of exercise, I'll try calling a lemma from MagnitudeFacts that proves the magnitude is nonnegative.\n\n```dafny\ninclude \"MagnitudeFacts.dfy\"\n\nmodule Client {\n  import F = MagnitudeFacts\n\n  lemma ClientNonnegative(x: int)\n    ensures F.Magnitude(x) >= 0\n  {\n    F.MagnitudeNonnegative(x);\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 325,
+    "output_tokens": 151,
+    "total_tokens": 476,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

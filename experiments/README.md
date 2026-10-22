@@ -1,6 +1,6 @@
 # Experiment log
 
-A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 21, 2026.
+A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 22, 2026.
 
 ## Integer-maximum program: generation → extension → repair
 
@@ -43,7 +43,7 @@ The implementation-bug control passes client-only verification but fails whole-r
 
 ## Exported-lemma context pilot
 
-[context-pilot-001](context-pilot-001/README.md), October 21, 2026: an opaque-function proof task with a protected provider and an editable client proof. **12/12 control checks matched expectations; 7 offline checks passed.** The planned comparison is four local-only versus four API-context single-request trials. Prepared and awaiting credentials; no model results yet. [Verifier control log](context-pilot-001/VERIFICATION.md).
+[context-pilot-001](context-pilot-001/README.md), October 21, 2026: an opaque-function proof task with a protected provider and an editable client proof. **12/12 control checks matched expectations; 7 offline checks passed.** Completed October 22: **API context 4/4 verified; local-only 0/4**, with all failures due to nonexistent guessed helper names. Eight calls, 3,883 tokens; no edit rejections or retries. [Model trial log](context-pilot-001/TRIALS.md). [Verifier control log](context-pilot-001/VERIFICATION.md).
 
 ## Setup checks
 

@@ -1,6 +1,21 @@
 # context-pilot-001: exported-lemma context in a two-module proof repair
 
-**Status, October 21, 2026:** built and verified on Cannon (job 54502422). All 12 control checks matched expectations; seven offline policy/prompt tests passed. The eight-call pilot is prepared but awaiting the private credential handoff. No model calls have been made for this experiment. [Control log](VERIFICATION.md) · [Raw results](verification-001/results.json).
+**Completed October 22, 2026:** all eight model calls ran. API context: **4/4 whole-repository passes**; local-only context: **0/4**, all due to a guessed nonexistent helper name. The 12 verifier controls and seven offline tests passed before model calls. [Model trial log](TRIALS.md) · [Summary data](summary.json) · [Control log](VERIFICATION.md).
+
+## Observed results
+
+| Condition | Whole-repository pass | Failure diagnosis | Input / output tokens |
+| --- | --- | --- | --- |
+| Local only | 0/4 | All called nonexistent `F.MagnitudeNonnegative(x)`; Dafny name-resolution errors | 1,300 / 619 |
+| Exported API context | 4/4 | All called the actual `F.EstablishLowerBound(x)`; 2 verified, 0 errors | 1,628 / 336 |
+
+Total: **2,928 input + 955 output = 3,883 tokens**. Billing cost was not captured. All responses passed the shared edit guard; there were no rejected edits, provider errors, verifier timeouts, or retries. The raw runner's `VERIFICATION_FAILED` label includes pre-verification errors: all four failures here are specifically **resolution/type errors (exit 2)**, not failed proof obligations.
+
+All eight providers are byte-identical to the protected input. The client imports, lemma signature, and ensures clause are preserved. Each successful client matches the reference after whitespace normalization. Manual assistant review and paired-prompt checks are recorded in [preservation-review.json](preservation-review.json).
+
+The model batch ran as job **54695919** and stopped at eight calls. [Batch stdout](pilot-54695919.log), [stderr](pilot-54695919.err), [ledger](pilot-001/ledger.json), [protocol](pilot-001/protocol.json), and [raw per-trial artifacts](pilot-001/) are archived. The key handoff was deleted and the runner cleared its environment on completion.
+
+The result supports a narrow conclusion: supplying the real API prevented an invented helper call on this task. The local-only model already proposed the correct kind of proof step but lacked the helper's name. It does **not** establish that the added context improved mathematical reasoning.
 
 ## Research question and scope
 
@@ -21,7 +36,7 @@ The reference and broken cases are assistant-authored. The model never receives 
 - Whole-repository verification with `--verify-included-files` and a 60-second process timeout. A timeout or provider error stops the batch for investigation.
 - No early stopping on a successful repair: both conditions receive their planned four samples, up to the eight-call total cap.
 
-This specification and the task were prepared before model calls. The executed runner snapshot, protocol, and full prompts are archived with the run.
+This specification and the task were prepared before model calls. The executed runner snapshot, protocol, and full prompts are archived with the run. The design and verifier-only evidence were committed before model execution as `83826a9`.
 
 ## Frozen proof/edit boundary
 

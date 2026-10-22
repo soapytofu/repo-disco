@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "Complete the missing proof in this two-module Dafny repository. Return only the COMPLETE Client.dfy source, optionally in one dafny code fence. Preserve every byte outside the body of ClientNonnegative, including its contract and imports. The provider is immutable. The allowed proof body is zero or more calls of the form F.Identifier(x); and/or assert F.Magnitude(x) >= 0; with whitespace. No comments, assumptions, attributes, new declarations, or other statements. Both conditions use this same edit policy. Provide your best repair using the information supplied."
+  },
+  {
+    "role": "user",
+    "content": "Editable Client.dfy:\ninclude \"MagnitudeFacts.dfy\"\n\nmodule Client {\n  import F = MagnitudeFacts\n\n  lemma ClientNonnegative(x: int)\n    ensures F.Magnitude(x) >= 0\n  {\n  }\n}\n\nOriginal whole-repository verifier feedback:\nClient.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nClient.dfy(7,27): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures F.Magnitude(x) >= 0\n  |                            ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n\n\nDependency map: Client imports MagnitudeFacts as F.\nExported provider API (provides only; implementation bodies are hidden):\n  opaque function Magnitude(x: int): int\n    // No postcondition is exported for this function.\n  lemma EstablishLowerBound(x: int)\n    ensures Magnitude(x) >= 0\n"
+  }
+]

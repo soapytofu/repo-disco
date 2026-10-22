@@ -8,7 +8,7 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **[Two-module prototype](experiments/two-module-001/README.md):** the initial dependency manifest and whole-repository verification checks are implemented; all 12 expected verifier outcomes and 6 edit-policy tests passed. Claude repaired the protected provider on the first call; the unchanged client and whole repository verified. See [timeline and next milestones](docs/research-progress.md).
 
-**[Exported-lemma context pilot](experiments/context-pilot-001/README.md):** proof task verified with 12 expected control outcomes. An eight-call local-only versus API-context comparison is prepared; model results are pending.
+**[Exported-lemma context pilot](experiments/context-pilot-001/README.md):** proof task verified with 12 expected control outcomes. Eight model calls completed: API context 4/4 verified versus local-only 0/4; the latter all guessed a nonexistent helper name. This is a single-task API-information pilot.
 
 ---
 
