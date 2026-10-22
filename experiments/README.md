@@ -75,3 +75,7 @@ Copy [the short record template](TEMPLATE.md) into a new experiment directory. A
 - Do not rerun an experiment solely to reconstruct missing metadata. State the gap and capture it on subsequent runs.
 
 These pilots do not yet constitute a baseline reproduction, a model comparison, or a multi-module evaluation.
+
+## Three-task composition pilot (October 22)
+
+[composition-pilot-001](composition-pilot-001/README.md) builds range/precondition chaining, relation lifting, and sequence-property composition tasks. Both conditions receive complete source/contracts; one adds only a structural import map. Six offline checks passed. Fifteen verifier controls are queued, and the 12-call model comparison is prepared but has not started. This work targets basic composition with known APIs rather than hidden-helper-name discovery.

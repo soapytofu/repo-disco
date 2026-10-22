@@ -36,3 +36,7 @@ Share the completed setup and repair-format evidence, and confirm the minimal re
 ## Follow-up context task (October 21)
 
 [context-pilot-001](../experiments/context-pilot-001/README.md) now supplies a verified opaque-function/helper-lemma fixture. All 12 expected control outcomes were confirmed on Cannon. Seven offline checks protect the proof boundary and confirm that the provider API appendix is the only prompt difference. The eight-call paired pilot completed October 22: API context 4/4 whole-repository passes, local-only 0/4. All local-only failures were guessed nonexistent helper names, not failed mathematical proofs. This tests exported-lemma information access on one designed task; broader dependency reasoning and matched controls remain future work.
+
+## Three-task composition pilot (October 22)
+
+[composition-pilot-001](../experiments/composition-pilot-001/README.md) builds range/precondition chaining, relation lifting, and sequence-property composition tasks. Both conditions receive complete source/contracts; one adds only a structural import map. Six offline checks passed. Fifteen verifier controls are queued, and the 12-call model comparison is prepared but has not started. This work targets basic composition with known APIs rather than hidden-helper-name discovery.
