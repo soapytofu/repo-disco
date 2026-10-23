@@ -16,5 +16,25 @@
     "model_calls": 0,
     "automatic_requeue": false,
     "authorization": "User explicitly requested full rerun on shared after preemption"
+  },
+  "scheduling_adjustment": {
+    "job_id": 54811436,
+    "partitions": [
+      "shared",
+      "sapphire"
+    ],
+    "partition_preempt_modes": {
+      "shared": "OFF",
+      "sapphire": "OFF"
+    },
+    "time_limit": "00:10:00",
+    "cpus": 2,
+    "memory": "8G",
+    "requeue": false,
+    "state_after_update": "PENDING",
+    "reason": "Priority",
+    "method": "scontrol update existing pending job; no duplicate submission",
+    "basis": "User requested faster scheduling without preemption; both partitions permit account amin_lab and show PreemptMode=OFF. Prior 16-check job elapsed 49 seconds.",
+    "source": "live scontrol/sinfo, October 23, 2026"
   }
 }

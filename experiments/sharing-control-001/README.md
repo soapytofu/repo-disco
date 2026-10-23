@@ -24,3 +24,7 @@ This isolates the dependency footprint of the *fixed reference calls* while matc
 A future comparison must explicitly decide whether reuse is an observed outcome (allow either valid helper and measure chosen reuse), or a constrained treatment (restrict exports or allowed calls, documenting the additional API difference). Do not quietly conflate these designs. Shared-proof-001 remains the simpler verified example of both reference clients depending on a single exported lemma.
 
 Three offline tests check exact condition matching, mutation isolation, and the expected 22-check matrix. Reproduce with `python3 experiments/sharing-control-001/test_matching.py`. No credentials or model SDKs are used.
+
+### Scheduling adjustment
+
+At the user’s request, pending job 54811436 was updated in place to allow either `shared` or `sapphire`, both confirmed live with `PreemptMode=OFF`. Its requested wall time was shortened from 20 to 10 minutes (the earlier 16-check task took 49 seconds); 2 CPUs and 8 GB RAM remain unchanged. No duplicate job was submitted. The original submission script is preserved; `status.json` records the scheduler override. This can improve scheduling opportunities but does not guarantee a start time.
