@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\ninclude \"Bounds.dfy\"\ninclude \"Transform.dfy\"\nmodule Client {\n  import B = Bounds\n  import T = Transform\n  lemma Progress(x: int)\n    requires 0 <= x <= 10\n    ensures T.Shift(x) > x\n  {\n    B.MakeReady(x);\n    T.EvaluateShift(x);\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 641,
+    "output_tokens": 108,
+    "total_tokens": 749,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

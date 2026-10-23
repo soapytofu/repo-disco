@@ -1,0 +1,33 @@
+{
+  "task": "range_precondition",
+  "repeat": 1,
+  "condition": "with_map",
+  "sequence": 2,
+  "outcome": "SUCCESS",
+  "usage": {
+    "input_tokens": 746,
+    "output_tokens": 108,
+    "total_tokens": 854,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "called_symbols": [
+    "B.MakeReady",
+    "T.EvaluateShift"
+  ],
+  "source_sha256": {
+    "Bounds.dfy": "adfb7ab4b98b909823f96bd854fecb114cb1f87f76e27a92919e03a332b8eeca",
+    "Client.dfy": "d388ba35937963892c51d3c5cb72b18f9319ac16efb8d8dde5402336c33058b7",
+    "Transform.dfy": "95189ee14e46d5218b7a393a6e16446f3f623c6ec1aad3da851b49cf3ad0de8b"
+  },
+  "command": [
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "Client.dfy"
+  ],
+  "exit_code": 0,
+  "seconds": 2.964
+}

@@ -1,0 +1,33 @@
+{
+  "task": "relation_lifting",
+  "repeat": 1,
+  "condition": "with_map",
+  "sequence": 3,
+  "outcome": "SUCCESS",
+  "usage": {
+    "input_tokens": 731,
+    "output_tokens": 134,
+    "total_tokens": 865,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "called_symbols": [
+    "O.Transitive",
+    "R.Lift"
+  ],
+  "source_sha256": {
+    "Client.dfy": "ada45fb5b0793770bca0bf641570ee7e43c900fe3013f6fb19df53b1423e0c40",
+    "OrderFacts.dfy": "57d90252939b31e7a1598543fabe5e91bf4bf35890e1f8b9390bcf0e3f79549a",
+    "Reachability.dfy": "6e6d6c256a541b3c8f1590494d666d84ef50107688f8187f897a49620f342501"
+  },
+  "command": [
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "Client.dfy"
+  ],
+  "exit_code": 0,
+  "seconds": 2.345
+}

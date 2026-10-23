@@ -1,0 +1,404 @@
+{
+  "calls_dispatched": 12,
+  "max_calls": 12,
+  "completed": [
+    {
+      "task": "range_precondition",
+      "repeat": 1,
+      "condition": "full_context",
+      "sequence": 1,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 641,
+        "output_tokens": 108,
+        "total_tokens": 749,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "B.MakeReady",
+        "T.EvaluateShift"
+      ],
+      "source_sha256": {
+        "Bounds.dfy": "adfb7ab4b98b909823f96bd854fecb114cb1f87f76e27a92919e03a332b8eeca",
+        "Client.dfy": "d388ba35937963892c51d3c5cb72b18f9319ac16efb8d8dde5402336c33058b7",
+        "Transform.dfy": "95189ee14e46d5218b7a393a6e16446f3f623c6ec1aad3da851b49cf3ad0de8b"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 11.494
+    },
+    {
+      "task": "range_precondition",
+      "repeat": 1,
+      "condition": "with_map",
+      "sequence": 2,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 746,
+        "output_tokens": 108,
+        "total_tokens": 854,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "B.MakeReady",
+        "T.EvaluateShift"
+      ],
+      "source_sha256": {
+        "Bounds.dfy": "adfb7ab4b98b909823f96bd854fecb114cb1f87f76e27a92919e03a332b8eeca",
+        "Client.dfy": "d388ba35937963892c51d3c5cb72b18f9319ac16efb8d8dde5402336c33058b7",
+        "Transform.dfy": "95189ee14e46d5218b7a393a6e16446f3f623c6ec1aad3da851b49cf3ad0de8b"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.964
+    },
+    {
+      "task": "relation_lifting",
+      "repeat": 1,
+      "condition": "with_map",
+      "sequence": 3,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 731,
+        "output_tokens": 134,
+        "total_tokens": 865,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "O.Transitive",
+        "R.Lift"
+      ],
+      "source_sha256": {
+        "Client.dfy": "ada45fb5b0793770bca0bf641570ee7e43c900fe3013f6fb19df53b1423e0c40",
+        "OrderFacts.dfy": "57d90252939b31e7a1598543fabe5e91bf4bf35890e1f8b9390bcf0e3f79549a",
+        "Reachability.dfy": "6e6d6c256a541b3c8f1590494d666d84ef50107688f8187f897a49620f342501"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.345
+    },
+    {
+      "task": "relation_lifting",
+      "repeat": 1,
+      "condition": "full_context",
+      "sequence": 4,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 613,
+        "output_tokens": 134,
+        "total_tokens": 747,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "O.Transitive",
+        "R.Lift"
+      ],
+      "source_sha256": {
+        "Client.dfy": "ada45fb5b0793770bca0bf641570ee7e43c900fe3013f6fb19df53b1423e0c40",
+        "OrderFacts.dfy": "57d90252939b31e7a1598543fabe5e91bf4bf35890e1f8b9390bcf0e3f79549a",
+        "Reachability.dfy": "6e6d6c256a541b3c8f1590494d666d84ef50107688f8187f897a49620f342501"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.17
+    },
+    {
+      "task": "sequence_composition",
+      "repeat": 1,
+      "condition": "full_context",
+      "sequence": 5,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 634,
+        "output_tokens": 140,
+        "total_tokens": 774,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "S.LengthConcat",
+        "P.FromPositive"
+      ],
+      "source_sha256": {
+        "Client.dfy": "327d460fe24abc23f3731ed61bbd038c0ba90302bc0ca51c49b65dafa96c2ef1",
+        "SequenceFacts.dfy": "f46d94bcf251907c6d75dcdd1734e926f124edde635861bb98b03db9cffde144",
+        "SequenceProperties.dfy": "82718bda516f462179636bbfc499ce35da13f0a5167f10c92dd4e22cdeeb359a"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.299
+    },
+    {
+      "task": "sequence_composition",
+      "repeat": 1,
+      "condition": "with_map",
+      "sequence": 6,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 760,
+        "output_tokens": 365,
+        "total_tokens": 1125,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "S.LengthConcat",
+        "P.FromPositive"
+      ],
+      "source_sha256": {
+        "Client.dfy": "327d460fe24abc23f3731ed61bbd038c0ba90302bc0ca51c49b65dafa96c2ef1",
+        "SequenceFacts.dfy": "f46d94bcf251907c6d75dcdd1734e926f124edde635861bb98b03db9cffde144",
+        "SequenceProperties.dfy": "82718bda516f462179636bbfc499ce35da13f0a5167f10c92dd4e22cdeeb359a"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.18
+    },
+    {
+      "task": "range_precondition",
+      "repeat": 2,
+      "condition": "with_map",
+      "sequence": 7,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 746,
+        "output_tokens": 108,
+        "total_tokens": 854,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "B.MakeReady",
+        "T.EvaluateShift"
+      ],
+      "source_sha256": {
+        "Bounds.dfy": "adfb7ab4b98b909823f96bd854fecb114cb1f87f76e27a92919e03a332b8eeca",
+        "Client.dfy": "d388ba35937963892c51d3c5cb72b18f9319ac16efb8d8dde5402336c33058b7",
+        "Transform.dfy": "95189ee14e46d5218b7a393a6e16446f3f623c6ec1aad3da851b49cf3ad0de8b"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.352
+    },
+    {
+      "task": "range_precondition",
+      "repeat": 2,
+      "condition": "full_context",
+      "sequence": 8,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 641,
+        "output_tokens": 108,
+        "total_tokens": 749,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "B.MakeReady",
+        "T.EvaluateShift"
+      ],
+      "source_sha256": {
+        "Bounds.dfy": "adfb7ab4b98b909823f96bd854fecb114cb1f87f76e27a92919e03a332b8eeca",
+        "Client.dfy": "d388ba35937963892c51d3c5cb72b18f9319ac16efb8d8dde5402336c33058b7",
+        "Transform.dfy": "95189ee14e46d5218b7a393a6e16446f3f623c6ec1aad3da851b49cf3ad0de8b"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.315
+    },
+    {
+      "task": "relation_lifting",
+      "repeat": 2,
+      "condition": "full_context",
+      "sequence": 9,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 613,
+        "output_tokens": 134,
+        "total_tokens": 747,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "O.Transitive",
+        "R.Lift"
+      ],
+      "source_sha256": {
+        "Client.dfy": "ada45fb5b0793770bca0bf641570ee7e43c900fe3013f6fb19df53b1423e0c40",
+        "OrderFacts.dfy": "57d90252939b31e7a1598543fabe5e91bf4bf35890e1f8b9390bcf0e3f79549a",
+        "Reachability.dfy": "6e6d6c256a541b3c8f1590494d666d84ef50107688f8187f897a49620f342501"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.112
+    },
+    {
+      "task": "relation_lifting",
+      "repeat": 2,
+      "condition": "with_map",
+      "sequence": 10,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 731,
+        "output_tokens": 134,
+        "total_tokens": 865,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "O.Transitive",
+        "R.Lift"
+      ],
+      "source_sha256": {
+        "Client.dfy": "ada45fb5b0793770bca0bf641570ee7e43c900fe3013f6fb19df53b1423e0c40",
+        "OrderFacts.dfy": "57d90252939b31e7a1598543fabe5e91bf4bf35890e1f8b9390bcf0e3f79549a",
+        "Reachability.dfy": "6e6d6c256a541b3c8f1590494d666d84ef50107688f8187f897a49620f342501"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.156
+    },
+    {
+      "task": "sequence_composition",
+      "repeat": 2,
+      "condition": "with_map",
+      "sequence": 11,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 760,
+        "output_tokens": 140,
+        "total_tokens": 900,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "S.LengthConcat",
+        "P.FromPositive"
+      ],
+      "source_sha256": {
+        "Client.dfy": "327d460fe24abc23f3731ed61bbd038c0ba90302bc0ca51c49b65dafa96c2ef1",
+        "SequenceFacts.dfy": "f46d94bcf251907c6d75dcdd1734e926f124edde635861bb98b03db9cffde144",
+        "SequenceProperties.dfy": "82718bda516f462179636bbfc499ce35da13f0a5167f10c92dd4e22cdeeb359a"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.015
+    },
+    {
+      "task": "sequence_composition",
+      "repeat": 2,
+      "condition": "full_context",
+      "sequence": 12,
+      "outcome": "SUCCESS",
+      "usage": {
+        "input_tokens": 634,
+        "output_tokens": 140,
+        "total_tokens": 774,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "called_symbols": [
+        "S.LengthConcat",
+        "P.FromPositive"
+      ],
+      "source_sha256": {
+        "Client.dfy": "327d460fe24abc23f3731ed61bbd038c0ba90302bc0ca51c49b65dafa96c2ef1",
+        "SequenceFacts.dfy": "f46d94bcf251907c6d75dcdd1734e926f124edde635861bb98b03db9cffde144",
+        "SequenceProperties.dfy": "82718bda516f462179636bbfc499ce35da13f0a5167f10c92dd4e22cdeeb359a"
+      },
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "Client.dfy"
+      ],
+      "exit_code": 0,
+      "seconds": 2.071
+    }
+  ],
+  "current": null,
+  "finished_at_utc": "2026-10-23T04:26:21.978098+00:00"
+}

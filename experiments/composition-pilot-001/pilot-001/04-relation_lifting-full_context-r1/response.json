@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\ninclude \"OrderFacts.dfy\"\ninclude \"Reachability.dfy\"\nmodule Client {\n  import O = OrderFacts\n  import R = Reachability\n  lemma Connect(a: int, b: int, c: int)\n    requires O.Before(a, b) && O.Before(b, c)\n    ensures R.Reach(a, c)\n  {\n    O.Transitive(a, b, c);\n    R.Lift(a, c);\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 613,
+    "output_tokens": 134,
+    "total_tokens": 747,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

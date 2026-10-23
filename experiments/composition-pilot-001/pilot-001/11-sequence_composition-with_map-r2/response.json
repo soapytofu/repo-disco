@@ -1,0 +1,13 @@
+{
+  "content": "```dafny\ninclude \"SequenceFacts.dfy\"\ninclude \"SequenceProperties.dfy\"\nmodule Client {\n  import S = SequenceFacts\n  import P = SequenceProperties\n  lemma AppendKeepsNonempty(s: seq<int>, t: seq<int>)\n    requires S.Size(s) > 0\n    ensures P.Nonempty(s + t)\n  {\n    S.LengthConcat(s, t);\n    P.FromPositive(s + t);\n  }\n}\n```",
+  "usage_metadata": {
+    "input_tokens": 760,
+    "output_tokens": 140,
+    "total_tokens": 900,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}

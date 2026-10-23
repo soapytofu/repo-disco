@@ -1,6 +1,19 @@
 # composition-pilot-001: composing contracts with full source context
 
-**Status (October 23, 2026):** all **15 corrected verifier controls passed their expected outcomes** (job 54803244 on `serial_requeue`, no automatic requeue). The reference proofs verify, while all single-lemma, missing-proof, and incorrect-composition controls fail proof obligations. Six offline tests also passed. Replacement model job **54803400** is submitted on `shared`, gated by `afterok:54803244`, with no scheduler requeue or SDK retries and the original 12-call cap. [Control log](VERIFICATION.md) · [Scheduler history](scheduler-update.json).
+**Completed October 23, 2026:** all 15 corrected deterministic controls matched expectations, then all **12/12 model trials passed** whole-repository verification. Job 54803400 completed on `shared` with exit 0:0, no requeue or SDK retries. The authorized 12-call budget is exhausted. [Trial log](TRIALS.md) · [Summary data](summary.json) · [Raw evidence](pilot-001/) · [Preservation review](preservation-review.json) · [Control log](VERIFICATION.md) · [Scheduler history](scheduler-update.json).
+
+| Task | Full context | Full context + map |
+| --- | --- | --- |
+| Range / precondition | 2/2 | 2/2 |
+| Relation lifting | 2/2 | 2/2 |
+| Sequence composition | 2/2 | 2/2 |
+| **Total** | **6/6** | **6/6** |
+
+All accepted proof bodies matched the references ignoring whitespace. Review of all 12 trials confirmed unchanged provider bytes and protected client contracts, recorded source hashes, exact reconstruction of each prompt from archived inputs, and successful verification including provider files. There were zero edit rejections, parse/name errors, proof failures, verifier timeouts, or API errors. Token usage: **8,250 input + 1,753 output = 10,003 total**.
+
+This is a ceiling result on three short, designed tasks: it supports basic contract composition under the restricted edit policy, but demonstrates no map advantage and does not establish equivalence between conditions on harder repositories. The structural map also adds input tokens, so it is not a length-matched comparison. Next proposed work is longer prerequisite chains, distractor contracts, and argument transformations with matched controls; see the [controlled corpus design](../../docs/controlled-corpus-design.md). No further model calls are authorized by this completed batch.
+
+The raw protocol records the cluster checkout's older Git HEAD, not a commit containing all staged experiment changes. Archived input, runner, and support snapshots plus the SHA-256 manifest identify the actual experiment artifacts.
 
 ## Verification failure and correction
 

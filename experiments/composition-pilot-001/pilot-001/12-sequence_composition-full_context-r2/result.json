@@ -1,0 +1,33 @@
+{
+  "task": "sequence_composition",
+  "repeat": 2,
+  "condition": "full_context",
+  "sequence": 12,
+  "outcome": "SUCCESS",
+  "usage": {
+    "input_tokens": 634,
+    "output_tokens": 140,
+    "total_tokens": 774,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "called_symbols": [
+    "S.LengthConcat",
+    "P.FromPositive"
+  ],
+  "source_sha256": {
+    "Client.dfy": "327d460fe24abc23f3731ed61bbd038c0ba90302bc0ca51c49b65dafa96c2ef1",
+    "SequenceFacts.dfy": "f46d94bcf251907c6d75dcdd1734e926f124edde635861bb98b03db9cffde144",
+    "SequenceProperties.dfy": "82718bda516f462179636bbfc499ce35da13f0a5167f10c92dd4e22cdeeb359a"
+  },
+  "command": [
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "Client.dfy"
+  ],
+  "exit_code": 0,
+  "seconds": 2.071
+}
