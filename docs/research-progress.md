@@ -48,3 +48,7 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 ## Multi-client shared-proof validation (October 23)
 
 [shared-proof-001](../experiments/shared-proof-001/README.md) adds two distinct client targets using one provider lemma. All 16 deterministic checks matched: both references pass, removing one client call affects only that client, and weakening the shared guarantee breaks both client postconditions while the provider still verifies. This validates shared-proof dependence for the designed fixture, not model reuse performance. Zero new model calls were made. A matched unshared control and more difficult compositions remain next steps.
+
+## Matched reference-sharing control completed (October 23)
+
+[sharing-control-001](../experiments/sharing-control-001/README.md) passed all 22 expected verifier outcomes on the authorized shared-partition rerun. Provider source and client specifications match across conditions; one same-length helper call name differs. Weakening the used shared helper breaks both fixed client proofs; weakening a separately used helper breaks only its client. Equivalent helpers remain available, so this validates reference dependency footprints rather than forcing different reasoning difficulty for a future model. No model calls were made; the preempted partial run is preserved.

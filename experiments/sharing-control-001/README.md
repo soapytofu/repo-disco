@@ -1,10 +1,12 @@
 # Matched reference-sharing control
 
-October 23, 2026. Verifier-only fixture development, zero model calls. Job 54811286 was **preempted** on Cannon serial_requeue with automatic requeue disabled. 10 of 22 checks completed and all matched expectations; the full matrix is **not yet verified**. Partial evidence is preserved in `verification-001/` and the batch logs. The user subsequently authorized a full rerun on `shared`: job **54811436**, fresh output `verification-002`, no automatic requeue and no model calls. It is currently queued for priority; results will be archived separately. Do not treat the expected matrix below as completed findings.
+**Completed October 23, 2026: all 22 checks matched expectations.** Zero model calls. User-authorized rerun 54811436 completed on `shared` in 68 seconds (exit 0:0, compute node holy7c04301). [Full check table](VERIFICATION.md) · [Raw rerun evidence](verification-002/) · [Summary](verification-002/summary.json).
+
+The original job 54811286 was preempted after 10 checks; its partial evidence remains in `verification-001/`. No original logs were overwritten. The rerun used a fresh directory and completed without retries or requeue.
 
 This follows shared-proof-001 with a tightly matched *reference proof* control. Both conditions have identical provider source containing two equivalent exported lemmas, `ConcatFactA` and `ConcatFactB`. The shared reference calls A in both client proofs; the separate reference calls A in ClientA and B in ClientB. Conditions differ in exactly one same-length helper name at one call site. Modules, contracts, provider definitions, and source byte counts match. Model tokenizer counts have not been measured.
 
-The 22 verifier checks test references, weakening A's guarantee, and weakening B's guarantee for each condition. Clients are verified separately and jointly; each weakened provider is also verified independently. Expected outcomes:
+The 22 verifier checks test references, weakening A's guarantee, and weakening B's guarantee for each condition. Clients are verified separately and jointly; each weakened provider is also verified independently. Verified outcomes:
 
 | Condition / mutation | ClientA | ClientB |
 | --- | --- | --- |
@@ -28,3 +30,7 @@ Three offline tests check exact condition matching, mutation isolation, and the 
 ### Scheduling adjustment
 
 At the user’s request, pending job 54811436 was updated in place to allow either `shared` or `sapphire`, both confirmed live with `PreemptMode=OFF`. Its requested wall time was shortened from 20 to 10 minutes (the earlier 16-check task took 49 seconds); 2 CPUs and 8 GB RAM remain unchanged. No duplicate job was submitted. The original submission script is preserved; `status.json` records the scheduler override. This can improve scheduling opportunities but does not guarantee a start time.
+
+## Evidence review
+
+All 22 recorded exit codes matched the predeclared matrix. Every negative result was a postcondition proof failure, not a name-resolution or parse error. Both weakened providers verify independently. All compute-node fixture bytes match the published fixtures, all recorded source hashes match, and verifier stderr is empty for all checks. The three offline matching tests also pass. These findings establish the different dependency footprints of the fixed reference proofs; the equivalent-helper caveat above still applies.
