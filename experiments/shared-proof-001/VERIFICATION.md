@@ -1,0 +1,22 @@
+# Verification record
+
+Job 54811081; 16/16 expected outcomes; zero model calls.
+
+| Variant | Entry | Expected exit | Actual exit | Matched |
+| --- | --- | --- | --- | --- |
+| reference | ClientA.dfy | 0 | 0 | True |
+| reference | ClientB.dfy | 0 | 0 | True |
+| reference | All.dfy | 0 | 0 | True |
+| missing_a | ClientA.dfy | 4 | 4 | True |
+| missing_a | ClientB.dfy | 0 | 0 | True |
+| missing_a | All.dfy | 4 | 4 | True |
+| missing_b | ClientA.dfy | 0 | 0 | True |
+| missing_b | ClientB.dfy | 4 | 4 | True |
+| missing_b | All.dfy | 4 | 4 | True |
+| missing_both | ClientA.dfy | 4 | 4 | True |
+| missing_both | ClientB.dfy | 4 | 4 | True |
+| missing_both | All.dfy | 4 | 4 | True |
+| weakened_shared_contract | ClientA.dfy | 4 | 4 | True |
+| weakened_shared_contract | ClientB.dfy | 4 | 4 | True |
+| weakened_shared_contract | All.dfy | 4 | 4 | True |
+| weakened_shared_contract | SequenceFacts.dfy | 0 | 0 | True |

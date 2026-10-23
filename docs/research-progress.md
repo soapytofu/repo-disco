@@ -44,3 +44,7 @@ Share the completed setup and repair-format evidence, and confirm the minimal re
 ## Preparation for controlled scaling (October 23)
 
 The [matched-control design](controlled-corpus-design.md) separates import depth, intended proof-prerequisite depth, and observed call/reuse metrics. A [non-paid map audit](../experiments/map-audit-001/README.md) and reusable validator confirm that all three current maps have import depth two; they do not infer proof depth. Six graph validation tests passed. Next: build harder, matched verified fixtures and a versioned corpus manifest before requesting a new paid evaluation budget.
+
+## Multi-client shared-proof validation (October 23)
+
+[shared-proof-001](../experiments/shared-proof-001/README.md) adds two distinct client targets using one provider lemma. All 16 deterministic checks matched: both references pass, removing one client call affects only that client, and weakening the shared guarantee breaks both client postconditions while the provider still verifies. This validates shared-proof dependence for the designed fixture, not model reuse performance. Zero new model calls were made. A matched unshared control and more difficult compositions remain next steps.

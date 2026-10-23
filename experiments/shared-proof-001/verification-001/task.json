@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repository_id": "shared-proof-001",
+  "family_id": "sequence-concat-sharing",
+  "entrypoint": "All.dfy",
+  "model_calls": 0,
+  "client_targets": [
+    {
+      "id": "ClientA.AppendPositive",
+      "file": "ClientA.dfy"
+    },
+    {
+      "id": "ClientB.AppendPreservesLowerBound",
+      "file": "ClientB.dfy"
+    }
+  ],
+  "shared_definition": {
+    "id": "SequenceFacts.LengthConcat",
+    "file": "SequenceFacts.dfy"
+  },
+  "intended_usage_edges": [
+    {
+      "client_target": "ClientA.AppendPositive",
+      "provider_definition": "SequenceFacts.LengthConcat"
+    },
+    {
+      "client_target": "ClientB.AppendPreservesLowerBound",
+      "provider_definition": "SequenceFacts.LengthConcat"
+    }
+  ],
+  "annotation_status": "reference-design; verify ablation before claiming dependence",
+  "edit_policy": "Future repair task: only client lemma bodies; provider and client contracts protected",
+  "imports": {
+    "SequenceFacts": {},
+    "ClientA": {
+      "S": "SequenceFacts"
+    },
+    "ClientB": {
+      "S": "SequenceFacts"
+    }
+  }
+}
