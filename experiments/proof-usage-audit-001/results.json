@@ -1,0 +1,194 @@
+{
+  "distinct_client_targets": 3,
+  "lemma_usage": [
+    {
+      "client_target_count": 1,
+      "distinct_client_targets": [
+        "range_precondition:Client"
+      ],
+      "repository_task": "range_precondition",
+      "symbol": "Bounds.MakeReady"
+    },
+    {
+      "client_target_count": 1,
+      "distinct_client_targets": [
+        "range_precondition:Client"
+      ],
+      "repository_task": "range_precondition",
+      "symbol": "Transform.EvaluateShift"
+    },
+    {
+      "client_target_count": 1,
+      "distinct_client_targets": [
+        "relation_lifting:Client"
+      ],
+      "repository_task": "relation_lifting",
+      "symbol": "OrderFacts.Transitive"
+    },
+    {
+      "client_target_count": 1,
+      "distinct_client_targets": [
+        "relation_lifting:Client"
+      ],
+      "repository_task": "relation_lifting",
+      "symbol": "Reachability.Lift"
+    },
+    {
+      "client_target_count": 1,
+      "distinct_client_targets": [
+        "sequence_composition:Client"
+      ],
+      "repository_task": "sequence_composition",
+      "symbol": "SequenceFacts.LengthConcat"
+    },
+    {
+      "client_target_count": 1,
+      "distinct_client_targets": [
+        "sequence_composition:Client"
+      ],
+      "repository_task": "sequence_composition",
+      "symbol": "SequenceProperties.FromPositive"
+    }
+  ],
+  "lemmas_shared_by_multiple_targets": 0,
+  "proof_prerequisite_depth": null,
+  "schema_version": 1,
+  "scope_note": "One client target per repository task; repeats are not new targets. This corpus cannot test shared-proof reuse across multiple clients.",
+  "successful_trials": 12,
+  "target_provider_coverage": {
+    "range_precondition:Client": [
+      "Bounds",
+      "Transform"
+    ],
+    "relation_lifting:Client": [
+      "OrderFacts",
+      "Reachability"
+    ],
+    "sequence_composition:Client": [
+      "SequenceFacts",
+      "SequenceProperties"
+    ]
+  },
+  "trial_calls": [
+    {
+      "condition": "full_context",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "Bounds.MakeReady",
+        "Transform.EvaluateShift"
+      ],
+      "sequence": 1,
+      "task": "range_precondition"
+    },
+    {
+      "condition": "with_map",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "Bounds.MakeReady",
+        "Transform.EvaluateShift"
+      ],
+      "sequence": 2,
+      "task": "range_precondition"
+    },
+    {
+      "condition": "with_map",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "OrderFacts.Transitive",
+        "Reachability.Lift"
+      ],
+      "sequence": 3,
+      "task": "relation_lifting"
+    },
+    {
+      "condition": "full_context",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "OrderFacts.Transitive",
+        "Reachability.Lift"
+      ],
+      "sequence": 4,
+      "task": "relation_lifting"
+    },
+    {
+      "condition": "full_context",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "SequenceFacts.LengthConcat",
+        "SequenceProperties.FromPositive"
+      ],
+      "sequence": 5,
+      "task": "sequence_composition"
+    },
+    {
+      "condition": "with_map",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "SequenceFacts.LengthConcat",
+        "SequenceProperties.FromPositive"
+      ],
+      "sequence": 6,
+      "task": "sequence_composition"
+    },
+    {
+      "condition": "with_map",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "Bounds.MakeReady",
+        "Transform.EvaluateShift"
+      ],
+      "sequence": 7,
+      "task": "range_precondition"
+    },
+    {
+      "condition": "full_context",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "Bounds.MakeReady",
+        "Transform.EvaluateShift"
+      ],
+      "sequence": 8,
+      "task": "range_precondition"
+    },
+    {
+      "condition": "full_context",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "OrderFacts.Transitive",
+        "Reachability.Lift"
+      ],
+      "sequence": 9,
+      "task": "relation_lifting"
+    },
+    {
+      "condition": "with_map",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "OrderFacts.Transitive",
+        "Reachability.Lift"
+      ],
+      "sequence": 10,
+      "task": "relation_lifting"
+    },
+    {
+      "condition": "with_map",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "SequenceFacts.LengthConcat",
+        "SequenceProperties.FromPositive"
+      ],
+      "sequence": 11,
+      "task": "sequence_composition"
+    },
+    {
+      "condition": "full_context",
+      "distinct_provider_count": 2,
+      "resolved_calls": [
+        "SequenceFacts.LengthConcat",
+        "SequenceProperties.FromPositive"
+      ],
+      "sequence": 12,
+      "task": "sequence_composition"
+    }
+  ]
+}
