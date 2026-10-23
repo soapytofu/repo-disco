@@ -74,8 +74,22 @@ Copy [the short record template](TEMPLATE.md) into a new experiment directory. A
 - Keep secrets out of all records. Raw checkpoints remain in ignored `outputs/`; readable evidence belongs here.
 - Do not rerun an experiment solely to reconstruct missing metadata. State the gap and capture it on subsequent runs.
 
-These pilots do not yet constitute a baseline reproduction, a model comparison, or a multi-module evaluation.
+These pilots do not yet constitute a published-baseline reproduction, a comparison across models, or a representative repository benchmark. The multi-module context pilots below are small controlled demonstrations.
 
 ## Three-task composition pilot (October 22)
 
-[composition-pilot-001](composition-pilot-001/README.md) builds range/precondition chaining, relation lifting, and sequence-property composition tasks. Both conditions receive complete source/contracts; one adds only a structural import map. Six offline checks passed. All 15 corrected verifier controls matched expectations on October 23 after fixing export aliases; the original failed run is preserved. The replacement 12-call pilot is submitted on shared with no requeue or SDK retries; model results remain pending. This work targets basic composition with known APIs rather than hidden-helper-name discovery.
+[composition-pilot-001](composition-pilot-001/README.md) builds range/precondition chaining, relation lifting, and sequence-property composition tasks. Both conditions receive complete source/contracts; one adds only a structural import map. Six offline checks passed. All 15 corrected verifier controls matched expectations on October 23 after fixing export aliases; the original failed run is preserved. The completed 12-call pilot achieved full context **6/6** and full context plus map **6/6**; all accepted proofs matched references ignoring whitespace, with protected source unchanged. This ceiling result supplies no measured map advantage. [Trial log](composition-pilot-001/TRIALS.md). This work targets basic composition with known APIs rather than hidden-helper-name discovery.
+
+## Multi-client shared-proof controls (October 23)
+
+| Experiment | Model calls | Verified result | Interpretation |
+| --- | --- | --- | --- |
+| [shared-proof-001](shared-proof-001/README.md) | 0 | **16/16 expected outcomes**: both clients pass with one shared lemma; weakening its guarantee breaks both; removing one client call affects only that client | Dependence of two distinct client reference proofs on a shared provider guarantee |
+| [sharing-control-001](sharing-control-001/README.md) | 0 | **22/22 expected outcomes** on the completed shared-partition rerun; original preempted evidence preserved | Matched fixed-proof dependency footprints; equivalent helpers permit alternative proofs, so this is not yet a forced model reasoning treatment |
+
+## Reproducibility and metric audits
+
+- [Import-map audit](map-audit-001/README.md): three composition maps each have import depth two. This does not infer proof depth.
+- [Proof-call audit](proof-usage-audit-001/README.md): 12 successful composition trials represent three client targets, not 12 independent targets or evidence of cross-client sharing. The later multi-client controls above address that representation gap.
+- [Archive integrity checks](../docs/archive-integrity.md): read-only SHA-256 verification, separate from scientific validity.
+- [Matched corpus design](../docs/controlled-corpus-design.md): proposed controls and metrics for Weeks 5–6, not completed model findings.

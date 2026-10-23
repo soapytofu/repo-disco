@@ -10,16 +10,16 @@ Status: October 23, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## Immediate work: finish design, then validate two modules
+## Original implementation plan (retained for context)
 
-The following is an implementation recommendation based on the proposal, not a new experimental result.
+The following was the initial implementation recommendation. The two-module fixture and repair milestones below are now complete; representation generalization and matched corpus work remain open. See dated progress entries for measured results.
 
 1. **Freeze repository representation and measurement.** Define a manifest listing module/file IDs, imports/dependencies, exported APIs, specifications, reusable lemmas, and verification state. Record edits and verification output against an immutable source revision. Distinguish individual-specification success, module verification, and full-repository completion; do not substitute Dafny's aggregate verified-obligation count for a specification-level metric.
 2. **Build a minimal verified two-module fixture.** Start with a lower-level arithmetic utility and an importing client that relies on its contract. Verify the complete repository through a defined entry point. Keep specifications fixed outside the worker's permitted edit scope.
 3. **Create a controlled failure and demonstrate repair.** Introduce one implementation/proof failure whose effect reaches a dependent module. Give the worker local context plus the dependency/API map. Start with complete-file output for a bounded target file, informed by format-comparison-001; reverify the whole repository after every accepted edit. Preserve failed attempts, exact model context, and unaffected-module checks.
 4. **Define a matched control before scaling.** Match module count, specification count, and approximate code size, while reducing cross-module dependence. Confirm the manifest and task generator can represent both structures. This establishes the design for Weeks 5–6 rather than prematurely claiming a controlled corpus.
 
-### Acceptance criteria for the next milestone
+### Acceptance criteria used for the initial milestone
 
 - A small two-module repository verifies before mutation, with explicit dependency and API metadata.
 - A documented mutation causes the intended verification failure.

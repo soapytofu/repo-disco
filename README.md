@@ -10,6 +10,11 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **[Exported-lemma context pilot](experiments/context-pilot-001/README.md):** proof task verified with 12 expected control outcomes. Eight model calls completed: API context 4/4 verified versus local-only 0/4; the latter all guessed a nonexistent helper name. This is a single-task API-information pilot.
 
+
+**[Contract-composition pilot](experiments/composition-pilot-001/README.md):** three tasks, 12 calls; full context 6/6 and full context plus structural map 6/6. All protected source was preserved. The perfect scores show basic composition on these short tasks, but no measured map advantage.
+
+**[Multi-client proof sharing](experiments/shared-proof-001/README.md):** 16 deterministic controls validate two client proofs depending on one lemma. The [matched reference control](experiments/sharing-control-001/README.md) passed 22 checks comparing shared versus separate helper calls. Both are verifier-only experiments with zero model calls; the latter does not force a different model solution because equivalent helpers remain available.
+
 ---
 
 [![arXiv](https://img.shields.io/badge/arXiv-2607.04631-pink.svg)](https://arxiv.org/abs/2607.04631)
