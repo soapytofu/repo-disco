@@ -1,7 +1,7 @@
 include "SequenceFacts.dfy"
 module SequenceProperties {
   import S = SequenceFacts
-  export provides Nonempty, FromPositive
+  export provides S, Nonempty, FromPositive
   opaque predicate Nonempty(s: seq<int>) { S.Size(s) > 0 }
 
   lemma FromPositive(s: seq<int>)

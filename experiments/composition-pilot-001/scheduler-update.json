@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-23",
+  "original_verifier": {
+    "job": 54727417,
+    "partition": "serial_requeue",
+    "requeue": false,
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "diagnosis": "Provider export sets omitted import aliases referenced in exported contracts."
+  },
+  "original_pilot": {
+    "job": 54729460,
+    "state": "CANCELLED",
+    "model_calls": 0,
+    "reason": "afterok dependency failed"
+  },
+  "corrected_verifier": {
+    "job": 54803244,
+    "partition": "serial_requeue",
+    "requeue": false,
+    "state": "COMPLETED",
+    "checks": 15,
+    "all_expected": true
+  },
+  "replacement_pilot": {
+    "job": 54803400,
+    "partition": "shared",
+    "dependency": "afterok:54803244",
+    "requeue": false,
+    "sdk_total_attempts": 1,
+    "max_calls": 12,
+    "state_at_submission": "submitted; results pending"
+  },
+  "correction": "Explicitly provide B, O, and S import aliases in the three provider export sets; no proof body or specification changes. Corrected source was manually submitted as a new verifier run, not an automatic retry."
+}

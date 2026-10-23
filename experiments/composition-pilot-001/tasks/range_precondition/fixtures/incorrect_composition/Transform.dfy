@@ -1,7 +1,7 @@
 include "Bounds.dfy"
 module Transform {
   import B = Bounds
-  export provides Shift, EvaluateShift
+  export provides B, Shift, EvaluateShift
   opaque function Shift(x: int): int {
     if 0 <= x <= 10 then x + 1 else 0
   }

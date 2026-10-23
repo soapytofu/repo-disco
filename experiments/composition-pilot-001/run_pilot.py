@@ -33,7 +33,7 @@ def save(path,value):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args();source=Path(__file__).resolve().parent
-    baseline=source/'verification-001'
+    baseline=source/'verification-002'
     assert json.loads((baseline/'summary.json').read_text())['all_expected']
     out=args.output.resolve();out.mkdir(parents=True,exist_ok=False)
     shutil.copy2(__file__,out/'runner.py');shutil.copy2(source/'pilot_support.py',out/'pilot_support.py')

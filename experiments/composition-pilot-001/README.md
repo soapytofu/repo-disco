@@ -1,6 +1,14 @@
 # composition-pilot-001: composing contracts with full source context
 
-**Status (October 22, 2026):** all three tasks and the paired 12-call pilot are built. Six offline tests passed. Verifier controls are queued as Cannon job 54727417 (moved from test to shared CPU partition); model job **54729460** is queued with `afterok:54727417` and will start unattended only if every control matches its expectation. No model calls had started at submission. See [submission record](submission.json).
+**Status (October 23, 2026):** all **15 corrected verifier controls passed their expected outcomes** (job 54803244 on `serial_requeue`, no automatic requeue). The reference proofs verify, while all single-lemma, missing-proof, and incorrect-composition controls fail proof obligations. Six offline tests also passed. Replacement model job **54803400** is submitted on `shared`, gated by `afterok:54803244`, with no scheduler requeue or SDK retries and the original 12-call cap. [Control log](VERIFICATION.md) · [Scheduler history](scheduler-update.json).
+
+## Verification failure and correction
+
+Original verifier job 54727417 started after moving from shared to `serial_requeue` with `Requeue=0`. It failed because provider export sets did not export import aliases used in public contracts. For example, Transform exported a lemma requiring `B.Ready(x)` without exporting `B`. Its dependent pilot 54729460 was canceled; **zero model calls** were dispatched.
+
+The correction adds `B`, `O`, and `S` to the respective export sets. Proof bodies, client obligations, model conditions, and the call budget did not change. All six offline checks passed again. A new verifier-only job 54803244 ran the corrected source with requeue disabled and confirmed all 15 outcomes. The original failed snapshots and diagnostics are preserved in [verification-001](verification-001/); corrected evidence is in [verification-002](verification-002/). These are two distinct recorded runs, not silently overwritten results or automatic retries.
+
+[Original stdout](checks-54727417.log) · [Original stderr](checks-54727417.err) · [Corrected stdout](corrected-54803244.log) · [Corrected stderr](corrected-54803244.err).
 
 ## Question
 
@@ -42,7 +50,7 @@ Six offline tests check the reference/negative bodies, protected contracts, reje
 - [Task fixtures](tasks/), including protected source, reference/negative proofs, metadata, and structural maps.
 - [Verifier runner](run_verification.py), [model runner](run_pilot.py), [prompt/edit policy](pilot_support.py), [offline tests](test_support.py), and [Slurm script](pilot.sbatch).
 
-From the repository root, run `python experiments/composition-pilot-001/test_support.py`. Run verifier checks in the documented Cannon/Dafny environment with `python experiments/composition-pilot-001/run_verification.py --output outputs/composition-check-new`. Use a new output directory. The original model staging expects `verification-001` beside the source and the existing credential loader at `experiments/repair-003/runner.py`.
+From the repository root, run `python experiments/composition-pilot-001/test_support.py`. Run verifier checks in the documented Cannon/Dafny environment with `python experiments/composition-pilot-001/run_verification.py --output outputs/composition-check-new`. Use a new output directory. The original model staging expects `verification-002` beside the source and the existing credential loader at `experiments/repair-003/runner.py`.
 
 Model credentials are loaded from the private handoff, which is deleted immediately; the runner clears its environment at completion. No credential is archived. API prompts contain the broken client and providers only, never reference or negative-control proofs.
 

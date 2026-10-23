@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: October 22, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: October 23, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -39,4 +39,4 @@ Share the completed setup and repair-format evidence, and confirm the minimal re
 
 ## Three-task composition pilot (October 22)
 
-[composition-pilot-001](../experiments/composition-pilot-001/README.md) builds range/precondition chaining, relation lifting, and sequence-property composition tasks. Both conditions receive complete source/contracts; one adds only a structural import map. Six offline checks passed. Fifteen verifier controls are queued, and the 12-call model comparison is prepared but has not started. This work targets basic composition with known APIs rather than hidden-helper-name discovery.
+[composition-pilot-001](../experiments/composition-pilot-001/README.md) builds range/precondition chaining, relation lifting, and sequence-property composition tasks. Both conditions receive complete source/contracts; one adds only a structural import map. Six offline checks passed. All 15 corrected verifier controls matched expectations on October 23 after fixing export aliases; the original failed run is preserved. The replacement 12-call pilot is submitted on shared with no requeue or SDK retries; model results remain pending. This work targets basic composition with known APIs rather than hidden-helper-name discovery.
