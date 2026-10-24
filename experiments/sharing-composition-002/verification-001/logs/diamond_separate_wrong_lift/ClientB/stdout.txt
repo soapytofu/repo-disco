@@ -1,0 +1,22 @@
+ClientB.dfy(10,11): Error: a precondition for this call could not be proved
+   |
+10 |     F.JoinB(F.Step(t), F.Step(u));
+   |            ^
+
+Facts.dfy(19,22): Related location: this is the precondition that could not be proved
+   |
+19 |     requires Value(x) > 0 && Value(y) > 0
+   |                       ^
+
+ClientB.dfy(11,12): Error: a precondition for this call could not be proved
+   |
+11 |     F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);
+   |             ^
+
+Facts.dfy(23,22): Related location: this is the precondition that could not be proved
+   |
+23 |     requires Value(x) > k
+   |                       ^
+
+
+Dafny program verifier finished with 8 verified, 2 errors
