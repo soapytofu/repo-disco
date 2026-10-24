@@ -1,0 +1,19 @@
+I need to prove:
+- ClientA: `F.Large((s + t) + u, k)` given `F.Size(s) > k`
+- ClientB: `F.Large(s + (t + u), k)` given `F.Size(t) > k`
+
+For ClientA using ViewA (has ConcatA, Finish):
+- Need `Size((s+t)+u) > k`
+- `ConcatA(s+t, u)` gives `Size((s+t)+u) == Size(s+t) + Size(u)`
+- `ConcatA(s, t)` gives `Size(s+t) == Size(s) + Size(t)`
+- Since `Size(s) > k`, we have `Size(s+t) + Size(u) >= Size(s) > k`
+- Then `Finish((s+t)+u, k)`
+
+For ClientB using ViewB (has ConcatB, Finish):
+- Need `Size(s+(t+u)) > k`
+- `ConcatB(s, t+u)` gives `Size(s+(t+u)) == Size(s) + Size(t+u)`
+- `ConcatB(t, u)` gives `Size(t+u) == Size(t) + Size(u)`
+- Since `Size(t) > k`, we have `Size(s) + Size(t+u) >= Size(t) > k`
+- Then `Finish(s+(t+u), k)`
+
+{"ClientA.dfy":"include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(s) > k\n    ensures F.Large((s + t) + u, k)\n  {\n    F.ConcatA(s, t);\n    F.ConcatA(s + t, u);\n    F.Finish((s + t) + u, k);\n  }\n}\n","ClientB.dfy":"include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(t) > k\n    ensures F.Large(s + (t + u), k)\n  {\n    F.ConcatB(t, u);\n    F.ConcatB(s, t + u);\n    F.Finish(s + (t + u), k);\n  }\n}\n"}

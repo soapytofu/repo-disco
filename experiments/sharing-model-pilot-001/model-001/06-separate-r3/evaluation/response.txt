@@ -1,0 +1,25 @@
+I need to prove both lemmas using only qualified calls to the exported lemmas.
+
+**ClientA analysis:**
+- Has access to: `Size`, `Large`, `ConcatA`, `Finish`
+- Requires: `F.Size(s) > k`
+- Goal: `F.Large((s + t) + u, k)`
+
+I need to show `Size((s+t)+u) > k`. Using `ConcatA`:
+- `ConcatA(s+t, u)` gives `Size((s+t)+u) == Size(s+t) + Size(u)`
+- `ConcatA(s, t)` gives `Size(s+t) == Size(s) + Size(t)`
+- So `Size((s+t)+u) == Size(s) + Size(t) + Size(u) > k` (since `Size(s) > k`)
+- Then `Finish((s+t)+u, k)` concludes.
+
+**ClientB analysis:**
+- Has access to: `Size`, `Large`, `ConcatB`, `Finish`
+- Requires: `F.Size(t) > k`
+- Goal: `F.Large(s + (t + u), k)`
+
+I need to show `Size(s+(t+u)) > k`. Using `ConcatB`:
+- `ConcatB(t, u)` gives `Size(t+u) == Size(t) + Size(u)`
+- `ConcatB(s, t+u)` gives `Size(s+(t+u)) == Size(s) + Size(t+u)`
+- So `Size(s+(t+u)) == Size(s) + Size(t) + Size(u) > k` (since `Size(t) > k`)
+- Then `Finish(s+(t+u), k)` concludes.
+
+{"ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(s) > k\n    ensures F.Large((s + t) + u, k)\n  {\n    F.ConcatA(s, t);\n    F.ConcatA(s + t, u);\n    F.Finish((s + t) + u, k);\n  }\n}\n", "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(t) > k\n    ensures F.Large(s + (t + u), k)\n  {\n    F.ConcatB(t, u);\n    F.ConcatB(s, t + u);\n    F.Finish(s + (t + u), k);\n  }\n}\n"}

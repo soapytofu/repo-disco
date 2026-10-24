@@ -1,0 +1,36 @@
+{
+  "status": "PREPARED_NOT_AUTHORIZED",
+  "proposed_calls": 8,
+  "authorized_calls": 0,
+  "conditions": [
+    "shared",
+    "separate"
+  ],
+  "repetitions": 4,
+  "targets_per_call": 2,
+  "model": "us.anthropic.claude-sonnet-4-6",
+  "region": "us-east-1",
+  "max_output_tokens": 4096,
+  "temperature": "provider_default",
+  "sdk_total_max_attempts": 1,
+  "timeout_seconds": 60,
+  "randomized": false,
+  "order": "alternating paired order; shared,separate / separate,shared / shared,separate / separate,shared",
+  "primary_outcome": "Both protected client files accepted and All.dfy verifies with included files",
+  "denominator": "All dispatched requests, including API errors; report error categories separately",
+  "stop_on": [
+    "API_ERROR",
+    "TIMEOUT",
+    "VERIFIER_ERROR"
+  ],
+  "automatic_retries": 0,
+  "feedback": "none; no repair loop or cross-trial history",
+  "context": "Full source; no dependency map; no reference proofs; no verifier feedback",
+  "normalization": "JSON decoded strings strip outer whitespace and receive one final newline",
+  "limits": [
+    "one designed repository pair, not eight independent tasks",
+    "Finish remains shared in both conditions",
+    "ClientB export view and helper identity differ; source byte counts match but model token counts not matched",
+    "no causal claim that shared reasoning is harder or easier"
+  ]
+}

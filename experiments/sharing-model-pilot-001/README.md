@@ -1,8 +1,12 @@
 # Eight-call shared-versus-separate pilot: frozen preparation
 
-**Eight calls are now explicitly authorized; no live calls dispatched yet.** The original preparation protocol and frozen bundle remain unchanged. [authorization.json](authorization.json) records the later eight-call authorization. The new [bounded adapter](dispatch.py) sends the frozen messages, persists a ledger before every request, uses one SDK attempt, and refuses to restart its fixed `model-001` output directory. It stops on API errors, verifier timeouts or infrastructure errors under the frozen protocol. Three adapter tests pass using fake transports; these tests made no model calls.
+**Completed: exactly eight Claude calls, no retries. Shared 0/4 accepted; separate 0/4 accepted.** Every response contained explanatory prose before the requested JSON object and was rejected by the frozen parser at the first character. **No model-generated candidate reached Dafny verification.** This is an output-format failure, not a mathematical proof failure or evidence of a shared-versus-separate reasoning difference.
 
-The user prepared the private credential handoff. Job **54973122** is submitted on shared/sapphire and was pending for priority at submission, with zero dispatched calls. The compute process consumes and deletes the private handoff; no credential is archived. See [submission.json](submission.json).
+[Trial table](TRIALS.md) · [Summary](model-summary.json) · [Raw responses, prompts and ledger](model-001/) · [Evidence review](model-review.json). Token usage: **5,208 input + 5,678 output = 10,886 total**. Job 54973122 completed on shared in 2 minutes 39 seconds. The eight-call budget is exhausted.
+
+The original preparation protocol and frozen bundle remain unchanged. The later authorization is recorded in `authorization.json`. Review confirmed the exact frozen prompts/order, eight distinct provider request IDs, unchanged input snapshots, verbatim saved responses, and zero candidate/verifier outputs. The adapter logged each dispatch before its request and used one SDK attempt; it cannot restart the existing `model-001` directory. No acceptance rule was relaxed after observing results.
+
+The earlier verifier-only preflight still establishes that the evaluator accepts reference JSON repairs and rejects empty proofs. It does not establish that a model will obey this output format. A possible next step is a separately labelled offline extraction diagnostic on these existing responses, or a revised output protocol validated before any newly authorized model batch. Neither has been performed as part of this run.
 
 ## Frozen design
 

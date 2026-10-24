@@ -1,0 +1,21 @@
+I need to prove the postconditions using only the available exported lemmas.
+
+For **ClientA.dfy**:
+- Import is `Facts\`ViewA` which exports: `Size`, `Large`, `ConcatA`, `Finish`
+- Need to prove: `F.Large((s + t) + u, k)` given `F.Size(s) > k`
+- Strategy: Show `Size((s+t)+u) = Size(s+t) + Size(u) = Size(s) + Size(t) + Size(u) > k`
+- Use `ConcatA(s+t, u)` to get `Size((s+t)+u) == Size(s+t) + Size(u)`
+- Use `ConcatA(s, t)` to get `Size(s+t) == Size(s) + Size(t)`
+- Then `Size((s+t)+u) = Size(s) + Size(t) + Size(u) > k` since `Size(s) > k`
+- Use `Finish((s+t)+u, k)`
+
+For **ClientB.dfy**:
+- Import is `Facts\`ViewB` which exports: `Size`, `Large`, `ConcatB`, `Finish`
+- Need to prove: `F.Large(s + (t + u), k)` given `F.Size(t) > k`
+- Strategy: Show `Size(s + (t+u)) = Size(s) + Size(t+u) = Size(s) + Size(t) + Size(u) > k`
+- Use `ConcatB(t, u)` to get `Size(t+u) == Size(t) + Size(u)`
+- Use `ConcatB(s, t+u)` to get `Size(s+(t+u)) == Size(s) + Size(t+u)`
+- Then `Size(s+(t+u)) = Size(s) + Size(t) + Size(u) > k` since `Size(t) > k`
+- Use `Finish(s+(t+u), k)`
+
+{"ClientA.dfy":"include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(s) > k\n    ensures F.Large((s + t) + u, k)\n  {\n    F.ConcatA(s, t);\n    F.ConcatA(s + t, u);\n    F.Finish((s + t) + u, k);\n  }\n}\n","ClientB.dfy":"include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(t) > k\n    ensures F.Large(s + (t + u), k)\n  {\n    F.ConcatB(t, u);\n    F.ConcatB(s, t + u);\n    F.Finish(s + (t + u), k);\n  }\n}\n"}

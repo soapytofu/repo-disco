@@ -1,0 +1,7 @@
+{
+  "authorized_calls": 8,
+  "basis": "User explicitly requested exactly eight Claude calls using the frozen prompts and order, with no automatic retries.",
+  "scope": "One live batch at model-001, not eight calls per restart.",
+  "frozen_protocol_note": "protocol.json retains its original preparation-time zero authorization; this later authorization supersedes only that authorization status.",
+  "stop_rule": "Preserve frozen protocol: stop on API error, timeout, or verifier infrastructure error; never retry an ambiguous request. If interrupted, report fewer than eight rather than duplicate calls."
+}

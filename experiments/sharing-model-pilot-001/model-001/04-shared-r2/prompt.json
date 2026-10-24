@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "Complete the missing proof bodies in BOTH ClientA.dfy and ClientB.dfy. Return one JSON object with exactly two keys, \"ClientA.dfy\" and \"ClientB.dfy\", whose values are the complete source text of those files. Do not use Markdown fences or additional text. Preserve every byte outside the two lemma bodies, including includes, imports, export selections, parameters, preconditions and postconditions. Facts.dfy and All.dfy are immutable. Each proof body may contain only qualified calls F.Lemma(arguments); separated by whitespace. Arguments may use the existing parameters s, t, u, k, integer literals, commas, parentheses, addition and subtraction. Do not add comments, assumptions, assertions, reveals, attributes, declarations or other statements. Use the available exported contracts to establish the target postconditions. Both clients must verify together with the complete repository."
+  },
+  {
+    "role": "user",
+    "content": "Complete repository source:\n\nFILE All.dfy\ninclude \"ClientA.dfy\"\ninclude \"ClientB.dfy\"\n\nFILE ClientA.dfy\ninclude \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(s) > k\n    ensures F.Large((s + t) + u, k)\n  {\n  }\n}\n\nFILE ClientB.dfy\ninclude \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewA\n  lemma Prove(s: seq<int>, t: seq<int>, u: seq<int>, k: nat)\n    requires F.Size(t) > k\n    ensures F.Large(s + (t + u), k)\n  {\n  }\n}\n\nFILE Facts.dfy\nmodule Facts {\n  export ViewA provides Size, Large, ConcatA, Finish\n  export ViewB provides Size, Large, ConcatB, Finish\n  opaque function Size(s: seq<int>): nat { |s| }\n  opaque predicate Large(s: seq<int>, k: nat) { Size(s) > k }\n  lemma ConcatA(s: seq<int>, t: seq<int>)\n    ensures Size(s + t) == Size(s) + Size(t)\n  { reveal Size(); }\n  lemma ConcatB(s: seq<int>, t: seq<int>)\n    ensures Size(s + t) == Size(s) + Size(t)\n  { reveal Size(); }\n  lemma Finish(s: seq<int>, k: nat)\n    requires Size(s) > k\n    ensures Large(s, k)\n  { reveal Large(); }\n}\n"
+  }
+]
