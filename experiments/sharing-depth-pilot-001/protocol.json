@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "status": "FROZEN_PREPARATION_ONLY",
+  "planned_calls": 8,
+  "authorized_calls": 0,
+  "model_calls_made": 0,
+  "model": {
+    "provider": "AWS Bedrock Converse",
+    "model_id": "us.anthropic.claude-sonnet-4-6",
+    "region": "us-east-1",
+    "max_tokens": 4096,
+    "temperature": "omitted; provider default",
+    "top_p": "omitted",
+    "seed": "not set"
+  },
+  "request_policy": {
+    "independent_context": true,
+    "messages": "exact frozen messages; no examples, history, tools or dependency map",
+    "streaming": false,
+    "sdk_total_max_attempts": 1,
+    "automatic_retries": false,
+    "connect_timeout_seconds": 15,
+    "read_timeout_seconds": 90,
+    "stop_on": [
+      "API error",
+      "ambiguous request outcome",
+      "verifier infrastructure error",
+      "verification timeout"
+    ],
+    "resume": "Never resubmit a dispatched request; inspect durable ledger and obtain user direction after interruption"
+  },
+  "parser": {
+    "version": "tolerant-v1",
+    "file": "parser.py",
+    "sha256": "65e4449d491b3c15626c8f064eac1548381c4602f9e62430f49d773fe5999530",
+    "max_response_bytes": 131072
+  },
+  "verification": {
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files"
+    ],
+    "entries": [
+      "All.dfy",
+      "ClientA.dfy",
+      "ClientB.dfy"
+    ],
+    "timeout_seconds_per_entry": 60,
+    "compute_only": true,
+    "partitions": [
+      "shared",
+      "sapphire"
+    ],
+    "requeue": false
+  },
+  "primary_outcome": "Both clients and complete repository verify, after tolerant extraction and protected edit guard, on the first response.",
+  "secondary_outcomes": [
+    "strict JSON-only acceptance (descriptive)",
+    "tolerant extraction acceptance",
+    "protected edit guard acceptance",
+    "per-client verification",
+    "token usage",
+    "lemma-call count and dependency pattern (descriptive)"
+  ],
+  "failure_policy": "Format, guard, resolution, parse and proof failures count as unsuccessful trials. Infrastructure failures stop the run and are reported separately; unattempted trials are not model failures.",
+  "analysis": "Report each of four cells separately with numerator/denominator and paired block outcomes. Depth and sharing differences are descriptive; repetitions of one task are not independent task samples.",
+  "authorization": "No dispatcher or model calls in this preparation. Execution requires separate explicit user authorization."
+}
