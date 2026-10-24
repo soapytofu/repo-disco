@@ -1,0 +1,214 @@
+[
+  {
+    "condition": "shared",
+    "input_kind": "reference",
+    "expected": "SUCCESS",
+    "matches_expectation": true,
+    "result": {
+      "outcome": "SUCCESS",
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 6.838
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.724
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.577
+        }
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "c7d84e56e6f60419d376b7933916a729870e4fb28d54f8b2002d1b26696a7fb3",
+        "ClientB.dfy": "9d1065f345255dbcfc6868204cc0268300e80e95b7face4f4a188dc3fa35d13e",
+        "Facts.dfy": "8d51dd21095c044def17ad0fa679960fec193e0e032b86ba9f637fad7015de7b"
+      }
+    }
+  },
+  {
+    "condition": "shared",
+    "input_kind": "missing",
+    "expected": "PROOF_FAILURE",
+    "matches_expectation": true,
+    "result": {
+      "outcome": "PROOF_FAILURE",
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 4,
+          "outcome": "PROOF_FAILURE",
+          "seconds": 1.769
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 4,
+          "outcome": "PROOF_FAILURE",
+          "seconds": 1.587
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 4,
+          "outcome": "PROOF_FAILURE",
+          "seconds": 1.652
+        }
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "45809d8ea0d21c22809c8d8974eda1827c89917a801f1d7dcd00f7303b039873",
+        "ClientB.dfy": "747b6827cb00be4bd26b2b57ab5b0964acee022302e09004bc64ca1609e23b44",
+        "Facts.dfy": "8d51dd21095c044def17ad0fa679960fec193e0e032b86ba9f637fad7015de7b"
+      }
+    }
+  },
+  {
+    "condition": "separate",
+    "input_kind": "reference",
+    "expected": "SUCCESS",
+    "matches_expectation": true,
+    "result": {
+      "outcome": "SUCCESS",
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.774
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.604
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.682
+        }
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "c7d84e56e6f60419d376b7933916a729870e4fb28d54f8b2002d1b26696a7fb3",
+        "ClientB.dfy": "5c546b146dfdaf0f2b137d26dedb974eba8f0768c8a26fa71815a284b56aecce",
+        "Facts.dfy": "8d51dd21095c044def17ad0fa679960fec193e0e032b86ba9f637fad7015de7b"
+      }
+    }
+  },
+  {
+    "condition": "separate",
+    "input_kind": "missing",
+    "expected": "PROOF_FAILURE",
+    "matches_expectation": true,
+    "result": {
+      "outcome": "PROOF_FAILURE",
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 4,
+          "outcome": "PROOF_FAILURE",
+          "seconds": 1.871
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 4,
+          "outcome": "PROOF_FAILURE",
+          "seconds": 1.682
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 4,
+          "outcome": "PROOF_FAILURE",
+          "seconds": 1.703
+        }
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "45809d8ea0d21c22809c8d8974eda1827c89917a801f1d7dcd00f7303b039873",
+        "ClientB.dfy": "69f3835cd9432aa71e0b6828782c2eb6ecdf07c1956730f6bc158de6feef05ee",
+        "Facts.dfy": "8d51dd21095c044def17ad0fa679960fec193e0e032b86ba9f637fad7015de7b"
+      }
+    }
+  }
+]

@@ -97,3 +97,7 @@ These pilots do not yet constitute a published-baseline reproduction, a comparis
 ## Reasoning-sensitive sharing controls
 
 [sharing-reasoning-001](sharing-reasoning-001/README.md) confirms 46 intended verifier outcomes: reference proofs pass; omitted steps, wrong arguments, and unavailable preconditions fail; hidden alternate helpers produce separately classified resolution errors. The batch reported failure because of a four-case diagnostic wording mismatch (raw 42/46); offline review with a corrected matcher confirms 46/46 without rerunning Dafny. Raw evidence is preserved. No model calls. This validates the fixture, not a model reasoning or sharing-performance claim.
+
+## Eight-call sharing pilot prepared, not dispatched
+
+[sharing-model-pilot-001](sharing-model-pilot-001/README.md) freezes eight proposed independent two-client trials (four shared, four separate), exact prompts and alternating order. Nine offline tests and 12 compute preflight checks pass; reference JSON repairs verify and both exact empty-proof inputs fail as expected. Full preflight logs are archived. Authorized calls remain zero. The offline request builder and evaluator contain no API transport; separate authorization and a bounded durable-ledger adapter are required before any live dispatch.
