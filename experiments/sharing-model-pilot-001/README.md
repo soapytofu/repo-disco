@@ -2,7 +2,7 @@
 
 **Eight calls are now explicitly authorized; no live calls dispatched yet.** The original preparation protocol and frozen bundle remain unchanged. [authorization.json](authorization.json) records the later eight-call authorization. The new [bounded adapter](dispatch.py) sends the frozen messages, persists a ledger before every request, uses one SDK attempt, and refuses to restart its fixed `model-001` output directory. It stops on API errors, verifier timeouts or infrastructure errors under the frozen protocol. Three adapter tests pass using fake transports; these tests made no model calls.
 
-The private credential handoff is currently absent. Staging and submission must wait for the user to prepare it; never put credentials in this repository.
+The user prepared the private credential handoff. Job **54973122** is submitted on shared/sapphire and was pending for priority at submission, with zero dispatched calls. The compute process consumes and deletes the private handoff; no credential is archived. See [submission.json](submission.json).
 
 ## Frozen design
 
