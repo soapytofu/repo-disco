@@ -1,6 +1,8 @@
 # Reasoning-focused sharing fixture
 
-October 23, 2026. Built; verifier-only job **54818785** is queued on `shared`/`sapphire`, with requeue disabled. **No model calls. No verifier findings claimed yet.**
+**Evidence reviewed: all 46 intended outcomes confirmed.** Job 54818785 finished on sapphire in 2 minutes 4 seconds. Its raw status is **FAILED (1:0)** because four hidden-helper diagnostics said `unresolved identifier`, while the original harness expected `does not exist`. The other 42 checks matched automatically. The original failed summary, runner, and all raw logs are preserved in [verification-001](verification-001/). A corrected matcher was tested offline against all 46 recorded results; no verifier rerun was performed. **Zero model calls.**
+
+[Full check table](VERIFICATION.md) · [Separate evidence review](review.json) · [Original batch log](verify-54818785.log).
 
 ## Reasoning target
 
@@ -25,3 +27,9 @@ Three offline tests check matching, protected contracts/provider bytes, and the 
 ## Interpretation limits
 
 This is a designed reasoning-sensitive fixture, not evidence that sharing is intrinsically harder or easier. The two conditions deliberately keep each client's local mathematical proof comparable while changing which provider guarantee is reused. Future evaluation can measure correct intermediate arguments, satisfaction of preconditions, completion of both clients, and repair propagation after a provider change. A model study still requires a frozen edit policy, matched context design, and a new explicit call budget.
+
+## Measured outcome and limits
+
+Both conditions' reference proofs verify. Removing either concatenation step or the final step fails; wrong concatenation arguments and calling Finish before deriving its precondition fail proof obligations. The four attempts to call an alternate helper hidden by the export view fail name resolution, separately classified from reasoning failures. Weakening ConcatA breaks both clients in the shared condition but only ClientA in the separate condition; weakening ConcatB affects only ClientB in the separate condition. Weakened providers themselves verify.
+
+Review checked exact compute/local fixture bytes, every recorded source hash and exit code, and all diagnostics. Three design tests and three diagnostic tests pass. These controls establish sensitivity to intermediate facts, argument choices, and precondition availability in the archived proofs; they do not establish an LLM's reasoning ability or a sharing advantage. Both conditions still share Finish, and the alternate export view is part of the experimental intervention.

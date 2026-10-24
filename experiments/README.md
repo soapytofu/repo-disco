@@ -93,3 +93,7 @@ These pilots do not yet constitute a published-baseline reproduction, a comparis
 - [Proof-call audit](proof-usage-audit-001/README.md): 12 successful composition trials represent three client targets, not 12 independent targets or evidence of cross-client sharing. The later multi-client controls above address that representation gap.
 - [Archive integrity checks](../docs/archive-integrity.md): read-only SHA-256 verification, separate from scientific validity.
 - [Matched corpus design](../docs/controlled-corpus-design.md): proposed controls and metrics for Weeks 5–6, not completed model findings.
+
+## Reasoning-sensitive sharing controls
+
+[sharing-reasoning-001](sharing-reasoning-001/README.md) confirms 46 intended verifier outcomes: reference proofs pass; omitted steps, wrong arguments, and unavailable preconditions fail; hidden alternate helpers produce separately classified resolution errors. The batch reported failure because of a four-case diagnostic wording mismatch (raw 42/46); offline review with a corrected matcher confirms 46/46 without rerunning Dafny. Raw evidence is preserved. No model calls. This validates the fixture, not a model reasoning or sharing-performance claim.

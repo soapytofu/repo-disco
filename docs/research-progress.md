@@ -52,3 +52,7 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 ## Matched reference-sharing control completed (October 23)
 
 [sharing-control-001](../experiments/sharing-control-001/README.md) passed all 22 expected verifier outcomes on the authorized shared-partition rerun. Provider source and client specifications match across conditions; one same-length helper call name differs. Weakening the used shared helper breaks both fixed client proofs; weakening a separately used helper breaks only its client. Equivalent helpers remain available, so this validates reference dependency footprints rather than forcing different reasoning difficulty for a future model. No model calls were made; the preempted partial run is preserved.
+
+## Reasoning-sensitive sharing controls
+
+[sharing-reasoning-001](../experiments/sharing-reasoning-001/README.md) confirms 46 intended verifier outcomes: reference proofs pass; omitted steps, wrong arguments, and unavailable preconditions fail; hidden alternate helpers produce separately classified resolution errors. The batch reported failure because of a four-case diagnostic wording mismatch (raw 42/46); offline review with a corrected matcher confirms 46/46 without rerunning Dafny. Raw evidence is preserved. No model calls. This validates the fixture, not a model reasoning or sharing-performance claim.

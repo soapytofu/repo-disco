@@ -12,6 +12,13 @@ import subprocess
 import time
 
 
+def matches_expected(code, expected_exit, stdout):
+    if expected_exit == 2:
+        return code == 2 and re.search(r"unresolved identifier: Concat[AB]\b", stdout) is not None
+    match = re.search(r"(\d+) verified, (\d+) errors?", stdout)
+    return code == expected_exit and match is not None and (int(match[2]) == 0 if code == 0 else int(match[2]) > 0)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', required=True, type=Path)
@@ -46,7 +53,7 @@ def main():
         (log / 'stdout.txt').write_text(stdout)
         (log / 'stderr.txt').write_text(stderr)
         match = re.search(r'(\d+) verified, (\d+) errors?', stdout)
-        expected = (code == 2 and 'does not exist' in stdout) if check['expected_exit'] == 2 else (code == check['expected_exit'] and match is not None and (int(match[2]) == 0 if code == 0 else int(match[2]) > 0))
+        expected = matches_expected(code, check['expected_exit'], stdout)
         row = dict(check, exit_code=code, matches_expectation=expected, command=command, seconds=round(time.monotonic()-start,3), source_hashes={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(folder.glob('*.dfy'))})
         (log / 'result.json').write_text(json.dumps(row, indent=2)+'\n')
         results.append(row)
