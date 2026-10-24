@@ -1,6 +1,8 @@
 # Eight-call shared-versus-separate pilot: frozen preparation
 
-**Preparation only. Authorized model calls: 0. Proposed future calls: 8.** No API transport, SDK, or credential reader is included in this harness. No model requests have been made. The request builder and response evaluator can be exercised entirely offline; actual dispatch requires separate user authorization and a bounded transport/ledger adapter.
+**Eight calls are now explicitly authorized; no live calls dispatched yet.** The original preparation protocol and frozen bundle remain unchanged. [authorization.json](authorization.json) records the later eight-call authorization. The new [bounded adapter](dispatch.py) sends the frozen messages, persists a ledger before every request, uses one SDK attempt, and refuses to restart its fixed `model-001` output directory. It stops on API errors, verifier timeouts or infrastructure errors under the frozen protocol. Three adapter tests pass using fake transports; these tests made no model calls.
+
+The private credential handoff is currently absent. Staging and submission must wait for the user to prepare it; never put credentials in this repository.
 
 ## Frozen design
 
@@ -27,7 +29,7 @@ The primary outcome is both client files passing the edit guard and whole-reposi
 
 The strict JSON parser rejects duplicate, missing, and extra file keys. It normalizes only outer whitespace and one trailing newline, then requires exact protected client bytes. Proof bodies permit qualified calls and restricted parameter expressions; unknown helper names are left for Dafny to reject. Assumptions, reveals, comments, assertions, contract edits, import changes, and arbitrary file writes are rejected. Provider and aggregate files are copied from frozen inputs. All.dfy verifies with included files first, then each client independently. A timeout or verifier infrastructure error stops remaining verification checks. Every evaluation requires a fresh output directory.
 
-Before future live dispatch, the adapter must check this frozen bundle and the compute preflight, enforce an explicitly authorized eight-request cap, write each dispatch to a durable ledger before sending, preserve ambiguous API outcomes without retrying, and stop the entire batch on an API error, timeout or verifier infrastructure error. Ordinary proof/format failures continue to the next independent planned trial. No repair loop, extra calls, early success stopping, or adaptive prompt edits are permitted. Do not interpret the planned eight calls as current authorization.
+The live adapter is designed to check this frozen bundle and the compute preflight, enforce an explicitly authorized eight-request cap, write each dispatch to a durable ledger before sending, preserve ambiguous API outcomes without retrying, and stop the entire batch on an API error, timeout or verifier infrastructure error. Ordinary proof/format failures continue to the next independent planned trial. No repair loop, extra calls, early success stopping, or adaptive prompt edits are permitted. The authorization above permits one eight-call batch; it does not authorize retries or budget expansion.
 
 ## Offline use
 
