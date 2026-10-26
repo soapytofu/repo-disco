@@ -33,9 +33,8 @@ returned source string as a dictionary; three tests errored. Correcting the
 adapter to consume the documented string return resolved these errors. The frozen
 guard and sources were not changed. This was a test-adapter bug, not a proof result.
 
-Next gate: exercise this candidate path on compute with accepted proof replacements
-and rejected contract edits. The previous repository-backend-001 compute result
-validates the underlying verifier, not this new orchestration path.
+The compute gate below now validates this orchestration path with accepted proof
+replacements and rejected contract edits.
 
 ## Submitted integration
 
@@ -46,4 +45,18 @@ using frozen provider-v1/branch-v1 guards. Both shared and separate fixtures are
 covered, with reference and known incomplete/incorrect proofs. Expected results:
 four verifier successes, four proof failures, four rejected contract edits with
 no verifier invocation. Source objects must remain unchanged after every check.
-Results are pending; `code/`, `guards/` and `fixtures/` pin all submitted inputs.
+Job completed on shared in 47 seconds. All eight verifier outcomes and four
+contract rejections matched. `code/`, `guards/` and `fixtures/` pin all inputs.
+
+Both families passed their reference proofs in both sharing conditions. Missing
+inductive steps caused provider postcondition failures; wrong branch boundaries
+caused client call-precondition failures. No syntax/name-resolution failures
+occurred. All source, code and guard bytes match the submitted and original
+fixtures; base hashes, changed-file sets and unchanged agenda objects were checked.
+No candidate was promoted to the agenda.
+
+Full logs and exact snapshots are in `verification-001/`; `review.json` records
+the audit, reproducible with `review_results.py`. The initial offline review
+matcher omitted Dafny’s words “for this call” in a precondition diagnostic; it
+was corrected after inspecting the raw log. No source or verifier rerun was needed.
+These are integration controls, not evidence of model repair performance.

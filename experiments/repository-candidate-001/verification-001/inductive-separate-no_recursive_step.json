@@ -1,0 +1,46 @@
+{
+  "family": "inductive",
+  "condition": "separate",
+  "variant": "no_recursive_step",
+  "expected_exit": 4,
+  "matched": true,
+  "agenda_bytes_unchanged": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+    "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+    "Facts.dfy": "e0a337a360eba318bc2f86ecc5b9d983995983d3aafb772106e16b8453272a03"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "Facts.dfy(14,11): Error: a postcondition could not be proved on this return path\n   |\n14 |     } else {\n   |            ^\n\nFacts.dfy(8,25): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures Total(s + t) == Total(s) + Total(t)\n  |                          ^^\n\nFacts.dfy(29,11): Error: a postcondition could not be proved on this return path\n   |\n29 |     } else {\n   |            ^\n\nFacts.dfy(23,25): Related location: this is the postcondition that could not be proved\n   |\n23 |     ensures Total(s + t) == Total(s) + Total(t)\n   |                          ^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.2892779659014195,
+  "model_calls": 0,
+  "attempts": 1,
+  "candidate": {
+    "base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "783e2bea8c47b449039736edd74d949b772a22c4e7f9870f25683ce38fdffc3d"
+    },
+    "changed_files": [
+      "Facts.dfy"
+    ],
+    "promoted": false
+  }
+}
