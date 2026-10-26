@@ -1,0 +1,4 @@
+Alternative proof:
+```json
+{"ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if x >= 0 then x else -x))\n  {\n    if 0 <= x {\n      F.Case0A(x);\n    } else {\n      F.Case1A(x);\n    }\n  }\n}\n", "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewA\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\n  {\n    if 0 <= (x - y) {\n      F.Case0A((x - y));\n    } else {\n      F.Case1A((x - y));\n    }\n  }\n}\n"}
+```

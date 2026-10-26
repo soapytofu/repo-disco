@@ -1,0 +1,94 @@
+{
+  "extraction": {
+    "json_start": 27,
+    "json_end": 585,
+    "prefix_chars": 27,
+    "suffix_chars": 4,
+    "extraction": "exact substring; JSON decode only"
+  },
+  "guard_version": "branch-v1",
+  "syntax_trees": {
+    "ClientA.dfy": [
+      {
+        "kind": "if",
+        "condition": {
+          "operator": "<",
+          "left": {
+            "parameter": "x"
+          },
+          "right": {
+            "integer": "0"
+          }
+        },
+        "then": [
+          {
+            "kind": "call",
+            "helper": "Case1A",
+            "argument": {
+              "parameter": "x"
+            }
+          }
+        ],
+        "otherwise": [
+          {
+            "kind": "call",
+            "helper": "Case0A",
+            "argument": {
+              "parameter": "x"
+            }
+          }
+        ]
+      }
+    ],
+    "ClientB.dfy": [
+      {
+        "kind": "if",
+        "condition": {
+          "operator": "<",
+          "left": {
+            "operator": "-",
+            "left": {
+              "parameter": "x"
+            },
+            "right": {
+              "parameter": "y"
+            }
+          },
+          "right": {
+            "integer": "0"
+          }
+        },
+        "then": [
+          {
+            "kind": "call",
+            "helper": "Case1B",
+            "argument": {
+              "operator": "-",
+              "left": {
+                "parameter": "x"
+              },
+              "right": {
+                "parameter": "y"
+              }
+            }
+          }
+        ],
+        "otherwise": [
+          {
+            "kind": "call",
+            "helper": "Case0B",
+            "argument": {
+              "operator": "-",
+              "left": {
+                "parameter": "x"
+              },
+              "right": {
+                "parameter": "y"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+# Branch-aware edit guard v1 (development)
+
+This is a separate guard for the conditional-contract family. It does not modify the frozen tolerant-v1 parser or previous pilots. No model calls are authorized or made.
+
+`json_payload.py` copies the exact one-object extraction rule from tolerant-v1: wrappers may be removed, duplicate keys/ambiguous objects/wrong filenames are rejected, and proof content is not repaired. `branch_guard.py` protects the client prefix and closing bytes, then parses the entire body using a bounded recursive-descent grammar instead of accepting arbitrary Dafny. It returns a syntax tree for auditing, not a proof-dependency graph.
+
+Allowed statements are calls to F.Case0A, F.Case1A, F.Case0B or F.Case1B with one integer expression, and `if comparison { statements }` with optional `else` or `else if`. Expressions use x/y, decimal integers (at most 12 digits), unary +/- and binary +/- with parentheses. Comparisons use <, <=, >, >=, == or !=. Parentheses around arithmetic expressions work; parentheses around an entire comparison are outside this deliberately narrow grammar. Limits: 128 KiB raw response, 2,048 tokens per body, 64 statements, nesting depth 24, and 128 binary operations per expression level. Comments, assertions, assumptions, reveals, loops, attributes, declarations, other calls and trailing tokens are rejected.
+
+The guard is intentionally syntactic: empty proofs and all existing negative-control proofs pass syntax checks. Hidden alternate helper calls can be accepted syntactically and must fail name resolution; call preconditions and proof correctness belong to Dafny. Restricting the grammar constrains which valid solutions a future model may express; it is not a general Dafny parser.
+
+Seven offline test methods cover all 16 existing fixture variants, exact reference/wrapper preservation, alternative branch structures, malformed syntax, forbidden statements, protected edits, duplicate/ambiguous JSON and resource bounds. `guard-tests.log` records the result. The earlier verifier evidence establishes original-reference semantics; alternate branch order and reversed comparison forms are additionally submitted through the actual parser into 12 compute checks in `guard-preflight/` (job 55300965). Those checks are pending. Raw synthetic inputs, extraction offsets and syntax trees are archived; these are handcrafted tests, not model responses.
+
+No future pilot is frozen yet. A new prompt/protocol must explicitly describe the grammar and budget, and wait for these semantic checks and user authorization before making requests.
