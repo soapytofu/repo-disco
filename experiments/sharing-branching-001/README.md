@@ -1,0 +1,15 @@
+# Branch-sensitive shared/separate proof tasks
+
+**Verifier-only development; zero model calls.** Job 55299471 submitted to shared/sapphire with requeue disabled. Verification results are pending; expected outcomes below are hypotheses until checked. Previous frozen pilots are unchanged.
+
+This family changes proof structure instead of lengthening the saturated Lift/Join chain. Each client must prove a nonnegative normalization through opaque Wrap and Good definitions. Case0 requires a nonnegative input; Case1 requires a strictly negative input. With no client preconditions, a correct proof must handle both sign cases. The reference uses a conditional and one appropriately instantiated lemma in each branch. Client A normalizes x, while Client B normalizes x-y, so the same API must be instantiated for a different expression.
+
+Shared clients import ViewA and use Case0A/Case1A. In separate, ClientB imports ViewB and uses equivalent B lemmas. Provider source, specifications and ClientA are identical; ClientB differs only in the view/helper names. Full provider source is visible to a future model, while opaque definitions are hidden from the client verifier. Both conditions share definitions, not zero common code. This tests selection and satisfaction of conditional contracts, not induction, helper-proof synthesis, or a measured model sharing benefit. The reference is not proven minimal and other proof structures may work.
+
+The 34 controls comprise six expected positive checks (whole repository and each client in both conditions) and 28 expected proof failures (each client for seven perturbations): empty proof, unconditional nonnegative call, unconditional negative call, swapped branch helpers, incorrect strict boundary at zero, wrong positive-branch argument, and missing negative branch. Parse/name-resolution errors do not count as intended proof failures. Exact source hashes, commands, versions and diagnostics will be archived after the run. Three offline design tests check matching, protected source and unique control IDs.
+
+## Before any future model batch
+
+This family needs a separate branch-aware edit guard and protocol: the previous call-only parser must not be relaxed in place. Preserve exact imports/contracts/provider bytes; allow a deliberately bounded grammar of integer expressions, comparisons, conditional blocks and qualified lemma calls, excluding assumptions, assertions, reveals, loops, attributes and arbitrary statements. Validate the guard against references, equivalent branch forms, and adversarial edits before freezing any prompts. No paid execution is authorized here.
+
+Names are neutral Case0/Case1 labels but are not counterbalanced; later task instances should consistently permute helper identities and branch order. This is a new structural family relative to Lift/Join, but is development data once inspected. Reserve additional independent families before claiming held-out performance. Do not merge results with prior depth trials or claim a harder model task solely from verifier controls.
