@@ -1,0 +1,12 @@
+ClientA.dfy(7,4): Error: a postcondition could not be proved on this return path
+  |
+7 |     if x >= 0 {
+  |     ^^^^^^^^^^^
+
+ClientA.dfy(5,18): Related location: this is the postcondition that could not be proved
+  |
+5 |     ensures F.Good(F.Wrap(if x >= 0 then x else -x))
+  |                   ^
+
+
+Dafny program verifier finished with 4 verified, 1 error

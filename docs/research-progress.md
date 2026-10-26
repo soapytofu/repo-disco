@@ -64,3 +64,7 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 ## Depth × sharing pilot completed (October 25 Eastern)
 
 [Eight-trial pilot](../experiments/sharing-depth-pilot-001/RESULTS.md): diamond shared 2/2, diamond separate 2/2, nested shared 2/2 and nested separate 2/2. All 24 verifier checks passed using the frozen tolerant parser, with protected source unchanged. Eight distinct requests, no retries, 15,843 total tokens. This is another ceiling result, not evidence of a sharing advantage. Current work remains Weeks 3–4 repository infrastructure and Weeks 5–6 controlled-corpus preparation; published-baseline reproduction, broader held-out evaluation and multi-model comparisons remain outstanding. Next non-paid work should introduce different proof obligations rather than only longer versions of this template.
+
+## Conditional-contract family (verifier only)
+
+[sharing-branching-001](../experiments/sharing-branching-001/README.md) adds sign-case reasoning for two client expressions, with matched shared/separate export views. All 34 controls pass their intended outcomes: six positive reference checks and 28 proof failures. Zero model calls. This diversifies proof structure beyond the saturated straight-line composition family; branch-aware edit validation remains the next gate before any future paid experiment.

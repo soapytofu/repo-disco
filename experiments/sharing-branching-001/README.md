@@ -1,6 +1,6 @@
 # Branch-sensitive shared/separate proof tasks
 
-**Verifier-only development; zero model calls.** Job 55299471 submitted to shared/sapphire with requeue disabled. Verification results are pending; expected outcomes below are hypotheses until checked. Previous frozen pilots are unchanged.
+**Verifier-only development; zero model calls.** Job **55299471 completed on shared in 2m02s**, with requeue disabled. All **34/34 outcomes matched expectations**: six reference checks passed and 28 negative controls failed on proof obligations, with no parse/name-resolution errors. Exact fixture bytes and source hashes were reviewed. Full logs, inputs and environment are in `verification-001/`; `review.json` records the audit. Previous frozen pilots are unchanged.
 
 This family changes proof structure instead of lengthening the saturated Lift/Join chain. Each client must prove a nonnegative normalization through opaque Wrap and Good definitions. Case0 requires a nonnegative input; Case1 requires a strictly negative input. With no client preconditions, a correct proof must handle both sign cases. The reference uses a conditional and one appropriately instantiated lemma in each branch. Client A normalizes x, while Client B normalizes x-y, so the same API must be instantiated for a different expression.
 
