@@ -1,0 +1,322 @@
+[
+  {
+    "variant": "shared_reference",
+    "entry": "All.dfy",
+    "expected_exit": 0,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 1.966,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "1a2f168f6de1c750639c681bc6148bfc79fc09eac758ba2515376f0e82196d29"
+    }
+  },
+  {
+    "variant": "shared_reference",
+    "entry": "ClientA.dfy",
+    "expected_exit": 0,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "ClientA.dfy"
+    ],
+    "seconds": 0.646,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "1a2f168f6de1c750639c681bc6148bfc79fc09eac758ba2515376f0e82196d29"
+    }
+  },
+  {
+    "variant": "shared_reference",
+    "entry": "ClientB.dfy",
+    "expected_exit": 0,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "ClientB.dfy"
+    ],
+    "seconds": 0.743,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "1a2f168f6de1c750639c681bc6148bfc79fc09eac758ba2515376f0e82196d29"
+    }
+  },
+  {
+    "variant": "shared_empty",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 4,
+    "matches_expectation": true,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 2.603,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "d115c7bdef8b34477f3e7743406427a0ec723c57c719ca3d07ca0c29bb0f0562"
+    }
+  },
+  {
+    "variant": "shared_no_recursive_step",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 0.718,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "b07928c64d4c1bb3f16d6c910cfb8438fb3b730f23360c6bb5eff98f1dccc444"
+    }
+  },
+  {
+    "variant": "shared_wrong_recursive_argument",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 0.752,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "fa314ccc5a0fa00724f1a0cb1af87f665b9d0c5d88d6dd5421b034957b144fe7"
+    }
+  },
+  {
+    "variant": "shared_nondecreasing_call",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 1.128,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "Facts.dfy": "2b730f408eeb948a64cb6bccd6697378cc4e25d79d813b9cda3554580f1aa9ef"
+    }
+  },
+  {
+    "variant": "separate_reference",
+    "entry": "All.dfy",
+    "expected_exit": 0,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 1.019,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "de570b040634b1840923758e26d787639dcaba1f867ddf301fae76f1d27dd47e"
+    }
+  },
+  {
+    "variant": "separate_reference",
+    "entry": "ClientA.dfy",
+    "expected_exit": 0,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "ClientA.dfy"
+    ],
+    "seconds": 0.677,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "de570b040634b1840923758e26d787639dcaba1f867ddf301fae76f1d27dd47e"
+    }
+  },
+  {
+    "variant": "separate_reference",
+    "entry": "ClientB.dfy",
+    "expected_exit": 0,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "ClientB.dfy"
+    ],
+    "seconds": 0.69,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "de570b040634b1840923758e26d787639dcaba1f867ddf301fae76f1d27dd47e"
+    }
+  },
+  {
+    "variant": "separate_empty",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 4,
+    "matches_expectation": true,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 2.21,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "783e2bea8c47b449039736edd74d949b772a22c4e7f9870f25683ce38fdffc3d"
+    }
+  },
+  {
+    "variant": "separate_no_recursive_step",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 0.832,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "b42d2aefc6a6555c83f02bca41b67ecbf8d62fec33fe73dab00a8db926a7b107"
+    }
+  },
+  {
+    "variant": "separate_wrong_recursive_argument",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 0.931,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "108fda4830d4e919c69cd7c54c7d8fd706de0d0c6eb3f5302c88bdec34540ea0"
+    }
+  },
+  {
+    "variant": "separate_nondecreasing_call",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 1.057,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "2d204bde22217fc38dc72d7be9cdaf217c60060e50d7feb6a6d95d9a9db432ab"
+    }
+  },
+  {
+    "variant": "separate_only_A_repaired",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 0.755,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "3c997d04969c6461a2b0c48177a449447b7d6835007c15d49b7aad3bad0b5f64"
+    }
+  },
+  {
+    "variant": "separate_only_B_repaired",
+    "entry": "All.dfy",
+    "expected_exit": 4,
+    "exit_code": 2,
+    "matches_expectation": false,
+    "command": [
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "seconds": 1.048,
+    "source_hashes": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+      "Facts.dfy": "71007319bd2840fc6a86e44b7242a3735d29dbac09087386b1b94dcca91b378f"
+    }
+  }
+]
