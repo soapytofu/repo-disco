@@ -1,5 +1,7 @@
 # Inductive provider-proof sharing (verifier-only development)
 
+**Current validated fixture: revision-003.** Job 55305635 passed all **16/16 intended outcomes** on shared in 42 seconds: six reference successes and ten intended proof failures. Original failed runs remain preserved below. No model calls. See [final verification review](revision-003/VERIFICATION.md).
+
 Job **55304418 failed**: all six reference checks fail postcondition proof, while ten negatives have expected exit status. This fixture is **not ready for a model pilot**. Raw evidence and original source are preserved in verification-001; review-001.json records the failure. A deliberate revision with explicit base/unfolding facts is being verified separately. **No model calls.** Three offline design tests pass. Sixteen expected checks are fixed in checks.json; no verified-outcome claim is made until reviewed.
 
 This family moves the missing proof into the provider. Total recursively sums an integer sequence. The target helper proves Total(s+t) = Total(s)+Total(t) by recursion on s. Automatic lemma induction is explicitly disabled in the protected signature, so the candidate must supply an appropriate proof step. The reference recursively calls on s[1..] and t, then establishes the slice-concatenation identity. Dafny still performs normal unfolding and SMT reasoning; this does not disable all proof automation.

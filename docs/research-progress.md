@@ -72,3 +72,7 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 ## Contract-ablation dependence measured
 
 [Branch contract ablations](../experiments/branch-contract-ablation-001/README.md) completed 22/22 expected controls without model calls. Weakening either used shared guarantee breaks both fixed clients; weakening each separately used guarantee breaks only its client. Unused-helper controls remain valid. A per-condition sensitivity matrix links distinct targets to raw evidence; this is fixed-proof dependence, not a model sharing advantage.
+
+## Inductive helper synthesis fixture validated
+
+[Inductive sharing](../experiments/inductive-sharing-001/README.md) revision-003 passes 16/16 expected controls with zero model calls. Immutable clients depend on one shared or two duplicated sequence-sum helper proofs; automatic lemma induction is disabled. The two earlier failed revisions are preserved and classified. This is a new proof-synthesis family, not evidence of model difficulty; a separate provider-body guard is still required.
