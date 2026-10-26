@@ -108,7 +108,7 @@ These pilots do not yet constitute a published-baseline reproduction, a comparis
 
 ## Conditional-contract family (verifier only)
 
-[sharing-branching-001](sharing-branching-001/README.md) adds sign-case reasoning for two client expressions, with matched shared/separate export views. All 34 controls pass their intended outcomes: six positive reference checks and 28 proof failures. Zero model calls. This diversifies proof structure beyond the saturated straight-line composition family; branch-aware edit validation remains the next gate before any future paid experiment.
+[sharing-branching-001](sharing-branching-001/README.md) adds sign-case reasoning for two client expressions, with matched shared/separate export views. All 34 controls pass their intended outcomes: six positive reference checks and 28 proof failures. Zero model calls. This diversifies proof structure beyond the saturated straight-line composition family; branch-v1 guard validation is complete (seven offline tests and 12 semantic preflight passes); no paid trial is authorized.
 
 ## Contract-ablation dependence measured
 
@@ -116,4 +116,16 @@ These pilots do not yet constitute a published-baseline reproduction, a comparis
 
 ## Inductive helper synthesis fixture validated
 
-[Inductive sharing](inductive-sharing-001/README.md) revision-003 passes 16/16 expected controls with zero model calls. Immutable clients depend on one shared or two duplicated sequence-sum helper proofs; automatic lemma induction is disabled. The two earlier failed revisions are preserved and classified. This is a new proof-synthesis family, not evidence of model difficulty; a separate provider-body guard is still required.
+[Inductive sharing](inductive-sharing-001/README.md) revision-003 passes 16/16 expected controls with zero model calls. Immutable clients depend on one shared or two duplicated sequence-sum helper proofs; automatic lemma induction is disabled. The two earlier failed revisions are preserved and classified. This is a new proof-synthesis family, not evidence of model difficulty; provider-v1 guard validation is complete (six offline tests and 12 byte-exact fixture replays).
+
+## Repository workflow integration (October 26 UTC)
+
+| Evidence | Result | Scope |
+| --- | --- | --- |
+| [Multi-client usage audit](multiclient-metrics-001/README.md) | Repeated targets deduplicated; call use separated from ablation evidence | Offline analysis, no calls |
+| [Repository backend](repository-backend-001/README.md) | 4/4 expected outcomes on compute | Real agenda snapshots preserve multi-file sources and included proof obligations |
+| [Guarded candidates](repository-candidate-001/README.md) | 8/8 expected verifier outcomes and 4/4 rejected contract edits | One-provider and two-client changes; no mutation or promotion of agenda sources |
+
+[Current coverage and baseline gaps](../docs/research-progress.md#current-evidence-map-and-coverage-audit-october-26-utc)
+summarizes what these development experiments establish and what remains open.
+No additional model calls were made for these integrations.

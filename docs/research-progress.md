@@ -1,12 +1,12 @@
 # Research progress and next milestone
 
-Status: October 23, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: October 26, 2026 (UTC). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | Tooling, verified single-program generation, extension/repair pilots, and a 50-call format pilot are recorded. Published baseline evaluation is not reproduced. Finalize representation and metric definitions before claiming this phase complete. |
-| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **In progress:** two-module-001 implements a minimal manifest, API/client dependency, whole-repository verification, and protected edit policy. All 12 deterministic checks passed. Claude repaired the provider on its first call with the client unchanged and the whole repository verified. General context construction and generation are not yet implemented. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Follow successful two-module validation; vary structure while matching size/specification counts. |
+| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **In progress:** multi-client fixtures, frozen edit guards, repository verification from real agenda snapshots, and immutable candidate preparation are validated. Automatic repository generation, context selection and transactional promotion/repair scheduling remain open. See the current evidence map below. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Development families now cover composition, conditional preconditions and inductive helper synthesis. Composition pilots saturated; the latter two have verifier controls but no model trials. No frozen representative corpus or held-out family split yet. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -67,7 +67,7 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 
 ## Conditional-contract family (verifier only)
 
-[sharing-branching-001](../experiments/sharing-branching-001/README.md) adds sign-case reasoning for two client expressions, with matched shared/separate export views. All 34 controls pass their intended outcomes: six positive reference checks and 28 proof failures. Zero model calls. This diversifies proof structure beyond the saturated straight-line composition family; branch-aware edit validation remains the next gate before any future paid experiment.
+[sharing-branching-001](../experiments/sharing-branching-001/README.md) adds sign-case reasoning for two client expressions, with matched shared/separate export views. All 34 controls pass their intended outcomes: six positive reference checks and 28 proof failures. Zero model calls. This diversifies proof structure beyond the saturated straight-line composition family; the separate branch-v1 guard now has seven offline tests and 12 semantic preflight passes. A future paid protocol still needs explicit freezing and authorization.
 
 ## Contract-ablation dependence measured
 
@@ -75,4 +75,54 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 
 ## Inductive helper synthesis fixture validated
 
-[Inductive sharing](../experiments/inductive-sharing-001/README.md) revision-003 passes 16/16 expected controls with zero model calls. Immutable clients depend on one shared or two duplicated sequence-sum helper proofs; automatic lemma induction is disabled. The two earlier failed revisions are preserved and classified. This is a new proof-synthesis family, not evidence of model difficulty; a separate provider-body guard is still required.
+[Inductive sharing](../experiments/inductive-sharing-001/README.md) revision-003 passes 16/16 expected controls with zero model calls. Immutable clients depend on one shared or two duplicated sequence-sum helper proofs; automatic lemma induction is disabled. The two earlier failed revisions are preserved and classified. This is a new proof-synthesis family, not evidence of model difficulty; the separate provider-v1 guard now passes six offline tests and exact replay of 12 verified fixtures. Cross-helper delegation is disallowed by this guard and must be disclosed in future prompts.
+
+## Current evidence map and coverage audit (October 26 UTC)
+
+| Development family / integration | Measured evidence | Remaining limitation |
+| --- | --- | --- |
+| [Contract composition](../experiments/composition-pilot-001/README.md) | 15 verifier controls; full source 6/6 and source plus map 6/6 model successes | Three designed tasks, ceiling; no map benefit shown |
+| [Depth × sharing](../experiments/sharing-depth-pilot-001/RESULTS.md) | Four cells each 2/2; 24 verifier passes | Two related Lift/Join shapes, repeated trials; not eight independent tasks |
+| [Conditional contracts](../experiments/sharing-branching-001/README.md) | 34 controls, branch guard with 12 semantic checks | No model results; hand-developed family |
+| [Inductive helper synthesis](../experiments/inductive-sharing-001/README.md) | Revision-003: 16 expected outcomes; provider guard validated | No model results; one versus two editable helper bodies changes workload/source size; copied proofs remain possible |
+| [Multi-client metrics](../experiments/multiclient-metrics-001/README.md) | Distinct-target call usage and separately linked ablation dependence | Call reuse is not proof minimality or a causal model effect |
+| [Agenda → repository verifier](../experiments/repository-backend-001/README.md) | Four expected real compute outcomes; source bytes/hashes retained | Explicit, quiescent snapshot only; no automatic context selection |
+| [Guarded candidate → verifier](../experiments/repository-candidate-001/README.md) | Eight expected compute outcomes plus four contract rejections; original agenda objects unchanged | No candidate promotion, concurrency transaction or model repair worker |
+
+All these inspected families belong to development. Renaming helpers or generating
+more instances from them would not establish a new held-out family. Counts above
+mix different types of evidence intentionally labeled in each row; do not sum
+control checks, repeated requests and distinct tasks into a benchmark sample size.
+The [offline extraction diagnostic](../experiments/sharing-extraction-diagnostic-001/README.md)
+recovers proofs from the earlier strict-parser pilot; those post-hoc results do
+not replace that pilot's original format failures.
+
+## Baseline reproduction audit: concrete open gates
+
+This is a local workflow/configuration audit, not a paper reproduction or a claim
+that current upstream defaults exactly match the paper's experimental setup.
+
+- The first RepoDisco pilot uses one custom seed, no sampled documentation, one
+  attempt and an OpenAI model ([config](../config/repodisco_pilot.yaml)). It proves
+  setup and generation, not reproduction of the discovery/evaluation baseline.
+- The checked-in [discovery config](../config/scheduler/disco_opus.yaml) uses three
+  workers and `data/gh-readmes-100k.jsonl`. That data directory is absent from this
+  publishing checkout. Availability on other machines has not been audited here.
+- The [monolithic config](../config/scheduler/monolithic_claude_opus.yaml) leaves
+  its README source commented out, unlike discovery; token limits also differ in
+  explicitness. An apples-to-apples new comparison needs resolved seed/context,
+  token, call and repair budgets, not simply launching both defaults.
+- The default [evaluation config](../config/eval.yaml) uses the
+  [DafnyBench path](../config/data/dafnybench.yaml) and a
+  [32-attempt fixer](../config/task/fixer.yaml). Dataset revision/content hashes,
+  task selection, trivial-task filtering and budgets must be pinned first.
+- Agenda `max_attempts` is not a universal API-request cap: the iterative worker
+  can perform several repair requests within one unit of fuel. Reuse the bounded
+  request ledger before any future paid baseline run; no such run is authorized
+  by these non-paid audits.
+
+Next experimental decision: prioritize either a small frozen conditional/inductive
+pilot to test whether the new obligations avoid the ceiling, or a precisely
+specified baseline reproduction. Neither requires more near-duplicate fixture
+variants now. Before training or broad evaluation, agree on family-level splits,
+a matched model/agent comparison and a separately authorized request budget.

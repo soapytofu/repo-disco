@@ -15,6 +15,8 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **[Multi-client proof sharing](experiments/shared-proof-001/README.md):** 16 deterministic controls validate two client proofs depending on one lemma. The [matched reference control](experiments/sharing-control-001/README.md) passed 22 checks comparing shared versus separate helper calls. Both are verifier-only experiments with zero model calls; the latter does not force a different model solution because equivalent helpers remain available.
 
+**Current status (October 26 UTC):** the [depth × sharing pilot](experiments/sharing-depth-pilot-001/RESULTS.md) verified all eight trials, a ceiling result. Conditional and inductive families now have verifier controls and protected edit guards. [Repository candidate integration](experiments/repository-candidate-001/README.md) validates guarded multi-file edits without changing original agenda objects. See the [coverage audit and remaining baseline gaps](docs/research-progress.md#current-evidence-map-and-coverage-audit-october-26-utc); published-baseline reproduction and held-out/multi-model evaluation remain open.
+
 ---
 
 [![arXiv](https://img.shields.io/badge/arXiv-2607.04631-pink.svg)](https://arxiv.org/abs/2607.04631)
