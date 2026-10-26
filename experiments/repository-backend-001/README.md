@@ -38,3 +38,13 @@ Run offline checks from the repository root:
 ```
 python3 -m unittest discover -s tests -p test_repository_verification.py -v
 ```
+
+## Compute integration submission
+
+Job **55308603** runs four checks on shared/sapphire with no requeue: shared and
+separate reference proofs (expected success) and empty helper bodies (expected
+proof failures). The runner uses real `LocalAgenda` objects, copies explicit
+source snapshots, checks unchanged object bytes and records hashes and raw
+diagnostics. `code/` pins the imported implementation; `fixtures/` copies the
+previously validated revision-003 source exactly. Results are pending. No model
+requests are involved.
