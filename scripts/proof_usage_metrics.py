@@ -52,10 +52,67 @@ def measure(rows, task_maps):
             'proof_prerequisite_depth': None}
 
 
+def measure_multiclient(rows, repositories, ablations=None):
+    """Aggregate audited observations; identities are scoped by repository.
+
+    Evidence strings identify upstream reviewed records; this function does not
+    execute proofs or independently attest those records. Ablations, when given,
+    must cover every registered helper/target pair, including unaffected targets.
+    """
+    seen=set();observed=defaultdict(set);successful_targets=set();trial_targets=defaultdict(set);trials=[]
+    for row in rows:
+        required={'repository','trial','target','outcome','called_symbols','evidence'}
+        if not required <= row.keys() or not row['evidence']:raise ValueError('Missing observation evidence')
+        repo,target=row['repository'],row['target'];key=(repo,row['trial'],target)
+        if repo not in repositories or target not in repositories[repo]['targets']:raise ValueError('Unknown repository/target')
+        if key in seen:raise ValueError('Duplicate trial target')
+        seen.add(key);trial_targets[(repo,row['trial'])].add(target)
+        bindings=repositories[repo]['targets'][target];resolved=[]
+        if not isinstance(row['called_symbols'],list):raise ValueError('Calls must be a list')
+        for call in row['called_symbols']:
+            parts=call.split('.')
+            if len(parts)!=2 or parts[0] not in bindings:raise ValueError('Unknown alias')
+            symbol=bindings[parts[0]]+'.'+parts[1]
+            if symbol not in repositories[repo]['symbols']:raise ValueError('Unknown helper definition')
+            resolved.append(symbol)
+        if row['outcome']=='SUCCESS':
+            successful_targets.add((repo,target))
+            for symbol in resolved:observed[(repo,symbol)].add(target)
+        trials.append(dict(repository=repo,trial=row['trial'],target=target,outcome=row['outcome'],resolved_calls=resolved,evidence=row['evidence']))
+    if {repo for repo,trial in trial_targets}!=set(repositories):raise ValueError('Missing repository observations')
+    for (repo,trial),targets in trial_targets.items():
+        if targets!=set(repositories[repo]['targets']):raise ValueError('Incomplete client trial')
+    dependence=[]
+    if ablations is not None:
+        matrix={}
+        for row in ablations:
+            required={'repository','symbol','target','baseline_exit','ablated_exit','evidence'}
+            if not required<=row.keys() or not row['evidence']:raise ValueError('Missing ablation evidence')
+            repo,symbol,target=row['repository'],row['symbol'],row['target'];key=(repo,symbol,target)
+            if repo not in repositories or target not in repositories[repo]['targets'] or symbol not in repositories[repo]['symbols']:raise ValueError('Unknown ablation identity')
+            if key in matrix:raise ValueError('Duplicate/conflicting ablation')
+            if row['baseline_exit']!=0 or row['ablated_exit'] not in (0,4):raise ValueError('Invalid baseline or non-proof failure')
+            matrix[key]=row
+        expected={(repo,symbol,target) for repo,spec in repositories.items() for symbol in spec['symbols'] for target in spec['targets']}
+        if set(matrix)!=expected:raise ValueError('Incomplete ablation matrix')
+        for repo,spec in sorted(repositories.items()):
+            for symbol in sorted(spec['symbols']):
+                selected=[matrix[(repo,symbol,t)] for t in sorted(spec['targets'])]
+                affected=[r['target'] for r in selected if r['ablated_exit']==4]
+                dependence.append(dict(repository=repo,symbol=symbol,affected_targets=affected,affected_count=len(affected),evidence=[r['evidence'] for r in selected]))
+    usage=[dict(repository=repo,symbol=symbol,distinct_targets=sorted(targets),target_count=len(targets)) for (repo,symbol),targets in sorted(observed.items())]
+    return dict(schema_version=2,distinct_successful_targets=len(successful_targets),observed_usage=usage,trial_calls=trials,ablation_dependence=dependence if ablations is not None else None,proof_prerequisite_depth=None,scope_note='Observed calls and fixed-proof contract sensitivity are separate. Repeats are not new targets; equal names across repositories are not shared definitions. No proof minimality or model effect is inferred.')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('experiment', type=Path)
+    parser.add_argument('--multiclient', action='store_true', help='Read an audited multi-client evidence JSON bundle')
     args = parser.parse_args()
+    if args.multiclient:
+        data=json.loads(args.experiment.read_text())
+        print(json.dumps(measure_multiclient(data['observations'],data['repositories'],data.get('ablations')),indent=2,sort_keys=True))
+        return
     run = args.experiment / 'pilot-001'
     ledger = json.loads((run / 'ledger.json').read_text())
     maps = {p.parent.name: json.loads(p.read_text()) for p in (run / 'inputs').glob('*/dependency-map.json')}

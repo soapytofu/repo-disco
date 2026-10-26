@@ -1,0 +1,371 @@
+{
+  "schema_version": 2,
+  "distinct_successful_targets": 8,
+  "observed_usage": [
+    {
+      "repository": "depth/diamond/separate",
+      "symbol": "Facts.Finish",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "symbol": "Facts.JoinA",
+      "distinct_targets": [
+        "ClientA.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "symbol": "Facts.JoinB",
+      "distinct_targets": [
+        "ClientB.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "symbol": "Facts.LiftA",
+      "distinct_targets": [
+        "ClientA.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "symbol": "Facts.LiftB",
+      "distinct_targets": [
+        "ClientB.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "symbol": "Facts.Finish",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "symbol": "Facts.JoinA",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "symbol": "Facts.LiftA",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/nested/separate",
+      "symbol": "Facts.Finish",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/nested/separate",
+      "symbol": "Facts.JoinA",
+      "distinct_targets": [
+        "ClientA.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/nested/separate",
+      "symbol": "Facts.JoinB",
+      "distinct_targets": [
+        "ClientB.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/nested/separate",
+      "symbol": "Facts.LiftA",
+      "distinct_targets": [
+        "ClientA.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/nested/separate",
+      "symbol": "Facts.LiftB",
+      "distinct_targets": [
+        "ClientB.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "depth/nested/shared",
+      "symbol": "Facts.Finish",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/nested/shared",
+      "symbol": "Facts.JoinA",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "depth/nested/shared",
+      "symbol": "Facts.LiftA",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    }
+  ],
+  "trial_calls": [
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 1,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/01-diamond-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 1,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/01-diamond-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 2,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/02-diamond-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 2,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftB",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/02-diamond-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 3,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/03-nested-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 3,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftB",
+        "Facts.LiftB",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/03-nested-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 4,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/04-nested-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 4,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/04-nested-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 5,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/05-nested-shared-r2/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 5,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/05-nested-shared-r2/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 6,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/06-nested-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 6,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftB",
+        "Facts.LiftB",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/06-nested-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 7,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/07-diamond-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 7,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftB",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/07-diamond-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 8,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/08-diamond-shared-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 8,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.LiftA",
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/08-diamond-shared-r2/result.json"
+    }
+  ],
+  "ablation_dependence": null,
+  "proof_prerequisite_depth": null,
+  "scope_note": "Observed calls and fixed-proof contract sensitivity are separate. Repeats are not new targets; equal names across repositories are not shared definitions. No proof minimality or model effect is inferred."
+}

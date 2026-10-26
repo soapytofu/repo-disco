@@ -35,5 +35,32 @@ class ProofUsageTests(unittest.TestCase):
                 module.measure(rows, maps)
 
 
+
+class MultiClientTests(unittest.TestCase):
+    def fixture(self):
+        maps={'repo':{'targets':{'A':{'F':'Facts'},'B':{'F':'Facts'}},'symbols':['Facts.L']}}
+        rows=[dict(repository='repo',trial=i,target=t,outcome='SUCCESS',called_symbols=['F.L'],evidence='reviewed/result.json') for i in [1,2] for t in ['A','B']]
+        abl=[dict(repository='repo',symbol='Facts.L',target=t,baseline_exit=0,ablated_exit=4,evidence='reviewed/ablation.json') for t in ['A','B']]
+        return maps,rows,abl
+    def test_distinct_targets_and_dependence(self):
+        maps,rows,abl=self.fixture();r=module.measure_multiclient(rows,maps,abl)
+        self.assertEqual(r['distinct_successful_targets'],2);self.assertEqual(r['observed_usage'][0]['target_count'],2)
+        self.assertEqual(r['ablation_dependence'][0]['affected_count'],2);self.assertIsNone(r['proof_prerequisite_depth'])
+    def test_unmeasured_is_not_zero_and_repository_scope(self):
+        maps,rows,abl=self.fixture();maps['other']=maps['repo'];rows += [dict(x,repository='other') for x in rows]
+        result=module.measure_multiclient(rows,maps);self.assertEqual(len(result['observed_usage']),2);self.assertIsNone(result['ablation_dependence'])
+    def test_missing_duplicate_conflicting_or_nonproof_evidence(self):
+        maps,rows,abl=self.fixture()
+        for bad_rows,bad_abl in [(rows+rows[:1],abl),(rows[:-1],abl),(rows,abl[:-1]),(rows,abl+abl[:1]),(rows,[dict(abl[0],ablated_exit=2),abl[1]]),(rows,[dict(abl[0],baseline_exit=4),abl[1]]),(rows,[dict(abl[0],evidence=''),abl[1]])]:
+            with self.assertRaises(ValueError):module.measure_multiclient(bad_rows,maps,bad_abl)
+    def test_missing_observation_evidence_and_unknown_definitions(self):
+        maps,rows,abl=self.fixture()
+        for change in [dict(evidence=''),dict(called_symbols=['F.Unknown']),dict(called_symbols=['X.L']),dict(target='Unknown')]:
+            with self.assertRaises(ValueError):module.measure_multiclient([dict(rows[0],**change)]+rows[1:],maps,abl)
+
+    def test_failed_trials_not_counted_as_successful_reuse(self):
+        maps,rows,_=self.fixture();rows=[dict(r,outcome='PROOF_FAILURE') for r in rows]
+        self.assertEqual(module.measure_multiclient(rows,maps)['observed_usage'],[])
+
 if __name__ == '__main__':
     unittest.main()

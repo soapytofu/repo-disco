@@ -1,0 +1,200 @@
+{
+  "schema_version": 2,
+  "distinct_successful_targets": 4,
+  "observed_usage": [
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0A",
+      "distinct_targets": [
+        "ClientA.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0B",
+      "distinct_targets": [
+        "ClientB.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1A",
+      "distinct_targets": [
+        "ClientA.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1B",
+      "distinct_targets": [
+        "ClientB.Prove"
+      ],
+      "target_count": 1
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0A",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1A",
+      "distinct_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "target_count": 2
+    }
+  ],
+  "trial_calls": [
+    {
+      "repository": "branch-reference/shared",
+      "trial": "reference",
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.Case0A",
+        "Facts.Case1A"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_reference/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "trial": "reference",
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.Case0A",
+        "Facts.Case1A"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_reference/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "trial": "reference",
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.Case0A",
+        "Facts.Case1A"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_reference/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "trial": "reference",
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "resolved_calls": [
+        "Facts.Case0B",
+        "Facts.Case1B"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_reference/ClientB/result.json"
+    }
+  ],
+  "ablation_dependence": [
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0A",
+      "affected_targets": [
+        "ClientA.Prove"
+      ],
+      "affected_count": 1,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0A/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0A/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0B",
+      "affected_targets": [
+        "ClientB.Prove"
+      ],
+      "affected_count": 1,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0B/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0B/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1A",
+      "affected_targets": [
+        "ClientA.Prove"
+      ],
+      "affected_count": 1,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1A/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1A/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1B",
+      "affected_targets": [
+        "ClientB.Prove"
+      ],
+      "affected_count": 1,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1B/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1B/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0A",
+      "affected_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "affected_count": 2,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0A/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0A/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0B",
+      "affected_targets": [],
+      "affected_count": 0,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0B/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0B/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1A",
+      "affected_targets": [
+        "ClientA.Prove",
+        "ClientB.Prove"
+      ],
+      "affected_count": 2,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1A/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1A/ClientB/result.json"
+      ]
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1B",
+      "affected_targets": [],
+      "affected_count": 0,
+      "evidence": [
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1B/ClientA/result.json",
+        "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1B/ClientB/result.json"
+      ]
+    }
+  ],
+  "proof_prerequisite_depth": null,
+  "scope_note": "Observed calls and fixed-proof contract sensitivity are separate. Repeats are not new targets; equal names across repositories are not shared definitions. No proof minimality or model effect is inferred."
+}

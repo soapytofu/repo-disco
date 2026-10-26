@@ -1,0 +1,212 @@
+{
+  "repositories": {
+    "branch-reference/shared": {
+      "targets": {
+        "ClientA.Prove": {
+          "F": "Facts"
+        },
+        "ClientB.Prove": {
+          "F": "Facts"
+        }
+      },
+      "symbols": [
+        "Facts.Case0A",
+        "Facts.Case1A",
+        "Facts.Case0B",
+        "Facts.Case1B"
+      ]
+    },
+    "branch-reference/separate": {
+      "targets": {
+        "ClientA.Prove": {
+          "F": "Facts"
+        },
+        "ClientB.Prove": {
+          "F": "Facts"
+        }
+      },
+      "symbols": [
+        "Facts.Case0A",
+        "Facts.Case1A",
+        "Facts.Case0B",
+        "Facts.Case1B"
+      ]
+    }
+  },
+  "observations": [
+    {
+      "repository": "branch-reference/shared",
+      "trial": "reference",
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.Case0A",
+        "F.Case1A"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_reference/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "trial": "reference",
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.Case0A",
+        "F.Case1A"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_reference/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "trial": "reference",
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.Case0A",
+        "F.Case1A"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_reference/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "trial": "reference",
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.Case0B",
+        "F.Case1B"
+      ],
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_reference/ClientB/result.json"
+    }
+  ],
+  "ablations": [
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0A",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0A/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0A",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0A/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1A",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1A/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1A",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1A/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0B",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0B/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case0B",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case0B/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1B",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1B/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/shared",
+      "symbol": "Facts.Case1B",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/shared_Case1B/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0A",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0A/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0A",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0A/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1A",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1A/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1A",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1A/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0B",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0B/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case0B",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case0B/ClientB/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1B",
+      "target": "ClientA.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 0,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1B/ClientA/result.json"
+    },
+    {
+      "repository": "branch-reference/separate",
+      "symbol": "Facts.Case1B",
+      "target": "ClientB.Prove",
+      "baseline_exit": 0,
+      "ablated_exit": 4,
+      "evidence": "experiments/branch-contract-ablation-001/verification-001/logs/separate_Case1B/ClientB/result.json"
+    }
+  ]
+}

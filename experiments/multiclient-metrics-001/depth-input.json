@@ -1,0 +1,298 @@
+{
+  "repositories": {
+    "depth/diamond/shared": {
+      "targets": {
+        "ClientA.Prove": {
+          "F": "Facts"
+        },
+        "ClientB.Prove": {
+          "F": "Facts"
+        }
+      },
+      "symbols": [
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ]
+    },
+    "depth/diamond/separate": {
+      "targets": {
+        "ClientA.Prove": {
+          "F": "Facts"
+        },
+        "ClientB.Prove": {
+          "F": "Facts"
+        }
+      },
+      "symbols": [
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ]
+    },
+    "depth/nested/separate": {
+      "targets": {
+        "ClientA.Prove": {
+          "F": "Facts"
+        },
+        "ClientB.Prove": {
+          "F": "Facts"
+        }
+      },
+      "symbols": [
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ]
+    },
+    "depth/nested/shared": {
+      "targets": {
+        "ClientA.Prove": {
+          "F": "Facts"
+        },
+        "ClientB.Prove": {
+          "F": "Facts"
+        }
+      },
+      "symbols": [
+        "Facts.LiftA",
+        "Facts.JoinA",
+        "Facts.LiftB",
+        "Facts.JoinB",
+        "Facts.Finish"
+      ]
+    }
+  },
+  "observations": [
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 1,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/01-diamond-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 1,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/01-diamond-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 2,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/02-diamond-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 2,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftB",
+        "F.LiftB",
+        "F.JoinB",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/02-diamond-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 3,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/03-nested-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 3,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftB",
+        "F.LiftB",
+        "F.LiftB",
+        "F.JoinB",
+        "F.JoinB",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/03-nested-separate-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 4,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/04-nested-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 4,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/04-nested-shared-r1/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 5,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/05-nested-shared-r2/result.json"
+    },
+    {
+      "repository": "depth/nested/shared",
+      "trial": 5,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/05-nested-shared-r2/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 6,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/06-nested-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/nested/separate",
+      "trial": 6,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftB",
+        "F.LiftB",
+        "F.LiftB",
+        "F.JoinB",
+        "F.JoinB",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/06-nested-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 7,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/07-diamond-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/separate",
+      "trial": 7,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftB",
+        "F.LiftB",
+        "F.JoinB",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/07-diamond-separate-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 8,
+      "target": "ClientA.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/08-diamond-shared-r2/result.json"
+    },
+    {
+      "repository": "depth/diamond/shared",
+      "trial": 8,
+      "target": "ClientB.Prove",
+      "outcome": "SUCCESS",
+      "called_symbols": [
+        "F.LiftA",
+        "F.LiftA",
+        "F.JoinA",
+        "F.Finish"
+      ],
+      "evidence": "experiments/sharing-depth-pilot-001/model-001/08-diamond-shared-r2/result.json"
+    }
+  ]
+}
