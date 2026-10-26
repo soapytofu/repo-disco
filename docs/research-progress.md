@@ -121,6 +121,32 @@ that current upstream defaults exactly match the paper's experimental setup.
   request ledger before any future paid baseline run; no such run is authorized
   by these non-paid audits.
 
+### Bounded-adapter reuse audit
+
+The [completed depth pilot adapter](../experiments/sharing-depth-pilot-001/dispatch.py)
+is a fixed eight-request sequential dispatcher, not a drop-in model wrapper for
+baseline workers. It durably records dispatch before transport, refuses an
+existing output directory and stops on an ambiguous API error. Its live transport
+sets SDK total attempts to one. Preserve this frozen implementation and its logs.
+
+A future worker-compatible adapter must enforce a shared request budget at every
+`invoke`, including internal repairs, while recording the actual dynamically
+constructed prompt and task/attempt identity. It must latch closed after an
+ambiguous transport error even if a worker catches the exception. Distributed
+workers additionally need one coordinated reservation mechanism; independent
+per-process counters cannot enforce a global cap. The existing fixed-batch tests
+do not validate that future wrapper or concurrent dispatch.
+
+The existing adapter checks its authorization deadline before starting the batch,
+not at each request. Any future long-running worker adapter should check the
+execution window before each dispatch. This observation does not invalidate the
+completed pilot, whose recorded requests finished within its authorized window.
+The monolithic worker also initializes its own unseeded `random.Random()` for
+README sampling; the evaluation script's shuffle seed does not freeze that stream.
+For a controlled new comparison, freeze explicit input order or separately seed
+and record all sampling streams. No workers or provider clients were instantiated
+during this source audit, and no live requests were made.
+
 Next experimental decision: prioritize either a small frozen conditional/inductive
 pilot to test whether the new obligations avoid the ceiling, or a precisely
 specified baseline reproduction. Neither requires more near-duplicate fixture
