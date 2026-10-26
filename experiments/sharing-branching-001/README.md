@@ -13,3 +13,7 @@ The 34 controls comprise six expected positive checks (whole repository and each
 This family needs a separate branch-aware edit guard and protocol: the previous call-only parser must not be relaxed in place. Preserve exact imports/contracts/provider bytes; allow a deliberately bounded grammar of integer expressions, comparisons, conditional blocks and qualified lemma calls, excluding assumptions, assertions, reveals, loops, attributes and arbitrary statements. Validate the guard against references, equivalent branch forms, and adversarial edits before freezing any prompts. No paid execution is authorized here.
 
 Names are neutral Case0/Case1 labels but are not counterbalanced; later task instances should consistently permute helper identities and branch order. This is a new structural family relative to Lift/Join, but is development data once inspected. Reserve additional independent families before claiming held-out performance. Do not merge results with prior depth trials or claim a harder model task solely from verifier controls.
+
+## Branch guard validation completed
+
+The separate [branch-v1 guard](GUARD.md) now passes seven offline test methods and 12/12 compute preflight checks of parsed alternative branch forms (job 55300965). Exact guarded sources and parser hashes were reviewed. `guard-freeze.json` pins this validated version. No model experiment is authorized or run, and the prior frozen parser remains unchanged.
