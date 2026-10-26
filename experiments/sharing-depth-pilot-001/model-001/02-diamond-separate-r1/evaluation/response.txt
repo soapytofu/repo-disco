@@ -1,0 +1,27 @@
+I need to figure out what lemmas are available in each view and how to prove the goals.
+
+**ViewA exports:** Value, Step, Pair, Large, LiftA, JoinA, Finish
+
+**ViewB exports:** Value, Step, Pair, Large, LiftB, JoinB, Finish
+
+**ClientA goal:** Given `F.Value(s) > k`, prove `F.Large(F.Pair(F.Step(s), F.Step(t)), k + 2)`
+
+Strategy:
+1. Use `LiftA(s)` to get `Value(Step(s)) == Value(s) + 1`, so `Value(Step(s)) > k+1`, meaning `Value(Step(s)) >= k+2 > 0`
+2. Use `LiftA(t)` to get `Value(Step(t)) == Value(t) + 1 >= 1 > 0`
+3. Use `JoinA(Step(s), Step(t))` requires both `Value(Step(s)) > 0` and `Value(Step(t)) > 0`, gives `Value(Pair(Step(s), Step(t))) == Value(Step(s)) + Value(Step(t))`
+4. Value(Step(s)) >= k+2, Value(Step(t)) >= 1, so Value(Pair(Step(s), Step(t))) >= k+3 > k+2
+5. Use `Finish(Pair(Step(s), Step(t)), k+2)` to get `Large(Pair(Step(s), Step(t)), k+2)`
+
+Wait, but Finish requires `Value(x) > k`, so `Value(Pair(Step(s), Step(t))) > k+2`. We have Value(Step(s)) = Value(s)+1 > k+1, so Value(Step(s)) >= k+2. And Value(Step(t)) = Value(t)+1 >= 1. Sum >= k+3 > k+2. Good.
+
+**ClientB goal:** Given `F.Value(t) > k`, prove `F.Large(F.Pair(F.Step(t), F.Step(u)), k + 2)`
+
+Same pattern with LiftB, JoinB, Finish.
+
+```json
+{
+  "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(s) > k\n    ensures F.Large(F.Pair(F.Step(s), F.Step(t)), k + 2)\n  {\n    F.LiftA(s);\n    F.LiftA(t);\n    F.JoinA(F.Step(s), F.Step(t));\n    F.Finish(F.Pair(F.Step(s), F.Step(t)), k + 2);\n  }\n}\n",
+  "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(t) > k\n    ensures F.Large(F.Pair(F.Step(t), F.Step(u)), k + 2)\n  {\n    F.LiftB(t);\n    F.LiftB(u);\n    F.JoinB(F.Step(t), F.Step(u));\n    F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);\n  }\n}\n"
+}
+```

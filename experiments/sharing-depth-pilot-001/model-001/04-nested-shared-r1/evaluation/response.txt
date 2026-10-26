@@ -1,0 +1,28 @@
+I need to prove that `F.Large(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3)` given `F.Value(s) > k`.
+
+Let me trace through the logic:
+- `F.Value(s) > k` (given)
+- `F.LiftA(s)` gives `F.Value(F.Step(s)) == F.Value(s) + 1`, so `F.Value(F.Step(s)) > k` (actually `>= k+1`)
+- `F.LiftA(t)` gives `F.Value(F.Step(t)) == F.Value(t) + 1 >= 1 > 0`
+- `F.LiftA(u)` gives `F.Value(F.Step(u)) == F.Value(u) + 1 >= 1 > 0`
+- `F.JoinA(F.Step(s), F.Step(t))` requires both `> 0`, gives `F.Value(F.Pair(F.Step(s), F.Step(t))) == F.Value(F.Step(s)) + F.Value(F.Step(t))`
+- Then `F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u))` gives the sum
+- `F.Finish(...)` converts to `Large`
+
+Let me work out the values:
+- `F.Value(F.Step(s)) = F.Value(s) + 1 > k + 1`... wait, `> k` means `>= k+1`, so `F.Value(F.Step(s)) >= k+2`
+- `F.Value(F.Step(t)) >= 1`, `F.Value(F.Step(u)) >= 1`
+- `F.Value(F.Pair(F.Step(s), F.Step(t))) = F.Value(F.Step(s)) + F.Value(F.Step(t)) >= k+2+1 = k+3`
+- `F.Value(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u))) = F.Value(F.Pair(F.Step(s), F.Step(t))) + F.Value(F.Step(u)) >= k+3+1 = k+4 > k+3`
+
+So we need: LiftA for s, t, u; JoinA for the pairs; then Finish.
+
+For ClientA (using s):
+For ClientB (using t instead of s):
+
+```json
+{
+  "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(s) > k\n    ensures F.Large(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3)\n  {\n    F.LiftA(s);\n    F.LiftA(t);\n    F.LiftA(u);\n    F.JoinA(F.Step(s), F.Step(t));\n    F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u));\n    F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3);\n  }\n}\n",
+  "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(t) > k\n    ensures F.Large(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3)\n  {\n    F.LiftA(t);\n    F.LiftA(u);\n    F.LiftA(s);\n    F.JoinA(F.Step(t), F.Step(u));\n    F.JoinA(F.Pair(F.Step(t), F.Step(u)), F.Step(s));\n    F.Finish(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3);\n  }\n}\n"
+}
+```

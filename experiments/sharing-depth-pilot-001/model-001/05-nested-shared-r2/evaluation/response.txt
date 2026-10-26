@@ -1,0 +1,35 @@
+I need to prove that `F.Large(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3)` given `F.Value(s) > k`.
+
+Let me trace through the logic:
+- `F.LiftA(s)` gives `Value(Step(s)) == Value(s) + 1`, so `Value(Step(s)) > k` (since `Value(s) > k` means `Value(s) >= k+1`, so `Value(Step(s)) >= k+2 > k+1`)
+- `Step(s)` and `Step(t)` are both > 0 (since Step(x) = x+1 >= 1, so Value(Step(x)) >= 1 > 0)
+- `F.LiftA(t)` gives `Value(Step(t)) == Value(t) + 1 >= 1 > 0`
+- `F.LiftA(u)` gives `Value(Step(u)) == Value(u) + 1 >= 1 > 0`
+- `F.JoinA(Step(s), Step(t))` requires both > 0, gives `Value(Pair(Step(s), Step(t))) == Value(Step(s)) + Value(Step(t))`
+  - This equals `(Value(s)+1) + (Value(t)+1) = Value(s) + Value(t) + 2 >= k+1 + 1 + 1 = k+3 > k+2`... wait, need > k+3? No, need > k+3? The goal is `Large(_, k+3)` which means `Value(_) > k+3`.
+
+Let me recount: `Value(s) > k` means `Value(s) >= k+1`. 
+- `Value(Step(s)) = Value(s)+1 >= k+2`
+- `Value(Step(t)) = Value(t)+1 >= 1`
+- `Value(Pair(Step(s),Step(t))) = Value(Step(s)) + Value(Step(t)) >= k+2+1 = k+3`... but need > k+3.
+
+Hmm, `Value(Step(t)) >= 1`, and `Value(Step(s)) >= k+2`, so sum >= k+3. But we need > k+3, i.e., >= k+4.
+
+Wait: `Value(s) > k` means `>= k+1`, `Value(Step(s)) >= k+2`, `Value(Step(t)) >= 1` (since t is nat, Step(t) = t+1 >= 1). Sum >= k+3. Then `Value(Pair(Pair(Step(s),Step(t)),Step(u))) = Value(Pair(Step(s),Step(t))) + Value(Step(u)) >= k+3 + 1 = k+4 > k+3`. ✓
+
+So the proof steps for ClientA:
+1. `F.LiftA(s)` → Value(Step(s)) = Value(s)+1
+2. `F.LiftA(t)` → Value(Step(t)) = Value(t)+1 (> 0)
+3. `F.LiftA(u)` → Value(Step(u)) = Value(u)+1 (> 0)
+4. `F.JoinA(F.Step(s), F.Step(t))` → Value(Pair(Step(s),Step(t))) = sum
+5. `F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u))` → Value of outer pair
+6. `F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k+3)`
+
+ClientB is symmetric with `t` instead of `s`:
+
+```json
+{
+  "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(s) > k\n    ensures F.Large(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3)\n  {\n    F.LiftA(s);\n    F.LiftA(t);\n    F.LiftA(u);\n    F.JoinA(F.Step(s), F.Step(t));\n    F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u));\n    F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3);\n  }\n}\n",
+  "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(t) > k\n    ensures F.Large(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3)\n  {\n    F.LiftA(t);\n    F.LiftA(u);\n    F.LiftA(s);\n    F.JoinA(F.Step(t), F.Step(u));\n    F.JoinA(F.Pair(F.Step(t), F.Step(u)), F.Step(s));\n    F.Finish(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3);\n  }\n}\n"
+}
+```

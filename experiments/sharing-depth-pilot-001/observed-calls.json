@@ -1,0 +1,250 @@
+[
+  {
+    "sequence": 1,
+    "tier": "diamond",
+    "condition": "shared",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.Finish(F.Pair(F.Step(s), F.Step(t)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.JoinA(F.Step(t), F.Step(u));",
+          "F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      }
+    }
+  },
+  {
+    "sequence": 2,
+    "tier": "diamond",
+    "condition": "separate",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.Finish(F.Pair(F.Step(s), F.Step(t)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftB(t);",
+          "F.LiftB(u);",
+          "F.JoinB(F.Step(t), F.Step(u));",
+          "F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      }
+    }
+  },
+  {
+    "sequence": 3,
+    "tier": "nested",
+    "condition": "separate",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u));",
+          "F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftB(t);",
+          "F.LiftB(u);",
+          "F.LiftB(s);",
+          "F.JoinB(F.Step(t), F.Step(u));",
+          "F.JoinB(F.Pair(F.Step(t), F.Step(u)), F.Step(s));",
+          "F.Finish(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      }
+    }
+  },
+  {
+    "sequence": 4,
+    "tier": "nested",
+    "condition": "shared",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u));",
+          "F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.LiftA(s);",
+          "F.JoinA(F.Step(t), F.Step(u));",
+          "F.JoinA(F.Pair(F.Step(t), F.Step(u)), F.Step(s));",
+          "F.Finish(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      }
+    }
+  },
+  {
+    "sequence": 5,
+    "tier": "nested",
+    "condition": "shared",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u));",
+          "F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.LiftA(s);",
+          "F.JoinA(F.Step(t), F.Step(u));",
+          "F.JoinA(F.Pair(F.Step(t), F.Step(u)), F.Step(s));",
+          "F.Finish(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      }
+    }
+  },
+  {
+    "sequence": 6,
+    "tier": "nested",
+    "condition": "separate",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.JoinA(F.Pair(F.Step(s), F.Step(t)), F.Step(u));",
+          "F.Finish(F.Pair(F.Pair(F.Step(s), F.Step(t)), F.Step(u)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftB(t);",
+          "F.LiftB(u);",
+          "F.LiftB(s);",
+          "F.JoinB(F.Step(t), F.Step(u));",
+          "F.JoinB(F.Pair(F.Step(t), F.Step(u)), F.Step(s));",
+          "F.Finish(F.Pair(F.Pair(F.Step(t), F.Step(u)), F.Step(s)), k + 3);"
+        ],
+        "call_count": 6,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": false
+      }
+    }
+  },
+  {
+    "sequence": 7,
+    "tier": "diamond",
+    "condition": "separate",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.Finish(F.Pair(F.Step(s), F.Step(t)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftB(t);",
+          "F.LiftB(u);",
+          "F.JoinB(F.Step(t), F.Step(u));",
+          "F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      }
+    }
+  },
+  {
+    "sequence": 8,
+    "tier": "diamond",
+    "condition": "shared",
+    "clients": {
+      "ClientA.dfy": {
+        "calls": [
+          "F.LiftA(s);",
+          "F.LiftA(t);",
+          "F.JoinA(F.Step(s), F.Step(t));",
+          "F.Finish(F.Pair(F.Step(s), F.Step(t)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      },
+      "ClientB.dfy": {
+        "calls": [
+          "F.LiftA(t);",
+          "F.LiftA(u);",
+          "F.JoinA(F.Step(t), F.Step(u));",
+          "F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);"
+        ],
+        "call_count": 4,
+        "same_calls_as_reference": true,
+        "same_order_as_reference": true
+      }
+    }
+  }
+]

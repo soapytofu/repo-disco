@@ -1,0 +1,25 @@
+I need to figure out what lemmas are available in `ViewA` and how to use them to prove each client's postcondition.
+
+Available in `ViewA`: `Value`, `Step`, `Pair`, `Large`, `LiftA`, `JoinA`, `Finish`
+
+**ClientA:** Need to prove `F.Large(F.Pair(F.Step(s), F.Step(t)), k + 2)` given `F.Value(s) > k`.
+
+- `LiftA(s)`: `Value(Step(s)) == Value(s) + 1`, so `Value(Step(s)) > k + 1 - 1 + 1`, i.e., `Value(Step(s)) == Value(s) + 1 > k + 1 > k`, so `Value(Step(s)) >= k + 1`.
+- Since `Value(s) > k` means `Value(s) >= k+1`, so `Value(Step(s)) >= k+2 > k+1`.
+- `LiftA(t)`: `Value(Step(t)) == Value(t) + 1 >= 1 > 0`.
+- `JoinA(Step(s), Step(t))`: requires `Value(Step(s)) > 0` and `Value(Step(t)) > 0`. Gives `Value(Pair(Step(s), Step(t))) == Value(Step(s)) + Value(Step(t))`.
+- Then `Value(Step(s)) >= k+2` and `Value(Step(t)) >= 1`, so `Value(Pair(Step(s), Step(t))) >= k+3 > k+2`.
+- `Finish(Pair(Step(s), Step(t)), k+2)`: requires `Value(Pair(...)) > k+2`, gives `Large(Pair(...), k+2)`.
+
+So the steps are: `LiftA(s)`, `LiftA(t)`, `JoinA(F.Step(s), F.Step(t))`, `Finish(F.Pair(F.Step(s), F.Step(t)), k+2)`.
+
+**ClientB:** Need to prove `F.Large(F.Pair(F.Step(t), F.Step(u)), k + 2)` given `F.Value(t) > k`.
+
+Same structure: `LiftA(t)`, `LiftA(u)`, `JoinA(F.Step(t), F.Step(u))`, `Finish(F.Pair(F.Step(t), F.Step(u)), k+2)`.
+
+```json
+{
+  "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(s) > k\n    ensures F.Large(F.Pair(F.Step(s), F.Step(t)), k + 2)\n  {\n    F.LiftA(s);\n    F.LiftA(t);\n    F.JoinA(F.Step(s), F.Step(t));\n    F.Finish(F.Pair(F.Step(s), F.Step(t)), k + 2);\n  }\n}\n",
+  "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewA\n  lemma Prove(s: nat, t: nat, u: nat, k: nat)\n    requires F.Value(t) > k\n    ensures F.Large(F.Pair(F.Step(t), F.Step(u)), k + 2)\n  {\n    F.LiftA(t);\n    F.LiftA(u);\n    F.JoinA(F.Step(t), F.Step(u));\n    F.Finish(F.Pair(F.Step(t), F.Step(u)), k + 2);\n  }\n}\n"
+}
+```

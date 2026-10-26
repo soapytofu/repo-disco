@@ -1,0 +1,516 @@
+{
+  "summary": {
+    "calls_dispatched": 8,
+    "completed": 8,
+    "cells": {
+      "diamond_shared": {
+        "attempted": 2,
+        "success": 2,
+        "extraction_accepted": 2,
+        "guard_accepted": 2
+      },
+      "diamond_separate": {
+        "attempted": 2,
+        "success": 2,
+        "extraction_accepted": 2,
+        "guard_accepted": 2
+      },
+      "nested_shared": {
+        "attempted": 2,
+        "success": 2,
+        "extraction_accepted": 2,
+        "guard_accepted": 2
+      },
+      "nested_separate": {
+        "attempted": 2,
+        "success": 2,
+        "extraction_accepted": 2,
+        "guard_accepted": 2
+      }
+    },
+    "usage": {
+      "input_tokens": 6952,
+      "output_tokens": 8891,
+      "total_tokens": 15843
+    },
+    "distinct_request_ids": 8,
+    "all_response_request_ids_present": true,
+    "strict_json_only": 0,
+    "guarded_sources_and_prompts_checked": true,
+    "new_model_calls_by_review": 0
+  },
+  "trials": [
+    {
+      "sequence": 1,
+      "tier": "diamond",
+      "condition": "shared",
+      "repeat": 1,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 858,
+        "output_tokens": 1003,
+        "total_tokens": 1861,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": true,
+        "ClientB.dfy": true
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 7.966
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.058
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.886
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "tier": "diamond",
+      "condition": "separate",
+      "repeat": 1,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 858,
+        "output_tokens": 918,
+        "total_tokens": 1776,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": true,
+        "ClientB.dfy": true
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.394
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.978
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.954
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "tier": "nested",
+      "condition": "separate",
+      "repeat": 1,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 880,
+        "output_tokens": 1236,
+        "total_tokens": 2116,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": false,
+        "ClientB.dfy": false
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.204
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.932
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.999
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "tier": "nested",
+      "condition": "shared",
+      "repeat": 1,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 880,
+        "output_tokens": 1150,
+        "total_tokens": 2030,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": false,
+        "ClientB.dfy": false
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.249
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.948
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.939
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "tier": "nested",
+      "condition": "shared",
+      "repeat": 2,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 880,
+        "output_tokens": 1463,
+        "total_tokens": 2343,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": false,
+        "ClientB.dfy": false
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.368
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.935
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.932
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "tier": "nested",
+      "condition": "separate",
+      "repeat": 2,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 880,
+        "output_tokens": 1069,
+        "total_tokens": 1949,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": false,
+        "ClientB.dfy": false
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.155
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.96
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.952
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "tier": "diamond",
+      "condition": "separate",
+      "repeat": 2,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 858,
+        "output_tokens": 1002,
+        "total_tokens": 1860,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": true,
+        "ClientB.dfy": true
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.197
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.923
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.926
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "tier": "diamond",
+      "condition": "shared",
+      "repeat": 2,
+      "outcome": "SUCCESS",
+      "strict_json_only": false,
+      "usage": {
+        "input_tokens": 858,
+        "output_tokens": 1050,
+        "total_tokens": 1908,
+        "input_token_details": {
+          "cache_creation": 0,
+          "cache_read": 0
+        }
+      },
+      "reference_match_ignoring_whitespace": {
+        "ClientA.dfy": true,
+        "ClientB.dfy": true
+      },
+      "verification": [
+        {
+          "entry": "All.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "All.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 2.157
+        },
+        {
+          "entry": "ClientA.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientA.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.923
+        },
+        {
+          "entry": "ClientB.dfy",
+          "command": [
+            "dafny",
+            "verify",
+            "--verify-included-files",
+            "ClientB.dfy"
+          ],
+          "exit_code": 0,
+          "outcome": "SUCCESS",
+          "seconds": 1.935
+        }
+      ]
+    }
+  ]
+}

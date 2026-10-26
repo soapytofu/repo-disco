@@ -11,3 +11,7 @@ Status at preparation: awaiting private credential handoff. No live requests dis
 ## Renewed window
 
 On 2026-10-26 at 02:32:41 UTC the user confirmed the new socket and credential handoff, and renewed the eight-call run plus three hours of monitoring and non-paid follow-up through 05:32:41 UTC. Queue and fixed model-001 path were checked before submission: no prior job or ledger existed. The prior window dispatched no calls. Frozen inputs and adapter settings remain unchanged.
+
+## Completed batch
+
+Job 55298220 completed with exactly eight requests and eight successes. See RESULTS.md and model-review.json. The call budget is exhausted; remaining authorized work in the three-hour window is non-paid only.

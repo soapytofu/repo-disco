@@ -1,0 +1,74 @@
+{
+  "sequence": 5,
+  "block": 2,
+  "repeat": 2,
+  "tier": "nested",
+  "condition": "shared",
+  "fixture": "fixtures/nested_shared",
+  "prompt_file": "prompts/nested_shared.json",
+  "prompt_sha256": "f11144a6c578638111f389e7c35d249e3f7de51c12c563d8e9d83fff5300e34a",
+  "outcome": "SUCCESS",
+  "verification": [
+    {
+      "entry": "All.dfy",
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "outcome": "SUCCESS",
+      "seconds": 2.368
+    },
+    {
+      "entry": "ClientA.dfy",
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "ClientA.dfy"
+      ],
+      "exit_code": 0,
+      "outcome": "SUCCESS",
+      "seconds": 1.935
+    },
+    {
+      "entry": "ClientB.dfy",
+      "command": [
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "ClientB.dfy"
+      ],
+      "exit_code": 0,
+      "outcome": "SUCCESS",
+      "seconds": 1.932
+    }
+  ],
+  "extraction": {
+    "json_start": 1895,
+    "json_end": 2831,
+    "prefix_chars": 1895,
+    "suffix_chars": 4,
+    "extraction": "exact substring; JSON decode only"
+  },
+  "extraction_accepted": true,
+  "guard_accepted": true,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "f65d93b3bda0690c21c97e7f3c10dd25c60a9a74150f5a62754323b343f9fa2a",
+    "ClientB.dfy": "dc876e3dad2dbcf9817be75bc96c6471c58a6544ef4f0a81071fdc719be46410",
+    "Facts.dfy": "9f88482317eb32a04aa37026b24027fda884355ac450191ba1835dbda950f303"
+  },
+  "usage": {
+    "input_tokens": 880,
+    "output_tokens": 1463,
+    "total_tokens": 2343,
+    "input_token_details": {
+      "cache_creation": 0,
+      "cache_read": 0
+    }
+  },
+  "stop_reason": "end_turn"
+}
