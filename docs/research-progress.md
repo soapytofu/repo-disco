@@ -68,3 +68,7 @@ The [matched-control design](controlled-corpus-design.md) separates import depth
 ## Conditional-contract family (verifier only)
 
 [sharing-branching-001](../experiments/sharing-branching-001/README.md) adds sign-case reasoning for two client expressions, with matched shared/separate export views. All 34 controls pass their intended outcomes: six positive reference checks and 28 proof failures. Zero model calls. This diversifies proof structure beyond the saturated straight-line composition family; branch-aware edit validation remains the next gate before any future paid experiment.
+
+## Contract-ablation dependence measured
+
+[Branch contract ablations](../experiments/branch-contract-ablation-001/README.md) completed 22/22 expected controls without model calls. Weakening either used shared guarantee breaks both fixed clients; weakening each separately used guarantee breaks only its client. Unused-helper controls remain valid. A per-condition sensitivity matrix links distinct targets to raw evidence; this is fixed-proof dependence, not a model sharing advantage.
