@@ -19,3 +19,7 @@ All includes, imports, definitions, attributes, signatures, pre/postconditions, 
 ## Revision history
 
 Revision-002 (job 55305080) failed because my body-replacement generator left extra closing braces. This is an implementation bug, not a negative finding about inductive proof ability. All submitted bytes and diagnostics are preserved. Revision-003 uses balanced-brace spans to replace bodies in the original fixtures, checks brace balance plus unchanged signatures/clients, and is submitted separately as job 55305635. No model calls were made, and no reference-success claim is made while this correction is pending.
+
+## Provider edit guard
+
+The separate [provider-v1 guard](PROVIDER-GUARD.md) passes six offline test methods, including byte-exact replay of all 12 revision-003 fixture files and regression for the extra-brace generator bug. Code/test hashes are pinned in provider-guard-freeze.json. No additional model or verifier calls were made. Future prompts must disclose self-recursion-only calls and this limited syntax; no model pilot is yet authorized.
