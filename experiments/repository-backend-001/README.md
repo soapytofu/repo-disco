@@ -28,9 +28,8 @@ code. GNU `timeout` is required, matching the existing Linux execution environme
 Six offline unittest methods pass. A fake process inspects actual staged nested
 files and byte hashes; checks cover agenda reads, missing/aliased sources, path
 rejection, process failures, single-attempt behavior and the unchanged legacy
-single-program call. **No actual Dafny execution through this API yet.** The next
-integration gate is a compute-only check with existing positive and negative
-multi-file fixtures. These tests do not reproduce the published baseline and do
+single-program call. The compute integration below now validates this API on existing positive and
+negative multi-file fixtures. These tests do not reproduce the published baseline and do
 not connect repository repair to the paid worker loop.
 
 Run offline checks from the repository root:
@@ -46,5 +45,14 @@ separate reference proofs (expected success) and empty helper bodies (expected
 proof failures). The runner uses real `LocalAgenda` objects, copies explicit
 source snapshots, checks unchanged object bytes and records hashes and raw
 diagnostics. `code/` pins the imported implementation; `fixtures/` copies the
-previously validated revision-003 source exactly. Results are pending. No model
-requests are involved.
+previously validated revision-003 source exactly. Job completed on shared in 32 seconds. All four outcomes matched: both reference
+repositories passed; shared empty had one provider postcondition error, separate
+empty had two. No parse/name errors occurred. Exact code, runner, source bytes
+and hashes match the submitted snapshots and original revision-003 fixtures.
+No model requests were involved.
+
+Full raw stdout/stderr and per-run commands are in `verification-001/*.json`;
+source and code snapshots are alongside them. `review_results.py` reproduces the
+offline audit in `review.json`. This demonstrates that real LocalAgenda sources
+can reach repository verification without losing dependencies or mutating the
+source objects. It does not yet provide an automatic repository repair worker.

@@ -1,0 +1,32 @@
+{
+  "variant": "separate_reference",
+  "expected_exit": 0,
+  "matched": true,
+  "agenda_bytes_unchanged": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+    "ClientB.dfy": "5947688cb176bb0bb69d0490c573add9fff086ecd63a992b664b362440af5e12",
+    "Facts.dfy": "ae05ec2e7e821591892bff402eb4f0c18ec1c4cb998e4d4bad7806ed0376152e"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "outcome": "success",
+  "category": "success",
+  "stdout": "\nDafny program verifier finished with 5 verified, 0 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.30292143416591,
+  "model_calls": 0,
+  "attempts": 1
+}
