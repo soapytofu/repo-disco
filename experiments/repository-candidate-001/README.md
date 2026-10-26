@@ -36,3 +36,14 @@ guard and sources were not changed. This was a test-adapter bug, not a proof res
 Next gate: exercise this candidate path on compute with accepted proof replacements
 and rejected contract edits. The previous repository-backend-001 compute result
 validates the underlying verifier, not this new orchestration path.
+
+## Submitted integration
+
+Job **55310512** runs eight verifier checks and four contract-rejection checks
+on shared/sapphire, with no requeue. It snapshots real LocalAgenda objects and
+applies either one provider-file replacement or two client-file replacements,
+using frozen provider-v1/branch-v1 guards. Both shared and separate fixtures are
+covered, with reference and known incomplete/incorrect proofs. Expected results:
+four verifier successes, four proof failures, four rejected contract edits with
+no verifier invocation. Source objects must remain unchanged after every check.
+Results are pending; `code/`, `guards/` and `fixtures/` pin all submitted inputs.
