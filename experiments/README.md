@@ -1,6 +1,13 @@
 # Experiment log
 
-A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 23, 2026.
+A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 28, 2026.
+
+## Weeks 1–4 completion checkpoint
+
+- [Bounded baseline](baseline-reproduction-001/README.md): 20 calls, 7 legacy / 6 strict passes, with separate specification audit.
+- [Live repository agent](repository-agent-001/README.md): 4/4 first-attempt repairs, protected contracts and accepted revisions reviewed.
+- [New-client extension](repository-extension-001/README.md): four calls, four verified modules across two seed repositories, no retries; full raw archive and source hashes saved.
+- [Proposal acceptance review](../docs/weeks1-4-acceptance.md): initial Weeks 1–4 milestones complete; primary corpus and broad evaluation remain later phases.
 
 ## Integer-maximum program: generation → extension → repair
 

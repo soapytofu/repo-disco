@@ -1,0 +1,66 @@
+[
+  {
+    "id": "branch-1",
+    "family": "branch",
+    "seed_revision": "28188c13641440d69bd0664aae31cdb6",
+    "seed_sha256": {
+      "ClientA.dfy": "3a7a3ad14e7015daafbc4ef9c5b2c2345c0ec8225c5c9b63e25fcbc85001df9a",
+      "ClientB.dfy": "8e1ecb65f6f079e584ecdf33d7d62ed3b60b944704162a1e6d73bc0a014d3030",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "ec871b20f6d0c0cdcb92f53f3d459b3a168a73d473b917898b05293c28d9486b"
+    },
+    "prefix": "include \"Facts.dfy\"\nmodule ClientC {\n  import F = Facts`ViewA\n  lemma Extend(x: int, y: int)\n    ensures F.Good(F.Wrap(if x + y >= 0 then (x + y) else -(x + y)))\n  {\n",
+    "suffix": "  }\n}\n",
+    "contract": "F.Good(F.Wrap(if x + y >= 0 then (x + y) else -(x + y)))",
+    "added_file": "ClientC.dfy",
+    "entry": "All.dfy"
+  },
+  {
+    "id": "branch-2",
+    "family": "branch",
+    "seed_revision": "28188c13641440d69bd0664aae31cdb6",
+    "seed_sha256": {
+      "ClientA.dfy": "3a7a3ad14e7015daafbc4ef9c5b2c2345c0ec8225c5c9b63e25fcbc85001df9a",
+      "ClientB.dfy": "8e1ecb65f6f079e584ecdf33d7d62ed3b60b944704162a1e6d73bc0a014d3030",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "ec871b20f6d0c0cdcb92f53f3d459b3a168a73d473b917898b05293c28d9486b"
+    },
+    "prefix": "include \"Facts.dfy\"\nmodule ClientC {\n  import F = Facts`ViewA\n  lemma Extend(x: int, y: int)\n    ensures F.Good(F.Wrap(if x - y - y >= 0 then (x - y - y) else -(x - y - y)))\n  {\n",
+    "suffix": "  }\n}\n",
+    "contract": "F.Good(F.Wrap(if x - y - y >= 0 then (x - y - y) else -(x - y - y)))",
+    "added_file": "ClientC.dfy",
+    "entry": "All.dfy"
+  },
+  {
+    "id": "inductive-1",
+    "family": "inductive",
+    "seed_revision": "e24794df973649308f13a6d8c8c961f7",
+    "seed_sha256": {
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "0c8e67405eeb40126c8f6db8d67309881846c09716d9e62688c70a2c2eb1f814"
+    },
+    "prefix": "include \"Facts.dfy\"\nmodule ClientC {\n  import F = Facts`ViewA\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\n    ensures F.Total(s + t + u) == F.Total(s) + F.Total(t) + F.Total(u)\n  {\n",
+    "suffix": "  }\n}\n",
+    "contract": "F.Total(s + t + u) == F.Total(s) + F.Total(t) + F.Total(u)",
+    "added_file": "ClientC.dfy",
+    "entry": "All.dfy"
+  },
+  {
+    "id": "inductive-2",
+    "family": "inductive",
+    "seed_revision": "e24794df973649308f13a6d8c8c961f7",
+    "seed_sha256": {
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "0c8e67405eeb40126c8f6db8d67309881846c09716d9e62688c70a2c2eb1f814"
+    },
+    "prefix": "include \"Facts.dfy\"\nmodule ClientC {\n  import F = Facts`ViewA\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\n    ensures F.Total(t + s + t) == F.Total(t) + F.Total(s) + F.Total(t)\n  {\n",
+    "suffix": "  }\n}\n",
+    "contract": "F.Total(t + s + t) == F.Total(t) + F.Total(s) + F.Total(t)",
+    "added_file": "ClientC.dfy",
+    "entry": "All.dfy"
+  }
+]

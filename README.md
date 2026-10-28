@@ -15,7 +15,14 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **[Multi-client proof sharing](experiments/shared-proof-001/README.md):** 16 deterministic controls validate two client proofs depending on one lemma. The [matched reference control](experiments/sharing-control-001/README.md) passed 22 checks comparing shared versus separate helper calls. Both are verifier-only experiments with zero model calls; the latter does not force a different model solution because equivalent helpers remain available.
 
-**Current status (October 26 UTC):** the [depth × sharing pilot](experiments/sharing-depth-pilot-001/RESULTS.md) verified all eight trials, a ceiling result. Conditional and inductive families now have verifier controls and protected edit guards. [Repository candidate integration](experiments/repository-candidate-001/README.md) validates guarded multi-file edits without changing original agenda objects. See the [coverage audit and remaining baseline gaps](docs/research-progress.md#current-evidence-map-and-coverage-audit-october-26-utc); published-baseline reproduction and held-out/multi-model evaluation remain open.
+**Current status (October 28): initial Weeks 1–4 milestones complete.** The bounded
+[baseline evaluation](experiments/baseline-reproduction-001/README.md) completed
+20 calls (7 legacy / 6 strict verification successes); the [repository agent](experiments/repository-agent-001/README.md)
+repaired four development repositories on the first attempt; the [extension pilot](experiments/repository-extension-001/README.md)
+generated four verified client modules across two seeds in four calls. Exact prompts,
+responses, guarded sources and full verifier logs are saved. See the
+[proposal acceptance review and remaining scope](docs/weeks1-4-acceptance.md).
+The primary matched corpus, held-out evaluation and multi-model/training work remain.
 
 ---
 

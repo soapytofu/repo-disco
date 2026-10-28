@@ -110,3 +110,29 @@ validated on Cannon without requests. Single job **55813370** was submitted to
 test (live PreemptMode=OFF), no requeue, with the unchanged four-call cap.
 model-submission.json and authorization.json record the scope and submission.
 Results are pending; do not restart or submit a second runner.
+
+## Completed model results (October 28)
+
+Job **55813370** completed on test in **1m48s**, exit 0. Exactly **four** requests
+completed, with four distinct new request IDs and zero SDK retries. All **four
+new client modules verified** as part of their full repositories: two branching
+clients and two sequence-sum clients, each independently extending one of two
+verified seeds. Usage: **4,042 input + 571 output = 4,613 tokens**.
+
+review_model.py replays the edit guards offline and checks 24 pinned source/runtime
+files, exact dispatched prompts/order, response correspondence, authorization,
+unchanged seed contracts/clients/providers, the host-owned include, accepted-file
+hashes and whole-repository verifier records. No new assertion, assumption,
+verification-disable attribute or altered contract appears in generated bodies.
+All four outputs use the intended case split or two concatenation lemma calls.
+The source files and request/verifier records are preserved under model-001;
+model-review.json and model-001-sha256.json give the reproducible integrity audit.
+
+This establishes initial **contract-guided repository extension across two seeds**.
+It does not establish open-ended specification invention, broad task diversity,
+a primary synthetic corpus, or a causal sharing effect. These easy development
+extensions may reuse visible seed proof patterns. No extra model calls remain
+for this pilot, and no failed evidence from earlier experiments was altered.
+
+See [Weeks 1–4 acceptance review](../../docs/weeks1-4-acceptance.md) for the
+proposal-level completion decision and the separate Weeks 5–6 work remaining.

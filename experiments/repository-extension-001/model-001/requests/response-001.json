@@ -1,0 +1,18 @@
+{
+  "text": "{\"ClientC.dfy\":\"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(x: int, y: int)\\n    ensures F.Good(F.Wrap(if x + y >= 0 then (x + y) else -(x + y)))\\n  {\\n    if x + y >= 0 {\\n      F.Case0A(x + y);\\n    } else {\\n      F.Case1A(x + y);\\n    }\\n  }\\n}\\n\"}",
+  "content": [
+    {
+      "text": "{\"ClientC.dfy\":\"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(x: int, y: int)\\n    ensures F.Good(F.Wrap(if x + y >= 0 then (x + y) else -(x + y)))\\n  {\\n    if x + y >= 0 {\\n      F.Case0A(x + y);\\n    } else {\\n      F.Case1A(x + y);\\n    }\\n  }\\n}\\n\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 1055,
+    "outputTokens": 144,
+    "totalTokens": 1199,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "5ad74ca2-f45d-48de-807b-b0cf85adad96",
+  "retry_attempts": 0
+}

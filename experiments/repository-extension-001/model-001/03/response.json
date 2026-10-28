@@ -1,0 +1,18 @@
+{
+  "text": "{\"ClientC.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\\n    ensures F.Total(s + t + u) == F.Total(s) + F.Total(t) + F.Total(u)\\n  {\\n    F.AppendA(s, t);\\n    F.AppendA(s + t, u);\\n  }\\n}\\n\"}",
+  "content": [
+    {
+      "text": "{\"ClientC.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\\n    ensures F.Total(s + t + u) == F.Total(s) + F.Total(t) + F.Total(u)\\n  {\\n    F.AppendA(s, t);\\n    F.AppendA(s + t, u);\\n  }\\n}\\n\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 963,
+    "outputTokens": 136,
+    "totalTokens": 1099,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "1285000b-6eb1-4a5e-91b3-172d8abcdb20",
+  "retry_attempts": 0
+}

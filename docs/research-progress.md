@@ -4,9 +4,9 @@ Status: October 28, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
-| Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | Tooling, verified single-program generation, extension/repair pilots, and a 50-call format pilot are recorded. Published baseline evaluation is not reproduced. Finalize representation and metric definitions before claiming this phase complete. |
-| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **In progress:** multi-client fixtures, frozen edit guards, repository verification from real agenda snapshots, and immutable candidate preparation are validated. Automatic repository generation, context selection and transactional promotion/repair scheduling remain open. See the current evidence map below. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Development families now cover composition, conditional preconditions and inductive helper synthesis. Composition pilots saturated; the latter two have verifier controls but no model trials. No frozen representative corpus or held-out family split yet. |
+| Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
+| Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Development families now cover composition, conditional preconditions and inductive helper synthesis. Small composition, conditional and inductive development pilots have saturated; they do not establish a sharing effect. No frozen representative corpus or held-out family split yet. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -180,7 +180,7 @@ exact paper reproduction remains separately labeled.
 | Multi-module context and verification | Previously validated; full source plus declared map is the initial policy, not automatic dependency selection |
 | Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 completed: 12 expected verifier outcomes, four contract rejections and intact original revisions |
 | Live agent demonstration | Completed: four repositories repaired on first model attempt, four calls used; guarded sources and accepted revisions reviewed |
-| Begin scaling generation | Still open: schedule generation/extension across multiple repositories, rather than count hand-built controls as generated corpus |
+| Begin scaling generation | Completed initial collection: four actual model-generated client extensions across two seeds, all verified; primary corpus remains Weeks 5–6 |
 
 New additive baseline request adapter has ten fake-transport tests; six smoke-runner
 and three agent-adapter tests pass. Existing frozen protocols are unchanged. Neither
@@ -200,7 +200,7 @@ logs, 24 unique requests without retries, frozen-input checks and manual baselin
 specification audit. Earlier preparation sections above describe historical state.
 Consolidated representation/experimental-variable protocol review is complete.
 Still open: initial generation/extension across multiple repositories. Four unused agent calls
-are not a generation budget. Weeks 1–4 are not yet claimed complete.
+are not a generation budget. This earlier pending checkpoint is superseded by the completed acceptance review below.
 
 Repository-extension-001 now prepares four new-client extensions across two verified
 seed repositories, with immutable seed checks and separate guards. Four offline
@@ -208,3 +208,15 @@ tests passed; compute preflight job55810726 matched all14 expectations (six pass
 eight proof failures), and four exact prompts/settings are frozen. Bounded runner
 integration now has ten passing fake-transport tests; separate four-call approval
 and a new private key handoff remain required. No new model calls.
+
+## Weeks 1–4 completion (October 28)
+
+[Acceptance review](weeks1-4-acceptance.md): **the initial proposal milestones are
+complete**. Repository-extension-001 job55813370 finished in 1m48s: four requests,
+four whole-repository passes, zero retries, 4,613 tokens. Frozen prompts/runtime,
+new-file guards, immutable seed bytes and accepted evidence hashes were reviewed.
+Full logs and generated sources are archived. This closes the initial-generation
+gate; it does not claim completion of the primary corpus or open-ended generation.
+The next phase is a matched, more diverse Weeks 5–6 corpus with a declared family
+split and a separately approved budget. Historical dated checkpoints above are
+retained, including their then-pending status.
