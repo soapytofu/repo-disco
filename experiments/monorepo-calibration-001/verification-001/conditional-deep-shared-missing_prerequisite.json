@@ -1,0 +1,37 @@
+{
+  "task_id": "conditional-deep-shared",
+  "variant": "missing_prerequisite",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+    "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+    "HelperA.dfy": "f62635538ccace52f7f1f9851e0a183307ca4a4ab6cf44ef3c1ac3ea2be0e466",
+    "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+    "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+    "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+    "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+    "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(16,18): Error: a precondition for this call could not be proved\n   |\n16 |         End.Finish(x, y);\n   |                   ^\n\nStage3.dfy(11,21): Related location: this is the precondition that could not be proved\n   |\n11 |     requires K.Ready2(x, y)\n   |                      ^\n\nHelperA.dfy(19,18): Error: a precondition for this call could not be proved\n   |\n19 |         End.Finish(x, x + x - y);\n   |                   ^\n\nStage3.dfy(11,21): Related location: this is the precondition that could not be proved\n   |\n11 |     requires K.Ready2(x, y)\n   |                      ^\n\nHelperA.dfy(24,18): Error: a precondition for this call could not be proved\n   |\n24 |         End.Finish(-x, y);\n   |                   ^\n\nStage3.dfy(11,21): Related location: this is the precondition that could not be proved\n   |\n11 |     requires K.Ready2(x, y)\n   |                      ^\n\nHelperA.dfy(27,18): Error: a precondition for this call could not be proved\n   |\n27 |         End.Finish(-x, -x - x - y);\n   |                   ^\n\nStage3.dfy(11,21): Related location: this is the precondition that could not be proved\n   |\n11 |     requires K.Ready2(x, y)\n   |                      ^\n\n\nDafny program verifier finished with 7 verified, 4 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 1.9366534459986724,
+  "model_calls": 0,
+  "attempts": 1
+}

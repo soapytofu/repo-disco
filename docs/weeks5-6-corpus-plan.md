@@ -1,14 +1,34 @@
-# Weeks 5–6: larger matched repository corpus
+# Weeks 5–6: matched cross-module monorepo corpus
 
-**Proposed plan, October 28, 2026. No model calls, cluster jobs, new corpus generation,
-or new spending are authorized by this document.** The initial Weeks 1–4 milestones
+**Plan updated October 28, 2026 following Nada’s scope feedback. No model calls are
+authorized. The user authorized non-paid calibration construction and verifier checks.** The initial Weeks 1–4 milestones
 are recorded in [the acceptance review](weeks1-4-acceptance.md). This plan defines
 the next experiment; source templates and exact prompts are not yet built/frozen.
 
+## Scope: cross-module reasoning within one monorepo
+
+The unit is a **single monorepo workspace snapshot** containing provider, helper,
+and client modules under one source/version boundary. Clients consume contracts
+from modules in that workspace. Shared proof reuse and dependency depth are
+internal architectural properties. Separate Git repositories, cross-repository
+version resolution, package managers and remote dependency integration are out of
+scope, following Nada's suggestion.
+
+The corpus stores alternative workspace snapshots in separate fixture directories
+inside repo-disco. Variants are independently built through their own entry point;
+they are not simultaneously imported into one Dafny namespace and are not treated
+as dependencies between repositories. All required files must be checked within
+each selected workspace. Previously saved repository-level experiments retain
+their names and evidence; the clarified scope does not change their results.
+
+The existing counts remain unchanged: 16 calibration snapshots and 96 main
+snapshots. “Repository variant” below means an isolated monorepo configuration,
+not a separate external repository or integration boundary.
+
 ## Research question and why the next batch differs
 
-Measure how dependency depth and shared proof structure affect **whole-repository
-completion and generation effort**, with contracts protected. Recent composition,
+Measure how cross-module dependency depth and shared proof structure affect
+**whole-monorepo completion and generation effort**, with contracts protected. Recent composition,
 depth, agent and extension pilots reached ceiling success on small development
 tasks. More copies of those easy proofs would increase volume without establishing
 the proposed effect. First build structurally richer obligations and screen them
@@ -219,3 +239,27 @@ funding fit is claimed here. No API token-count or connectivity calls were made.
 The immediate next action is the **zero-call build/preflight stage**, not the
 224-call batch. Freeze and review the 32-call calibration first; authorize the
 192-call main stage only if the tasks and collection pipeline are informative.
+
+## Calibration construction started (no model calls)
+
+[monorepo-calibration-001](../experiments/monorepo-calibration-001/README.md) builds
+the first conditional family: four shallow/deep × shared/separate configurations
+of one semantic instance. Client contracts, trusted provider sources and module
+names are matched. The target normalizes the first input, then reflects the
+second around it when necessary, so the second branch depends on the first.
+
+There are 26 planned deterministic checks: four reference passes, twenty intended
+proof failures and two explicit hidden-shortcut name-resolution failures. Four
+offline design tests passed. Verifier-only job 55978267 completed: all 26 expected outcomes matched and exact
+sources/diagnostics were reviewed. These are fixture checks, not model results.
+
+The shallow/deep label refers to the one-versus-three-stage provider contract
+chain **inside the synthesized helper**, not raw import-graph depth. Shared mode
+uses one editable helper and an immutable forwarding wrapper for client B;
+separate mode requires two equivalent helper bodies. The extra shared wrapper
+edge, differing edit count and source lengths are recorded treatment differences,
+not hidden equal-work matches. Reference depth is not asserted to be minimal.
+
+The other three families (twelve variants), complete candidate guards, all required
+controls and exact 32-trial prompt freeze remain open. No model dispatch code or
+credential access is introduced by this first verifier-only build.

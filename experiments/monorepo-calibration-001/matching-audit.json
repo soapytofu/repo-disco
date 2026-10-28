@@ -1,0 +1,50 @@
+[
+  {
+    "task_id": "conditional-shallow-shared",
+    "client_import_depths": {
+      "ClientA": 3,
+      "ClientB": 4
+    },
+    "editable_helper_count": 1,
+    "input_bytes": 2545,
+    "synthesized_helper_reference_chain": 1,
+    "sharing_wrapper": true,
+    "matching": "ClientA/ClientB, Kernel, Stage1/2/3 and All.dfy are byte-identical across all four variants; helper imports/bodies differ."
+  },
+  {
+    "task_id": "conditional-shallow-separate",
+    "client_import_depths": {
+      "ClientA": 3,
+      "ClientB": 3
+    },
+    "editable_helper_count": 2,
+    "input_bytes": 2576,
+    "synthesized_helper_reference_chain": 1,
+    "sharing_wrapper": false,
+    "matching": "ClientA/ClientB, Kernel, Stage1/2/3 and All.dfy are byte-identical across all four variants; helper imports/bodies differ."
+  },
+  {
+    "task_id": "conditional-deep-shared",
+    "client_import_depths": {
+      "ClientA": 3,
+      "ClientB": 4
+    },
+    "editable_helper_count": 1,
+    "input_bytes": 2598,
+    "synthesized_helper_reference_chain": 3,
+    "sharing_wrapper": true,
+    "matching": "ClientA/ClientB, Kernel, Stage1/2/3 and All.dfy are byte-identical across all four variants; helper imports/bodies differ."
+  },
+  {
+    "task_id": "conditional-deep-separate",
+    "client_import_depths": {
+      "ClientA": 3,
+      "ClientB": 3
+    },
+    "editable_helper_count": 2,
+    "input_bytes": 2682,
+    "synthesized_helper_reference_chain": 3,
+    "sharing_wrapper": false,
+    "matching": "ClientA/ClientB, Kernel, Stage1/2/3 and All.dfy are byte-identical across all four variants; helper imports/bodies differ."
+  }
+]

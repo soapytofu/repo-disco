@@ -86,3 +86,10 @@ instance counts, matching limitations, calibration gates, counterbalancing and
 call budgets. Earlier queued/pending references above describe historical design
 checkpoints. The initial extension pilot subsequently completed four verified
 new clients; it is not the larger corpus proposed in the new plan.
+
+## Monorepo scope clarification
+
+Following Nada’s feedback, the active plan concerns dependencies and proof reuse
+**between modules inside one monorepo workspace**. The corpus contains alternative
+workspace snapshots, not integrations of separate Git repositories. See the
+[updated plan](weeks5-6-corpus-plan.md) and its first conditional calibration build.

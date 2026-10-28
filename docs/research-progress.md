@@ -230,3 +230,12 @@ Four development families vary depth and shared/duplicated helper proof workload
 reserved-family evaluation is separate. Proposed total 224, optional balanced
 map study +64. Templates, guard preflight and exact prompt freeze come first.
 No model requests, new verifier jobs or corpus generation were launched in planning.
+
+## Monorepo calibration construction
+
+Nada’s scope clarification is incorporated: cross-module reasoning inside a single
+monorepo, with separate-repository dependencies out of scope. Four conditional
+calibration variants and 26 verifier controls are implemented; four offline design
+tests pass. Verifier-only job 55978267 passed all 26 expected outcomes, with full evidence
+reviewed and archived. Twelve variants in
+three other families plus guards/prompt freeze remain. No new model calls.
