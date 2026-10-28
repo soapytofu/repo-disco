@@ -197,3 +197,11 @@ prompts, explicit settings and code hashes. Ground-truth sources are excluded
 from prompts. The input dataset's Apache license is retained as DafnyBench-LICENSE.txt.
 Full preflight logs and archive hashes are saved. Both preflight gates are now
 reviewed, and the bounded combined continuation is ready for one submission.
+
+## Completed bounded baseline
+
+Job 55807561 completed all twenty frozen requests without retries. Legacy score
+7/20; strict exit-zero score 6/20; nine patch rejections, three proof failures,
+one warning-only nonzero exit and one remaining front-end failure. See
+[specification-review.md](specification-review.md) and the full smoke-001 archive.
+This satisfies the initial bounded evaluation-run milestone, not full paper reproduction.

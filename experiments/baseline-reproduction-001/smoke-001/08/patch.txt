@@ -1,0 +1,7 @@
+Looking at the error, Dafny cannot prove termination for the recursive `sorting` method. The issue is that Dafny needs a `decreases` clause to prove that the recursion will terminate.
+
+In merge sort, the recursion terminates because the range `high - low` decreases with each recursive call. Let me add a `decreases` clause to the `sorting` method.
+
+@@ requires 0 <= low && high < a.Length @@
++ decreases high - low
+= modifies a

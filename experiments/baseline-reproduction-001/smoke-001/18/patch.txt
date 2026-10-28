@@ -1,0 +1,47 @@
+@@ while i <= |str|
+@@ // Invariant to stay within bounds
+- // Invariant to show that for all j that came before i, no prefix has been found
+- // Telling dafny that i is that value that is increasing
+- //invariant res <==> isSubstringPred(sub, str)
++ invariant 0 <= i <= |str| + 1
++ invariant forall j :: 0 <= j < i ==> isNotPrefixPred(sub, str[j..])
++ decreases |str| - i + 1
+@@ // Otherwise, increment i and try again
+@@ i := i + 1;
+= } 
++ assert isNotSubstringPred(sub, str);
+@@ while i <= |str1|-k
+@@ // Invariant to stay within bounds
+- // Invariant to show that when temp is true, it is a substring
+- // Invariant to show that when temp is false, it is not a substring
+- // Telling dafny that i is that value that is increasing
++ invariant 0 <= i <= |str1| - k + 1
++ invariant forall i1, j1 :: 0 <= i1 < i && j1 == i1 + k ==> isNotSubstringPred(str1[i1..j1], str2)
++ decreases |str1| - k - i + 1
+@@ lemma haveCommon0SubstringLemma(str1:string, str2:string)
+@@ ensures  haveCommonKSubstringPred(0,str1,str2)
+= {
++ assert isPrefixPred(str1[0..0], str2[0..]);
++ assert isSubstringPred(str1[0..0], str2);
+= }
+@@ while i > 0
+@@ // Invariant to stay within bounds
+- // When temp is true, there is a common sub string of size i
+- // When temp is false, there is not a common sub string of size i
+- // When temp is false, there is no common sub string of sizes >= i
+- // When temp is true, there is no common sub string of sizes > i
++ invariant 0 <= i <= |str1| + 1
++ invariant forall k :: i < k <= |str1| ==> !haveCommonKSubstringPred(k, str1, str2)
++ decreases i
+@@ i:= i-1;
+- len := i;
+@@ temp := haveCommonKSubstring(i, str1, str2);
+@@ if  temp == true
+= { 
++ len := i;
+@@ break;
+= }
+= }
++ if !temp {
++ len := 0;
++ }

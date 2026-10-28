@@ -175,11 +175,11 @@ exact paper reproduction remains separately labeled.
 | Gate | Current evidence / remaining work |
 | --- | --- |
 | Formal Disco/Dafny setup | Completed with saved generation, repair and verifier evidence |
-| Baseline evaluation run | Dataset pinned; preflight 55802277 completed; 555 eligible inputs and twenty prompts frozen; tested 20-call runner prepared; no model results yet |
+| Baseline evaluation run | Completed bounded 20-call run: 7 legacy successes, 6 strict zero-exit verifications; source fidelity separately audited; full paper reproduction remains outside this milestone |
 | Repository representation and variables | File manifest, declared dependency map, fixed contracts/edit scope, revision hashes, task/attempt identity and whole-repository outcome implemented; source remains authoritative for APIs/specifications; finish a consolidated protocol review |
 | Multi-module context and verification | Previously validated; full source plus declared map is the initial policy, not automatic dependency selection |
 | Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 completed: 12 expected verifier outcomes, four contract rejections and intact original revisions |
-| Live agent demonstration | Frozen four-task pilot prepared, up to eight calls; authorized as automatic continuation; requires successful controls |
+| Live agent demonstration | Completed: four repositories repaired on first model attempt, four calls used; guarded sources and accepted revisions reviewed |
 | Begin scaling generation | Still open: schedule generation/extension across multiple repositories, rather than count hand-built controls as generated corpus |
 
 New additive baseline request adapter has ten fake-transport tests; six smoke-runner
@@ -191,3 +191,13 @@ The user requested automatic continuation while asleep. The new combined driver
 keeps one private key handoff in compute-process memory across the 20-call
 baseline and at-most-eight-call agent pilot. Four orchestration tests pass;
 agent controls are complete and reviewed; baseline preflight is complete and reviewed. No additional generation budget inferred.
+
+## Completed live milestones (October 28, job 55807561)
+
+Baseline and live repository-agent gates now have reviewed model evidence.
+[Combined results](../experiments/weeks1-4-continuation-001/README.md) include full
+logs, 24 unique requests without retries, frozen-input checks and manual baseline
+specification audit. Earlier preparation sections above describe historical state.
+Still open: consolidated representation/experimental-variable protocol review and
+initial generation/extension across multiple repositories. Four unused agent calls
+are not a generation budget. Weeks 1–4 are not yet claimed complete.

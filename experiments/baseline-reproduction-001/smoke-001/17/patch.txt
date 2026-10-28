@@ -1,0 +1,23 @@
+@@ function sum(a: array<int>, i: int, j: int): int @@
+=     reads a
+=     requires 0 <= i <= j <= a.Length
++ decreases j - i
+@@ while(k < j) @@
++ invariant i <= k <= j
++ invariant res == sum(a, i, k)
++ decreases j - k
+@@ requires is_prefix_sum_for(a, c) @@
+- ensures forall k: int :: i <= k <= j ==> sum(a, i, k) + sum(a, k, j) == c[k] - c[i] + c[j] - c[k] //sum(a, i, j) == c[j] - c[i]
+- {}
++ ensures sum(a, i, j) == c[j] - c[i]
++ {
++     if i == j {
++         // Base case: sum(a, i, i) == 0 == c[i] - c[i]
++     } else {
++         // Inductive case
++         aux(a, c, i+1, j);
++         assert sum(a, i+1, j) == c[j] - c[i+1];
++         assert c[i+1] == c[i] + a[i];
++         assert sum(a, i, j) == a[i] + sum(a, i+1, j);
++     }
++ }

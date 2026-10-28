@@ -1,0 +1,24 @@
+Looking at the errors, I need to add loop invariants to help Dafny verify the postconditions. Let me analyze each error:
+
+1. The first loop needs invariants to track that `best` is the maximum of elements seen so far (0 to i-1).
+2. The second loop needs invariants to track that all elements from x to i-1 are <= best, and that best is still the max of 0 to x-1.
+
+Here's the diff to fix these issues:
+
+```
+@@ while i<x @@
++   invariant 1<=i<=x
++   invariant forall j::0<=j<i ==> a[j]<=best
++   invariant exists j::0<=j<i && a[j]==best
+  {
+@@ m:=best; @@
+= i:=x;
+= while i<a.Length
++   invariant x<=i<=a.Length
++   invariant forall j::x<=j<i ==> a[j]<=best
++   invariant forall j::0<=j<i ==> a[j]<=best
++   invariant exists j::0<=j<x && a[j]==m
++   invariant m==best
++   invariant p==0
+  {
+```

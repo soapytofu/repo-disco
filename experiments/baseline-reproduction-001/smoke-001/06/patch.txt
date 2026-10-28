@@ -1,0 +1,32 @@
+Looking at this problem, I need to understand what the `slow_max` function is doing and why the postcondition fails.
+
+The function computes the maximum of two natural numbers `a` and `b`. The algorithm:
+1. Starts with `z = 0`, `x = a`, `y = b`
+2. Increments `z` while decrementing both `x` and `y` until `z` reaches either `x` or `y`
+3. Returns `b` if `x <= y`, otherwise returns `a`
+
+The issue is that the postcondition says `z == max(a, b)`, but the function returns `a` or `b`, not `z`. The return statements are updating `z` implicitly, but Dafny needs to verify that the returned value equals `max(a, b)`.
+
+Let me trace through the logic:
+- After the loop, we have `z >= x` or `z >= y`
+- Since `x = a - z` and `y = b - z` (invariant), we have `z >= a - z` or `z >= b - z`
+- If `x <= y` (i.e., `a - z <= b - z`, meaning `a <= b`), then `max(a,b) = b`
+- If `x > y` (i.e., `a > b`), then `max(a,b) = a`
+
+The logic is correct, but the issue is that the postcondition says `z == max(a, b)`, but we're returning `a` or `b`. The return statement assigns to `z`, so this should work. Let me check if Dafny needs a loop invariant to prove this.
+
+The problem is that Dafny doesn't know the relationship between `x`, `y`, `a`, `b`, and `z` after the loop. I need to add loop invariants.
+
+```
+@@ while (z < x && z < y) @@
++ invariant x == a - z
++ invariant y == b - z
+= {
+```
+
+Wait, I also need to ensure the invariants about the relationship hold. Let me add the necessary invariants:
+
+@@ while (z < x && z < y) @@
++   invariant x == a - z
++   invariant y == b - z
+= {

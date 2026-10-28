@@ -1,0 +1,13 @@
+Looking at the verification error, the issue is that the postcondition `index < 0 ==> forall k :: 0 <= k < blood.Length ==> blood[k] != key` cannot be proved when we return `index := -1` at the end of the method.
+
+The problem is that the while loop doesn't have a loop invariant that captures the fact that we've checked all elements up to `index` and none of them equal `key`. We need to add this invariant.
+
+Also, there's a warning about the null check being unnecessary since `array<int>` is already a non-null type, but that's just a warning and doesn't affect correctness.
+
+Here's the fix:
+
+```
+@@ while index < blood.Length @@
++    invariant 0 <= index <= blood.Length
++    invariant forall k :: 0 <= k < index ==> blood[k] != key
+```

@@ -1,0 +1,69 @@
+Looking at the errors, I need to fix two issues:
+
+1. In `non_overlapping_intervals`: The postcondition `count >= 0` can't be proved because `row - count` might be negative if `count > row`.
+
+2. In `bubble_sort`: The postcondition `sorted(a, 0, a.Length0 - 1)` can't be proved because the method lacks loop invariants.
+
+Let me analyze the code:
+
+For issue 1: The variable `count` starts at 1 and only increases, counting non-overlapping intervals. Since `count <= row` (we can have at most `row` non-overlapping intervals), `row - count >= 0`. I need to add invariants to prove this.
+
+For issue 2: The bubble sort needs proper loop invariants to prove it produces a sorted array.
+
+Here's my diff:
+
+```
+@@ while (i < row) @@
++         invariant 1 <= count <= i + 1
++         invariant count <= row
++         invariant 1 <= i <= row
+=     {
+```
+
+```
+@@ var i := a.Length0 - 1; @@
+=     while (i > 0)
++         invariant -1 <= i < a.Length0
++         invariant sorted(a, i, a.Length0 - 1)
++         invariant partitioned(a, i)
+=     {
+```
+
+```
+@@ var j := 0; @@
+=         while (j < i)
++             invariant 0 <= j <= i
++             invariant sorted(a, i, a.Length0 - 1)
++             invariant partitioned(a, i)
++             invariant forall k :: 0 <= k <= j ==> a[k, 1] <= a[j, 1]
+=         {
+```
+
+Wait, let me reconsider the bubble sort invariants more carefully. The standard bubble sort invariant is that after each outer iteration, the largest elements bubble to the end. Let me also check if `i` can be 0 initially (when `a.Length0 == 0` or `1`).
+
+```
+@@ while (i < row) @@
++         invariant 1 <= i <= row
++         invariant 1 <= count <= i
+=     {
+```
+
+```
+@@ var i := a.Length0 - 1; @@
+=     while (i > 0)
++         invariant 0 <= i < a.Length0 || (i == a.Length0 - 1 && a.Length0 == 0)
++         invariant i >= 0
++         invariant sorted(a, i, a.Length0 - 1)
++         invariant partitioned(a, i)
+=     {
+```
+
+```
+@@ var j := 0; @@
+=         while (j < i)
++             invariant 0 <= j <= i
++             invariant sorted(a, i, a.Length0 - 1)
++             invariant partitioned(a, i)
++             invariant forall k :: 0 <= k < j ==> a[k, 1] <= a[j, 1]
+=         {
+```

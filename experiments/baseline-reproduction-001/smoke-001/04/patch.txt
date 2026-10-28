@@ -1,0 +1,20 @@
+@@ while current != null @@
+-           current.Valid()
+-           current in old(footprint) && current.footprint <= old(footprint)
+-           current.footprint !! reverse.footprint
+-           |old(list)| == |reverse.list| + |current.list|
+-           forall i | 0 <= i < |current.list| ::
+-               current.list[i] == old(list)[|reverse.list| + i]
+-           old(list)[i] == reverse.list[|reverse.list| - 1 - i]
++ invariant reverse.Valid()
++ invariant reverse.footprint <= old(footprint)
++ invariant current != null ==> current.Valid()
++ invariant current != null ==> current in old(footprint) && current.footprint <= old(footprint)
++ invariant current != null ==> current.footprint !! reverse.footprint
++ invariant |old(list)| == |reverse.list| + (if current != null then |current.list| else 0)
++ invariant forall i | 0 <= i < |reverse.list| :: old(list)[i] == reverse.list[|reverse.list| - 1 - i]
++ invariant current != null ==> forall i | 0 <= i < |current.list| :: current.list[i] == old(list)[|reverse.list| + i]
++ decreases if current != null then current.footprint else {}
+@@ nx := current.next; @@
+- forall i | 0 <= i < |nx.list| ::
+-               current.list[i + 1] == nx.list[i];

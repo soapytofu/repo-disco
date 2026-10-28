@@ -1,0 +1,22 @@
+Looking at the error, the issue is that `n1-1-Count` could become negative when `Count` approaches `n1`. Let me trace through:
+- When `Count = 0`, index is `n1-1-0 = n1-1` which is valid if `n1 > 0`
+- When `Count = n1-1`, index is `n1-1-(n1-1) = 0` which is valid
+- The loop condition is `Count != n1`, so `Count` ranges from `0` to `n1-1`
+
+The actual issue is that when `n1 = 0`, we enter the loop with `Count = 0` and try to access `a[-1]`. We need a loop invariant to help the verifier understand the bounds, and we also need to handle the case when `n1 = 0`.
+
+Let me add the necessary loop invariants:
+
+```
+@@ while Count != n1 @@
++         invariant 0 <= Count <= n1
++         invariant n1 <= a.Length
+```
+
+Wait, let me reconsider. The loop condition `Count != n1` combined with `Count` starting at 0 and incrementing means `Count` goes from 0 to n1-1. The index `n1-1-Count` ranges from `n1-1` down to `0`. This is valid as long as `n1 > 0` and `n1 <= a.Length`.
+
+The verifier can't prove that `n1-1-Count >= 0` and `n1-1-Count < a.Length`. We need invariants.
+
+@@ while Count != n1 @@
++         invariant 0 <= Count <= n1
++         invariant Position >= 0

@@ -1,0 +1,13 @@
+Looking at the errors, I need to add loop invariants to help Dafny verify the postconditions. The loop is appending elements from array `a` to sequence `r`, and I need to track:
+1. The length of `r` as it grows
+2. That the original sequence `s` elements are preserved
+3. That the elements from `a` that have been added so far are correct
+
+I'll also remove the redundant `a != null` check since arrays are non-null by default.
+
+@@ method AppendArrayToSeq(s: seq<int>, a: array<int>) returns (r: seq<int>) @@
+- requires a != null
+@@ for i := 0 to a.Length @@
++ invariant |r| == |s| + i
++ invariant forall j :: 0 <= j < |s| ==> r[j] == s[j]
++ invariant forall j :: 0 <= j < i ==> r[|s| + j] == a[j]

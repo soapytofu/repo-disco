@@ -1,0 +1,9 @@
+Looking at the errors, the verifier cannot prove the postconditions because the loop is missing invariants that track the relationship between `s'` and `s`.
+
+Let me add the necessary loop invariants:
+
+```
+@@ for i := 0 to |s| @@
++         invariant |s'| == i
++         invariant forall j :: 0 <= j < i ==> if IsUpperCase(s[j]) then IsUpperLowerPair(s[j], s'[j]) else s'[j] == s[j]
+```

@@ -1,0 +1,175 @@
+{
+  "job_id": "55807561",
+  "all_integrity_checks_passed": true,
+  "requests": {
+    "baseline": 20,
+    "agent": 4
+  },
+  "total_requests": 24,
+  "unused_agent_calls": 4,
+  "no_retries": true,
+  "unique_request_ids": 24,
+  "usage": {
+    "inputTokens": 38916,
+    "outputTokens": 10214,
+    "totalTokens": 49130,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "baseline": {
+    "legacy_success": 7,
+    "strict_zero_exit": 6,
+    "patch_rejected": 9,
+    "proof_failures": 3,
+    "frontend_exit_two": 2,
+    "trials": [
+      {
+        "sequence": 1,
+        "outcome": "VERIFIED",
+        "exit_code": 0,
+        "reported_errors": 0
+      },
+      {
+        "sequence": 2,
+        "outcome": "VERIFIED",
+        "exit_code": 0,
+        "reported_errors": 0
+      },
+      {
+        "sequence": 3,
+        "outcome": "FRONTEND_ERROR",
+        "exit_code": 2,
+        "reported_errors": 0
+      },
+      {
+        "sequence": 4,
+        "outcome": "PROOF_FAILURE",
+        "exit_code": 4,
+        "reported_errors": 2
+      },
+      {
+        "sequence": 5,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 6,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 7,
+        "outcome": "VERIFIED",
+        "exit_code": 0,
+        "reported_errors": 0
+      },
+      {
+        "sequence": 8,
+        "outcome": "VERIFIED",
+        "exit_code": 0,
+        "reported_errors": 0
+      },
+      {
+        "sequence": 9,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 10,
+        "outcome": "PROOF_FAILURE",
+        "exit_code": 4,
+        "reported_errors": 5
+      },
+      {
+        "sequence": 11,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 12,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 13,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 14,
+        "outcome": "VERIFIED",
+        "exit_code": 0,
+        "reported_errors": 0
+      },
+      {
+        "sequence": 15,
+        "outcome": "FRONTEND_ERROR",
+        "exit_code": 2,
+        "reported_errors": null
+      },
+      {
+        "sequence": 16,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 17,
+        "outcome": "PROOF_FAILURE",
+        "exit_code": 4,
+        "reported_errors": 2
+      },
+      {
+        "sequence": 18,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 19,
+        "outcome": "PATCH_REJECTED"
+      },
+      {
+        "sequence": 20,
+        "outcome": "VERIFIED",
+        "exit_code": 0,
+        "reported_errors": 0
+      }
+    ]
+  },
+  "agent": [
+    {
+      "task": "branch-shared",
+      "first_attempt_success": true,
+      "guard_replayed": true,
+      "original_preserved": true,
+      "accepted_revision": "28188c13641440d69bd0664aae31cdb6",
+      "changed_files": [
+        "ClientA.dfy",
+        "ClientB.dfy"
+      ]
+    },
+    {
+      "task": "inductive-separate",
+      "first_attempt_success": true,
+      "guard_replayed": true,
+      "original_preserved": true,
+      "accepted_revision": "382077217f2c47a5b76efe858dd74fc1",
+      "changed_files": [
+        "Facts.dfy"
+      ]
+    },
+    {
+      "task": "branch-separate",
+      "first_attempt_success": true,
+      "guard_replayed": true,
+      "original_preserved": true,
+      "accepted_revision": "d612dea1c3a346449e2d864dfe286128",
+      "changed_files": [
+        "ClientA.dfy",
+        "ClientB.dfy"
+      ]
+    },
+    {
+      "task": "inductive-shared",
+      "first_attempt_success": true,
+      "guard_replayed": true,
+      "original_preserved": true,
+      "accepted_revision": "e24794df973649308f13a6d8c8c961f7",
+      "changed_files": [
+        "Facts.dfy"
+      ]
+    }
+  ],
+  "scope": "Bounded development smoke/integration runs; not full paper reproduction or a causal sharing comparison."
+}

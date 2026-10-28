@@ -1,0 +1,10 @@
+Looking at the error, the issue is that there's code outside of the `Main()` method. The closing brace `}` on line 12 ends the `Main()` method, but there's more code that should be inside it.
+
+The problem is there's an extra closing brace after the first print block, which prematurely ends the `Main()` method.
+
+@@ print ").\n"; @@
+- 	}
+- 	
+- 	// arr = [0, 1, 2]       		 key = 10   ->   left = right = |q| = 3
++ 	
++ 	// arr = [0, 1, 2]       		 key = 10   ->   left = right = |q| = 3

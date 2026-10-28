@@ -82,3 +82,13 @@ proof-error categories and accepted/original revisions. Full evidence is in
 verification-001; control-review.json and verification-001-sha256.json record the
 review and archive integrity. model-preflight-gate.json now permits the prepared
 agent pilot after the baseline gate; it does not itself submit or spend calls.
+
+## Completed live model pilot
+
+Job 55807561 repaired all four frozen development repositories on the first
+model attempt (four requests, no retries; four unused calls not reassigned).
+Both branching and inductive tasks succeeded under shared and separate views.
+The reviewed full model-001 archive includes prompts, raw responses, guarded
+candidates, whole-repository diagnostics and original/accepted revisions.
+Contract guards were replayed offline and source hashes match the accepted HEADs.
+This demonstrates the live agent integration; it does not estimate a sharing effect.

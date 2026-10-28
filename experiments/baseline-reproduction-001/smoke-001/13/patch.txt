@@ -1,0 +1,65 @@
+@@ while (i<nelems) @@
++ invariant 0 <= i <= nelems
++ invariant forall j :: 0 <= j < i ==> store[j] != x
+= {
+
+@@ if (f < 0) { @@
+= store[nelems] := v;
+= elems := elems + {v};
+= nelems := nelems + 1;
+= }
++ assert forall x :: x in elems ==> exists i :: 0 <= i < nelems && store[i] == x;
+= }
+
+@@ class PositiveSet { @@
+- var store:array<int>;
++ var store:array<int>
+- var nelems: int;
++ var nelems: int
+
+@@ method find(x:int) returns (r:int) @@
+= requires RepInv()
+= ensures RepInv()
+= ensures r < 0 ==> x !in elems
+- ensures r >=0 ==> x in elems;
++ ensures r >= 0 ==> x in elems
+= {
+= var i:int := 0;
+= while (i<nelems)
++ invariant 0 <= i <= nelems
++ invariant forall j :: 0 <= j < i ==> store[j] != x
+= {
+
+@@ if (f < 0) { @@
++ assert v > 0;
+= store[nelems] := v;
+= elems := elems + {v};
+= nelems := nelems + 1;
+= }
++ assert forall x :: x in elems ==> exists i :: 0 <= i < nelems && store[i] == x;
+= }
+
+@@ class GrowingSet { @@
+- var store:array<int>;
++ var store:array<int>
+- var nelems: int;
++ var nelems: int
+
+@@ while i < store.Length @@
++ invariant 0 <= i <= store.Length
++ invariant tmp.Length == store.Length * 2
++ invariant forall j :: 0 <= j < i ==> tmp[j] == store[j]
+= modifies tmp
+
+@@ method find(x:int) returns (r:int) @@
+= requires RepInv()
+= ensures RepInv()
+= ensures r < 0 ==> x !in elems
+- ensures r >=0 ==> x in elems;
++ ensures r >= 0 ==> x in elems
+= {
+= var i:int := 0;
+= while (i<nelems)
++ invariant 0 <= i <= nelems
++ invariant forall j :: 0 <= j < i ==> store[j] != x
+= {

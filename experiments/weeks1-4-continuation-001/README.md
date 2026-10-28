@@ -53,3 +53,41 @@ Do not submit either standalone runner, restart this job, or reuse the budget.
 Inspect job55807561 and all ledgers before any recovery action. The private key
 handoff is deleted when the combined process loads it; no second handoff is needed
 for the agent stage during the same successful process.
+
+## Scheduling update
+
+At the user's request, existing job55807561 was moved in place to test alone on
+October28 at 02:19 Eastern. It started immediately on holy8a24101. Live partition
+configuration confirms PreemptMode=OFF. Two CPUs, 8GiB, two-hour wall limit,
+no-requeue and the maximum28 requests are unchanged. No new job or requests were
+created by the scheduling update. Preserve the original submission script and
+before/after evidence in scheduling-adjustment-001.json.
+
+## Completed and reviewed
+
+Job 55807561 completed on test in 3m58s, exit 0. Exactly **24 requests** completed:
+20 baseline and four agent requests, all with unique request IDs and zero SDK
+retries. Four unused agent calls remain unused and cannot be reassigned. Total
+usage: 38,916 input + 10,214 output = 49,130 tokens.
+
+Baseline: **7/20 legacy successes**, **6/20 zero-exit verifications**, nine rejected
+patches, three proof failures and two exit-2 outcomes. One exit-2 outcome is a
+warning-only verification success; the other is a front-end failure. The separate
+[specification audit](../baseline-reproduction-001/specification-review.md) explains
+contract fidelity and inherited weak specifications. This bounded smoke run meets
+the initial baseline-run gate; it is not a reproduction of all paper results.
+
+Agent: **4/4 repositories repaired on their first model attempt**. Frozen guards
+replayed successfully, original snapshots remain exact, and accepted revisions
+match whole-repository verifier hashes. This validates the live integration on
+four development tasks, not a causal sharing advantage or an independent pass@2.
+
+review_results.py checks both freezes, archived code/input hashes, actual prompts,
+request/response correspondence, patches, guards, immutable originals, accepted
+HEADs and verifier evidence without invoking models or Dafny. results-review.json
+records that audit. Full raw evidence is in baseline smoke-001, agent model-001
+and run-001. Earlier failures and original submissions remain unchanged.
+
+Weeks 3–4 wrap-up still requires the consolidated protocol review and beginning
+controlled generation/extension across multiple repositories. No additional model
+calls are authorized by this result or by unused per-task allowances.

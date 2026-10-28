@@ -1,0 +1,51 @@
+Looking at the errors, I need to fix two issues:
+
+1. **Problem 01 (sumOdds)**: The loop invariant is missing, so Dafny can't prove the postcondition `sum == n * n`.
+
+2. **Problem 02 (intDivImpl)**: The while loop has a syntax error - there's a stray `r := r-1;` before the loop body, and the loop body is incorrectly placed. Also, loop invariants are missing.
+
+Let me analyze each:
+
+**For sumOdds**: The sum of first n odd numbers is n². Starting with sum=1 (first odd), and i=0, then incrementing i and adding `2*i+1` gives us odd numbers 3, 5, 7, etc. After the loop, when i=n-1, we've summed n odd numbers. The invariant should be `sum == (i+1)*(i+1)`.
+
+**For intDivImpl**: The loop syntax is broken. The line `r := r-1;` appears incorrectly placed. The correct structure should have the while condition followed by invariants and then the body in braces.
+
+Here's the diff:
+
+```
+@@ while i < n-1 @@
++ invariant 0 <= i < n
++ invariant sum == (i + 1) * (i + 1)
+= {
+@@ while r >= d @@
+- r := r-1;
++ invariant r >= 0
++ invariant (d * q) + r == n
++ invariant q >= 0
+= {
+```
+
+Wait, I need to look more carefully at the intDivImpl. The original code has:
+```
+while r >= d
+    r := r-1;
+{
+    r := r - d;
+    q := q + 1;
+}
+```
+
+This is syntactically wrong - the `r := r-1;` is being parsed as the loop body (hence the warning "this loop has no body"), and then there's a dangling block. I need to remove that line and fix the structure.
+
+```
+@@ while r >= d @@
+- r := r-1;
++ invariant r >= 0
++ invariant (d * q) + r == n
++ invariant q >= 0
+= {
+@@ while i < n-1 @@
++ invariant 0 <= i < n
++ invariant sum == (i + 1) * (i + 1)
+= {
+```

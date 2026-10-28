@@ -1,0 +1,18 @@
+Looking at the errors, I need to:
+1. Remove the deprecated semicolon after `requires true`
+2. Add a loop invariant to help prove the postcondition
+
+The postcondition states that all elements in the array are even. The loop modifies elements to make them even, but Dafny needs a loop invariant to track that:
+1. All elements before index `i` are already even
+2. `i` is within valid bounds (0 to a.Length)
+
+Here's the diff:
+
+@@ requires true; @@
+- requires true;
++ requires true
+@@ while i < a.Length @@
+- while i < a.Length
++ while i < a.Length
++     invariant 0 <= i <= a.Length
++     invariant forall j:int :: 0 <= j < i ==> a[j] % 2 == 0

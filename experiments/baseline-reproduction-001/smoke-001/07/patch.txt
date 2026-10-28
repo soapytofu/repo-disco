@@ -1,0 +1,16 @@
+Looking at the errors, the verifier cannot prove the postconditions because the while loop is missing invariants that establish what properties `result` maintains during iteration.
+
+I need to add loop invariants to track:
+1. The bounds of `i`
+2. The length of `result` relative to `i`
+3. The property that each element of `result` is the difference of corresponding elements from `a` and `b`
+
+Here's the diff:
+
+```
+@@ while i < |a| @@
++ invariant 0 <= i <= |a|
++ invariant |result| == i
++ invariant forall j :: 0 <= j < i ==> result[j] == a[j] - b[j]
+= {
+```

@@ -1,0 +1,7 @@
+{
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(11,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |   var list: seq<Data>;\n   |                      ^\n\nprogram.dfy(12,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |   var footprint: set<Node>;\n   |                           ^\n\nprogram.dfy(14,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |   var data: Data;\n   |                 ^\n\nprogram.dfy(15,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |   var next: Node?;\n   |                  ^\n\nprogram.dfy(84,10): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n84 | invariant forall i | 0 <= i < |reverse.list| :: old(list)[i] == reverse.list[|reverse.list| - 1 - i]\n   |           ^^^^^^\n\nprogram.dfy(85,30): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n85 | invariant current != null ==> forall i | 0 <= i < |current.list| :: current.list[i] == old(list)[|reverse.list| + i]\n   |                               ^^^^^^\n\n\nDafny program verifier finished with 7 verified, 2 errors\n",
+  "stderr": "",
+  "category": "PROOF_FAILURE"
+}
