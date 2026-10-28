@@ -92,4 +92,6 @@ new clients; it is not the larger corpus proposed in the new plan.
 Following Nada’s feedback, the active plan concerns dependencies and proof reuse
 **between modules inside one monorepo workspace**. The corpus contains alternative
 workspace snapshots, not integrations of separate Git repositories. See the
-[updated plan](weeks5-6-corpus-plan.md) and its first conditional calibration build.
+[updated plan](weeks5-6-corpus-plan.md) and its verified four-family calibration.
+The 32-trial proposal is frozen; source/workload and per-family contract-depth
+differences are recorded in the calibration catalog audit. No new model calls.

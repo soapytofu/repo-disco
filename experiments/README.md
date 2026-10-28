@@ -8,7 +8,7 @@ A concise record of what we tried, which program changed, and what the evidence 
 by a gated 192-call main study, proposed 224 total. The main set contains 96
 matched variants from 24 semantic instances across 4 development families.
 No new requests authorized; [full plan](../docs/weeks5-6-corpus-plan.md).
-Scope is cross-module reasoning within one monorepo. The [first conditional family](monorepo-calibration-001/README.md) now has four constructed variants and 26 reviewed verifier controls; no model calls.
+Scope is cross-module reasoning within one monorepo. The [calibration archive](monorepo-calibration-001/README.md) now has 16 verified variants, 118 selected expected controls, tested output guards and a frozen 32-trial proposal; no model calls. Initial failed sequence evidence is preserved.
 
 ## Weeks 1–4 completion checkpoint
 

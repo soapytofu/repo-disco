@@ -1,0 +1,580 @@
+[
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "reference",
+    "path": "fixtures/sequence-shallow-shared/reference",
+    "expected": "success",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "40267c769735d6d31630bbb0393d211f0e4d10a1f04e715fdf427ccfef3836dd",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "empty",
+    "path": "fixtures/sequence-shallow-shared/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "07dc0dff7196814f772e093349d12b6b782ef8f6d985e674760836ed25400dc2",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "missing_recursion",
+    "path": "fixtures/sequence-shallow-shared/missing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "27a5e3c449137d2fce5819a3a1ed931747f42070f4734bcacd8160690fb66b35",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "nondecreasing_recursion",
+    "path": "fixtures/sequence-shallow-shared/nondecreasing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "0b188620e73c2db564f5bdcac491ce93bc32b5c8cbdea946f9443a77cb965c4b",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "missing_prerequisite",
+    "path": "fixtures/sequence-shallow-shared/missing_prerequisite",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ffa4f95d02ae7ae755180a135f8d58aa658f36cb5017161c3747ff591f005fdd",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "wrong_argument",
+    "path": "fixtures/sequence-shallow-shared/wrong_argument",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "94ab44d0d3c5f2e48693b266f3a48a19443682a33355cc650db9c95d095327ce",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-shared",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/sequence-shallow-shared/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "07c178aa378e0d74bc14075678b6ed51add666a0066c394f02d3f4638228f1bc",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "reference",
+    "path": "fixtures/sequence-shallow-separate/reference",
+    "expected": "success",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "40267c769735d6d31630bbb0393d211f0e4d10a1f04e715fdf427ccfef3836dd",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "f571f2256e01ba3cbfa80bc9cddc50f1769e18ae3e263c68c52bbd48fe6f2fa8",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "empty",
+    "path": "fixtures/sequence-shallow-separate/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "07dc0dff7196814f772e093349d12b6b782ef8f6d985e674760836ed25400dc2",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "efbc38b02a9d72c24d582bc3b1cfa43765abe6373bb0961c2ab9ed23df8815e0",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "missing_recursion",
+    "path": "fixtures/sequence-shallow-separate/missing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "27a5e3c449137d2fce5819a3a1ed931747f42070f4734bcacd8160690fb66b35",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "b7c452aa2363fbda7a39a17a3b2a12bbd35c4f24b86517e9eda71547ed454748",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "nondecreasing_recursion",
+    "path": "fixtures/sequence-shallow-separate/nondecreasing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "0b188620e73c2db564f5bdcac491ce93bc32b5c8cbdea946f9443a77cb965c4b",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d53667ac705b4fd42c7211edde4a51c50ae9beb45d8cd324e3502b677ce9b41a",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "missing_prerequisite",
+    "path": "fixtures/sequence-shallow-separate/missing_prerequisite",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ffa4f95d02ae7ae755180a135f8d58aa658f36cb5017161c3747ff591f005fdd",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "b7140b88f7729af710f0cbf61e909fb1cc73b4a7a4f74573bbfff14d0549de63",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "wrong_argument",
+    "path": "fixtures/sequence-shallow-separate/wrong_argument",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "94ab44d0d3c5f2e48693b266f3a48a19443682a33355cc650db9c95d095327ce",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "38e491b89e69a8723324823622bf4208ab9acb4fef09ae9e91ace2c1e1a8662e",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/sequence-shallow-separate/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "07c178aa378e0d74bc14075678b6ed51add666a0066c394f02d3f4638228f1bc",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "f571f2256e01ba3cbfa80bc9cddc50f1769e18ae3e263c68c52bbd48fe6f2fa8",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "only_a",
+    "path": "fixtures/sequence-shallow-separate/only_a",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "40267c769735d6d31630bbb0393d211f0e4d10a1f04e715fdf427ccfef3836dd",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "efbc38b02a9d72c24d582bc3b1cfa43765abe6373bb0961c2ab9ed23df8815e0",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-shallow-separate",
+    "variant": "only_b",
+    "path": "fixtures/sequence-shallow-separate/only_b",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "07dc0dff7196814f772e093349d12b6b782ef8f6d985e674760836ed25400dc2",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "f571f2256e01ba3cbfa80bc9cddc50f1769e18ae3e263c68c52bbd48fe6f2fa8",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "reference",
+    "path": "fixtures/sequence-deep-shared/reference",
+    "expected": "success",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ace0d18bd35b7939f28282f3214d7dbe772dd3fd65b10dea786fc89f781974c1",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "empty",
+    "path": "fixtures/sequence-deep-shared/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "missing_recursion",
+    "path": "fixtures/sequence-deep-shared/missing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "9fdb40dea38ed8c1bc9f53c8a852b26637283850d45611f6b11ef2a0b7e69823",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "nondecreasing_recursion",
+    "path": "fixtures/sequence-deep-shared/nondecreasing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "29e80d3f7a42db85538974210582f637f00a839551ba33970519fe84de37b970",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "missing_prerequisite",
+    "path": "fixtures/sequence-deep-shared/missing_prerequisite",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "02c06670e8e28bb79833d20651c6e491d57dbcaeca7a75775b058bfe2b358798",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "wrong_argument",
+    "path": "fixtures/sequence-deep-shared/wrong_argument",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "1a0de477e69a75ed4984e22bb495db69fc5c265a9eec33afe30268e0e8e4ed02",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/sequence-deep-shared/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "5c9001cca0db434ec05ef3c64281910256a17b6f02dfd14556ecbbb8528f3576",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-shared",
+    "variant": "hidden_shortcut",
+    "path": "fixtures/sequence-deep-shared/hidden_shortcut",
+    "expected": "resolution_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "3992519c1e9636bcb6c884367e6339231685ee79774b7a9079bdd4a47cf84c61",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "reference",
+    "path": "fixtures/sequence-deep-separate/reference",
+    "expected": "success",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ace0d18bd35b7939f28282f3214d7dbe772dd3fd65b10dea786fc89f781974c1",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "66a20ab34cbe8bd6f99c0dd162ffc810300f1adba4297244b5215ee2a1afde7d",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "empty",
+    "path": "fixtures/sequence-deep-separate/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "ea66c31b6ab3f8d2e3676042ed87d9fd6863f731dfbf336595b4bf362b4f05bb",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "missing_recursion",
+    "path": "fixtures/sequence-deep-separate/missing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "9fdb40dea38ed8c1bc9f53c8a852b26637283850d45611f6b11ef2a0b7e69823",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "69f7f8046dfc90a7276e1230fdd81fe6dd48a80752fba661d8f6773fbb514139",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "nondecreasing_recursion",
+    "path": "fixtures/sequence-deep-separate/nondecreasing_recursion",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "29e80d3f7a42db85538974210582f637f00a839551ba33970519fe84de37b970",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "f8d0668cb3a66adbdffe2ad32fef3be425daf1a7a2eda29c0891fcb4171020ec",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "missing_prerequisite",
+    "path": "fixtures/sequence-deep-separate/missing_prerequisite",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "02c06670e8e28bb79833d20651c6e491d57dbcaeca7a75775b058bfe2b358798",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "7ca7d7b05c44947e6d2d7b7f9f8ad1b94b404b8cc122549dea0c1710775672ad",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "wrong_argument",
+    "path": "fixtures/sequence-deep-separate/wrong_argument",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "1a0de477e69a75ed4984e22bb495db69fc5c265a9eec33afe30268e0e8e4ed02",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "620a9bf3d622beb90c297e227d43c715d65c788954c72ffb2686a3b8b0cbb50f",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/sequence-deep-separate/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "5c9001cca0db434ec05ef3c64281910256a17b6f02dfd14556ecbbb8528f3576",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "66a20ab34cbe8bd6f99c0dd162ffc810300f1adba4297244b5215ee2a1afde7d",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "only_a",
+    "path": "fixtures/sequence-deep-separate/only_a",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ace0d18bd35b7939f28282f3214d7dbe772dd3fd65b10dea786fc89f781974c1",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "ea66c31b6ab3f8d2e3676042ed87d9fd6863f731dfbf336595b4bf362b4f05bb",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "only_b",
+    "path": "fixtures/sequence-deep-separate/only_b",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "66a20ab34cbe8bd6f99c0dd162ffc810300f1adba4297244b5215ee2a1afde7d",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "sequence-deep-separate",
+    "variant": "hidden_shortcut",
+    "path": "fixtures/sequence-deep-separate/hidden_shortcut",
+    "expected": "resolution_failure",
+    "source_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "3992519c1e9636bcb6c884367e6339231685ee79774b7a9079bdd4a47cf84c61",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "139e784d05e86a84a60a58a63260929f25700d5e9f005c661368e8250d7db9ee",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  }
+]

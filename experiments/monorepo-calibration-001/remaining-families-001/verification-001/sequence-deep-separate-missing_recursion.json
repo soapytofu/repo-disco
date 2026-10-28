@@ -1,0 +1,37 @@
+{
+  "task_id": "sequence-deep-separate",
+  "variant": "missing_recursion",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+    "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+    "HelperA.dfy": "9fdb40dea38ed8c1bc9f53c8a852b26637283850d45611f6b11ef2a0b7e69823",
+    "HelperB.dfy": "69f7f8046dfc90a7276e1230fdd81fe6dd48a80752fba661d8f6773fbb514139",
+    "Kernel.dfy": "1fe6d681d381cb8bf6e9d9e79ec5120605d707af18e80e0367207b2b7e071732",
+    "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+    "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+    "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "Kernel.dfy(11,31): Error: lower bound out of range\n   |\n11 |     SplitReady(s, t) && Total(s[1..] + t) == Total(s[1..]) + Total(t)\n   |                                ^\n\nHelperA.dfy(18,13): Error: a precondition for this call could not be proved\n   |\n18 |       S2.Lift(s, t);\n   |              ^\n\nStage2.dfy(8,33): Related location: this is the precondition that could not be proved\n  |\n8 |     requires K.Total(s[1..] + t) == K.Total(s[1..]) + K.Total(t)\n  |                                  ^^\n\nHelperB.dfy(18,13): Error: a precondition for this call could not be proved\n   |\n18 |       S2.Lift(s, t);\n   |              ^\n\nStage2.dfy(8,33): Related location: this is the precondition that could not be proved\n  |\n8 |     requires K.Total(s[1..] + t) == K.Total(s[1..]) + K.Total(t)\n  |                                  ^^\n\n\nDafny program verifier finished with 11 verified, 3 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.2286449879975407,
+  "model_calls": 0,
+  "attempts": 1
+}

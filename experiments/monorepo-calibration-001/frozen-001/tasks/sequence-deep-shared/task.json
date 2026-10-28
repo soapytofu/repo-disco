@@ -1,0 +1,85 @@
+{
+  "task_id": "sequence-deep-shared",
+  "family": "sequence_induction",
+  "semantic_instance": "opaque-total-append-001",
+  "lineage": "inspected Total/Append induction; new opaque stage contracts",
+  "split": "calibration-development",
+  "repository_boundary": "single_monorepo_workspace",
+  "depth": "deep",
+  "sharing": "shared",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy"
+  ],
+  "client_count": 2,
+  "reference_depth": {
+    "provider_stages_per_induction_step": {
+      "shallow": 1,
+      "deep": 3
+    },
+    "recursive_edge": "Prove(s[1..],t), not a finite acyclic depth"
+  },
+  "reference_depth_not_minimal": true,
+  "variables": [
+    "s",
+    "t"
+  ],
+  "calls": {
+    "End.Base": 2,
+    "S1.Split": 2,
+    "S2.Lift": 2,
+    "End.Finish": 2,
+    "Prove": 2
+  },
+  "source_sha256": {
+    "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+    "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+    "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+    "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+    "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+    "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+    "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+    "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+  },
+  "bytes": 3259,
+  "includes": {
+    "Kernel.dfy": [],
+    "Stage1.dfy": [
+      "Kernel.dfy"
+    ],
+    "Stage2.dfy": [
+      "Kernel.dfy"
+    ],
+    "Stage3.dfy": [
+      "Kernel.dfy"
+    ],
+    "HelperA.dfy": [
+      "Kernel.dfy",
+      "Stage1.dfy",
+      "Stage2.dfy",
+      "Stage3.dfy"
+    ],
+    "HelperB.dfy": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "ClientA.dfy": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "ClientB.dfy": [
+      "Kernel.dfy",
+      "HelperB.dfy"
+    ],
+    "All.dfy": [
+      "ClientA.dfy",
+      "ClientB.dfy"
+    ]
+  },
+  "fixture_root": "remaining-families-001/revision-002",
+  "prompt_sha256": "f57cf2fb132f9ecb49706b20b8f32f0e74ac5859ae09ea2763afc7ec3ecc2a88",
+  "prompt_utf8_bytes": 5767,
+  "editable_body_count": 1,
+  "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar"
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "sequence-shallow-shared",
+  "variant": "missing_recursion",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+    "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+    "HelperA.dfy": "27a5e3c449137d2fce5819a3a1ed931747f42070f4734bcacd8160690fb66b35",
+    "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+    "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+    "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+    "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+    "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(15,16): Error: a precondition for this call could not be proved\n   |\n15 |       End.Direct(s, t);\n   |                 ^\n\nStage3.dfy(12,33): Related location: this is the precondition that could not be proved\n   |\n12 |     requires K.Total(s[1..] + t) == K.Total(s[1..]) + K.Total(t)\n   |                                  ^^\n\n\nDafny program verifier finished with 13 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 2.1814894349954557,
+  "model_calls": 0,
+  "attempts": 1
+}

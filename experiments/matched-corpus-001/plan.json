@@ -1,5 +1,5 @@
 {
-  "status": "NONPAID_CALIBRATION_BUILD_STARTED_NO_MODEL_AUTHORIZATION",
+  "status": "CALIBRATION_FROZEN_NO_MODEL_AUTHORIZATION",
   "created_date": "2026-10-28",
   "question": "Cross-module whole-monorepo completion and effort under reference dependency depth and shared versus duplicated helper proofs",
   "task_mode": "contract-guided multi-client helper proof synthesis",
@@ -49,11 +49,12 @@
   "automatic_retries": false,
   "reassign_unused": false,
   "calibration_instances_excluded_from_main": true,
-  "exact_prompts_frozen": false,
-  "templates_implemented": false,
+  "exact_prompts_frozen": true,
+  "templates_implemented": true,
   "order": {
     "seed": 20261028,
-    "design": "Four Latin-square orders, each assigned to six main semantic instances; reverse for sample two; interleave families"
+    "design": "Four Latin-square orders, each assigned to six main semantic instances; reverse for sample two; interleave families",
+    "calibration_design": "Four Latin rows once each; interleave families; reverse second sample cell/family order"
   },
   "optional_map_calls": 64,
   "optional_map_total": 288,
@@ -91,12 +92,20 @@
   "comparison_unit": "independent_configuration_of_single_monorepo_snapshot",
   "implementation": {
     "first_family_path": "../monorepo-calibration-001",
-    "constructed_variants": 4,
+    "constructed_variants": 16,
     "planned_variants": 16,
     "verifier_job": "55978267",
-    "verifier_status": "reviewed_26_of_26_expected",
-    "other_families_pending": 3,
-    "candidate_guard_and_prompt_freeze_pending": true,
-    "validated_variants": 4
+    "verifier_status": "118_selected_expected_outcomes_reviewed; original_sequence_failure_preserved",
+    "other_families_pending": 0,
+    "candidate_guard_and_prompt_freeze_pending": false,
+    "validated_variants": 16,
+    "verifier_jobs": [
+      "55978267",
+      "56015268",
+      "56016216"
+    ],
+    "frozen_calibration": "../monorepo-calibration-001/frozen-001",
+    "guard": "calibration-body-v1",
+    "main_templates_implemented": false
   }
 }

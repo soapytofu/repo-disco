@@ -3,7 +3,7 @@
 **Plan updated October 28, 2026 following Nada’s scope feedback. No model calls are
 authorized. The user authorized non-paid calibration construction and verifier checks.** The initial Weeks 1–4 milestones
 are recorded in [the acceptance review](weeks1-4-acceptance.md). This plan defines
-the next experiment; source templates and exact prompts are not yet built/frozen.
+the next experiment; all 16 calibration variants and exact 32-trial prompts are now built, verified and frozen. Model execution remains unauthorized.
 
 ## Scope: cross-module reasoning within one monorepo
 
@@ -71,7 +71,7 @@ data, not a claim of sufficient scale for useful fine-tuning.
 | D1 Conditional preconditions | Extend existing sign-case work to interacting guards and prerequisites that must be established before composing contracts | Development; original sign examples are already inspected |
 | D2 Sequence induction and algebra | Explicit base/step reasoning with an intermediate relation, rather than only a longer list of Append calls | Development; inspected sum/append ancestry stays in development |
 | D3 Relational composition with a join | Two prerequisite paths must establish compatible facts before the final client obligation | Development; existing relation/diamond templates remain development |
-| D4 Finite-map update and frame preservation | Compose update contracts while preserving untouched keys and an invariant used by multiple clients | New development family; feasibility and guard grammar still need validation |
+| D4 Finite-map update and frame preservation | Compose update contracts while preserving untouched keys and an invariant used by multiple clients | Development; verifier controls and guard validated |
 
 Reserve two *candidate* later evaluation families: recursive-tree transformations
 and witness-based finite-set constructions. Do not build/tune on their concrete
@@ -240,26 +240,35 @@ The immediate next action is the **zero-call build/preflight stage**, not the
 224-call batch. Freeze and review the 32-call calibration first; authorize the
 192-call main stage only if the tasks and collection pipeline are informative.
 
-## Calibration construction started (no model calls)
+## Calibration ready (zero model calls)
 
-[monorepo-calibration-001](../experiments/monorepo-calibration-001/README.md) builds
-the first conditional family: four shallow/deep × shared/separate configurations
-of one semantic instance. Client contracts, trusted provider sources and module
-names are matched. The target normalizes the first input, then reflects the
-second around it when necessary, so the second branch depends on the first.
+[monorepo-calibration-001](../experiments/monorepo-calibration-001/README.md)
+contains all 16 configurations and the exact [32-trial frozen proposal](../experiments/monorepo-calibration-001/frozen-001/trials.json).
+All 118 selected verifier controls match: 16 reference passes, 90 ordinary proof
+failures, 4 intended termination failures, and 8 explicit hidden-name failures.
+The initial sequence well-formedness failure is preserved; revision 002 adds an
+explicit nonempty guard and passes all 34 sequence controls. Trusted providers and
+client contracts match within each family. Eight guard tests and four freeze tests
+pass, alongside the two four-test design suites and source/evidence audit.
 
-There are 26 planned deterministic checks: four reference passes, twenty intended
-proof failures and two explicit hidden-shortcut name-resolution failures. Four
-offline design tests passed. Verifier-only job 55978267 completed: all 26 expected outcomes matched and exact
-sources/diagnostics were reviewed. These are fixture checks, not model results.
+The depth target has now been instantiated more precisely: conditional proofs use
+one versus three stages per branch; sequence proofs use one versus three stages
+per recursive step; the relational diamond has critical path one versus three
+but one versus four calls; two map updates plus common Compose require three
+versus seven calls. These are reference-relative contract dependencies, not raw
+import depth, identical linear chains, or certified minimum proof depths.
 
-The shallow/deep label refers to the one-versus-three-stage provider contract
-chain **inside the synthesized helper**, not raw import-graph depth. Shared mode
-uses one editable helper and an immutable forwarding wrapper for client B;
-separate mode requires two equivalent helper bodies. The extra shared wrapper
-edge, differing edit count and source lengths are recorded treatment differences,
-not hidden equal-work matches. Reference depth is not asserted to be minimal.
+The fixed wrapper in shared mode adds an import edge and reduces editable bodies
+from two to one. This source/output workload difference and the guard's prohibition
+on cross-helper delegation are disclosed. All templates remain development data.
 
-The other three families (twelve variants), complete candidate guards, all required
-controls and exact 32-trial prompt freeze remain open. No model dispatch code or
-credential access is introduced by this first verifier-only build.
+Prompts contain only complete empty-body seed workspaces, declared file maps and
+uniform output instructions. References and control results are excluded. Two
+samples per variant reuse the same prompt independently; four Latin rows once
+each, family interleaving and reversed second-sample order are frozen. Model ID,
+settings, guard, source hashes and reviewed-preflight bindings are pinned. No model
+requests, credentials or live dispatcher are used in this preparation.
+
+Next: review this frozen scope and obtain separate 32-call approval before binding
+a bounded dispatcher to it. Do not run the main 192 calls until calibration has
+been analyzed. The larger main corpus is not built or frozen by this milestone.

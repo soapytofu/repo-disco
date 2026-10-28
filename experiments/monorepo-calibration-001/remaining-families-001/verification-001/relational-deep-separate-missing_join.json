@@ -1,0 +1,37 @@
+{
+  "task_id": "relational-deep-separate",
+  "variant": "missing_join",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "8614fe53c14c15f8985aeeb0048836ed8dd225df963253aa56402269e2b32ba2",
+    "ClientB.dfy": "19e009a8a2973be6079ca8ae94dff4cba192be2c2d90eb94ed9746b3092b7063",
+    "HelperA.dfy": "0821fc5b824548c1fde24f36414bf1315ab36bdb9a9b130fdf7b84bb69da7c6b",
+    "HelperB.dfy": "8253d4599c3c1ecaeee7087d682e581561c9824d0896d91cf8b3f566d9c9c608",
+    "Kernel.dfy": "5e256ef95dd9d1baa1003d538140f3dccab9a1b7799f656a1a682c09313942e2",
+    "Stage1.dfy": "7257a800868eee773acf4d92dfddb583f72adb170184b59605ce131c336d4f51",
+    "Stage2.dfy": "f3f32c7ec1ca3b616eca42c016c49caddfb43ac0505ac7a83d55e639906e3d12",
+    "Stage3.dfy": "080f64f70891ce57aabd920b6f32903b16e8ab424ee62e9dc4d157b61d7ba541"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(16,14): Error: a precondition for this call could not be proved\n   |\n16 |     End.Finish(x, y, z);\n   |               ^\n\nStage3.dfy(11,21): Related location: this is the precondition that could not be proved\n   |\n11 |     requires K.Joined(x, y, z)\n   |                      ^\n\nHelperB.dfy(16,14): Error: a precondition for this call could not be proved\n   |\n16 |     End.Finish(x, y, z);\n   |               ^\n\nStage3.dfy(11,21): Related location: this is the precondition that could not be proved\n   |\n11 |     requires K.Joined(x, y, z)\n   |                      ^\n\n\nDafny program verifier finished with 7 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.3737541109949234,
+  "model_calls": 0,
+  "attempts": 1
+}

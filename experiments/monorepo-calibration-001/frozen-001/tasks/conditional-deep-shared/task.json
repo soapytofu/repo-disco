@@ -1,0 +1,118 @@
+{
+  "task_id": "conditional-deep-shared",
+  "family": "conditional_preconditions",
+  "semantic_instance": "dependent-reflection-001",
+  "split": "calibration-development",
+  "repository_boundary": "single_monorepo_workspace",
+  "depth": "deep",
+  "sharing": "shared",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy"
+  ],
+  "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+  "client_count": 2,
+  "reference_contract_application_chain": 3,
+  "reference_chain_not_proven_minimal": true,
+  "imports": {
+    "modules": [
+      "Kernel",
+      "Stage1",
+      "Stage2",
+      "Stage3",
+      "HelperA",
+      "HelperB",
+      "ClientA",
+      "ClientB"
+    ],
+    "imports": {
+      "Kernel": {},
+      "Stage1": {
+        "K": "Kernel"
+      },
+      "Stage2": {
+        "K": "Kernel"
+      },
+      "Stage3": {
+        "K": "Kernel"
+      },
+      "HelperA": {
+        "K": "Kernel",
+        "S1": "Stage1",
+        "S2": "Stage2",
+        "End": "Stage3"
+      },
+      "HelperB": {
+        "K": "Kernel",
+        "H": "HelperA"
+      },
+      "ClientA": {
+        "K": "Kernel",
+        "H": "HelperA"
+      },
+      "ClientB": {
+        "K": "Kernel",
+        "H": "HelperB"
+      }
+    }
+  },
+  "source_sha256": {
+    "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+    "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+    "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+    "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+    "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+    "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+    "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+    "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+  },
+  "bytes": 2598,
+  "includes": {
+    "Kernel.dfy": [],
+    "Stage1.dfy": [
+      "Kernel.dfy"
+    ],
+    "Stage2.dfy": [
+      "Kernel.dfy"
+    ],
+    "Stage3.dfy": [
+      "Kernel.dfy"
+    ],
+    "HelperA.dfy": [
+      "Kernel.dfy",
+      "Stage1.dfy",
+      "Stage2.dfy",
+      "Stage3.dfy"
+    ],
+    "HelperB.dfy": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "ClientA.dfy": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "ClientB.dfy": [
+      "Kernel.dfy",
+      "HelperB.dfy"
+    ],
+    "All.dfy": [
+      "ClientA.dfy",
+      "ClientB.dfy"
+    ]
+  },
+  "fixture_root": ".",
+  "variables": [
+    "x",
+    "y"
+  ],
+  "calls": {
+    "S1.Start": 2,
+    "S2.Advance": 2,
+    "End.Finish": 2
+  },
+  "prompt_sha256": "d51bc0a1e17ce1a37972b03e01b014bb005874fd19f09e9d12b52de6fb416ac2",
+  "prompt_utf8_bytes": 5101,
+  "editable_body_count": 1
+}

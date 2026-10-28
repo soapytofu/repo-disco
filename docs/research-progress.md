@@ -231,11 +231,20 @@ reserved-family evaluation is separate. Proposed total 224, optional balanced
 map study +64. Templates, guard preflight and exact prompt freeze come first.
 No model requests, new verifier jobs or corpus generation were launched in planning.
 
-## Monorepo calibration construction
+## Monorepo calibration verified and frozen
 
-Nada’s scope clarification is incorporated: cross-module reasoning inside a single
-monorepo, with separate-repository dependencies out of scope. Four conditional
-calibration variants and 26 verifier controls are implemented; four offline design
-tests pass. Verifier-only job 55978267 passed all 26 expected outcomes, with full evidence
-reviewed and archived. Twelve variants in
-three other families plus guards/prompt freeze remain. No new model calls.
+Nada's monorepo scope is implemented in all four development families: conditional
+preconditions, sequence induction, relational join and map-frame preservation.
+Sixteen shallow/deep × shared/separate variants have 118 reviewed expected verifier
+outcomes. The initial sequence well-formedness failure and all logs remain saved;
+a one-line corrected revision passes. No model calls were made.
+
+Eight output-guard tests, four freeze tests, two four-test design suites and an
+exact source/evidence audit support the [frozen 32-trial proposal](../experiments/monorepo-calibration-001/README.md).
+Two independent samples per variant are counterbalanced with fixed prompts,
+settings and guarded edit scope. Per-family contract depth and differing shared
+versus separate workloads are disclosed, not presented as equal-work matches.
+
+Week 5's calibration construction/preflight gate is complete. Calibration execution
+requires new 32-call approval and a bounded dispatcher bound to this freeze. The
+main 192-call corpus, calibration findings and held-out evaluation remain open.

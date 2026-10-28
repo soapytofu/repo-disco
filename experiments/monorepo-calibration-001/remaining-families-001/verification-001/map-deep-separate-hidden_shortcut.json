@@ -1,0 +1,37 @@
+{
+  "task_id": "map-deep-separate",
+  "variant": "hidden_shortcut",
+  "expected": "resolution_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "d96c4a8a0da0db5354d903b8aca9071da068c01a272137086be84073e4719052",
+    "ClientB.dfy": "62d41a2f7d9f0910808099af4ba7e1a17a9b77632fa04d9662d0bf70832bf8f6",
+    "HelperA.dfy": "9dba56065fc664f08f25c2faf11745704edffe17022695f1b74369c6b372941c",
+    "HelperB.dfy": "ebc2b96988dd37e8a7581f64c78c788a3f077f5b612682ff7f9965778811b4ce",
+    "Kernel.dfy": "5d8b87014ae79f238647e153a0f144b69e73fc9337cafc1987804d569cffd7e8",
+    "Stage1.dfy": "72a1e88be23b4f2a208bdc21df3ba46a8f8c9db8b48fa9135f05de678deaff2b",
+    "Stage2.dfy": "dc0ea3883dd009aea37a69e2bde02e7920b50d562f2150a7aa9551d5cf6f4d4f",
+    "Stage3.dfy": "6741b394f521f26c5287989838678d3e3c1af4323e827f7dd5ee42e321e0c118"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "outcome": "fail",
+  "category": "frontend_error",
+  "stdout": "HelperB.dfy(17,8): Error: unresolved identifier: Direct\n   |\n17 |     End.Direct(m, k, v);\n   |         ^^^^^^\n\nHelperB.dfy(17,14): Error: expected method call, found expression\n   |\n17 |     End.Direct(m, k, v);\n   |               ^\n\nHelperB.dfy(20,8): Error: unresolved identifier: Direct\n   |\n20 |     End.Direct(m[k := v], j, w);\n   |         ^^^^^^\n\nHelperB.dfy(20,14): Error: expected method call, found expression\n   |\n20 |     End.Direct(m[k := v], j, w);\n   |               ^\n\nHelperA.dfy(17,8): Error: unresolved identifier: Direct\n   |\n17 |     End.Direct(m, k, v);\n   |         ^^^^^^\n\nHelperA.dfy(17,14): Error: expected method call, found expression\n   |\n17 |     End.Direct(m, k, v);\n   |               ^\n\nHelperA.dfy(20,8): Error: unresolved identifier: Direct\n   |\n20 |     End.Direct(m[k := v], j, w);\n   |         ^^^^^^\n\nHelperA.dfy(20,14): Error: expected method call, found expression\n   |\n20 |     End.Direct(m[k := v], j, w);\n   |               ^\n\n8 resolution/type errors detected in All.dfy\n",
+  "stderr": "",
+  "elapsed_seconds": 0.7950258479977492,
+  "model_calls": 0,
+  "attempts": 1
+}

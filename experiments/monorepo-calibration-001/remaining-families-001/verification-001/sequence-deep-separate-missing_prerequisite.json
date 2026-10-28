@@ -1,0 +1,37 @@
+{
+  "task_id": "sequence-deep-separate",
+  "variant": "missing_prerequisite",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+    "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+    "HelperA.dfy": "02c06670e8e28bb79833d20651c6e491d57dbcaeca7a75775b058bfe2b358798",
+    "HelperB.dfy": "7ca7d7b05c44947e6d2d7b7f9f8ad1b94b404b8cc122549dea0c1710775672ad",
+    "Kernel.dfy": "1fe6d681d381cb8bf6e9d9e79ec5120605d707af18e80e0367207b2b7e071732",
+    "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+    "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+    "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "Kernel.dfy(11,31): Error: lower bound out of range\n   |\n11 |     SplitReady(s, t) && Total(s[1..] + t) == Total(s[1..]) + Total(t)\n   |                                ^\n\nHelperA.dfy(19,16): Error: a precondition for this call could not be proved\n   |\n19 |       End.Finish(s, t);\n   |                 ^\n\nStage3.dfy(24,24): Related location: this is the precondition that could not be proved\n   |\n24 |     requires K.StepReady(s, t)\n   |                         ^\n\nHelperB.dfy(19,16): Error: a precondition for this call could not be proved\n   |\n19 |       End.Finish(s, t);\n   |                 ^\n\nStage3.dfy(24,24): Related location: this is the precondition that could not be proved\n   |\n24 |     requires K.StepReady(s, t)\n   |                         ^\n\n\nDafny program verifier finished with 11 verified, 3 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.226112780001131,
+  "model_calls": 0,
+  "attempts": 1
+}

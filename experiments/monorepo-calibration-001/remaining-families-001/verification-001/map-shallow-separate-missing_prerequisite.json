@@ -1,0 +1,37 @@
+{
+  "task_id": "map-shallow-separate",
+  "variant": "missing_prerequisite",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "d96c4a8a0da0db5354d903b8aca9071da068c01a272137086be84073e4719052",
+    "ClientB.dfy": "62d41a2f7d9f0910808099af4ba7e1a17a9b77632fa04d9662d0bf70832bf8f6",
+    "HelperA.dfy": "0393c6658968e0664a4469cc18d3070d9565db1a284df08f40366d8245d8003e",
+    "HelperB.dfy": "12d7664bfd6dc878d75b5661f25990e551692ac684e4dd04f1e5b9669d4da547",
+    "Kernel.dfy": "5d8b87014ae79f238647e153a0f144b69e73fc9337cafc1987804d569cffd7e8",
+    "Stage1.dfy": "72a1e88be23b4f2a208bdc21df3ba46a8f8c9db8b48fa9135f05de678deaff2b",
+    "Stage2.dfy": "dc0ea3883dd009aea37a69e2bde02e7920b50d562f2150a7aa9551d5cf6f4d4f",
+    "Stage3.dfy": "6741b394f521f26c5287989838678d3e3c1af4323e827f7dd5ee42e321e0c118"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(13,14): Error: a precondition for this call could not be proved\n   |\n13 |     End.Direct(m[k := v], j, w);\n   |               ^\n\nStage3.dfy(7,20): Related location: this is the precondition that could not be proved\n  |\n7 |     requires K.Valid(m) && v >= 0\n  |                     ^\n\nHelperA.dfy(14,15): Error: a precondition for this call could not be proved\n   |\n14 |     End.Compose(m, k, v, j, w);\n   |                ^\n\nStage3.dfy(16,20): Related location: this is the precondition that could not be proved\n   |\n16 |     requires K.Frame(m, m[k := v], k)\n   |                     ^\n\nHelperB.dfy(13,14): Error: a precondition for this call could not be proved\n   |\n13 |     End.Direct(m[k := v], j, w);\n   |               ^\n\nStage3.dfy(7,20): Related location: this is the precondition that could not be proved\n  |\n7 |     requires K.Valid(m) && v >= 0\n  |                     ^\n\nHelperB.dfy(14,15): Error: a precondition for this call could not be proved\n   |\n14 |     End.Compose(m, k, v, j, w);\n   |                ^\n\nStage3.dfy(16,20): Related location: this is the precondition that could not be proved\n   |\n16 |     requires K.Frame(m, m[k := v], k)\n   |                     ^\n\n\nDafny program verifier finished with 14 verified, 4 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.5873919849982485,
+  "model_calls": 0,
+  "attempts": 1
+}

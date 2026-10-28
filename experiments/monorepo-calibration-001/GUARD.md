@@ -24,6 +24,8 @@ to another editable helper. This is a disclosed treatment restriction, including
 for separate mode. Both separate bodies may still contain copied proof text.
 Eight offline tests cover all 16 reference replays, rejected bypasses/spec edits,
 ordinary wrong proofs, payload ambiguity, file boundaries and limits. Replaying a
-reference is not yet evidence that the twelve newly built references verify;
-that gate is tracked in remaining-families-001. Earlier frozen parsers and results
-are unchanged.
+reference now binds to accepted verifier input hashes for all 16 tasks (sequence
+uses revision 002). The catalog audit checks all 118 selected controls against
+saved source hashes and confirms exact reference bytes. Earlier frozen parsers
+and results are unchanged. `frozen-001/guard/output_guard.py` is the pinned policy
+for the proposed 32-call calibration. No model execution is authorized.

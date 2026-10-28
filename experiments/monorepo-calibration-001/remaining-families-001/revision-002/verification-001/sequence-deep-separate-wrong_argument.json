@@ -1,0 +1,37 @@
+{
+  "task_id": "sequence-deep-separate",
+  "variant": "wrong_argument",
+  "expected": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+    "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+    "HelperA.dfy": "1a0de477e69a75ed4984e22bb495db69fc5c265a9eec33afe30268e0e8e4ed02",
+    "HelperB.dfy": "620a9bf3d622beb90c297e227d43c715d65c788954c72ffb2686a3b8b0cbb50f",
+    "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+    "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+    "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+    "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(19,13): Error: a precondition for this call could not be proved\n   |\n19 |       S2.Lift(s, t);\n   |              ^\n\nStage2.dfy(8,33): Related location: this is the precondition that could not be proved\n  |\n8 |     requires K.Total(s[1..] + t) == K.Total(s[1..]) + K.Total(t)\n  |                                  ^^\n\nHelperB.dfy(19,13): Error: a precondition for this call could not be proved\n   |\n19 |       S2.Lift(s, t);\n   |              ^\n\nStage2.dfy(8,33): Related location: this is the precondition that could not be proved\n  |\n8 |     requires K.Total(s[1..] + t) == K.Total(s[1..]) + K.Total(t)\n  |                                  ^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.209062093999819,
+  "model_calls": 0,
+  "attempts": 1
+}

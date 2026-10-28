@@ -1,64 +1,92 @@
-# Cross-module monorepo calibration: first family
+# Cross-module monorepo calibration: 16 variants, frozen 32-trial proposal
 
-**Verifier-only construction; zero model requests.** This implements the clarified
-[Weeks 5–6 monorepo scope](../../docs/weeks5-6-corpus-plan.md): one workspace with
-trusted provider stages, editable helper proofs and two immutable clients.
+**All four development families are built and verified. Zero model requests.**
+The [frozen proposal](frozen-001/settings.json) contains 32 independent one-response
+trials: four families × shallow/deep × shared/separate × two samples. A new paid
+budget and a hash-bound bounded dispatcher are required before any collection.
+Existing paid budgets are not reused. [Weeks 5–6 plan](../../docs/weeks5-6-corpus-plan.md).
 
-Four conditional variants are constructed: shallow/deep × shared/separate. The
-helper establishes safety after dependent normalization/reflection of two inputs.
-A four-way branch must supply correctly normalized arguments to visible contracts.
-Shallow mode exposes a direct provider rule; deep mode exposes a three-stage
-prerequisite chain and hides the direct rule. All task files live in the same
-monorepo snapshot, with no cross-repository dependency management.
+## Reviewed deterministic evidence
 
-Shared mode edits HelperA.Prove only; fixed HelperB forwards to it. Separate mode
-edits both independent helper proofs. Two clients, provider sources and target
-contracts are identical across conditions. Matching differences (source bytes,
-editable-body counts, the shared forwarding edge, and import depth) are explicit
-in matching-audit.json. The depth label refers to provider contract composition
-inside the target helper, not total import depth or provably minimal proof length.
+| Family | References pass | Intended proof failures | Termination failures | Hidden-name failures | Total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Conditional preconditions | 4 | 20 | 0 | 2 | 26 |
+| Sequence induction, revision 002 | 4 | 24 | 4 | 2 | 34 |
+| Relational join | 4 | 22 | 0 | 2 | 28 |
+| Finite-map updates/frames | 4 | 24 | 0 | 2 | 30 |
+| **Selected calibration controls** | **16** | **90** | **4** | **8** | **118** |
 
-build_conditional.py generates sources, tasks.json and checks.json. Four offline
-design tests passed, checking exact generation, immutable client/spec matching,
-import/include-map integrity and targeted negative mutations. preflight.py checks
-all source hashes before running Dafny with --verify-included-files on compute.
-It imports no model client and accesses no credentials.
+All 118 selected outcomes match their intended categories, with no unexpected
+parse errors. These are source-fixture controls, not model success rates.
 
-Verifier-only job **55978267** was submitted once on test (PreemptMode=OFF),
-2 CPUs/8GiB/30 minutes, no requeue. **26 expected outcomes:** four reference
-successes, twenty proof failures, two name-resolution failures for hidden Direct.
-All expected outcomes matched; full reviewed evidence is retained below.
+- Conditional job **55978267**, test, 1m14s: 26/26 expected. Original root fixtures,
+  checks, raw verification-001 and results-review.json remain unchanged.
+- Remaining-family job **56015268**, test, 4m07s: relational/map **58/58** expected.
+  Initial sequence fixtures exposed a well-formedness error: an opaque predicate
+  did not establish that a tail slice was in range. Full failed evidence is retained
+  in [remaining-families-001](remaining-families-001/README.md); it is not counted as
+  valid sequence calibration evidence, even where an intended negative also failed.
+- Corrected sequence job **56016216**, test, 1m39s: **34/34** expected.
+  [Revision 002](remaining-families-001/revision-002/README.md) adds an explicit
+  nonempty guard inside StepReady; no helper/client contract or proof body changes.
+  All 34 exact one-line source differences were audited.
 
-This starts **4 of 16 calibration variants**. The sequence-induction, relational
-join and finite-map families remain to build. Candidate-output guards and exact
-32-call prompt freeze are not ready, and no model calls are authorized.
+Every job ran only on compute nodes with live-confirmed PreemptMode=OFF, no requeue
+and no model transport. Full source snapshots, source/code hashes, commands,
+stdout/stderr, exit categories, submission/environment records and failed controls
+are archived. The stricter offline review distinguishes well-formedness and
+termination failures from ordinary pre/postcondition failures.
 
-## Reviewed verifier results
+## What is being compared
 
-Job 55978267 completed on test in **1m14s**, exit 0. All **26 expected outcomes**
-matched: four references verified, twenty negative controls failed proof checking,
-and two hidden-shortcut controls failed name resolution. No parse errors occurred.
-These are verifier controls, not model-performance results. No API calls occurred.
+Each case is one monorepo workspace with trusted providers, editable helper bodies
+and two immutable clients. Independent fixture directories are alternative
+configurations; there are no dependencies between separate Git repositories.
 
-The archive includes exact fixture bytes, runner/backend hashes, every raw
-stdout/stderr record and environment/submission logs. review_results.py checks
-all archived fixture hashes against the staged manifest and live source copies,
-client/provider immutability, expected exit codes and diagnostic categories.
-results-review.json and verification-001-sha256.json record the review. The offline
-review matcher was corrected from an assumed “does not exist” phrase to the actual
-“unresolved identifier: Direct”; source and verifier evidence were not changed or
-rerun. The original preflight matcher had accepted the actual diagnostic correctly.
+Conditional proofs normalize/reflect interacting inputs; sequence proofs require
+explicit induction; relational proofs join two prerequisite facts; map proofs
+preserve an invariant and untouched keys through two distinct updates. Within each
+family the client and trusted-provider bytes are identical across all four cells.
 
-The four references establish fixture validity. They do not establish how often
-models solve these tasks or that no shorter proof exists. Guards must prohibit
-revealing opaque trusted definitions or accessing internal imports before model
-trials are allowed. Three other calibration families, final guards and prompt
-freezing remain open; the proposed 32-call calibration is still unauthorized.
+Depth refers to **provider-contract composition**, not import-graph depth or proven
+minimum proof length. Sequence uses 1 versus 3 stages per recursive step, with the
+same base case and recursive obligation. The relational diamond uses 1 versus 4
+calls with critical paths 1 versus 3. Map proofs have two update chains and a common
+Compose lemma, totaling 3 versus 7 calls. Do not pool these as identical linear
+chains. [catalog-audit.json](catalog-audit.json) records actual source sizes,
+imports, reference calls, matching checks and source-to-verifier bindings.
 
-## Remaining families and guard construction
+Shared mode edits one helper; a fixed wrapper serves client B. Separate mode edits
+two equivalent helper bodies. Source size, output workload and the forwarding edge
+differ. The guard forbids delegating to another editable helper, but copying proof
+text between bodies remains possible. This is a workload/architecture comparison,
+not a claim of sharing's cognitive benefit at identical work.
 
-[remaining-families-001](remaining-families-001/README.md) adds twelve configurations
-and 92 verifier controls (job 56015268; results pending). [GUARD.md](GUARD.md)
-documents the new bounded output policy; eight offline guard tests pass. No model
-calls are authorized or performed. The 32-prompt freeze remains gated on reviewed
-verification for every family.
+## Guard and frozen proposal
+
+[GUARD.md](GUARD.md) specifies calibration-body-v1: one tolerant JSON extraction
+policy, exact file set and immutable bytes, bounded proof grammar, task-specific
+call allowlists, no assume/reveal/bypass attributes. Semantic validity is decided
+by whole-workspace Dafny verification. Eight adversarial guard tests pass, including
+byte-exact replay of every accepted reference. The first and remaining design
+suites each have four passing tests. Four freeze tests pass; catalog-audit.py checks
+all 118 exact verifier inputs and the single-line sequence correction.
+
+[frozen-001](frozen-001/) contains:
+
+- Exact empty-body workspace sources, 16 prompts, system instruction and settings.
+- [32 trial records](frozen-001/trials.json), two identical-prompt independent
+  samples per variant, fresh context and no feedback. Four cyclic Latin rows are
+  assigned once each; families are interleaved; the second sample reverses cell
+  and family order (seed 20261028).
+- Claude Opus 4.5 model ID from the previous pilot, us-east-1, temperature 1,
+  maxTokens 4096, strict verifier timeout 30s; no automatic retries or reassignment.
+- Guard/code pins, reviewed-preflight bindings and [file hashes](frozen-001/freeze.json).
+
+Only full seed sources and a declared file map enter prompts. Reference solutions,
+negative controls, ablation outcomes, proof graphs and prior model responses do not.
+The 16 prompt sizes are 4,887–6,472 UTF-8 bytes; these are not API-token estimates.
+The four instances are development/calibration data, excluded from the proposed
+main set. The 192-call main corpus remains gated on calibration review.
+
+No credentials were read, no model calls made, and no live dispatcher submitted.
