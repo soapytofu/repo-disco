@@ -34,3 +34,20 @@ The agent deliberately starts with repository repair. Autonomous creation of new
 modules, extension task scheduling, context selection and growing generated
 repositories remain needed to demonstrate the proposal's beginning-to-scale
 component. Existing controlled variants do not constitute autonomous generation.
+
+## Prepared live pilot (not authorized or run)
+
+Verifier-only job **55802594** is queued on shared/sapphire, with no requeue.
+`repository_agent_pilot.py` and frozen-model-001 pin four development tasks:
+branch/shared, inductive/separate, branch/separate, inductive/shared. Each gets at
+most two feedback-driven attempts, stopping on success; unused calls are not
+reassigned. **At most eight additional requests**, separate from the baseline,
+require budget approval after compute controls pass. No requests made yet.
+
+Opus 4.5 via Bedrock, temperature 1.0, 4,096 output tokens, complete source plus
+declared dependency map and explicit permitted grammar. Three adapter tests pass:
+all four reference repairs survive the frozen parsers byte-exactly, all contract
+changes are rejected, and final chat messages preserve context and identity.
+Actual messages enter the durable request ledger. Failed revisions, diagnostics,
+responses and final accepted HEAD are saved. No automatic retries or resume.
+This tests integration, not a powered sharing effect or independent pass@2.

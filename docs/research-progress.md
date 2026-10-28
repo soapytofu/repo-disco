@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: October 26, 2026 (UTC). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: October 28, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -163,4 +163,26 @@ problems: at most 2,220 calls for four attempts, with a proposed 20-call smoke
 subset counted within that cap if settings remain unchanged. Neither stage is
 authorized to make model calls yet. Exact paper problem IDs, source/tool versions
 and evaluation inference settings still need confirmation. Three offline tests
-pass; no preflight job or paid run has been submitted.
+pass; verifier-only preflight job 55802277 is queued. No paid baseline requests made.
+
+## Weeks 1–4 completion gates (October 28 update)
+
+The proposal asks for **a baseline generation/evaluation run**, not every paper
+result. Earlier references to full published reproduction were too broad for this
+milestone. A documented bounded baseline run can satisfy the initial requirement;
+exact paper reproduction remains separately labeled.
+
+| Gate | Current evidence / remaining work |
+| --- | --- |
+| Formal Disco/Dafny setup | Completed with saved generation, repair and verifier evidence |
+| Baseline evaluation run | Dataset pinned; preflight 55802277 queued; tested 20-call runner prepared; no model results yet |
+| Repository representation and variables | File manifest, declared dependency map, fixed contracts/edit scope, revision hashes, task/attempt identity and whole-repository outcome implemented; source remains authoritative for APIs/specifications; finish a consolidated protocol review |
+| Multi-module context and verification | Previously validated; full source plus declared map is the initial policy, not automatic dependency selection |
+| Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 queued |
+| Live agent demonstration | Frozen four-task pilot prepared, up to eight calls; requires successful controls and additional budget approval |
+| Begin scaling generation | Still open: schedule generation/extension across multiple repositories, rather than count hand-built controls as generated corpus |
+
+New additive baseline request adapter has ten fake-transport tests; six smoke-runner
+and three agent-adapter tests pass. Existing frozen protocols are unchanged. Neither
+queued controls nor fake transport tests are model findings. All newly prepared
+live settings and scope are documented in the respective experiment directories.

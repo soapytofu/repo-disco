@@ -2,6 +2,40 @@
 
 Prepared October 28, 2026. **Zero-model preflight submitted as job 55802277. No model calls made.**
 
+## Proposal milestone versus exact paper reproduction
+
+The proposal's Weeks 1–2 asks for **a baseline generation/evaluation run**, not
+reproduction of every published numerical result. First complete a bounded run
+on the pinned public snapshot. The exact-paper comparison below remains separate.
+A different eligible count is a disclosed deviation, not a reason to block every
+small run. The user subsequently asked to run the proposed at-most-20-call smoke.
+
+`baseline_smoke.py` prepares exact prompts after preflight completes, using this
+checkout's repair prompt, CodeOutputParser and diff logic. Explicit smoke settings:
+Opus 4.5 via Bedrock, temperature 1.0, maximum 4,096 output tokens, no explicit top-p
+or thinking configuration, SDK total attempts one. These are our settings, not
+claimed paper evaluation settings. Six runner and ten request-adapter tests pass
+with fake transports. The actual Cannon boto3/botocore 1.43.115 Stubber check
+and langchain-core 1.6.10 parser import also passed without network requests
+(see sdk-preflight.log). All 71 staged runtime files match local hashes.
+No model requests have been made yet.
+
+`bounded_requests.py` durably reserves each request, checks per-call deadlines,
+and closes after ambiguous failure. Single owner only; no independent concurrent
+worker budgets. Old frozen implementations remain unchanged. The fixed smoke-001
+output refuses restart. Ground-truth solutions never enter model context.
+
+After preflight review, run `python baseline_smoke.py prepare --dataset PATH
+--preflight PATH`, review/publish frozen-smoke-001 and bind authorization to its
+hash. Then `python baseline_smoke.py run` runs only on a compute node and consumes
+the private key handoff without logging it. External include tokens are
+conservatively rejected before candidate verification, with a separate outcome.
+Every verified candidate still needs manual contract/implementation review;
+verification alone is not faithful-annotation success.
+
+SDK references: [Converse](https://docs.aws.amazon.com/boto3/latest/reference/services/bedrock-runtime/client/converse.html),
+[Bedrock API keys](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys-use.html).
+
 ## Target and scope
 
 First reproduce the **Claude Opus 4.5 DafnyBench logical-annotation baseline** in
@@ -50,7 +84,8 @@ Bedrock ID, region us-east-1; availability is not yet checked in the lab account
    discarded. Ground-truth results are diagnostic and do not change eligibility.
 5. Freeze `eligible.json` and the first 20 deterministic hash-ordered problems for
    a smoke run. Matching the number 555 is necessary but does not prove identity
-   with the paper's problem set. Resolve mismatches before paid execution.
+   with the paper's problem set. Resolve mismatches before claiming exact paper
+   reproduction; disclose deviations in the bounded smoke.
 
 The original cache is filename-based. This preflight does not reuse it; source
 hashes and tool versions are attached to the new records. Ground-truth solutions
@@ -93,7 +128,8 @@ rather than assuming verification proves faithful annotation repair.
   2,220, not 2,240. If settings change, preserve smoke evidence separately and
   explicitly authorize the replacement budget.
 - No dollar estimate until output cap, access route and current pricing are known.
-- No paid calls under this preparation request. Never retry uncertain requests.
+- The later run request covers the proposed at-most-20-call smoke. The full
+  2,220-call comparison remains unapproved. Never retry uncertain requests.
 
 ## Acceptance and reporting
 
