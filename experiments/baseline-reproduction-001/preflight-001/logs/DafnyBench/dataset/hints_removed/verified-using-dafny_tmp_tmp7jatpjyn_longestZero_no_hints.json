@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/verified-using-dafny_tmp_tmp7jatpjyn_longestZero_no_hints.dfy",
+  "sha256": "a5e9b1d1d06d335d517b459141cd872eb4e5f1139e55f1e371cd319ca7a7c720",
+  "bytes": 1513,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(10,14): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures 0 <= sz <= a.Length\n   |               ^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(10,20): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures 0 <= sz <= a.Length\n   |                     ^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(11,14): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures 0 <= pos < a.Length\n   |               ^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(11,21): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures 0 <= pos < a.Length\n   |                      ^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(12,21): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures pos + sz <= a.Length\n   |                      ^^\n\n\nDafny program verifier finished with 2 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

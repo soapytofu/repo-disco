@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_copy_part_no_hints.dfy",
+  "sha256": "9167506fdc31268262df0db22662cafa1e2a675e3914b7476675bf40da03c87f",
+  "bytes": 611,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(5,22): Related location: this is the postcondition that could not be proved\n  |\n5 |   ensures r[..dStart] == dest[..dStart]\n  |                       ^^\n\nprogram.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(6,28): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures r[dStart + len..] == dest[dStart + len..]\n  |                             ^^\n\nprogram.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(7,32): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures r[dStart..len+dStart] == src[sStart..len+sStart]\n  |                                 ^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

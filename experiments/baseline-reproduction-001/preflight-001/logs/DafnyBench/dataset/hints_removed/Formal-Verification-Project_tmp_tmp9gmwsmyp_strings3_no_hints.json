@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Formal-Verification-Project_tmp_tmp9gmwsmyp_strings3_no_hints.dfy",
+  "sha256": "edc16c59dc16bef787782fe76b071f135d487bc365648f25591707a2e516305f",
+  "bytes": 4937,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(74,4): Error: a postcondition could not be proved on this return path\n   |\n74 |     return false;\n   |     ^^^^^^^^^^^^^\n\nprogram.dfy(50,14): Related location: this is the postcondition that could not be proved\n   |\n50 | \tensures  res <==> isSubstringPred(sub, str)\n   |               ^^^^\n\nprogram.dfy(120,4): Error: a postcondition could not be proved on this return path\n    |\n120 |     return false;\n    |     ^^^^^^^^^^^^^\n\nprogram.dfy(94,16): Related location: this is the postcondition that could not be proved\n   |\n94 | \tensures found  <==>  haveCommonKSubstringPred(k,str1,str2)\n   |                 ^^^^\n\nprogram.dfy(125,0): Error: a postcondition could not be proved on this return path\n    |\n125 | {\n    | ^\n\nprogram.dfy(124,37): Related location: this is the postcondition that could not be proved\n    |\n124 |     ensures  haveCommonKSubstringPred(0,str1,str2)\n    |                                      ^\n\nprogram.dfy(80,1): Related location: this proposition could not be proved\n   |\n80 | \texists i1, j1 :: 0 <= i1 <= |str1|- k && j1 == i1 + k && isSubstringPred(str1[i1..j1],str2)\n   |  ^^^^^^\n\nprogram.dfy(153,4): Error: a postcondition could not be proved on this return path\n    |\n153 |     return len;\n    |     ^^^^^^^^^^^\n\nprogram.dfy(130,10): Related location: this is the postcondition that could not be proved\n    |\n130 | \tensures (forall k :: len < k <= |str1| ==> !haveCommonKSubstringPred(k,str1,str2))\n    |           ^^^^^^\n\nprogram.dfy(153,4): Error: a postcondition could not be proved on this return path\n    |\n153 |     return len;\n    |     ^^^^^^^^^^^\n\nprogram.dfy(131,33): Related location: this is the postcondition that could not be proved\n    |\n131 | \tensures haveCommonKSubstringPred(len,str1,str2)\n    |                                  ^\n\nprogram.dfy(80,1): Related location: this proposition could not be proved\n   |\n80 | \texists i1, j1 :: 0 <= i1 <= |str1|- k && j1 == i1 + k && isSubstringPred(str1[i1..j1],str2)\n   |  ^^^^^^\n\n\nDafny program verifier finished with 12 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

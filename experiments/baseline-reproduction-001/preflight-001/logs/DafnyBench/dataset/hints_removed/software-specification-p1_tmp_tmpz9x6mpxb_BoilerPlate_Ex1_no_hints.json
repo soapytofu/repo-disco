@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/software-specification-p1_tmp_tmpz9x6mpxb_BoilerPlate_Ex1_no_hints.dfy",
+  "sha256": "bdc78033744cbe60a5161c53d4902e7dc2e618dbb43d05ef60d1e46b787715d9",
+  "bytes": 4622,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(85,15): Error: the calculation step between the previous line and this line could not be proved\n   |\n85 |     deserialise(serialise(t) + []);\n   |                ^\n\nprogram.dfy(122,26): Error: the calculation step between the previous line and this line could not be proved\n    |\n122 |             deserialiseAux( ([CSNd(x)] + cds), ts + [ t1 ]);\n    |                           ^\n\nprogram.dfy(134,26): Error: the calculation step between the previous line and this line could not be proved\n    |\n134 |             deserialiseAux(serialise(t2) + (serialise(t1) + [CDNd(x)] + cds),ts);\n    |                           ^\n\nprogram.dfy(138,26): Error: the calculation step between the previous line and this line could not be proved\n    |\n138 |             deserialiseAux(serialise(t1) + ([CDNd(x)] + cds), ts + [ t2 ]);\n    |                           ^\n\nprogram.dfy(142,26): Error: the calculation step between the previous line and this line could not be proved\n    |\n142 |             deserialiseAux([ CDNd(x) ] + cds, ts + [t2, t1]);\n    |                           ^\n\n\nDafny program verifier finished with 8 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

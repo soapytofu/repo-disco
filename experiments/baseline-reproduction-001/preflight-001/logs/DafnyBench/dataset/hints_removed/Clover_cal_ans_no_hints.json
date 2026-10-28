@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_cal_ans_no_hints.dfy",
+  "sha256": "cbb6b612242ef9b478ece0bbc6d60f36c6b76b30fdb6aaf3fd28879bff9bee46",
+  "bytes": 153,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(2,11): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures x==191/7\n  |            ^^\n\nprogram.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,11): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures y==191%7\n  |            ^^\n\nprogram.dfy(7,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n7 |   while 7 <= y\n  |   ^^^^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

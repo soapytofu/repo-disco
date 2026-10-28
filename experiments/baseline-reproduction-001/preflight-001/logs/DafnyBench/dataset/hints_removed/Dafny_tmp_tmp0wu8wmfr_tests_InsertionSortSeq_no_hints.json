@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_tests_InsertionSortSeq_no_hints.dfy",
+  "sha256": "3bca16455cf941cfe5188803b189b5765af677219968475d0db5ee61a4227283",
+  "bytes": 519,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,38): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |     ensures multiset(r) == multiset(s);\n   |                                       ^\n\nprogram.dfy(12,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     ensures IsSorted(r);\n   |                        ^\n\nprogram.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(11,24): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures multiset(r) == multiset(s);\n   |                         ^^\n\nprogram.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(12,20): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures IsSorted(r);\n   |                     ^\n\nprogram.dfy(7,4): Related location: this proposition could not be proved\n  |\n7 |     forall p,q | 0<=p<q<|s| :: s[p]<=s[q]\n  |     ^^^^^^\n\nprogram.dfy(25,14): Error: upper bound below lower bound or above length of sequence\n   |\n25 |         r := r[..k]+[x]+r[k..];\n   |               ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

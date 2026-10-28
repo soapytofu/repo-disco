@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_VSComp2010_Problem1-SumMax.dfy",
+  "sha256": "11adba6502ac39ca339b9d9faace19c37bf288312add9017f776d7e4a943b0ee",
+  "bytes": 1137,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(14,81): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |   requires 0 <= N && a.Length == N && (forall k :: 0 <= k && k < N ==> 0 <= a[k]);\n   |                                                                                  ^\n\nprogram.dfy(15,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |   ensures sum <= N * max;\n   |                         ^\n\nprogram.dfy(21,38): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     invariant i <= N && sum <= i * max;\n   |                                       ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

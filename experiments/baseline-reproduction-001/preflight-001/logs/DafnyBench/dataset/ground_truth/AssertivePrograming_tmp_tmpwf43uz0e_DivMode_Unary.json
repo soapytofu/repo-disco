@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/AssertivePrograming_tmp_tmpwf43uz0e_DivMode_Unary.dfy",
+  "sha256": "4e5b807f24c81fb0a0abe620ddb323aa52b35d3a87983bbe2f575ce86748721b",
+  "bytes": 9500,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(125,22): Warning: The {:verify false} attribute should only be used during development. Consider using a bodyless method together with the {:axiom} attribute instead\n    |\n125 | method{:verify false} IterativeDivMod'(x: Unary, y: Unary) returns (d: Unary, m: Unary)\n    |                       ^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 24 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

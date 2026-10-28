@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/HATRA-2022-Paper_tmp_tmp5texxy8l_copilot_verification_Sort Array_sort_array_no_hints.dfy",
+  "sha256": "e51e7ec87ba2eb3313f5f19d06bfcb5f627e5bd94630102ff8ed1b13b54f13fd",
+  "bytes": 1341,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(28,4): Error: a postcondition could not be proved on this return path\n   |\n28 |     return arr;\n   |     ^^^^^^^^^^^\n\nprogram.dfy(5,18): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures sorted(arr_sorted, 0, arr_sorted.Length)\n  |                   ^\n\nprogram.dfy(36,4): Related location: this proposition could not be proved\n   |\n36 |     forall i, j :: start <= i <= j < end ==> arr[i] <= arr[j]\n   |     ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

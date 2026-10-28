@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-programs_tmp_tmpcwodh6qh_src_expt.dfy",
+  "sha256": "5cb11351e7bd5e95a51f75cbd45965966ea90483b07c38d446d239e1b8821c90",
+  "bytes": 532,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(23,34): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n23 |   ensures Expt(x, a) * Expt(x, b) == Expt(x, a + b)\n   |                                   ^^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

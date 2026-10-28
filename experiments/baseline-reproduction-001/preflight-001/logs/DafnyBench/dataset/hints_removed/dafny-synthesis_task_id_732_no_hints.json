@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_732_no_hints.dfy",
+  "sha256": "5a6177d38ef624ed9707cd9d76de58a87abc760879ce877ad6a1ec2b82d6c8da",
+  "bytes": 508,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(22,4): Error: a postcondition could not be proved on this return path\n   |\n22 |     return s';\n   |     ^^^^^^^^^^\n\nprogram.dfy(7,16): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures |v| == |s|\n  |                 ^^\n\nprogram.dfy(22,4): Error: a postcondition could not be proved on this return path\n   |\n22 |     return s';\n   |     ^^^^^^^^^^\n\nprogram.dfy(8,12): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures forall i :: 0 <= i < |s| ==> (IsSpaceCommaDot(s[i]) ==> v[i] == ':') && (!IsSpaceCommaDot(s[i]) ==> v[i] == s[i])\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

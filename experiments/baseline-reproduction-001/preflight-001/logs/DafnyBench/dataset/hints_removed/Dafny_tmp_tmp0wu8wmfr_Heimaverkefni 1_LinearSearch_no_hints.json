@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_Heimaverkefni 1_LinearSearch_no_hints.dfy",
+  "sha256": "c462dfc9a45eef7d26535f82d673f246cf5dbf4eb7fb69d5b9d84bb9968d9f65",
+  "bytes": 2039,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(22,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |     requires 0 <= i <= j <= |a|;\n   |                                ^\n\nprogram.dfy(23,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |     ensures i <= k < j || k == -1;\n   |                                  ^\n\nprogram.dfy(24,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |     ensures k != -1 ==> a[k] == x;\n   |                                  ^\n\nprogram.dfy(25,57): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |     ensures k != -1 ==> forall r | k < r < j :: a[r] != x;\n   |                                                          ^\n\nprogram.dfy(26,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 |     ensures k == -1 ==> forall r | i <= r < j :: a[r] != x;\n   |                                                           ^\n\nprogram.dfy(58,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n58 |     requires 0 <= i <= j <= |a|;\n   |                                ^\n\nprogram.dfy(59,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n59 |     ensures i <= k < j || k == -1;\n   |                                  ^\n\nprogram.dfy(60,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n60 |     ensures k != -1 ==> a[k] == x;\n   |                                  ^\n\nprogram.dfy(61,57): Warning: deprecated style: a semi-colon is not needed here\n   |\n61 |     ensures k != -1 ==> forall r | k < r < j :: a[r] != x;\n   |                                                          ^\n\nprogram.dfy(62,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n62 |     ensures k == -1 ==> forall r | i <= r < j :: a[r] != x;\n   |                                                           ^\n\nprogram.dfy(63,0): Error: a postcondition could not be proved on this return path\n   |\n63 | {\n   | ^\n\nprogram.dfy(62,24): Related location: this is the postcondition that could not be proved\n   |\n62 |     ensures k == -1 ==> forall r | i <= r < j :: a[r] != x;\n   |                         ^^^^^^\n\nprogram.dfy(83,12): Error: a postcondition could not be proved on this return path\n   |\n83 |             return;\n   |             ^^^^^^^\n\nprogram.dfy(61,24): Related location: this is the postcondition that could not be proved\n   |\n61 |     ensures k != -1 ==> forall r | k < r < j :: a[r] != x;\n   |                         ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

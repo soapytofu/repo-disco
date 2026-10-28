@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FlexWeek_tmp_tmpc_tfdj_3_ex3_no_hints.dfy",
+  "sha256": "3f5f92e670e4feb13b5b00e3659cc7a263889f4880260f42e2c1841aa525c209",
+  "bytes": 794,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(2,25): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures a.Length > 0 ==> forall k :: 0<=k<a.Length ==> m >= a[k]// not strong enough\n  |                          ^^^^^^\n\nprogram.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,27): Related location: this is the postcondition that could not be proved\n  |\n4 | ensures a.Length > 0 ==> m in a[..] // finally at the top // approach did not work for recusrive function\n  |                            ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

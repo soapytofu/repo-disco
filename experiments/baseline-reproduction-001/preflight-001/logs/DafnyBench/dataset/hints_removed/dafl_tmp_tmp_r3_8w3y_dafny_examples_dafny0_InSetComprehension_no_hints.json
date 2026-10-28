@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafl_tmp_tmp_r3_8w3y_dafny_examples_dafny0_InSetComprehension_no_hints.dfy",
+  "sha256": "ee98c2837e282a7704cfb599a6e4579b02ed25d02b909e9c398cf7631c3c9d39",
+  "bytes": 1917,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,17): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n10 |       z := 72 in set i | 0 <= i < 10;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(12,17): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n12 |       z := -8 in set k: nat | k < 10;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(28,16): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n28 |       z := 7 in set i | 0 <= i < 10;\n   |                 ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(30,16): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n30 |       z := 8 in set k: nat | k < 10;\n   |                 ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(24,10): Related location: this is the postcondition that could not be proved\n   |\n24 |   ensures z\n   |           ^\n\n\nDafny program verifier finished with 7 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Exercise4_Find_Max.dfy",
+  "sha256": "b27ca8be778bba98a56e199f07507767c4a4e6812017643a33794db9cfb91b4a",
+  "bytes": 709,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,23): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires a.Length > 0;\n  |                        ^\n\nprogram.dfy(3,54): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   requires forall i :: 0 <= i < a.Length ==> a[i] >= 0;\n  |                                                       ^\n\nprogram.dfy(4,58): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |   ensures forall i :: 0 <= i < a.Length ==> a[i] <= maxVal;\n  |                                                           ^\n\nprogram.dfy(5,58): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |   ensures exists i :: 0 <= i < a.Length &&  a[i] == maxVal;\n  |                                                           ^\n\nprogram.dfy(7,26): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |   ensures a[pos] == maxVal;\n  |                           ^\n\nprogram.dfy(13,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |     invariant 1 <= j <= a.Length;\n   |                                 ^\n\nprogram.dfy(14,55): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     invariant forall i :: 0 <= i < j ==> a[i] <= maxVal;\n   |                                                        ^\n\nprogram.dfy(15,54): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |     invariant exists i :: 0 <= i < j && a[i] == maxVal;\n   |                                                       ^\n\nprogram.dfy(16,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |     invariant 0 <= pos < a.Length;\n   |                                  ^\n\nprogram.dfy(17,30): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |     invariant a[pos] == maxVal;\n   |                               ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

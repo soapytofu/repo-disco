@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_hofs_SumSum.dfy",
+  "sha256": "889bddccac1faae6da2744a5dd41a496afc85145292bcf109e18e1da37f97b07",
+  "bytes": 4745,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(69,84): Warning: deprecated style: a semi-colon is not needed here\n   |\n69 |   ensures g(i,n') + Sum(n', y => g(i,y)) == (x => g(x,n') + Sum(n', y => g(x,y)))(i);\n   |                                                                                     ^\n\nprogram.dfy(97,6): Warning: assume statement has no {:axiom} annotation\n   |\n97 |     { assume false;/*TODO*/ }\n   |       ^^^^^^\n\nprogram.dfy(101,6): Warning: assume statement has no {:axiom} annotation\n    |\n101 |     { assume false;/*TODO*/ }\n    |       ^^^^^^\n\nprogram.dfy(111,12): Warning: assume statement has no {:axiom} annotation\n    |\n111 |           { assume false;/*TODO*/ }\n    |             ^^^^^^\n\nprogram.dfy(136,43): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n    |\n136 |   ensures Sum(n, x => Sum(n, y => g(x,y))) == Sum(n, x => Sum(n, y => g(y,x)))\n    |                                            ^^\n\nprogram.dfy(140,43): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n    |\n140 |   ensures Sum(n, x => Sum(n, y => g(x,y))) == Sum(n, y => Sum(n, x => g(x,y)))\n    |                                            ^^\n\nprogram.dfy(77,2): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n77 |   forall i | 0 <= i < n'\n   |   ^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(106,6): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n    |\n106 |       forall i | 0 <= i < n' {\n    |       ^^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(22,0): Error: a postcondition could not be proved on this return path\n   |\n22 | {\n   | ^\n\nprogram.dfy(21,28): Related location: this is the postcondition that could not be proved\n   |\n21 |   ensures Sum(n, x => f(x)) == Sum(n, x => g(x))\n   |                             ^^\n\n\nDafny program verifier finished with 10 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

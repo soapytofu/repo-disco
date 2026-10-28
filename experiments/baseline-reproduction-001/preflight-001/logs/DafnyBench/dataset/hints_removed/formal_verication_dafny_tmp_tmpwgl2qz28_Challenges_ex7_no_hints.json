@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/formal_verication_dafny_tmp_tmpwgl2qz28_Challenges_ex7_no_hints.dfy",
+  "sha256": "8583d922a37332ebbe22be49767a26a930cc85f4f9addb032d66bfd0f0e86255",
+  "bytes": 2519,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(40,44): Warning: deprecated style: a semi-colon is not needed here\n   |\n40 | ensures multiset(bases) == multiset(sobases);\n   |                                             ^\n\nprogram.dfy(49,21): Error: index out of range\n   |\n49 |         match(sobases[next]) {\n   |                      ^\n\nprogram.dfy(51,42): Error: a precondition for this call could not be proved\n   |\n51 |             case A => sobases := Exchanger(sobases, next, c);\n   |                                           ^\n\nprogram.dfy(7,33): Related location: this is the precondition that could not be proved\n  |\n7 | requires 0 < |s| && x < |s| && y < |s|\n  |                                  ^\n\nprogram.dfy(61,4): Error: a postcondition could not be proved on this return path\n   |\n61 |     return sobases;\n   |     ^^^^^^^^^^^^^^^\n\nprogram.dfy(38,18): Related location: this is the postcondition that could not be proved\n   |\n38 | ensures |sobases| == |bases|\n   |                   ^^\n\nprogram.dfy(61,4): Error: a postcondition could not be proved on this return path\n   |\n61 |     return sobases;\n   |     ^^^^^^^^^^^^^^^\n\nprogram.dfy(39,16): Related location: this is the postcondition that could not be proved\n   |\n39 | ensures bordered(sobases)\n   |                 ^\n\nprogram.dfy(33,4): Related location: this proposition could not be proved\n   |\n33 |     forall j, k :: 0 <= j < k < |s| ==> below(s[j], s[k])\n   |     ^^^^^^\n\nprogram.dfy(61,4): Error: a postcondition could not be proved on this return path\n   |\n61 |     return sobases;\n   |     ^^^^^^^^^^^^^^^\n\nprogram.dfy(40,24): Related location: this is the postcondition that could not be proved\n   |\n40 | ensures multiset(bases) == multiset(sobases);\n   |                         ^^\n\n\nDafny program verifier finished with 5 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

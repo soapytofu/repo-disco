@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Formal-methods-of-software-development_tmp_tmppryvbyty_Bloque 2_Lab6.dfy",
+  "sha256": "71857685a5ab9b063bc26e86c1e531609a23842d8850286df98e92241a95b23b",
+  "bytes": 10355,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(330,97): Warning: deprecated style: a semi-colon is not needed here\n    |\n330 | ensures exists i :: 0 <= i < |r| && r[i] == s[0] && multiset(s[1..]) == multiset(r[..i]+r[i+1..]);\n    |                                                                                                  ^\n\nprogram.dfy(330,8): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n    |\n330 | ensures exists i :: 0 <= i < |r| && r[i] == s[0] && multiset(s[1..]) == multiset(r[..i]+r[i+1..]);\n    |         ^^^^^^\n\nprogram.dfy(367,16): Warning: assume statement has no {:axiom} annotation\n    |\n367 |                 assume r[i]+sum(r[..i]+r[i+1..]) == sum([r[i]]+r[..i] + r[i+1..]) == sum(r);\n    |                 ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

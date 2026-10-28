@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/specTesting_tmp_tmpueam35lx_examples_sort_sort.dfy",
+  "sha256": "d024d1e82daf2175635cc493f3e36bb8ce8c5d5ddb54a0bc49178d1fd5f5325e",
+  "bytes": 2673,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(3,12): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n3 |     ensures forall i:nat, j:nat | 0 <= i <= j < intSeq.Length :: intSeq[i] <= intSeq[j]\n  |             ^^^^^^\n\nprogram.dfy(8,12): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n8 |     ensures (forall i:nat, j:nat | 0 <= i <= j < |curSeq| :: curSeq[i] <= curSeq[j])\n  |             ^\n\nprogram.dfy(9,30): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n9 |     ensures multiset(prevSeq) == multiset(curSeq)\n  |                               ^^\n\n\nDafny program verifier finished with 8 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

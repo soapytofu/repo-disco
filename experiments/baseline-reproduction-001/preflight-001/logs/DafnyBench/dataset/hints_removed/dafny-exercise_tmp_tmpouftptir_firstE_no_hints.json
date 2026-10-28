@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-exercise_tmp_tmpouftptir_firstE_no_hints.dfy",
+  "sha256": "6212c207f60bf0663898063b2a3d7ceb4081caee45e48b27a9bfcd8665c8b2a2",
+  "bytes": 463,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,3): Error: a postcondition could not be proved on this return path\n  |\n9 | \t\t\treturn i;\n  |    ^^^^^^^^^\n\nprogram.dfy(2,65): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures if 'e' in a[..] then 0 <= x < a.Length && a[x] == 'e' && forall i | 0 <= i < x :: a[i] != 'e' else x == -1\n  |                                                                  ^^^^^^\n\nprogram.dfy(13,1): Error: a postcondition could not be proved on this return path\n   |\n13 | \treturn -1;\n   |  ^^^^^^^^^^\n\nprogram.dfy(2,31): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures if 'e' in a[..] then 0 <= x < a.Length && a[x] == 'e' && forall i | 0 <= i < x :: a[i] != 'e' else x == -1\n  |                                ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

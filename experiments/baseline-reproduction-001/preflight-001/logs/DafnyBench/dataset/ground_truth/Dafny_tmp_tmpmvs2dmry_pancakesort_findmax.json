@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_tmp_tmpmvs2dmry_pancakesort_findmax.dfy",
+  "sha256": "cc0d67ee057883b757f16b065327237e333888f850e87f7d4c5766ee2168807c",
+  "bytes": 606,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(5,30): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 | ensures 0 <= r < n <= a.Length;\n  |                               ^\n\nprogram.dfy(6,59): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | ensures forall k :: 0 <= k < n <= a.Length ==> a[r] >= a[k];\n  |                                                            ^\n\nprogram.dfy(7,47): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 | ensures multiset(a[..]) == multiset(old(a[..]));\n  |                                                ^\n\nprogram.dfy(14,35): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |   invariant 0 <= i <= n <= a.Length;\n   |                                    ^\n\nprogram.dfy(15,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |   invariant 0 <= mi < n;\n   |                        ^\n\nprogram.dfy(16,52): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |   invariant forall k :: 0 <= k < i ==> a[mi] >= a[k];\n   |                                                     ^\n\nprogram.dfy(17,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |   decreases n-i;\n   |                ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

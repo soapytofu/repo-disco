@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/cs245-verification_tmp_tmp0h_nxhqp_power_no_hints.dfy",
+  "sha256": "1994d630f3aa6c480ff92f6403dc30208403f969c79525ce5f99c489ce29ac30",
+  "bytes": 2151,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(6,27): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |   requires 0 <= a && 0 <= n;\n  |                            ^\n\nprogram.dfy(10,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | /*Pre-Condition*/   requires n >= 0 && a >= 0;\n   |                                              ^\n\nprogram.dfy(11,43): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | /*Post-Condition*/  ensures s == power(a,n);\n   |                                            ^\n\nprogram.dfy(14,70): Error: assertion might not hold\n   |\n14 |   /* (| 1 = power(a,0) ^ 0<=n |)          - implied (a) */   assert 1 == power(a,0) && 0<=n;\n   |                                                                       ^^\n\nprogram.dfy(21,70): Error: assertion might not hold\n   |\n21 |     /* (| s = power(a,i) ^ i<=n ^ i<n |)  - partial-while */ assert s == power(a,i) && i<=n && i<n;\n   |                                                                       ^^\n\nprogram.dfy(22,72): Error: assertion might not hold\n   |\n22 |     /* (| s*a = power(a,i+1) ^ i+1<=n |)  - implied (b) */   assert s*a == power(a,i+1) && i+1<=n;\n   |                                                                         ^^\n\nprogram.dfy(28,70): Error: assertion might not hold\n   |\n28 |   /* (| s = power(a,i) ^ i<=n ^ -(i<n) |) - partial-while */ assert s == power(a,i) && i<=n && !(i<n);\n   |                                                                       ^^\n\nprogram.dfy(28,88): Error: assertion might not hold\n   |\n28 |   /* (| s = power(a,i) ^ i<=n ^ -(i<n) |) - partial-while */ assert s == power(a,i) && i<=n && !(i<n);\n   |                                                                                         ^^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

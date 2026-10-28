@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-duck_tmp_tmplawbgxjo_p6_no_hints.dfy",
+  "sha256": "2433dc2d18bdf85845dc6d605c7463154b98a51064eb271a47b29ed61e2387eb",
+  "bytes": 873,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(13,33): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures FilterVowels(xs[..]) == ys[..]\n   |                                  ^^\n\nprogram.dfy(31,14): Error: index out of range\n   |\n31 |             ys[j] := xs[i];\n   |               ^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

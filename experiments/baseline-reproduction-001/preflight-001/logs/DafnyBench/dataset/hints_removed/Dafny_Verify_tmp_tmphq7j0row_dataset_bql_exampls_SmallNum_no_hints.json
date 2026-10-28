@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_dataset_bql_exampls_SmallNum_no_hints.dfy",
+  "sha256": "87c9698230042178d863ec93b34dab753f7411a3cd94e2477caca0c7a78e3271",
+  "bytes": 296,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 | \trequires n > 0;\n  |                ^\n\nprogram.dfy(3,26): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |     requires n <= a.Length;\n  |                           ^\n\nprogram.dfy(4,60): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | \trequires (forall i: int :: 0 <= i && i < n ==> a[i] <= max);\n  |                                                             ^\n\nprogram.dfy(5,21): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 | \tensures r <= max * n;\n  |                      ^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(5,11): Related location: this is the postcondition that could not be proved\n  |\n5 | \tensures r <= max * n;\n  |            ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

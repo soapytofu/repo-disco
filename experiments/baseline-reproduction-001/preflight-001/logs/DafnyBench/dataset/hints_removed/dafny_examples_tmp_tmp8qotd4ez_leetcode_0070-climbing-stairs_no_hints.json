@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_examples_tmp_tmp8qotd4ez_leetcode_0070-climbing-stairs_no_hints.dfy",
+  "sha256": "3268215d6943a500ff5c4b0d0a8471e91abbd22b4429fd2e74f323059ab48ab3",
+  "bytes": 293,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   return b;\n   |   ^^^^^^^^^\n\nprogram.dfy(7,12): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures r == Stairs(n)\n  |             ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

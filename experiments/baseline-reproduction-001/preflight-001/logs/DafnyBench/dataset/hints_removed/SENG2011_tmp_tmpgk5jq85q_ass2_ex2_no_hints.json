@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_ass2_ex2_no_hints.dfy",
+  "sha256": "d2ce68b3f5edc68424dc80765d067d8502d3d7ec9001d2f84e1a6ab7936498fe",
+  "bytes": 1375,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(10,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | requires |a| == 3;\n   |                  ^\n\nprogram.dfy(11,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | ensures Sorted(b, 0, |b|);\n   |                          ^\n\nprogram.dfy(12,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 | ensures |a| == |b|;\n   |                   ^\n\nprogram.dfy(13,64): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 | ensures multiset{b[0], b[1], b[2]} == multiset{a[0], a[1], a[2]};\n   |                                                                 ^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

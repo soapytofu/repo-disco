@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_06_Hoangkim_ex_06_hoangkim_no_hints.dfy",
+  "sha256": "8faa3f8728bfe7c3518dac0b04c057c3119fccd2d31764439e9ecc536e136adc",
+  "bytes": 623,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 | ensures d == gcd(m, n);\n   |                       ^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(14,10): Related location: this is the postcondition that could not be proved\n   |\n14 | ensures d == gcd(m, n);\n   |           ^^\n\nprogram.dfy(19,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n19 |     while (d != x)\n   |     ^^^^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

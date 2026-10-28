@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny2_COST-verif-comp-2011-2-MaxTree-class.dfy",
+  "sha256": "5a7e645379e745b928bdc8bb5a646eab73c1597b34154fbe686ea8eb71cec26d",
+  "bytes": 5331,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(94,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n94 |     requires Valid();\n   |                     ^\n\nprogram.dfy(95,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n95 |     reads this, Repr;\n   |                     ^\n\nprogram.dfy(96,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n96 |     ensures IsEmpty() <==> Contents == [];\n   |                                          ^\n\nprogram.dfy(102,37): Warning: deprecated style: a semi-colon is not needed here\n    |\n102 |     ensures Valid() && Contents == [];\n    |                                      ^\n\nprogram.dfy(110,39): Warning: deprecated style: a semi-colon is not needed here\n    |\n110 |     requires lft.Valid() && rgt.Valid();\n    |                                        ^\n\nprogram.dfy(111,70): Warning: deprecated style: a semi-colon is not needed here\n    |\n111 |     ensures Valid() && Contents == lft.Contents + [val] + rgt.Contents;\n    |                                                                       ^\n\nprogram.dfy(126,34): Warning: deprecated style: a semi-colon is not needed here\n    |\n126 |     requires Valid() && !IsEmpty();\n    |                                   ^\n\nprogram.dfy(127,49): Warning: deprecated style: a semi-colon is not needed here\n    |\n127 |     ensures forall x :: x in Contents ==> x <= mx;\n    |                                                  ^\n\nprogram.dfy(128,48): Warning: deprecated style: a semi-colon is not needed here\n    |\n128 |     ensures exists x :: x in Contents && x == mx;\n    |                                                 ^\n\nprogram.dfy(129,18): Warning: deprecated style: a semi-colon is not needed here\n    |\n129 |     decreases Repr;\n    |                   ^\n\n\nDafny program verifier finished with 9 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

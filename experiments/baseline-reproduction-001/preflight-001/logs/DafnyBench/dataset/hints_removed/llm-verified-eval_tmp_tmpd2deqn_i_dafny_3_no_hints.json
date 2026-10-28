@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/llm-verified-eval_tmp_tmpd2deqn_i_dafny_3_no_hints.dfy",
+  "sha256": "66cff2b4f15fbb3987027f2799053c50b56c0abcf4706592dd19043d649f748b",
+  "bytes": 586,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(12,29): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures sum(s, i) + s[i] == sum(s, i+1)\n   |                              ^^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,19): Related location: this is the postcondition that could not be proved\n   |\n17 |     ensures result <==> exists n: nat :: n <= |ops| && sum(ops, n) < 0\n   |                    ^^^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

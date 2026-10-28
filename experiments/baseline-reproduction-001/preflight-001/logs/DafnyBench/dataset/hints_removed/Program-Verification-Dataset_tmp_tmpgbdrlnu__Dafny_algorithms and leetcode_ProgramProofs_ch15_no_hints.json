@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_ProgramProofs_ch15_no_hints.dfy",
+  "sha256": "fa3370866350ac5e6442406ceaa8351a0f09871ac3c6aca0d7f922e762fec1bc",
+  "bytes": 2253,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(15,4): Error: a postcondition could not be proved on this return path\n   |\n15 |     while n != a.Length \n   |     ^^^^^\n\nprogram.dfy(11,12): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures forall i,j :: 0 <= i < j < a.Length ==> a[i] <= a[j]\n   |             ^^^^^^\n\nprogram.dfy(15,4): Error: a postcondition could not be proved on this return path\n   |\n15 |     while n != a.Length \n   |     ^^^^^\n\nprogram.dfy(12,28): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures multiset(a[..]) == old(multiset(a[..]))\n   |                             ^^\n\nprogram.dfy(21,16): Error: index out of range\n   |\n21 |             if a[m] < a[mindex] {\n   |                 ^\n\nprogram.dfy(21,23): Error: index out of range\n   |\n21 |             if a[m] < a[mindex] {\n   |                        ^\n\nprogram.dfy(26,9): Error: index out of range\n   |\n26 |         a[n], a[mindex] := a[mindex], a[n];\n   |          ^\n\nprogram.dfy(57,20): Error: cannot prove termination; try supplying a decreases clause\n   |\n57 |         QuickSortAux(a, p + 1, hi);\n   |                     ^\n\nprogram.dfy(75,12): Error: index out of range\n   |\n75 |         if a[m] < pivot {\n   |             ^\n\nprogram.dfy(78,19): Error: index out of range\n   |\n78 |             a[m], a[n-1] := a[n-1], a[m];\n   |                    ^\n\nprogram.dfy(83,12): Error: index out of range\n   |\n83 |     a[lo], a[m - 1] := a[m - 1], a[lo];\n   |             ^\n\nprogram.dfy(84,4): Error: a postcondition could not be proved on this return path\n   |\n84 |     return m - 1;\n   |     ^^^^^^^^^^^^^\n\nprogram.dfy(65,15): Related location: this is the postcondition that could not be proved\n   |\n65 |     ensures lo <= p < hi\n   |                ^^\n\nprogram.dfy(84,4): Error: a postcondition could not be proved on this return path\n   |\n84 |     return m - 1;\n   |     ^^^^^^^^^^^^^\n\nprogram.dfy(65,20): Related location: this is the postcondition that could not be proved\n   |\n65 |     ensures lo <= p < hi\n   |                     ^\n\n\nDafny program verifier finished with 7 verified, 11 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

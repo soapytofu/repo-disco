@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmpmvs2dmry_pancakesort_findmax_no_hints.dfy",
+  "sha256": "560e6ec0c0f60864c683482014e76722733b0e7bddb9a93c51cacf1f7d16be48",
+  "bytes": 473,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,30): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 | ensures 0 <= r < n <= a.Length;\n  |                               ^\n\nprogram.dfy(6,59): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | ensures forall k :: 0 <= k < n <= a.Length ==> a[r] >= a[k];\n  |                                                            ^\n\nprogram.dfy(7,47): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 | ensures multiset(a[..]) == multiset(old(a[..]));\n  |                                                ^\n\nprogram.dfy(15,16): Error: index out of range\n   |\n15 |     if (a[i] > a[mi])\n   |                 ^\n\nprogram.dfy(21,2): Error: a postcondition could not be proved on this return path\n   |\n21 |   return mi;\n   |   ^^^^^^^^^^\n\nprogram.dfy(5,15): Related location: this is the postcondition that could not be proved\n  |\n5 | ensures 0 <= r < n <= a.Length;\n  |                ^\n\nprogram.dfy(21,2): Error: a postcondition could not be proved on this return path\n   |\n21 |   return mi;\n   |   ^^^^^^^^^^\n\nprogram.dfy(6,8): Related location: this is the postcondition that could not be proved\n  |\n6 | ensures forall k :: 0 <= k < n <= a.Length ==> a[r] >= a[k];\n  |         ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

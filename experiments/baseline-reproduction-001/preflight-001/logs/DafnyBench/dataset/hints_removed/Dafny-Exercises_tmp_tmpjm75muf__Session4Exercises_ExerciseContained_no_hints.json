@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session4Exercises_ExerciseContained_no_hints.dfy",
+  "sha256": "047cf9840456afe4ecf48be8bb36cfccaaa11b12da5c904a52d68e178d12f751",
+  "bytes": 714,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,9): Related location: this is the postcondition that could not be proved\n   |\n17 | ensures b==forall k:: 0<= k< n ==> v[k] in w[..m]//exists j :: 0 <= j < m && v[k] == w[j]\n   |          ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

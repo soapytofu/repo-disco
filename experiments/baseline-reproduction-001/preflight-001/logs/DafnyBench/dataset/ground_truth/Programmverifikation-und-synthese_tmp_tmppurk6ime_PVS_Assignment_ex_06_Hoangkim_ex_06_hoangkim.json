@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_06_Hoangkim_ex_06_hoangkim.dfy",
+  "sha256": "1c44ae673925b720b097d4500e0c3aea31106c2081eb8360639b0d8fc06eee4d",
+  "bytes": 759,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(14,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 | ensures d == gcd(m, n);\n   |                       ^\n\nprogram.dfy(20,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |     invariant x > 0;\n   |                    ^\n\nprogram.dfy(21,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     invariant d > 0;\n   |                    ^\n\nprogram.dfy(22,36): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |     invariant gcd(d, x) == gcd(m, n);\n   |                                     ^\n\nprogram.dfy(23,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |     decreases x+d;\n   |                  ^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

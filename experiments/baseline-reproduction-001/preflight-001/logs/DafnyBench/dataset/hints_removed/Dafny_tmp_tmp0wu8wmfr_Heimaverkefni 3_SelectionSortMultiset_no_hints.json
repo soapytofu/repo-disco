@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_Heimaverkefni 3_SelectionSortMultiset_no_hints.dfy",
+  "sha256": "8002f190ae99eb81be3ccd4d9fcfdce49783ca5a0b8e7d9edc76627df2f7477d",
+  "bytes": 2076,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     requires m != multiset{};\n   |                             ^\n\nprogram.dfy(15,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |     ensures min in m;\n   |                     ^\n\nprogram.dfy(16,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |     ensures forall z | z in m :: min <= z;\n   |                                          ^\n\nprogram.dfy(53,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n53 |     ensures multiset(s) == m;\n   |                             ^\n\nprogram.dfy(54,57): Warning: deprecated style: a semi-colon is not needed here\n   |\n54 |     ensures forall p,q | 0 <= p < q < |s| :: s[p] <= s[q];\n   |                                                          ^\n\nprogram.dfy(17,0): Error: a postcondition could not be proved on this return path\n   |\n17 | {\n   | ^\n\nprogram.dfy(15,16): Related location: this is the postcondition that could not be proved\n   |\n15 |     ensures min in m;\n   |                 ^^\n\nprogram.dfy(17,0): Error: a postcondition could not be proved on this return path\n   |\n17 | {\n   | ^\n\nprogram.dfy(16,12): Related location: this is the postcondition that could not be proved\n   |\n16 |     ensures forall z | z in m :: min <= z;\n   |             ^^^^^^\n\nprogram.dfy(69,4): Error: a postcondition could not be proved on this return path\n   |\n69 |     return s;\n   |     ^^^^^^^^^\n\nprogram.dfy(53,24): Related location: this is the postcondition that could not be proved\n   |\n53 |     ensures multiset(s) == m;\n   |                         ^^\n\nprogram.dfy(69,4): Error: a postcondition could not be proved on this return path\n   |\n69 |     return s;\n   |     ^^^^^^^^^\n\nprogram.dfy(54,12): Related location: this is the postcondition that could not be proved\n   |\n54 |     ensures forall p,q | 0 <= p < q < |s| :: s[p] <= s[q];\n   |             ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny4_Primes_no_hints.dfy",
+  "sha256": "44b4f8e5a36debb81f436b1c30a80f8f7cf5ba4523ecd5bf8295de919d9f61b8",
+  "bytes": 5542,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(220,20): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n    |\n220 |   ensures (c+j) % a == j\n    |                     ^^\n\nprogram.dfy(14,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n14 |   while true\n   |   ^^^^^\n\nprogram.dfy(193,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n    |\n193 |   while true\n    |   ^^^^^\n\n\nDafny program verifier finished with 13 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

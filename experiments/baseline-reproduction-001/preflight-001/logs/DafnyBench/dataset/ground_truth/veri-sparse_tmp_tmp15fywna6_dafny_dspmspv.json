@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/veri-sparse_tmp_tmp15fywna6_dafny_dspmspv.dfy",
+  "sha256": "363ccbc459c02d6b78ed0e52761d503e99fd73020abcecc738d7f358768ecb43",
+  "bytes": 4808,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(63,76): Warning: deprecated style: a semi-colon is not needed here\n   |\n63 |   requires forall i, j :: 0 <= i < j < X_pos.Length ==> X_pos[i] <= X_pos[j];\n   |                                                                             ^\n\n\nDafny program verifier finished with 8 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

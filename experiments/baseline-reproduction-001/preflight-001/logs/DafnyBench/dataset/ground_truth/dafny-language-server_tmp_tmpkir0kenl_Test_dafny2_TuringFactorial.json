@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_TuringFactorial.dfy",
+  "sha256": "5d4e07f4ddb43e86e2df0c54fabecbcd971237a7ab9ba65f4638170eb6c2809a",
+  "bytes": 571,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(10,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |   requires 1 <= n;\n   |                  ^\n\nprogram.dfy(11,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |   ensures u == Factorial(n);\n   |                            ^\n\nprogram.dfy(16,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |     invariant r <= n;\n   |                     ^\n\nprogram.dfy(17,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |     invariant u == Factorial(r);\n   |                                ^\n\nprogram.dfy(21,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |       invariant s <= r + 1;\n   |                           ^\n\nprogram.dfy(22,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |       invariant v == Factorial(r) && u == s * Factorial(r);\n   |                                                           ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

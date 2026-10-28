@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/feup-mfes_tmp_tmp6_a1y5a5_examples_SelectionSort_no_hints.dfy",
+  "sha256": "46254906fa3623a33432384f07d74428092f70453c98eed9e41ca2eec4561585",
+  "bytes": 1448,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,4): Error: a postcondition could not be proved on this return path\n   |\n21 |     while i < a.Length - 1 \n   |     ^^^^^\n\nprogram.dfy(17,18): Related location: this is the postcondition that could not be proved\n   |\n17 |   ensures isSorted(a, 0, a.Length) \n   |                   ^\n\nprogram.dfy(11,4): Related location: this proposition could not be proved\n   |\n11 |     forall i, j :: from <= i < j < to ==> a[i] <= a[j] \n   |     ^^^^^^\n\nprogram.dfy(21,4): Error: a postcondition could not be proved on this return path\n   |\n21 |     while i < a.Length - 1 \n   |     ^^^^^\n\nprogram.dfy(18,26): Related location: this is the postcondition that could not be proved\n   |\n18 |   ensures multiset(a[..]) == multiset(old(a[..]))\n   |                           ^^\n\nprogram.dfy(36,0): Error: a postcondition could not be proved on this return path\n   |\n36 | {\n   | ^\n\nprogram.dfy(34,15): Related location: this is the postcondition that could not be proved\n   |\n34 |   ensures from <= index < to\n   |                ^^\n\nprogram.dfy(36,0): Error: a postcondition could not be proved on this return path\n   |\n36 | {\n   | ^\n\nprogram.dfy(34,24): Related location: this is the postcondition that could not be proved\n   |\n34 |   ensures from <= index < to\n   |                         ^\n\nprogram.dfy(36,0): Error: a postcondition could not be proved on this return path\n   |\n36 | {\n   | ^\n\nprogram.dfy(35,10): Related location: this is the postcondition that could not be proved\n   |\n35 |   ensures forall k :: from <= k < to ==> a[k] >= a[index]\n   |           ^^^^^^\n\nprogram.dfy(41,19): Error: index out of range\n   |\n41 |         if a[i] < a[index] {\n   |                    ^\n\n\nDafny program verifier finished with 5 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

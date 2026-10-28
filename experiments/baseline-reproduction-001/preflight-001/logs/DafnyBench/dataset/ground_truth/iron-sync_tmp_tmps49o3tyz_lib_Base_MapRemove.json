@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/iron-sync_tmp_tmps49o3tyz_lib_Base_MapRemove.dfy",
+  "sha256": "c0b8b28d27998100e4f706210d1450f139d3d4223087757ca64ab2e2b0f3bcc0",
+  "bytes": 984,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(25,6): Warning: when a method is imported, meaning it has no body and an {:extern} annotation, Dafny can not guarantee that its implementation satisfies its post-conditions (its ensures clauses and outputs that are subset types). To silence this warning, please add an {:axiom} attribute or use the option '--allow-external-contracts'.\n   |\n25 |       ComputeMapRemove1<K,V>(m: map<K,V>, k:K) \n   |       ^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/ironsync-osdi2023_tmp_tmpx80antoe_lib_Math_div_def_no_hints.dfy",
+  "sha256": "780c13e354282b911559868e13e550eaf21c36f6a5ed53734669b7427f2a2403",
+  "bytes": 1916,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(21,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     requires d != 0;\n   |                    ^\n\nprogram.dfy(27,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 |     requires d != 0;\n   |                    ^\n\nprogram.dfy(33,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n33 |     requires d != 0;\n   |                    ^\n\nprogram.dfy(37,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n37 |     requires d > 0;\n   |                   ^\n\nprogram.dfy(41,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n41 |     requires y != 0;\n   |                    ^\n\nprogram.dfy(45,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n45 |     requires y != 0;\n   |                    ^\n\nprogram.dfy(49,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n49 |     requires d != 0;\n   |                    ^\n\nprogram.dfy(58,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n58 |     requires d >  0;\n   |                    ^\n\nprogram.dfy(69,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n69 |     requires m > 0;\n   |                   ^\n\nprogram.dfy(83,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n83 |     requires m > 0;\n   |                   ^\n\nprogram.dfy(88,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n88 |     requires d != 0;\n   |                    ^\n\nprogram.dfy(61,23): Error: decreases expression at index 0 must be bounded below by 0\n   |\n61 |         -1 + my_div_pos(x+d, d)\n   |                        ^\n\nprogram.dfy(57,20): Related location: this decreases clause was not satisfied\n   |\n57 | function my_div_pos(x:int, d:int) : int\n   |                     ^\n\nprogram.dfy(72,24): Error: decreases expression at index 0 must be bounded below by 0\n   |\n72 |         my_mod_recursive(m + x, m)\n   |                         ^\n\nprogram.dfy(68,26): Related location: this decreases clause was not satisfied\n   |\n68 | function my_mod_recursive(x:int, m:int) : int\n   |                           ^\n\n\nDafny program verifier finished with 9 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

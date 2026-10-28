@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Metodos_Formais_tmp_tmpql2hwcsh_Arrays_somatorioArray_no_hints.dfy",
+  "sha256": "7b2797005590218e773d1e1cb6c3e0a39c1373f5f09c2658c572a510a1919fdf",
+  "bytes": 1010,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(30,0): Error: a postcondition could not be proved on this return path\n   |\n30 | {\n   | ^\n\nprogram.dfy(29,14): Related location: this is the postcondition that could not be proved\n   |\n29 |     ensures s == soma(a, a.Length)\n   |               ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

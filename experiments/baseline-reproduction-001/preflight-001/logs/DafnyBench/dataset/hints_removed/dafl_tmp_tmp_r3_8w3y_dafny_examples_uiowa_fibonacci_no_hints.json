@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafl_tmp_tmp_r3_8w3y_dafny_examples_uiowa_fibonacci_no_hints.dfy",
+  "sha256": "e1757bd55c81c1d08d67fda5a7f026ac52108f0e59bc07f6e92e965d527f62bb",
+  "bytes": 674,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(22,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |   ensures f == fib(n);\n   |                      ^\n\nprogram.dfy(23,0): Error: a postcondition could not be proved on this return path\n   |\n23 | {\n   | ^\n\nprogram.dfy(22,12): Related location: this is the postcondition that could not be proved\n   |\n22 |   ensures f == fib(n);\n   |             ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

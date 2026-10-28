@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session6Exercises_ExerciseCountEven_no_hints.dfy",
+  "sha256": "51ff5f04ce0f04ceca713c10a0fbe04b39ca3841323b28f8f59ce37f8152e093",
+  "bytes": 909,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,55): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 | \tensures forall v : array<T>  :: v[..v.Length] == v[..];\n   |                                                        ^\n\nprogram.dfy(17,48): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | \tensures forall v : array<T>  :: v[0..] == v[..];\n   |                                                 ^\n\nprogram.dfy(18,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |     ensures forall v : array<T>  :: v[0..v.Length] == v[..];\n   |                                                            ^\n\nprogram.dfy(20,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 | \tensures forall v : array<T>  ::|v[0..v.Length]|==v.Length;\n   |                                                           ^\n\nprogram.dfy(21,76): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     ensures forall v : array<T> | v.Length>=1 ::|v[1..v.Length]|==v.Length-1;\n   |                                                                             ^\n\nprogram.dfy(29,0): Error: a postcondition could not be proved on this return path\n   |\n29 | {   ArrayFacts<int>(); \n   | ^\n\nprogram.dfy(28,10): Related location: this is the postcondition that could not be proved\n   |\n28 | ensures  n==CountEven(v[..])\n   |           ^^\n\n\nDafny program verifier finished with 6 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

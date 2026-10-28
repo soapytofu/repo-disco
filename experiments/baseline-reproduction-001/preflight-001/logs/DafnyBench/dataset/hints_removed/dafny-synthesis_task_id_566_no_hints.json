@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_566_no_hints.dfy",
+  "sha256": "bbe07fe07871f51ef18bf86ba96e9423ec9fc681a03c9b047dc9383b1e901602",
+  "bytes": 2652,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,14): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures sum == SumDigits(number)\n  |               ^^\n\nprogram.dfy(28,20): Error: index out of range\n   |\n28 |     p := PowersOfTen[i]; //p * 10;\n   |                     ^\n\nprogram.dfy(30,16): Error: a precondition for this call could not be proved\n   |\n30 |   NumberIdentity(number, p);\n   |                 ^\n\nprogram.dfy(49,16): Related location: this is the precondition that could not be proved\n   |\n49 |   requires pmax == Power10(NumberOfDigits(number))\n   |                 ^^\n\nprogram.dfy(30,25): Error: value does not satisfy the subset constraints of 'nat'\n   |\n30 |   NumberIdentity(number, p);\n   |                          ^\n\nprogram.dfy(56,2): Error: a postcondition could not be proved on this return path\n   |\n56 |   {\n   |   ^\n\nprogram.dfy(50,17): Related location: this is the postcondition that could not be proved\n   |\n50 |   ensures number == number % pmax\n   |                  ^^\n\n\nDafny program verifier finished with 11 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

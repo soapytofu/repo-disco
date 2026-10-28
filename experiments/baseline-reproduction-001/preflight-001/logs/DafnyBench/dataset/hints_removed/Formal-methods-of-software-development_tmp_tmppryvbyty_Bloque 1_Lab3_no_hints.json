@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Formal-methods-of-software-development_tmp_tmppryvbyty_Bloque 1_Lab3_no_hints.dfy",
+  "sha256": "eab1d7758da919e0e139bd9ea813706a98ac5c40d299cdb751068a55548dcfb5",
+  "bytes": 1703,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,13): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n4 | ensures less < x < more\n  |              ^\n\nprogram.dfy(9,20): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n9 | ensures more + less == 2*x\n  |                     ^^\n\nprogram.dfy(14,20): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n14 | ensures more - less == 2*y\n   |                     ^^\n\nprogram.dfy(27,0): Error: a postcondition could not be proved on this return path\n   |\n27 | {   \n   | ^\n\nprogram.dfy(25,9): Related location: this is the postcondition that could not be proved\n   |\n25 | ensures f== factorial(n)\n   |          ^^\n\nprogram.dfy(40,0): Error: a postcondition could not be proved on this return path\n   |\n40 | {\n   | ^\n\nprogram.dfy(39,9): Related location: this is the postcondition that could not be proved\n   |\n39 | ensures f== factorial(n)\n   |          ^^\n\nprogram.dfy(57,0): Error: a postcondition could not be proved on this return path\n   |\n57 | {\n   | ^\n\nprogram.dfy(56,10): Related location: this is the postcondition that could not be proved\n   |\n56 | ensures x == a*a\n   |           ^^\n\nprogram.dfy(100,0): Error: a postcondition could not be proved on this return path\n    |\n100 | {\n    | ^\n\nprogram.dfy(98,10): Related location: this is the postcondition that could not be proved\n   |\n98 | ensures x == a*a\n   |           ^^\n\n\nDafny program verifier finished with 6 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

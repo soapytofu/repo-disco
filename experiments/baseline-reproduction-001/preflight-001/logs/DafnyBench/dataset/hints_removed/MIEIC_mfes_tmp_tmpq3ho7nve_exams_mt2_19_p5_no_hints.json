@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MIEIC_mfes_tmp_tmpq3ho7nve_exams_mt2_19_p5_no_hints.dfy",
+  "sha256": "c222eca41358938b8d4ac4e47f9b5e2b508ef23f1e83f86418bd41cef7abb8b3",
+  "bytes": 1202,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(10,12): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures forall i :: 0 <= i < pivotPos ==> a[i] < a[pivotPos]\n   |             ^^^^^^\n\nprogram.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(11,12): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures forall i :: pivotPos < i < a.Length ==> a[i] >= a[pivotPos]\n   |             ^^^^^^\n\nprogram.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(12,28): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures multiset(a[..]) == multiset(old(a[..]))\n   |                             ^^\n\nprogram.dfy(24,9): Error: index out of range\n   |\n24 |         a[i], a[j] := a[j], a[i];\n   |          ^\n\nprogram.dfy(31,20): Error: index out of range\n   |\n31 |     a[a.Length-1], a[i] := a[i], a[a.Length-1];\n   |                     ^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_add_by_one_details.dfy",
+  "sha256": "89d9286c13ba66d6c18ac677470d630fb3d530a27bd6a9a93741549db73acb9f",
+  "bytes": 591,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires x >= 0;\n  |                  ^\n\nprogram.dfy(3,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   ensures r == x + 1;\n  |                     ^\n\nprogram.dfy(7,2): Warning: assume statement has no {:axiom} annotation\n  |\n7 |   assume (y >= 0);\n  |   ^^^^^^\n\nprogram.dfy(16,2): Warning: assume statement has no {:axiom} annotation\n   |\n16 |   assume (i <= y);\n   |   ^^^^^^\n\nprogram.dfy(17,2): Warning: assume statement has no {:axiom} annotation\n   |\n17 |   assume (r == x + i);\n   |   ^^^^^^\n\nprogram.dfy(22,4): Warning: assume statement has no {:axiom} annotation\n   |\n22 |     assume (i < -2);\n   |     ^^^^^^\n\nprogram.dfy(30,4): Warning: assume statement has no {:axiom} annotation\n   |\n30 |     assume (false);\n   |     ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

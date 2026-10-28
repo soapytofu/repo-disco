@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_VSI-Benchmarks_b2_no_hints.dfy",
+  "sha256": "b70e83a9253fbb4e70cb7f458bfd61fddb0ebddd11cdff8782b45377369e4e9d",
+  "bytes": 1250,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,66): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |     requires forall i, j :: 0 <= i < j < a.Length ==> a[i] <= a[j];\n  |                                                                   ^\n\nprogram.dfy(7,35): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |     ensures -1 <= result < a.Length;\n  |                                    ^\n\nprogram.dfy(8,44): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 |     ensures 0 <= result ==> a[result] == key;\n  |                                             ^\n\nprogram.dfy(9,74): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |     ensures result == -1 ==> forall i :: 0 <= i < a.Length ==> a[i] != key;\n  |                                                                           ^\n\nprogram.dfy(49,64): Warning: deprecated style: a semi-colon is not needed here\n   |\n49 |   requires forall i, j :: 0 <= i < j < a.Length ==> a[i] <= a[j];\n   |                                                                 ^\n\nprogram.dfy(10,2): Error: a postcondition could not be proved on this return path\n   |\n10 |   {\n   |   ^\n\nprogram.dfy(9,29): Related location: this is the postcondition that could not be proved\n  |\n9 |     ensures result == -1 ==> forall i :: 0 <= i < a.Length ==> a[i] != key;\n  |                              ^^^^^^\n\nprogram.dfy(17,21): Error: index out of range\n   |\n17 |       var midVal := a[mid];\n   |                      ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Metodos_Formais_tmp_tmpql2hwcsh_Invariantes_fibonacci_no_hints.dfy",
+  "sha256": "4e0042f8329311a7e9e615d310aaf0ac9253ae0e8990b4d84f842e2e326b0420",
+  "bytes": 796,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,10): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures x == Fib(n)\n   |           ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

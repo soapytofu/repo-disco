@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/CVS-handout1_tmp_tmptm52no3k_1_no_hints.dfy",
+  "sha256": "8e9780ef583111529207f7f02301428c639f1d9d04957474be1dfe73799091c5",
+  "bytes": 1707,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(17,19): Error: cannot prove termination; try supplying a decreases clause\n   |\n17 |     else a[i] + sum(a, i+1, j)\n   |                    ^\n\nprogram.dfy(27,0): Error: a postcondition could not be proved on this return path\n   |\n27 | {\n   | ^\n\nprogram.dfy(26,16): Related location: this is the postcondition that could not be proved\n   |\n26 |     ensures res == sum(a, i, j)\n   |                 ^^\n\nprogram.dfy(57,0): Error: a postcondition could not be proved on this return path\n   |\n57 | {}\n   | ^\n\nprogram.dfy(56,12): Related location: this is the postcondition that could not be proved\n   |\n56 |     ensures forall k: int :: i <= k <= j ==> sum(a, i, k) + sum(a, k, j) == c[k] - c[i] + c[j] - c[k] //sum(a, i, j) == c[j] - c[i]\n   |             ^^^^^^\n\n\nDafny program verifier finished with 6 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

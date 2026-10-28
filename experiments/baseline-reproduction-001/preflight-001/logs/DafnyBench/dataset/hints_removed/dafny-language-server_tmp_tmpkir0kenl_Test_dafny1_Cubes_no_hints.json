@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny1_Cubes_no_hints.dfy",
+  "sha256": "92f426eb5ff82e99f87c1fe7b6aa2d03db2a93bcddb8cfd385a05ede0ff87454",
+  "bytes": 358,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   while n < a.Length\n   |   ^^^^^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures forall i :: 0 <= i < a.Length ==> a[i] == i*i*i\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

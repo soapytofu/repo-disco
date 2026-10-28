@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmpmvs2dmry_pancakesort_flip_no_hints.dfy",
+  "sha256": "834ff193b2787d58011cca3957a1bf99405181ad35e833e44ec4258eaeeadcd9",
+  "bytes": 529,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,21): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | requires a.Length > 0;\n  |                      ^\n\nprogram.dfy(4,28): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | requires 0 <= num < a.Length;\n  |                             ^\n\nprogram.dfy(5,10): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 | modifies a;\n  |           ^\n\nprogram.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   while (i < j)\n   |   ^^^^^\n\nprogram.dfy(6,8): Related location: this is the postcondition that could not be proved\n  |\n6 | ensures forall k :: 0 <= k <= num ==> a[k] == old(a[num-k])\n  |         ^^^^^^\n\nprogram.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   while (i < j)\n   |   ^^^^^\n\nprogram.dfy(7,8): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures forall k :: num < k < a.Length ==> a[k] == old(a[k])\n  |         ^^^^^^\n\nprogram.dfy(16,12): Error: index out of range\n   |\n16 |     tmp := a[i];\n   |             ^\n\nprogram.dfy(17,13): Error: index out of range\n   |\n17 |     a[i] := a[j];\n   |              ^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

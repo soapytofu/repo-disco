@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_OneHundredPrisonersAndALightbulb_no_hints.dfy",
+  "sha256": "e9c79deb2671a25e8dc58228d2fc0b8a30b388abc2c5cceb9275b76790df2616",
+  "bytes": 791,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,9): Error: a postcondition could not be proved on this return path\n   |\n11 |   } else {\n   |          ^\n\nprogram.dfy(5,14): Related location: this is the postcondition that could not be proved\n  |\n5 |   ensures |A| < |B|\n  |               ^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,16): Related location: this is the postcondition that could not be proved\n   |\n17 |   ensures count == |P| - 1\n   |                 ^^\n\nprogram.dfy(24,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n24 |   while count < |P| - 1\n   |   ^^^^^\n\nprogram.dfy(42,21): Error: a precondition for this call could not be proved\n   |\n42 |   CardinalitySubsetLt(S, I);\n   |                      ^\n\nprogram.dfy(4,13): Related location: this is the precondition that could not be proved\n  |\n4 |   requires A < B\n  |              ^\n\n\nDafny program verifier finished with 0 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

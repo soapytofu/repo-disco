@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/verification-class_tmp_tmpz9ik148s_2022_chapter05-distributed-state-machines_exercises_UtilitiesLibrary_no_hints.dfy",
+  "sha256": "71f1a7150a623453edec5488836d5f0ca0e991cc96a29adae746c691db3a14f3",
+  "bytes": 4014,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(62,4): Error: a postcondition could not be proved on this return path\n   |\n62 |     m'\n   |     ^^\n\nprogram.dfy(58,22): Related location: this is the postcondition that could not be proved\n   |\n58 |     ensures |m'.Keys| <= |m.Keys|\n   |                       ^^\n\n\nDafny program verifier finished with 9 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

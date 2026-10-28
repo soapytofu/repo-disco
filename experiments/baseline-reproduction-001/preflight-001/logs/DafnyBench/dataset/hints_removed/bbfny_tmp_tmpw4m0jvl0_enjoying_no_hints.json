@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/bbfny_tmp_tmpw4m0jvl0_enjoying_no_hints.dfy",
+  "sha256": "16049d3093a1b9c27011e448042c4cf8ffff0a6692062ac2969f0e5d06b3332a",
+  "bytes": 1621,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(44,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n44 |   while i != n\n   |   ^^^^^\n\nprogram.dfy(67,2): Error: a postcondition could not be proved on this return path\n   |\n67 |   return -1;\n   |   ^^^^^^^^^^\n\nprogram.dfy(59,24): Related location: this is the postcondition that could not be proved\n   |\n59 |   ensures index < 0 ==> forall k :: 0 <= k < a.Length ==> a[k] != key\n   |                         ^^^^^^\n\nprogram.dfy(74,0): Error: a postcondition could not be proved on this return path\n   |\n74 | {\n   | ^\n\nprogram.dfy(72,17): Related location: this is the postcondition that could not be proved\n   |\n72 |   ensures 0 <= i < a.Length\n   |                  ^\n\nprogram.dfy(74,0): Error: a postcondition could not be proved on this return path\n   |\n74 | {\n   | ^\n\nprogram.dfy(73,10): Related location: this is the postcondition that could not be proved\n   |\n73 |   ensures forall k :: 0 <= k < a.Length ==> a[k] <= a[i]\n   |           ^^^^^^\n\n\nDafny program verifier finished with 9 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

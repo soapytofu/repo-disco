@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session6Exercises_ExerciseCountMin_no_hints.dfy",
+  "sha256": "5e35a6b6fdb5410f5a49698b1170563b234fa41732874e7487417cced77b09c0",
+  "bytes": 796,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(30,0): Error: a postcondition could not be proved on this return path\n   |\n30 | {\n   | ^\n\nprogram.dfy(28,9): Related location: this is the postcondition that could not be proved\n   |\n28 | ensures c==countMin(v,min(v,v.Length),v.Length)\n   |          ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

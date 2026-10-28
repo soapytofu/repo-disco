@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/formal_verication_dafny_tmp_tmpwgl2qz28_Challenges_ex2_no_hints.dfy",
+  "sha256": "d81437e0d0d687bc75a64a41457900a0fda1b5aa50e719fd97410ee4601a2f89",
+  "bytes": 1215,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(17,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | requires y != 42;\n   |                 ^\n\nprogram.dfy(18,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 | ensures z == x/(42-y);\n   |                      ^\n\nprogram.dfy(25,49): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 | ensures y != 42 ==> z == x/(42-y) && err == false;\n   |                                                  ^\n\nprogram.dfy(26,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 | ensures y == 42 ==> z == 0 && err == true;\n   |                                          ^\n\n\nDafny program verifier finished with 5 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

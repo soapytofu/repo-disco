@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/stunning-palm-tree_tmp_tmpr84c2iwh_ch1.dfy",
+  "sha256": "e07e961ac3106cf6f1497be6feafe4929b1d514c73289e9a1cf9e24cc56e169e",
+  "bytes": 1506,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(36,12): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n36 |   ensures s == x + y\n   |             ^^\n\nprogram.dfy(37,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n37 |   ensures x <= m && y <= m\n   |                  ^^\n\nprogram.dfy(38,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n38 |   ensures m == x || m == y\n   |                  ^^\n\n\nDafny program verifier finished with 9 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

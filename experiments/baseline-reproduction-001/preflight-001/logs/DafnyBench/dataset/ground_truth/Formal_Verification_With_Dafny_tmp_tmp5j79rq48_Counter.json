@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Formal_Verification_With_Dafny_tmp_tmp5j79rq48_Counter.dfy",
+  "sha256": "1d201b2f58413191da4f122ffaa287786301d59f9c3faaaa7c414b749d0c4156",
+  "bytes": 653,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(3,18): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   var value : int ;\n  |                   ^\n\nprogram.dfy(6,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |   ensures value == 0;\n  |                     ^\n\nprogram.dfy(12,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |   ensures x == value;\n   |                     ^\n\nprogram.dfy(19,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |   requires value >= 0;\n   |                      ^\n\nprogram.dfy(20,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |   ensures value == old(value) + 1; \n   |                                  ^\n\nprogram.dfy(27,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 |   requires value > 0;\n   |                     ^\n\nprogram.dfy(28,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n28 |   ensures value == old(value) - 1; \n   |                                  ^\n\n\nDafny program verifier finished with 7 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

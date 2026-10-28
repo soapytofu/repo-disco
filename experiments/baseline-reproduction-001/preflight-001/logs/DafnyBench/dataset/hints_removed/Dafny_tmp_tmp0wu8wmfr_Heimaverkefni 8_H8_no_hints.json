@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_Heimaverkefni 8_H8_no_hints.dfy",
+  "sha256": "a6ccdf77e2a43f4eb16e0c4ebccc0835358d7c1087ba9f2d9fc2f31d9afc3606",
+  "bytes": 1841,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |     requires |m| > 0;\n   |                     ^\n\nprogram.dfy(12,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     ensures p in m;\n   |                   ^\n\nprogram.dfy(13,37): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |     ensures m == pre+multiset{p}+post;\n   |                                      ^\n\nprogram.dfy(14,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     ensures forall z | z in pre :: z <= p;\n   |                                          ^\n\nprogram.dfy(15,42): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |     ensures forall z | z in post :: z >= p;\n   |                                           ^\n\nprogram.dfy(48,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n48 |     requires 0 <= k < |m|;\n   |                          ^\n\nprogram.dfy(49,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n49 |     ensures kth in m;\n   |                     ^\n\nprogram.dfy(50,39): Warning: deprecated style: a semi-colon is not needed here\n   |\n50 |     ensures m == pre+multiset{kth}+post;\n   |                                        ^\n\nprogram.dfy(51,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n51 |     ensures |pre| == k;\n   |                       ^\n\nprogram.dfy(52,43): Warning: deprecated style: a semi-colon is not needed here\n   |\n52 |     ensures forall z | z in pre :: z <= kth;\n   |                                            ^\n\nprogram.dfy(53,44): Warning: deprecated style: a semi-colon is not needed here\n   |\n53 |     ensures forall z | z in post :: z >= kth;\n   |                                             ^\n\nprogram.dfy(36,4): Error: a postcondition could not be proved on this return path\n   |\n36 |     return pre,p,post;\n   |     ^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(13,14): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures m == pre+multiset{p}+post;\n   |               ^^\n\nprogram.dfy(36,4): Error: a postcondition could not be proved on this return path\n   |\n36 |     return pre,p,post;\n   |     ^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(14,12): Related location: this is the postcondition that could not be proved\n   |\n14 |     ensures forall z | z in pre :: z <= p;\n   |             ^^^^^^\n\nprogram.dfy(36,4): Error: a postcondition could not be proved on this return path\n   |\n36 |     return pre,p,post;\n   |     ^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(15,12): Related location: this is the postcondition that could not be proved\n   |\n15 |     ensures forall z | z in post :: z >= p;\n   |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

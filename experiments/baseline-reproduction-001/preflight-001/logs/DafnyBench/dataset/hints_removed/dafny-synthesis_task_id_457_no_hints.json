@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_457_no_hints.dfy",
+  "sha256": "f4b643c57b7479a596336503c25893cdbeb0eef304023f1fbd09d4ac27bdc21c",
+  "bytes": 333,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(3,23): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures minSublist in s\n  |                        ^^\n\nprogram.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall sublist :: sublist in s ==> |minSublist| <= |sublist|\n  |             ^^^^^^\n\n\nDafny program verifier finished with 0 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

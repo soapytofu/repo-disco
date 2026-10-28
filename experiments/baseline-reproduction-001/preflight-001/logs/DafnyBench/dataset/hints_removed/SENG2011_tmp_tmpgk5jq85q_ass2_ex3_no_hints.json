@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_ass2_ex3_no_hints.dfy",
+  "sha256": "f177da9e0ba7e8a9a32b69359a21f194c12aa15573953868e2edcbe41900235f",
+  "bytes": 2025,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,79): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 | requires forall k :: 0 <= k < |a| ==> a[k] == 'b' || a[k] == 'a' || a[k] == 'd';\n   |                                                                                ^\n\nprogram.dfy(17,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | ensures sortedbad(b);\n   |                     ^\n\nprogram.dfy(18,42): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 | ensures multiset(a[..]) == multiset(b[..]);\n   |                                           ^\n\nprogram.dfy(19,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 | ensures |a| == |b|;\n   |                   ^\n\nprogram.dfy(10,77): Warning: unusual indentation in right-hand operand of ==> (which ends at line 12, column 103); do you perhaps need parentheses?\n   |\n10 |     forall i,j :: 0 <= i < |s| && 0 <= j < |s| && s[i] == 'a' && s[j] == 'd' ==> i < j &&\n   |                                                                              ^^^\n\nprogram.dfy(8,77): Warning: unusual indentation in right-hand operand of ==> (which ends at line 12, column 103); do you perhaps need parentheses?\n  |\n8 |     forall i,j :: 0 <= i < |s| && 0 <= j < |s| && s[i] == 'a' && s[j] == 'b' ==> i > j &&\n  |                                                                              ^^^\n\nprogram.dfy(6,94): Warning: unusual indentation in right-hand operand of ==> (which ends at line 12, column 103); do you perhaps need parentheses?\n  |\n6 |     forall i,j :: 0 <= i < |s| && 0 <= j < |s| && s[i] == 'b' && (s[j] == 'a' || s[j] == 'd') ==> i < j &&\n  |                                                                                               ^^^\n\nprogram.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(18,24): Related location: this is the postcondition that could not be proved\n   |\n18 | ensures multiset(a[..]) == multiset(b[..]);\n   |                         ^^\n\nprogram.dfy(25,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n25 |     while (next != blue) // if next==blue, no colours left to sort\n   |     ^^^^^\n\nprogram.dfy(32,12): Error: index out of range\n   |\n32 |         if b[next] == 'b' {\n   |             ^\n\nprogram.dfy(34,28): Error: index out of range\n   |\n34 |             b := b[next := b[white]];\n   |                             ^\n\nprogram.dfy(43,28): Error: index out of range\n   |\n43 |             b := b[next := b[blue]];\n   |                             ^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

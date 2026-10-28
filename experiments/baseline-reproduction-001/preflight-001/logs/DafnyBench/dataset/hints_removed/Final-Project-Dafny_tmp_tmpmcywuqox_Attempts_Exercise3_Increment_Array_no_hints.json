@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Exercise3_Increment_Array_no_hints.dfy",
+  "sha256": "99b480fcccd4a65181e5674e0d8f64b22bb2e0bcd114aac7a74f001f217fdaa6",
+  "bytes": 232,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,2): Error: a postcondition could not be proved on this return path\n  |\n7 |   while(j < a.Length)\n  |   ^^^^^\n\nprogram.dfy(3,10): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures forall i :: 0 <= i < a.Length ==> a[i] == old(a[i]) + 1\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

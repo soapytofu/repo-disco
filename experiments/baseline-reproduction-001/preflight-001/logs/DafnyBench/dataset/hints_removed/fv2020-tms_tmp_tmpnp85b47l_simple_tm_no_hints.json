@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/fv2020-tms_tmp_tmpnp85b47l_simple_tm_no_hints.dfy",
+  "sha256": "e56a75b0e4a272e902e1c1a06722a55e73e36a102f9e61251dc768387827a004",
+  "bytes": 18604,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(279,19): Warning: unusual indentation in body of exists (which ends at line 295, column 38); do you perhaps need parentheses?\n    |\n279 |                 && exists tx :: (\n    |                    ^^^^^^\n\nprogram.dfy(333,20): Warning: assume statement has no {:axiom} annotation\n    |\n333 |                     assume(system.validSystem()); // TODO : Remove assumption.\n    |                     ^^^^^^\n\nprogram.dfy(344,20): Warning: assume statement has no {:axiom} annotation\n    |\n344 |                     assume(system.validSystem()); // TODO : Remove assumption.\n    |                     ^^^^^^\n\nprogram.dfy(443,8): Warning: assume statement has no {:axiom} annotation\n    |\n443 |         assume(system.validSystem()); // TODO : Remove assumption.\n    |         ^^^^^^\n\nprogram.dfy(340,96): Error: element might not be in domain\n    |\n340 |                 if !(forall o :: o in state.readSet ==> state.readSet[o] == system.objTimeStamps[o]) {\n    |                                                                                                 ^\n\n\nDafny program verifier finished with 32 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

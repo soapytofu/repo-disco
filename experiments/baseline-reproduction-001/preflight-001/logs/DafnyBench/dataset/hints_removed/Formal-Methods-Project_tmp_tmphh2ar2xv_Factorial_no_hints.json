@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Formal-Methods-Project_tmp_tmphh2ar2xv_Factorial_no_hints.dfy",
+  "sha256": "29d706420b5d2e02f80c3ecf645a811e5d5e921f7726adc22cf4b2846ca21109",
+  "bytes": 217,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(3,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   requires x >= 0;   \n  |                  ^\n\nprogram.dfy(7,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n7 |     while(z != x)\n  |     ^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

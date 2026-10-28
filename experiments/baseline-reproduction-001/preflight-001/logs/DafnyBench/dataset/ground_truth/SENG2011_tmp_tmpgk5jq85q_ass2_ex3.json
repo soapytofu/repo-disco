@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/SENG2011_tmp_tmpgk5jq85q_ass2_ex3.dfy",
+  "sha256": "e8e0e50258cd2d35e1fe563ee8614494f5586b6bddf532ed137ae0304b5c8949",
+  "bytes": 3021,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(16,79): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 | requires forall k :: 0 <= k < |a| ==> a[k] == 'b' || a[k] == 'a' || a[k] == 'd';\n   |                                                                                ^\n\nprogram.dfy(17,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | ensures sortedbad(b);\n   |                     ^\n\nprogram.dfy(18,42): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 | ensures multiset(a[..]) == multiset(b[..]);\n   |                                           ^\n\nprogram.dfy(19,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 | ensures |a| == |b|;\n   |                   ^\n\nprogram.dfy(26,84): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 |     invariant forall k :: 0 <= k < |b| ==> b[k] == 'b' || b[k] == 'a' || b[k] == 'd';\n   |                                                                                     ^\n\nprogram.dfy(27,47): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 |     invariant 0 <= white <= next <= blue <= |b|;\n   |                                                ^\n\nprogram.dfy(29,56): Warning: deprecated style: a semi-colon is not needed here\n   |\n29 |     invariant forall i :: 0 <= i < white ==> b[i] == 'b';\n   |                                                         ^\n\nprogram.dfy(30,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n30 |     invariant forall i :: white <= i < next ==> b[i] == 'a';\n   |                                                            ^\n\nprogram.dfy(31,57): Warning: deprecated style: a semi-colon is not needed here\n   |\n31 |     invariant forall i :: blue <= i < |b| ==> b[i] == 'd';\n   |                                                          ^\n\nprogram.dfy(40,48): Warning: deprecated style: a semi-colon is not needed here\n   |\n40 |     invariant multiset(b[..]) == multiset(a[..]);\n   |                                                 ^\n\nprogram.dfy(41,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n41 |     invariant |a| == |b|;\n   |                         ^\n\nprogram.dfy(10,77): Warning: unusual indentation in right-hand operand of ==> (which ends at line 12, column 103); do you perhaps need parentheses?\n   |\n10 |     forall i,j :: 0 <= i < |s| && 0 <= j < |s| && s[i] == 'a' && s[j] == 'd' ==> i < j &&\n   |                                                                              ^^^\n\nprogram.dfy(8,77): Warning: unusual indentation in right-hand operand of ==> (which ends at line 12, column 103); do you perhaps need parentheses?\n  |\n8 |     forall i,j :: 0 <= i < |s| && 0 <= j < |s| && s[i] == 'a' && s[j] == 'b' ==> i > j &&\n  |                                                                              ^^^\n\nprogram.dfy(6,94): Warning: unusual indentation in right-hand operand of ==> (which ends at line 12, column 103); do you perhaps need parentheses?\n  |\n6 |     forall i,j :: 0 <= i < |s| && 0 <= j < |s| && s[i] == 'b' && (s[j] == 'a' || s[j] == 'd') ==> i < j &&\n  |                                                                                               ^^^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

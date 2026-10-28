@@ -1,0 +1,40 @@
+{
+  "protocol": "baseline-reproduction-001",
+  "status": "preflight_only_no_model_authorization",
+  "paper": "https://arxiv.org/html/2607.04631v1",
+  "target": "Section 4.3 DafnyBench annotation, Claude Opus 4.5",
+  "code_revision": "c306a47a3d5935ef0d93b793eada954471d16280",
+  "dataset_revision": "0cd28feed9cd0179b07fdb9d002f8c39063658e4",
+  "task": "fixer",
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "max_attempts_per_problem": 4,
+  "independent_attempts": true,
+  "stop_on_first_success": true,
+  "sdk_total_attempts": 1,
+  "automatic_retries": false,
+  "temperature": null,
+  "top_p": null,
+  "max_output_tokens": null,
+  "unresolved": [
+    "paper exact filtered problem IDs and dataset revision",
+    "evaluation output-token limit and provider sampling settings",
+    "paper Dafny/Z3 versions and timeout",
+    "Bedrock Opus 4.5 availability in lab account"
+  ],
+  "proposed_verifier": {
+    "dafny": "4.11.0",
+    "z3": "4.12.1",
+    "timeout_seconds": 10,
+    "kill_grace_seconds": 5
+  },
+  "paper_problem_count": 555,
+  "paper_max_calls": 2220,
+  "smoke_problems": 20,
+  "smoke_attempts": 1,
+  "smoke_max_calls": 20,
+  "smoke_counts_toward_full_budget": true,
+  "model_calls_authorized": 0,
+  "exclude_trivial": true,
+  "exclude_other_errors": false
+}

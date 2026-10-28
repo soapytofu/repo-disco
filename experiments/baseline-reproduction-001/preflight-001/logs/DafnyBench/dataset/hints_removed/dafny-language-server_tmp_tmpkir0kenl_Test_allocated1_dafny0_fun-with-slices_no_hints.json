@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_allocated1_dafny0_fun-with-slices_no_hints.dfy",
+  "sha256": "922b9d7bda889a0f5fa819cca62cb60d61d50e078a6b7b590e17616a8b4d9d03",
+  "bytes": 1593,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   while i < index + |s|\n   |   ^^^^^\n\nprogram.dfy(9,16): Related location: this is the postcondition that could not be proved\n  |\n9 |   ensures a[..] == old(a[..index]) + s + old(a[index + |s|..])\n  |                 ^^\n\nprogram.dfy(22,54): Error: the calculation step between the previous line and this line could not be proved\n   |\n22 |       (old(a[..index]) + s[..i - index] + old(a[i..]))[i := s[i - index]];\n   |                                                       ^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

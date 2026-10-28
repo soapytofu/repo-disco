@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_Modules.dfy",
+  "sha256": "1879c0b522a519da34476079e96a45df61b49e0082698b7a754e24e5b090ce85",
+  "bytes": 539,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(22,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |         ensures I.P(I.F());\n   |                           ^\n\nprogram.dfy(8,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n8 |         ensures P(F())\n  |                  ^\n\nprogram.dfy(11,7): Related location: refining module\n   |\n11 | module Implementation refines Interface {\n   |        ^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

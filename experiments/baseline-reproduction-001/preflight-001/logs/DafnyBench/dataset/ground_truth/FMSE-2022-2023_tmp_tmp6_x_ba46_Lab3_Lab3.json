@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/FMSE-2022-2023_tmp_tmp6_x_ba46_Lab3_Lab3.dfy",
+  "sha256": "1f978fa48e7c7d7ad12cb0fb21487040810553f85720affb5f9ef60ceec244eb",
+  "bytes": 4319,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,4): Warning: assume statement has no {:axiom} annotation\n   |\n21 |     assume Succ(x) == Succ(y);\n   |     ^^^^^^\n\nprogram.dfy(21,4): Warning: assume statement has no {:axiom} annotation\n   |\n21 |     assume Succ(x) == Succ(y);\n   |     ^^^^^^\n\nprogram.dfy(22,24): Error: assertion might not hold\n   |\n22 |     assert Succ(x).Pred == Succ(y).Pred;\n   |                         ^^\n\nprogram.dfy(7,19): Related location: this proposition could not be proved\n  |\n7 | codatatype Conat = Zero | Succ(Pred: Conat)\n  |                    ^^^^\n\nprogram.dfy(22,24): Error: assertion might not hold\n   |\n22 |     assert Succ(x).Pred == Succ(y).Pred;\n   |                         ^^\n\nprogram.dfy(7,26): Related location: this proposition could not be proved\n  |\n7 | codatatype Conat = Zero | Succ(Pred: Conat)\n  |                           ^^^^^^^^^^^^^^^^^\n\nprogram.dfy(113,0): Error: a postcondition could not be proved on this return path\n    |\n113 | {\n    | ^\n\nprogram.dfy(112,34): Related location: this is the postcondition that could not be proved\n    |\n112 |     ensures zip(cnst(0), cnst(1)) == blink()\n    |                                   ^^\n\nprogram.dfy(51,23): Related location: this proposition could not be proved\n   |\n51 | codatatype Stream<A> = Cons(head: A, tail: Stream<A>)\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 2 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

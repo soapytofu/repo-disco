@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_examples_tmp_tmp8qotd4ez_leetcode_0069-sqrt.dfy",
+  "sha256": "87530c371e5705b58a68f7d98024dfe8dabef6aeebabf51ec1a148e87ca53b37",
+  "bytes": 712,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(8,37): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 | requires x >= 0 && r1 >= 0 && r2 >= 0;\n  |                                      ^\n\nprogram.dfy(13,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 | requires 0 <= x;\n   |                ^\n\nprogram.dfy(14,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 | ensures sqrt(x, res);\n   |                     ^\n\nprogram.dfy(18,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |     decreases r - l;\n   |                    ^\n\nprogram.dfy(19,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |     invariant l >= 0;\n   |                     ^\n\nprogram.dfy(20,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |     invariant r >= 0;\n   |                     ^\n\nprogram.dfy(21,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     invariant l*l <= x;\n   |                       ^\n\nprogram.dfy(22,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |     invariant (r+1)*(r+1) > x;\n   |                              ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

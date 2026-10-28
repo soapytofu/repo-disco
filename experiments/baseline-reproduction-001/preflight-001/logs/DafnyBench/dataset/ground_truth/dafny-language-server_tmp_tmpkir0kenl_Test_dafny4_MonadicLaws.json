@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_MonadicLaws.dfy",
+  "sha256": "7a642e89954184c50bcf007c9136ec522472ff5893c0e4022afc2d6ee82a42c3",
+  "bytes": 2071,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(23,66): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   ensures append(append(xs, ys), zs) == append(xs, append(ys, zs));\n   |                                                                   ^\n\n\nDafny program verifier finished with 8 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

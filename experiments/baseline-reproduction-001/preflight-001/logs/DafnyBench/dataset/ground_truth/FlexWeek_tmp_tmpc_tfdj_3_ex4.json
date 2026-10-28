@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/FlexWeek_tmp_tmpc_tfdj_3_ex4.dfy",
+  "sha256": "a78b7700ca0327d91489d5fe9a53e8595bf2182883a55df1162167fc672c444f",
+  "bytes": 2923,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(12,47): Warning: unusual indentation in left-hand operand of ==> (which starts at line 11, column 5); do you perhaps need parentheses?\n   |\n12 |     0<=j_2< b.Length && i_2 - j_2 == a.Length  ==> c[i_2] == b[j_2]\n   |                                                ^^^\n\nprogram.dfy(51,40): Warning: unusual indentation in left-hand operand of ==> (which starts at line 50, column 5); do you perhaps need parentheses?\n   |\n51 |     0<=j_2< j && i_2 - j_2 == a.Length  ==> c[i_2] == b[j_2] // curr loop\n   |                                         ^^^\n\nprogram.dfy(55,40): Warning: unusual indentation in left-hand operand of ==> (which starts at line 53, column 5); do you perhaps need parentheses?\n   |\n55 |     0<=j_2< j && i_2 - j_2 == a.Length  ==> c[i_2] == b[j_2] && c[k_2] == a[k_2] // prev loop+curr loop\n   |                                         ^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

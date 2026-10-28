@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafl_tmp_tmp_r3_8w3y_dafny_examples_dafny0_ForallCompilationNewSyntax.dfy",
+  "sha256": "8525115c4cdf5e02785962a3eaf380eb500d2ce4ca57727ac02446624b97e4ef",
+  "bytes": 2079,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(26,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n26 |     forall k <- {-3, 4} {\n   |     ^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(35,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n35 |     forall k <- {} {\n   |     ^^^^^^^^^^^^^^^^\n\nprogram.dfy(44,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n44 |     forall k <- {-3, 4} {\n   |     ^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(64,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n64 |     forall i | 0 <= i < arr.Length0, k: nat <- {-3, 4} {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 14 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

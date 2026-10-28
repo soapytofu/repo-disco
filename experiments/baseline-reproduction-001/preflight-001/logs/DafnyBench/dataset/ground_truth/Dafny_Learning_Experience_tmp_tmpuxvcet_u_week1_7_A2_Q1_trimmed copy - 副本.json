@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week1_7_A2_Q1_trimmed copy - \u526f\u672c.dfy",
+  "sha256": "84a6fa1f90729d5812109d60326f731db9a8118afff3b85d575ca30fd0430d74",
+  "bytes": 5769,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(56,48): Warning: deprecated style: a semi-colon is not needed here\n   |\n56 |         invariant 1 <= CountIndex <= a.Length +1;\n   |                                                 ^\n\nprogram.dfy(37,65): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n37 |             assert  |a| == b.Length && 0<= CountIndex -1 <|a| && forall p'::p' ==Count(CountIndex-1,a) ==> p'==Count(CountIndex,a);\n   |                                                                  ^^^^^^\n\nprogram.dfy(59,93): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n59 |         assert (CountIndex == 0 || (a.Length == b.Length && 1 <= CountIndex <= a.Length)) && forall a'::a' ==Count(CountIndex,a[..]) ==> a' ==Count(CountIndex,a[..]);\n   |                                                                                              ^^^^^^\n\nprogram.dfy(93,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n93 |     forall p::p == Count(b.Length,a[..]) ==> p==Count(b.Length,a[..])\n   |     ^^^^^^\n\nprogram.dfy(98,8): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n98 |     && (forall p::p == Count(b.Length,a[..]) ==> p==Count(b.Length,a[..]) );\n   |         ^^^^^^\n\n\nDafny program verifier finished with 11 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

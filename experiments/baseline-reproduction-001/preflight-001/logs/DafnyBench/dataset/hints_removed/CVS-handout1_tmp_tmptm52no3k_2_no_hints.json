@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/CVS-handout1_tmp_tmptm52no3k_2_no_hints.dfy",
+  "sha256": "97d2dd5963d680692681a267d58b66385c5f5fd67431eeec2816e875e3745d84",
+  "bytes": 1207,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(32,20): Related location: this is the postcondition that could not be proved\n   |\n32 |   ensures length(l) == a.Length\n   |                     ^^\n\nprogram.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(33,10): Related location: this is the postcondition that could not be proved\n   |\n33 |   ensures forall i: int :: 0 <= i < length(l) ==> at(l, i) == a[i]\n   |           ^^^^^^\n\nprogram.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(34,10): Related location: this is the postcondition that could not be proved\n   |\n34 |   ensures forall x :: mem(l, x) ==> exists i: int :: 0 <= i < length(l) && a[i] == x\n   |           ^^^^^^\n\n\nDafny program verifier finished with 5 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

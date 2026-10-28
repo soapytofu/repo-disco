@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny2_COST-verif-comp-2011-3-TwoDuplicates_no_hints.dfy",
+  "sha256": "4da5aa59df9bd9c9591d0a4f5aa2af6f7c0be4dcbe14bba68b713dc337b4a7d4",
+  "bytes": 4536,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(68,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n68 |   requires 0 <= k <= a.Length;\n   |                              ^\n\nprogram.dfy(69,9): Warning: deprecated style: a semi-colon is not needed here\n   |\n69 |   reads a;\n   |          ^\n\nprogram.dfy(75,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n75 |   requires 4 <= a.Length;\n   |                         ^\n\nprogram.dfy(76,73): Warning: deprecated style: a semi-colon is not needed here\n   |\n76 |   requires exists p,q :: p != q && IsDuplicate(a, p) && IsDuplicate(a, q);  // two distinct duplicates exist\n   |                                                                          ^\n\nprogram.dfy(77,69): Warning: deprecated style: a semi-colon is not needed here\n   |\n77 |   requires forall i :: 0 <= i < a.Length ==> 0 <= a[i] < a.Length - 2;  // the elements of \"a\" in the range [0.. a.Length-2]\n   |                                                                      ^\n\nprogram.dfy(78,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n78 |   ensures p != q && IsDuplicate(a, p) && IsDuplicate(a, q);\n   |                                                           ^\n\nprogram.dfy(91,47): Error: invalid WhileStmt\n   |\n91 |                 (0 <= d[j] < i && a[d[j]] == j);\n   |                                                ^\n\n1 parse errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

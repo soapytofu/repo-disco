@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/fv2020-tms_tmp_tmpnp85b47l_simple_tm.dfy",
+  "sha256": "ce38652de1e995696dd4b49343ba988dab1e877b059599fdbc7b417938f14e80",
+  "bytes": 18955,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(279,19): Warning: unusual indentation in body of exists (which ends at line 295, column 38); do you perhaps need parentheses?\n    |\n279 |                 && exists tx :: (\n    |                    ^^^^^^\n\nprogram.dfy(334,20): Warning: assume statement has no {:axiom} annotation\n    |\n334 |                     assume(system.validSystem()); // TODO : Remove assumption.\n    |                     ^^^^^^\n\nprogram.dfy(345,20): Warning: assume statement has no {:axiom} annotation\n    |\n345 |                     assume(system.validSystem()); // TODO : Remove assumption.\n    |                     ^^^^^^\n\nprogram.dfy(451,8): Warning: assume statement has no {:axiom} annotation\n    |\n451 |         assume(system.validSystem()); // TODO : Remove assumption.\n    |         ^^^^^^\n\n\nDafny program verifier finished with 33 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

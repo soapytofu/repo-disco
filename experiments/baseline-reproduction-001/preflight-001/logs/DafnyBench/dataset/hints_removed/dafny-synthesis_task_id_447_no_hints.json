@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_447_no_hints.dfy",
+  "sha256": "9918bfb2f6b1d38c4408642586a5427f7acfebd6bb831b9466bb97dfcc666759",
+  "bytes": 328,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,4): Error: a postcondition could not be proved on this return path\n   |\n10 |     return cubedArray;\n   |     ^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures forall i :: 0 <= i < a.Length ==> cubed[i] == a[i] * a[i] * a[i]\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

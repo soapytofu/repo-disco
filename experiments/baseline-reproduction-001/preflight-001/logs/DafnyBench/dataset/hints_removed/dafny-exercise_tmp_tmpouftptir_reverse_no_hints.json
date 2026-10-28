@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-exercise_tmp_tmpouftptir_reverse_no_hints.dfy",
+  "sha256": "51a5e75440ca371f26ea2573956953da9c1890b17fe24af76e2505ccf2611e89",
+  "bytes": 492,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,13): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n3 | ensures a == old(a)\n  |              ^^^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(5,8): Related location: this is the postcondition that could not be proved\n  |\n5 | ensures forall i :: 0 <= i < a.Length ==> b[i] == a[a.Length - i - 1]\n  |         ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

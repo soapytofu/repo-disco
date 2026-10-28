@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_tmp_tmp59p638nn_examples_minmax2_no_hints.dfy",
+  "sha256": "4fe55ed005d5361adca823ebe3a00c36da614c8965ffaf2a40cc475584f5cd96",
+  "bytes": 774,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,17): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures diff == (Max(a[..]) - Min(a[..]))\n  |                  ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

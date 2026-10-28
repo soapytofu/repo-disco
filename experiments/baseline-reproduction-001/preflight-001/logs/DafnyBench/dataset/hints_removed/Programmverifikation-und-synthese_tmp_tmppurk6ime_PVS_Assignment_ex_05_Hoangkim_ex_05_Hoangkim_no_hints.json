@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_05_Hoangkim_ex_05_Hoangkim_no_hints.dfy",
+  "sha256": "3f0cad53b91561941118cb956ba5895637293a494d5c72acba2005de98073917",
+  "bytes": 1442,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(31,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n31 | requires n >= 0;\n   |                ^\n\nprogram.dfy(54,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n54 |     ensures g == gcd(m, n);\n   |                           ^\n\nprogram.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,10): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures a == fib(n)\n   |           ^^\n\nprogram.dfy(33,0): Error: a postcondition could not be proved on this return path\n   |\n33 | {\n   | ^\n\nprogram.dfy(32,10): Related location: this is the postcondition that could not be proved\n   |\n32 | ensures a == fact(n)\n   |           ^^\n\nprogram.dfy(55,4): Error: a postcondition could not be proved on this return path\n   |\n55 |     {\n   |     ^\n\nprogram.dfy(54,14): Related location: this is the postcondition that could not be proved\n   |\n54 |     ensures g == gcd(m, n);\n   |               ^^\n\nprogram.dfy(59,8): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n59 |         while (g != x)\n   |         ^^^^^\n\n\nDafny program verifier finished with 4 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_examples_tmp_tmp8qotd4ez_leetcode_0027-remove-element.dfy",
+  "sha256": "a7d72ba6db661fd33286dc4230c3a6bdf52d5e7e41cae0ede27cad3935bdc3c7",
+  "bytes": 701,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(12,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |         invariant old(nums[i..]) == nums[i..];\n   |                                              ^\n\nprogram.dfy(22,4): Error: a postcondition could not be proved on this return path\n   |\n22 |     return j;\n   |     ^^^^^^^^^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall x :: x in nums[..newLength] ==> x != val\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

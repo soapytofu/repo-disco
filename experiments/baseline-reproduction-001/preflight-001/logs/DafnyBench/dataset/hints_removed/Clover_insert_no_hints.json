@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_insert_no_hints.dfy",
+  "sha256": "8ad5ca992619a2aee620608b797bf2f55cb481ee3a8d745f4421bd10260dce21",
+  "bytes": 557,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,2): Error: a postcondition could not be proved on this return path\n   |\n21 |   while(i<p)\n   |   ^^^^^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures forall i :: (0<=i<p) ==> line[at+i] == nl[i]\n  |           ^^^^^^\n\nprogram.dfy(21,2): Error: a postcondition could not be proved on this return path\n   |\n21 |   while(i<p)\n   |   ^^^^^\n\nprogram.dfy(7,10): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures forall i :: (0<=i<at) ==> line[i] == old(line[i])\n  |           ^^^^^^\n\nprogram.dfy(21,2): Error: a postcondition could not be proved on this return path\n   |\n21 |   while(i<p)\n   |   ^^^^^\n\nprogram.dfy(8,10): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures forall i :: (at+p<=i<l+p) ==> line[i] == old(line[i-p])\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_tmp_tmpmvs2dmry_examples1.dfy",
+  "sha256": "2bfc05642ec30d060804be7a176465126b598be4199c966727e2182f90a1c35a",
+  "bytes": 722,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,12): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 | ensures y>=0;\n  |             ^\n\nprogram.dfy(3,23): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | ensures x>=0 ==> x == y;\n  |                        ^\n\nprogram.dfy(4,23): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | ensures x<0 ==> -x == y;\n  |                        ^\n\nprogram.dfy(5,19): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 | ensures y == abs(x); // use this instead of line 3,4\n  |                    ^\n\nprogram.dfy(27,13): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 | requires y>=0;\n   |              ^\n\nprogram.dfy(28,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n28 | ensures less <= x <= more;\n   |                          ^\n\nprogram.dfy(35,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n35 | ensures a == x || a == y;\n   |                         ^\n\nprogram.dfy(36,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n36 | ensures x > y ==> a == x;\n   |                         ^\n\nprogram.dfy(37,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n37 | ensures x <= y ==> a == y;\n   |                          ^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

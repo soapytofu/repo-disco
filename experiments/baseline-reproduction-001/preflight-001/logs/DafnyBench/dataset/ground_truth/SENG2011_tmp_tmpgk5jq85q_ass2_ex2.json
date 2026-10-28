@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/SENG2011_tmp_tmpgk5jq85q_ass2_ex2.dfy",
+  "sha256": "f1f5706e965d450eb207586a0dcc1b6279fd6708dff28983f5c94810087d2f7c",
+  "bytes": 1617,
+  "partition": "ground_truth",
+  "exit_code": 124,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(10,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | requires |a| == 3;\n   |                  ^\n\nprogram.dfy(11,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | ensures Sorted(b, 0, |b|);\n   |                          ^\n\nprogram.dfy(12,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 | ensures |a| == |b|;\n   |                   ^\n\nprogram.dfy(13,64): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 | ensures multiset{b[0], b[1], b[2]} == multiset{a[0], a[1], a[2]};\n   |                                                                 ^\n\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

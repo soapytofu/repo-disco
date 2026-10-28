@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/TFG_tmp_tmpbvsao41w_Algoritmos Dafny_div_ent_it_no_hints.dfy",
+  "sha256": "6dfa769529394b313098bd9ea814fea8c9dab698d04007189a90b88c457c8281",
+  "bytes": 412,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(7,15): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures  a == b*c + r && 0 <= r < b\n  |                ^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(7,31): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures  a == b*c + r && 0 <= r < b\n  |                                ^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

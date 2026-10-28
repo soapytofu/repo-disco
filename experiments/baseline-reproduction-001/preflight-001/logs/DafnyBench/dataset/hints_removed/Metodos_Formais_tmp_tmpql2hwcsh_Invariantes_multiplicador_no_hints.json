@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Metodos_Formais_tmp_tmpql2hwcsh_Invariantes_multiplicador_no_hints.dfy",
+  "sha256": "84d0f93dbbcba555589a8cf1ceacb7c0aa8c57f70ce4d757c081c7edc546d17c",
+  "bytes": 1282,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(19,4): Error: a postcondition could not be proved on this return path\n   |\n19 |     return r;\n   |     ^^^^^^^^^\n\nprogram.dfy(5,10): Related location: this is the postcondition that could not be proved\n  |\n5 | ensures r == x * y\n  |           ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_examples_relativeOrder.dfy",
+  "sha256": "7c762c572f3d2477488c0d8aef91ba14fc1ff63174c3e3f7ef214c7ffe9e63a3",
+  "bytes": 1481,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(9,72): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |   ensures forall x :: x in arr[..] && IsEven(x) ==> x in evenNumbers[..];\n  |                                                                         ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

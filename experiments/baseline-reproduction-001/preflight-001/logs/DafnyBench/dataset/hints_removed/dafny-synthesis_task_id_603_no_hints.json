@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_603_no_hints.dfy",
+  "sha256": "f5045cc2ed0abb6d99190bfac391cff1a841cc87b3c68d1e6f49c3bf248e7922",
+  "bytes": 421,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures forall i :: 0 <= i < |lucid| ==> lucid[i] % 3 == 0\n  |             ^^^^^^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall i :: 0 <= i < |lucid| ==> lucid[i] <= n\n  |             ^^^^^^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(5,12): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures forall i, j :: 0 <= i < j < |lucid| ==> lucid[i] < lucid[j]\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

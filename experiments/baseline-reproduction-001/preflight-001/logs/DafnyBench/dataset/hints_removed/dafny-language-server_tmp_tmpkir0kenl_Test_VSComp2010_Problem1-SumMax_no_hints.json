@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_VSComp2010_Problem1-SumMax_no_hints.dfy",
+  "sha256": "79c0def1a4e9cf34df4d9bc296cf8ae6f9d5942eab86a544c28d78333450dab9",
+  "bytes": 1097,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,81): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |   requires 0 <= N && a.Length == N && (forall k :: 0 <= k && k < N ==> 0 <= a[k]);\n   |                                                                                  ^\n\nprogram.dfy(15,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |   ensures sum <= N * max;\n   |                         ^\n\nprogram.dfy(16,0): Error: a postcondition could not be proved on this return path\n   |\n16 | {\n   | ^\n\nprogram.dfy(15,14): Related location: this is the postcondition that could not be proved\n   |\n15 |   ensures sum <= N * max;\n   |               ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

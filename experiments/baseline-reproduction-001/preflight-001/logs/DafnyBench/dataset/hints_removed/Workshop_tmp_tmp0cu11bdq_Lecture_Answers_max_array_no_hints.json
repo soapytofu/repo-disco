@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Workshop_tmp_tmp0cu11bdq_Lecture_Answers_max_array_no_hints.dfy",
+  "sha256": "5163ca201384b46bafcf028ea62c431459983ac1ded4c0d04275837e92df9cd3",
+  "bytes": 588,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,22): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     requires a != null;\n  |                       ^\n\nprogram.dfy(5,62): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |     ensures forall j :: j >= 0 && j < a.Length ==> max >= a[j]; //max is larger then anything in the array\n  |                                                               ^\n\nprogram.dfy(6,78): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |     ensures a.Length > 0 ==> exists j :: j >= 0 && j < a.Length && max == a[j]; //max is an element in the array\n  |                                                                               ^\n\nprogram.dfy(4,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n4 |     requires a != null;\n  |                ^^\n\nprogram.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(5,12): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures forall j :: j >= 0 && j < a.Length ==> max >= a[j]; //max is larger then anything in the array\n  |             ^^^^^^\n\nprogram.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(6,29): Related location: this is the postcondition that could not be proved\n  |\n6 |     ensures a.Length > 0 ==> exists j :: j >= 0 && j < a.Length && max == a[j]; //max is an element in the array\n  |                              ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-rope_tmp_tmpl4v_njmy_Rope_no_hints.dfy",
+  "sha256": "99732ef2dd3668e9d2ba84c36d34f091b634c3479fca926610791fa67139d50f",
+  "bytes": 9077,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(3,26): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | ghost var Contents: string;\n  |                           ^\n\nprogram.dfy(4,25): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | ghost var Repr: set<Rope>;\n  |                          ^\n\nprogram.dfy(6,16): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | var data: string;\n  |                 ^\n\nprogram.dfy(7,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 | var weight: nat;\n  |                ^\n\nprogram.dfy(8,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 | var left: Rope?;\n  |                ^\n\nprogram.dfy(9,16): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 | var right: Rope?;\n  |                 ^\n\nprogram.dfy(177,14): Error: assignment to non-ghost variable is not allowed in this context, because the statement is in a ghost context; e.g., it may be guarded by a specification-only expression\n    |\n177 |             w := w + nTemp.weight;\n    |               ^^\n\nprogram.dfy(183,18): Error: assignment to non-ghost variable is not allowed in this context, because the statement is in a ghost context; e.g., it may be guarded by a specification-only expression\n    |\n183 |             nTemp := nTemp.right;\n    |                   ^^\n\n2 resolution/type errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

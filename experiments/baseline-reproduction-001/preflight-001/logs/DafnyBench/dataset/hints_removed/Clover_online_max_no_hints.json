@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_online_max_no_hints.dfy",
+  "sha256": "90b9e37d5dbde12df600204e9445c57eaab5165270e78c620ab6df3c493baaa3",
+  "bytes": 591,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(5,10): Related location: this is the postcondition that could not be proved\n  |\n5 |   ensures forall i::0<=i<x==> a[i]<=m\n  |           ^^^^^^\n\nprogram.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures exists i::0<=i<x && a[i]==m\n  |           ^^^^^^\n\nprogram.dfy(26,6): Error: a postcondition could not be proved on this return path\n   |\n26 |       return;\n   |       ^^^^^^^\n\nprogram.dfy(7,31): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures x<=p<a.Length-1 ==> (forall i::0<=i<p ==> a[i]<a[p])\n  |                                ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

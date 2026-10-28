@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_tmp_tmp2ewu6s7x_ListReverse_no_hints.dfy",
+  "sha256": "9b5c6838f65a6ba9bc4f914dce0a1eebf0c3ad347ffde8046b94ce5f21795466",
+  "bytes": 1216,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,8): Error: a postcondition could not be proved on this return path\n   |\n20 |         case xs != [] => {\n   |         ^^^^\n\nprogram.dfy(7,25): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures reverse(xs + ys) == reverse(ys) + reverse(xs)\n  |                          ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

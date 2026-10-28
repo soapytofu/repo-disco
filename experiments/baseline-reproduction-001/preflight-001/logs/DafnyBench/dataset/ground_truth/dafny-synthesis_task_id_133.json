@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-synthesis_task_id_133.dfy",
+  "sha256": "f294c042ff66be9d2398e9b3630d04f9e2d7e9962c02e72c37017d7df8ff746c",
+  "bytes": 570,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires a != null;\n  |                     ^\n\nprogram.dfy(3,34): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   requires 0 <= n && n <= a.Length;\n  |                                   ^\n\nprogram.dfy(4,13): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |   decreases n;\n  |              ^\n\nprogram.dfy(5,9): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |   reads a;\n  |          ^\n\nprogram.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |   requires a != null;\n  |              ^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

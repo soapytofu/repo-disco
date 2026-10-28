@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_dataset_C_convert_examples_15_no_hints.dfy",
+  "sha256": "5492a7e3e67e20d51c9719be9ba0aa709362917227cd66cbb3c7bf0dabbbca0f",
+  "bytes": 585,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,18): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires n > 0;\n  |                   ^\n\nprogram.dfy(3,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | \trequires k > n;\n  |                ^\n\nprogram.dfy(4,19): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | \tensures k_out >= 0;\n  |                    ^\n\nprogram.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,15): Related location: this is the postcondition that could not be proved\n  |\n4 | \tensures k_out >= 0;\n  |                ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-duck_tmp_tmplawbgxjo_ex3_no_hints.dfy",
+  "sha256": "a456e9c546b7c86b3337f1939026682524a7a90c8b00f1a701c1a4c875e2a5a9",
+  "bytes": 895,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,65): Warning: unusual indentation in right-hand operand of ==> (which ends at line 7, column 74); do you perhaps need parentheses?\n  |\n5 |   forall i, j :: 0 <= i <= j < |s| && s[i] == 'b' && s[j] != 'b' ==> i < j &&\n  |                                                                  ^^^\n\nprogram.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(13,24): Related location: this is the postcondition that could not be proved\n   |\n13 | ensures multiset(b[..]) == multiset(a[..])\n   |                         ^^\n\nprogram.dfy(20,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n20 |   while (next != dPointer)\n   |   ^^^^^\n\nprogram.dfy(23,8): Error: index out of range\n   |\n23 |     if(b[next] == 'a'){\n   |         ^\n\nprogram.dfy(28,22): Error: index out of range\n   |\n28 |       b := b[next := b[aPointer]][aPointer := b[next]];\n   |                       ^\n\nprogram.dfy(35,22): Error: index out of range\n   |\n35 |       b := b[next := b[dPointer]][dPointer := b[next]];\n   |                       ^\n\n\nDafny program verifier finished with 2 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

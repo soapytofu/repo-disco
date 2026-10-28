@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_vampire project_original_Searching_no_hints.dfy",
+  "sha256": "b60c06d6ae80fda3dce04d7f0622a2f39801a00222a49d68424ca065ae548d6c",
+  "bytes": 435,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'blood' to have the value 'null', declare its type to be 'array?<int>')\n  |\n6 | requires blood != null\n  |                ^^\n\nprogram.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(8,22): Related location: this is the postcondition that could not be proved\n  |\n8 | ensures index < 0 ==> forall k :: 0 <= k < blood.Length ==> blood[k] != key\n  |                       ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

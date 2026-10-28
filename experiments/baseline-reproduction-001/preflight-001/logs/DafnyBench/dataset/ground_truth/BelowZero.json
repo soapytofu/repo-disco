@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/BelowZero.dfy",
+  "sha256": "35280bb5bbe799b38c52fe4804c2ae94c761414d6498a2ee7f69bc5f04cc1a7e",
+  "bytes": 972,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(19,29): Related location: this is the postcondition that could not be proved\n   |\n19 |     ensures sum(s, i) + s[i] == sum(s, i+1)\n   |                              ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

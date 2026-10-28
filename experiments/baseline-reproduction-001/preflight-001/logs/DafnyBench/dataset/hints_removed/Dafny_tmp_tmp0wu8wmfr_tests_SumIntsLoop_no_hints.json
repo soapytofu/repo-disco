@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_tests_SumIntsLoop_no_hints.dfy",
+  "sha256": "1a5497cd2a9246926a64df6b19839b136ad90f2a44794afb1ce4210e46545b49",
+  "bytes": 408,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,19): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires n >= 0;\n  |                    ^\n\nprogram.dfy(12,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     requires n >= 0;\n   |                    ^\n\nprogram.dfy(14,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     ensures s == n*(n+1)/2;\n   |                           ^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(13,14): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures s == sumInts(n)\n   |               ^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(14,14): Related location: this is the postcondition that could not be proved\n   |\n14 |     ensures s == n*(n+1)/2;\n   |               ^^\n\nprogram.dfy(18,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n18 |     while k != n\n   |     ^^^^^\n\n\nDafny program verifier finished with 3 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

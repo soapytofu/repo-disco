@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_examples_simpleMultiplication_no_hints.dfy",
+  "sha256": "ff9278673138aba4282f9e35acc0fd47f705874b9c5ff88fbb72fca02f367c6d",
+  "bytes": 709,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n8 |   while a != y \n  |   ^^^^^\n\nprogram.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   return z;\n   |   ^^^^^^^^^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures z == x*y\n  |             ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

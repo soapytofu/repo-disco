@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_tmp_tmp59p638nn_examples_realExponent_no_hints.dfy",
+  "sha256": "232a00f6bc3c3ac21881c6c16f6401c70cbcc942c0a8b20054a64cf292d0d5e6",
+  "bytes": 1421,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,28): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n4 |     ensures power(n, alpha) > 0.0\n  |                             ^\n\nprogram.dfy(8,26): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n8 |     ensures log(n, alpha) > 0.0\n  |                           ^\n\nprogram.dfy(12,39): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n12 |     ensures log(power(n,alpha), alpha) == n\n   |                                        ^^\n\nprogram.dfy(13,40): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n13 |     ensures power(log(n, alpha), alpha) == n\n   |                                         ^^\n\nprogram.dfy(19,25): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n19 |     ensures log(n,alpha) == log(x, alpha) +  log(y, alpha)\n   |                          ^^\n\nprogram.dfy(23,36): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n23 |     ensures power(n, alpha) * alpha == power(n+1.0, alpha)\n   |                                     ^^\n\nprogram.dfy(27,30): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n27 |     ensures power(1.0, alpha) == alpha\n   |                               ^^\n\nprogram.dfy(46,0): Error: a postcondition could not be proved on this return path\n   |\n46 | {\n   | ^\n\nprogram.dfy(45,20): Related location: this is the postcondition that could not be proved\n   |\n45 |     ensures product == power(n as real, alpha)\n   |                     ^^\n\n\nDafny program verifier finished with 9 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

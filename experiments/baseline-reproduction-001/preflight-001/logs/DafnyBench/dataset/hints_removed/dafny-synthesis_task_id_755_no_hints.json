@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_755_no_hints.dfy",
+  "sha256": "dfae9fe0975f1e1b59cdbac23b0c1567098b44a936fcb207581071cb33ce018d",
+  "bytes": 1283,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(23,12): Related location: this is the postcondition that could not be proved\n   |\n23 |     ensures exists i, j :: 0 <= i < s.Length && 0 <= j < s.Length && i != j && s[i] == min(s[..]) && s[j] == secondSmallest \n   |             ^^^^^^\n\nprogram.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(24,12): Related location: this is the postcondition that could not be proved\n   |\n24 |     ensures forall k ::  0 <= k < s.Length && s[k] != min(s[..])  ==>  s[k] >= secondSmallest\n   |             ^^^^^^\n\nprogram.dfy(36,19): Error: index out of range\n   |\n36 |         if s[i] < s[minIndex] {\n   |                    ^\n\nprogram.dfy(39,26): Error: index out of range\n   |\n39 |         } else if s[i] < s[secondMinIndex] {\n   |                           ^\n\nprogram.dfy(44,23): Error: index out of range\n   |\n44 |     secondSmallest := s[secondMinIndex];\n   |                        ^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

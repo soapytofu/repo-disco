@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week8_12_a3 copy 2.dfy",
+  "sha256": "c987b641e65e6f3f4f50c279516fcfa2b85efa41ae7156fa22bd70095daa7255",
+  "bytes": 7831,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(37,91): Warning: deprecated style: a semi-colon is not needed here\n   |\n37 |         ensures old(|s1|) != N && old(|s1|) + old(|s2|) != N ==> s1 ==  old(s1) + [element];\n   |                                                                                            ^\n\nprogram.dfy(60,91): Warning: deprecated style: a semi-colon is not needed here\n   |\n60 |         ensures old(|s2|) != N && old(|s1|) + old(|s2|) != N ==> s2 ==  old(s2) + [element];\n   |                                                                                            ^\n\n\nDafny program verifier finished with 20 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

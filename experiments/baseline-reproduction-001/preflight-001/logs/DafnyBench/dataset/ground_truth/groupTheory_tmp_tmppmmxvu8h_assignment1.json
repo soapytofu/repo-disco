@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/groupTheory_tmp_tmppmmxvu8h_assignment1.dfy",
+  "sha256": "92a751068e92bfa215d3059d034a35ea0ed895d7fee6c3071af90298b8e06e4d",
+  "bytes": 5623,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(65,60): Error: can't use parenthesis when hiding or revealing\n   |\n65 | \t\t\t\tassert 7: (x in A || x in B ) && (x in A || x in C) by {reveal 6,3;}\n   |                                                             ^^^^^^^^^^\n\n1 resolution/type errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

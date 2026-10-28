@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Software-Verification_tmp_tmpv4ueky2d_Valid Palindrome_valid_panlindrome_no_hints.dfy",
+  "sha256": "5082400a47177bb67bfd44a276c6eae55b4f11565e93b460b9523b2a7ece5027",
+  "bytes": 396,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(18,4): Error: a postcondition could not be proved on this return path\n   |\n18 |     return true;\n   |     ^^^^^^^^^^^^\n\nprogram.dfy(3,19): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures result <==> (forall i:: 0 <= i < s.Length / 2 ==> s[i] == s[s.Length - 1 - i])\n  |                    ^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

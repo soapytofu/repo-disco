@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_573_no_hints.dfy",
+  "sha256": "1f154ca6f9b1c8b4ae574102ec615f8e4cfccc8d281ed33e9aab1b1b75e6d9e0",
+  "bytes": 1342,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,19): Related location: this is the postcondition that could not be proved\n  |\n2 |    ensures product == SetProduct((set i | 0 <= i < arr.Length :: arr[i]))\n  |                    ^^\n\nprogram.dfy(44,18): Error: the calculation step between the previous line and this line could not be proved\n   |\n44 |             y * x * SetProduct(s - {x} - {y});\n   |                   ^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

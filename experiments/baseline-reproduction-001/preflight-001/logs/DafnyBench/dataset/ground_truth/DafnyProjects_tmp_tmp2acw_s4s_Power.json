@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/DafnyProjects_tmp_tmp2acw_s4s_Power.dfy",
+  "sha256": "49091d5248bc6f436723e984f1ead74db77cb3ab5e6f05165ad079fd00561891",
+  "bytes": 1520,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(36,21): Warning: Could not find a trigger for the induction hypothesis. Without a trigger, this may cause brittle verification. Change or remove the {:induction} attribute to generate a different induction hypothesis, or add {:nowarn} to silence this warning. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n36 | lemma {:induction a} productOfPowers(x: real, a: nat, b: nat) \n   |                      ^^^^^^^^^^^^^^^\n\nprogram.dfy(38,0): Error: a postcondition could not be proved on this return path\n   |\n38 | { }\n   | ^\n\nprogram.dfy(37,37): Related location: this is the postcondition that could not be proved\n   |\n37 |   ensures power(x, a) * power(x, b)  == power(x, a + b) \n   |                                      ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

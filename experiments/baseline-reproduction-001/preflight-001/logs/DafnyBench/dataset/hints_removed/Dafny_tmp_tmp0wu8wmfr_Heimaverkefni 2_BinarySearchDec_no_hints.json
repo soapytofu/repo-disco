@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_Heimaverkefni 2_BinarySearchDec_no_hints.dfy",
+  "sha256": "27bc417bdc1f9d67647628088bc72761405bf565e5bc60ad3318345e07ca79e1",
+  "bytes": 1835,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |     requires 0 <= i <= j <= |a|;\n   |                                ^\n\nprogram.dfy(21,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     requires forall p, q :: i <= p < q < j ==> a[p] >= a[q];\n   |                                                            ^\n\nprogram.dfy(23,46): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |     ensures forall r | i <= r < k :: a[r] >= x;\n   |                                               ^\n\nprogram.dfy(24,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |     ensures forall r | k <= r < j :: a[r] < x;\n   |                                              ^\n\nprogram.dfy(43,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n43 |     requires 0 <= i <= j <= |a|;\n   |                                ^\n\nprogram.dfy(44,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n44 |     requires forall p, q :: i <= p < q < j ==> a[p] >= a[q];\n   |                                                            ^\n\nprogram.dfy(45,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n45 |     ensures i <= k <= j;\n   |                        ^\n\nprogram.dfy(46,46): Warning: deprecated style: a semi-colon is not needed here\n   |\n46 |     ensures forall r | i <= r < k :: a[r] >= x;\n   |                                               ^\n\nprogram.dfy(47,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n47 |     ensures forall r | k <= r < j :: a[r] < x;\n   |                                              ^\n\nprogram.dfy(73,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n73 |     requires forall p,q | 0 <= p < q < |a| :: a[p] >= a[q];\n   |                                                           ^\n\nprogram.dfy(38,28): Error: cannot prove termination; try supplying a decreases clause\n   |\n38 |         k := SearchRecursive(a,m+1,j,x);\n   |                             ^\n\nprogram.dfy(58,12): Error: index out of range\n   |\n58 |         if a[m] < x\n   |             ^\n\nprogram.dfy(67,4): Error: a postcondition could not be proved on this return path\n   |\n67 |     return p;\n   |     ^^^^^^^^^\n\nprogram.dfy(45,14): Related location: this is the postcondition that could not be proved\n   |\n45 |     ensures i <= k <= j;\n   |               ^^\n\nprogram.dfy(67,4): Error: a postcondition could not be proved on this return path\n   |\n67 |     return p;\n   |     ^^^^^^^^^\n\nprogram.dfy(45,19): Related location: this is the postcondition that could not be proved\n   |\n45 |     ensures i <= k <= j;\n   |                    ^^\n\nprogram.dfy(67,4): Error: a postcondition could not be proved on this return path\n   |\n67 |     return p;\n   |     ^^^^^^^^^\n\nprogram.dfy(46,12): Related location: this is the postcondition that could not be proved\n   |\n46 |     ensures forall r | i <= r < k :: a[r] >= x;\n   |             ^^^^^^\n\nprogram.dfy(67,4): Error: a postcondition could not be proved on this return path\n   |\n67 |     return p;\n   |     ^^^^^^^^^\n\nprogram.dfy(47,12): Related location: this is the postcondition that could not be proved\n   |\n47 |     ensures forall r | k <= r < j :: a[r] < x;\n   |             ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

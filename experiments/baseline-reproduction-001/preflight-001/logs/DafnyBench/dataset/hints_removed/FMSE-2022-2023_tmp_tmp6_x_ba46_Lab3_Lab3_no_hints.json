@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FMSE-2022-2023_tmp_tmp6_x_ba46_Lab3_Lab3_no_hints.dfy",
+  "sha256": "826d3b273bd157b50e5e7730cdf29e796a4738b1ae9b0c9b3a5a598c666a2ac8",
+  "bytes": 4259,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,4): Warning: assume statement has no {:axiom} annotation\n   |\n21 |     assume Succ(x) == Succ(y);\n   |     ^^^^^^\n\nprogram.dfy(21,4): Warning: assume statement has no {:axiom} annotation\n   |\n21 |     assume Succ(x) == Succ(y);\n   |     ^^^^^^\n\nprogram.dfy(111,0): Error: a postcondition could not be proved on this return path\n    |\n111 | {\n    | ^\n\nprogram.dfy(110,34): Related location: this is the postcondition that could not be proved\n    |\n110 |     ensures zip(cnst(0), cnst(1)) == blink()\n    |                                   ^^\n\nprogram.dfy(49,23): Related location: this proposition could not be proved\n   |\n49 | codatatype Stream<A> = Cons(head: A, tail: Stream<A>)\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

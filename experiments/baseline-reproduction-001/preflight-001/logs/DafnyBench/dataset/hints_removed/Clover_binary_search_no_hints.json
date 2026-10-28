@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_binary_search_no_hints.dfy",
+  "sha256": "bed6436bdb661d1e794f460ad0e928c87996bd252c9594e74150fa16e2061ed3",
+  "bytes": 491,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(3,16): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures 0<= n <=a.Length\n  |                 ^^\n\nprogram.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(4,10): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures forall i :: 0<= i < n ==> a[i] < key\n  |           ^^^^^^\n\nprogram.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures forall i :: n<= i < a.Length ==> a[i]>=key\n  |           ^^^^^^\n\nprogram.dfy(12,8): Error: index out of range\n   |\n12 |     if a[mid] < key {\n   |         ^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

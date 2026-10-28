@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_experiments_tmp_tmpz29_3_3i_circuit_no_hints.dfy",
+  "sha256": "9498972af2f5080df8869fe147629e723860776840c59e0fc41458db7a6df229",
+  "bytes": 14302,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(93,54): Warning: deprecated style: a semi-colon is not needed here\n   |\n93 |         ensures forall x :: x in A <==> f(x) in result;\n   |                                                       ^\n\nprogram.dfy(94,62): Warning: deprecated style: a semi-colon is not needed here\n   |\n94 |         ensures forall x :: x in A ==> g(A[x]) == result[f(x)];\n   |                                                               ^\n\nprogram.dfy(148,56): Warning: deprecated style: a semi-colon is not needed here\n    |\n148 |             result == CombineBackconns(offset, bc1, bc2);\n    |                                                         ^\n\nprogram.dfy(169,56): Warning: deprecated style: a semi-colon is not needed here\n    |\n169 |             result == CombineBackconns(offset, bc1, bc2);\n    |                                                         ^\n\nprogram.dfy(307,12): Error: rbrace expected\n    |\n307 |             by {\n    |             ^\n\n1 parse errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

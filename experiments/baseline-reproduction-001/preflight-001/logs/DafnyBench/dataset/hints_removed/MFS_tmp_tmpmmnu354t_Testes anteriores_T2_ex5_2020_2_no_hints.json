@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MFS_tmp_tmpmmnu354t_Testes anteriores_T2_ex5_2020_2_no_hints.dfy",
+  "sha256": "eedb8a4e1eee3664fa22d111cf73aec8bc834f1d729e643be13ddaeef978c105",
+  "bytes": 891,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,4): Error: a postcondition could not be proved on this return path\n   |\n11 |     return a.Length <= b.Length;\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(2,19): Related location: this is the postcondition that could not be proved\n  |\n2 |     ensures result <==> (a.Length <= b.Length && a[..] == b[..a.Length]) || (exists k :: 0 <= k < a.Length && k < b.Length && a[..k] == b[..k] && a[k] < b[k])\n  |                    ^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

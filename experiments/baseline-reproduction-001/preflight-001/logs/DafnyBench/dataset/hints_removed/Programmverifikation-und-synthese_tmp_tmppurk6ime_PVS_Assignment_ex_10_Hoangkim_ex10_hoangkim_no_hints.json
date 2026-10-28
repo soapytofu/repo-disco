@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_10_Hoangkim_ex10_hoangkim_no_hints.dfy",
+  "sha256": "87ef0931e557f6ed5a4d26afa29f5327c00f26745461036b7bbedbe8b709caf0",
+  "bytes": 3627,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(56,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n56 | ensures x < z*z < y\n   |           ^\n\nprogram.dfy(96,4): Warning: assume statement has no {:axiom} annotation\n   |\n96 |     assume x*x < 100;\n   |     ^^^^^^\n\nprogram.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 | ensures sqn == n*n\n  |             ^^\n\nprogram.dfy(38,0): Error: a postcondition could not be proved on this return path\n   |\n38 | {\n   | ^\n\nprogram.dfy(37,12): Related location: this is the postcondition that could not be proved\n   |\n37 | ensures sqn == n*n\n   |             ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

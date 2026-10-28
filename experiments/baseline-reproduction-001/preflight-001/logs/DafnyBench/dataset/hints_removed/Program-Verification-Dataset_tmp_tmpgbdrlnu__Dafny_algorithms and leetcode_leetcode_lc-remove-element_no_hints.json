@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_leetcode_lc-remove-element_no_hints.dfy",
+  "sha256": "1f95c7856734aeccf920fd7c592a5e7d7cb790a19826718ea1c3c7f5b45c7a80",
+  "bytes": 723,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures forall k :: 0 < k < i < nums.Length ==> nums[k] != val\n  |             ^^^^^^\n\nprogram.dfy(10,15): Error: index out of range\n   |\n10 |         if(nums[i] == val) {\n   |                ^\n\nprogram.dfy(11,19): Error: index out of range\n   |\n11 |             if(nums[end] == val) {\n   |                    ^\n\n\nDafny program verifier finished with 2 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

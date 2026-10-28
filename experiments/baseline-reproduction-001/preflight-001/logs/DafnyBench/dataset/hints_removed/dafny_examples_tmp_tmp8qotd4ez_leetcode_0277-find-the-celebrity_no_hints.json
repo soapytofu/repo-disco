@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_examples_tmp_tmp8qotd4ez_leetcode_0277-find-the-celebrity_no_hints.dfy",
+  "sha256": "43c86401ae5c6f711098939aa59127736ab0ec6276d59dcef59f978555b5ec02",
+  "bytes": 1268,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,29): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | requires n >= 0 && 0 <= i < n;\n  |                              ^\n\nprogram.dfy(17,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | requires n >= 0 && 0 <= i < n;\n   |                              ^\n\nprogram.dfy(18,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 | ensures r <==> isCelebrity(n, i);\n   |                                 ^\n\nprogram.dfy(35,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n35 | requires 2 <= n <= 100;\n   |                       ^\n\nprogram.dfy(36,40): Warning: deprecated style: a semi-colon is not needed here\n   |\n36 | ensures 0 <= r < n ==> isCelebrity(n, r);\n   |                                         ^\n\nprogram.dfy(37,65): Warning: deprecated style: a semi-colon is not needed here\n   |\n37 | ensures r == -1 ==> forall i :: 0 <= i < n ==> !isCelebrity(n, i);\n   |                                                                  ^\n\nprogram.dfy(31,4): Error: a postcondition could not be proved on this return path\n   |\n31 |     return r;\n   |     ^^^^^^^^^\n\nprogram.dfy(18,10): Related location: this is the postcondition that could not be proved\n   |\n18 | ensures r <==> isCelebrity(n, i);\n   |           ^^^^\n\nprogram.dfy(38,0): Error: a postcondition could not be proved on this return path\n   |\n38 | {\n   | ^\n\nprogram.dfy(37,20): Related location: this is the postcondition that could not be proved\n   |\n37 | ensures r == -1 ==> forall i :: 0 <= i < n ==> !isCelebrity(n, i);\n   |                     ^^^^^^\n\nprogram.dfy(49,36): Error: a precondition for this call could not be proved\n   |\n49 |     var isCelebrityC := isCelebrityP(n, candidate);\n   |                                     ^\n\nprogram.dfy(17,26): Related location: this is the precondition that could not be proved\n   |\n17 | requires n >= 0 && 0 <= i < n;\n   |                           ^\n\n\nDafny program verifier finished with 4 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

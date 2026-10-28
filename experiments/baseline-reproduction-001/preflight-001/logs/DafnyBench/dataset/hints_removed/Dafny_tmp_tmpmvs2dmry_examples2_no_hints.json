@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmpmvs2dmry_examples2_no_hints.dfy",
+  "sha256": "1bbf1ffb7dd7f5eba862719bd34c8725ceae53986b2636842c900b5e94ffc318",
+  "bytes": 2288,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,16): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 | ensures z == x+y;\n  |                 ^\n\nprogram.dfy(14,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 | ensures res == m*n;\n   |                   ^\n\nprogram.dfy(33,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n33 | requires m>0 && n>0;\n   |                    ^\n\nprogram.dfy(34,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n34 | ensures res == gcd(m,n);\n   |                        ^\n\nprogram.dfy(53,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n53 | requires m>0 && n>0;\n   |                    ^\n\nprogram.dfy(61,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n61 | requires x0 >= 0.0;\n   |                   ^\n\nprogram.dfy(62,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n62 | ensures r == exp(x0, n0);\n   |                         ^\n\nprogram.dfy(71,12): Warning: assume statement has no {:axiom} annotation\n   |\n71 |             assume (exp(x,n) == exp(x*x,n/2));\n   |             ^^^^^^\n\nprogram.dfy(77,12): Warning: assume statement has no {:axiom} annotation\n   |\n77 |             assume (exp(x,n) == exp(x*x,(n-1)/2) * x);\n   |             ^^^^^^\n\nprogram.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,10): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures z == x+y;\n  |           ^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(14,12): Related location: this is the postcondition that could not be proved\n   |\n14 | ensures res == m*n;\n   |             ^^\n\nprogram.dfy(38,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n38 |     while (m1 != n1)\n   |     ^^^^^\n\nprogram.dfy(49,4): Error: a postcondition could not be proved on this return path\n   |\n49 |     return n1;\n   |     ^^^^^^^^^^\n\nprogram.dfy(34,12): Related location: this is the postcondition that could not be proved\n   |\n34 | ensures res == gcd(m,n);\n   |             ^^\n\nprogram.dfy(85,4): Error: a postcondition could not be proved on this return path\n   |\n85 |     return x*y;\n   |     ^^^^^^^^^^^\n\nprogram.dfy(62,10): Related location: this is the postcondition that could not be proved\n   |\n62 | ensures r == exp(x0, n0);\n   |           ^^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

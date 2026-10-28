@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_misc_tmp_tmpg4vzlnm1_rosetta_code_factorial_no_hints.dfy",
+  "sha256": "d7b39c6293678bed83c63d13c94028467e684f1514d77afcdfab482ca098a05d",
+  "bytes": 348,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(8,17): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures result == Factorial(n)\n  |                  ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

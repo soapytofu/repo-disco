@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny2_StoreAndRetrieve_no_hints.dfy",
+  "sha256": "a140b4142c6b5c5aaa8fad23f8935053e6c9c5ae89d7d17cfa51966c2a5f0bac",
+  "bytes": 2589,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(64,9): Warning: the ... refinement feature in statements is deprecated\n   |\n64 |       ...;\n   |          ^\n\nprogram.dfy(77,9): Warning: the ... refinement feature in statements is deprecated\n   |\n77 |       ...;\n   |          ^\n\nprogram.dfy(88,9): Warning: the ... refinement feature in statements is deprecated\n   |\n88 |       ...;\n   |          ^\n\nprogram.dfy(34,6): Warning: assume statement has no {:axiom} annotation\n   |\n34 |       assume Valid'();  // to be checked in module B\n   |       ^^^^^^\n\nprogram.dfy(39,6): Warning: assume statement has no {:axiom} annotation\n   |\n39 |       assume Valid'();  // to be checked in module B\n   |       ^^^^^^\n\nprogram.dfy(43,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n   |\n43 |       var k :| assume k in Contents && matchCriterion(k);\n   |                ^^^^^^\n\nprogram.dfy(34,6): Warning: assume statement has no {:axiom} annotation\n   |\n34 |       assume Valid'();  // to be checked in module B\n   |       ^^^^^^\n\nprogram.dfy(49,16): Related location: refining module\n   |\n49 | abstract module B refines A {\n   |                 ^\n\nprogram.dfy(39,6): Warning: assume statement has no {:axiom} annotation\n   |\n39 |       assume Valid'();  // to be checked in module B\n   |       ^^^^^^\n\nprogram.dfy(49,16): Related location: refining module\n   |\n49 | abstract module B refines A {\n   |                 ^\n\nprogram.dfy(78,27): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n   |\n78 |       var a: seq<Thing> :| assume Contents == set x | x in a;\n   |                            ^^^^^^\n\nprogram.dfy(34,6): Warning: assume statement has no {:axiom} annotation\n   |\n34 |       assume Valid'();  // to be checked in module B\n   |       ^^^^^^\n\nprogram.dfy(84,7): Related location: refining module\n   |\n84 | module abC refines B { // TODO module C causes Go to fail\n   |        ^^^\n\nprogram.dfy(39,6): Warning: assume statement has no {:axiom} annotation\n   |\n39 |       assume Valid'();  // to be checked in module B\n   |       ^^^^^^\n\nprogram.dfy(84,7): Related location: refining module\n   |\n84 | module abC refines B { // TODO module C causes Go to fail\n   |        ^^^\n\nprogram.dfy(76,18): Error: index out of range\n   |\n76 |       var k := arr[i];\n   |                   ^\n\n\nDafny program verifier finished with 15 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

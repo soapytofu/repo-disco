@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/DafnyPrograms_tmp_tmp74_f9k_c_automaton_no_hints.dfy",
+  "sha256": "6e5534b8dc45809f452866e034eaf67d477681ae0541b219affc423d472a4529",
+  "bytes": 4493,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(20,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |   ensures table[0] == init;\n   |                           ^\n\nprogram.dfy(44,53): Error: rbrace expected\n   |\n44 |                 forall j | 1 <= j <= |result[i]| - 2 :: result[i + 1][j] == rule(result[i][j - 1], result[i][j], result[i][j + 1])\n   |                                                      ^\n\n1 parse errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

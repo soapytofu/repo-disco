@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session2Exercises_ExerciseSquare_root_no_hints.dfy",
+  "sha256": "57d08279f33a6874eca7bef6cdade06a7aa6cf5f468551aff1dff5becefd73b4",
+  "bytes": 606,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,20): Related location: this is the postcondition that could not be proved\n  |\n3 | ensures r>=0 && r*r <= n <(r+1)*(r+1)\n  |                     ^^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,9): Related location: this is the postcondition that could not be proved\n   |\n17 | ensures r>=0 && r*r <= n <(r+1)*(r+1)\n   |          ^^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,25): Related location: this is the postcondition that could not be proved\n   |\n17 | ensures r>=0 && r*r <= n <(r+1)*(r+1)\n   |                          ^\n\nprogram.dfy(20,1): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n20 | \twhile n<r*r\n   |  ^^^^^\n\nprogram.dfy(31,0): Error: a postcondition could not be proved on this return path\n   |\n31 | {   var y:int;\n   | ^\n\nprogram.dfy(30,9): Related location: this is the postcondition that could not be proved\n   |\n30 | ensures r>=0 && r*r <= n <(r+1)*(r+1)\n   |          ^^\n\nprogram.dfy(31,0): Error: a postcondition could not be proved on this return path\n   |\n31 | {   var y:int;\n   | ^\n\nprogram.dfy(30,20): Related location: this is the postcondition that could not be proved\n   |\n30 | ensures r>=0 && r*r <= n <(r+1)*(r+1)\n   |                     ^^\n\nprogram.dfy(31,0): Error: a postcondition could not be proved on this return path\n   |\n31 | {   var y:int;\n   | ^\n\nprogram.dfy(30,25): Related location: this is the postcondition that could not be proved\n   |\n30 | ensures r>=0 && r*r <= n <(r+1)*(r+1)\n   |                          ^\n\nprogram.dfy(36,1): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n36 | \twhile (y!=r+1) //[r,y]\n   |  ^^^^^\n\n\nDafny program verifier finished with 0 verified, 8 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

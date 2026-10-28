@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/cs245-verification_tmp_tmp0h_nxhqp_A8_Q1_no_hints.dfy",
+  "sha256": "aa10c4dc9c193526498e83a8625b62278d3b091026c42fa5f4c3bdc3c949a1de",
+  "bytes": 1396,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |   requires 0 <= n;\n  |                  ^\n\nprogram.dfy(10,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | requires y0 >= 0;\n   |                 ^\n\nprogram.dfy(11,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | /*Post-Condition*/ ensures z==power(x,y0);\n   |                                          ^\n\nprogram.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {var y := y0;  //This is here for Dafny's sake and immutable inputs...\n   | ^\n\nprogram.dfy(11,28): Related location: this is the postcondition that could not be proved\n   |\n11 | /*Post-Condition*/ ensures z==power(x,y0);\n   |                             ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

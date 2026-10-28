@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_Fstar-QuickSort_no_hints.dfy",
+  "sha256": "af781123ae12028b2231194a98d67472091eecadfa3f084e2430ab930a95342a",
+  "bytes": 3909,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(30,50): Error: cannot prove termination; try supplying a decreases clause\n   |\n30 |   case Cons(hd, tl) => m <= hd <= n && SortedRange(hd, n, tl)\n   |                                                   ^\n\nprogram.dfy(30,50): Error: decreases expression at index 0 must be bounded below by 0\n   |\n30 |   case Cons(hd, tl) => m <= hd <= n && SortedRange(hd, n, tl)\n   |                                                   ^\n\nprogram.dfy(26,22): Related location: this decreases clause was not satisfied\n   |\n26 | predicate SortedRange(m: int, n: int, list: List<int>)\n   |                       ^\n\nprogram.dfy(41,38): Error: cannot prove termination; try supplying a decreases clause\n   |\n41 |   case Cons(hd, tl) => Cons(hd, append(hd, n1, n2, n3, tl, j))\n   |                                       ^\n\nprogram.dfy(41,38): Error: decreases expression at index 0 must be bounded below by 0\n   |\n41 |   case Cons(hd, tl) => Cons(hd, append(hd, n1, n2, n3, tl, j))\n   |                                       ^\n\nprogram.dfy(33,16): Related location: this decreases clause was not satisfied\n   |\n33 | function append(n0: int, n1: int, n2: int, n3: int, i: List<int>, j: List<int>): List<int>\n   |                 ^^\n\nprogram.dfy(70,18): Error: decreases expression at index 1 must be bounded below by 0\n   |\n70 |     var i' := sort(min, hd, lo);\n   |                   ^\n\nprogram.dfy(60,24): Related location: this decreases clause was not satisfied\n   |\n60 | function sort(min: int, max: int, i: List<int>): List<int>\n   |                         ^^^\n\nprogram.dfy(70,18): Error: function precondition could not be proved\n   |\n70 |     var i' := sort(min, hd, lo);\n   |                   ^\n\nprogram.dfy(61,15): Related location: this proposition could not be proved\n   |\n61 |   requires min <= max\n   |                ^^\n\nprogram.dfy(70,18): Error: function precondition could not be proved\n   |\n70 |     var i' := sort(min, hd, lo);\n   |                   ^\n\nprogram.dfy(62,11): Related location: this proposition could not be proved\n   |\n62 |   requires forall x :: In(x, i) != 0 ==> min <= x <= max\n   |            ^^^^^^\n\nprogram.dfy(71,18): Error: decreases expression at index 0 must be bounded below by 0\n   |\n71 |     var j' := sort(hd, max, hi);\n   |                   ^\n\nprogram.dfy(60,14): Related location: this decreases clause was not satisfied\n   |\n60 | function sort(min: int, max: int, i: List<int>): List<int>\n   |               ^^^\n\nprogram.dfy(71,18): Error: function precondition could not be proved\n   |\n71 |     var j' := sort(hd, max, hi);\n   |                   ^\n\nprogram.dfy(62,11): Related location: this proposition could not be proved\n   |\n62 |   requires forall x :: In(x, i) != 0 ==> min <= x <= max\n   |            ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 9 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_809_no_hints.dfy",
+  "sha256": "6735101e9627894d481ffb4779abaaa60731d4b02d7266c5cefcfc9a713f68be",
+  "bytes": 370,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(3,19): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures result <==> forall i :: 0 <= i < |a| ==> a[i] > b[i]\n  |                    ^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

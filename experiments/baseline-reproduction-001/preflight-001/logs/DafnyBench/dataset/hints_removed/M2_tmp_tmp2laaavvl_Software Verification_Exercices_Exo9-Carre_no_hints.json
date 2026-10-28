@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/M2_tmp_tmp2laaavvl_Software Verification_Exercices_Exo9-Carre_no_hints.dfy",
+  "sha256": "d46cb17611a8f39f0609e2c352ab4c74fb55428cf6e7d2ae5610e9662e12dde5",
+  "bytes": 149,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,10): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures c == a*a\n  |           ^^\n\nprogram.dfy(6,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n6 |     while i != a\n  |     ^^^^^\n\n\nDafny program verifier finished with 0 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

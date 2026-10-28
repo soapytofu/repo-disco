@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_tmp_tmp59p638nn_examples_SelectionSort_no_hints.dfy",
+  "sha256": "a2386718066a42fd0038e956481ec6a34c75b0f03c5a06611a0a4a70d512eb8f",
+  "bytes": 1377,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(26,4): Error: a postcondition could not be proved on this return path\n   |\n26 |     for i := 0 to a.Length\n   |     ^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(24,18): Related location: this is the postcondition that could not be proved\n   |\n24 |     ensures Sorted(a)\n   |                   ^\n\nprogram.dfy(19,38): Related location: this proposition could not be proved\n   |\n19 |     Ordered(a,0,a.Length) && Preserved(a,0,a.Length)\n   |                                       ^\n\nprogram.dfy(6,29): Related location: this proposition could not be proved\n  |\n6 |     multiset(a[left..right]) == multiset(old(a[left..right]))\n  |                              ^^\n\nprogram.dfy(38,15): Error: index out of range\n   |\n38 |         a[i], a[minPos] := minValue, a[i];\n   |                ^\n\nprogram.dfy(47,4): Error: a postcondition could not be proved on this return path\n   |\n47 |     for i := 0 to a.Length\n   |     ^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(45,18): Related location: this is the postcondition that could not be proved\n   |\n45 |     ensures Sorted(a)\n   |                   ^\n\nprogram.dfy(19,38): Related location: this proposition could not be proved\n   |\n19 |     Ordered(a,0,a.Length) && Preserved(a,0,a.Length)\n   |                                       ^\n\nprogram.dfy(6,29): Related location: this proposition could not be proved\n  |\n6 |     multiset(a[left..right]) == multiset(old(a[left..right]))\n  |                              ^^\n\n\nDafny program verifier finished with 5 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

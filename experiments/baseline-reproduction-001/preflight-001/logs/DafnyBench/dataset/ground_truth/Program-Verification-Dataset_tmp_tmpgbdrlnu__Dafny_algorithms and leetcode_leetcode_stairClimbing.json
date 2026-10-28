@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_leetcode_stairClimbing.dfy",
+  "sha256": "afc488a6b8c259aa59cd2248b627aaa0ea1e3a84770651c01db2f7017e3b2529",
+  "bytes": 6589,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(82,8): Error: assertion might not hold\n   |\n82 |         assert [One]+[] !in addOne(ss);\n   |         ^^^^^^\n\nprogram.dfy(147,8): Error: assertion might not hold\n    |\n147 |         assert [Two]+[] !in addTwo(ss);\n    |         ^^^^^^\n\nprogram.dfy(238,19): Error: a precondition for this call could not be proved\n    |\n238 |         stepSetsAdd(i, steps);\n    |                    ^\n\nprogram.dfy(196,13): Related location: this is the precondition that could not be proved\n    |\n196 |     requires forall k: nat :: k < i ==> exists ss: set< seq<Steps> > :: steps[k] == |ss| && allEndAtN(ss, k)\n    |              ^^^^^^\n\n\nDafny program verifier finished with 23 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

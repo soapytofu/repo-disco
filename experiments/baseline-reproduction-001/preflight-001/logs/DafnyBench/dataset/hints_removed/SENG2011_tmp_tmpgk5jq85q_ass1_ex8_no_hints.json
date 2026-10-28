@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_ass1_ex8_no_hints.dfy",
+  "sha256": "cd86868ae5154ec713764783ad8ee13077d2c874225cb144d8bbf83a231e21ff",
+  "bytes": 287,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,13): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | requires true;\n  |              ^\n\nprogram.dfy(8,4): Error: a postcondition could not be proved on this return path\n  |\n8 |     while i < a.Length\n  |     ^^^^^\n\nprogram.dfy(4,8): Related location: this is the postcondition that could not be proved\n  |\n4 | ensures forall i:int :: 0<=i<a.Length ==> a[i] % 2 == 0\n  |         ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

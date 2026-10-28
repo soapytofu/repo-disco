@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Software-building-and-verification-Projects_tmp_tmp5tm1srrn_CVS-projeto_handout1.dfy",
+  "sha256": "acc2110c4b1dd3889b4166e71295cbe762a9a01745cbb014469877d37892ffba",
+  "bytes": 1846,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(52,38): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n52 |   ensures sum(a, i, k) + sum(a, k, j) == sum(a, i, j)\n   |                                       ^^\n\n\nDafny program verifier finished with 10 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

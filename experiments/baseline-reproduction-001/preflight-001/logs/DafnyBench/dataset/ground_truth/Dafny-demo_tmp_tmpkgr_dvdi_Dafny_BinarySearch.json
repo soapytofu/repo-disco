@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny-demo_tmp_tmpkgr_dvdi_Dafny_BinarySearch.dfy",
+  "sha256": "0b9d98ee34a2a27dc461ee52653ea5dbf47525f2ff2618638281133c135463e2",
+  "bytes": 755,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(11,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | \trequires a != null && sorted(a,0,a.Length-1);\n   |                                              ^\n\nprogram.dfy(12,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 | \tensures index >= 0 ==> index < a.Length && a[index] == key;\n   |                                                            ^\n\nprogram.dfy(13,68): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 | \tensures index < 0 ==> forall k :: 0 <= k < a.Length ==> a[k] != key;\n   |                                                                     ^\n\nprogram.dfy(18,40): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 | \t\tinvariant 0 <= low <= high <= a.Length;\n   |                                         ^\n\nprogram.dfy(20,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 | \t\t\t0 <= i < a.Length && !(low <= i < high) ==> a[i] != key;\n   |                                                           ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

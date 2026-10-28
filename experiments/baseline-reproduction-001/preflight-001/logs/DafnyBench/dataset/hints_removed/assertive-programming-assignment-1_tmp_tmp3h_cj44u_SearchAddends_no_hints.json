@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/assertive-programming-assignment-1_tmp_tmp3h_cj44u_SearchAddends_no_hints.dfy",
+  "sha256": "f6dc612c78f1e5eb119609e8a348a00aef495bfb8f730d08fbed45ba5a1d5803",
+  "bytes": 1867,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(86,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n86 | \trequires sum > x;\n   |                  ^\n\nprogram.dfy(4,23): Error: a precondition for this call could not be proved\n  |\n4 | \tvar i,j := FindAddends(q, 10);\n  |                        ^\n\nprogram.dfy(28,33): Related location: this is the precondition that could not be proved\n   |\n28 | \trequires Sorted(q) && HasAddends(q, x)\n   |                                  ^\n\nprogram.dfy(24,1): Related location: this proposition could not be proved\n   |\n24 | \texists i,j :: 0 <= i < j < |q| && q[i] + q[j] == x\n   |  ^^^^^^\n\nprogram.dfy(30,0): Error: a postcondition could not be proved on this return path\n   |\n30 | {\n   | ^\n\nprogram.dfy(29,11): Related location: this is the postcondition that could not be proved\n   |\n29 | \tensures i < j < |q| && q[i]+q[j] == x\n   |            ^\n\nprogram.dfy(30,0): Error: a postcondition could not be proved on this return path\n   |\n30 | {\n   | ^\n\nprogram.dfy(29,15): Related location: this is the postcondition that could not be proved\n   |\n29 | \tensures i < j < |q| && q[i]+q[j] == x\n   |                ^\n\nprogram.dfy(30,0): Error: a postcondition could not be proved on this return path\n   |\n30 | {\n   | ^\n\nprogram.dfy(29,34): Related location: this is the postcondition that could not be proved\n   |\n29 | \tensures i < j < |q| && q[i]+q[j] == x\n   |                                   ^^\n\nprogram.dfy(50,10): Error: index out of range\n   |\n50 | \t\tsum := q[i] + q[j];\n   |           ^\n\nprogram.dfy(50,17): Error: index out of range\n   |\n50 | \t\tsum := q[i] + q[j];\n   |                  ^\n\nprogram.dfy(89,0): Error: a postcondition could not be proved on this return path\n   |\n89 | {\n   | ^\n\nprogram.dfy(88,33): Related location: this is the postcondition that could not be proved\n   |\n88 | \tensures HasAddendsInIndicesRange(q, x, i, j - 1)\n   |                                  ^\n\nprogram.dfy(73,11): Related location: this proposition could not be proved\n   |\n73 | \tHasAddends(q[i..(j + 1)], x)\n   |            ^\n\n\nDafny program verifier finished with 7 verified, 7 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

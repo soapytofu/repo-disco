@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Workshop_tmp_tmp0cu11bdq_Workshop_Answers_Question5_no_hints.dfy",
+  "sha256": "8cb447093c7f341551ee78b12a21a87ee8fa45824e16e6b1d03b8ce7e37664e8",
+  "bytes": 298,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,22): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires a != null;\n  |                       ^\n\nprogram.dfy(3,14): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |     modifies a;\n  |               ^\n\nprogram.dfy(4,80): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     ensures forall k :: 0 <= k < a.Length ==> a[k] == old(a[(a.Length - 1) - k]);\n  |                                                                                 ^\n\nprogram.dfy(2,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |     requires a != null;\n  |                ^^\n\nprogram.dfy(7,4): Error: a postcondition could not be proved on this return path\n  |\n7 |     while (i < a.Length - 1 - i)\n  |     ^^^^^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall k :: 0 <= k < a.Length ==> a[k] == old(a[(a.Length - 1) - k]);\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

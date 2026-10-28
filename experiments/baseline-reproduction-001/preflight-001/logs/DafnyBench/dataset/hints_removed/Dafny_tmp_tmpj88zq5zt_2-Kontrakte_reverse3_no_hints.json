@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmpj88zq5zt_2-Kontrakte_reverse3_no_hints.dfy",
+  "sha256": "2c132084fbfa1c58c7a47fb040205f1f7a605aa6811b10ac97a28f9949a71790",
+  "bytes": 676,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,37): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |   requires i != j && j != h && h != i;\n  |                                      ^\n\nprogram.dfy(7,27): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |   ensures a[h] == old(a[i]);\n  |                            ^\n\nprogram.dfy(8,27): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 |   ensures a[j] == old(a[h]);\n  |                            ^\n\nprogram.dfy(9,27): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |   ensures a[i] == old(a[j]);\n  |                            ^\n\nprogram.dfy(10,96): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |   ensures forall k: int :: 0 <= k < a.Length && k != h && k != i && k != j ==> a[k] == old(a[k]); \n   |                                                                                                 ^\n\nprogram.dfy(23,37): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   requires i != j && j != h && h != i;\n   |                                      ^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

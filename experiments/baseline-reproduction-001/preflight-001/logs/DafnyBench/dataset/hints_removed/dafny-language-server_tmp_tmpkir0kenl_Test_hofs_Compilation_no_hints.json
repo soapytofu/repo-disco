@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_hofs_Compilation_no_hints.dfy",
+  "sha256": "6a8435eadc39476156d123eaed861adc4e4cb597219ac1f2b306c867cd32d351",
+  "bytes": 985,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(43,14): Error: function precondition could not be proved\n   |\n43 |     f := x => f(x+y);\n   |               ^\n\nprogram.dfy(43,14): Error: insufficient reads clause to invoke function\n   |\n43 |     f := x => f(x+y);\n   |               ^\n\nprogram.dfy(46,17): Error: function precondition could not be proved\n   |\n46 |   print \"55 = \", f(0), \"\\n\";\n   |                  ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_examples_relativeOrder_no_hints.dfy",
+  "sha256": "14e250b737d374f2223316794bf6303b2130a014b47bef4e6d5e5d3cf29d1162",
+  "bytes": 843,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(9,72): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |   ensures forall x :: x in arr[..] && IsEven(x) ==> x in evenNumbers[..];\n  |                                                                         ^\n\nprogram.dfy(18,11): Error: invalid ForLoopStmt\n   |\n18 |            exists n, m :: 0 <= n < m < i && evenList[k] == arr[n] && evenList[l] == arr[m]\n   |            ^\n\n1 parse errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

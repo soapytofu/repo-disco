@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_VSI-Benchmarks_b2.dfy",
+  "sha256": "a0e272eb5182f2d453dbe5172b58ac6e03fa58e82de757e0029260128b457ef0",
+  "bytes": 1418,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,66): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |     requires forall i, j :: 0 <= i < j < a.Length ==> a[i] <= a[j];\n  |                                                                   ^\n\nprogram.dfy(7,35): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |     ensures -1 <= result < a.Length;\n  |                                    ^\n\nprogram.dfy(8,44): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 |     ensures 0 <= result ==> a[result] == key;\n  |                                             ^\n\nprogram.dfy(9,74): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |     ensures result == -1 ==> forall i :: 0 <= i < a.Length ==> a[i] != key;\n  |                                                                           ^\n\nprogram.dfy(15,44): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |       invariant 0 <= low <= high <= a.Length;\n   |                                             ^\n\nprogram.dfy(16,55): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |       invariant forall i :: 0 <= i < low ==> a[i] < key;\n   |                                                        ^\n\nprogram.dfy(17,63): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |       invariant forall i :: high <= i < a.Length ==> key < a[i];\n   |                                                                ^\n\nprogram.dfy(52,64): Warning: deprecated style: a semi-colon is not needed here\n   |\n52 |   requires forall i, j :: 0 <= i < j < a.Length ==> a[i] <= a[j];\n   |                                                                 ^\n\n\nDafny program verifier finished with 5 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

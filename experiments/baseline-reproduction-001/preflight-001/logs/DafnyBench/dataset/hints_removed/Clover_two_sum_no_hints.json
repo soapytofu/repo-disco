@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_two_sum_no_hints.dfy",
+  "sha256": "dc0112ad2bab60b7749f414a1c7ec2e8f808e4a49fedd513d382078f9d4deb6b",
+  "bytes": 624,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(4,17): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures 0 <= i < j < nums.Length && nums[i] + nums[j] == target\n  |                  ^\n\nprogram.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(4,21): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures 0 <= i < j < nums.Length && nums[i] + nums[j] == target\n  |                      ^\n\nprogram.dfy(17,8): Error: a postcondition could not be proved on this return path\n   |\n17 |         return;\n   |         ^^^^^^^\n\nprogram.dfy(5,10): Related location: this is the postcondition that could not be proved\n  |\n5 |   ensures forall ii,jj:: (0 <= ii < i && ii < jj < nums.Length)  ==> nums[ii] + nums[jj] != target\n  |           ^^^^^^\n\nprogram.dfy(17,8): Error: a postcondition could not be proved on this return path\n   |\n17 |         return;\n   |         ^^^^^^^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures forall jj:: i < jj < j ==> nums[i] + nums[jj] != target\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_AI_agent_verify_examples_Cube_no_hints.dfy",
+  "sha256": "0ce3200d2c1701ca1e183f6fafe3e9513362bd737e3936180ffff89fff378511",
+  "bytes": 219,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,14): Related location: this is the postcondition that could not be proved\n  |\n2 |     ensures c == n * n * n\n  |               ^^\n\nprogram.dfy(8,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n8 |     while i != n\n  |     ^^^^^\n\n\nDafny program verifier finished with 0 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_tmp_tmp59p638nn_examples_derangement.dfy",
+  "sha256": "64ce5ed908bed2562ab5117e45ae3c3752b8bf2a0edb54beb50679c6eba86966",
+  "bytes": 2750,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(39,4): Warning: assume statement has no {:axiom} annotation\n   |\n39 |     assume forall x :: x in links ==> 0 <= x < |links|;\n   |     ^^^^^^\n\nprogram.dfy(40,4): Warning: assume statement has no {:axiom} annotation\n   |\n40 |     assume forall x :: x in links ==> multiset(links)[x] ==1;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 5 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

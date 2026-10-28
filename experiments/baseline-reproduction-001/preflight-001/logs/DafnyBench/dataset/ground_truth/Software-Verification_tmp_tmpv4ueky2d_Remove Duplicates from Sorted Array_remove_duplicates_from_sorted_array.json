@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Software-Verification_tmp_tmpv4ueky2d_Remove Duplicates from Sorted Array_remove_duplicates_from_sorted_array.dfy",
+  "sha256": "9facd6b137c6dc4077225c6de3ad82ece89a63d13d339a1dfb5674cd4f60365e",
+  "bytes": 1161,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(14,35): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |             invariant |result| >= 1;\n   |                                    ^\n\nprogram.dfy(15,44): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |             invariant previous in nums[0..i];   \n   |                                             ^\n\nprogram.dfy(16,54): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |             invariant previous == result[|result| - 1];\n   |                                                       ^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

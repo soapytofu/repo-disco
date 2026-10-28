@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_even_list_no_hints.dfy",
+  "sha256": "ed17a91ae1b7345d966e0afa8a577bd9f120b05534ecf1adc36e255e441d59b7",
+  "bytes": 785,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(2,10): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures forall x {:trigger (x%2) }:: x in arr[..] &&  (x%2==0)==> x in evenNumbers[..]\n  |           ^^^^^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(3,10): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures forall x :: x !in arr[..] ==> x !in evenNumbers[..]\n  |           ^^^^^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(4,10): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures forall k :: 0 <= k < evenNumbers.Length ==> evenNumbers[k] % 2 == 0\n  |           ^^^^^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(5,10): Related location: this is the postcondition that could not be proved\n  |\n5 |   ensures forall k, l :: 0 <= k < l < evenNumbers.Length ==>\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Formal-Verification_tmp_tmpuyt21wjt_Dafny_strings3_no_hints.dfy",
+  "sha256": "cd2bee495f62e8b11045b0abeb120fa5d29899fd3da7c13f49c433fac4f8faed",
+  "bytes": 3205,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(36,2): Error: a postcondition could not be proved on this return path\n   |\n36 |  \treturn true;\n   |   ^^^^^^^^^^^^\n\nprogram.dfy(21,14): Related location: this is the postcondition that could not be proved\n   |\n21 | \tensures !res <==> isNotPrefixPred(pre,str)\n   |               ^^^^\n\nprogram.dfy(71,4): Error: a postcondition could not be proved on this return path\n   |\n71 |     return false;\n   |     ^^^^^^^^^^^^^\n\nprogram.dfy(54,14): Related location: this is the postcondition that could not be proved\n   |\n54 | \tensures  res <==> isSubstringPred(sub, str)\n   |               ^^^^\n\nprogram.dfy(107,4): Error: a postcondition could not be proved on this return path\n    |\n107 |     return false;\n    |     ^^^^^^^^^^^^^\n\nprogram.dfy(90,16): Related location: this is the postcondition that could not be proved\n   |\n90 | \tensures found  <==>  haveCommonKSubstringPred(k,str1,str2)\n   |                 ^^^^\n\nprogram.dfy(121,9): Error: a postcondition could not be proved on this return path\n    |\n121 |        \t\treturn i;\n    |          ^^^^^^^^^\n\nprogram.dfy(112,10): Related location: this is the postcondition that could not be proved\n    |\n112 | \tensures (forall k :: len < k <= |str1| ==> !haveCommonKSubstringPred(k,str1,str2))\n    |           ^^^^^^\n\nprogram.dfy(125,3): Error: a postcondition could not be proved on this return path\n    |\n125 |   \treturn 0;\n    |    ^^^^^^^^^\n\nprogram.dfy(113,33): Related location: this is the postcondition that could not be proved\n    |\n113 | \tensures haveCommonKSubstringPred(len,str1,str2)\n    |                                  ^\n\nprogram.dfy(76,1): Related location: this proposition could not be proved\n   |\n76 | \texists i1, j1 :: 0 <= i1 <= |str1|- k && j1 == i1 + k && isSubstringPred(str1[i1..j1],str2)\n   |  ^^^^^^\n\n\nDafny program verifier finished with 10 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

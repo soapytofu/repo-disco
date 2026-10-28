@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Invoker_tmp_tmpypx0gs8x_dafny_abstract-interpreter_SimpleVerifier_no_hints.dfy",
+  "sha256": "06bd26b7805f286f8048b97cdc6c5377c01e7ea427f7e723bbcebd6146fc7491",
+  "bytes": 6902,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(97,28): Error: cannot prove termination; try supplying a decreases clause\n   |\n97 |              else stmts_step(env', ss, pc + offset, fuel - 1)\n   |                             ^\n\nprogram.dfy(161,32): Error: cannot prove termination; try supplying a decreases clause\n    |\n161 |           has_valid_jump_targets(ss, from+1))\n    |                                 ^\n\nprogram.dfy(172,2): Error: a postcondition could not be proved on this return path\n    |\n172 |   {\n    |   ^\n\nprogram.dfy(170,45): Related location: this is the postcondition that could not be proved\n    |\n170 |     ensures has_valid_jump_targets(ss, from) <==>\n    |                                              ^^^^\n\n\nDafny program verifier finished with 13 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

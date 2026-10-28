@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Metodos_Formais_tmp_tmpql2hwcsh_Invariantes_fatorial2_no_hints.dfy",
+  "sha256": "333366038c317e95916bf3c74b392047ac342d06e0649e61c5e1225460242001",
+  "bytes": 369,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,4): Error: a postcondition could not be proved on this return path\n   |\n16 |     return f;\n   |     ^^^^^^^^^\n\nprogram.dfy(7,10): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures f == Fat(n)\n  |           ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

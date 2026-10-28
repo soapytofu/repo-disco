@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_mathematical objects verification_examples_logic.dfy",
+  "sha256": "2eeec322f4a496b4cef5cc3502247f57d784bf646a1f5b769dbccfc59bac09a2",
+  "bytes": 8736,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(178,9): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n    |\n178 |   assert forall n: int, m: int :: n + m == m + n;\n    |          ^^^^^^\n\nprogram.dfy(184,37): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n    |\n184 |   var does_addition_commute: bool := forall n: int, m: int :: n + m == m + n;\n    |                                      ^^^^^^\n\n\nDafny program verifier finished with 18 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

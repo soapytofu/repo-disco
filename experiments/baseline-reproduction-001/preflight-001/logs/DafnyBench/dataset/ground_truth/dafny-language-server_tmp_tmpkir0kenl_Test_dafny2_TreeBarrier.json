@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_TreeBarrier.dfy",
+  "sha256": "1f8b31cc842ff399d75e3b3949e074df629ce1558b860a5a42093b5ab6bda293",
+  "bytes": 4030,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(91,8): Warning: assume statement has no {:axiom} annotation\n   |\n91 |         assume left.blocked() ==> forall m :: m in left.desc ==> m.blocked();\n   |         ^^^^^^\n\nprogram.dfy(103,8): Warning: assume statement has no {:axiom} annotation\n    |\n103 |         assume right.blocked() ==> forall m :: m in right.desc ==> m.blocked();\n    |         ^^^^^^\n\nprogram.dfy(129,6): Warning: assume statement has no {:axiom} annotation\n    |\n129 |       assume !sense ==> parent.after();\n    |       ^^^^^^\n\n\nDafny program verifier finished with 7 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

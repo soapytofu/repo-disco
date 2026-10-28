@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/iron-sync_tmp_tmps49o3tyz_lib_Base_MapRemove_no_hints.dfy",
+  "sha256": "5c7e3f81bd5c32db4a0c79760e8c0bb62cac084f5cf3fb798ea7385d99d725d1",
+  "bytes": 948,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(24,6): Warning: when a method is imported, meaning it has no body and an {:extern} annotation, Dafny can not guarantee that its implementation satisfies its post-conditions (its ensures clauses and outputs that are subset types). To silence this warning, please add an {:axiom} attribute or use the option '--allow-external-contracts'.\n   |\n24 |       ComputeMapRemove1<K,V>(m: map<K,V>, k:K) \n   |       ^^^^^^^^^^^^^^^^^\n\nprogram.dfy(20,4): Error: a postcondition could not be proved on this return path\n   |\n20 |     m'\n   |     ^^\n\nprogram.dfy(15,22): Related location: this is the postcondition that could not be proved\n   |\n15 |     ensures |m'.Keys| <= |m.Keys|\n   |                       ^^\n\nprogram.dfy(20,4): Error: a postcondition could not be proved on this return path\n   |\n20 |     m'\n   |     ^^\n\nprogram.dfy(16,28): Related location: this is the postcondition that could not be proved\n   |\n16 |     ensures k in m ==> |m'| == |m| - 1\n   |                             ^^\n\nprogram.dfy(20,4): Error: a postcondition could not be proved on this return path\n   |\n20 |     m'\n   |     ^^\n\nprogram.dfy(17,29): Related location: this is the postcondition that could not be proved\n   |\n17 |     ensures k !in m ==> |m'| == |m|\n   |                              ^^\n\n\nDafny program verifier finished with 0 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

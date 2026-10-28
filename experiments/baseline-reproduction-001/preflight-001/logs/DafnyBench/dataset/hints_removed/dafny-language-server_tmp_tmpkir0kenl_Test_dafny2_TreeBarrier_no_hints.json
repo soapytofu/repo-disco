@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_TreeBarrier_no_hints.dfy",
+  "sha256": "4fe0a664d44973155746a054b00157b1cb44c3062ac16f588458895e3fa89e8b",
+  "bytes": 3279,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(87,8): Warning: assume statement has no {:axiom} annotation\n   |\n87 |         assume left.blocked() ==> forall m :: m in left.desc ==> m.blocked();\n   |         ^^^^^^\n\nprogram.dfy(96,8): Warning: assume statement has no {:axiom} annotation\n   |\n96 |         assume right.blocked() ==> forall m :: m in right.desc ==> m.blocked();\n   |         ^^^^^^\n\nprogram.dfy(116,6): Warning: assume statement has no {:axiom} annotation\n    |\n116 |       assume !sense ==> parent.after();\n    |       ^^^^^^\n\nprogram.dfy(75,6): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n75 |       while(!left.sense)\n   |       ^^^^^\n\nprogram.dfy(91,6): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n91 |       while(!right.sense)\n   |       ^^^^^\n\nprogram.dfy(107,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n    |\n107 |     while(sense)\n    |     ^^^^^\n\n\nDafny program verifier finished with 6 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

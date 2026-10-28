@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/t1_MF_tmp_tmpi_sqie4j_exemplos_colecoes_sequences_ex3.dfy",
+  "sha256": "f3c44338abc511ac137bd2ebff2ac9f52590ee4d306e92f8232faebd05684bac",
+  "bytes": 650,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(15,31): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n15 |       invariant line[at..at+i] == old(line[at+p..at+p+i])\n   |                                ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

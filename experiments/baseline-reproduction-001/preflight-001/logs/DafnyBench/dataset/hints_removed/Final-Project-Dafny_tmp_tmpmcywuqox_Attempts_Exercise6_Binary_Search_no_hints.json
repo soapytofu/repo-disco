@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Exercise6_Binary_Search_no_hints.dfy",
+  "sha256": "be062dadc3d4f14be02d29fd9018eddfd3df7e07df09cf0c7102cfebcd33d36c",
+  "bytes": 643,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,8): Error: index out of range\n   |\n20 |     if a[med] < val\n   |         ^\n\nprogram.dfy(35,2): Error: a postcondition could not be proved on this return path\n   |\n35 |   return -1;\n   |   ^^^^^^^^^^\n\nprogram.dfy(6,42): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures pos < 0 || pos >= a.Length  ==> forall i :: 0 <= i < a.Length ==> a[i] != val\n  |                                           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

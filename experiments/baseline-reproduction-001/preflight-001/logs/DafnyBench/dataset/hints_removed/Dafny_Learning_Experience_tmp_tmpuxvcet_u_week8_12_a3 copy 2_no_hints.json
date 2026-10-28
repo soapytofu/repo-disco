@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week8_12_a3 copy 2_no_hints.dfy",
+  "sha256": "0e90e99db7227bd94ae899b89b3d627a18444a591b16f1dde1b697e9ed7c564c",
+  "bytes": 6271,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(37,91): Warning: deprecated style: a semi-colon is not needed here\n   |\n37 |         ensures old(|s1|) != N && old(|s1|) + old(|s2|) != N ==> s1 ==  old(s1) + [element];\n   |                                                                                            ^\n\nprogram.dfy(60,91): Warning: deprecated style: a semi-colon is not needed here\n   |\n60 |         ensures old(|s2|) != N && old(|s1|) + old(|s2|) != N ==> s2 ==  old(s2) + [element];\n   |                                                                                            ^\n\nprogram.dfy(168,4): Error: a postcondition could not be proved on this return path\n    |\n168 |     {\n    |     ^\n\nprogram.dfy(166,35): Related location: this is the postcondition that could not be proved\n    |\n166 |         ensures position == -1 ==> forall i :: 0 <= i < |s1| ==> s1[i] != Element || Empty1()\n    |                                    ^^^^^^\n\nprogram.dfy(174,19): Error: index out of range\n    |\n174 |             if data[n1-1-n] == Element \n    |                    ^\n\nprogram.dfy(196,19): Error: index out of range\n    |\n196 |             if data[data.Length - n2 + n] == Element \n    |                    ^\n\nprogram.dfy(200,16): Error: a postcondition could not be proved on this return path\n    |\n200 |                 return position; \n    |                 ^^^^^^^^^^^^^^^^\n\nprogram.dfy(187,34): Related location: this is the postcondition that could not be proved\n    |\n187 |         ensures position >= 1 ==> exists i::0 <=i < |s2| && s2[i] == Element && !Empty2()\n    |                                   ^^^^^^\n\n\nDafny program verifier finished with 18 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

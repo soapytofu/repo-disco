@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_reverse_no_hints.dfy",
+  "sha256": "8942a4faf1a222cb1d3a8ce2158ecb47f4d9d2bf60e2a1afdf46a52d1652146f",
+  "bytes": 238,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,2): Error: a postcondition could not be proved on this return path\n  |\n6 |   while i <a.Length / 2\n  |   ^^^^^\n\nprogram.dfy(3,10): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures forall i :: 0 <= i < a.Length ==> a[i] == old(a[a.Length - 1 - i])\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

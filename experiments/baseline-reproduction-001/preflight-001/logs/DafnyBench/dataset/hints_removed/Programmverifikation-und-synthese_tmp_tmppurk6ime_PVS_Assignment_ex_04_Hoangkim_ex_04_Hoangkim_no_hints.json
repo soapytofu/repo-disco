@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_04_Hoangkim_ex_04_Hoangkim_no_hints.dfy",
+  "sha256": "f9eb97f1a0ca026ab65bbbd221908323d3bc808e3e0f45631cde62ec70d4cb9e",
+  "bytes": 652,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,18): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |     requires n > 0;\n  |                   ^\n\nprogram.dfy(4,24): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     ensures sum == n * n;\n  |                         ^\n\nprogram.dfy(21,35): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 | requires n >= d && n >= 0 && d > 0 ;\n   |                                    ^\n\nprogram.dfy(22,51): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 | ensures (d*q)+r == n && 0 <= q <= n/2 && 0 <= r < d; \n   |                                                    ^\n\nprogram.dfy(27,34): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 | requires n >= d && n >= 0 && d > 0;\n   |                                   ^\n\nprogram.dfy(28,51): Warning: deprecated style: a semi-colon is not needed here\n   |\n28 | ensures (d*q)+r == n && 0 <= q <= n/2 && 0 <= r < d; \n   |                                                    ^\n\nprogram.dfy(22,38): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n22 | ensures (d*q)+r == n && 0 <= q <= n/2 && 0 <= r < d; \n   |                                       ^^\n\nprogram.dfy(32,4): Warning: this loop has no body (loop frame: r)\n   |\n32 |     while r >= d\n   |     ^^^^^\n\nprogram.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,16): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures sum == n * n;\n  |                 ^^\n\nprogram.dfy(29,0): Error: a postcondition could not be proved on this return path\n   |\n29 | {\n   | ^\n\nprogram.dfy(28,16): Related location: this is the postcondition that could not be proved\n   |\n28 | ensures (d*q)+r == n && 0 <= q <= n/2 && 0 <= r < d; \n   |                 ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

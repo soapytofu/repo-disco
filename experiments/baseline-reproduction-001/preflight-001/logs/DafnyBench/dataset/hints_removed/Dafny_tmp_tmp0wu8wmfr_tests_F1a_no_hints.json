@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmp0wu8wmfr_tests_F1a_no_hints.dfy",
+  "sha256": "fb2c166b6a74d783424246358a0cfde2abd9541a3d34672e016ed009daa782e3",
+  "bytes": 354,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(18,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |     requires p <= q;\n   |                    ^\n\nprogram.dfy(19,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |     ensures p<= m <= q;\n   |                       ^\n\nprogram.dfy(20,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |     ensures m-p <= q-m;\n   |                       ^\n\nprogram.dfy(21,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     ensures 0 <= (q-m)-(m-p) <= 1;\n   |                                  ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

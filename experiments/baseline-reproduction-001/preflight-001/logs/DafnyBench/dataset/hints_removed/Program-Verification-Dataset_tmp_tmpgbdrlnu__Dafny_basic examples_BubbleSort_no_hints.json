@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_BubbleSort_no_hints.dfy",
+  "sha256": "e5bb32e16400a6b050c9e4b03b21b5d3b8c8489d046a544891bb32ab4160b863",
+  "bytes": 780,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires a != null;\n  |                     ^\n\nprogram.dfy(3,9): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   reads a;\n  |          ^\n\nprogram.dfy(4,38): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |   requires 0 <= from <= to <= a.Length;\n  |                                       ^\n\nprogram.dfy(10,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |   requires a != null;\n   |                     ^\n\nprogram.dfy(11,9): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |   reads a;\n   |          ^\n\nprogram.dfy(12,36): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |   requires 0 <= pvt < to <= a.Length;\n   |                                     ^\n\nprogram.dfy(18,36): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |   requires a != null && a.Length > 0;\n   |                                     ^\n\nprogram.dfy(19,12): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |   modifies a;\n   |             ^\n\nprogram.dfy(20,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |   ensures sorted(a, 0, a.Length);\n   |                                 ^\n\nprogram.dfy(21,49): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |   ensures multiset(a[..]) == multiset(old(a[..]));\n   |                                                  ^\n\nprogram.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |   requires a != null;\n  |              ^^\n\nprogram.dfy(10,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n10 |   requires a != null;\n   |              ^^\n\nprogram.dfy(18,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n18 |   requires a != null && a.Length > 0;\n   |              ^^\n\nprogram.dfy(25,2): Error: a postcondition could not be proved on this return path\n   |\n25 |   while (i < a.Length)\n   |   ^^^^^\n\nprogram.dfy(20,16): Related location: this is the postcondition that could not be proved\n   |\n20 |   ensures sorted(a, 0, a.Length);\n   |                 ^\n\nprogram.dfy(6,2): Related location: this proposition could not be proved\n  |\n6 |   forall u, v :: from <= u < v < to ==> a[u] <= a[v]\n  |   ^^^^^^\n\nprogram.dfy(25,2): Error: a postcondition could not be proved on this return path\n   |\n25 |   while (i < a.Length)\n   |   ^^^^^\n\nprogram.dfy(21,26): Related location: this is the postcondition that could not be proved\n   |\n21 |   ensures multiset(a[..]) == multiset(old(a[..]));\n   |                           ^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

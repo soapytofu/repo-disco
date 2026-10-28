@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_EvenPredicate_no_hints.dfy",
+  "sha256": "5a1d5aa114ea15ec70a59d51fb29eaac43a9a3beea0d8a58799cf2d9aa354566",
+  "bytes": 1095,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(31,21): Warning: Could not find a trigger for the induction hypothesis. Without a trigger, this may cause brittle verification. Change or remove the {:induction} attribute to generate a different induction hypothesis, or add {:nowarn} to silence this warning. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n31 | lemma {:induction x} EvenPlus(x: int, y: int)\n   |                      ^^^^^^^^\n\n\nDafny program verifier finished with 7 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

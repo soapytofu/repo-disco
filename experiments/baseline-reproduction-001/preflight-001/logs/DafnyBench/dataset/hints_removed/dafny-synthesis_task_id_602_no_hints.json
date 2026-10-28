@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_602_no_hints.dfy",
+  "sha256": "c08606a77e6e29c073854ad1b7d1a6db42cb939e73e57208b334a7a5557b2190",
+  "bytes": 920,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(2,22): Related location: this is the postcondition that could not be proved\n  |\n2 |     ensures found ==> exists i, j :: 0 <= i < j < |s| && s[i] == s[j] && s[i] == c && (forall k, l :: 0 <= k < l < j && s[k] == s[l] ==> k >= i)\n  |                       ^^^^^^\n\nprogram.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,24): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures !found ==> (forall i, j :: 0 <= i < j < |s| ==> s[i] != s[j])\n  |                         ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

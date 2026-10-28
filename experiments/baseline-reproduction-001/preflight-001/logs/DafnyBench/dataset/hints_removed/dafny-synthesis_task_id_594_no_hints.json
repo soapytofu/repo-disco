@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_594_no_hints.dfy",
+  "sha256": "9e91c54f015858ee23f7d2ad9334d875c9eb8b94741060f8a7ebb2585470fa14",
+  "bytes": 921,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(15,12): Warning: unusual indentation in body of exists (which ends at line 16, column 93); do you perhaps need parentheses?\n   |\n15 |     ensures exists i, j :: 0 <= i < a.Length && 0 <= j < a.Length && IsEven(a[i]) && IsOdd(a[j]) && diff == a[i] - a[j] && \n   |             ^^^^^^\n\nprogram.dfy(17,0): Error: a postcondition could not be proved on this return path\n   |\n17 | {\n   | ^\n\nprogram.dfy(15,12): Related location: this is the postcondition that could not be proved\n   |\n15 |     ensures exists i, j :: 0 <= i < a.Length && 0 <= j < a.Length && IsEven(a[i]) && IsOdd(a[j]) && diff == a[i] - a[j] && \n   |             ^^^^^^\n\nprogram.dfy(36,13): Error: index out of range\n   |\n36 |     diff := a[firstEven] - a[firstOdd];\n   |              ^\n\nprogram.dfy(36,28): Error: index out of range\n   |\n36 |     diff := a[firstEven] - a[firstOdd];\n   |                             ^\n\n\nDafny program verifier finished with 3 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

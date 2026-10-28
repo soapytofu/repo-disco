@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_quotient_no_hints.dfy",
+  "sha256": "20fe6dec995b0df6d32960c59e7092454c41d0cc7ba1e9ded8a52109554ee611",
+  "bytes": 187,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,20): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures q * y + r == x && 0 <= r < y && 0 <= q\n  |                     ^^\n\nprogram.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,30): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures q * y + r == x && 0 <= r < y && 0 <= q\n  |                               ^^\n\n\nDafny program verifier finished with 0 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

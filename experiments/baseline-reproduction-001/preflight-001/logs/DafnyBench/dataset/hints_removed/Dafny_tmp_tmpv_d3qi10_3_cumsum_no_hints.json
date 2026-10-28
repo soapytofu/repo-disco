@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmpv_d3qi10_3_cumsum_no_hints.dfy",
+  "sha256": "48f1c5a77f73a4954921b76075827e52c69ef7aa04f9ace6de6f46ee49b59b66",
+  "bytes": 635,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(18,4): Error: a postcondition could not be proved on this return path\n   |\n18 |     while i < a.Length\n   |     ^^^^^\n\nprogram.dfy(12,12): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures forall i | 0 <= i < a.Length :: b[i] == sum(a, i)\n   |             ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

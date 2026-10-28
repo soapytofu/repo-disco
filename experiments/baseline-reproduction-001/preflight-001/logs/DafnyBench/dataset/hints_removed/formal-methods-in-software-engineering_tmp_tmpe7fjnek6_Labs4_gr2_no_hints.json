@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/formal-methods-in-software-engineering_tmp_tmpe7fjnek6_Labs4_gr2_no_hints.dfy",
+  "sha256": "02410c38855e712ecdb79a1ee6721e15960558a50d33322395af1dec6d5444ac",
+  "bytes": 3560,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(47,1): Warning: assume statement has no {:axiom} annotation\n   |\n47 | \tassume k == i*i;   // P = precondition\n   |  ^^^^^^\n\nprogram.dfy(29,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n29 | \t\twhile (r >= b)\n   |   ^^^^^\n\nprogram.dfy(116,0): Error: a postcondition could not be proved on this return path\n    |\n116 | {\n    | ^\n\nprogram.dfy(115,11): Related location: this is the postcondition that could not be proved\n    |\n115 | \tensures s == SqrSumRec(n)\n    |            ^^\n\nprogram.dfy(194,0): Error: a postcondition could not be proved on this return path\n    |\n194 | {\n    | ^\n\nprogram.dfy(192,10): Related location: this is the postcondition that could not be proved\n    |\n192 | ensures a == b*q + r && 0 <= r < b\n    |           ^^\n\nprogram.dfy(194,0): Error: a postcondition could not be proved on this return path\n    |\n194 | {\n    | ^\n\nprogram.dfy(192,26): Related location: this is the postcondition that could not be proved\n    |\n192 | ensures a == b*q + r && 0 <= r < b\n    |                           ^^\n\n\nDafny program verifier finished with 9 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

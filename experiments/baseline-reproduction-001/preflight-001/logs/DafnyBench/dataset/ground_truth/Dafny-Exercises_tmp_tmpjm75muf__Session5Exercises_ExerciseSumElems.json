@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny-Exercises_tmp_tmpjm75muf__Session5Exercises_ExerciseSumElems.dfy",
+  "sha256": "3f70b1a53093449043109004684a2bb2e0208cfd658aec7ca2e37dab507b2e11",
+  "bytes": 3875,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(133,55): Warning: deprecated style: a semi-colon is not needed here\n    |\n133 | \tensures forall v : array<T>  :: v[..v.Length] == v[..];\n    |                                                        ^\n\nprogram.dfy(134,48): Warning: deprecated style: a semi-colon is not needed here\n    |\n134 | \tensures forall v : array<T>  :: v[0..] == v[..];\n    |                                                 ^\n\nprogram.dfy(135,57): Warning: deprecated style: a semi-colon is not needed here\n    |\n135 |   ensures forall v : array<T>  :: v[0..v.Length] == v[..];\n    |                                                          ^\n\nprogram.dfy(137,58): Warning: deprecated style: a semi-colon is not needed here\n    |\n137 | \tensures forall v : array<T>  ::|v[0..v.Length]|==v.Length;\n    |                                                           ^\n\nprogram.dfy(138,74): Warning: deprecated style: a semi-colon is not needed here\n    |\n138 |   ensures forall v : array<T> | v.Length>=1 ::|v[1..v.Length]|==v.Length-1;\n    |                                                                           ^\n\n\nDafny program verifier finished with 19 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

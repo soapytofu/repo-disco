@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_AI_agent_verify_examples_DoubleArray_no_hints.dfy",
+  "sha256": "9412b6c76b30ba9875ddeadd383036f0bc2531c1a24b57cd64c352cb4bcd2b48",
+  "bytes": 283,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,4): Error: a postcondition could not be proved on this return path\n  |\n7 |     while n != src.Length\n  |     ^^^^^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall i :: 0 <= i < src.Length ==> dst[i] == 2 * old(src[i])\n  |             ^^^^^^\n\nprogram.dfy(9,11): Error: index out of range\n  |\n9 |         dst[n] := 2 * src[n]; n := n + 1;\n  |            ^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

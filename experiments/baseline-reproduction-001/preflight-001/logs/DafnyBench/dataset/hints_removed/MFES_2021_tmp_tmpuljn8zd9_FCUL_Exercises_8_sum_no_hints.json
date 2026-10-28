@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MFES_2021_tmp_tmpuljn8zd9_FCUL_Exercises_8_sum_no_hints.dfy",
+  "sha256": "46ad42b781e8f04c6e1505aebd65584a751aca395710c6b8c8ab688fb55695d9",
+  "bytes": 228,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(7,14): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures s == calcSum(n + 1)\n  |               ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

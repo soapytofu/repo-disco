@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_10_Hoangkim_ex10_hoangkim.dfy",
+  "sha256": "7c38b4e6b57c84de6a881900a134ace11787892768c31ae3e24068df394cf1d8",
+  "bytes": 3717,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(58,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n58 | ensures x < z*z < y\n   |           ^\n\nprogram.dfy(98,4): Warning: assume statement has no {:axiom} annotation\n   |\n98 |     assume x*x < 100;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

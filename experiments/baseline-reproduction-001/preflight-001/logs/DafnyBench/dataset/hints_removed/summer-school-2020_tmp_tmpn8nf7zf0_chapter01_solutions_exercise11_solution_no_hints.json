@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/summer-school-2020_tmp_tmpn8nf7zf0_chapter01_solutions_exercise11_solution_no_hints.dfy",
+  "sha256": "942083b017c4f8e7661f024f8f657fc421d1be3bc70b989b2d736fe23d197b89",
+  "bytes": 2158,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(32,0): Error: a postcondition could not be proved on this return path\n   |\n32 | {\n   | ^\n\nprogram.dfy(30,10): Related location: this is the postcondition that could not be proved\n   |\n30 |   ensures exists eltSet:set<HAlign> :: |eltSet| == 3  // bound is tight\n   |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

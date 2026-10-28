@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/cs245-verification_tmp_tmp0h_nxhqp_quicksort-partition.dfy",
+  "sha256": "83a6c508aeab2e829ac487c3efe0993cd18156616fb42d6817060912503c119b",
+  "bytes": 1394,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,10): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | modifies X;\n  |           ^\n\nprogram.dfy(7,57): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 | /*Pre-Condition*/   requires X.Length>=1 && n == X.Length;\n  |                                                          ^\n\nprogram.dfy(8,32): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 | /*Post-Condition*/  ensures b>=n;\n  |                                 ^\n\nprogram.dfy(9,61): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |                     ensures forall x:: 0<=x<a<n ==> X[x] <= p;\n  |                                                              ^\n\nprogram.dfy(10,71): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |                     ensures forall x:: a==n || (0<=a<=x<n ==> X[x] > p);\n   |                                                                        ^\n\nprogram.dfy(24,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |   invariant 0<=a<b<=n+1;\n   |                        ^\n\nprogram.dfy(26,46): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 |   invariant forall x:: (0<=x<=a-1 ==> X[x]<=p);\n   |                                               ^\n\nprogram.dfy(27,55): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 |   invariant forall x:: a==n || (0<=a<=x<b ==> X[x] > p);\n   |                                                        ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

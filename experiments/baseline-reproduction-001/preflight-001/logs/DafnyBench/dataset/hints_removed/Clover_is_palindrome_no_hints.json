@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_is_palindrome_no_hints.dfy",
+  "sha256": "407215412a6ec802fb5ef96634718a65398e0bd92bb753bc5172e895a4bc56bc",
+  "bytes": 345,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,17): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures result <==> (forall i :: 0 <= i < |x| ==> x[i] == x[|x| - i - 1])\n  |                  ^^^^\n\nprogram.dfy(12,8): Error: index out of range\n   |\n12 |     if x[i] != x[j] {\n   |         ^\n\nprogram.dfy(12,16): Error: index out of range\n   |\n12 |     if x[i] != x[j] {\n   |                 ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

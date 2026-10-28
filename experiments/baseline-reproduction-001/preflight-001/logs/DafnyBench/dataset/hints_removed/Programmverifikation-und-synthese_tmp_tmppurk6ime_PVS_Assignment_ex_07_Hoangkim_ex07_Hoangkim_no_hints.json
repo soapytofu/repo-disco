@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_07_Hoangkim_ex07_Hoangkim_no_hints.dfy",
+  "sha256": "83565bd7cbca241672ea1abcf88f5604a7976e7acb4e0740119f4237bd711c3d",
+  "bytes": 985,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n5 |     requires a != null && a.Length > 0 && i < a.Length && j < a.Length\n  |                ^^\n\nprogram.dfy(15,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n15 |     requires a != null && a.Length > 0 && lo < a.Length\n   |                ^^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(16,15): Related location: this is the postcondition that could not be proved\n   |\n16 |     ensures lo <= minIdx < a.Length\n   |                ^^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(16,25): Related location: this is the postcondition that could not be proved\n   |\n16 |     ensures lo <= minIdx < a.Length\n   |                          ^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,12): Related location: this is the postcondition that could not be proved\n   |\n17 |     ensures forall x :: lo <= x < a.Length ==> a[minIdx] <= a[x]\n   |             ^^^^^^\n\nprogram.dfy(23,13): Error: index out of range\n   |\n23 | \t\tif(a[j] < a[minIdx]) { minIdx := j; }\n   |              ^\n\n\nDafny program verifier finished with 5 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

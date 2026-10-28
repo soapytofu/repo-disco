@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_412_no_hints.dfy",
+  "sha256": "5379e9086407af160f5b17bdd1e0f0f3e0a94cba03fc891abf2bd8d4a87a7ff7",
+  "bytes": 627,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(12,12): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures forall i :: 0 <= i < |evenList| ==> IsEven(evenList[i]) && evenList[i] in arr[..]\n   |             ^^^^^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(14,12): Related location: this is the postcondition that could not be proved\n   |\n14 |     ensures forall i :: 0 <= i < arr.Length && IsEven(arr[i]) ==> arr[i] in evenList\n   |             ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/cs245-verification_tmp_tmp0h_nxhqp_quicksort-partition_no_hints.dfy",
+  "sha256": "cb496fad984e2bbc3ed0d88bf0ce91fa81b1e390b3e9334a5ccf115143715a4b",
+  "bytes": 943,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,10): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | modifies X;\n  |           ^\n\nprogram.dfy(7,57): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 | /*Pre-Condition*/   requires X.Length>=1 && n == X.Length;\n  |                                                          ^\n\nprogram.dfy(8,32): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 | /*Post-Condition*/  ensures b>=n;\n  |                                 ^\n\nprogram.dfy(9,61): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |                     ensures forall x:: 0<=x<a<n ==> X[x] <= p;\n  |                                                              ^\n\nprogram.dfy(10,71): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |                     ensures forall x:: a==n || (0<=a<=x<n ==> X[x] > p);\n   |                                                                        ^\n\nprogram.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(9,28): Related location: this is the postcondition that could not be proved\n  |\n9 |                     ensures forall x:: 0<=x<a<n ==> X[x] <= p;\n  |                             ^^^^^^\n\nprogram.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(10,28): Related location: this is the postcondition that could not be proved\n   |\n10 |                     ensures forall x:: a==n || (0<=a<=x<n ==> X[x] > p);\n   |                             ^^^^^^\n\nprogram.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(11,43): Related location: this is the postcondition that could not be proved\n   |\n11 |                     ensures multiset(X[..])==multiset(old(X[..]))           //This says the new X is a permutation of our old version of X.\n   |                                            ^^\n\nprogram.dfy(25,15): Error: index out of range\n   |\n25 |       X[b] := X[a]; \n   |                ^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

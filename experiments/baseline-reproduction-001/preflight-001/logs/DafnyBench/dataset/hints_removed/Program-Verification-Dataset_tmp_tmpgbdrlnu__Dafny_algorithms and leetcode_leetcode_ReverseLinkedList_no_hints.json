@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_leetcode_ReverseLinkedList_no_hints.dfy",
+  "sha256": "f644a8b8d26164e1887d3266ce7d4d847db59cf9d4c3b78590792a6e65b40c7f",
+  "bytes": 7637,
+  "partition": "hints_removed",
+  "exit_code": 124,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(63,57): Warning: deprecated style: a semi-colon is not needed here\n   |\n63 |     ensures nodeConcat(Node(xs.val, Null), xs.next) == xs;\n   |                                                          ^\n\nprogram.dfy(75,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n75 |     requires xs != Null;\n   |                        ^\n\nprogram.dfy(76,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n76 |     requires xs.next == Null;\n   |                             ^\n\nprogram.dfy(77,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n77 |     ensures reverseList(xs) == xs;\n   |                                  ^\n\nprogram.dfy(142,10): Error: a postcondition could not be proved on this return path\n    |\n142 |     }else {\n    |           ^\n\nprogram.dfy(138,25): Related location: this is the postcondition that could not be proved\n    |\n138 |     ensures multiset(xs) == multiset(reverse(xs))\n    |                          ^^\n\nprogram.dfy(172,17): Error: a postcondition could not be proved on this return path\n    |\n172 |     if |xs| == 0 {\n    |                  ^\n\nprogram.dfy(169,29): Related location: this is the postcondition that could not be proved\n    |\n169 |     ensures reverse(xs + ys) == reverse(ys) + reverse(xs)\n    |                              ^^\n\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

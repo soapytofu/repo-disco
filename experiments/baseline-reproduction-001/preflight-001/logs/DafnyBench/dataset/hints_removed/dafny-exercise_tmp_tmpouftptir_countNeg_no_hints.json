@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-exercise_tmp_tmpouftptir_countNeg_no_hints.dfy",
+  "sha256": "643d4078c36776db26ae9aa9d36bfa8537c8d73ed54bc65326a10410df26f4f1",
+  "bytes": 467,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,12): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures cnt == verifyNeg(a, a.Length)\n   |             ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-synthesis_task_id_576.dfy",
+  "sha256": "b13397c54805983431702df1d8777eb1a7353b74682e43d7fea17227a88876c1",
+  "bytes": 491,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,22): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n2 |     ensures true <== (exists i :: 0 <= i <= |main| - |sub| && sub == main[i..i + |sub|])\n  |                       ^^^^^^\n\nprogram.dfy(10,28): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n10 |         invariant true <== (exists j :: 0 <= j < i && sub == main[j..j + |sub|])\n   |                             ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Metodos_Formais_tmp_tmpbez22nnn_Aula_2_ex1_no_hints.dfy",
+  "sha256": "65c306c0670688868e5baf8df1618f3f356d453319156a9034e4f8c95dbdae59",
+  "bytes": 192,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,4): Error: a postcondition could not be proved on this return path\n   |\n14 |     return r;\n   |     ^^^^^^^^^\n\nprogram.dfy(2,10): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures r == x * y\n  |           ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseSeparate_no_hints.dfy",
+  "sha256": "621385cca8e4bf9f383186440e0b2dd03d9d588818aad99c701c3282545b01de",
+  "bytes": 890,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(17,12): Related location: this is the postcondition that could not be proved\n   |\n17 | ensures 0<=i<=v.Length\n   |             ^^\n\nprogram.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(18,16): Related location: this is the postcondition that could not be proved\n   |\n18 | ensures positive(v[0..i]) && strictNegative(v,i,v.Length)\n   |                 ^\n\nprogram.dfy(7,1): Related location: this proposition could not be proved\n  |\n7 | {forall u::0<=u<|s| ==> s[u]>=0}\n  |  ^^^^^^\n\nprogram.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(18,43): Related location: this is the postcondition that could not be proved\n   |\n18 | ensures positive(v[0..i]) && strictNegative(v,i,v.Length)\n   |                                            ^\n\nprogram.dfy(4,1): Related location: this proposition could not be proved\n  |\n4 | {forall u | i<=u<j :: v[u]<0}\n  |  ^^^^^^\n\nprogram.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(19,21): Related location: this is the postcondition that could not be proved\n   |\n19 | ensures isPermutation(v[0..v.Length], old(v[0..v.Length]))\n   |                      ^\n\nprogram.dfy(10,12): Related location: this proposition could not be proved\n   |\n10 | {multiset(s)==multiset(t)}\n   |             ^^\n\nprogram.dfy(25,12): Error: index out of range\n   |\n25 |         if(v[i]>=0){\n   |             ^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

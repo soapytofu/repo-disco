@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseReplace.dfy",
+  "sha256": "cb0a19d85a428b654ac9a067e112351adc866e73bc649294795631044380da12",
+  "bytes": 559,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,23): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n6 | ensures forall k::0<=k<old(v.Length) && old(v[k])==x ==> v[k]==y\n  |                        ^^^\n\nprogram.dfy(7,23): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n7 | ensures forall k::0<=k<old(v.Length) && old(v[k])!=x ==> v[k]==old(v[k])\n  |                        ^^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

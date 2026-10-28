@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/DafnyProjects_tmp_tmp2acw_s4s_CombNK.dfy",
+  "sha256": "81268fb60fac799bf711ce5d1c8d2c9d1c338367645e7f2baf08e305869e8b0f",
+  "bytes": 1502,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(44,0): Error: a postcondition could not be proved on this return path\n   |\n44 | {}\n   | ^\n\nprogram.dfy(43,22): Related location: this is the postcondition that could not be proved\n   |\n43 |    ensures comb(n, k) == comb(n, n-k)\n   |                       ^^\n\n\nDafny program verifier finished with 5 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_SegmentSum_no_hints.dfy",
+  "sha256": "a684e8ae0f34bdc1e992ed9b563ed702f1ef39f9efa37d5b6f7552f499aa32f6",
+  "bytes": 655,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(11,17): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures 0 <= k <= m <= |a|\n   |                  ^^\n\nprogram.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(11,22): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures 0 <= k <= m <= |a|\n   |                       ^^\n\nprogram.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(12,10): Related location: this is the postcondition that could not be proved\n   |\n12 |   ensures forall p,q :: 0 <= p <= q <= |a| ==> Sum(a, p, q) <= Sum(a, k, m)\n   |           ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week1_7_Week4__LinearSearch_no_hints.dfy",
+  "sha256": "e9b0d76a6127c6b1996000ef448f9b1dd7ef16dd39afb73114739d904298f656",
+  "bytes": 799,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,18): Error: index out of range\n  |\n8 |             if P(a[n]) {return;}\n  |                   ^\n\nprogram.dfy(29,0): Error: a postcondition could not be proved on this return path\n   |\n29 | {\n   | ^\n\nprogram.dfy(28,30): Related location: this is the postcondition that could not be proved\n   |\n28 |     ensures n == a.Length ==> forall i :: 0 <= i < a.Length ==> !P(a[i])\n   |                               ^^^^^^\n\nprogram.dfy(34,18): Error: index out of range\n   |\n34 |             if P(a[n]) {return;}\n   |                   ^\n\n\nDafny program verifier finished with 4 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

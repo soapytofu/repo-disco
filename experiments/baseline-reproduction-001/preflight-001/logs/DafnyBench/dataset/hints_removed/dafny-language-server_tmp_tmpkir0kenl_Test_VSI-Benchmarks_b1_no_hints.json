@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_VSI-Benchmarks_b1_no_hints.dfy",
+  "sha256": "c75b3e906d000b33c39764bb445898eac5278cebd7b56ebecb82c5d08f8e2319",
+  "bytes": 1199,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(12,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |   ensures r == x+y;\n   |                   ^\n\nprogram.dfy(33,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n33 |   ensures r == x*y;\n   |                   ^\n\nprogram.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(12,12): Related location: this is the postcondition that could not be proved\n   |\n12 |   ensures r == x+y;\n   |             ^^\n\nprogram.dfy(38,12): Error: decreases expression at index 0 must be bounded below by 0\n   |\n38 |     r := Mul(-x, y);\n   |             ^\n\nprogram.dfy(32,11): Related location: this decreases clause was not satisfied\n   |\n32 | method Mul(x: int, y: int) returns (r: int)\n   |            ^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

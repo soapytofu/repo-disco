@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/DafnyPrograms_tmp_tmp74_f9k_c_map-multiset-implementation.dfy",
+  "sha256": "d1f89c505c7ebbace4a1aa4ce978671099551ccf2dd6a0118c7ae7ad8c289b46",
+  "bytes": 7831,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(74,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n74 |   var elements: map<int, nat>;\n   |                              ^\n\nprogram.dfy(200,73): Warning: deprecated style: a semi-colon is not needed here\n    |\n200 |         invariant forall i | i in m.Keys - keys :: multiset(s)[i] == m[i];\n    |                                                                          ^\n\nprogram.dfy(66,91): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n66 |     ensures (forall i | i in m :: m[i] == A(m)[i]) && (m == map[] <==> A(m) == multiset{}) && (forall i :: i in m <==> i in A(m))\n   |                                                                                            ^^\n\nprogram.dfy(71,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n71 |     ensures A(m) == multiset(s)\n   |                  ^^\n\nprogram.dfy(216,4): Warning: assume statement has no {:axiom} annotation\n    |\n216 |     assume this.theMultiset == multiset{1, 2, 3, 4};\n    |     ^^^^^^\n\nprogram.dfy(217,4): Warning: assume statement has no {:axiom} annotation\n    |\n217 |     assume this.Valid();\n    |     ^^^^^^\n\nprogram.dfy(242,4): Warning: assume statement has no {:axiom} annotation\n    |\n242 |     assume this.theMultiset == multiset{1, 2, 3, 4};\n    |     ^^^^^^\n\nprogram.dfy(243,4): Warning: assume statement has no {:axiom} annotation\n    |\n243 |     assume this.Valid();\n    |     ^^^^^^\n\n\nDafny program verifier finished with 27 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/cmsc433_tmp_tmpe3ob3a0o_dafny_project1_p1-assignment-2_no_hints.dfy",
+  "sha256": "4fbdd7289d5efd93765392ed98c1e8be51d9a5320cc5f630a03493e9f93e71f8",
+  "bytes": 5763,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(87,60): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n87 |     ensures gcd > 0 && gcd <= n && gcd <= m && m % gcd == 0 && n % gcd == 0 // TODO\n   |                                                             ^^\n\nprogram.dfy(65,0): Error: a postcondition could not be proved on this return path\n   |\n65 | {\n   | ^\n\nprogram.dfy(64,8): Related location: this is the postcondition that could not be proved\n   |\n64 |         forall i : int :: 0 <= i < c.Length ==> c[i] == a[i] + b[i] // TODO\n   |         ^^^^^^\n\nprogram.dfy(99,0): Error: a postcondition could not be proved on this return path\n   |\n99 | {\n   | ^\n\nprogram.dfy(98,21): Related location: this is the postcondition that could not be proved\n   |\n98 |     ensures isSorted <==> forall j : int :: 1 <= j < a.Length ==> a[j-1] <= a[j]\n   |                      ^^^^\n\nprogram.dfy(128,0): Error: a postcondition could not be proved on this return path\n    |\n128 | {\n    | ^\n\nprogram.dfy(126,20): Related location: this is the postcondition that could not be proved\n    |\n126 |     ensures isPrime <==> (m > 1 && forall j : int :: 2 <= j < m ==> m % j != 0) \n    |                     ^^^^\n\nprogram.dfy(161,0): Error: a postcondition could not be proved on this return path\n    |\n161 | {\n    | ^\n\nprogram.dfy(159,12): Related location: this is the postcondition that could not be proved\n    |\n159 |     ensures forall i : int :: 0 <= i < a.Length ==> a[i] == aRev[aRev.Length-i-1]\n    |             ^^^^^^\n\nprogram.dfy(181,0): Error: a postcondition could not be proved on this return path\n    |\n181 | {\n    | ^\n\nprogram.dfy(180,19): Related location: this is the postcondition that could not be proved\n    |\n180 |     ensures noDups <==> forall j : int :: 1 <= j < a.Length ==> a[j-1] != a[j]\n    |                    ^^^^\n\n\nDafny program verifier finished with 10 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

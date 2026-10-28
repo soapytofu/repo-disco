@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_618_no_hints.dfy",
+  "sha256": "39c6d498a664cc866ba6223b940dfa62d042e8c6015d6e4d8f51b0997faa4798",
+  "bytes": 350,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(4,21): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures |result| == |a|\n  |                      ^^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(5,12): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures forall i :: 0 <= i < |result| ==> result[i] == a[i] / b[i]\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

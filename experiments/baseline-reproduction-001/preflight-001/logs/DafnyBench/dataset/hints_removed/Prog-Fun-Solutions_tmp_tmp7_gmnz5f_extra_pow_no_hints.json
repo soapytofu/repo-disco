@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Prog-Fun-Solutions_tmp_tmp7_gmnz5f_extra_pow_no_hints.dfy",
+  "sha256": "6a6535726266c84a7a9f7bb2aaf22b0230f4fa8aa760c444125aecb646e080f2",
+  "bytes": 287,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 | ensures y == pow(a, n)\n  |           ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

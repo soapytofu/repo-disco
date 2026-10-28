@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/veribetrkv-osdi2020_tmp_tmpra431m8q_docker-hdd_src_veribetrkv-linear_lib_Base_Sets.dfy",
+  "sha256": "78c04d0b77fca7e351f73664f08d1887abea038b0869efa1bde9a3c5f9aa2a85",
+  "bytes": 994,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(34,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n34 |     set i | 0 <= i < n\n   |     ^^^\n\n\nDafny program verifier finished with 5 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

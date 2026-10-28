@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_COST-verif-comp-2011-1-MaxArray_no_hints.dfy",
+  "sha256": "209148c3279cdbb74ff0c5d178588f3b278499f8cc0cc16d80566fa2ae1b25e0",
+  "bytes": 2939,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(69,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n69 |   while x != y\n   |   ^^^^^\n\nprogram.dfy(71,8): Error: index out of range\n   |\n71 |     if a[x] <= a[y] {\n   |         ^\n\nprogram.dfy(71,16): Error: index out of range\n   |\n71 |     if a[x] <= a[y] {\n   |                 ^\n\nprogram.dfy(77,2): Error: a postcondition could not be proved on this return path\n   |\n77 |   return x;\n   |   ^^^^^^^^^\n\nprogram.dfy(63,17): Related location: this is the postcondition that could not be proved\n   |\n63 |   ensures 0 <= x < a.Length\n   |                  ^\n\nprogram.dfy(77,2): Error: a postcondition could not be proved on this return path\n   |\n77 |   return x;\n   |   ^^^^^^^^^\n\nprogram.dfy(64,10): Related location: this is the postcondition that could not be proved\n   |\n64 |   ensures forall i :: 0 <= i < a.Length ==> a[i] <= a[x]\n   |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

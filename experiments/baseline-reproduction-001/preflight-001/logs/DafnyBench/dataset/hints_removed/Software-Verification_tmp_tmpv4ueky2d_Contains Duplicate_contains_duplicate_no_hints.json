@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Software-Verification_tmp_tmpv4ueky2d_Contains Duplicate_contains_duplicate_no_hints.dfy",
+  "sha256": "92a92c2a9d49e204e5594bdc38de4ad6f2ee1812be769995c4caffd803fe055f",
+  "bytes": 567,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(13,12): Error: a postcondition could not be proved on this return path\n   |\n13 |             return false;\n   |             ^^^^^^^^^^^^^\n\nprogram.dfy(4,19): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures result <==> distinct(nums)\n  |                    ^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MIEIC_mfes_tmp_tmpq3ho7nve_exams_appeal_20_p4_no_hints.dfy",
+  "sha256": "545fc693d0fb9ed70f984d912999b517121ad24a4d973a68251ee198a4597cfb",
+  "bytes": 261,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,13): Related location: this is the postcondition that could not be proved\n  |\n4 |  ensures res == F(n) \n  |              ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

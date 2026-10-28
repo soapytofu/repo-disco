@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-duck_tmp_tmplawbgxjo_ex3.dfy",
+  "sha256": "39d8c037659dc0fbe6e23098c7ef6d3b0d6827d853b81c56afb7c3b57695ff47",
+  "bytes": 1334,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(5,65): Warning: unusual indentation in right-hand operand of ==> (which ends at line 7, column 74); do you perhaps need parentheses?\n  |\n5 |   forall i, j :: 0 <= i <= j < |s| && s[i] == 'b' && s[j] != 'b' ==> i < j &&\n  |                                                                  ^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

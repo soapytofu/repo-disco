@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/test-generation-examples_tmp_tmptwyqofrp_RussianMultiplication_dafny_RussianMultiplication_no_hints.dfy",
+  "sha256": "5c591a22b4335f3141dfa1d851c8b2f6608147d7b8fc4c238438cac9dd397605",
+  "bytes": 416,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,28): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |     ensures res == (n0 * m0);\n  |                             ^\n\nprogram.dfy(7,4): Error: a postcondition could not be proved on this return path\n  |\n7 |     {\n  |     ^\n\nprogram.dfy(6,16): Related location: this is the postcondition that could not be proved\n  |\n6 |     ensures res == (n0 * m0);\n  |                 ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

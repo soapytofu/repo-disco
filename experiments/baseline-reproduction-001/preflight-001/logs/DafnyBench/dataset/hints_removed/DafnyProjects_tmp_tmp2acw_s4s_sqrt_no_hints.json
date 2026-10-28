@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/DafnyProjects_tmp_tmp2acw_s4s_sqrt_no_hints.dfy",
+  "sha256": "63a15bb7d869f0d6c547732d799dfd8b2c582732c8afff5049171cf97df4b86b",
+  "bytes": 461,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(4,21): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n4 |   ensures r * r == x && r >= 0.0\n  |                      ^^\n\nprogram.dfy(9,32): Error: a precondition for this call could not be proved\n  |\n9 |   if (r < 2.0) { monotonicSquare(r, 2.0); }\n  |                                 ^\n\nprogram.dfy(19,15): Related location: this is the precondition that could not be proved\n   |\n19 |   requires 0.0 < x < y\n   |                ^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

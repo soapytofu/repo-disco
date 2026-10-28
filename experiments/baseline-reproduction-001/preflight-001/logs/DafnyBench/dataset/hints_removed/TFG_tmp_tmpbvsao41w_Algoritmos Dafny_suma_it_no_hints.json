@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/TFG_tmp_tmpbvsao41w_Algoritmos Dafny_suma_it_no_hints.dfy",
+  "sha256": "d3198d6177332d9917d23015de218785b5028950f34369cab74cffb7e0ef4336",
+  "bytes": 830,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(6,15): Related location: this is the postcondition that could not be proved\n  |\n6 |     ensures  x == suma_vector(V, 0)\n  |                ^^\n\nprogram.dfy(12,18): Error: index out of range\n   |\n12 |         x := x + V[n - 1] ;\n   |                   ^\n\nprogram.dfy(28,27): Error: cannot prove termination; try supplying a decreases clause\n   |\n28 |     else V[n] + suma_vector(V, n + 1)  \n   |                            ^\n\n\nDafny program verifier finished with 2 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

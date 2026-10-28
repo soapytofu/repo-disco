@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_exam_ex2_no_hints.dfy",
+  "sha256": "982c692f886135755a40ce2dceecc08ae8c5662ffeab30d91ab9ae308b2877e6",
+  "bytes": 850,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(3,18): Related location: this is the postcondition that could not be proved\n  |\n3 | ensures 0 <= mini < a.Length // mini is an index of a\n  |                   ^\n\nprogram.dfy(24,12): Error: a postcondition could not be proved on this return path\n   |\n24 |             return k;\n   |             ^^^^^^^^^\n\nprogram.dfy(4,8): Related location: this is the postcondition that could not be proved\n  |\n4 | ensures forall x :: 0 <= x < a.Length ==> a[mini] <= a[x] // a[mini] is the minimum value\n  |         ^^^^^^\n\nprogram.dfy(24,12): Error: a postcondition could not be proved on this return path\n   |\n24 |             return k;\n   |             ^^^^^^^^^\n\nprogram.dfy(5,8): Related location: this is the postcondition that could not be proved\n  |\n5 | ensures forall x :: 0 <= x < mini ==> a[mini] < a[x] // a[mini] is the first min\n  |         ^^^^^^\n\nprogram.dfy(28,0): Error: out-parameter 'mini', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n28 | }\n   | ^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

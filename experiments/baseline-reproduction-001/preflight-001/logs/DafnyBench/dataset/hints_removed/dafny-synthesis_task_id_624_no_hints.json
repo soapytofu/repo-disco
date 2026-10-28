@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_624_no_hints.dfy",
+  "sha256": "12a7a5e4794a468572674a94caf865e01bc5d64aaf0af4600246e434ffa48c06",
+  "bytes": 657,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(32,4): Error: a postcondition could not be proved on this return path\n   |\n32 |     return s';\n   |     ^^^^^^^^^^\n\nprogram.dfy(17,16): Related location: this is the postcondition that could not be proved\n   |\n17 |     ensures |v| == |s|\n   |                 ^^\n\nprogram.dfy(32,4): Error: a postcondition could not be proved on this return path\n   |\n32 |     return s';\n   |     ^^^^^^^^^^\n\nprogram.dfy(18,12): Related location: this is the postcondition that could not be proved\n   |\n18 |     ensures forall i :: 0 <= i < |s| ==>  if IsLowerCase(s[i]) then IsLowerUpperPair(s[i], v[i]) else v[i] == s[i]\n   |             ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

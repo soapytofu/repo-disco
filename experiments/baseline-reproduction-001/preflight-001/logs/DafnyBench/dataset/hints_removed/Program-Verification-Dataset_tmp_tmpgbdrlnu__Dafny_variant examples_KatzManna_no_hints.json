@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_variant examples_KatzManna_no_hints.dfy",
+  "sha256": "ea3b829e0094c861775a3556595c954a6cbbba0c44660cfea87404afa0392aa8",
+  "bytes": 1426,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(5,76): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |   ensures proveFunctionalPostcondition ==> z == if x > 101 then x-10 else 91;\n  |                                                                             ^\n\nprogram.dfy(29,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n29 |   requires 1 <= x1 && 1 <= x2;\n   |                              ^\n\nprogram.dfy(47,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n47 |   requires 1 <= M;\n   |                  ^\n\nprogram.dfy(48,56): Warning: deprecated style: a semi-colon is not needed here\n   |\n48 |   requires X != null && M == X.Length0 && M == X.Length1;\n   |                                                         ^\n\nprogram.dfy(49,12): Warning: deprecated style: a semi-colon is not needed here\n   |\n49 |   modifies X;\n   |             ^\n\nprogram.dfy(61,8): Warning: assume statement has no {:axiom} annotation\n   |\n61 |         assume X[a-1,a-1] != 0;\n   |         ^^^^^^\n\nprogram.dfy(48,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'X' to have the value 'null', declare its type to be 'array2?<int>')\n   |\n48 |   requires X != null && M == X.Length0 && M == X.Length1;\n   |              ^^\n\nprogram.dfy(9,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n9 |   while (true)\n  |   ^^^^^\n\nprogram.dfy(33,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n33 |   while (y1 != y2)\n   |   ^^^^^\n\nprogram.dfy(35,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n35 |     while (y1 > y2)\n   |     ^^^^^\n\nprogram.dfy(39,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n39 |     while (y2 > y1)\n   |     ^^^^^\n\nprogram.dfy(56,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n56 |     while (b != M+1)\n   |     ^^^^^\n\nprogram.dfy(61,18): Error: index 0 out of range\n   |\n61 |         assume X[a-1,a-1] != 0;\n   |                   ^\n\nprogram.dfy(61,22): Error: index 1 out of range\n   |\n61 |         assume X[a-1,a-1] != 0;\n   |                       ^\n\nprogram.dfy(62,11): Error: index 0 out of range\n   |\n62 |         X[b-1, c-1] := X[b-1,c-1] - X[b-1,a-1] / X[a-1,a-1] * X[a-1,c-1];\n   |            ^\n\nprogram.dfy(68,16): Error: index 0 out of range\n   |\n68 |     y := y * X[a-1,a-1];\n   |                 ^\n\n\nDafny program verifier finished with 1 verified, 9 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

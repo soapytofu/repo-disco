@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_588_no_hints.dfy",
+  "sha256": "a0fce7fbcca6d387ef6646f5d672010482939bef33cb26cd4138a1338c28ecf6",
+  "bytes": 901,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,17): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures diff == Max(a[..]) - Min(a[..])\n  |                  ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

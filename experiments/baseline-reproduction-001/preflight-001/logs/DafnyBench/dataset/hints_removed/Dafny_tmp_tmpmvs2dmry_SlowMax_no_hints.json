@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_tmp_tmpmvs2dmry_SlowMax_no_hints.dfy",
+  "sha256": "42ad8c02ec2b48cf70373d4f9b8bc97960241cdbdd203b30a3746138cd4cda3a",
+  "bytes": 310,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,8): Error: a postcondition could not be proved on this return path\n   |\n20 |  else { return a;}\n   |         ^^^^^^^^^\n\nprogram.dfy(7,12): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures z == max(a, b)\n  |             ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

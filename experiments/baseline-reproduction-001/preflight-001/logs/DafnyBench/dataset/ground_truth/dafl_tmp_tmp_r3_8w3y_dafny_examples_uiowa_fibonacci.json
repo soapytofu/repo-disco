@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafl_tmp_tmp_r3_8w3y_dafny_examples_uiowa_fibonacci.dfy",
+  "sha256": "eaac45b4387fd6e457f569734765d9d582e201701845482e854e9be55061d62c",
+  "bytes": 802,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(15,13): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |   decreases n;\n   |              ^\n\nprogram.dfy(23,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   ensures f == fib(n);\n   |                      ^\n\nprogram.dfy(33,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n33 |       decreases n - i;\n   |                      ^\n\nprogram.dfy(34,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n34 |       invariant i <= n;\n   |                       ^\n\nprogram.dfy(35,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n35 |       invariant f_1 == fib(i - 1);\n   |                                  ^\n\nprogram.dfy(36,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n36 |       invariant f   == fib(i);\n   |                              ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

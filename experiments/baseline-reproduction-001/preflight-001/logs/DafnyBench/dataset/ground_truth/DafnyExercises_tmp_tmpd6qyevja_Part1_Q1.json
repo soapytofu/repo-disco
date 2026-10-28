@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/DafnyExercises_tmp_tmpd6qyevja_Part1_Q1.dfy",
+  "sha256": "1719164e886cec929b7d1fa8a21383913927c9a55696c025564ce33c67cc272a",
+  "bytes": 456,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(11,65): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |        invariant forall i :: (0 <= i < j) ==> c[i] == a[i] + b[i];\n   |                                                                  ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

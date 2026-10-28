@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/tangent-finder_tmp_tmpgyzf44ve_circles_no_hints.dfy",
+  "sha256": "de0638e61159747370eb070bde73094141d31512312f76a9751950f1ef4a13a2",
+  "bytes": 954,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(4,19): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures !b ==> forall i, j :: 0 <= i< r.Length && 0 <= j < x.Length ==> r[i] != x[j]   \n  |                    ^^^^^^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(5,18): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures b ==> exists i, j :: 0 <= i< r.Length && 0 <= j < x.Length && r[i] == x[j]\n  |                   ^^^^^^\n\nprogram.dfy(8,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n8 |     while k != r.Length && !tempB\n  |     ^^^^^\n\nprogram.dfy(15,17): Error: index out of range\n   |\n15 |             if  r[k] == x[l] {\n   |                  ^\n\nprogram.dfy(15,25): Error: index out of range\n   |\n15 |             if  r[k] == x[l] {\n   |                          ^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

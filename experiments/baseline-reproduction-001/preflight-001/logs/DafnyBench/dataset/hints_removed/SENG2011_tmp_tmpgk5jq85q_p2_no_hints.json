@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_p2_no_hints.dfy",
+  "sha256": "002ab887233e24078f29aa285eace86270e6b56060472067f358e940773e0bf5",
+  "bytes": 567,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(1,38): Warning: deprecated style: a semi-colon is not needed here\n  |\n1 | method AbsIt(s: array<int>) modifies s;\n  |                                       ^\n\nprogram.dfy(8,4): Error: a postcondition could not be proved on this return path\n  |\n8 |     while i < s.Length\n  |     ^^^^^\n\nprogram.dfy(3,8): Related location: this is the postcondition that could not be proved\n  |\n3 | ensures forall x :: 0 <= x < s.Length ==> old(s[x]) < 0 ==> s[x] == -old(s[x])\n  |         ^^^^^^\n\nprogram.dfy(8,4): Error: a postcondition could not be proved on this return path\n  |\n8 |     while i < s.Length\n  |     ^^^^^\n\nprogram.dfy(4,8): Related location: this is the postcondition that could not be proved\n  |\n4 | ensures forall x :: 0 <= x < s.Length ==> old(s[x]) >= 0 ==> s[x] == old(s[x])\n  |         ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Workshop_tmp_tmp0cu11bdq_Lecture_Answers_max_array.dfy",
+  "sha256": "84969eac87a5f38588b9f89b40bd6c46568f6bd770c74b1967db7a69f25acb66",
+  "bytes": 877,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,22): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     requires a != null;\n  |                       ^\n\nprogram.dfy(5,62): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |     ensures forall j :: j >= 0 && j < a.Length ==> max >= a[j]; //max is larger then anything in the array\n  |                                                               ^\n\nprogram.dfy(6,78): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |     ensures a.Length > 0 ==> exists j :: j >= 0 && j < a.Length && max == a[j]; //max is an element in the array\n  |                                                                               ^\n\nprogram.dfy(4,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n4 |     requires a != null;\n  |                ^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

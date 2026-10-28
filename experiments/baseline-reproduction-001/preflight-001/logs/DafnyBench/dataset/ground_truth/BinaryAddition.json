@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/BinaryAddition.dfy",
+  "sha256": "4b9089d00dd24c9e26220eab84267b880890459d2386c8e2b0c51e19f4a84da7",
+  "bytes": 4092,
+  "partition": "ground_truth",
+  "exit_code": 124,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(98,48): Warning: unusual indentation in right-hand operand of ==> (which ends at line 99, column 86); do you perhaps need parentheses?\n   |\n98 |     ensures forall i :: 0 <= i && i < |sresult| ==> sresult[i] == ((s[i] != t[i]) != (i > 0\n   |                                                 ^^^\n\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

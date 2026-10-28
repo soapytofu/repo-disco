@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Software-Verification_tmp_tmpv4ueky2d_Remove Element_remove_element_no_hints.dfy",
+  "sha256": "29dbb11d8476e8874bd8444a02022c8ef299025b6d1206652b04a4db5219f1be",
+  "bytes": 692,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(6,12): Related location: this is the postcondition that could not be proved\n  |\n6 |     ensures forall j :: 0 < j < i < nums.Length ==> nums[j] != val\n  |             ^^^^^^\n\nprogram.dfy(13,16): Error: index out of range\n   |\n13 |         if (nums[i] == val)\n   |                 ^\n\nprogram.dfy(15,20): Error: index out of range\n   |\n15 |             if (nums[end] == val)\n   |                     ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

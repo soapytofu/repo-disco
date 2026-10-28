@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Formal-methods-of-software-development_tmp_tmppryvbyty_Bloque 1_Lab3.dfy",
+  "sha256": "af5c3494c3238c935a938e652d7d26372f64e0649e6f6e43a3d31de4beb946d4",
+  "bytes": 3161,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(34,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n34 |         invariant 0 <= x <= n;\n   |                              ^\n\nprogram.dfy(35,47): Warning: deprecated style: a semi-colon is not needed here\n   |\n35 |         invariant f*factorial(x)== factorial(n);\n   |                                                ^\n\nprogram.dfy(36,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n36 |         decreases x-0;\n   |                      ^\n\nprogram.dfy(54,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n54 |         invariant 0<=x<=n;\n   |                          ^\n\nprogram.dfy(55,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n55 |         invariant f==factorial(x);\n   |                                  ^\n\nprogram.dfy(56,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n56 |         decreases n - x;\n   |                        ^\n\nprogram.dfy(77,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n77 |         invariant 1 <= y <= a;\n   |                              ^\n\nprogram.dfy(78,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n78 |         invariant y*y==x;\n   |                         ^\n\nprogram.dfy(4,13): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n4 | ensures less < x < more\n  |              ^\n\nprogram.dfy(9,20): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n9 | ensures more + less == 2*x\n  |                     ^^\n\nprogram.dfy(14,20): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n14 | ensures more - less == 2*y\n   |                     ^^\n\n\nDafny program verifier finished with 10 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_examples_tmp_tmp8qotd4ez_leetcode_0001-two-sum_no_hints.dfy",
+  "sha256": "9d8f4f5b3e8a0e1fee15226c7cd66a5bb7664db49c445a8db0c6532dd93ed85b",
+  "bytes": 905,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,6): Error: a postcondition could not be proved on this return path\n   |\n21 |       return (m[nums[i]], i);\n   |       ^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(11,32): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures 0 <= r.0 ==> 0 <= r.0 < r.1 < nums.Length && \n   |                                 ^\n\nprogram.dfy(21,6): Error: a postcondition could not be proved on this return path\n   |\n21 |       return (m[nums[i]], i);\n   |       ^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(12,45): Related location: this is the postcondition that could not be proved\n   |\n12 |                        nums[r.0] + nums[r.1] == target &&\n   |                                              ^^\n\nprogram.dfy(21,6): Error: a postcondition could not be proved on this return path\n   |\n21 |       return (m[nums[i]], i);\n   |       ^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(13,23): Related location: this is the postcondition that could not be proved\n   |\n13 |                        forall i, j :: 0 <= i < j < r.1 ==> nums[i] + nums[j] != target\n   |                        ^^^^^^\n\nprogram.dfy(26,2): Error: a postcondition could not be proved on this return path\n   |\n26 |   return (-1, -1);\n   |   ^^^^^^^^^^^^^^^^\n\nprogram.dfy(14,20): Related location: this is the postcondition that could not be proved\n   |\n14 |   ensures r.0 == -1 <==> forall i, j :: 0 <= i < j < nums.Length ==> nums[i] + nums[j] != target\n   |                     ^^^^\n\n\nDafny program verifier finished with 2 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

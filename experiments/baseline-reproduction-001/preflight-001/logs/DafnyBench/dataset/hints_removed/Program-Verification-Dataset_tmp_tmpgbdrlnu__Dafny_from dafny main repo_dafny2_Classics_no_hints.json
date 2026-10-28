@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny2_Classics_no_hints.dfy",
+  "sha256": "8ef003827bda317c4cd3288147ee3affc00437d964de12cf5248a8025fb436ce",
+  "bytes": 2195,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(13,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |   ensures u == Factorial(n);\n   |                            ^\n\nprogram.dfy(44,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n44 |   requires A.Length == N;\n   |                         ^\n\nprogram.dfy(45,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n45 |   requires 0 <= f < N;\n   |                      ^\n\nprogram.dfy(46,12): Warning: deprecated style: a semi-colon is not needed here\n   |\n46 |   modifies A;\n   |             ^\n\nprogram.dfy(47,61): Warning: deprecated style: a semi-colon is not needed here\n   |\n47 |   ensures forall p,q :: 0 <= p <= f <= q < N ==> A[p] <= A[q];\n   |                                                              ^\n\nprogram.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(13,12): Related location: this is the postcondition that could not be proved\n   |\n13 |   ensures u == Factorial(n);\n   |             ^^\n\nprogram.dfy(48,0): Error: a postcondition could not be proved on this return path\n   |\n48 | {\n   | ^\n\nprogram.dfy(47,10): Related location: this is the postcondition that could not be proved\n   |\n47 |   ensures forall p,q :: 0 <= p <= f <= q < N ==> A[p] <= A[q];\n   |           ^^^^^^\n\nprogram.dfy(50,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n50 |   while (m < n)\n   |   ^^^^^\n\nprogram.dfy(58,14): Error: index out of range\n   |\n58 |       while (A[i] < r)\n   |               ^\n\nprogram.dfy(58,14): Error: index out of range\n   |\n58 |       while (A[i] < r)\n   |               ^\n\nprogram.dfy(61,18): Error: index out of range\n   |\n61 |       while (r < A[j])\n   |                   ^\n\n\nDafny program verifier finished with 2 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

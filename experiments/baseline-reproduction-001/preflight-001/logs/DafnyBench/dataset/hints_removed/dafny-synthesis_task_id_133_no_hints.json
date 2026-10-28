@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_133_no_hints.dfy",
+  "sha256": "b129e8f4a60b6473f04ea71059390c2408206d925e24df1bf32de804c0d1a9e8",
+  "bytes": 469,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires a != null;\n  |                     ^\n\nprogram.dfy(3,34): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   requires 0 <= n && n <= a.Length;\n  |                                   ^\n\nprogram.dfy(4,9): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |   reads a;\n  |          ^\n\nprogram.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |   requires a != null;\n  |              ^^\n\nprogram.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,19): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures result == sumNegativesTo(a, a.Length)\n   |                    ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

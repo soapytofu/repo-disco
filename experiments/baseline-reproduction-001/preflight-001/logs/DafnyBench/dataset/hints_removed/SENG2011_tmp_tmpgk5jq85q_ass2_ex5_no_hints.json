@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_ass2_ex5_no_hints.dfy",
+  "sha256": "a480bb1d18101af44e2b9251ecae0caedafd55b4c72deab0e52b75bdb3214a5e",
+  "bytes": 633,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | requires n >= 0;\n  |                ^\n\nprogram.dfy(10,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | requires n >= 0;\n   |                ^\n\nprogram.dfy(11,48): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | ensures ((expo(2, 3 * n) - expo(3, n))) % 5 == 0;\n   |                                                 ^\n\nprogram.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nprogram.dfy(11,44): Related location: this is the postcondition that could not be proved\n   |\n11 | ensures ((expo(2, 3 * n) - expo(3, n))) % 5 == 0;\n   |                                             ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

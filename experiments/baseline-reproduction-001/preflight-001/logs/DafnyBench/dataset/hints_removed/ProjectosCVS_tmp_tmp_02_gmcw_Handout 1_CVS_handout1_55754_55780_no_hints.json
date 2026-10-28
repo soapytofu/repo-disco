@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/ProjectosCVS_tmp_tmp_02_gmcw_Handout 1_CVS_handout1_55754_55780_no_hints.dfy",
+  "sha256": "ec90046b0991b9596e03fdb1e2b33e7a66c038499f1461be16ab4e30f7ea3995",
+  "bytes": 1396,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(27,4): Error: a postcondition could not be proved on this return path\n   |\n27 |     {\n   |     ^\n\nprogram.dfy(26,14): Related location: this is the postcondition that could not be proved\n   |\n26 |     ensures r == a * b\n   |               ^^\n\nprogram.dfy(56,4): Error: a postcondition could not be proved on this return path\n   |\n56 |     {\n   |     ^\n\nprogram.dfy(55,14): Related location: this is the postcondition that could not be proved\n   |\n55 |     ensures a == b * q + r\n   |               ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

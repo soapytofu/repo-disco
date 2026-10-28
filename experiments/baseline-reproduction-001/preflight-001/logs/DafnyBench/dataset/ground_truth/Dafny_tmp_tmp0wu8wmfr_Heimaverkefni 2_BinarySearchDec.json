@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_tmp_tmp0wu8wmfr_Heimaverkefni 2_BinarySearchDec.dfy",
+  "sha256": "a0cbd47e0913975c9d3fe74bde969c97636ca9a2f23320a3633934865d3a42a3",
+  "bytes": 2214,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(20,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |     decreases j-i;\n   |                  ^\n\nprogram.dfy(21,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |     requires 0 <= i <= j <= |a|;\n   |                                ^\n\nprogram.dfy(22,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |     requires forall p, q :: i <= p < q < j ==> a[p] >= a[q];\n   |                                                            ^\n\nprogram.dfy(24,46): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |     ensures forall r | i <= r < k :: a[r] >= x;\n   |                                               ^\n\nprogram.dfy(25,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |     ensures forall r | k <= r < j :: a[r] < x;\n   |                                              ^\n\nprogram.dfy(44,31): Warning: deprecated style: a semi-colon is not needed here\n   |\n44 |     requires 0 <= i <= j <= |a|;\n   |                                ^\n\nprogram.dfy(45,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n45 |     requires forall p, q :: i <= p < q < j ==> a[p] >= a[q];\n   |                                                            ^\n\nprogram.dfy(46,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n46 |     ensures i <= k <= j;\n   |                        ^\n\nprogram.dfy(47,46): Warning: deprecated style: a semi-colon is not needed here\n   |\n47 |     ensures forall r | i <= r < k :: a[r] >= x;\n   |                                               ^\n\nprogram.dfy(48,45): Warning: deprecated style: a semi-colon is not needed here\n   |\n48 |     ensures forall r | k <= r < j :: a[r] < x;\n   |                                              ^\n\nprogram.dfy(57,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n57 |         decreases q-p;\n   |                      ^\n\nprogram.dfy(58,34): Warning: deprecated style: a semi-colon is not needed here\n   |\n58 |         invariant i <= p <= q <= j;\n   |                                   ^\n\nprogram.dfy(59,52): Warning: deprecated style: a semi-colon is not needed here\n   |\n59 |         invariant forall r | i <= r < p :: a[r] >= x;\n   |                                                     ^\n\nprogram.dfy(60,51): Warning: deprecated style: a semi-colon is not needed here\n   |\n60 |         invariant forall r | q <= r < j :: a[r] < x;\n   |                                                    ^\n\nprogram.dfy(78,58): Warning: deprecated style: a semi-colon is not needed here\n   |\n78 |     requires forall p,q | 0 <= p < q < |a| :: a[p] >= a[q];\n   |                                                           ^\n\n\nDafny program verifier finished with 6 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

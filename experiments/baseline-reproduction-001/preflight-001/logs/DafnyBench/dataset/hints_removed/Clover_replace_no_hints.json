@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_replace_no_hints.dfy",
+  "sha256": "6fc484a290e9fffb1a0fb2b41e82ece59757ce167b93db5b84e874a6df929c44",
+  "bytes": 334,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,2): Error: a postcondition could not be proved on this return path\n  |\n7 |   while i < arr.Length\n  |   ^^^^^\n\nprogram.dfy(3,10): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures forall i :: 0 <= i < arr.Length ==> old(arr[i]) > k ==> arr[i] == -1\n  |           ^^^^^^\n\nprogram.dfy(7,2): Error: a postcondition could not be proved on this return path\n  |\n7 |   while i < arr.Length\n  |   ^^^^^\n\nprogram.dfy(4,10): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures forall i :: 0 <= i < arr.Length ==> old(arr[i]) <= k ==> arr[i] == old(arr[i])\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

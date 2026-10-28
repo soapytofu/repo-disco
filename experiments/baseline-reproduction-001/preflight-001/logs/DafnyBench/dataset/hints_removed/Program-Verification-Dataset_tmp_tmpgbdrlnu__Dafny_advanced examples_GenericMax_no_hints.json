@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_GenericMax_no_hints.dfy",
+  "sha256": "8d50a84c2667c87aee93f7c70f5ea4b31715c4ba203d7cf7b70f816015e446a8",
+  "bytes": 571,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,48): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |   requires forall x, y :: cmp(x, y) || cmp(y, x);\n  |                                                 ^\n\nprogram.dfy(5,65): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |   requires forall x, y, z :: cmp(x, y) && cmp(y, z) ==> cmp(x, z);\n  |                                                                  ^\n\nprogram.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<A>')\n  |\n2 |   requires a != null && a.Length > 0\n  |              ^^\n\nprogram.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(7,10): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures forall x :: 0 <= x < a.Length ==>\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

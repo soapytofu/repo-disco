@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Software-Verification_tmp_tmpv4ueky2d_Best Time to Buy and Sell Stock_best_time_to_buy_and_sell_stock_no_hints.dfy",
+  "sha256": "0c18b6117aa2464c53240b5e66d228cf5f0057cb2bad51ced7ef44007953bed7",
+  "bytes": 651,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall i, j :: 0 <= i < j < prices.Length ==> max_profit >= prices[j] - prices[i]\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

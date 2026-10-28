@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/vmware-verification-2023_tmp_tmpoou5u54i_demos_leader_election_no_hints.dfy",
+  "sha256": "d48f0b107cd23dd0401a7d808ab718f93a905e7dceb0795949f3ed743b227596",
+  "bytes": 4727,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(159,37): Error: possible violation of postcondition of forall statement\n    |\n159 |       ensures v'.highest_heard[node] > c.ids[node]\n    |                                      ^\n\nprogram.dfy(174,67): Error: possible violation of postcondition of forall statement\n    |\n174 |   forall i, j | IsLeader(c, v', i) && IsLeader(c, v', j) ensures i == j {\n    |                                                                    ^^\n\n\nDafny program verifier finished with 13 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

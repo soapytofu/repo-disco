@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/vfag_tmp_tmpc29dxm1j_sumar_componentes_no_hints.dfy",
+  "sha256": "79bcfdfb705329d397481bfc01a73d1c952cbb7cf7e2fb5d08ac0250cfc90130",
+  "bytes": 671,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(4,16): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures  suma == suma_aux(V, 0)\t// x = V[0] + V[1] + ... + V[N - 1]\n  |                 ^^\n\nprogram.dfy(23,21): Error: index out of range\n   |\n23 |     \tsuma := suma + V[n - 1] ;\n   |                      ^\n\nprogram.dfy(50,41): Error: cannot prove termination; try supplying a decreases clause\n   |\n50 |                      else V[n] + suma_aux(V, n + 1)\t\t// Caso recursivo: n < N\n   |                                          ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny1_BDD_no_hints.dfy",
+  "sha256": "ca6ced8bc102b9ca5f405a9a54dba80b8fa6a12d91c68c2c76f35b24679a46d9",
+  "bytes": 1579,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(53,4): Error: a postcondition could not be proved on this return path\n   |\n53 |     {\n   |     ^\n\nprogram.dfy(52,16): Related location: this is the postcondition that could not be proved\n   |\n52 |       ensures b == Contents[s]\n   |                 ^^\n\nprogram.dfy(58,36): Error: value of expression (of type 'BDDNode?') is not known to be an instance of type 'BDDNode', because it might be null\n   |\n58 |         node := if s[n-i] then node.t else node.f;\n   |                                     ^\n\nprogram.dfy(58,48): Error: value of expression (of type 'BDDNode?') is not known to be an instance of type 'BDDNode', because it might be null\n   |\n58 |         node := if s[n-i] then node.t else node.f;\n   |                                                 ^\n\n\nDafny program verifier finished with 4 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

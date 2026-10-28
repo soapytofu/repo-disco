@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Prog-Fun-Solutions_tmp_tmp7_gmnz5f_mockExam2_p6_no_hints.dfy",
+  "sha256": "210eb6cae1891c5d2004ca694dbb34935ec79536838762052f6f5e9f800af186",
+  "bytes": 529,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,10): Related location: this is the postcondition that could not be proved\n   |\n17 | ensures a == fSum(n)\n   |           ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session5Exercises_ExerciseSumElems_no_hints.dfy",
+  "sha256": "f4143ee8af53a649b9820a6bd507662c469877b18e5f145f2320bca72d2fd59e",
+  "bytes": 3343,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(121,55): Warning: deprecated style: a semi-colon is not needed here\n    |\n121 | \tensures forall v : array<T>  :: v[..v.Length] == v[..];\n    |                                                        ^\n\nprogram.dfy(122,48): Warning: deprecated style: a semi-colon is not needed here\n    |\n122 | \tensures forall v : array<T>  :: v[0..] == v[..];\n    |                                                 ^\n\nprogram.dfy(123,57): Warning: deprecated style: a semi-colon is not needed here\n    |\n123 |   ensures forall v : array<T>  :: v[0..v.Length] == v[..];\n    |                                                          ^\n\nprogram.dfy(125,58): Warning: deprecated style: a semi-colon is not needed here\n    |\n125 | \tensures forall v : array<T>  ::|v[0..v.Length]|==v.Length;\n    |                                                           ^\n\nprogram.dfy(126,74): Warning: deprecated style: a semi-colon is not needed here\n    |\n126 |   ensures forall v : array<T> | v.Length>=1 ::|v[1..v.Length]|==v.Length-1;\n    |                                                                           ^\n\nprogram.dfy(54,16): Error: a postcondition could not be proved on this return path\n   |\n54 |   else if(s==[]){\n   |                 ^\n\nprogram.dfy(49,18): Related location: this is the postcondition that could not be proved\n   |\n49 | ensures SumL(s+t) == SumL(s)+SumL(t)\n   |                   ^^\n\nprogram.dfy(86,24): Error: the calculation step between the previous line and this line could not be proved\n   |\n86 |         SumR(s[i..j-1]) + s[j-1];\n   |                         ^\n\nprogram.dfy(95,12): Error: the calculation step between the previous line and this line could not be proved\n   |\n95 |         SumL(s[i..j]);\n   |             ^\n\nprogram.dfy(138,0): Error: a postcondition could not be proved on this return path\n    |\n138 | {ArrayFacts<int>();\n    | ^\n\nprogram.dfy(135,11): Related location: this is the postcondition that could not be proved\n    |\n135 | ensures sum==SumR(v[..])\n    |            ^^\n\nprogram.dfy(153,0): Error: a postcondition could not be proved on this return path\n    |\n153 | {\n    | ^\n\nprogram.dfy(152,11): Related location: this is the postcondition that could not be proved\n    |\n152 | ensures sum==SumR(v[0..v.Length])\n    |            ^^\n\n\nDafny program verifier finished with 15 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

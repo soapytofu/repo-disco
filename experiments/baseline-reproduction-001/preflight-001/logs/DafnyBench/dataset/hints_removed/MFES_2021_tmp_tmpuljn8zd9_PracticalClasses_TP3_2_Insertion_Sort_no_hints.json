@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MFES_2021_tmp_tmpuljn8zd9_PracticalClasses_TP3_2_Insertion_Sort_no_hints.dfy",
+  "sha256": "1e7c36e3dcceb3f820c356975babf78b2e881be448b9ae45d2828cb3b3dce501",
+  "bytes": 752,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,4): Error: a postcondition could not be proved on this return path\n  |\n8 |     while i < a.Length \n  |     ^^^^^\n\nprogram.dfy(4,20): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures isSorted(a, 0, a.Length)\n  |                     ^\n\nprogram.dfy(25,4): Related location: this proposition could not be proved\n   |\n25 |     forall i, j :: from <= i < j < to ==> a[i] <= a[j]\n   |     ^^^^^^\n\nprogram.dfy(8,4): Error: a postcondition could not be proved on this return path\n  |\n8 |     while i < a.Length \n  |     ^^^^^\n\nprogram.dfy(5,28): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures multiset(a[..]) == multiset(old(a[..]))\n  |                             ^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

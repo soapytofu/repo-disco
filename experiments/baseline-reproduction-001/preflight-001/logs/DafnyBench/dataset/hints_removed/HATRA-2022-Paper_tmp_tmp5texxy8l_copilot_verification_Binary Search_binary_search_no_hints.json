@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/HATRA-2022-Paper_tmp_tmp5texxy8l_copilot_verification_Binary Search_binary_search_no_hints.dfy",
+  "sha256": "ddf7f39451396e3fbfe332424426718892fd7e13bb7feb7ffe9601ab44da00d9",
+  "bytes": 1516,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(55,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n55 | requires -1 <= index < arr.Length;\n   |                                  ^\n\nprogram.dfy(15,14): Error: index out of range\n   |\n15 |         if arr[mid] == target\n   |               ^\n\n\nDafny program verifier finished with 5 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

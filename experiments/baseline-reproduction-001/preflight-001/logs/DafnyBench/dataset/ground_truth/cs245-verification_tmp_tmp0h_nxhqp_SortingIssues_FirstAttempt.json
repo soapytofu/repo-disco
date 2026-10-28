@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/cs245-verification_tmp_tmp0h_nxhqp_SortingIssues_FirstAttempt.dfy",
+  "sha256": "27f1d4ae245bc81fb7ac2d31238f586a8c5ca3394343ea25be84dc57dad0df46",
+  "bytes": 823,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(10,10): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | modifies A; requires n==A.Length;\n   |           ^\n\nprogram.dfy(10,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | modifies A; requires n==A.Length;\n   |                                 ^\n\nprogram.dfy(11,35): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | /* Pre-Condition */   requires n>=0;            \n   |                                    ^\n\nprogram.dfy(12,67): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 | /* Post-Condition */  ensures forall i,j:: 0<=i<=j<n ==> A[i]<=A[j];  //This states that A is sorted.\n   |                                                                    ^\n\nprogram.dfy(19,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |   invariant k<=n;\n   |                 ^\n\nprogram.dfy(20,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |   invariant forall i:: 0<=i<k ==> A[i]==i;\n   |                                          ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

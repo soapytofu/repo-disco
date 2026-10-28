@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_AI_agent_verify_examples_IncrementMatrix_no_hints.dfy",
+  "sha256": "b5b1b51e0267759c2cd6c225f85dc41c13585a84daafd10851edd09f3e9c4ee7",
+  "bytes": 358,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n6 |     while m != a.Length0\n  |     ^^^^^\n\nprogram.dfy(6,4): Error: a postcondition could not be proved on this return path\n  |\n6 |     while m != a.Length0\n  |     ^^^^^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures forall i, j :: 0 <= i < a.Length0 && 0 <= j < a.Length1 ==> a[i,j] == old(a[i,j]) + 1\n  |             ^^^^^^\n\nprogram.dfy(11,14): Error: index 0 out of range\n   |\n11 |             a[m,n] := a[m,n] + 1;\n   |               ^\n\nprogram.dfy(11,16): Error: index 1 out of range\n   |\n11 |             a[m,n] := a[m,n] + 1;\n   |                 ^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

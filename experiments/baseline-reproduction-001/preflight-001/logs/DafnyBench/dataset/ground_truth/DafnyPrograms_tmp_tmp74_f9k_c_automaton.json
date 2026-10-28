@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/DafnyPrograms_tmp_tmp74_f9k_c_automaton.dfy",
+  "sha256": "0d3a886e4bdb1550d4d1a30564c0412119b570ff00685ae4896edf2cea02a36d",
+  "bytes": 5887,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(20,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |   ensures table[0] == init;\n   |                           ^\n\nprogram.dfy(109,2): Error: assertion might not hold\n    |\n109 |   assert(result[1] == [false, true, true, true, false]); // after the first step\n    |   ^^^^^^\n\nprogram.dfy(110,2): Error: assertion might not hold\n    |\n110 |   assert(result[2] == [true, true, true, true, true]); // after the second step\n    |   ^^^^^^\n\nprogram.dfy(116,2): Error: assertion might not hold\n    |\n116 |   assert(result2[1] == [false, false, false, false, false]); // after the first step\n    |   ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

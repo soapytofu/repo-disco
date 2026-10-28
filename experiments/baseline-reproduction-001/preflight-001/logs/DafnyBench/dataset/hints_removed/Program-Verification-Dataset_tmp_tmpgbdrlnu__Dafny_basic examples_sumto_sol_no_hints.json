@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_sumto_sol_no_hints.dfy",
+  "sha256": "3641d20752f4441092a62699344a2e0ecd74d2e0b4e806e04df9f585089b7187",
+  "bytes": 894,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,28): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |   ensures r == sum_up_to (n);\n  |                             ^\n\nprogram.dfy(27,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 |   requires |a| > 0;\n   |                   ^\n\nprogram.dfy(28,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n28 |   requires 0 <= i < |a|;\n   |                        ^\n\nprogram.dfy(29,53): Warning: deprecated style: a semi-colon is not needed here\n   |\n29 |   ensures total (a[0..i]) + a[i] == total (a[0..i+1]);\n   |                                                      ^\n\nprogram.dfy(44,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n44 |   ensures r == total (a[0..|a|]); \n   |                                 ^\n\nprogram.dfy(10,0): Error: a postcondition could not be proved on this return path\n   |\n10 | {\n   | ^\n\nprogram.dfy(9,12): Related location: this is the postcondition that could not be proved\n  |\n9 |   ensures r == sum_up_to (n);\n  |             ^^\n\nprogram.dfy(45,0): Error: a postcondition could not be proved on this return path\n   |\n45 | {\n   | ^\n\nprogram.dfy(44,12): Related location: this is the postcondition that could not be proved\n   |\n44 |   ensures r == total (a[0..|a|]); \n   |             ^^\n\n\nDafny program verifier finished with 5 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

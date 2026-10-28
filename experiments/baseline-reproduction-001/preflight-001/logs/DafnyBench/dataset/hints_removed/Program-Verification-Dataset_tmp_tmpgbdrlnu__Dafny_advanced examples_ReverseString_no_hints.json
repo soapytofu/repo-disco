@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_ReverseString_no_hints.dfy",
+  "sha256": "e4e75ebcafa915bda843554edafe826713bde4d3b603a9e9f0f8e61d8ec6df27",
+  "bytes": 1077,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'arr' to have the value 'null', declare its type to be 'array?<char>')\n  |\n4 | requires arr != null && outarr != null\n  |              ^^\n\nprogram.dfy(4,31): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'outarr' to have the value 'null', declare its type to be 'array?<char>')\n  |\n4 | requires arr != null && outarr != null\n  |                                ^^\n\nprogram.dfy(13,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'arr' to have the value 'null', declare its type to be 'array?<char>')\n   |\n13 | requires arr != null && arr.Length > 0\n   |              ^^\n\nprogram.dfy(14,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'outarr' to have the value 'null', declare its type to be 'array?<char>')\n   |\n14 | ensures outarr != null && arr.Length == outarr.Length && reversed(arr,outarr)\n   |                ^^\n\nprogram.dfy(15,0): Error: a postcondition could not be proved on this return path\n   |\n15 | {\n   | ^\n\nprogram.dfy(14,65): Related location: this is the postcondition that could not be proved\n   |\n14 | ensures outarr != null && arr.Length == outarr.Length && reversed(arr,outarr)\n   |                                                                  ^\n\nprogram.dfy(9,2): Related location: this proposition could not be proved\n  |\n9 |   forall k :: 0<=k<=arr.Length-1 ==> outarr[k] == arr[(arr.Length-1-k)]\n  |   ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

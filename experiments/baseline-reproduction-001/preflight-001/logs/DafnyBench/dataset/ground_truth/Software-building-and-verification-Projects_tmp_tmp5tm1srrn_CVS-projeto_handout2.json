@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Software-building-and-verification-Projects_tmp_tmp5tm1srrn_CVS-projeto_handout2.dfy",
+  "sha256": "a1fff1976007835f7bd01c5b3c515d601e3966e4b40d4d3700f0392933a537aa",
+  "bytes": 8821,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(75,22): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n75 |     ensures hash(key) >= 0\n   |                       ^^\n\nprogram.dfy(194,14): Error: a precondition for this call could not be proved\n    |\n194 |         rehash(r, newData, i, oldSize, newSize);\n    |               ^\n\nprogram.dfy(171,13): Related location: this is the precondition that could not be proved\n    |\n171 |     requires forall j :: 0 <= j < newSize ==> valid_hash(newData, j)\n    |              ^^^^^^\n\n\nDafny program verifier finished with 21 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

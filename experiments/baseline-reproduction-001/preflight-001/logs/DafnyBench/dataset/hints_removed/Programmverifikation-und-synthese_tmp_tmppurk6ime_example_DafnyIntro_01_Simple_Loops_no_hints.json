@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Programmverifikation-und-synthese_tmp_tmppurk6ime_example_DafnyIntro_01_Simple_Loops_no_hints.dfy",
+  "sha256": "3240d5edef83263e3d9a1ab507cbee23a6bd0b5dd4caefc10099a196525c1b4f",
+  "bytes": 1543,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(45,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n45 | ensures sum == n*n;\n   |                   ^\n\nprogram.dfy(27,0): Error: a postcondition could not be proved on this return path\n   |\n27 | {\n   | ^\n\nprogram.dfy(26,12): Related location: this is the postcondition that could not be proved\n   |\n26 | ensures sum == n*(n+1)/2     // \n   |             ^^\n\nprogram.dfy(46,0): Error: a postcondition could not be proved on this return path\n   |\n46 | {\n   | ^\n\nprogram.dfy(45,12): Related location: this is the postcondition that could not be proved\n   |\n45 | ensures sum == n*n;\n   |             ^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

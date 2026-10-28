@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_sumto_sol.dfy",
+  "sha256": "b98272596312c8a29bfe53cd482b5dd393a91faecaefdcefa3dae9a015bdb544",
+  "bytes": 1020,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(9,28): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |   ensures r == sum_up_to (n);\n  |                             ^\n\nprogram.dfy(14,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     invariant 0 <= i <= n;\n   |                          ^\n\nprogram.dfy(15,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |     invariant r == sum_up_to (i);\n   |                                 ^\n\nprogram.dfy(29,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n29 |   requires |a| > 0;\n   |                   ^\n\nprogram.dfy(30,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n30 |   requires 0 <= i < |a|;\n   |                        ^\n\nprogram.dfy(31,53): Warning: deprecated style: a semi-colon is not needed here\n   |\n31 |   ensures total (a[0..i]) + a[i] == total (a[0..i+1]);\n   |                                                      ^\n\nprogram.dfy(46,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n46 |   ensures r == total (a[0..|a|]); \n   |                                 ^\n\nprogram.dfy(51,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n51 |     invariant 0 <= i <= |a|;\n   |                            ^\n\nprogram.dfy(52,34): Warning: deprecated style: a semi-colon is not needed here\n   |\n52 |     invariant r == total (a[0..i]);\n   |                                   ^\n\n\nDafny program verifier finished with 7 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

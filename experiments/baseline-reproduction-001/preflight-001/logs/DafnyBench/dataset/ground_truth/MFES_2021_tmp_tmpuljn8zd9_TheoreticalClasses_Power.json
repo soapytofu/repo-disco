@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/MFES_2021_tmp_tmpuljn8zd9_TheoreticalClasses_Power.dfy",
+  "sha256": "ecbec5f22f02913c951f7e173343f59d7893f3b29bdf6cf5f721f6d190c21ca4",
+  "bytes": 2875,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(34,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n34 |   ensures p == power(x, n);\n   |                           ^\n\nprogram.dfy(35,13): Warning: deprecated style: a semi-colon is not needed here\n   |\n35 |   decreases n;\n   |              ^\n\nprogram.dfy(58,21): Warning: Could not find a trigger for the induction hypothesis. Without a trigger, this may cause brittle verification. Change or remove the {:induction} attribute to generate a different induction hypothesis, or add {:nowarn} to silence this warning. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n58 | lemma {:induction a} distributiveProperty(x: real, a: nat, b: nat) \n   |                      ^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(60,0): Error: a postcondition could not be proved on this return path\n   |\n60 | {\n   | ^\n\nprogram.dfy(59,37): Related location: this is the postcondition that could not be proved\n   |\n59 |   ensures power(x, a) * power(x, b)  == power(x, a + b) \n   |                                      ^^\n\n\nDafny program verifier finished with 6 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

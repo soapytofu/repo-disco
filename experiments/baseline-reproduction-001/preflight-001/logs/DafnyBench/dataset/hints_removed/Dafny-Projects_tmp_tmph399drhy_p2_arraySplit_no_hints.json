@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Projects_tmp_tmph399drhy_p2_arraySplit_no_hints.dfy",
+  "sha256": "7ce7b27c2e9d966b74f3a1e255fbaa1b8e0eda9e3fbe41d8ad6f6e73711fb85b",
+  "bytes": 758,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(4,16): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures a[..] == b[..] + c[..]\n  |                 ^^\n\nprogram.dfy(33,5): Error: index out of range\n   |\n33 |     c[j] := a[i];\n   |      ^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

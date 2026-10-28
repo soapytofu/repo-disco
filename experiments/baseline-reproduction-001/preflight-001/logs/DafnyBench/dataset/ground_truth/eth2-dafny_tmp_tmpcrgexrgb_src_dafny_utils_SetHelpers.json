@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/eth2-dafny_tmp_tmpcrgexrgb_src_dafny_utils_SetHelpers.dfy",
+  "sha256": "b8cbedc5729ac8e7bc00710f22b39dc5542ee4df63884a55bd9b2b92e247481a",
+  "bytes": 5164,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(86,22): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n86 |         requires x == set x: nat | 0 <= x < k :: x\n   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(85,25): Warning: Could not find a trigger for the induction hypothesis. Without a trigger, this may cause brittle verification. Change or remove the {:induction} attribute to generate a different induction hypothesis, or add {:nowarn} to silence this warning. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n85 |     lemma {:induction k} successiveNatSetCardBound(x : set<nat>, k : nat) \n   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 7 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/pucrs-metodos-formais-t1_tmp_tmp7gvq3cw4_fila_no_hints.dfy",
+  "sha256": "d2e4014b8b194e006d2e386b75f41affd390b3a50b91be306efbf299cc1b2f9d",
+  "bytes": 3605,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |   var a: array<int>;\n   |                    ^\n\nprogram.dfy(22,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 |   var cauda: nat;\n   |                 ^\n\nprogram.dfy(23,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   const defaultSize: nat;\n   |                         ^\n\nprogram.dfy(25,30): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |   ghost var Conteudo: seq<int>;\n   |                               ^\n\nprogram.dfy(110,4): Error: a postcondition could not be proved on this return path\n    |\n110 |     return r;\n    |     ^^^^^^^^^\n\nprogram.dfy(95,14): Related location: this is the postcondition that could not be proved\n   |\n95 |     ensures r <==> exists i :: 0 <= i < cauda && e == a[i]\n   |               ^^^^\n\nprogram.dfy(122,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n    |\n122 |     while i < cauda\n    |     ^^^^^\n\nprogram.dfy(125,17): Error: call might violate context's modifies clause\n    |\n125 |       r.enfileira(valor);\n    |                  ^\n\nprogram.dfy(125,17): Error: a precondition for this call could not be proved\n    |\n125 |       r.enfileira(valor);\n    |                  ^\n\nprogram.dfy(60,9): Related location: this is the precondition that could not be proved\n   |\n60 |   method enfileira(e:int)\n   |          ^^^^^^^^^\n\nprogram.dfy(28,18): Related location: this proposition could not be proved\n   |\n28 |   ghost predicate Valid()  {\n   |                   ^^^^^\n\nprogram.dfy(125,17): Error: a precondition for this call could not be proved\n    |\n125 |       r.enfileira(valor);\n    |                  ^\n\nprogram.dfy(60,9): Related location: this is the precondition that could not be proved\n   |\n60 |   method enfileira(e:int)\n   |          ^^^^^^^^^\n\nprogram.dfy(28,18): Related location: this proposition could not be proved\n   |\n28 |   ghost predicate Valid()  {\n   |                   ^^^^^\n\nprogram.dfy(125,17): Error: a precondition for this call could not be proved\n    |\n125 |       r.enfileira(valor);\n    |                  ^\n\nprogram.dfy(60,9): Related location: this is the precondition that could not be proved\n   |\n60 |   method enfileira(e:int)\n   |          ^^^^^^^^^\n\nprogram.dfy(28,18): Related location: this proposition could not be proved\n   |\n28 |   ghost predicate Valid()  {\n   |                   ^^^^^\n\n\nDafny program verifier finished with 12 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

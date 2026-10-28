@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MFES_2021_tmp_tmpuljn8zd9_TheoreticalClasses_Power_no_hints.dfy",
+  "sha256": "587c8972a0fad84a49f2ff8fa29f8455439ac817f1c4bab8cf4b7b3fa871c263",
+  "bytes": 2730,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(31,26): Warning: deprecated style: a semi-colon is not needed here\n   |\n31 |   ensures p == power(x, n);\n   |                           ^\n\nprogram.dfy(54,21): Warning: Could not find a trigger for the induction hypothesis. Without a trigger, this may cause brittle verification. Change or remove the {:induction} attribute to generate a different induction hypothesis, or add {:nowarn} to silence this warning. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n54 | lemma {:induction a} distributiveProperty(x: real, a: nat, b: nat) \n   |                      ^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(17,0): Error: a postcondition could not be proved on this return path\n   |\n17 | {\n   | ^\n\nprogram.dfy(16,12): Related location: this is the postcondition that could not be proved\n   |\n16 |   ensures p == power(x, n)\n   |             ^^\n\nprogram.dfy(56,0): Error: a postcondition could not be proved on this return path\n   |\n56 | {\n   | ^\n\nprogram.dfy(55,37): Related location: this is the postcondition that could not be proved\n   |\n55 |   ensures power(x, a) * power(x, b)  == power(x, a + b) \n   |                                      ^^\n\n\nDafny program verifier finished with 5 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

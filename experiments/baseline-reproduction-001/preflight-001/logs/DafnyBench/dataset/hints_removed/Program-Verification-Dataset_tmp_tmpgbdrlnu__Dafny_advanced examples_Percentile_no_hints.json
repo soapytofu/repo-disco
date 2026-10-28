@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_Percentile_no_hints.dfy",
+  "sha256": "ccb917dd88416e14365874a573d7eee4b693f943f063c8d715e7e282cfcf2abb",
+  "bytes": 2582,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(27,0): Error: a postcondition could not be proved on this return path\n   |\n27 | {\n   | ^\n\nprogram.dfy(25,24): Related location: this is the postcondition that could not be proved\n   |\n25 |   ensures SumUpto(A, i) <= (p/100.0) * total\n   |                         ^^\n\nprogram.dfy(27,0): Error: a postcondition could not be proved on this return path\n   |\n27 | {\n   | ^\n\nprogram.dfy(26,45): Related location: this is the postcondition that could not be proved\n   |\n26 |   ensures i+1 < A.Length ==> SumUpto(A, i+1) > (p/100.0) * total\n   |                                              ^\n\nprogram.dfy(31,32): Error: index out of range\n   |\n31 |   while i+1 != A.Length && s + A[i+1] <= (p/100.0) * total\n   |                                 ^\n\nprogram.dfy(31,32): Error: index out of range\n   |\n31 |   while i+1 != A.Length && s + A[i+1] <= (p/100.0) * total\n   |                                 ^\n\nprogram.dfy(82,2): Error: a postcondition could not be proved on this return path\n   |\n82 |   if i1+1< i2 {\n   |   ^^^^^^^^^^^^^\n\nprogram.dfy(80,13): Related location: this is the postcondition that could not be proved\n   |\n80 |   ensures i1 == i2\n   |              ^^\n\n\nDafny program verifier finished with 8 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

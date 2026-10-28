@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Clover_insert.dfy",
+  "sha256": "0b0d661c8e67f38a4d498e0f3c6666af4d9401cfba5c3b079d2f36542b0be3e0",
+  "bytes": 1060,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(8,10): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures forall i :: (at+p<=i<l+p) ==> line[i] == old(line[i-p])\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

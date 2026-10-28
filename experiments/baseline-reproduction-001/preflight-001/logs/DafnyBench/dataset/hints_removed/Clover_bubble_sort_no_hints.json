@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_bubble_sort_no_hints.dfy",
+  "sha256": "896e610bc72542da4572ab254af08832829520ac3fe9a04c57a146a7c68b5a50",
+  "bytes": 372,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,2): Error: a postcondition could not be proved on this return path\n  |\n7 |   while (i > 0)\n  |   ^^^^^\n\nprogram.dfy(3,10): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures forall i,j::0<= i < j < a.Length ==> a[i] <= a[j]\n  |           ^^^^^^\n\nprogram.dfy(7,2): Error: a postcondition could not be proved on this return path\n  |\n7 |   while (i > 0)\n  |   ^^^^^\n\nprogram.dfy(4,25): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures multiset(a[..])==multiset(old(a[..]))\n  |                          ^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

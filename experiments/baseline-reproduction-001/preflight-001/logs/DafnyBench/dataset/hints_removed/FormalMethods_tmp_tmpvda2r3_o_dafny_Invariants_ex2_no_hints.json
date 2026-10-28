@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FormalMethods_tmp_tmpvda2r3_o_dafny_Invariants_ex2_no_hints.dfy",
+  "sha256": "08e68f22764f16383b8e602982357327a7342f39bd074ab93bd722550a1400e3",
+  "bytes": 557,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,4): Error: a postcondition could not be proved on this return path\n   |\n20 |     return r;\n   |     ^^^^^^^^^\n\nprogram.dfy(9,10): Related location: this is the postcondition that could not be proved\n  |\n9 | ensures r == Potencia(x,y)\n  |           ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

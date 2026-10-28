@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/formal-methods-in-software-engineering_tmp_tmpe7fjnek6_Labs4_gr2.dfy",
+  "sha256": "11f45f5685fa167c06d9e4102841debeb63a19a7fa131a4f82bb33937ed38ae0",
+  "bytes": 4266,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(100,24): Warning: deprecated style: a semi-colon is not needed here\n    |\n100 | \t\tinvariant (x + y) == n;\n    |                         ^\n\nprogram.dfy(50,1): Warning: assume statement has no {:axiom} annotation\n   |\n50 | \tassume k == i*i;   // P = precondition\n   |  ^^^^^^\n\n\nDafny program verifier finished with 12 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

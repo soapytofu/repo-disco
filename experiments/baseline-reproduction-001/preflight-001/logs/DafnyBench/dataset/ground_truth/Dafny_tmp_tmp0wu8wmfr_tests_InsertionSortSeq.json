@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_tmp_tmp0wu8wmfr_tests_InsertionSortSeq.dfy",
+  "sha256": "481b65b4b90bbed783d0e7c9af4d7a3b8177ee790efeb791b1cb52411a271ac8",
+  "bytes": 805,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(11,38): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |     ensures multiset(r) == multiset(s);\n   |                                       ^\n\nprogram.dfy(12,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     ensures IsSorted(r);\n   |                        ^\n\nprogram.dfy(17,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |         decreases rest;\n   |                       ^\n\nprogram.dfy(18,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |         invariant multiset(s) == multiset(r)+multiset(rest);\n   |                                                            ^\n\nprogram.dfy(19,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |         invariant IsSorted(r);\n   |                              ^\n\nprogram.dfy(26,35): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 |             invariant 0 <= k <= |r|;\n   |                                    ^\n\nprogram.dfy(27,51): Warning: deprecated style: a semi-colon is not needed here\n   |\n27 |             invariant forall p | k<=p<|r| :: r[p]>x;\n   |                                                    ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

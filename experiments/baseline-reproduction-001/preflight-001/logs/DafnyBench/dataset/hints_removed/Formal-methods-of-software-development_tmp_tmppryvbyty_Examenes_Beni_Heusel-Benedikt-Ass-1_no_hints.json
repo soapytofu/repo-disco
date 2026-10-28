@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Formal-methods-of-software-development_tmp_tmppryvbyty_Examenes_Beni_Heusel-Benedikt-Ass-1_no_hints.dfy",
+  "sha256": "724774097eed64d26f8116aba69b7c15f658e499c47b2ba202599f0288bd3a72",
+  "bytes": 6449,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(17,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | requires n >= 3;\n   |                ^\n\nprogram.dfy(141,17): Error: cannot establish the existence of LHS values that satisfy the such-that predicate\n    |\n141 |       var k: int :| 2*k + 1 == x;\n    |                  ^^^^^^^^^^^^^^^^\n\nprogram.dfy(143,17): Error: cannot establish the existence of LHS values that satisfy the such-that predicate\n    |\n143 |       var b: int :| 2*b + 1 == y;\n    |                  ^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 13 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseBubbleSort.dfy",
+  "sha256": "989d60019ff035025bfae20723e370138e092305809cbb07953aec1ce02b74fb",
+  "bytes": 2677,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(33,34): Error: this invariant could not be proved to be maintained by the loop\n Related message: loop invariant violation\n   |\n33 |       invariant multiset(a[c..f]) == old(multiset(a[c..f])) \n   |                                   ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

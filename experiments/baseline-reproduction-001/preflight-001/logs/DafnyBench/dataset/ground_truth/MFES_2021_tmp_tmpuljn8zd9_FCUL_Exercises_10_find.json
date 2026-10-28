@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/MFES_2021_tmp_tmpuljn8zd9_FCUL_Exercises_10_find.dfy",
+  "sha256": "3e07b0816124b1cdef0b97e3df53287462edde636b303829f070715df8129009",
+  "bytes": 415,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,25): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires a.Length > 0;\n  |                          ^\n\nprogram.dfy(3,34): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |     ensures 0 <= index <= a.Length;\n  |                                   ^\n\nprogram.dfy(4,48): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     ensures index < a.Length ==> a[index] == key;\n  |                                                 ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

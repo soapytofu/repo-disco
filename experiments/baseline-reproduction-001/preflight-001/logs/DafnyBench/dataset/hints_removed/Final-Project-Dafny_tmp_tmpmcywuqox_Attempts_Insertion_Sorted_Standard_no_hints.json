@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Insertion_Sorted_Standard_no_hints.dfy",
+  "sha256": "9616e8c52b6c5fc5e6a4357a98f1a61b1fa1c06a338db00fe069672c5155de48",
+  "bytes": 659,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(15,2): Error: a postcondition could not be proved on this return path\n   |\n15 |   while (high < Array.Length) \n   |   ^^^^^\n\nprogram.dfy(11,25): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures InsertionSorted(Array, 0, Array.Length) \n   |                          ^\n\nprogram.dfy(5,2): Related location: this proposition could not be proved\n  |\n5 |   forall i,j :: left <= i < j < right ==> Array[i] <= Array[j]\n  |   ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

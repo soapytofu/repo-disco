@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_GenericMax.dfy",
+  "sha256": "d2989684e8f8bfc2fb35406d577f8b010a91c5e4396836f1335e96f65144e1a8",
+  "bytes": 660,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,48): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |   requires forall x, y :: cmp(x, y) || cmp(y, x);\n  |                                                 ^\n\nprogram.dfy(5,65): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |   requires forall x, y, z :: cmp(x, y) && cmp(y, z) ==> cmp(x, z);\n  |                                                                  ^\n\nprogram.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<A>')\n  |\n2 |   requires a != null && a.Length > 0\n  |              ^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

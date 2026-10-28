@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/protocol-verification-fa2023_tmp_tmpw6hy3mjp_demos_ch03_nim_v3_no_hints.dfy",
+  "sha256": "dd53eacb284e43666c2ca8bab5585dc1e4ba7e0af830b7c4a6495757b603f849",
+  "bytes": 2539,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(66,0): Error: a postcondition could not be proved on this return path\n   |\n66 | {\n   | ^\n\nprogram.dfy(65,10): Related location: this is the postcondition that could not be proved\n   |\n65 |   ensures forall i:nat | i + 1 < |b| :: Next(b[i], b[i+1])\n   |           ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

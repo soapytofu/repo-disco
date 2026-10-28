@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_lib_seq.dfy",
+  "sha256": "c7e27314648923f22d61356ac3d72e0ff866f3ef8329e6bbaec869c05bb78353",
+  "bytes": 15749,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(88,74): Warning: deprecated style: a semi-colon is not needed here\n   |\n88 |         ensures exists yss: seq<T> :: ys == xs + yss && |yss| == |ys|-|xs|;\n   |                                                                           ^\n\n\nDafny program verifier finished with 52 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

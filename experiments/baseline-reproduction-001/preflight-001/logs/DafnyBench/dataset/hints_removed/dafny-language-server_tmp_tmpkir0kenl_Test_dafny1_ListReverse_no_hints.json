@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny1_ListReverse_no_hints.dfy",
+  "sha256": "644c067861b12b986c9075b48ee2184b10d63c8a88498c835e7fc595513055af",
+  "bytes": 669,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(8,32): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 |     requires x == null || x in r;\n  |                                 ^\n\nprogram.dfy(9,65): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |     requires (forall y :: y in r ==> y.nxt == null || y.nxt in r);  // region closure\n  |                                                                  ^\n\nprogram.dfy(10,14): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |     modifies r;\n   |               ^\n\nprogram.dfy(11,43): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |     ensures reverse == null || reverse in r;\n   |                                            ^\n\nprogram.dfy(12,64): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     ensures (forall y :: y in r ==> y.nxt == null || y.nxt in r);  // region closure\n   |                                                                 ^\n\nprogram.dfy(16,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n16 |     while (current != null)\n   |     ^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

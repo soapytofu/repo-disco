@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_examples_bubblesort.dfy",
+  "sha256": "3f9fdb9faae9c10f3c6fcb3e236f103232cd9ded7b8a952340f765da22789b1e",
+  "bytes": 1687,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(27,0): Error: a postcondition could not be proved on this return path\n   |\n27 | {}\n   | ^\n\nprogram.dfy(25,27): Related location: this is the postcondition that could not be proved\n   |\n25 |   ensures SumRange(lo, hi) ==\n   |                            ^^\n\n\nDafny program verifier finished with 5 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

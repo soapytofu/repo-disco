@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_Verify_tmp_tmphq7j0row_Generated_Code_15.dfy",
+  "sha256": "c5b937c439c8d7644e76d110f32324b272dddf495cc94093492f3220c13ca6a9",
+  "bytes": 287,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,18): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires n > 0;\n  |                   ^\n\nprogram.dfy(3,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | \trequires k > n;\n  |                ^\n\nprogram.dfy(4,19): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | \tensures k_out >= 0;\n  |                    ^\n\nprogram.dfy(9,29): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |         invariant 0 <= j <= n;\n  |                              ^\n\nprogram.dfy(10,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |         invariant k_out == k - j;\n   |                                 ^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

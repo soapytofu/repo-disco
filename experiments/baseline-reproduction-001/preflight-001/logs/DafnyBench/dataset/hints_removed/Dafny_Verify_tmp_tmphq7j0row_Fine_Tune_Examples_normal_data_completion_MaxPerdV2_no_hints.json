@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_Fine_Tune_Examples_normal_data_completion_MaxPerdV2_no_hints.dfy",
+  "sha256": "832e659b0bccb845b950726e2f80d00a0d5943586fc502cfe7f9d4fecccb0ef0",
+  "bytes": 637,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(23,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   requires 0 < n <= a.Length;\n   |                             ^\n\nprogram.dfy(24,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |   ensures is_max(max, a, n);\n   |                            ^\n\nprogram.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(24,16): Related location: this is the postcondition that could not be proved\n   |\n24 |   ensures is_max(max, a, n);\n   |                 ^\n\nprogram.dfy(19,10): Related location: this proposition could not be proved\n   |\n19 |   contains(m, a, n) && upper_bound(m, a, n)\n   |           ^\n\nprogram.dfy(5,2): Related location: this proposition could not be proved\n  |\n5 |   exists j :: 0 <= j < n && a[j] == v\n  |   ^^^^^^\n\nprogram.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(24,16): Related location: this is the postcondition that could not be proved\n   |\n24 |   ensures is_max(max, a, n);\n   |                 ^\n\nprogram.dfy(19,34): Related location: this proposition could not be proved\n   |\n19 |   contains(m, a, n) && upper_bound(m, a, n)\n   |                                   ^\n\nprogram.dfy(12,2): Related location: this proposition could not be proved\n   |\n12 |   forall j :: 0 <= j < n ==> a[j] <= v\n   |   ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

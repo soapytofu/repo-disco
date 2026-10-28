@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_tmp_tmp0wu8wmfr_Heimaverkefni 8_H8.dfy",
+  "sha256": "ce4852799a4c5440cc7456c4771a1eedb04ef6923b171c98fb463be891611b88",
+  "bytes": 2132,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(11,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |     requires |m| > 0;\n   |                     ^\n\nprogram.dfy(12,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     ensures p in m;\n   |                   ^\n\nprogram.dfy(13,37): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |     ensures m == pre+multiset{p}+post;\n   |                                      ^\n\nprogram.dfy(14,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     ensures forall z | z in pre :: z <= p;\n   |                                          ^\n\nprogram.dfy(15,42): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |     ensures forall z | z in post :: z >= p;\n   |                                           ^\n\nprogram.dfy(23,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |         decreases m';\n   |                     ^\n\nprogram.dfy(24,52): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |         invariant m == m' + pre + multiset{p} + post;\n   |                                                     ^\n\nprogram.dfy(25,47): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |         invariant forall k | k in pre :: k <= p;\n   |                                                ^\n\nprogram.dfy(26,48): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 |         invariant forall k | k in post :: k >= p;\n   |                                                 ^\n\nprogram.dfy(52,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n52 |     decreases m;\n   |                ^\n\nprogram.dfy(53,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n53 |     requires 0 <= k < |m|;\n   |                          ^\n\nprogram.dfy(54,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n54 |     ensures kth in m;\n   |                     ^\n\nprogram.dfy(55,39): Warning: deprecated style: a semi-colon is not needed here\n   |\n55 |     ensures m == pre+multiset{kth}+post;\n   |                                        ^\n\nprogram.dfy(56,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n56 |     ensures |pre| == k;\n   |                       ^\n\nprogram.dfy(57,43): Warning: deprecated style: a semi-colon is not needed here\n   |\n57 |     ensures forall z | z in pre :: z <= kth;\n   |                                            ^\n\nprogram.dfy(58,44): Warning: deprecated style: a semi-colon is not needed here\n   |\n58 |     ensures forall z | z in post :: z >= kth;\n   |                                             ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

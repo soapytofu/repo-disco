@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/veri-sparse_tmp_tmp15fywna6_dafny_dspmspv_no_hints.dfy",
+  "sha256": "31e5c5316b5ae4b808d6e1cf0f96328f7ec37ac94782a3933fcb184ee5673b2d",
+  "bytes": 3874,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(62,76): Warning: deprecated style: a semi-colon is not needed here\n   |\n62 |   requires forall i, j :: 0 <= i < j < X_pos.Length ==> X_pos[i] <= X_pos[j];\n   |                                                                             ^\n\nprogram.dfy(17,9): Error: cannot prove termination; try supplying a decreases clause\n   |\n17 |       sum(X_val, X_crd, v_val, v_crd, kX + 1, kV + 1, pX_end, pV_end) + v_val[kV] * X_val[kX]\n   |          ^\n\nprogram.dfy(19,9): Error: cannot prove termination; try supplying a decreases clause\n   |\n19 |       sum(X_val, X_crd, v_val, v_crd, kX + 1, kV, pX_end, pV_end)\n   |          ^\n\nprogram.dfy(20,12): Error: cannot prove termination; try supplying a decreases clause\n   |\n20 |     else sum(X_val, X_crd, v_val, v_crd, kX, kV + 1, pX_end, pV_end)\n   |             ^\n\nprogram.dfy(80,2): Error: a postcondition could not be proved on this return path\n   |\n80 |   {\n   |   ^\n\nprogram.dfy(75,10): Related location: this is the postcondition that could not be proved\n   |\n75 |   ensures forall i :: 0 <= i < y.Length ==> \n   |           ^^^^^^\n\n\nDafny program verifier finished with 6 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

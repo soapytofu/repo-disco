@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_Bug144.dfy",
+  "sha256": "3f067d8df478869eafb6df31a2c75640526b14e9b9ed5b9d1001a7151c3b338c",
+  "bytes": 464,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(18,24): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |     var arr : array<int>;\n   |                         ^\n\nprogram.dfy(10,2): Warning: assume statement has no {:axiom} annotation\n   |\n10 |   assume exists i :: p(i);\n   |   ^^^^^^\n\nprogram.dfy(24,8): Warning: assume statement has no {:axiom} annotation\n   |\n24 |         assume exists i :: p(i);\n   |         ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_tmp_tmp59p638nn_examples_realExponent.dfy",
+  "sha256": "ddef589224f8d9facb670f46e9f22807d836d38ce1f0a5ae59a45fe7eccc5c60",
+  "bytes": 1719,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,28): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n4 |     ensures power(n, alpha) > 0.0\n  |                             ^\n\nprogram.dfy(8,26): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n8 |     ensures log(n, alpha) > 0.0\n  |                           ^\n\nprogram.dfy(12,39): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n12 |     ensures log(power(n,alpha), alpha) == n\n   |                                        ^^\n\nprogram.dfy(13,40): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n13 |     ensures power(log(n, alpha), alpha) == n\n   |                                         ^^\n\nprogram.dfy(19,25): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n19 |     ensures log(n,alpha) == log(x, alpha) +  log(y, alpha)\n   |                          ^^\n\nprogram.dfy(23,36): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n23 |     ensures power(n, alpha) * alpha == power(n+1.0, alpha)\n   |                                     ^^\n\nprogram.dfy(27,30): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n27 |     ensures power(1.0, alpha) == alpha\n   |                               ^^\n\n\nDafny program verifier finished with 10 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

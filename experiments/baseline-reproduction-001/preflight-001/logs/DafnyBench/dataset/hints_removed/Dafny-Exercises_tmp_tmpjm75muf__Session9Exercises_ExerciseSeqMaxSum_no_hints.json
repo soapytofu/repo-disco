@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session9Exercises_ExerciseSeqMaxSum_no_hints.dfy",
+  "sha256": "8784a41def46b197713c7098bec9cd959098ae7cb39bcac4a82c86da8cac0073",
+  "bytes": 1309,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,0): Error: a postcondition could not be proved on this return path\n   |\n21 | {\n   | ^\n\nprogram.dfy(20,12): Related location: this is the postcondition that could not be proved\n   |\n20 | ensures 0<=k<=i && s==Sum(v,k,i+1) &&  SumMaxToRight(v,i,s)\n   |             ^^\n\nprogram.dfy(21,0): Error: a postcondition could not be proved on this return path\n   |\n21 | {\n   | ^\n\nprogram.dfy(20,20): Related location: this is the postcondition that could not be proved\n   |\n20 | ensures 0<=k<=i && s==Sum(v,k,i+1) &&  SumMaxToRight(v,i,s)\n   |                     ^^\n\nprogram.dfy(21,0): Error: a postcondition could not be proved on this return path\n   |\n21 | {\n   | ^\n\nprogram.dfy(20,52): Related location: this is the postcondition that could not be proved\n   |\n20 | ensures 0<=k<=i && s==Sum(v,k,i+1) &&  SumMaxToRight(v,i,s)\n   |                                                     ^\n\nprogram.dfy(15,0): Related location: this proposition could not be proved\n   |\n15 | forall l,ss {:induction l}::0<=l<=i && ss==i+1==> Sum(v,l,ss)<=s\n   | ^^^^^^\n\nprogram.dfy(41,18): Error: cannot prove termination; try supplying a decreases clause\n   |\n41 |     else v[i]+Sum2(v,i+1,j)\n   |                   ^\n\nprogram.dfy(54,0): Error: a postcondition could not be proved on this return path\n   |\n54 | {\n   | ^\n\nprogram.dfy(52,12): Related location: this is the postcondition that could not be proved\n   |\n52 | ensures 0<=k<=i && s==Sum2(v,k,i+1) &&  SumMaxToRight2(v,0,i,s)\n   |             ^^\n\nprogram.dfy(54,0): Error: a postcondition could not be proved on this return path\n   |\n54 | {\n   | ^\n\nprogram.dfy(52,20): Related location: this is the postcondition that could not be proved\n   |\n52 | ensures 0<=k<=i && s==Sum2(v,k,i+1) &&  SumMaxToRight2(v,0,i,s)\n   |                     ^^\n\nprogram.dfy(54,0): Error: a postcondition could not be proved on this return path\n   |\n54 | {\n   | ^\n\nprogram.dfy(52,54): Related location: this is the postcondition that could not be proved\n   |\n52 | ensures 0<=k<=i && s==Sum2(v,k,i+1) &&  SumMaxToRight2(v,0,i,s)\n   |                                                       ^\n\nprogram.dfy(48,2): Related location: this proposition could not be proved\n   |\n48 | {(forall l,ss {:induction l}::j<=l<=i && ss==i+1 ==> Sum2(v,l,ss)<=s)}\n   |   ^^^^^^\n\n\nDafny program verifier finished with 5 verified, 7 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

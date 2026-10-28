@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_only_once_no_hints.dfy",
+  "sha256": "e9fa3480aa1e5e38aab96858789d142db8ab504b55f1a9e99a40adddb2433ee5",
+  "bytes": 342,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,38): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures (multiset(a[..])[key] ==1 ) <==> b\n  |                                       ^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

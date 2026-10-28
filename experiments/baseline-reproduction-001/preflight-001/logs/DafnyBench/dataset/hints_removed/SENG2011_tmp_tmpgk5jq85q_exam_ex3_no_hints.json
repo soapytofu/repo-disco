@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_exam_ex3_no_hints.dfy",
+  "sha256": "2e559878e05bcabafc0c40dbe8dcecf2c6a26c2193034798b0d89332046f4219",
+  "bytes": 640,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(18,4): Error: a postcondition could not be proved on this return path\n   |\n18 |     return true;\n   |     ^^^^^^^^^^^^\n\nprogram.dfy(2,25): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures flag == true ==> forall x :: 0 <= x < a.Length ==> a[x] == a[a.Length - x - 1]\n  |                          ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

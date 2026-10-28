@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_examples_tmp_tmp8qotd4ez_leetcode_0277-find-the-celebrity.dfy",
+  "sha256": "3a997861fd6aa9de599ee55780d42cf40076890ff514e85fc9ac00e6eaab7e79",
+  "bytes": 1542,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,29): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | requires n >= 0 && 0 <= i < n;\n  |                              ^\n\nprogram.dfy(17,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | requires n >= 0 && 0 <= i < n;\n   |                              ^\n\nprogram.dfy(18,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 | ensures r <==> isCelebrity(n, i);\n   |                                 ^\n\nprogram.dfy(23,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |     decreases n - j;\n   |                    ^\n\nprogram.dfy(24,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |     invariant 0 <= j <= n;\n   |                          ^\n\nprogram.dfy(25,84): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |     invariant r ==> forall k :: 0 <= k < j && k != i ==> knows(k, i) && !knows(i, k);\n   |                                                                                     ^\n\nprogram.dfy(38,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n38 | requires 2 <= n <= 100;\n   |                       ^\n\nprogram.dfy(39,40): Warning: deprecated style: a semi-colon is not needed here\n   |\n39 | ensures 0 <= r < n ==> isCelebrity(n, r);\n   |                                         ^\n\nprogram.dfy(40,65): Warning: deprecated style: a semi-colon is not needed here\n   |\n40 | ensures r == -1 ==> forall i :: 0 <= i < n ==> !isCelebrity(n, i);\n   |                                                                  ^\n\nprogram.dfy(45,25): Warning: deprecated style: a semi-colon is not needed here\n   |\n45 |     invariant 1 <= i <= n;\n   |                          ^\n\nprogram.dfy(46,77): Warning: deprecated style: a semi-colon is not needed here\n   |\n46 |     invariant forall j :: 0 <= j < i && j != candidate ==> !isCelebrity(n, j);\n   |                                                                              ^\n\nprogram.dfy(47,32): Warning: deprecated style: a semi-colon is not needed here\n   |\n47 |     invariant 0 <= candidate < i;\n   |                                 ^\n\n\nDafny program verifier finished with 6 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

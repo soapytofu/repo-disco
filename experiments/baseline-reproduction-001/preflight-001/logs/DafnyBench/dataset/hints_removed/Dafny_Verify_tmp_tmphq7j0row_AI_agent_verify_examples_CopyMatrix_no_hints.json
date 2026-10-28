@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_AI_agent_verify_examples_CopyMatrix_no_hints.dfy",
+  "sha256": "167ebdceb0cf4cc97513d427006d43d039a7ce11564680f94fe006ca5c011d3b",
+  "bytes": 431,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n7 |     while m != src.Length0\n  |     ^^^^^\n\nprogram.dfy(7,4): Error: a postcondition could not be proved on this return path\n  |\n7 |     while m != src.Length0\n  |     ^^^^^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures forall i, j :: 0 <= i < src.Length0 && 0 <= j < src.Length1 ==> dst[i,j] == old(src[i,j]) \n  |             ^^^^^^\n\nprogram.dfy(12,16): Error: index 0 out of range\n   |\n12 |             dst[m,n] := src[m,n]; n := n + 1;\n   |                 ^\n\nprogram.dfy(12,18): Error: index 1 out of range\n   |\n12 |             dst[m,n] := src[m,n]; n := n + 1;\n   |                   ^\n\n\nDafny program verifier finished with 1 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

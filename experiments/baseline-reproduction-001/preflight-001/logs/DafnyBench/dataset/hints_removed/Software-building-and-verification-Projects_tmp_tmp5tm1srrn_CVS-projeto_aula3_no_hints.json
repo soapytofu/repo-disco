@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Software-building-and-verification-Projects_tmp_tmp5tm1srrn_CVS-projeto_aula3_no_hints.dfy",
+  "sha256": "ee1ba81584cd0377e163f78f9c62f15a1174607acfd94980bb6a0c1320efe7af",
+  "bytes": 1644,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(26,2): Error: a postcondition could not be proved on this return path\n   |\n26 |   return r;\n   |   ^^^^^^^^^\n\nprogram.dfy(8,12): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures r == fib(n)\n  |             ^^\n\nprogram.dfy(43,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n43 |   while (ll != Nil)\n   |   ^^^^^\n\nprogram.dfy(57,0): Error: a postcondition could not be proved on this return path\n   |\n57 | {\n   | ^\n\nprogram.dfy(55,10): Related location: this is the postcondition that could not be proved\n   |\n55 |   ensures forall i: int :: 0 <= i < arr.Length ==> arr[i] <= max\n   |           ^^^^^^\n\nprogram.dfy(57,0): Error: a postcondition could not be proved on this return path\n   |\n57 | {\n   | ^\n\nprogram.dfy(56,10): Related location: this is the postcondition that could not be proved\n   |\n56 |   ensures exists x::0 <= x < arr.Length && arr[x] == max\n   |           ^^^^^^\n\nprogram.dfy(75,0): Error: a postcondition could not be proved on this return path\n   |\n75 | {\n   | ^\n\nprogram.dfy(73,10): Related location: this is the postcondition that could not be proved\n   |\n73 |   ensures forall i: int :: 0 <= i < arr.Length ==> arr[i] <= max\n   |           ^^^^^^\n\nprogram.dfy(75,0): Error: a postcondition could not be proved on this return path\n   |\n75 | {\n   | ^\n\nprogram.dfy(74,10): Related location: this is the postcondition that could not be proved\n   |\n74 |   ensures exists x::0 <= x < arr.Length && arr[x] == max\n   |           ^^^^^^\n\nprogram.dfy(97,0): Error: a postcondition could not be proved on this return path\n   |\n97 | {\n   | ^\n\nprogram.dfy(96,12): Related location: this is the postcondition that could not be proved\n   |\n96 |   ensures r == sum(n)\n   |             ^^\n\n\nDafny program verifier finished with 5 verified, 7 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

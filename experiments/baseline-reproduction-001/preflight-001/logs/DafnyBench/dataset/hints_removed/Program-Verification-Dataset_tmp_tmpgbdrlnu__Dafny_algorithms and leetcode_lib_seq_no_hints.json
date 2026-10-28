@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_lib_seq_no_hints.dfy",
+  "sha256": "fb49ec1aed01c38dc8a5367678631dc5c2d84991b7416f92aee7da8d396c8fa9",
+  "bytes": 12495,
+  "partition": "hints_removed",
+  "exit_code": 124,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(79,74): Warning: deprecated style: a semi-colon is not needed here\n   |\n79 |         ensures exists yss: seq<T> :: ys == xs + yss && |yss| == |ys|-|xs|;\n   |                                                                           ^\n\nprogram.dfy(31,29): Error: a postcondition could not be proved on this return path\n   |\n31 |             }else if t-s > 0 {\n   |                              ^\n\nprogram.dfy(27,31): Related location: this is the postcondition that could not be proved\n   |\n27 |         ensures xs[k..j][s..t] == xs[(k+s)..(k+s+(t-s))]\n   |                                ^^\n\nprogram.dfy(63,25): Error: a postcondition could not be proved on this return path\n   |\n63 |         } else if t <= j {\n   |                          ^\n\nprogram.dfy(41,27): Related location: this is the postcondition that could not be proved\n   |\n41 |         ensures isSubstring(subsub, super)\n   |                            ^\n\nprogram.dfy(21,28): Related location: this proposition could not be proved\n   |\n21 |         |sub| <= |super| && exists k,j :: 0 <= k < j <= |super| && sub == super[k..j]\n   |                             ^^^^^^\n\nprogram.dfy(80,4): Error: a postcondition could not be proved on this return path\n   |\n80 |     {\n   |     ^\n\nprogram.dfy(79,16): Related location: this is the postcondition that could not be proved\n   |\n79 |         ensures exists yss: seq<T> :: ys == xs + yss && |yss| == |ys|-|xs|;\n   |                 ^^^^^^\n\nprogram.dfy(134,14): Error: a postcondition could not be proved on this return path\n    |\n134 |         }else {\n    |               ^\n\nprogram.dfy(130,29): Related location: this is the postcondition that could not be proved\n    |\n130 |         ensures multiset(xs) == multiset(reverse(xs))\n    |                              ^^\n\nprogram.dfy(164,21): Error: a postcondition could not be proved on this return path\n    |\n164 |         if |xs| == 0 {\n    |                      ^\n\nprogram.dfy(161,33): Related location: this is the postcondition that could not be proved\n    |\n161 |         ensures reverse(xs + ys) == reverse(ys) + reverse(xs)\n    |                                  ^^\n\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-programs_tmp_tmpcwodh6qh_src_expt_no_hints.dfy",
+  "sha256": "f5a249ac98330fb6cb7746ba971894183d479c5c647ce0a111b90cf60c68aa7f",
+  "bytes": 467,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,34): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n21 |   ensures Expt(x, a) * Expt(x, b) == Expt(x, a + b)\n   |                                   ^^\n\nprogram.dfy(9,0): Error: a postcondition could not be proved on this return path\n  |\n9 | {\n  | ^\n\nprogram.dfy(8,14): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures res == Expt(b, n)\n  |               ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

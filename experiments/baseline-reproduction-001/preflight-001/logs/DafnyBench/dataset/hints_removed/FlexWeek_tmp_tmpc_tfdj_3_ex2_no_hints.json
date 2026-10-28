@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FlexWeek_tmp_tmpc_tfdj_3_ex2_no_hints.dfy",
+  "sha256": "4fe152529480d0e66208f1076e11958f68cb677517fd2a4e292a0ff13514948c",
+  "bytes": 660,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,8): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures forall x :: 0<=x<b.Length ==> b[x] == abs(a[x])\n   |         ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

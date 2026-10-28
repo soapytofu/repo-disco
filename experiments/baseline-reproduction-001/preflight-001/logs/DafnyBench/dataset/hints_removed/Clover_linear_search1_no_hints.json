@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_linear_search1_no_hints.dfy",
+  "sha256": "c016c9fb5ee73887bb5ab4fc723a9fe71a1c504e368a54ad69fb88361715e821",
+  "bytes": 247,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(9,11): Error: index out of range\n  |\n9 |     if e==a[n]{\n  |            ^\n\nprogram.dfy(10,6): Error: a postcondition could not be proved on this return path\n   |\n10 |       return;\n   |       ^^^^^^^\n\nprogram.dfy(4,10): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures forall i::0<=i < n ==> e!=a[i]\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

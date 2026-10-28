@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/FlexWeek_tmp_tmpc_tfdj_3_reverse.dfy",
+  "sha256": "174ac252809966da0fe808c274c4d94a05da0a60ce6fe4f29db7fbe07f0409a0",
+  "bytes": 1687,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(17,69): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | ensures forall k :: 0 <= k < a.Length ==> b[k] == a[(a.Length-1) - k];\n   |                                                                      ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

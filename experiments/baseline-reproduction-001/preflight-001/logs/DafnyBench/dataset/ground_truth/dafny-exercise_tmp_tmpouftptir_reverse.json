@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-exercise_tmp_tmpouftptir_reverse.dfy",
+  "sha256": "fb8bc0597a5fa442ffd3e382f9c308374dd2b332b6ec40ad7d4398b2b025a643",
+  "bytes": 670,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(3,13): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n3 | ensures a == old(a)\n  |              ^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

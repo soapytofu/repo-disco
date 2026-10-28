@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny4_ClassRefinement_no_hints.dfy",
+  "sha256": "903fd1b9d50a7bcc660ffa2069c7a596ff3f0f46cdbe9b4a366095f2a3126497",
+  "bytes": 1754,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(68,9): Warning: the ... refinement feature in statements is deprecated\n   |\n68 |       ...;\n   |          ^\n\nprogram.dfy(73,9): Warning: the ... refinement feature in statements is deprecated\n   |\n73 |       ...;\n   |          ^\n\nprogram.dfy(74,13): Warning: the ... refinement feature in statements is deprecated\n   |\n74 |       modify ... {\n   |              ^^^\n\nprogram.dfy(74,17): Warning: the modify statement with a block statement is deprecated\n   |\n74 |       modify ... {\n   |                  ^\n\nprogram.dfy(19,6): Warning: assume statement has no {:axiom} annotation\n   |\n19 |       assume Valid();  // to be verified in refinement module\n   |       ^^^^^^\n\nprogram.dfy(30,6): Warning: assume statement has no {:axiom} annotation\n   |\n30 |       assume Valid();  // to be verified in refinement module\n   |       ^^^^^^\n\nprogram.dfy(37,11): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n   |\n37 |       n :| assume n == N;\n   |            ^^^^^^\n\nprogram.dfy(19,6): Warning: assume statement has no {:axiom} annotation\n   |\n19 |       assume Valid();  // to be verified in refinement module\n   |       ^^^^^^\n\nprogram.dfy(42,7): Related location: refining module\n   |\n42 | module M1 refines M0 {\n   |        ^^\n\nprogram.dfy(30,6): Warning: assume statement has no {:axiom} annotation\n   |\n30 |       assume Valid();  // to be verified in refinement module\n   |       ^^^^^^\n\nprogram.dfy(42,7): Related location: refining module\n   |\n42 | module M1 refines M0 {\n   |        ^^\n\n\nDafny program verifier finished with 11 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

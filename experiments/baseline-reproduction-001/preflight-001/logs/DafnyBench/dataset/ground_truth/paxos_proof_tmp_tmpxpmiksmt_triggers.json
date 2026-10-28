@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/paxos_proof_tmp_tmpxpmiksmt_triggers.dfy",
+  "sha256": "526e43c5d91a83b3ecf2b085a546a1799211ffb7cf5ee6b934ea4cf8f7a80197",
+  "bytes": 276,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(10,4): Warning: assume statement has no {:axiom} annotation\n   |\n10 |     assume forall i {:trigger a[i]} :: 0 <= i < |a|-1 ==> a[i] <= a[i+1];\n   |     ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

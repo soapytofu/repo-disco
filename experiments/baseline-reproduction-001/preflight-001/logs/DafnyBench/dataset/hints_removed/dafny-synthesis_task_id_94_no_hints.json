@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_94_no_hints.dfy",
+  "sha256": "57867a9d174b879e896587e7e078623e0e916e2394dc34f393f4724d74279e28",
+  "bytes": 516,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,12): Warning: unusual indentation in body of exists (which ends at line 5, column 62); do you perhaps need parentheses?\n  |\n4 |     ensures exists i :: 0 <= i < s.Length && firstOfMinSecond == s[i][0] && \n  |             ^^^^^^\n\nprogram.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(4,12): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures exists i :: 0 <= i < s.Length && firstOfMinSecond == s[i][0] && \n  |             ^^^^^^\n\nprogram.dfy(10,22): Error: index out of range\n   |\n10 |         if s[i][1] < s[minSecondIndex][1]\n   |                       ^\n\nprogram.dfy(15,25): Error: index out of range\n   |\n15 |     firstOfMinSecond := s[minSecondIndex][0];\n   |                          ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

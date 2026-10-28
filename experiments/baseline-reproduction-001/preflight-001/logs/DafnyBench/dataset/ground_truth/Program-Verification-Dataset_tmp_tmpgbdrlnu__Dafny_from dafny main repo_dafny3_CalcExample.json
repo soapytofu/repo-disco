@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny3_CalcExample.dfy",
+  "sha256": "163c98c01fdbaee081b9cf9a0ad85a15356b39b6d84768639703c89958457c9c",
+  "bytes": 5820,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(9,24): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n9 |   ensures f(x, f(y, z)) == f(f(x, y), z)\n  |                         ^^\n\nprogram.dfy(13,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n13 |   ensures forall x :: f(x, y) <= f(x, z)\n   |           ^^^^^^\n\nprogram.dfy(16,18): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n16 |   ensures f(x, x) == x\n   |                   ^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

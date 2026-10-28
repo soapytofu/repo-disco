@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-synthesis_task_id_94.dfy",
+  "sha256": "2d5a0b41cf4ea29e16883dee897c02cd6f0ff78c053ac9c71dd88e2f2708d3ce",
+  "bytes": 672,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,12): Warning: unusual indentation in body of exists (which ends at line 5, column 62); do you perhaps need parentheses?\n  |\n4 |     ensures exists i :: 0 <= i < s.Length && firstOfMinSecond == s[i][0] && \n  |             ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

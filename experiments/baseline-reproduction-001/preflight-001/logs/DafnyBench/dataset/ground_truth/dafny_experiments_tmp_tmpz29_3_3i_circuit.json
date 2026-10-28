@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_experiments_tmp_tmpz29_3_3i_circuit.dfy",
+  "sha256": "35c4112ff86ae11092ff45af3d8a229d015e27b2d5752d073866a82500ebccde",
+  "bytes": 14664,
+  "partition": "ground_truth",
+  "exit_code": 124,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(93,54): Warning: deprecated style: a semi-colon is not needed here\n   |\n93 |         ensures forall x :: x in A <==> f(x) in result;\n   |                                                       ^\n\nprogram.dfy(94,62): Warning: deprecated style: a semi-colon is not needed here\n   |\n94 |         ensures forall x :: x in A ==> g(A[x]) == result[f(x)];\n   |                                                               ^\n\nprogram.dfy(148,56): Warning: deprecated style: a semi-colon is not needed here\n    |\n148 |             result == CombineBackconns(offset, bc1, bc2);\n    |                                                         ^\n\nprogram.dfy(171,56): Warning: deprecated style: a semi-colon is not needed here\n    |\n171 |             result == CombineBackconns(offset, bc1, bc2);\n    |                                                         ^\n\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-synthesis_task_id_170.dfy",
+  "sha256": "bb5557dd386f631f9448e87160077cea0a7cf11591f5c5d255e6d2fda1d0f795",
+  "bytes": 656,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,22): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires a != null;\n  |                       ^\n\nprogram.dfy(3,58): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |     requires 0 <= start && start <= end && end <= a.Length;\n  |                                                           ^\n\nprogram.dfy(4,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     decreases end;\n  |                  ^\n\nprogram.dfy(5,11): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |     reads a;\n  |            ^\n\nprogram.dfy(2,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |     requires a != null;\n  |                ^^\n\nprogram.dfy(11,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n11 |     requires a != null\n   |                ^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

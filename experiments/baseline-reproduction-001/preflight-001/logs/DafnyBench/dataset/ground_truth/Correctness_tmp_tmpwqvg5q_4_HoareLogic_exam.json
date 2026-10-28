@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Correctness_tmp_tmpwqvg5q_4_HoareLogic_exam.dfy",
+  "sha256": "0ff71ad0c40500cd93ed53eff35fc2a4f9b313bbe772d372f11c724f16521c6e",
+  "bytes": 1918,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,22): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n6 |     ensures gcd(a, 0) == a\n  |                       ^^\n\nprogram.dfy(9,22): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n9 |     ensures gcd(a, a) == a\n  |                       ^^\n\nprogram.dfy(12,22): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n12 |     ensures gcd(a, b) == gcd(b, a)\n   |                       ^^\n\nprogram.dfy(15,18): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n15 |     ensures b > 0 ==> gcd(a, b) == gcd(b, a % b)\n   |                   ^^^\n\n\nDafny program verifier finished with 6 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

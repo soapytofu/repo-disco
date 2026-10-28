@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Clover_even_list.dfy",
+  "sha256": "3635f932caa65057881a84fd9ce2047e169e1829c764735a27ab261597975e46",
+  "bytes": 1418,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(5,10): Related location: this is the postcondition that could not be proved\n  |\n5 |   ensures forall k, l :: 0 <= k < l < evenNumbers.Length ==>\n  |           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

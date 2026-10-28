@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week1_7_week5_ComputePower_no_hints.dfy",
+  "sha256": "873978d7af1b24f2cb910b9dcd736457bb119577d0c230362cfb8e4b695b10bf",
+  "bytes": 321,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |     ensures p == 2*n;\n  |                     ^\n\nprogram.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(13,14): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures p == Power(n)\n   |               ^^\n\nprogram.dfy(17,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n17 |     while i!=n\n   |     ^^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

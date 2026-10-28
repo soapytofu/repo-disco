@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/summer-school-2020_tmp_tmpn8nf7zf0_chapter02_solutions_exercise03_solution_no_hints.dfy",
+  "sha256": "20bba474aa272ff7324182b8a9a803e6c9ececab0b74c401b651ad640fce5cac",
+  "bytes": 2278,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,0): Error: a postcondition could not be proved on this return path\n   |\n20 | {\n   | ^\n\nprogram.dfy(19,18): Related location: this is the postcondition that could not be proved\n   |\n19 |   ensures SortSpec(input, output)\n   |                   ^\n\nprogram.dfy(9,22): Related location: this proposition could not be proved\n  |\n9 |   && multiset(output) == multiset(input)\n  |                       ^^\n\nprogram.dfy(54,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n54 |   while ai < |a| || bi < |b|\n   |   ^^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

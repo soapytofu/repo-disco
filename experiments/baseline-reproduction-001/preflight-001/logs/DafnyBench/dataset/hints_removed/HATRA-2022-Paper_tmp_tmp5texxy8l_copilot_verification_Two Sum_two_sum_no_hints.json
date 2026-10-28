@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/HATRA-2022-Paper_tmp_tmp5texxy8l_copilot_verification_Two Sum_two_sum_no_hints.dfy",
+  "sha256": "c769a09cf0cc382c64c821db3ca7bc2c705a75c633dbd2d939e921bd601b6f9f",
+  "bytes": 629,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(4,19): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures index1 != index2\n  |                    ^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(5,14): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures 0 <= index1 < nums.Length\n  |               ^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | {\n  | ^\n\nprogram.dfy(5,24): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures 0 <= index1 < nums.Length\n  |                         ^\n\nprogram.dfy(23,0): Error: out-parameter 'index1', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n23 | }\n   | ^\n\nprogram.dfy(23,0): Error: out-parameter 'index2', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n23 | }\n   | ^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_add_by_one_no_hints.dfy",
+  "sha256": "71a8409b6bf1f80d5479ce6f5b14730c1ba5bf60c975442bc3b4c4368d7728fe",
+  "bytes": 1204,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires y >= 0;\n  |                  ^\n\nprogram.dfy(3,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   ensures r == x + y;\n  |                     ^\n\nprogram.dfy(77,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n77 |   requires y >= 0;\n   |                  ^\n\nprogram.dfy(78,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n78 |   ensures r == x + y;\n   |                     ^\n\nprogram.dfy(88,2): Warning: assume statement has no {:axiom} annotation\n   |\n88 |   assume (i <= y && r == x + i);\n   |   ^^^^^^\n\nprogram.dfy(90,2): Warning: assume statement has no {:axiom} annotation\n   |\n90 |   assume (y-i >= 0);\n   |   ^^^^^^\n\nprogram.dfy(103,4): Warning: assume statement has no {:axiom} annotation\n    |\n103 |     assume (false);\n    |     ^^^^^^\n\nprogram.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   return r;\n   |   ^^^^^^^^^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures r == x + y;\n  |             ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

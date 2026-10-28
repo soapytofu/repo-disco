@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MIEIC_mfes_tmp_tmpq3ho7nve_exams_special_20_p5_no_hints.dfy",
+  "sha256": "28dbc13777eaac1742e93d8659568ad892d201d468a2bea65cc272e6b13cf6bc",
+  "bytes": 1302,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(28,18): Error: index out of range\n   |\n28 |             case a[mid] < x => low := mid + 1;\n   |                   ^\n\nprogram.dfy(29,18): Error: index out of range\n   |\n29 |             case a[mid] > x => high := mid;\n   |                   ^\n\nprogram.dfy(33,4): Error: a postcondition could not be proved on this return path\n   |\n33 |     return low;\n   |     ^^^^^^^^^^^\n\nprogram.dfy(15,23): Related location: this is the postcondition that could not be proved\n   |\n15 |     ensures 0 <= index <= a.Length\n   |                        ^^\n\nprogram.dfy(33,4): Error: a postcondition could not be proved on this return path\n   |\n33 |     return low;\n   |     ^^^^^^^^^^^\n\nprogram.dfy(19,37): Related location: this is the postcondition that could not be proved\n   |\n19 |     ensures index > 0 ==> a[index-1] <= x\n   |                                      ^^\n\nprogram.dfy(33,4): Error: a postcondition could not be proved on this return path\n   |\n33 |     return low;\n   |     ^^^^^^^^^^^\n\nprogram.dfy(20,42): Related location: this is the postcondition that could not be proved\n   |\n20 |     ensures index < a.Length ==> a[index] >= x\n   |                                           ^^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

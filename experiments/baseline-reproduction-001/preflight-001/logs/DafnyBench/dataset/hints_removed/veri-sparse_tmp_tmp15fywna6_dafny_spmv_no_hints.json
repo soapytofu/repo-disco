@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/veri-sparse_tmp_tmp15fywna6_dafny_spmv_no_hints.dfy",
+  "sha256": "df6d28b7ae32c9d0283461e231c72cff40195c3b0130732c0f83bfb7b4eb2931",
+  "bytes": 1997,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,39): Warning: deprecated style: a semi-colon is not needed here\n   |\n16 |   requires X_crd.Length == X_val.Length;\n   |                                        ^\n\nprogram.dfy(17,76): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |   requires forall i, j :: 0 <= i < j < X_pos.Length ==> X_pos[i] <= X_pos[j];\n   |                                                                             ^\n\nprogram.dfy(10,13): Error: cannot prove termination; try supplying a decreases clause\n   |\n10 |     else  sum(X_val, X_crd, v, b + 1, k) + X_val[b] * v[X_crd[b]]\n   |              ^\n\nprogram.dfy(23,2): Error: a postcondition could not be proved on this return path\n   |\n23 |   {\n   |   ^\n\nprogram.dfy(22,10): Related location: this is the postcondition that could not be proved\n   |\n22 |   ensures forall i :: 0 <= i < y.Length ==> y[i] == sum(X_val, X_crd, v, X_pos[i], X_pos[i + 1])\n   |           ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

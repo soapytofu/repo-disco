@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_all_digits_no_hints.dfy",
+  "sha256": "4930bfc3984a9c422705109ce5628027d0082c9ffa09e08fcab643be1513c0e4",
+  "bytes": 236,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,18): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures  result <==> (forall i :: 0 <= i < |s| ==> s[i] in \"0123456789\")\n  |                   ^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

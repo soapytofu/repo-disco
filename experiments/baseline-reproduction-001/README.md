@@ -176,3 +176,24 @@ Harvard forbids combining test with other partitions. The paid continuation stil
 targets shared/sapphire.
 
 Reference: [FASRC running jobs](https://docs.rc.fas.harvard.edu/kb/running-jobs/#test).
+
+## Reviewed preflight and frozen smoke
+
+Job 55802277 completed on test in **12m11s**, zero model calls. All 1,567 input
+hashes, report classifications, source/tool versions and deterministic ordering
+were checked by review_preflight.py. The pinned legacy filter yields **555**
+eligible inputs, matching the paper count; exact paper identity remains unknown.
+There are 72 eligible inputs with non-proof exits. The fixed first 20 contain
+17 proof failures and three parse failures; these are retained, not replaced.
+
+The legacy success heuristic searches for the substring `0 errors`, rather than
+requiring exit zero or parsing the final error count. legacy-classification-audit.json
+separates warning-related nonzero exits and substring false positives. This is
+preserved for reproduction and reported alongside strict outcomes; it must not
+be treated as sound proof success. Candidate/specification review remains required.
+
+frozen-smoke-001 contains the exact twenty sources, initial diagnostics, final
+prompts, explicit settings and code hashes. Ground-truth sources are excluded
+from prompts. The input dataset's Apache license is retained as DafnyBench-LICENSE.txt.
+Full preflight logs and archive hashes are saved. Both preflight gates are now
+reviewed, and the bounded combined continuation is ready for one submission.

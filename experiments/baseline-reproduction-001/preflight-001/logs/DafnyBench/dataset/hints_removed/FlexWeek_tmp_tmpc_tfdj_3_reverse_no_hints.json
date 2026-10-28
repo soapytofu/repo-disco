@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FlexWeek_tmp_tmpc_tfdj_3_reverse_no_hints.dfy",
+  "sha256": "1451debcd09fabee9c4d5e7be7e0d4e74bf6771f856e85ef710e5b1a97cc7053",
+  "bytes": 1467,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(17,69): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 | ensures forall k :: 0 <= k < a.Length ==> b[k] == a[(a.Length-1) - k];\n   |                                                                      ^\n\nprogram.dfy(18,0): Error: a postcondition could not be proved on this return path\n   |\n18 | {\n   | ^\n\nprogram.dfy(17,8): Related location: this is the postcondition that could not be proved\n   |\n17 | ensures forall k :: 0 <= k < a.Length ==> b[k] == a[(a.Length-1) - k];\n   |         ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

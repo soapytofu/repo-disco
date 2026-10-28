@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/se2011_tmp_tmp71eb82zt_ass1_ex4_no_hints.dfy",
+  "sha256": "4361456ad4e60bcf33e76d59a42e4c8e76e3bdcf73b2c0370b35da6cf97aa871",
+  "bytes": 423,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | return z; \t\t\t\t\t\t\t\t// do not change\n   | ^^^^^^^^^\n\nprogram.dfy(3,10): Related location: this is the postcondition that could not be proved\n  |\n3 | ensures r == x*x\n  |           ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

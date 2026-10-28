@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session4Exercises_ExerciseAllEqual_no_hints.dfy",
+  "sha256": "1ac8c15cffac186cec44d8b0d9ca8de20cd7dcc8f0d53a312a8b07da8c20310e",
+  "bytes": 2005,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(36,14): Error: the calculation step between the previous line and this line could not be proved\n   |\n36 |       allEqual(s);\n   |               ^\n\nprogram.dfy(46,0): Error: a postcondition could not be proved on this return path\n   |\n46 | {\n   | ^\n\nprogram.dfy(45,9): Related location: this is the postcondition that could not be proved\n   |\n45 | ensures b==allEqual(v[0..v.Length])\n   |          ^^\n\nprogram.dfy(59,0): Error: a postcondition could not be proved on this return path\n   |\n59 | {\n   | ^\n\nprogram.dfy(58,9): Related location: this is the postcondition that could not be proved\n   |\n58 | ensures b==allEqual(v[0..v.Length])\n   |          ^^\n\nprogram.dfy(76,0): Error: a postcondition could not be proved on this return path\n   |\n76 | {\n   | ^\n\nprogram.dfy(75,9): Related location: this is the postcondition that could not be proved\n   |\n75 | ensures b==allEqual(v[0..v.Length])\n   |          ^^\n\nprogram.dfy(95,0): Error: a postcondition could not be proved on this return path\n   |\n95 | {\n   | ^\n\nprogram.dfy(94,9): Related location: this is the postcondition that could not be proved\n   |\n94 | ensures b==allEqual(v[0..v.Length])\n   |          ^^\n\nprogram.dfy(111,0): Error: a postcondition could not be proved on this return path\n    |\n111 | {\n    | ^\n\nprogram.dfy(110,9): Related location: this is the postcondition that could not be proved\n    |\n110 | ensures b==allEqual(v[0..v.Length])\n    |          ^^\n\nprogram.dfy(114,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n    |\n114 |     while (i < v.Length && b) \n    |     ^^^^^\n\n\nDafny program verifier finished with 11 verified, 7 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

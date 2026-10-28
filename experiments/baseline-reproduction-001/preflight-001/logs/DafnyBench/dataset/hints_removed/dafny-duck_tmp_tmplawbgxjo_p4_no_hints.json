@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-duck_tmp_tmplawbgxjo_p4_no_hints.dfy",
+  "sha256": "e1a227cea625e7b1198831144c3536cede2bb9ae6d1980f6526062c19889aed3",
+  "bytes": 1106,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,0): Error: a postcondition could not be proved on this return path\n   |\n10 | {\n   | ^\n\nprogram.dfy(8,14): Related location: this is the postcondition that could not be proved\n  |\n8 | ensures b[..] == x[..] + y[..]\n  |               ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

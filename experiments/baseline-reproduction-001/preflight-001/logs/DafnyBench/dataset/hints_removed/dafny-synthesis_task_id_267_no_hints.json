@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_267_no_hints.dfy",
+  "sha256": "d3f2379f4bd5fbc86fb75144585bdfb12892ea83de803e28e4c2c17258de2bd5",
+  "bytes": 251,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,16): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures sum == (n * (2 * n - 1) * (2 * n + 1)) / 3\n  |                 ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

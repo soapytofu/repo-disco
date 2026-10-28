@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_632_no_hints.dfy",
+  "sha256": "1c662401f8865d22528077a4fd36033187d99a37412d2b5654f1a3cba047146f",
+  "bytes": 2035,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,26): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n5 |     ensures arr.Length == old(arr.Length)\n  |                           ^^^\n\nprogram.dfy(19,4): Error: a postcondition could not be proved on this return path\n   |\n19 |     while j < arr.Length\n   |     ^^^^^\n\nprogram.dfy(7,12): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures forall i, j :: 0 <= i < j < arr.Length && arr[i] == 0 ==> arr[j] == 0\n  |             ^^^^^^\n\nprogram.dfy(19,4): Error: a postcondition could not be proved on this return path\n   |\n19 |     while j < arr.Length\n   |     ^^^^^\n\nprogram.dfy(9,30): Related location: this is the postcondition that could not be proved\n  |\n9 |     ensures multiset(arr[..]) == multiset(old(arr[..]))\n  |                               ^^\n\nprogram.dfy(19,4): Error: a postcondition could not be proved on this return path\n   |\n19 |     while j < arr.Length\n   |     ^^^^^\n\nprogram.dfy(11,12): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures forall n, m /* on old array */:: 0 <= n < m < arr.Length && old(arr[n]) != 0 && old(arr[m]) != 0 ==> \n   |             ^^^^^^\n\nprogram.dfy(33,20): Error: a precondition for this call could not be proved\n   |\n33 |                 swap(arr, i, j);\n   |                     ^\n\nprogram.dfy(43,20): Related location: this is the precondition that could not be proved\n   |\n43 |     requires 0 <= i < arr.Length && 0 <= j < arr.Length\n   |                     ^\n\n\nDafny program verifier finished with 4 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

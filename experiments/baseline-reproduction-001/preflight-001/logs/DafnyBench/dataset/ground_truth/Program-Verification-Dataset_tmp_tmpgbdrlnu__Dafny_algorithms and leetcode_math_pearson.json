@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_math_pearson.dfy",
+  "sha256": "377d8c55097c0ce5cf389606faa5f8d7a932776115ee24c5917ad169a228c4f7",
+  "bytes": 7354,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(237,22): Warning: unusual indentation in left-hand operand of ==> (which starts at line 234, column 3); do you perhaps need parentheses?\n    |\n237 |   transitive(R2, S2)  ==> transitive(R1 + R2, S1 + S2)\n    |                       ^^^\n\nprogram.dfy(170,4): Warning: assume statement has no {:axiom} annotation\n    |\n170 |     assume forall a :: a in S_1+S_2 ==> a !in S_1 || a !in S_2;\n    |     ^^^^^^\n\nprogram.dfy(222,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n    |\n222 |   var a : T :| assume true;\n    |                ^^^^^^\n\nprogram.dfy(223,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n    |\n223 |   var b : T :| assume a != b;\n    |                ^^^^^^\n\nprogram.dfy(224,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n    |\n224 |   var c : T :| assume a != c && b != c;\n    |                ^^^^^^\n\nprogram.dfy(264,16): Error: assertion might not hold\n    |\n264 |     assert isOdd(nineteens(y));\n    |                 ^\n\nprogram.dfy(8,10): Related location: this proposition could not be proved\n  |\n8 |     x % 2 == 1\n  |           ^^\n\n\nDafny program verifier finished with 18 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Correctness_tmp_tmpwqvg5q_4_MethodCalls_q1.dfy",
+  "sha256": "f2485b7c712e7ed659b62a66563fbe1e33ee90b8fafd06addf222193b6988032",
+  "bytes": 3621,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(14,18): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n14 |   ensures fusc(0) == 0\n   |                   ^^\n\nprogram.dfy(17,18): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n17 |   ensures fusc(1) == 1\n   |                   ^^\n\nprogram.dfy(20,20): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n20 |   ensures fusc(2*n) == fusc(n)\n   |                     ^^\n\nprogram.dfy(23,22): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n23 |   ensures fusc(2*n+1) == fusc(n) + fusc(n+1)\n   |                       ^^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

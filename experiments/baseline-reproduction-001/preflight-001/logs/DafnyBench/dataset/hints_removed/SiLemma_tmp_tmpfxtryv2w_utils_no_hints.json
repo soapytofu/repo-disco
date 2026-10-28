@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SiLemma_tmp_tmpfxtryv2w_utils_no_hints.dfy",
+  "sha256": "b0cedaaa8bb94e362afe2fc9b7c1909bb45190ad61a3497f97ca8062fa3e4d92",
+  "bytes": 1697,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,25): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n5 |             var below := set n : nat | n < bound :: n;\n  |                          ^^^\n\nprogram.dfy(11,30): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n11 |             var belowminus := set n : nat | n < bound-1 :: n;\n   |                               ^^^\n\nprogram.dfy(12,25): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n12 |             var below := set n : nat | n < bound :: n;\n   |                          ^^^\n\nprogram.dfy(33,31): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n33 |         var all_below_bound := set n : nat | n < bound :: n;\n   |                                ^^^\n\nprogram.dfy(9,15): Error: a postcondition could not be proved on this return path\n  |\n9 |         } else {\n  |                ^\n\nprogram.dfy(6,20): Related location: this is the postcondition that could not be proved\n  |\n6 |             |below| ==  bound\n  |                     ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseBubbleSort_no_hints.dfy",
+  "sha256": "21e78a4824290afd78e4320a648715d1b9eb6e58cccd4378cfcce9302db38b1e",
+  "bytes": 1229,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   while (i< f)\n   |   ^^^^^\n\nprogram.dfy(11,18): Related location: this is the postcondition that could not be proved\n   |\n11 | ensures sorted_seg(a,c,f) \n   |                   ^\n\nprogram.dfy(5,4): Related location: this proposition could not be proved\n  |\n5 |     forall l, k :: i <= l <= k < j ==> a[l] <= a[k]\n  |     ^^^^^^\n\nprogram.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   while (i< f)\n   |   ^^^^^\n\nprogram.dfy(12,26): Related location: this is the postcondition that could not be proved\n   |\n12 | ensures multiset(a[c..f]) == old(multiset(a[c..f]))\n   |                           ^^\n\nprogram.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   while (i< f)\n   |   ^^^^^\n\nprogram.dfy(13,14): Related location: this is the postcondition that could not be proved\n   |\n13 | ensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n   |               ^^\n\nprogram.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   while (i< f)\n   |   ^^^^^\n\nprogram.dfy(13,37): Related location: this is the postcondition that could not be proved\n   |\n13 | ensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n   |                                      ^^\n\nprogram.dfy(50,2): Error: a postcondition could not be proved on this return path\n   |\n50 |   while (i<f && b)\n   |   ^^^^^\n\nprogram.dfy(43,18): Related location: this is the postcondition that could not be proved\n   |\n43 | ensures sorted_seg(a,c,f) \n   |                   ^\n\nprogram.dfy(5,4): Related location: this proposition could not be proved\n  |\n5 |     forall l, k :: i <= l <= k < j ==> a[l] <= a[k]\n  |     ^^^^^^\n\nprogram.dfy(50,2): Error: a postcondition could not be proved on this return path\n   |\n50 |   while (i<f && b)\n   |   ^^^^^\n\nprogram.dfy(44,26): Related location: this is the postcondition that could not be proved\n   |\n44 | ensures multiset(a[c..f]) == old(multiset(a[c..f]))\n   |                           ^^\n\nprogram.dfy(50,2): Error: a postcondition could not be proved on this return path\n   |\n50 |   while (i<f && b)\n   |   ^^^^^\n\nprogram.dfy(45,14): Related location: this is the postcondition that could not be proved\n   |\n45 | ensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n   |               ^^\n\nprogram.dfy(50,2): Error: a postcondition could not be proved on this return path\n   |\n50 |   while (i<f && b)\n   |   ^^^^^\n\nprogram.dfy(45,37): Related location: this is the postcondition that could not be proved\n   |\n45 | ensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n   |                                      ^^\n\n\nDafny program verifier finished with 3 verified, 8 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

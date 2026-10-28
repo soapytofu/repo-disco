@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/formal_verication_dafny_tmp_tmpwgl2qz28_Challenges_ex6_no_hints.dfy",
+  "sha256": "4b892f5aeffc80e112136ac2314d94e3484d94ddc2bfd743e14f678958342080",
+  "bytes": 1712,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(32,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n32 | requires nomultiples(u) && nomultiples(s);\n   |                                          ^\n\nprogram.dfy(15,38): Error: cannot prove termination; try supplying a decreases clause\n   |\n15 |     else if s[i] == u[i] then reccbull(s, u, i + 1) + 1\n   |                                       ^\n\nprogram.dfy(16,17): Error: cannot prove termination; try supplying a decreases clause\n   |\n16 |     else reccbull(s, u, i + 1)\n   |                  ^\n\nprogram.dfy(23,50): Error: cannot prove termination; try supplying a decreases clause\n   |\n23 |     else if s[i] != u[i] && u[i] in s then recccow(s, u, i + 1) + 1\n   |                                                   ^\n\nprogram.dfy(24,16): Error: cannot prove termination; try supplying a decreases clause\n   |\n24 |     else recccow(s, u, i + 1)\n   |                 ^\n\nprogram.dfy(47,4): Error: a postcondition could not be proved on this return path\n   |\n47 |     return b, c;\n   |     ^^^^^^^^^^^^\n\nprogram.dfy(34,10): Related location: this is the postcondition that could not be proved\n   |\n34 | ensures b == bullspec(s, u)\n   |           ^^\n\nprogram.dfy(47,4): Error: a postcondition could not be proved on this return path\n   |\n47 |     return b, c;\n   |     ^^^^^^^^^^^^\n\nprogram.dfy(35,10): Related location: this is the postcondition that could not be proved\n   |\n35 | ensures c == cowspec(s, u)\n   |           ^^\n\n\nDafny program verifier finished with 5 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

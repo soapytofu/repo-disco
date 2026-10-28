@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-programs_tmp_tmpnso9eu7u_Algorithms + sorting_bubble-sort_no_hints.dfy",
+  "sha256": "2da919cc533e92c3499258aaa9a4183f678fc020e7d3bc9538544288de4af809",
+  "bytes": 1478,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(25,4): Error: a postcondition could not be proved on this return path\n   |\n25 |     while 0 < i\n   |     ^^^^^\n\nprogram.dfy(20,18): Related location: this is the postcondition that could not be proved\n   |\n20 |     ensures sorted(A)\n   |                   ^\n\nprogram.dfy(15,18): Related location: this proposition could not be proved\n   |\n15 |     sorted_between(A, 0, A.Length-1)\n   |                   ^\n\nprogram.dfy(9,4): Related location: this proposition could not be proved\n  |\n9 |     forall i, j :: 0 <= i <= j < A.Length && from <= i <= j <= to ==> A[i] <= A[j]\n  |     ^^^^^^\n\nprogram.dfy(25,4): Error: a postcondition could not be proved on this return path\n   |\n25 |     while 0 < i\n   |     ^^^^^\n\nprogram.dfy(21,28): Related location: this is the postcondition that could not be proved\n   |\n21 |     ensures multiset(A[..]) == multiset(old(A[..]))\n   |                             ^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

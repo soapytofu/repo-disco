@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_projects_tmp_tmpjutqwjv4_tutorial_tutorial_no_hints.dfy",
+  "sha256": "9eb9c5e92b2acade9162540e4cc829cae91df03beb03f762e68f4bbd4313c3f2",
+  "bytes": 4183,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(144,13): Warning: unusual indentation in right-hand operand of ==> (which ends at line 145, column 24); do you perhaps need parentheses?\n    |\n144 |     (|p| > 1 ==> p[1] in p[0].next && // the first link is valid, if it exists\n    |              ^^^\n\nprogram.dfy(21,2): Error: a postcondition could not be proved on this return path\n   |\n21 |   return a;\n   |   ^^^^^^^^^\n\nprogram.dfy(10,14): Related location: this is the postcondition that could not be proved\n   |\n10 |   ensures ret == fib(n)\n   |               ^^\n\nprogram.dfy(37,2): Error: a postcondition could not be proved on this return path\n   |\n37 |   return -1;\n   |   ^^^^^^^^^^\n\nprogram.dfy(26,25): Related location: this is the postcondition that could not be proved\n   |\n26 |   ensures index < 0 ==> (forall k :: 0 <= k < a.Length ==> a[k] != key)\n   |                          ^^^^^^\n\nprogram.dfy(56,8): Error: index out of range\n   |\n56 |     if a[mid] < value {\n   |         ^\n\nprogram.dfy(67,4): Error: a postcondition could not be proved on this return path\n   |\n67 |     return -1;\n   |     ^^^^^^^^^^\n\nprogram.dfy(49,24): Related location: this is the postcondition that could not be proved\n   |\n49 |   ensures index < 0 ==> forall k :: 0 <= k < a.Length ==> a[k] != value\n   |                         ^^^^^^\n\nprogram.dfy(91,2): Error: a postcondition could not be proved on this return path\n   |\n91 |   while i < j + a[j] && i < a.Length\n   |   ^^^^^\n\nprogram.dfy(88,10): Related location: this is the postcondition that could not be proved\n   |\n88 |   ensures forall i :: j <= i < j + a[j] && i < a.Length ==> a[i] != 0\n   |           ^^^^^^\n\nprogram.dfy(102,0): Error: a postcondition could not be proved on this return path\n    |\n102 | {\n    | ^\n\nprogram.dfy(100,25): Related location: this is the postcondition that could not be proved\n    |\n100 |   ensures index < 0  ==> forall i :: 0 <= i < a.Length ==> a[i] != 0\n    |                          ^^^^^^\n\nprogram.dfy(123,13): Error: a postcondition could not be proved on this return path\n    |\n123 |   if a == [] {\n    |              ^\n\nprogram.dfy(121,23): Related location: this is the postcondition that could not be proved\n    |\n121 |   ensures count(a + b) == count(a) + count(b)\n    |                        ^^\n\n\nDafny program verifier finished with 15 verified, 7 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FMSE-2022-2023_tmp_tmp6_x_ba46_Lab10_Lab10_no_hints.dfy",
+  "sha256": "994e4d0ac4627cee60a480b1c8946fd127dea3479766348bf808708d3b646e19",
+  "bytes": 12346,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(157,4): Error: a postcondition could not be proved on this return path\n    |\n157 |     {\n    |     ^\n\nprogram.dfy(154,20): Related location: this is the postcondition that could not be proved\n    |\n154 |         ensures |s| == |old(s)| - 1\n    |                     ^^\n\nprogram.dfy(230,26): Error: index out of range\n    |\n230 |             if element < s[mid] \n    |                           ^\n\nprogram.dfy(244,8): Error: a postcondition could not be proved on this return path\n    |\n244 |         return -1;\n    |         ^^^^^^^^^^\n\nprogram.dfy(222,40): Related location: this is the postcondition that could not be proved\n    |\n222 |         ensures index == -1 ==> element !in s[..]\n    |                                         ^^^\n\nprogram.dfy(261,8): Error: cannot prove termination; try supplying a decreases clause for the loop\n    |\n261 |         while i < |s| || j < |l2.s|\n    |         ^^^^^\n\nprogram.dfy(399,4): Error: a postcondition could not be proved on this return path\n    |\n399 |     {\n    |     ^\n\nprogram.dfy(396,20): Related location: this is the postcondition that could not be proved\n    |\n396 |         ensures |l| == |old(l)| - 1\n    |                     ^^\n\nprogram.dfy(464,4): Error: a postcondition could not be proved on this return path\n    |\n464 |     {\n    |     ^\n\nprogram.dfy(463,42): Related location: this is the postcondition that could not be proved\n    |\n463 |         ensures |l| > 0 && b == false ==> !exists i :: 0 <= i < |l| && l[i] == element\n    |                                           ^\n\n\nDafny program verifier finished with 66 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

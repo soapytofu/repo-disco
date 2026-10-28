@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Programmverifikation-und-synthese_tmp_tmppurk6ime_PVS_Assignment_ex_07_Hoangkim_ex07_Hoangkim.dfy",
+  "sha256": "65ad5d54d89865c190046b1487fcbec2605ce2f21596c3dd27892f796e691168",
+  "bytes": 1265,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(5,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n5 |     requires a != null && a.Length > 0 && i < a.Length && j < a.Length\n  |                ^^\n\nprogram.dfy(15,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n15 |     requires a != null && a.Length > 0 && lo < a.Length\n   |                ^^\n\n\nDafny program verifier finished with 6 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

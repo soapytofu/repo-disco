@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session8Exercises_ExerciseInsertionSort_no_hints.dfy",
+  "sha256": "2671f4330a7806c71da0d9924a22d1c623dc8250c9ce38008601f5e20223e1e7",
+  "bytes": 584,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,12): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |   modifies a;\n   |             ^\n\nprogram.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   while (i < a.Length)\n   |   ^^^^^\n\nprogram.dfy(11,20): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures sorted_seg(a,0,a.Length-1) \n   |                     ^\n\nprogram.dfy(6,4): Related location: this proposition could not be proved\n  |\n6 |     forall l, k :: i <= l <= k <= j ==> a[l] <= a[k]\n  |     ^^^^^^\n\nprogram.dfy(16,2): Error: a postcondition could not be proved on this return path\n   |\n16 |   while (i < a.Length)\n   |   ^^^^^\n\nprogram.dfy(12,26): Related location: this is the postcondition that could not be proved\n   |\n12 |   ensures multiset(a[..]) == old(multiset(a[..])) //Add and prove this\n   |                           ^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

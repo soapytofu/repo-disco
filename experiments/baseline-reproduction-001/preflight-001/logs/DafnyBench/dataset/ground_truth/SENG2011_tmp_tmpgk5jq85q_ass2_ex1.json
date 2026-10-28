@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/SENG2011_tmp_tmpgk5jq85q_ass2_ex1.dfy",
+  "sha256": "d1d1b7501790f68af2158f855acc943d7c779b04d04bba7872921343f4ba6244",
+  "bytes": 742,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(3,37): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | requires i >= 0 && j >= 0 && |s| >= 0;\n  |                                      ^\n\nprogram.dfy(4,39): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | requires |s| > 0 ==> i < |s| && j < |s|;\n  |                                        ^\n\nprogram.dfy(5,42): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 | ensures multiset(s[..]) == multiset(t[..]);\n  |                                           ^\n\nprogram.dfy(6,18): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 | ensures |s| == |t|;\n  |                   ^\n\nprogram.dfy(8,48): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 | ensures |s| > 0 ==> t[i] == s[j] && t[j] == s[i];\n  |                                                 ^\n\nprogram.dfy(9,27): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 | ensures |s| == 0 ==> t == s;\n  |                            ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

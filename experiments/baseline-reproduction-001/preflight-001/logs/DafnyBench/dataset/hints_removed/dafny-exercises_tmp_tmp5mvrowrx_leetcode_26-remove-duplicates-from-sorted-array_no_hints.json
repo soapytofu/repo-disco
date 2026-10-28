@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-exercises_tmp_tmp5mvrowrx_leetcode_26-remove-duplicates-from-sorted-array_no_hints.dfy",
+  "sha256": "cf6c07aca2d6d73e2676f89563069efec4ebb4577c63d6ae6b8fb927e6b197f1",
+  "bytes": 1809,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,25): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n5 |   ensures nums.Length == old(nums).Length\n  |                          ^^^\n\nprogram.dfy(24,11): Error: index out of range\n   |\n24 |     if nums[last] < nums[i] {\n   |            ^\n\nprogram.dfy(26,10): Error: index out of range\n   |\n26 |       nums[last] := nums[i];\n   |           ^\n\nprogram.dfy(32,2): Error: a postcondition could not be proved on this return path\n   |\n32 |   return last + 1;\n   |   ^^^^^^^^^^^^^^^^\n\nprogram.dfy(6,26): Related location: this is the postcondition that could not be proved\n  |\n6 |   ensures 0 <= num_length <= nums.Length\n  |                           ^^\n\nprogram.dfy(32,2): Error: a postcondition could not be proved on this return path\n   |\n32 |   return last + 1;\n   |   ^^^^^^^^^^^^^^^^\n\nprogram.dfy(7,10): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures forall i, j | 0 <= i < j < num_length :: nums[i] != nums[j]\n  |           ^^^^^^\n\nprogram.dfy(32,2): Error: a postcondition could not be proved on this return path\n   |\n32 |   return last + 1;\n   |   ^^^^^^^^^^^^^^^^\n\nprogram.dfy(8,10): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures forall i | 0 <= i < num_length :: nums[i] in old(nums[..])\n  |           ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

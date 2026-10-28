@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny_examples_tmp_tmp8qotd4ez_test_shuffle.dfy",
+  "sha256": "b93e982fed9747dd950c87a44dbcd6cd1ade7921cd76a014953554a4c05d019b",
+  "bytes": 2489,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n4 |   ensures a <= b ==> a <= r <= b\n  |                  ^^^\n\nprogram.dfy(84,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n84 |   ensures x in s <==> x in set_of_seq(s)\n   |                  ^^^^\n\nprogram.dfy(88,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n88 |   ensures forall x :: x in s1 ==> x in s2\n   |           ^^^^^^\n\n\nDafny program verifier finished with 8 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

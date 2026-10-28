@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-exercise_tmp_tmpouftptir_zapNegatives.dfy",
+  "sha256": "2e93c6c244e8f98711bbde28a8ee3b019eb4ef60fd1ab33e32261836a347ff1c",
+  "bytes": 704,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(5,20): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n5 | ensures a.Length == old(a).Length\n  |                     ^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

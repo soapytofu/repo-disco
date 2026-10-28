@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/test-generation-examples_tmp_tmptwyqofrp_RussianMultiplication_dafny_RussianMultiplication.dfy",
+  "sha256": "c6f05570de44ce3678da626fd4c92d1c3ac93a00544add78b469d9513af8415f",
+  "bytes": 484,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,28): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |     ensures res == (n0 * m0);\n  |                             ^\n\nprogram.dfy(17,44): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |         invariant (m * n + res) == (m0 * n0);\n   |                                             ^\n\nprogram.dfy(18,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n18 |         decreases n; \n   |                    ^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

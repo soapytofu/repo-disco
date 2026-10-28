@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Verify_tmp_tmphq7j0row_Fine_Tune_Examples_50_examples_37_no_hints.dfy",
+  "sha256": "9ef37b478aa01b7bfd95d42324b691f228e0ec9c727575495718eb0e2811f51e",
+  "bytes": 244,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,17): Related location: this is the postcondition that could not be proved\n  |\n3 | ensures (n <= 0) || (0 <= m && m < n)\n  |                  ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

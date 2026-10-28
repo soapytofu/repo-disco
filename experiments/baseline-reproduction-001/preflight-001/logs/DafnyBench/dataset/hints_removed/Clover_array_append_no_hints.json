@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_array_append_no_hints.dfy",
+  "sha256": "db3752d743af54ae60eeb7e7acdae52c59c4ad4acf1b62acdde39c94892470fd",
+  "bytes": 214,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,23): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures  a[..] + [b] == c[..]\n  |                        ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/test-generation-examples_tmp_tmptwyqofrp_IntegerSet_dafny_Utils_no_hints.dfy",
+  "sha256": "6338c7f44286c6001a11460dcaa39996f13e455148fe292b770e8e7c3fa2fbcd",
+  "bytes": 573,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,28): Warning: when a method is imported, meaning it has no body and an {:extern} annotation, Dafny can not guarantee that its implementation satisfies its post-conditions (its ensures clauses and outputs that are subset types). To silence this warning, please add an {:axiom} attribute or use the option '--allow-external-contracts'.\n  |\n6 |     static method {:extern} expectEquals(expected : T, actual : T)\n  |                             ^^^^^^^^^^^^\n\nprogram.dfy(12,28): Warning: when a method is imported, meaning it has no body and an {:extern} annotation, Dafny can not guarantee that its implementation satisfies its post-conditions (its ensures clauses and outputs that are subset types). To silence this warning, please add an {:axiom} attribute or use the option '--allow-external-contracts'.\n   |\n12 |     static method {:extern} expectTrue(condition : bool)\n   |                             ^^^^^^^^^^\n\nprogram.dfy(18,28): Warning: when a method is imported, meaning it has no body and an {:extern} annotation, Dafny can not guarantee that its implementation satisfies its post-conditions (its ensures clauses and outputs that are subset types). To silence this warning, please add an {:axiom} attribute or use the option '--allow-external-contracts'.\n   |\n18 |     static method {:extern} expectFalse(condition : bool)\n   |                             ^^^^^^^^^^^\n\n\nDafny program verifier finished with 0 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

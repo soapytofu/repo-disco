@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_mathematical objects verification_examples_interval_example_no_hints.dfy",
+  "sha256": "ce6fb7cb5598f719f017116061505bcbc8536febb9e32ea2f15e077736aa9b04",
+  "bytes": 3897,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(33,9): Error: a postcondition could not be proved on this return path\n   |\n33 |   } else {\n   |          ^\n\nprogram.dfy(30,19): Related location: this is the postcondition that could not be proved\n   |\n30 |   ensures empty(i) <==> !exists r :: contains(i, r)\n   |                    ^^^^\n\nprogram.dfy(76,22): Error: a postcondition could not be proved on this return path\n   |\n76 |     if i1.lo >= i2.lo {\n   |                       ^\n\nprogram.dfy(73,26): Related location: this is the postcondition that could not be proved\n   |\n73 |   ensures overlap(i1, i2) <==> exists r :: contains(i1, r) && contains(i2, r)\n   |                           ^^^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

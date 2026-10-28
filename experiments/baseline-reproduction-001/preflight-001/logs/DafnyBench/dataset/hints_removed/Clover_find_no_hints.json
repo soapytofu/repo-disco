@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_find_no_hints.dfy",
+  "sha256": "f7d769f3976b8f31da05652c9bfe8aa964a4acbde472d1d33f027ab6ed1c25c6",
+  "bytes": 402,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(4,27): Related location: this is the postcondition that could not be proved\n  |\n4 |   ensures index == -1 ==> (forall i::0 <= i < a.Length ==> a[i] != key)\n  |                            ^^^^^^\n\nprogram.dfy(9,25): Error: a postcondition could not be proved on this return path\n  |\n9 |     if a[index] == key { return; }\n  |                          ^^^^^^^\n\nprogram.dfy(3,42): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures index!=-1 ==> a[index]==key && (forall i :: 0 <= i < index ==> a[i] != key)\n  |                                           ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

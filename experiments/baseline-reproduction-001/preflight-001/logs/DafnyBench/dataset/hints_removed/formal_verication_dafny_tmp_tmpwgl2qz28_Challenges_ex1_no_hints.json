@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/formal_verication_dafny_tmp_tmpwgl2qz28_Challenges_ex1_no_hints.dfy",
+  "sha256": "dcf5ccbda658d7a59dc40e2aa41a948a554dd561ab4406cf85aec06635a658ec",
+  "bytes": 1952,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(33,3): Error: a postcondition could not be proved on this return path\n   |\n33 |    return true;                           \n   |    ^^^^^^^^^^^^\n\nprogram.dfy(20,23): Related location: this is the postcondition that could not be proved\n   |\n20 | ensures yn == true ==> forall i :: 0 <= i < a.Length/2 ==> a[i] == a[a.Length - i -1]\n   |                        ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

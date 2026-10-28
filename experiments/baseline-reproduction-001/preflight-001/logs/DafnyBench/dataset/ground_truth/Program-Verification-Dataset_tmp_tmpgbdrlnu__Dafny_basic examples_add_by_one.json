@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_add_by_one.dfy",
+  "sha256": "e01f4f0e4ae8bee060273438867992a307ccf2860410bb68cd65a1a1c91df7b0",
+  "bytes": 1421,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |   requires y >= 0;\n  |                  ^\n\nprogram.dfy(3,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |   ensures r == x + y;\n  |                     ^\n\nprogram.dfy(8,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 |     invariant i <= y;\n  |                     ^\n\nprogram.dfy(9,24): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |     invariant r == x + i;\n  |                         ^\n\nprogram.dfy(10,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |     decreases y-i;\n   |                  ^\n\nprogram.dfy(80,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n80 |   requires y >= 0;\n   |                  ^\n\nprogram.dfy(81,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n81 |   ensures r == x + y;\n   |                     ^\n\nprogram.dfy(93,2): Warning: assume statement has no {:axiom} annotation\n   |\n93 |   assume (i <= y && r == x + i);\n   |   ^^^^^^\n\nprogram.dfy(95,2): Warning: assume statement has no {:axiom} annotation\n   |\n95 |   assume (y-i >= 0);\n   |   ^^^^^^\n\nprogram.dfy(111,4): Warning: assume statement has no {:axiom} annotation\n    |\n111 |     assume (false);\n    |     ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

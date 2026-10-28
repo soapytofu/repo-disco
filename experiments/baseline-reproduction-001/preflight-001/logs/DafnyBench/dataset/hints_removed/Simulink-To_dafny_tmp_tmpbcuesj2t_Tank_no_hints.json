@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Simulink-To_dafny_tmp_tmpbcuesj2t_Tank_no_hints.dfy",
+  "sha256": "c1ac330ca25ed0e0626fa7ebb76a916824856fcbf90b392bcd0354c8438c0ff9",
+  "bytes": 1607,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,16): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |    var v1: Valve; //outlet valve \n  |                 ^\n\nprogram.dfy(5,16): Warning: deprecated style: a semi-colon is not needed here\n  |\n5 |    var v2: Valve; //inlet Valve\n  |                 ^\n\nprogram.dfy(6,16): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |    var v3: Valve; //outlet valve\n  |                 ^\n\nprogram.dfy(7,21): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |    var in_flowv1: int; //flow in valve v1\n  |                      ^\n\nprogram.dfy(8,21): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 |    var in_flowv2: int; //flow in vave v2\n  |                      ^\n\nprogram.dfy(9,21): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 |    var in_flowv3: int; //flow in valve v3\n  |                      ^\n\nprogram.dfy(20,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |    var pipe: Pipe;\n   |                  ^\n\nprogram.dfy(21,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |    var height: int;\n   |                   ^\n\nprogram.dfy(33,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n33 | modifies tank.pipe;\n   |                   ^\n\nprogram.dfy(47,5): Warning: assume statement has no {:axiom} annotation\n   |\n47 |      assume(((tank.pipe.in_flowv3 >5 || tank.pipe.in_flowv1 >5 ) && tank.pipe.v2==OFF && tank.pipe.v3==old(tank.pipe.v3) && tank.pipe.v1==old(tank.pipe.v1)));\n   |      ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseSelSort_no_hints.dfy",
+  "sha256": "bfbff178000621e8017bf365f7c173a59241a29c0010c5c07ccda4e8e4a2cd5e",
+  "bytes": 673,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(17,2): Error: a postcondition could not be proved on this return path\n   |\n17 |   while (i<f-1) //outer loop\n   |   ^^^^^\n\nprogram.dfy(12,18): Related location: this is the postcondition that could not be proved\n   |\n12 | ensures sorted_seg(a,c,f) \n   |                   ^\n\nprogram.dfy(5,4): Related location: this proposition could not be proved\n  |\n5 |     forall l, k :: i <= l <= k < j ==> a[l] <= a[k]\n  |     ^^^^^^\n\nprogram.dfy(17,2): Error: a postcondition could not be proved on this return path\n   |\n17 |   while (i<f-1) //outer loop\n   |   ^^^^^\n\nprogram.dfy(13,26): Related location: this is the postcondition that could not be proved\n   |\n13 | ensures multiset(a[c..f]) == old(multiset(a[c..f]))\n   |                           ^^\n\nprogram.dfy(17,2): Error: a postcondition could not be proved on this return path\n   |\n17 |   while (i<f-1) //outer loop\n   |   ^^^^^\n\nprogram.dfy(14,14): Related location: this is the postcondition that could not be proved\n   |\n14 | ensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n   |               ^^\n\nprogram.dfy(17,2): Error: a postcondition could not be proved on this return path\n   |\n17 |   while (i<f-1) //outer loop\n   |   ^^^^^\n\nprogram.dfy(14,37): Related location: this is the postcondition that could not be proved\n   |\n14 | ensures a[..c]==old(a[..c]) && a[f..]==old(a[f..])\n   |                                      ^^\n\nprogram.dfy(26,9): Error: index out of range\n   |\n26 |    a[i],a[less]:=a[less],a[i];\n   |          ^\n\n\nDafny program verifier finished with 2 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

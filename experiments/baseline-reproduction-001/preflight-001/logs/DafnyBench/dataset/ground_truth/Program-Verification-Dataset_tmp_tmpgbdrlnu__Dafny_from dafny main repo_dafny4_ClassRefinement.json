@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from dafny main repo_dafny4_ClassRefinement.dfy",
+  "sha256": "1dbc0c4c09605c267bc288ea1dc5d894f2a7e0d938803cdb0fd2f284cb944b10",
+  "bytes": 1852,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(68,9): Warning: the ... refinement feature in statements is deprecated\n   |\n68 |       ...;\n   |          ^\n\nprogram.dfy(69,13): Warning: the ... refinement feature in statements is deprecated\n   |\n69 |       assert ...;\n   |              ^^^\n\nprogram.dfy(74,9): Warning: the ... refinement feature in statements is deprecated\n   |\n74 |       ...;\n   |          ^\n\nprogram.dfy(75,13): Warning: the ... refinement feature in statements is deprecated\n   |\n75 |       modify ... {\n   |              ^^^\n\nprogram.dfy(75,17): Warning: the modify statement with a block statement is deprecated\n   |\n75 |       modify ... {\n   |                  ^\n\nprogram.dfy(78,13): Warning: the ... refinement feature in statements is deprecated\n   |\n78 |       assert ...;\n   |              ^^^\n\nprogram.dfy(19,6): Warning: assume statement has no {:axiom} annotation\n   |\n19 |       assume Valid();  // to be verified in refinement module\n   |       ^^^^^^\n\nprogram.dfy(30,6): Warning: assume statement has no {:axiom} annotation\n   |\n30 |       assume Valid();  // to be verified in refinement module\n   |       ^^^^^^\n\nprogram.dfy(37,11): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n   |\n37 |       n :| assume n == N;\n   |            ^^^^^^\n\n\nDafny program verifier finished with 11 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

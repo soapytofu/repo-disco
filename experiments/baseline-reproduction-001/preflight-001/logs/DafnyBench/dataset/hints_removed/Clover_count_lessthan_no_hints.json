@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_count_lessthan_no_hints.dfy",
+  "sha256": "b1b56e8c47154d3699bb9af89f811250805c212ee18366b3b9bb1562dc2fb426",
+  "bytes": 392,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(3,0): Error: a postcondition could not be proved on this return path\n  |\n3 | {\n  | ^\n\nprogram.dfy(2,16): Related location: this is the postcondition that could not be proved\n  |\n2 |   ensures count == |set i | i in numbers && i < threshold|\n  |                 ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

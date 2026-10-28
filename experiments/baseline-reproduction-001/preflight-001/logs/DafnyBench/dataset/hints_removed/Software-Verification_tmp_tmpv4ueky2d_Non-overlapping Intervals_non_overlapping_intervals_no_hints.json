@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Software-Verification_tmp_tmpv4ueky2d_Non-overlapping Intervals_non_overlapping_intervals_no_hints.dfy",
+  "sha256": "d0285c782bafd1985b123c7e81a953d0a5081f467cac74144f963790e92e50b2",
+  "bytes": 1744,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(32,4): Error: a postcondition could not be proved on this return path\n   |\n32 |     return row - count;\n   |     ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(8,18): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures count >= 0\n  |                   ^^\n\nprogram.dfy(43,4): Error: a postcondition could not be proved on this return path\n   |\n43 |     while (i > 0)\n   |     ^^^^^\n\nprogram.dfy(40,18): Related location: this is the postcondition that could not be proved\n   |\n40 |     ensures sorted(a, 0, a.Length0 - 1)\n   |                   ^\n\nprogram.dfy(64,4): Related location: this proposition could not be proved\n   |\n64 |     forall i, j :: 0 <= l <= i <= j <= u < a.Length0 ==> a[i, 1] <= a[j, 1]\n   |     ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

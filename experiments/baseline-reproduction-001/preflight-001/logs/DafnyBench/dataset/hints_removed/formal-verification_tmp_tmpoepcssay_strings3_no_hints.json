@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/formal-verification_tmp_tmpoepcssay_strings3_no_hints.dfy",
+  "sha256": "fc2944b53335c03d72120739ec70ed7f0c0e463136f2d90c74c5ff5d16260111",
+  "bytes": 3202,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(46,0): Error: a postcondition could not be proved on this return path\n   |\n46 | {\n   | ^\n\nprogram.dfy(40,14): Related location: this is the postcondition that could not be proved\n   |\n40 | \tensures  res <==> isSubstringPred(sub, str)\n   |               ^^^^\n\nprogram.dfy(55,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n55 | \t\twhile (i <= |str|-|sub| && res == false)\n   |   ^^^^^\n\nprogram.dfy(86,0): Error: a postcondition could not be proved on this return path\n   |\n86 | {\n   | ^\n\nprogram.dfy(84,16): Related location: this is the postcondition that could not be proved\n   |\n84 | \tensures found  <==>  haveCommonKSubstringPred(k,str1,str2)\n   |                 ^^^^\n\nprogram.dfy(121,1): Error: a postcondition could not be proved on this return path\n    |\n121 | \treturn len;\n    |  ^^^^^^^^^^^\n\nprogram.dfy(107,10): Related location: this is the postcondition that could not be proved\n    |\n107 | \tensures (forall k :: len < k <= |str1| ==> !haveCommonKSubstringPred(k,str1,str2))\n    |           ^^^^^^\n\nprogram.dfy(121,1): Error: a postcondition could not be proved on this return path\n    |\n121 | \treturn len;\n    |  ^^^^^^^^^^^\n\nprogram.dfy(108,33): Related location: this is the postcondition that could not be proved\n    |\n108 | \tensures haveCommonKSubstringPred(len,str1,str2)\n    |                                  ^\n\nprogram.dfy(70,1): Related location: this proposition could not be proved\n   |\n70 | \texists i1, j1 :: 0 <= i1 <= |str1|- k && j1 == i1 + k && isSubstringPred(str1[i1..j1],str2)\n   |  ^^^^^^\n\n\nDafny program verifier finished with 11 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

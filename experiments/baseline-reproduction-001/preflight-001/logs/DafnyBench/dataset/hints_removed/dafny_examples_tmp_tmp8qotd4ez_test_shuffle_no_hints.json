@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_examples_tmp_tmp8qotd4ez_test_shuffle_no_hints.dfy",
+  "sha256": "131b4602b8388d9b26d6fc6d35d1ac528870c1e2ca4abca4c639b353e78ea726",
+  "bytes": 2262,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n4 |   ensures a <= b ==> a <= r <= b\n  |                  ^^^\n\nprogram.dfy(79,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n79 |   ensures x in s <==> x in set_of_seq(s)\n   |                  ^^^^\n\nprogram.dfy(83,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n83 |   ensures forall x :: x in s1 ==> x in s2\n   |           ^^^^^^\n\nprogram.dfy(53,0): Error: a postcondition could not be proved on this return path\n   |\n53 | {\n   | ^\n\nprogram.dfy(52,31): Related location: this is the postcondition that could not be proved\n   |\n52 |   ensures multiset(result[..]) == multiset(m_dataEntries[..])\n   |                                ^^\n\n\nDafny program verifier finished with 7 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

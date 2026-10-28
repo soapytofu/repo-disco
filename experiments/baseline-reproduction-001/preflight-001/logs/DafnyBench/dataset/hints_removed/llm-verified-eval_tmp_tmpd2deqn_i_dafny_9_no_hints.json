@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/llm-verified-eval_tmp_tmpd2deqn_i_dafny_9_no_hints.dfy",
+  "sha256": "2191d1b79b7ddd6616e8ca03f86b32f6a5b755299217dc93eaae4ddbdcba4cac",
+  "bytes": 766,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,13): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures isMax(result, numbers)\n   |              ^\n\nprogram.dfy(3,6): Related location: this proposition could not be proved\n  |\n3 |     m in numbers &&\n  |       ^^\n\nprogram.dfy(11,0): Error: a postcondition could not be proved on this return path\n   |\n11 | {\n   | ^\n\nprogram.dfy(10,13): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures isMax(result, numbers)\n   |              ^\n\nprogram.dfy(4,4): Related location: this proposition could not be proved\n  |\n4 |     forall i :: 0 <= i < |numbers| ==> numbers[i] <= m\n  |     ^^^^^^\n\nprogram.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(23,17): Related location: this is the postcondition that could not be proved\n   |\n23 | ensures |result| == |numbers|\n   |                  ^^\n\nprogram.dfy(25,0): Error: a postcondition could not be proved on this return path\n   |\n25 | {\n   | ^\n\nprogram.dfy(24,8): Related location: this is the postcondition that could not be proved\n   |\n24 | ensures forall i :: 0 < i < |result| ==> isMax(result[i], numbers[0..(i+1)])\n   |         ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

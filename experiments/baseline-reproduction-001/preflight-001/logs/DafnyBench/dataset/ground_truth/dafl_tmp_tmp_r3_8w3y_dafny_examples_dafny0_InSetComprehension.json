@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafl_tmp_tmp_r3_8w3y_dafny_examples_dafny0_InSetComprehension.dfy",
+  "sha256": "e17458c49e75df15daaab51cedf05f4f07cff78b93acc9b9ef5622b2dbe50c23",
+  "bytes": 1991,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(10,17): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n10 |       z := 72 in set i | 0 <= i < 10;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(12,17): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n12 |       z := -8 in set k: nat | k < 10;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(28,16): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n28 |       z := 7 in set i | 0 <= i < 10;\n   |                 ^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(30,16): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n30 |       z := 8 in set k: nat | k < 10;\n   |                 ^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 8 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

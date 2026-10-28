@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-aoc-2019_tmp_tmpj6suy_rv_parser_split_no_hints.dfy",
+  "sha256": "f32ae0f3bf8e26aa5d38f24b146b0155ed31c0f8f7d7b156445705a7ae9293ab",
+  "bytes": 2139,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,67): Error: cannot prove termination; try supplying a decreases clause\n   |\n10 |         else if |separator| == 0 && index == |s|-1 then splitHelper(s, separator, index+1, index, results)\n   |                                                                    ^\n\nprogram.dfy(12,19): Error: cannot prove termination; try supplying a decreases clause\n   |\n12 |         splitHelper(s, separator, index+1, index+1, results + [s[sindex..(index+1)]])\n   |                    ^\n\nprogram.dfy(13,56): Error: cannot prove termination; try supplying a decreases clause\n   |\n13 |         else if index+|separator| > |s| then splitHelper(s, separator, |s|, sindex, results)\n   |                                                         ^\n\nprogram.dfy(14,73): Error: cannot prove termination; try supplying a decreases clause\n   |\n14 |         else if s[index..index+|separator|] == separator then splitHelper(s, separator, index+|separator|, index+|separator|, results + [s[sindex..index]])\n   |                                                                          ^\n\nprogram.dfy(15,24): Error: cannot prove termination; try supplying a decreases clause\n   |\n15 |         else splitHelper(s, separator, index+1, sindex, results)\n   |                         ^\n\nprogram.dfy(31,12): Error: a postcondition could not be proved on this return path\n   |\n31 |             true \n   |             ^^^^\n\nprogram.dfy(26,43): Related location: this is the postcondition that could not be proved\n   |\n26 |         ensures Contains(haystack, needle) <==> exists k :: 0 <= k <= |haystack| && needle <= haystack[k..] \n   |                                            ^^^^\n\n\nDafny program verifier finished with 1 verified, 6 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

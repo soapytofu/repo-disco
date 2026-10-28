@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_leetcode_BoatsToSavePeople_no_hints.dfy",
+  "sha256": "c923ddf25a6cdbe82874ec89dfb56d3d707ce97622c01c420a413a53a02b37a4",
+  "bytes": 3378,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(68,0): Error: a postcondition could not be proved on this return path\n   |\n68 | {\n   | ^\n\nprogram.dfy(67,12): Related location: this is the postcondition that could not be proved\n   |\n67 |     ensures exists boatConfig: seq<seq<nat>> :: multisetEqual(boatConfig, people) && allSafe(boatConfig, limit) && boats == |boatConfig|// && forall boatConfigs :: multisetEqual(boatConfigs, people) && allSafe(boatConfigs, limit) ==> boats <= |boatConfigs|\n   |             ^^^^^^\n\nprogram.dfy(78,17): Error: index out of range\n   |\n78 |         if people[upper] == limit || people[upper] + people[lower] > limit {\n   |                  ^\n\n\nDafny program verifier finished with 5 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

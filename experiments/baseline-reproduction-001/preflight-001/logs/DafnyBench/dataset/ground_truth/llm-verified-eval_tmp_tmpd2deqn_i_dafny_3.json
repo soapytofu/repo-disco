@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/llm-verified-eval_tmp_tmpd2deqn_i_dafny_3.dfy",
+  "sha256": "c87319482eb2fa96c49922b4fdc20e7f17805907e986c0a1a4b2a29e4ff11e4d",
+  "bytes": 684,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(13,0): Error: a postcondition could not be proved on this return path\n   |\n13 | {\n   | ^\n\nprogram.dfy(12,29): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures sum(s, i) + s[i] == sum(s, i+1)\n   |                              ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

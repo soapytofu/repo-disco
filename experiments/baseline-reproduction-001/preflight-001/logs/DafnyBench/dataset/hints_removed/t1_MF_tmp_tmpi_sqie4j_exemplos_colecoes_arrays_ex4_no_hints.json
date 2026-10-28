@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/t1_MF_tmp_tmpi_sqie4j_exemplos_colecoes_arrays_ex4_no_hints.dfy",
+  "sha256": "20f40301f004c93662ed6d40960144acb39cc8e756ee71a1ee7bffe6d3d6977a",
+  "bytes": 337,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(11,12): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures s == SomaAte(a,a.Length)\n   |             ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

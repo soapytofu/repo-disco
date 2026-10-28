@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_hofs_Requires_no_hints.dfy",
+  "sha256": "c9d0c09c2b3c036ed54b854762f59f552f93c97112635883ef7f2ad8908b9d09",
+  "bytes": 1132,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(19,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n19 |   requires valid(y);\n   |                    ^\n\nprogram.dfy(25,78): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |   ensures forall a, b :: valid(a) && valid(b) && ref1(a) == ref1(b) ==> a == b;\n   |                                                                               ^\n\nprogram.dfy(53,26): Error: rbrace expected\n   |\n53 |                           ==> a == b;\n   |                           ^\n\n1 parse errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

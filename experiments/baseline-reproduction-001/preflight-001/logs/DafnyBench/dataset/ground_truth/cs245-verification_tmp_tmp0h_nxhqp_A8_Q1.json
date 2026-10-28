@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/cs245-verification_tmp_tmp0h_nxhqp_A8_Q1.dfy",
+  "sha256": "561b35139094b52759af3a2ffd8cc23074e7d574622898d81a9de9abc0589c8f",
+  "bytes": 1565,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(6,17): Warning: deprecated style: a semi-colon is not needed here\n  |\n6 |   requires 0 <= n;\n  |                  ^\n\nprogram.dfy(7,13): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |   decreases n;{if (n == 0) then 1 else a * power(a, n - 1)}\n  |              ^\n\nprogram.dfy(11,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | requires y0 >= 0;\n   |                 ^\n\nprogram.dfy(12,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 | /*Post-Condition*/ ensures z==power(x,y0);\n   |                                          ^\n\nprogram.dfy(20,40): Warning: deprecated style: a semi-colon is not needed here\n   |\n20 |       invariant z==power(x,y0-y) && y>=0;   \n   |                                         ^\n\nprogram.dfy(21,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n21 |       decreases y;                                /* variant */\n   |                  ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/ironsync-osdi2023_tmp_tmpx80antoe_linear-dafny_docs_DafnyRef_examples_Example-Old.dfy",
+  "sha256": "a521c302e37a45884230d1caedc704f440c28b1fa4ad727342f0d2d686cef61b",
+  "bytes": 781,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(16,11): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n   |\n16 |     assert old(i) == 6; // i is local, but can't be changed anyway\n   |            ^^^\n\nprogram.dfy(17,11): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n   |\n17 |     assert old(j) == 18; // j is local and not affected by old\n   |            ^^^\n\nprogram.dfy(18,11): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n   |\n18 |     assert old@L(j) == 18; // j is local and not affected by old\n   |            ^^^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

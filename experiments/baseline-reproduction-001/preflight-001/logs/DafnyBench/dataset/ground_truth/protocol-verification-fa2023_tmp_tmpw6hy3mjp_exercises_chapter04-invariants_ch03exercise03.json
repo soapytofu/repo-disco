@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/protocol-verification-fa2023_tmp_tmpw6hy3mjp_exercises_chapter04-invariants_ch03exercise03.dfy",
+  "sha256": "0c7bef811486e75f37a856880da2f867613bd685914c63ab40c1abe70dfe1663",
+  "bytes": 5105,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(135,25): Error: function precondition could not be proved\n    |\n135 |   ensures ClientHoldsLock(behavior[1], clientA) // first clientA acquires lock\n    |                          ^\n\nprogram.dfy(118,23): Related location: this proposition could not be proved\n    |\n118 |   requires v.WellFormed()\n    |                        ^\n\nprogram.dfy(30,14): Related location: this proposition could not be proved\n   |\n30 |     |clients| == this.clientCount\n   |               ^^\n\n\nDafny program verifier finished with 6 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_Bug58.dfy",
+  "sha256": "e21fd38157a70d904755946d6281f6fcd4140dcda25a75ee7cb7d5c18089f4a4",
+  "bytes": 370,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(12,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     requires i in f;\n   |                    ^\n\nprogram.dfy(13,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |     requires M2(f, i);\n   |                      ^\n\nprogram.dfy(14,75): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     requires forall j:int, f:map<int, bool> :: M1(f, j) == (j in f && f[j]);\n   |                                                                            ^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

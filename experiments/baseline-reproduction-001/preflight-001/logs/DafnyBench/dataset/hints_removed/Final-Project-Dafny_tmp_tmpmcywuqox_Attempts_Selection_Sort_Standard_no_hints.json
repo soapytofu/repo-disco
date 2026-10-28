@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Selection_Sort_Standard_no_hints.dfy",
+  "sha256": "2bc4caaea01d391b90f90c5df340ed669000be5aaa780bdf87b7a1c881c5bf12",
+  "bytes": 454,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,2): Error: a postcondition could not be proved on this return path\n  |\n6 |   while (idx < Array.Length)\n  |   ^^^^^\n\nprogram.dfy(3,35): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures multiset(old(Array[..])) == multiset(Array[..])\n  |                                    ^^\n\nprogram.dfy(12,29): Error: index out of range\n   |\n12 |       if (Array[idx'] < Array[minIndex]) {\n   |                              ^\n\nprogram.dfy(17,21): Error: index out of range\n   |\n17 |     Array[idx], Array[minIndex] := Array[minIndex], Array[idx];\n   |                      ^\n\n\nDafny program verifier finished with 1 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

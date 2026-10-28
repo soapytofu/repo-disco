@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/DafnyPrograms_tmp_tmp74_f9k_c_map-multiset-implementation_no_hints.dfy",
+  "sha256": "b46ccc842f80ceee2185dc5d4d5d7c5b36a9d93b98af8a0ae99487a115e28c18",
+  "bytes": 6907,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(74,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n74 |   var elements: map<int, nat>;\n   |                              ^\n\nprogram.dfy(66,91): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n66 |     ensures (forall i | i in m :: m[i] == A(m)[i]) && (m == map[] <==> A(m) == multiset{}) && (forall i :: i in m <==> i in A(m))\n   |                                                                                            ^^\n\nprogram.dfy(71,17): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n71 |     ensures A(m) == multiset(s)\n   |                  ^^\n\nprogram.dfy(205,4): Warning: assume statement has no {:axiom} annotation\n    |\n205 |     assume this.theMultiset == multiset{1, 2, 3, 4};\n    |     ^^^^^^\n\nprogram.dfy(206,4): Warning: assume statement has no {:axiom} annotation\n    |\n206 |     assume this.Valid();\n    |     ^^^^^^\n\nprogram.dfy(228,4): Warning: assume statement has no {:axiom} annotation\n    |\n228 |     assume this.theMultiset == multiset{1, 2, 3, 4};\n    |     ^^^^^^\n\nprogram.dfy(229,4): Warning: assume statement has no {:axiom} annotation\n    |\n229 |     assume this.Valid();\n    |     ^^^^^^\n\nprogram.dfy(198,17): Error: a precondition for this call could not be proved\n    |\n198 |     LemmaReverseA(m, s);\n    |                  ^\n\nprogram.dfy(70,14): Related location: this is the precondition that could not be proved\n   |\n70 |     requires (forall i | i in m :: m[i] == multiset(s)[i]) && (m == map[] <==> multiset(s) == multiset{})\n   |               ^^^^^^\n\n\nDafny program verifier finished with 26 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_784_no_hints.dfy",
+  "sha256": "42ba38eeb84def875ead120044cfff9cb3abe78ca39d85299a4a272167c943c5",
+  "bytes": 1719,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(30,14): Related location: this is the postcondition that could not be proved\n   |\n30 |     ensures 0 <= evenIndex < |lst|\n   |               ^^\n\nprogram.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(30,27): Related location: this is the postcondition that could not be proved\n   |\n30 |     ensures 0 <= evenIndex < |lst|\n   |                            ^\n\nprogram.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(31,14): Related location: this is the postcondition that could not be proved\n   |\n31 |     ensures 0 <= oddIndex < |lst|\n   |               ^^\n\nprogram.dfy(53,0): Error: out-parameter 'evenIndex', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n53 | }\n   | ^\n\nprogram.dfy(53,0): Error: out-parameter 'oddIndex', which is subject to definite-assignment rules, might be uninitialized at this return point\n   |\n53 | }\n   | ^\n\n\nDafny program verifier finished with 7 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

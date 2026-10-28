@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseReplace_no_hints.dfy",
+  "sha256": "3c2e0d137b2a7414a271dd3d9448505fc76af5e752e2cfca25a83cc03e3897e1",
+  "bytes": 317,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,23): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n6 | ensures forall k::0<=k<old(v.Length) && old(v[k])==x ==> v[k]==y\n  |                        ^^^\n\nprogram.dfy(7,23): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n7 | ensures forall k::0<=k<old(v.Length) && old(v[k])!=x ==> v[k]==old(v[k])\n  |                        ^^^\n\nprogram.dfy(10,4): Error: a postcondition could not be proved on this return path\n   |\n10 |     while(i<v.Length)\n   |     ^^^^^\n\nprogram.dfy(6,8): Related location: this is the postcondition that could not be proved\n  |\n6 | ensures forall k::0<=k<old(v.Length) && old(v[k])==x ==> v[k]==y\n  |         ^^^^^^\n\nprogram.dfy(10,4): Error: a postcondition could not be proved on this return path\n   |\n10 |     while(i<v.Length)\n   |     ^^^^^\n\nprogram.dfy(7,8): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures forall k::0<=k<old(v.Length) && old(v[k])!=x ==> v[k]==old(v[k])\n  |         ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

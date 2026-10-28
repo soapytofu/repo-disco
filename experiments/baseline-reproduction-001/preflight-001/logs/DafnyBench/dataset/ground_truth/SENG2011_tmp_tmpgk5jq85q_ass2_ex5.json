@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/SENG2011_tmp_tmpgk5jq85q_ass2_ex5.dfy",
+  "sha256": "db136159f8b9596ec6bb4ea52f0584b844cd7a7a33ab02ed7993b59be0106c59",
+  "bytes": 2306,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(3,15): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | requires n >= 0;\n  |                ^\n\nprogram.dfy(10,15): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 | requires n >= 0;\n   |                ^\n\nprogram.dfy(11,48): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 | ensures ((expo(2, 3 * n) - expo(3, n))) % 5 == 0;\n   |                                                 ^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

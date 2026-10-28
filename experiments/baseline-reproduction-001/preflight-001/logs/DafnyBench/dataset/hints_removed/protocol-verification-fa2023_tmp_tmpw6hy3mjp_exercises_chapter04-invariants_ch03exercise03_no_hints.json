@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/protocol-verification-fa2023_tmp_tmpw6hy3mjp_exercises_chapter04-invariants_ch03exercise03_no_hints.dfy",
+  "sha256": "b13544d68ea15bbea69bfa6255aaa0e8125c34c91721e4fa945900c6b23c0e14",
+  "bytes": 4873,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(135,25): Error: function precondition could not be proved\n    |\n135 |   ensures ClientHoldsLock(behavior[1], clientA) // first clientA acquires lock\n    |                          ^\n\nprogram.dfy(118,23): Related location: this proposition could not be proved\n    |\n118 |   requires v.WellFormed()\n    |                        ^\n\nprogram.dfy(30,14): Related location: this proposition could not be proved\n   |\n30 |     |clients| == this.clientCount\n   |               ^^\n\nprogram.dfy(137,0): Error: a postcondition could not be proved on this return path\n    |\n137 | {\n    | ^\n\nprogram.dfy(132,10): Related location: this is the postcondition that could not be proved\n    |\n132 |   ensures forall i | 0 <= i < |behavior|-1 :: Next(behavior[i], behavior[i+1]) // Behavior satisfies your state machine\n    |           ^^^^^^\n\n\nDafny program verifier finished with 5 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

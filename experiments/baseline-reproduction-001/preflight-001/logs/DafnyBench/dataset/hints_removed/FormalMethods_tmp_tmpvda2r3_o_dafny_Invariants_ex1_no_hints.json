@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/FormalMethods_tmp_tmpvda2r3_o_dafny_Invariants_ex1_no_hints.dfy",
+  "sha256": "dbff19cdbcf738c4565ae6f6ae619e17c62f13433025dc9662d722e4ad134267",
+  "bytes": 647,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,4): Error: a postcondition could not be proved on this return path\n   |\n14 |     return r; // NOT(m>0) ^ Inv ==> r = x*y\n   |     ^^^^^^^^^\n\nprogram.dfy(2,10): Related location: this is the postcondition that could not be proved\n  |\n2 | ensures r == x * y\n  |           ^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

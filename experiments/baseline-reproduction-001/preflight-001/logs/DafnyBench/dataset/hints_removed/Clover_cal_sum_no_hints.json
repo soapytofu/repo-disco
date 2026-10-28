@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Clover_cal_sum_no_hints.dfy",
+  "sha256": "5f5c0e0c074de6f198befca9e395d95191bad16465add2a63054a9d9f611a81f",
+  "bytes": 166,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(4,0): Error: a postcondition could not be proved on this return path\n  |\n4 | {\n  | ^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |   ensures s == N * (N + 1) / 2\n  |             ^^\n\nprogram.dfy(7,2): Error: cannot prove termination; try supplying a decreases clause for the loop\n  |\n7 |   while n != N\n  |   ^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_git-issue41_no_hints.dfy",
+  "sha256": "b175057c6b9ad9a3030461d11faf402d6e50351cbf7d50d5abb8151d961d5149",
+  "bytes": 1317,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(7,20): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 |     requires |s| > 0;\n  |                     ^\n\nprogram.dfy(13,20): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |     requires |s| > 0;\n   |                     ^\n\nprogram.dfy(14,41): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     ensures  |all_but_last(s)| == |s| - 1;\n   |                                          ^\n\nprogram.dfy(25,21): Warning: deprecated style: a semi-colon is not needed here\n   |\n25 |     requires |ss| > 0;\n   |                      ^\n\nprogram.dfy(26,80): Warning: deprecated style: a semi-colon is not needed here\n   |\n26 |     ensures  ConcatenateSeqs(ss) == ConcatenateSeqs(all_but_last(ss)) + last(ss);\n   |                                                                                 ^\n\nprogram.dfy(49,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n49 |     ensures  g(s) == g(f(s));\n   |                             ^\n\n\nDafny program verifier finished with 8 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

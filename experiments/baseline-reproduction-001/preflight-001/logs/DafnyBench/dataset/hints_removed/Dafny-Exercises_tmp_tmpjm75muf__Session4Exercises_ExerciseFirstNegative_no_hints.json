@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session4Exercises_ExerciseFirstNegative_no_hints.dfy",
+  "sha256": "5a25c04b12c030b3db682b45de0cb51a1384733b1c40875363d95a3feabeffe0",
+  "bytes": 606,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | { \n  | ^\n\nprogram.dfy(6,10): Related location: this is the postcondition that could not be proved\n  |\n6 | ensures b <==> exists k::0<=k<v.Length && v[k]<0\n  |           ^^^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | { \n  | ^\n\nprogram.dfy(7,15): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n  |                ^^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | { \n  | ^\n\nprogram.dfy(7,18): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n  |                   ^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | { \n  | ^\n\nprogram.dfy(7,35): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n  |                                    ^\n\nprogram.dfy(8,0): Error: a postcondition could not be proved on this return path\n  |\n8 | { \n  | ^\n\nprogram.dfy(7,49): Related location: this is the postcondition that could not be proved\n  |\n7 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n  |                                                  ^\n\nprogram.dfy(2,1): Related location: this proposition could not be proved\n  |\n2 | {forall u::0<=u<|s| ==> s[u]>=0}\n  |  ^^^^^^\n\nprogram.dfy(22,0): Error: a postcondition could not be proved on this return path\n   |\n22 | { \n   | ^\n\nprogram.dfy(20,10): Related location: this is the postcondition that could not be proved\n   |\n20 | ensures b <==> exists k::0<=k<v.Length && v[k]<0\n   |           ^^^^\n\nprogram.dfy(22,0): Error: a postcondition could not be proved on this return path\n   |\n22 | { \n   | ^\n\nprogram.dfy(21,18): Related location: this is the postcondition that could not be proved\n   |\n21 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n   |                   ^\n\nprogram.dfy(22,0): Error: a postcondition could not be proved on this return path\n   |\n22 | { \n   | ^\n\nprogram.dfy(21,35): Related location: this is the postcondition that could not be proved\n   |\n21 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n   |                                    ^\n\nprogram.dfy(22,0): Error: a postcondition could not be proved on this return path\n   |\n22 | { \n   | ^\n\nprogram.dfy(21,49): Related location: this is the postcondition that could not be proved\n   |\n21 | ensures b ==> 0<=i<v.Length && v[i]<0 && positive(v[0..i])\n   |                                                  ^\n\nprogram.dfy(2,1): Related location: this proposition could not be proved\n  |\n2 | {forall u::0<=u<|s| ==> s[u]>=0}\n  |  ^^^^^^\n\nprogram.dfy(24,1): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n24 |  while (i<v.Length && !b)\n   |  ^^^^^\n\n\nDafny program verifier finished with 3 verified, 10 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

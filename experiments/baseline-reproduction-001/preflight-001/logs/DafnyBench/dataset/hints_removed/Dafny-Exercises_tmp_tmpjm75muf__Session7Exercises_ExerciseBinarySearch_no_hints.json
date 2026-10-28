@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny-Exercises_tmp_tmpjm75muf__Session7Exercises_ExerciseBinarySearch_no_hints.dfy",
+  "sha256": "ca2b346d72ddb864247584c7e3567c038f6e1f90400b4fb37576be8310f0d1fc",
+  "bytes": 1994,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(76,12): Warning: unusual indentation in right-hand operand of ==> (which ends at line 77, column 54); do you perhaps need parentheses?\n   |\n76 |  ensures !b ==> (forall u::0<=u<p ==> v[u]<elem) && \n   |             ^^^\n\nprogram.dfy(12,15): Error: non-function expression (of type bool) is called with parameters\n   |\n12 |                (forall w::f<w<v.Length ==> v[w]>elem)\n   |                ^\n\n1 resolution/type errors detected in program.dfy\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

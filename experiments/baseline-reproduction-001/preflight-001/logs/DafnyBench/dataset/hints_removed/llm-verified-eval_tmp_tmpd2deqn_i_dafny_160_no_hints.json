@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/llm-verified-eval_tmp_tmpd2deqn_i_dafny_160_no_hints.dfy",
+  "sha256": "18e6b2f163caad378759b4485c6453249f704d71b7e4d71fec27e0168b43a632",
+  "bytes": 927,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(5,36): Error: cannot prove termination; try supplying a decreases clause\n  |\n5 |   else if exponent % 2 == 0 then pow(base * base, exponent / 2)\n  |                                     ^\n\nprogram.dfy(5,36): Error: decreases expression at index 0 must be bounded below by 0\n  |\n5 |   else if exponent % 2 == 0 then pow(base * base, exponent / 2)\n  |                                     ^\n\nprogram.dfy(1,13): Related location: this decreases clause was not satisfied\n  |\n1 | function pow(base: int, exponent: int): int\n  |              ^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

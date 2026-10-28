@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_Bug165.dfy",
+  "sha256": "9ef94568ab9d4cdf8fa68a500d2de2cfbbc559c39cf7b44ed23142fdbcd44ae2",
+  "bytes": 416,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(8,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n8 |   ensures (forall e: T  :: f(e) ==> multiset(s1)[e] == multiset(r)[e])\n  |           ^\n\nprogram.dfy(9,10): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n  |\n9 |   ensures (forall e: T  :: (!f(e)) ==> 0 == multiset(r)[e])\n  |           ^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

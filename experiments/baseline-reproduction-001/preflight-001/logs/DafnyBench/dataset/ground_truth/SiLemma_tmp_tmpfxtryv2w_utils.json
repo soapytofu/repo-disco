@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/SiLemma_tmp_tmpfxtryv2w_utils.dfy",
+  "sha256": "b1baee9fc56ba799938d3da24565376bf0d26b0b7781af8f39732c8a5c8b7a30",
+  "bytes": 1981,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(5,25): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n5 |             var below := set n : nat | n < bound :: n;\n  |                          ^^^\n\nprogram.dfy(12,30): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n12 |             var belowminus := set n : nat | n < bound-1 :: n;\n   |                               ^^^\n\nprogram.dfy(13,25): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n13 |             var below := set n : nat | n < bound :: n;\n   |                          ^^^\n\nprogram.dfy(36,31): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n36 |         var all_below_bound := set n : nat | n < bound :: n;\n   |                                ^^^\n\n\nDafny program verifier finished with 5 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

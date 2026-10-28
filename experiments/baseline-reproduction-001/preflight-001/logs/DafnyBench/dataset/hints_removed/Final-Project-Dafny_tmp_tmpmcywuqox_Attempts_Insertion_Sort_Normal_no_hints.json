@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Insertion_Sort_Normal_no_hints.dfy",
+  "sha256": "d554ac02314e0e5c794c631ed5896e1e2682fe12b8a464591bbda7c9229346ad",
+  "bytes": 651,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(21,0): Error: a postcondition could not be proved on this return path\n   |\n21 | {\n   | ^\n\nprogram.dfy(19,11): Related location: this is the postcondition that could not be proved\n   |\n19 | \tensures i <= m < a.Length\n   |            ^^\n\nprogram.dfy(21,0): Error: a postcondition could not be proved on this return path\n   |\n21 | {\n   | ^\n\nprogram.dfy(19,16): Related location: this is the postcondition that could not be proved\n   |\n19 | \tensures i <= m < a.Length\n   |                 ^\n\nprogram.dfy(21,0): Error: a postcondition could not be proved on this return path\n   |\n21 | {\n   | ^\n\nprogram.dfy(20,9): Related location: this is the postcondition that could not be proved\n   |\n20 | \tensures forall k :: i <= k < a.Length ==> a[k] >= a[m]\n   |          ^^^^^^\n\nprogram.dfy(26,13): Error: index out of range\n   |\n26 | \t\tif(a[j] < a[m]) { m := j; }\n   |              ^\n\nprogram.dfy(37,1): Error: a postcondition could not be proved on this return path\n   |\n37 | \twhile(c < a.Length)\n   |  ^^^^^\n\nprogram.dfy(34,15): Related location: this is the postcondition that could not be proved\n   |\n34 | \tensures sorted(a)\n   |                ^\n\nprogram.dfy(5,8): Related location: this proposition could not be proved\n  |\n5 | \tsortedA(a, a.Length)\n  |         ^\n\nprogram.dfy(13,1): Related location: this proposition could not be proved\n   |\n13 | \tforall k :: 0 < k < i ==> a[k-1] <= a[k]\n   |  ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/stunning-palm-tree_tmp_tmpr84c2iwh_ch8.dfy",
+  "sha256": "41734a2f75a7b8052d058624987802e0b028feff35144f35c7fde97765ce229a",
+  "bytes": 3975,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(42,21): Warning: type parameter T of ghost function Count is declared (==), which is unnecessary because the function doesn't contain any compiled code\n   |\n42 | ghost function Count<T(==)>(xs: List<T>, p: T): int\n   |                      ^\n\nprogram.dfy(50,23): Warning: type parameter T of ghost function Project is declared (==), which is unnecessary because the function doesn't contain any compiled code\n   |\n50 | ghost function Project<T(==)>(xs: List<T>, p: T): List<T> {\n   |                        ^\n\nprogram.dfy(57,38): Warning: type parameter T of ghost lemma CountProject is declared (==), which is unnecessary because the lemma doesn't contain any compiled code\n   |\n57 | lemma {:induction false} CountProject<T(==)>(xs: List<T>, ys: List<T>, p: T)\n   |                                       ^\n\n\nDafny program verifier finished with 14 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

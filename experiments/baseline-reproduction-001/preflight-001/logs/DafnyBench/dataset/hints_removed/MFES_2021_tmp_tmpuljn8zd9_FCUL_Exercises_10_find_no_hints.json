@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/MFES_2021_tmp_tmpuljn8zd9_FCUL_Exercises_10_find_no_hints.dfy",
+  "sha256": "06f3c6c176960ed40e17b32210aff93201366b3915b4c622a8c7c958611ac191",
+  "bytes": 277,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,25): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires a.Length > 0;\n  |                          ^\n\nprogram.dfy(3,34): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |     ensures 0 <= index <= a.Length;\n  |                                   ^\n\nprogram.dfy(4,48): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |     ensures index < a.Length ==> a[index] == key;\n  |                                                 ^\n\nprogram.dfy(5,0): Error: a postcondition could not be proved on this return path\n  |\n5 | {\n  | ^\n\nprogram.dfy(3,23): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures 0 <= index <= a.Length;\n  |                        ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

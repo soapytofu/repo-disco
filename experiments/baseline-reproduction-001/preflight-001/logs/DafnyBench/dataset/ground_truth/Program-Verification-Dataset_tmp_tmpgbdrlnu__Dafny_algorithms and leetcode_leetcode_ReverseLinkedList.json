@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_leetcode_ReverseLinkedList.dfy",
+  "sha256": "543ddbc5995ed03e26c71a63bc12c16b170a5c986bcba48bed341ddcea92937b",
+  "bytes": 8213,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(63,57): Warning: deprecated style: a semi-colon is not needed here\n   |\n63 |     ensures nodeConcat(Node(xs.val, Null), xs.next) == xs;\n   |                                                          ^\n\nprogram.dfy(75,23): Warning: deprecated style: a semi-colon is not needed here\n   |\n75 |     requires xs != Null;\n   |                        ^\n\nprogram.dfy(76,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n76 |     requires xs.next == Null;\n   |                             ^\n\nprogram.dfy(77,33): Warning: deprecated style: a semi-colon is not needed here\n   |\n77 |     ensures reverseList(xs) == xs;\n   |                                  ^\n\nprogram.dfy(86,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n86 |     decreases xs;\n   |                 ^\n\n\nDafny program verifier finished with 30 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

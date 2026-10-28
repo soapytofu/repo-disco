@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_Intervals_no_hints.dfy",
+  "sha256": "73ccd714a857723d1e3f2e6343817343f3323044d5fe460b3f0bac2d68f0198d",
+  "bytes": 1493,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(29,20): Error: index out of range\n   |\n29 |       if (thresholds[mid] <= k) {\n   |                     ^\n\nprogram.dfy(35,4): Error: a postcondition could not be proved on this return path\n   |\n35 |     return i;\n   |     ^^^^^^^^^\n\nprogram.dfy(18,20): Related location: this is the postcondition that could not be proved\n   |\n18 |     ensures -1 <= r < thresholds.Length\n   |                     ^\n\nprogram.dfy(35,4): Error: a postcondition could not be proved on this return path\n   |\n35 |     return i;\n   |     ^^^^^^^^^\n\nprogram.dfy(19,12): Related location: this is the postcondition that could not be proved\n   |\n19 |     ensures forall m :: r < m < thresholds.Length ==> k < thresholds[m]\n   |             ^^^^^^\n\nprogram.dfy(35,4): Error: a postcondition could not be proved on this return path\n   |\n35 |     return i;\n   |     ^^^^^^^^^\n\nprogram.dfy(20,37): Related location: this is the postcondition that could not be proved\n   |\n20 |     ensures 0 <= r ==> thresholds[r] <= k\n   |                                      ^^\n\nprogram.dfy(51,20): Error: index out of range\n   |\n51 |       if (thresholds[mid] < k) {\n   |                     ^\n\nprogram.dfy(57,4): Error: a postcondition could not be proved on this return path\n   |\n57 |     return i;\n   |     ^^^^^^^^^\n\nprogram.dfy(40,19): Related location: this is the postcondition that could not be proved\n   |\n40 |     ensures 0 <= r <= thresholds.Length\n   |                    ^^\n\nprogram.dfy(57,4): Error: a postcondition could not be proved on this return path\n   |\n57 |     return i;\n   |     ^^^^^^^^^\n\nprogram.dfy(41,12): Related location: this is the postcondition that could not be proved\n   |\n41 |     ensures forall m :: 0 <= m < r ==> thresholds[m] < k\n   |             ^^^^^^\n\nprogram.dfy(57,4): Error: a postcondition could not be proved on this return path\n   |\n57 |     return i;\n   |     ^^^^^^^^^\n\nprogram.dfy(42,40): Related location: this is the postcondition that could not be proved\n   |\n42 |     ensures r < thresholds.Length ==> k <= thresholds[r]\n   |                                         ^^\n\n\nDafny program verifier finished with 3 verified, 8 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

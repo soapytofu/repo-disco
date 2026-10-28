@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/HATRA-2022-Paper_tmp_tmp5texxy8l_copilot_verification_Largest Sum_largest_sum_no_hints.dfy",
+  "sha256": "8754fe54e1e8fb71a9b92afff89637c2d59a3050e67f6756f599254e1d4d9ad4",
+  "bytes": 1145,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(23,4): Error: a postcondition could not be proved on this return path\n   |\n23 |     return max_sum;\n   |     ^^^^^^^^^^^^^^^\n\nprogram.dfy(4,28): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures max_sum_subarray(nums, sum, 0, nums.Length)\n  |                             ^\n\nprogram.dfy(32,4): Related location: this proposition could not be proved\n   |\n32 |     forall u, v :: start <= u < v <= stop ==> Sum_Array(arr, u, v) <= sum\n   |     ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

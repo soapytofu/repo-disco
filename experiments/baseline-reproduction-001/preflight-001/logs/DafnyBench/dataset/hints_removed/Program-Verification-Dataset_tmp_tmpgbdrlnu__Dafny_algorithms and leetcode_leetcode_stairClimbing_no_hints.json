@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_leetcode_stairClimbing_no_hints.dfy",
+  "sha256": "95e6f9990bd1fddc1fc09ddfc07f6f47e0a8493e0ea30a6c2df8e5a2b46c2a5f",
+  "bytes": 5368,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(35,0): Error: a postcondition could not be proved on this return path\n   |\n35 | {\n   | ^\n\nprogram.dfy(34,12): Related location: this is the postcondition that could not be proved\n   |\n34 |     ensures exists ss: set< seq<Steps> > :: allEndAtN(ss, 0) && |ss| == 0\n   |             ^^^^^^\n\nprogram.dfy(39,0): Error: a postcondition could not be proved on this return path\n   |\n39 | {\n   | ^\n\nprogram.dfy(38,12): Related location: this is the postcondition that could not be proved\n   |\n38 |     ensures exists ss: set< seq<Steps> > :: allEndAtN(ss, 1) && |ss| == 1\n   |             ^^^^^^\n\nprogram.dfy(44,0): Error: a postcondition could not be proved on this return path\n   |\n44 | {\n   | ^\n\nprogram.dfy(43,12): Related location: this is the postcondition that could not be proved\n   |\n43 |     ensures exists ss: set< seq<Steps> > :: allEndAtN(ss, 2) && |ss| == 2\n   |             ^^^^^^\n\nprogram.dfy(68,60): Error: a postcondition could not be proved on this return path\n   |\n68 |     else if i: nat :| i < |xs| && i <|ys| && xs[i] != ys[i] {\n   |                                                             ^\n\nprogram.dfy(65,23): Related location: this is the postcondition that could not be proved\n   |\n65 |     ensures [someT]+xs != [someT]+ys\n   |                        ^^\n\nprogram.dfy(93,20): Error: a postcondition could not be proved on this return path\n   |\n93 |     if x :| x in ss {\n   |                     ^\n\nprogram.dfy(90,25): Related location: this is the postcondition that could not be proved\n   |\n90 |     ensures |addOne(ss)| == |ss|\n   |                          ^^\n\nprogram.dfy(148,20): Error: a postcondition could not be proved on this return path\n    |\n148 |     if x :| x in ss {\n    |                     ^\n\nprogram.dfy(145,25): Related location: this is the postcondition that could not be proved\n    |\n145 |     ensures |addTwo(ss)| == |ss|\n    |                          ^^\n\nprogram.dfy(179,0): Error: a postcondition could not be proved on this return path\n    |\n179 | {\n    | ^\n\nprogram.dfy(178,12): Related location: this is the postcondition that could not be proved\n    |\n178 |     ensures exists sp : set< seq<Steps> > :: |sp| == steps[i-1] + steps[i-2] && allEndAtN(sp, i)\n    |             ^^^^^^\n\nprogram.dfy(212,19): Error: a precondition for this call could not be proved\n    |\n212 |         stepSetsAdd(i, steps);\n    |                    ^\n\nprogram.dfy(177,13): Related location: this is the precondition that could not be proved\n    |\n177 |     requires forall k: nat :: k < i ==> exists ss: set< seq<Steps> > :: steps[k] == |ss| && allEndAtN(ss, k)\n    |              ^^^^^^\n\nprogram.dfy(215,4): Error: a postcondition could not be proved on this return path\n    |\n215 |     return steps[n];\n    |     ^^^^^^^^^^^^^^^^\n\nprogram.dfy(192,12): Related location: this is the postcondition that could not be proved\n    |\n192 |     ensures exists ss: set< seq<Steps> > :: count == |ss| && allEndAtN(ss, n)\n    |             ^^^^^^\n\n\nDafny program verifier finished with 17 verified, 9 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

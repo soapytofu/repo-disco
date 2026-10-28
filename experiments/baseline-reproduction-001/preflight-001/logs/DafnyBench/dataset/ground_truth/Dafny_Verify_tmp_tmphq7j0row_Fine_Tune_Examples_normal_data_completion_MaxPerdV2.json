@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_Verify_tmp_tmphq7j0row_Fine_Tune_Examples_normal_data_completion_MaxPerdV2.dfy",
+  "sha256": "d56f030059e0c49f67a730e5b7c2c3827f6298206551074cc9563c90faba3ac9",
+  "bytes": 689,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(23,28): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   requires 0 < n <= a.Length;\n   |                             ^\n\nprogram.dfy(24,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 |   ensures is_max(max, a, n);\n   |                            ^\n\nprogram.dfy(31,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n31 | \t\tinvariant i <= n;\n   |                   ^\n\nprogram.dfy(32,30): Warning: deprecated style: a semi-colon is not needed here\n   |\n32 | \t\tinvariant is_max (max, a, i);\n   |                               ^\n\n\nDafny program verifier finished with 5 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/630-dafny_tmp_tmpz2kokaiq_Solution_no_hints.dfy",
+  "sha256": "0e73db5d9de55d020d714f1a01c1510cee3991b8a47d3bc2665924883cd4bfe9",
+  "bytes": 674,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(20,12): Error: index out of range\n   |\n20 |         if a[mid] < x {\n   |             ^\n\nprogram.dfy(30,4): Error: a postcondition could not be proved on this return path\n   |\n30 |     return -1;\n   |     ^^^^^^^^^^\n\nprogram.dfy(11,28): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures index == -1 ==> forall i : int :: 0 <= i < a.Length ==> a[i] != x\n   |                             ^^^^^^\n\n\nDafny program verifier finished with 2 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

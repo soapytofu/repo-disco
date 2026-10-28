@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/CVS-Projto1_tmp_tmpb1o0bu8z_Hoare_no_hints.dfy",
+  "sha256": "df5854010c0654893bc3d04d99ebd740cdc5a04a6228949bb6a898d87a625a5a",
+  "bytes": 1423,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(48,4): Error: a postcondition could not be proved on this return path\n   |\n48 |     return r;\n   |     ^^^^^^^^^\n\nprogram.dfy(32,14): Related location: this is the postcondition that could not be proved\n   |\n32 |     ensures r == fib(n)\n   |               ^^\n\nprogram.dfy(67,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n67 |     while ll != Nil\n   |     ^^^^^\n\nprogram.dfy(79,0): Error: a postcondition could not be proved on this return path\n   |\n79 | {\n   | ^\n\nprogram.dfy(77,12): Related location: this is the postcondition that could not be proved\n   |\n77 |     ensures forall i :: 0 <= i < a.Length ==> a[i] <= m\n   |             ^^^^^^\n\nprogram.dfy(79,0): Error: a postcondition could not be proved on this return path\n   |\n79 | {\n   | ^\n\nprogram.dfy(78,12): Related location: this is the postcondition that could not be proved\n   |\n78 |     ensures exists i :: 0 <= i < a.Length && a[i] == m\n   |             ^^^^^^\n\n\nDafny program verifier finished with 6 verified, 4 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

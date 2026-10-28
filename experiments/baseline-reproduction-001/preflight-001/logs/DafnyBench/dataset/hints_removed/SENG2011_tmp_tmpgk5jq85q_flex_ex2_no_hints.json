@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/SENG2011_tmp_tmpgk5jq85q_flex_ex2_no_hints.dfy",
+  "sha256": "3da3184d11b143cfe78f501647d1caaa14cf2a757bcb8588ff9c976314bc0a38",
+  "bytes": 778,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(12,8): Related location: this is the postcondition that could not be proved\n   |\n12 | ensures forall x :: 0 <= x < s.Length ==> a >= s[x]\n   |         ^^^^^^\n\nprogram.dfy(14,0): Error: a postcondition could not be proved on this return path\n   |\n14 | {\n   | ^\n\nprogram.dfy(13,10): Related location: this is the postcondition that could not be proved\n   |\n13 | ensures a in s[..]\n   |           ^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

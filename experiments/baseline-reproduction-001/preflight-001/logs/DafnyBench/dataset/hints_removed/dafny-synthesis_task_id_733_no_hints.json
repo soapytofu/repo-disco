@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_733_no_hints.dfy",
+  "sha256": "b51a04d7f6a4455df7d5dae4428e04d0654a15d133a29a4f262c24f778c0a763",
+  "bytes": 606,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(2,17): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'arr' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |     requires arr != null\n  |                  ^^\n\nprogram.dfy(7,0): Error: a postcondition could not be proved on this return path\n  |\n7 | {\n  | ^\n\nprogram.dfy(5,28): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures index == -1 ==> forall i :: 0 <= i < arr.Length ==> arr[i] != target\n  |                             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

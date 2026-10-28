@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny_tmp_tmp49a6ihvk_m4_no_hints.dfy",
+  "sha256": "4fcc4d6f31a2eab1f043c1de4be48f5bb21bfa78c814b9a236b99736fce1a8a2",
+  "bytes": 600,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(16,4): Error: a postcondition could not be proved on this return path\n   |\n16 |     while w < b\n   |     ^^^^^\n\nprogram.dfy(12,12): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures forall i, j :: 0 <= i < j < a.Length ==> Below(a[i], a[j])\n   |             ^^^^^^\n\nprogram.dfy(16,4): Error: a postcondition could not be proved on this return path\n   |\n16 |     while w < b\n   |     ^^^^^\n\nprogram.dfy(13,28): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures multiset(a[..]) == multiset(old(a[..]))\n   |                             ^^\n\nprogram.dfy(18,15): Error: index out of range\n   |\n18 |         match a[w]\n   |                ^\n\nprogram.dfy(20,13): Error: index out of range\n   |\n20 |             a[r], a[w] := a[w], a[r];\n   |              ^\n\nprogram.dfy(25,13): Error: index out of range\n   |\n25 |             a[b-1], a[w] := a[w], a[b-1];\n   |              ^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

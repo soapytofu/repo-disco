@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/cs357_tmp_tmpn4fsvwzs_lab7_question5_no_hints.dfy",
+  "sha256": "4bbd9bc46215e3b19b6db45fb66ccb16a426228c10461c1afa39875140d3f812",
+  "bytes": 549,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(7,14): Error: decreases expression at index 0 must be bounded below by 0\n  |\n7 |         r:= M1(-x, y);\n  |               ^\n\nprogram.dfy(1,10): Related location: this decreases clause was not satisfied\n  |\n1 | method M1(x: int, y: int) returns (r: int)\n  |           ^\n\nprogram.dfy(17,0): Error: a postcondition could not be proved on this return path\n   |\n17 | {\n   | ^\n\nprogram.dfy(16,10): Related location: this is the postcondition that could not be proved\n   |\n16 | ensures r == x + y\n   |           ^^\n\n\nDafny program verifier finished with 0 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

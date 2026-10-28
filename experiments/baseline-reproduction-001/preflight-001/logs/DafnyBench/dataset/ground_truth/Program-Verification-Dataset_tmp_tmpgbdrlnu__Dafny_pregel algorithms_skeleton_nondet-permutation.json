@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_pregel algorithms_skeleton_nondet-permutation.dfy",
+  "sha256": "8d60c2008c567981b1fe0ab1cfb45d956bb387c1f48d1c0f5e081baf617bbd82",
+  "bytes": 1931,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(40,2): Warning: assume statement has no {:axiom} annotation\n   |\n40 | \t\tassume forall i | 0 <= i < n :: i in a[..];\n   |   ^^^^^^\n\nprogram.dfy(8,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'perm' to have the value 'null', declare its type to be 'array?<int>')\n  |\n8 | \t\tensures perm != null\n  |                ^^\n\nprogram.dfy(37,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n37 | \t\trequires a != null && a.Length == n\n   |              ^^\n\nprogram.dfy(47,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n47 | \t\trequires a != null\n   |              ^^\n\nprogram.dfy(54,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n54 | \t\trequires a != null\n   |              ^^\n\nprogram.dfy(13,13): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n13 | \t\tvar all := set x | 0 <= x < n;\n   |              ^^^\n\nprogram.dfy(63,16): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n63 | \t\trequires s == set x | 0 <= x < size\n   |                 ^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(67,20): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n67 | \t\t\tassert size == |(set x | 0 <= x < size)|;\n   |                     ^^^\n\nprogram.dfy(77,8): Error: cannot establish the existence of LHS values that satisfy the such-that predicate\n   |\n77 | \t\tvar e :| e in s2 - s1;\n   |         ^^^^^^^^^^^^^^^^\n\nprogram.dfy(87,8): Error: cannot establish the existence of LHS values that satisfy the such-that predicate\n   |\n87 | \t\tvar e :| e in s2 - s1;\n   |         ^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 6 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

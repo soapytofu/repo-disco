@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_tutorial_maximum_no_hints.dfy",
+  "sha256": "353fe2f6bbc57d3af89982ee137db3334c67095694f808a1089af43caefcf759",
+  "bytes": 975,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(10,14): Related location: this is the postcondition that could not be proved\n   |\n10 |   ensures max in values\n   |               ^^\n\nprogram.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(11,10): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures forall i | 0 <= i < |values| :: values[i] <= max\n   |           ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

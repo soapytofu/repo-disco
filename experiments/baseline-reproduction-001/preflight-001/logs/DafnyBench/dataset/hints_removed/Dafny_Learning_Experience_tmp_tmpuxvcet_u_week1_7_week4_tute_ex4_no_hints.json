@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week1_7_week4_tute_ex4_no_hints.dfy",
+  "sha256": "f27ae381820786dcb045b72766d824dd2e29cfe77edd8e0c7babb1ea6b22056d",
+  "bytes": 2141,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(6,0): Error: a postcondition could not be proved on this return path\n  |\n6 | {\n  | ^\n\nprogram.dfy(5,24): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures n == -1 ==> forall i :: 0 <= i < a.Length ==> ! P(a[i])\n  |                         ^^^^^^\n\nprogram.dfy(11,14): Error: index out of range\n   |\n11 |         if P(a[n]) {\n   |               ^\n\nprogram.dfy(12,12): Error: a postcondition could not be proved on this return path\n   |\n12 |             return; }\n   |             ^^^^^^^\n\nprogram.dfy(4,24): Related location: this is the postcondition that could not be proved\n  |\n4 |     ensures n != -1 ==> forall i :: 0 <= i < n ==> ! P(a[i])\n  |                         ^^^^^^\n\nprogram.dfy(26,0): Error: a postcondition could not be proved on this return path\n   |\n26 | {\n   | ^\n\nprogram.dfy(25,24): Related location: this is the postcondition that could not be proved\n   |\n25 |     ensures n == -1 ==> forall i :: 0 <= i < |s1| ==> ! P(a[i])\n   |                         ^^^^^^\n\nprogram.dfy(29,4): Error: cannot prove termination; try supplying a decreases clause for the loop\n   |\n29 |     while n != |s1|\n   |     ^^^^^\n\nprogram.dfy(31,14): Error: index out of range\n   |\n31 |         if P(a[n]) {\n   |               ^\n\nprogram.dfy(32,12): Error: a postcondition could not be proved on this return path\n   |\n32 |             return; }\n   |             ^^^^^^^\n\nprogram.dfy(24,24): Related location: this is the postcondition that could not be proved\n   |\n24 |     ensures n != -1 ==> forall i :: 0 <= i < n ==> ! P(a[i])\n   |                         ^^^^^^\n\nprogram.dfy(46,0): Error: a postcondition could not be proved on this return path\n   |\n46 | {\n   | ^\n\nprogram.dfy(45,31): Related location: this is the postcondition that could not be proved\n   |\n45 |     ensures position == -1 ==> forall i :: 0 <= i < |s1| ==> s1[i] != Element\n   |                                ^^^^^^\n\nprogram.dfy(51,15): Error: index out of range\n   |\n51 |         if data[|s1|-1-n] == Element \n   |                ^\n\nprogram.dfy(73,15): Error: index out of range\n   |\n73 |         if data[data.Length -n1 +n] == Element \n   |                ^\n\nprogram.dfy(76,12): Error: a postcondition could not be proved on this return path\n   |\n76 |             return position; \n   |             ^^^^^^^^^^^^^^^^\n\nprogram.dfy(65,30): Related location: this is the postcondition that could not be proved\n   |\n65 |     ensures position >= 1 ==> exists i::0 <=i < |s1| && s1[i] == Element && |s1| != 0\n   |                               ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 11 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

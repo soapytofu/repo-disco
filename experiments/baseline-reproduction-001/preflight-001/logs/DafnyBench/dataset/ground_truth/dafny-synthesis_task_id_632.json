@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-synthesis_task_id_632.dfy",
+  "sha256": "f3d6bf2ef0e5f5e8208db5f94c35b64b33f82de78304f5c3131c1c940fc4ba07",
+  "bytes": 3162,
+  "partition": "ground_truth",
+  "exit_code": 124,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(5,26): Warning: Argument to 'old' does not dereference the mutable heap, so this use of 'old' has no effect\n  |\n5 |     ensures arr.Length == old(arr.Length)\n  |                           ^^^\n\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

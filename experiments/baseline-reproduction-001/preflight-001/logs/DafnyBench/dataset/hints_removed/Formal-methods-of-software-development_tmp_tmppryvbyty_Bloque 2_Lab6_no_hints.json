@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Formal-methods-of-software-development_tmp_tmppryvbyty_Bloque 2_Lab6_no_hints.dfy",
+  "sha256": "93f8a1a601a99efbf90c8afd8c30fcffb245753ab7e54512866d85c55b41e1ce",
+  "bytes": 7870,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(281,97): Warning: deprecated style: a semi-colon is not needed here\n    |\n281 | ensures exists i :: 0 <= i < |r| && r[i] == s[0] && multiset(s[1..]) == multiset(r[..i]+r[i+1..]);\n    |                                                                                                  ^\n\nprogram.dfy(281,8): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n    |\n281 | ensures exists i :: 0 <= i < |r| && r[i] == s[0] && multiset(s[1..]) == multiset(r[..i]+r[i+1..]);\n    |         ^^^^^^\n\nprogram.dfy(314,16): Warning: assume statement has no {:axiom} annotation\n    |\n314 |                 assume r[i]+sum(r[..i]+r[i+1..]) == sum([r[i]]+r[..i] + r[i+1..]) == sum(r);\n    |                 ^^^^^^\n\nprogram.dfy(275,12): Error: a postcondition could not be proved on this return path\n    |\n275 | \tif r != []\t{\n    |             ^\n\nprogram.dfy(273,10): Related location: this is the postcondition that could not be proved\n    |\n273 | ensures r == []\n    |           ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

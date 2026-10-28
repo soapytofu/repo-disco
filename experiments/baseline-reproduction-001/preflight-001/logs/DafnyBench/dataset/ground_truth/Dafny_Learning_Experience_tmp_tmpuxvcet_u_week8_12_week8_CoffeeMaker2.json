@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week8_12_week8_CoffeeMaker2.dfy",
+  "sha256": "ce94f680bfb7dc1e8876499694541c2ca2eed443ca39e605a286b9d26cba1218",
+  "bytes": 2456,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(7,24): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n7 |         ensures Valid() ==> this in Repr\n  |                         ^^^\n\nprogram.dfy(10,33): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n10 | \t\tensures Valid() && fresh(Repr) && !hasBeans\n   |                                  ^^\n\nprogram.dfy(15,18): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n15 | \t\tensures Ready() == hasBeans \n   |                   ^^\n\nprogram.dfy(20,30): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n20 | \t\tensures Valid() && hasBeans && fresh(Repr-old(Repr))\n   |                               ^^\n\nprogram.dfy(25,18): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n25 | \t\tensures Valid() && fresh(Repr-old(Repr))\n   |                   ^^\n\nprogram.dfy(34,24): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n34 |         ensures Valid() ==> this in Repr\n   |                         ^^^\n\nprogram.dfy(37,33): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n37 | \t\tensures Valid() && fresh(Repr) && waterLevel == 0\n   |                                  ^^\n\nprogram.dfy(42,18): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n42 | \t\tensures Level() == waterLevel\n   |                   ^^\n\nprogram.dfy(47,43): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n47 | \t\tensures Valid() && fresh(Repr-old(Repr)) && waterLevel == 10 \n   |                                            ^^\n\nprogram.dfy(52,43): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n52 | \t\tensures Valid() && fresh(Repr-old(Repr)) && waterLevel == old(Level()) - 1  \n   |                                            ^^\n\n\nDafny program verifier finished with 16 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

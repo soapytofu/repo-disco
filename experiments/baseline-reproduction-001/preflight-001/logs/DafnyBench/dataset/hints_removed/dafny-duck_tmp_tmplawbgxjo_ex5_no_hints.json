@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-duck_tmp_tmplawbgxjo_ex5_no_hints.dfy",
+  "sha256": "7d3fbb5a9aedd946b0c4cd17766cd43dd34344cde02845b2e43a9258cc2aa776",
+  "bytes": 505,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(18,9): Error: a postcondition could not be proved on this return path\n   |\n18 |     else {\n   |          ^\n\nprogram.dfy(10,44): Related location: this is the postcondition that could not be proved\n   |\n10 | ensures ((expo(2,3*n) - expo(3,n)) % (2+3)) == 0\n   |                                             ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

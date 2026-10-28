@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/dafny-language-server_tmp_tmpkir0kenl_Test_triggers_function-applications-are-triggers.dfy",
+  "sha256": "4b3b3d320518184e301f21312e3891224daa61aac41ece49c595a90937a13dcf",
+  "bytes": 553,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(9,2): Warning: assume statement has no {:axiom} annotation\n  |\n9 |   assume forall f: int -> int :: P.requires(f);\n  |   ^^^^^^\n\nprogram.dfy(10,2): Warning: assume statement has no {:axiom} annotation\n   |\n10 |   assume forall f: int -> int :: P(f) ==> f.requires(10) && f(10) == 0;\n   |   ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

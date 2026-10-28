@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_algorithms and leetcode_math_pearson_no_hints.dfy",
+  "sha256": "7793cdfece4d1871fc267b8d815cb08e9b18ff3c6c7f9fd96fba77d3ef371636",
+  "bytes": 6807,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(228,22): Warning: unusual indentation in left-hand operand of ==> (which starts at line 225, column 3); do you perhaps need parentheses?\n    |\n228 |   transitive(R2, S2)  ==> transitive(R1 + R2, S1 + S2)\n    |                       ^^^\n\nprogram.dfy(166,4): Warning: assume statement has no {:axiom} annotation\n    |\n166 |     assume forall a :: a in S_1+S_2 ==> a !in S_1 || a !in S_2;\n    |     ^^^^^^\n\nprogram.dfy(213,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n    |\n213 |   var a : T :| assume true;\n    |                ^^^^^^\n\nprogram.dfy(214,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n    |\n214 |   var b : T :| assume a != b;\n    |                ^^^^^^\n\nprogram.dfy(215,15): Warning: assume keyword in assign-such-that statement has no {:axiom} annotation\n    |\n215 |   var c : T :| assume a != c && b != c;\n    |                ^^^^^^\n\n\nDafny program verifier finished with 19 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

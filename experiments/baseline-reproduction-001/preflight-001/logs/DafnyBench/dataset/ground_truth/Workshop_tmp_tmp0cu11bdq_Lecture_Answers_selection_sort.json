@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Workshop_tmp_tmp0cu11bdq_Lecture_Answers_selection_sort.dfy",
+  "sha256": "70780e1871439a9a8175833367b4fa27530da520b914fd405950789173bcfc20",
+  "bytes": 1349,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,12): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n4 | \trequires a != null\n  |             ^^\n\nprogram.dfy(11,12): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n   |\n11 | \trequires a != null\n   |             ^^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

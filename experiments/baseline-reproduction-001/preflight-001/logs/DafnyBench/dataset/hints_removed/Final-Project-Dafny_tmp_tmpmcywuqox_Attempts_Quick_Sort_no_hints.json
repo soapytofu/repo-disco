@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Final-Project-Dafny_tmp_tmpmcywuqox_Attempts_Quick_Sort_no_hints.dfy",
+  "sha256": "de167f1d63709958ad41d92828423073e017fb69c59cbb591a85816fb1ed3736",
+  "bytes": 1329,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,0): Error: a postcondition could not be proved on this return path\n   |\n10 | {\n   | ^\n\nprogram.dfy(7,11): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures (forall x | x in Seq_1 :: x <= thres) && (forall x | x in Seq_2 :: x >= thres)\n  |            ^^^^^^\n\nprogram.dfy(10,0): Error: a postcondition could not be proved on this return path\n   |\n10 | {\n   | ^\n\nprogram.dfy(7,52): Related location: this is the postcondition that could not be proved\n  |\n7 |   ensures (forall x | x in Seq_1 :: x <= thres) && (forall x | x in Seq_2 :: x >= thres)\n  |                                                     ^^^^^^\n\nprogram.dfy(10,0): Error: a postcondition could not be proved on this return path\n   |\n10 | {\n   | ^\n\nprogram.dfy(8,28): Related location: this is the postcondition that could not be proved\n  |\n8 |   ensures |Seq_1| + |Seq_2| == |Seq| \n  |                             ^^\n\nprogram.dfy(10,0): Error: a postcondition could not be proved on this return path\n   |\n10 | {\n   | ^\n\nprogram.dfy(9,44): Related location: this is the postcondition that could not be proved\n  |\n9 |   ensures multiset(Seq_1) + multiset(Seq_2) == multiset(Seq)\n  |                                             ^^\n\nprogram.dfy(54,27): Error: cannot prove termination; try supplying a decreases clause\n   |\n54 |     var Seq_1' := quickSort(Seq_1);\n   |                            ^\n\nprogram.dfy(56,27): Error: cannot prove termination; try supplying a decreases clause\n   |\n56 |     var Seq_2' := quickSort(Seq_2);\n   |                            ^\n\nprogram.dfy(58,4): Error: a postcondition could not be proved on this return path\n   |\n58 |     return Seq_1' + [Seq[0]] + Seq_2';\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nprogram.dfy(46,24): Related location: this is the postcondition that could not be proved\n   |\n46 |   ensures multiset(Seq) == multiset(Seq')\n   |                         ^^\n\n\nDafny program verifier finished with 2 verified, 7 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

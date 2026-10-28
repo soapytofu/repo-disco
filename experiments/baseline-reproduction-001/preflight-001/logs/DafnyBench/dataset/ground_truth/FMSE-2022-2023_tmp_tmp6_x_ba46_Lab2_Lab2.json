@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/FMSE-2022-2023_tmp_tmp6_x_ba46_Lab2_Lab2.dfy",
+  "sha256": "3c91cc8def5b563427cec4af230798984bd1525befa6d3e83425e3ce15d2fb7a",
+  "bytes": 10965,
+  "partition": "ground_truth",
+  "exit_code": 4,
+  "legacy_outcome": "FAIL",
+  "stdout": "program.dfy(18,4): Warning: assume statement has no {:axiom} annotation\n   |\n18 |     assume S(x) == S(y);\n   |     ^^^^^^\n\nprogram.dfy(82,4): Error: assertion might not hold\n   |\n82 |     == Add(n, Zero);\n   |     ^^\n\n\nDafny program verifier finished with 16 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_from_dafny_main_repo_dafny0_snapshots_Inputs_Snapshots5_no_hints.dfy",
+  "sha256": "03c748c253ff950ffc9843147b766903f5c825ac5b857282ac6be51d8a6b2ead",
+  "bytes": 158,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(23,47): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 |   ensures (forall b: bool :: b || !b) || 2 != 2;\n   |                                                ^\n\nprogram.dfy(23,38): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n23 |   ensures (forall b: bool :: b || !b) || 2 != 2;\n   |                                       ^^\n\nprogram.dfy(23,11): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n23 |   ensures (forall b: bool :: b || !b) || 2 != 2;\n   |            ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

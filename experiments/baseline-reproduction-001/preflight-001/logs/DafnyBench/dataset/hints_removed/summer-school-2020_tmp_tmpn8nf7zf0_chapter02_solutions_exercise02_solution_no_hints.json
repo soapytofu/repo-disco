@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/summer-school-2020_tmp_tmpn8nf7zf0_chapter02_solutions_exercise02_solution_no_hints.dfy",
+  "sha256": "25975cbb75d017fe62a2d1248e9e41e6700a2142a391d2af74104add539eaf9e",
+  "bytes": 1108,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(32,6): Error: a postcondition could not be proved on this return path\n   |\n32 |       return false;\n   |       ^^^^^^^^^^^^^\n\nprogram.dfy(17,17): Related location: this is the postcondition that could not be proved\n   |\n17 |   ensures result == IsPrime(i)\n   |                  ^^\n\n\nDafny program verifier finished with 3 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

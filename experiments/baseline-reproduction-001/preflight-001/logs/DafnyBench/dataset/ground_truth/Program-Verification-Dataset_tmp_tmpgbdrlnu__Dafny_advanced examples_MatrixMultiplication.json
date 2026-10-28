@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_advanced examples_MatrixMultiplication.dfy",
+  "sha256": "7a4740f98b8fc1af4e92a11c4291c6529df72ecdc03e2c28a6579760fd6b1c16",
+  "bytes": 2358,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(4,16): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm1' to have the value 'null', declare its type to be 'array2?<int>')\n  |\n4 |     requires m1 != null && m2 != null && m1.Length1 == m2.Length0\n  |                 ^^\n\nprogram.dfy(4,30): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm2' to have the value 'null', declare its type to be 'array2?<int>')\n  |\n4 |     requires m1 != null && m2 != null && m1.Length1 == m2.Length0\n  |                               ^^\n\nprogram.dfy(13,16): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm1' to have the value 'null', declare its type to be 'array2?<int>')\n   |\n13 |     requires m1 != null && m2 != null && k <= m1.Length1 == m2.Length0\n   |                 ^^\n\nprogram.dfy(13,30): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm2' to have the value 'null', declare its type to be 'array2?<int>')\n   |\n13 |     requires m1 != null && m2 != null && k <= m1.Length1 == m2.Length0\n   |                               ^^\n\nprogram.dfy(24,16): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm1' to have the value 'null', declare its type to be 'array2?<int>')\n   |\n24 |     requires m1 != null && m2 != null\n   |                 ^^\n\nprogram.dfy(24,30): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm2' to have the value 'null', declare its type to be 'array2?<int>')\n   |\n24 |     requires m1 != null && m2 != null\n   |                               ^^\n\nprogram.dfy(26,15): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'm3' to have the value 'null', declare its type to be 'array2?<int>')\n   |\n26 |     ensures m3 != null && m3.Length0 == m1.Length0 && m3.Length1 == m2.Length1\n   |                ^^\n\n\nDafny program verifier finished with 4 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

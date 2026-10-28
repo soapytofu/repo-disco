@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_Verify_tmp_tmphq7j0row_dataset_bql_exampls_Min.dfy",
+  "sha256": "f24affeb8bb66fb882fdf22b890aac68cdc1fbd832561c30f9d299c16572c661",
+  "bytes": 478,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,30): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |     requires 0 < n <= a.Length;\n  |                               ^\n\nprogram.dfy(3,59): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 | \tensures (exists i : int :: 0 <= i && i < n && a[i] == min);\n  |                                                            ^\n\nprogram.dfy(4,60): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 | \tensures (forall i : int :: 0 <= i && i < n ==> a[i] >= min);\n  |                                                             ^\n\nprogram.dfy(12,18): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 | \t\tinvariant i <= n;\n   |                   ^\n\nprogram.dfy(13,62): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 | \t\tinvariant (exists j : int :: 0 <= j && j < i && a[j] == min);\n   |                                                               ^\n\nprogram.dfy(14,63): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 | \t\tinvariant (forall j : int :: 0 <= j && j < i ==> a[j] >= min);\n   |                                                                ^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

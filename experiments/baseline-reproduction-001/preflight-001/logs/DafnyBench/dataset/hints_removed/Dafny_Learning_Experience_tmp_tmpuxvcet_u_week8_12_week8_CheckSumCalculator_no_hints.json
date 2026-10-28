@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/Dafny_Learning_Experience_tmp_tmpuxvcet_u_week8_12_week8_CheckSumCalculator_no_hints.dfy",
+  "sha256": "7233b62ec1501b598a93e3872298a783891096b264a788a3fcca162a850002c2",
+  "bytes": 2235,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(31,8): Error: a postcondition could not be proved on this return path\n   |\n31 |         while i != |d| \n   |         ^^^^^\n\nprogram.dfy(28,21): Related location: this is the postcondition that could not be proved\n   |\n28 |         ensures Valid() && data == old(data) + d\n   |                      ^\n\nprogram.dfy(16,11): Related location: this proposition could not be proved\n   |\n16 |         cs == Hash(data)\n   |            ^^\n\nprogram.dfy(31,8): Error: a postcondition could not be proved on this return path\n   |\n31 |         while i != |d| \n   |         ^^^^^\n\nprogram.dfy(28,32): Related location: this is the postcondition that could not be proved\n   |\n28 |         ensures Valid() && data == old(data) + d\n   |                                 ^^\n\nprogram.dfy(33,25): Error: index out of range\n   |\n33 |             cs := (cs + d[i] as int) % 137;\n   |                          ^\n\n\nDafny program verifier finished with 8 verified, 3 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

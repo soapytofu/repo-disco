@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Dafny_tmp_tmpmvs2dmry_SlowMax.dfy",
+  "sha256": "8cb31233b88cd9206d481f43e548e4115cb25d34759741f8ee6ef50cdb5fa062",
+  "bytes": 437,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(13,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n13 |     invariant x >=0;\n   |                    ^\n\nprogram.dfy(14,19): Warning: deprecated style: a semi-colon is not needed here\n   |\n14 |     invariant y >=0;\n   |                    ^\n\nprogram.dfy(15,38): Warning: deprecated style: a semi-colon is not needed here\n   |\n15 |     invariant z == a - x && z == b - y; \n   |                                       ^\n\nprogram.dfy(17,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n17 |     decreases x,y;\n   |                  ^\n\n\nDafny program verifier finished with 1 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

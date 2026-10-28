@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny2_TuringFactorial_no_hints.dfy",
+  "sha256": "87f7f8764182bb50df4cec33896445e185ff26d6affaf9c64e41ff114398a417",
+  "bytes": 428,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,17): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |   requires 1 <= n;\n   |                  ^\n\nprogram.dfy(11,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |   ensures u == Factorial(n);\n   |                            ^\n\nprogram.dfy(12,0): Error: a postcondition could not be proved on this return path\n   |\n12 | {\n   | ^\n\nprogram.dfy(11,12): Related location: this is the postcondition that could not be proved\n   |\n11 |   ensures u == Factorial(n);\n   |             ^^\n\n\nDafny program verifier finished with 2 verified, 1 error\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

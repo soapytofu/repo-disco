@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-synthesis_task_id_307_no_hints.dfy",
+  "sha256": "4c512f76a48781c518b118cf3a31a54affbec7d73f43c2640177e340032d7f1e",
+  "bytes": 263,
+  "partition": "hints_removed",
+  "exit_code": 4,
+  "legacy_outcome": "GOAL_UNPROVEN",
+  "stdout": "program.dfy(10,4): Error: a postcondition could not be proved on this return path\n   |\n10 |     return newSeq;\n   |     ^^^^^^^^^^^^^^\n\nprogram.dfy(2,19): Related location: this is the postcondition that could not be proved\n  |\n2 |     ensures |copy| == |s|\n  |                    ^^\n\nprogram.dfy(10,4): Error: a postcondition could not be proved on this return path\n   |\n10 |     return newSeq;\n   |     ^^^^^^^^^^^^^^\n\nprogram.dfy(3,12): Related location: this is the postcondition that could not be proved\n  |\n3 |     ensures forall i :: 0 <= i < |s| ==> copy[i] == s[i]\n  |             ^^^^^^\n\n\nDafny program verifier finished with 1 verified, 2 errors\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

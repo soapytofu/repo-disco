@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Software-building-and-verification-Projects_tmp_tmp5tm1srrn_CVS-projeto_aula1.dfy",
+  "sha256": "c8a0477749db1ea2d4a018e67e03ce4f5cb6aef7235ece7fd8514bfec5666f75",
+  "bytes": 1577,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(60,16): Warning: deprecated style: a semi-colon is not needed here\n   |\n60 |   decreases n, m;\n   |                 ^\n\nprogram.dfy(26,21): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n   |\n26 |   ensures power(n,m) == pow(n,m,r)\n   |                      ^^\n\nprogram.dfy(29,31): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n29 |   ensures equivalentes(n,m, r) == powerAlt(n,m)\n   |                                ^^\n\nprogram.dfy(48,23): Warning: This ensures clause is part of a bodyless method. Add the {:axiom} attribute to it or the enclosing method to suppress this warning\n   |\n48 |   ensures factAcc(n,a) == fact(n)*a\n   |                        ^^\n\n\nDafny program verifier finished with 11 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

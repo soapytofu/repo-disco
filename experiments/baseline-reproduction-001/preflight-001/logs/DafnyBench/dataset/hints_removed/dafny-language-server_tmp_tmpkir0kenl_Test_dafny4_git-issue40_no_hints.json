@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/hints_removed/dafny-language-server_tmp_tmpkir0kenl_Test_dafny4_git-issue40_no_hints.dfy",
+  "sha256": "906dc35edcdac89b76e8ed3ffb0e41bbbbc1f4be828059fe932425d2f5fce33b",
+  "bytes": 435,
+  "partition": "hints_removed",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(5,39): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n5 |     ensures |SeqRepeat<T>(count, elt)| == count\n  |                                        ^^\n\nprogram.dfy(6,12): Warning: This ensures clause is part of a bodyless function. Add the {:axiom} attribute to it or the enclosing function to suppress this warning\n  |\n6 |     ensures forall i :: 0 <= i < count ==> SeqRepeat<T>(count, elt)[i] == elt\n  |             ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}

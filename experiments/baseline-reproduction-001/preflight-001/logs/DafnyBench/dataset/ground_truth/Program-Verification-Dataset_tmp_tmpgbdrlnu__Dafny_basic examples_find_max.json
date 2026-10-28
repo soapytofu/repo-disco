@@ -1,0 +1,19 @@
+{
+  "path": "DafnyBench/dataset/ground_truth/Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_find_max.dfy",
+  "sha256": "419611fc84f97e8e40647a7f0649ce48ab959a5835dfcc48e0743e8a5d739251",
+  "bytes": 459,
+  "partition": "ground_truth",
+  "exit_code": 2,
+  "legacy_outcome": "SUCCESS",
+  "stdout": "program.dfy(2,37): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 |    requires a != null && a.Length > 0;\n  |                                      ^\n\nprogram.dfy(3,30): Warning: deprecated style: a semi-colon is not needed here\n  |\n3 |    ensures 0 <= max < a.Length;\n  |                               ^\n\nprogram.dfy(4,59): Warning: deprecated style: a semi-colon is not needed here\n  |\n4 |    ensures forall x :: 0 <= x < a.Length ==> a[max] >= a[x];\n  |                                                            ^\n\nprogram.dfy(10,27): Warning: deprecated style: a semi-colon is not needed here\n   |\n10 |     invariant i <= a.Length;\n   |                            ^\n\nprogram.dfy(11,22): Warning: deprecated style: a semi-colon is not needed here\n   |\n11 |     invariant 0 <= max;\n   |                       ^\n\nprogram.dfy(12,37): Warning: deprecated style: a semi-colon is not needed here\n   |\n12 |     invariant max == 0 || 0 < max < i;\n   |                                      ^\n\nprogram.dfy(2,14): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')\n  |\n2 |    requires a != null && a.Length > 0;\n  |               ^^\n\n\nDafny program verifier finished with 2 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+  "stderr": "",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "10s",
+    "dafny",
+    "verify",
+    "program.dfy"
+  ]
+}
