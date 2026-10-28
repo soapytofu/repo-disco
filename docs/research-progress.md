@@ -176,7 +176,7 @@ exact paper reproduction remains separately labeled.
 | --- | --- |
 | Formal Disco/Dafny setup | Completed with saved generation, repair and verifier evidence |
 | Baseline evaluation run | Completed bounded 20-call run: 7 legacy successes, 6 strict zero-exit verifications; source fidelity separately audited; full paper reproduction remains outside this milestone |
-| Repository representation and variables | File manifest, declared dependency map, fixed contracts/edit scope, revision hashes, task/attempt identity and whole-repository outcome implemented; source remains authoritative for APIs/specifications; finish a consolidated protocol review |
+| Repository representation and variables | File manifest, declared dependency map, fixed contracts/edit scope, revision hashes, task/attempt identity and whole-repository outcome implemented; source remains authoritative for APIs/specifications; consolidated protocol review completed in controlled-corpus-design.md |
 | Multi-module context and verification | Previously validated; full source plus declared map is the initial policy, not automatic dependency selection |
 | Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 completed: 12 expected verifier outcomes, four contract rejections and intact original revisions |
 | Live agent demonstration | Completed: four repositories repaired on first model attempt, four calls used; guarded sources and accepted revisions reviewed |
@@ -198,6 +198,10 @@ Baseline and live repository-agent gates now have reviewed model evidence.
 [Combined results](../experiments/weeks1-4-continuation-001/README.md) include full
 logs, 24 unique requests without retries, frozen-input checks and manual baseline
 specification audit. Earlier preparation sections above describe historical state.
-Still open: consolidated representation/experimental-variable protocol review and
-initial generation/extension across multiple repositories. Four unused agent calls
+Consolidated representation/experimental-variable protocol review is complete.
+Still open: initial generation/extension across multiple repositories. Four unused agent calls
 are not a generation budget. Weeks 1–4 are not yet claimed complete.
+
+Repository-extension-001 now prepares four new-client extensions across two verified
+seed repositories, with immutable seed checks and separate guards. Four offline
+tests passed; compute preflight and prompt freeze are pending. No new model calls.

@@ -1,0 +1,3 @@
+{
+  "ClientC.dfy": "include \"Facts.dfy\"\nmodule ClientC {\n  import F = Facts`ViewA\n  lemma Extend(x: int, y: int)\n    ensures F.Good(F.Wrap(if x + y >= 0 then (x + y) else -(x + y)))\n  {\n  }\n}\n"
+}
