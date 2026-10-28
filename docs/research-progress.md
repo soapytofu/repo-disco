@@ -206,4 +206,5 @@ Repository-extension-001 now prepares four new-client extensions across two veri
 seed repositories, with immutable seed checks and separate guards. Four offline
 tests passed; compute preflight job55810726 matched all14 expectations (six passes,
 eight proof failures), and four exact prompts/settings are frozen. Bounded runner
-integration and separate request authorization remain open. No new model calls.
+integration now has ten passing fake-transport tests; separate four-call approval
+and a new private key handoff remain required. No new model calls.

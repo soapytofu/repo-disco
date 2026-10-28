@@ -61,3 +61,39 @@ Still needed before any model dispatch: bounded runner integration and offline
 transport tests, separately hash-bound execution authorization, and a private key
 handoff. No new API requests have been made or authorized. The proposed request
 budget is **four total**, separate from the completed baseline/agent budget.
+
+## Bounded runner ready for separate approval
+
+run_pilot.py now implements the frozen four-trial collection. Ten additional
+fake-transport/fake-verifier tests pass, including exact prompt/order/cap, no
+restart, ambiguous request stop, ordinary rejection/proof-failure accounting,
+verifier timeout/hash-mismatch stop, deadline, per-dispatch freeze checks,
+authorization-before-credential access and SDK retry configuration. Tests made
+**zero API calls and zero Dafny invocations**. The previously reviewed fourteen
+compute controls supply semantic verification evidence.
+
+runtime-freeze.json pins the runner, copied request gate, tests and submission
+script separately from the unchanged prompt/guard freeze. Execution requires a
+new authorization.json containing explicit user approval, max_calls=4,
+automatic_retries=false, reassign_unused=false, both freeze hashes, a recorded
+approval basis and a fresh expiry no more than 24 hours away. The active runner
+also enforces a 30-minute request window. No authorization file has been created.
+
+The compute-only CLI refuses an existing model-001 output, validates both freezes
+before credential access and before every request, consumes a new private handoff
+once, and clears its process environment afterward. Source snapshots, actual wire
+messages, responses, request IDs, candidate hashes, raw verifier evidence and
+accepted-extension records are saved. Existing seed repositories are never
+modified. SDK requests have total_max_attempts=1. No Slurm requeue or model retry.
+One response per task; four total at most; unused calls cannot be reassigned.
+
+The prepared model.sbatch requests two CPUs/8GiB/20 minutes on test. Reconfirm live
+PreemptMode=OFF before submission, inspect output/ledger and any submission record,
+and create a unique submission lock. It has **not** been submitted. Expected run
+work is a few minutes, but queue delay and provider latency are not guaranteed.
+No live runner result or generation milestone is claimed yet.
+
+The same ten fake-only tests also passed in Cannon's repodisco environment.
+Runtime files are staged at outputs/repository-extension-001; no authorization
+file, model output, submission or private-key access was created by staging.
+remote-offline-tests.log preserves that environment check.
