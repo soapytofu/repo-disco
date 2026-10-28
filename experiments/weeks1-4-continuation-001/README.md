@@ -36,3 +36,20 @@ Do not mark all milestones complete from this pilot alone.
 Submitted Slurm work survives laptop disconnection. Local monitoring, review and
 GitHub publication still require the Mac/app/network and authenticated SSH. A
 sleeping laptop may delay submission of this combined job until it wakes.
+
+## Submission
+
+Both verifier gates completed and were reviewed; exact baseline prompts and full
+preflight evidence were published in d3602c2 before dispatch. Combined job
+**55807561** is submitted to shared/sapphire, two CPUs, 8 GiB, two-hour wall limit,
+no requeue. It is the only created paid job. The first submission was rejected
+because the completed agent-control job had expired from the Slurm controller;
+no job was created and its job-ID file is empty. Both success states were then
+confirmed in accounting, and one deliberate corrected submission omitted the
+expired scheduler dependency. The in-process reviewed freeze gates remain active.
+Both submission attempts and the original remote lock are preserved.
+
+Do not submit either standalone runner, restart this job, or reuse the budget.
+Inspect job55807561 and all ledgers before any recovery action. The private key
+handoff is deleted when the combined process loads it; no second handoff is needed
+for the agent stage during the same successful process.
