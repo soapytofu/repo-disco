@@ -1,0 +1,140 @@
+{
+  "schema": "offline-gate-v1",
+  "limit": 3,
+  "deadline": 1793166990.0051146,
+  "reservations": [
+    {
+      "sequence": 1,
+      "status": "COMPLETED",
+      "prompt": {
+        "task": "repair_repository",
+        "base_revision": "b6cde2e21dfc4a569cb4e318ed7e3c3a",
+        "manifest": {
+          "context_policy": "full_source_plus_declared_map",
+          "dependencies": {
+            "All.dfy": [
+              "ClientA.dfy",
+              "ClientB.dfy"
+            ],
+            "ClientA.dfy": [
+              "Facts.dfy"
+            ],
+            "ClientB.dfy": [
+              "Facts.dfy"
+            ],
+            "Facts.dfy": []
+          },
+          "editable": [
+            "ClientA.dfy",
+            "ClientB.dfy"
+          ],
+          "entry": "All.dfy",
+          "task_id": "branch-separate"
+        },
+        "files": {
+          "All.dfy": "include \"ClientA.dfy\"\ninclude \"ClientB.dfy\"\n",
+          "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if x >= 0 then x else -x))\n  {\n  }\n}\n",
+          "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\n  {\n  }\n}\n",
+          "Facts.dfy": "module Facts {\n  export ViewA provides Wrap, Good, Case0A, Case1A\n  export ViewB provides Wrap, Good, Case0B, Case1B\n  opaque function Wrap(x: int): int { x }\n  opaque predicate Good(x: int) { x >= 0 }\n  lemma Case0A(x: int)\n    requires x >= 0\n    ensures Good(Wrap(x))\n  { reveal Good(), Wrap(); }\n  lemma Case1A(x: int)\n    requires x < 0\n    ensures Good(Wrap(-x))\n  { reveal Good(), Wrap(); }\n  lemma Case0B(x: int)\n    requires x >= 0\n    ensures Good(Wrap(x))\n  { reveal Good(), Wrap(); }\n  lemma Case1B(x: int)\n    requires x < 0\n    ensures Good(Wrap(-x))\n  { reveal Good(), Wrap(); }\n}\n"
+        },
+        "feedback": {
+          "kind": "initial",
+          "stdout": "ClientA.dfy(6,2): Error: a postcondition could not be proved on this return path\n  |\n6 |   {\n  |   ^\n\nClientA.dfy(5,18): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures F.Good(F.Wrap(if x >= 0 then x else -x))\n  |                   ^\n\nClientB.dfy(6,2): Error: a postcondition could not be proved on this return path\n  |\n6 |   {\n  |   ^\n\nClientB.dfy(5,18): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\n  |                   ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+          "stderr": ""
+        },
+        "instruction": "Return only permitted file edits. Preserve contracts and all other files."
+      },
+      "task_id": "branch-separate",
+      "attempt_id": "341234c8bc094a6fa303e00aba5ade50"
+    },
+    {
+      "sequence": 2,
+      "status": "COMPLETED",
+      "prompt": {
+        "task": "repair_repository",
+        "base_revision": "b6cde2e21dfc4a569cb4e318ed7e3c3a",
+        "manifest": {
+          "context_policy": "full_source_plus_declared_map",
+          "dependencies": {
+            "All.dfy": [
+              "ClientA.dfy",
+              "ClientB.dfy"
+            ],
+            "ClientA.dfy": [
+              "Facts.dfy"
+            ],
+            "ClientB.dfy": [
+              "Facts.dfy"
+            ],
+            "Facts.dfy": []
+          },
+          "editable": [
+            "ClientA.dfy",
+            "ClientB.dfy"
+          ],
+          "entry": "All.dfy",
+          "task_id": "branch-separate"
+        },
+        "files": {
+          "All.dfy": "include \"ClientA.dfy\"\ninclude \"ClientB.dfy\"\n",
+          "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if x >= 0 then x else -x))\n  {\n  }\n}\n",
+          "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\n  {\n  }\n}\n",
+          "Facts.dfy": "module Facts {\n  export ViewA provides Wrap, Good, Case0A, Case1A\n  export ViewB provides Wrap, Good, Case0B, Case1B\n  opaque function Wrap(x: int): int { x }\n  opaque predicate Good(x: int) { x >= 0 }\n  lemma Case0A(x: int)\n    requires x >= 0\n    ensures Good(Wrap(x))\n  { reveal Good(), Wrap(); }\n  lemma Case1A(x: int)\n    requires x < 0\n    ensures Good(Wrap(-x))\n  { reveal Good(), Wrap(); }\n  lemma Case0B(x: int)\n    requires x >= 0\n    ensures Good(Wrap(x))\n  { reveal Good(), Wrap(); }\n  lemma Case1B(x: int)\n    requires x < 0\n    ensures Good(Wrap(-x))\n  { reveal Good(), Wrap(); }\n}\n"
+        },
+        "feedback": {
+          "outcome": "EDIT_REJECTED",
+          "reason": "Protected client bytes changed"
+        },
+        "instruction": "Return only permitted file edits. Preserve contracts and all other files."
+      },
+      "task_id": "branch-separate",
+      "attempt_id": "f523e623a95841c382145acf185b9947"
+    },
+    {
+      "sequence": 3,
+      "status": "COMPLETED",
+      "prompt": {
+        "task": "repair_repository",
+        "base_revision": "b6cde2e21dfc4a569cb4e318ed7e3c3a",
+        "manifest": {
+          "context_policy": "full_source_plus_declared_map",
+          "dependencies": {
+            "All.dfy": [
+              "ClientA.dfy",
+              "ClientB.dfy"
+            ],
+            "ClientA.dfy": [
+              "Facts.dfy"
+            ],
+            "ClientB.dfy": [
+              "Facts.dfy"
+            ],
+            "Facts.dfy": []
+          },
+          "editable": [
+            "ClientA.dfy",
+            "ClientB.dfy"
+          ],
+          "entry": "All.dfy",
+          "task_id": "branch-separate"
+        },
+        "files": {
+          "All.dfy": "include \"ClientA.dfy\"\ninclude \"ClientB.dfy\"\n",
+          "ClientA.dfy": "include \"Facts.dfy\"\nmodule ClientA {\n  import F = Facts`ViewA\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if x >= 0 then x else -x))\n  {\n  }\n}\n",
+          "ClientB.dfy": "include \"Facts.dfy\"\nmodule ClientB {\n  import F = Facts`ViewB\n  lemma Prove(x: int, y: int)\n    ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\n  {\n  }\n}\n",
+          "Facts.dfy": "module Facts {\n  export ViewA provides Wrap, Good, Case0A, Case1A\n  export ViewB provides Wrap, Good, Case0B, Case1B\n  opaque function Wrap(x: int): int { x }\n  opaque predicate Good(x: int) { x >= 0 }\n  lemma Case0A(x: int)\n    requires x >= 0\n    ensures Good(Wrap(x))\n  { reveal Good(), Wrap(); }\n  lemma Case1A(x: int)\n    requires x < 0\n    ensures Good(Wrap(-x))\n  { reveal Good(), Wrap(); }\n  lemma Case0B(x: int)\n    requires x >= 0\n    ensures Good(Wrap(x))\n  { reveal Good(), Wrap(); }\n  lemma Case1B(x: int)\n    requires x < 0\n    ensures Good(Wrap(-x))\n  { reveal Good(), Wrap(); }\n}\n"
+        },
+        "feedback": {
+          "outcome": "PROOF_FAILURE",
+          "exit_code": 4,
+          "stdout": "ClientA.dfy(10,14): Error: a precondition for this call could not be proved\n   |\n10 |       F.Case1A(x);\n   |               ^\n\nFacts.dfy(11,15): Related location: this is the precondition that could not be proved\n   |\n11 |     requires x < 0\n   |                ^\n\nClientB.dfy(10,14): Error: a precondition for this call could not be proved\n   |\n10 |       F.Case1B((x - y));\n   |               ^\n\nFacts.dfy(19,15): Related location: this is the precondition that could not be proved\n   |\n19 |     requires x < 0\n   |                ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\n",
+          "stderr": ""
+        },
+        "instruction": "Return only permitted file edits. Preserve contracts and all other files."
+      },
+      "task_id": "branch-separate",
+      "attempt_id": "d9c647d6a202453db0f64549dcede288"
+    }
+  ],
+  "closed": false
+}

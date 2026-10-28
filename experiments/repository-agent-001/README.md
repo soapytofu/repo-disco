@@ -37,7 +37,7 @@ component. Existing controlled variants do not constitute autonomous generation.
 
 ## Prepared live pilot (authorized continuation; not yet run)
 
-Verifier-only job **55802594** is queued on shared/sapphire, with no requeue.
+Verifier-only job **55802594** completed on test in 75 seconds, with no requeue.
 `repository_agent_pilot.py` and frozen-model-001 pin four development tasks:
 branch/shared, inductive/separate, branch/separate, inductive/shared. Each gets at
 most two feedback-driven attempts, stopping on success; unused calls are not
@@ -66,3 +66,19 @@ Harvard forbids combining test with other partitions. The paid continuation stil
 targets shared/sapphire.
 
 Reference: [FASRC running jobs](https://docs.rc.fas.harvard.edu/kb/running-jobs/#test).
+
+## Reviewed compute results
+
+All **four cases** passed the intended sequence: contract edit rejected before
+verification, incorrect proof rejected by Dafny, exact reference repair accepted
+as a complete revision. **Twelve verifier checks** matched expectations (four
+initial failures, four candidate proof failures, four successes), plus four edit
+rejections. Original revisions remained byte-exact and final HEADs pointed only
+to verified reference bytes. Twelve scripted responses, **zero model calls**.
+
+`review_controls.py` checked 66 pinned source/guard/fixture files, every candidate
+hash against its verifier record, request/context/response correspondence,
+proof-error categories and accepted/original revisions. Full evidence is in
+verification-001; control-review.json and verification-001-sha256.json record the
+review and archive integrity. model-preflight-gate.json now permits the prepared
+agent pilot after the baseline gate; it does not itself submit or spend calls.

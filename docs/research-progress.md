@@ -178,7 +178,7 @@ exact paper reproduction remains separately labeled.
 | Baseline evaluation run | Dataset pinned; preflight 55802277 queued; tested 20-call runner prepared; no model results yet |
 | Repository representation and variables | File manifest, declared dependency map, fixed contracts/edit scope, revision hashes, task/attempt identity and whole-repository outcome implemented; source remains authoritative for APIs/specifications; finish a consolidated protocol review |
 | Multi-module context and verification | Previously validated; full source plus declared map is the initial policy, not automatic dependency selection |
-| Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 queued |
+| Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 completed: 12 expected verifier outcomes, four contract rejections and intact original revisions |
 | Live agent demonstration | Frozen four-task pilot prepared, up to eight calls; authorized as automatic continuation; requires successful controls |
 | Begin scaling generation | Still open: schedule generation/extension across multiple repositories, rather than count hand-built controls as generated corpus |
 
@@ -190,4 +190,4 @@ live settings and scope are documented in the respective experiment directories.
 The user requested automatic continuation while asleep. The new combined driver
 keeps one private key handoff in compute-process memory across the 20-call
 baseline and at-most-eight-call agent pilot. Four orchestration tests pass;
-both verifier jobs remain queued. No additional generation budget inferred.
+agent controls are complete and reviewed; baseline preflight is running. No additional generation budget inferred.
