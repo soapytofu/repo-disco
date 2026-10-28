@@ -102,3 +102,11 @@ The user has now explicitly approved **four new calls**, with no retries or
 reassignment (approval-record.json). SSH is available, but the private handoff
 is absent. No model job has been submitted; execution authorization will receive
 a fresh expiry after credential readiness and state checks.
+
+## Authorized model submission
+
+After explicit four-call approval and a new private handoff, both freezes were
+validated on Cannon without requests. Single job **55813370** was submitted to
+test (live PreemptMode=OFF), no requeue, with the unchanged four-call cap.
+model-submission.json and authorization.json record the scope and submission.
+Results are pending; do not restart or submit a second runner.
