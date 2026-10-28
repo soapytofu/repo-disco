@@ -53,3 +53,16 @@ changes are rejected, and final chat messages preserve context and identity.
 Actual messages enter the durable request ledger. Failed revisions, diagnostics,
 responses and final accepted HEAD are saved. No automatic retries or resume.
 This tests integration, not a powered sharing effect or independent pass@2.
+
+## Scheduling adjustment (October 28)
+
+At the user's request, pending job 55802594 was updated in place from
+shared/sapphire to **test alone**. No duplicate submission, cancellation, resource
+reduction, or time-limit change. Requeue remains disabled. Live cluster inspection
+confirmed test PreemptMode=OFF, PriorityTier=5 and 12-hour maximum; both small
+verifier-only jobs fit its limits. Original submission files are preserved; the
+update command and before/after scheduler state are in scheduling-adjustment-001.json.
+Harvard forbids combining test with other partitions. The paid continuation still
+targets shared/sapphire.
+
+Reference: [FASRC running jobs](https://docs.rc.fas.harvard.edu/kb/running-jobs/#test).

@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-10-28T05:50:57.338544+00:00",
+  "partition_evidence": {
+    "PartitionName": "test",
+    "QoS": "test",
+    "MaxTime": "12:00:00",
+    "PriorityTier": "5",
+    "PreemptMode": "OFF",
+    "State": "UP"
+  },
+  "preempt_type": "preempt/partition_prio",
+  "changes": [
+    {
+      "job_id": "55802277",
+      "before": "JobId=55802277 JobName=baseline-preflight UserId=sophiezeng(69388) GroupId=amin_lab(5114) MCS_label=N/A Priority=3692774 Nice=0 Account=amin_lab QOS=normal JobState=PENDING Reason=Priority Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=02:00:00 TimeMin=N/A SubmitTime=2026-10-28T01:12:43 EligibleTime=2026-10-28T01:12:43 AccrueTime=2026-10-28T01:12:43 StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-28T01:12:43 Scheduler=Main Partition=shared,sapphire AllocNode:Sid=holylogin06:1223764 ReqNodeList=(null) ExcNodeList=(null) NodeList= StepMgrEnabled=Yes NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=4,mem=8G,node=1,billing=6 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/n/home13/sophiezeng/formal-disco/experiments/baseline-reproduction-001/preflight.sbatch SubmitLine=sbatch --parsable experiments/baseline-reproduction-001/preflight.sbatch WorkDir=/n/home13/sophiezeng/formal-disco StdErr=/n/home13/sophiezeng/formal-disco/outputs/baseline-reproduction-001/preflight-55802277.err StdIn=/dev/null StdOut=/n/home13/sophiezeng/formal-disco/outputs/baseline-reproduction-001/preflight-55802277.log TresPerTask=cpu=4",
+      "action": "UPDATE_PARTITION_ONLY",
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=55802277",
+        "Partition=test"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "after": "JobId=55802277 JobName=baseline-preflight UserId=sophiezeng(69388) GroupId=amin_lab(5114) MCS_label=N/A Priority=3684078 Nice=0 Account=amin_lab QOS=normal JobState=RUNNING Reason=Prolog Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=02:00:00 TimeMin=N/A SubmitTime=2026-10-28T01:12:43 EligibleTime=2026-10-28T01:12:43 AccrueTime=2026-10-28T01:12:43 StartTime=2026-10-28T01:50:57 EndTime=2026-10-28T03:50:57 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-28T01:50:57 Scheduler=Main Partition=test AllocNode:Sid=holylogin06:1223764 ReqNodeList=(null) ExcNodeList=(null) NodeList=holy8a24402 BatchHost=holy8a24402 StepMgrEnabled=Yes NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=4,mem=8G,node=1,billing=6 AllocTRES=cpu=4,mem=8G,node=1 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/n/home13/sophiezeng/formal-disco/experiments/baseline-reproduction-001/preflight.sbatch SubmitLine=sbatch --parsable experiments/baseline-reproduction-001/preflight.sbatch WorkDir=/n/home13/sophiezeng/formal-disco StdErr=/n/home13/sophiezeng/formal-disco/outputs/baseline-reproduction-001/preflight-55802277.err StdIn=/dev/null StdOut=/n/home13/sophiezeng/formal-disco/outputs/baseline-reproduction-001/preflight-55802277.log TresPerTask=cpu=4"
+    }
+  ],
+  "confirmed_after_update": {
+    "state": "RUNNING",
+    "partition": "test",
+    "node": "holy8a24402",
+    "model_calls": 0
+  }
+}
