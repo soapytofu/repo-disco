@@ -54,3 +54,11 @@ models solve these tasks or that no shorter proof exists. Guards must prohibit
 revealing opaque trusted definitions or accessing internal imports before model
 trials are allowed. Three other calibration families, final guards and prompt
 freezing remain open; the proposed 32-call calibration is still unauthorized.
+
+## Remaining families and guard construction
+
+[remaining-families-001](remaining-families-001/README.md) adds twelve configurations
+and 92 verifier controls (job 56015268; results pending). [GUARD.md](GUARD.md)
+documents the new bounded output policy; eight offline guard tests pass. No model
+calls are authorized or performed. The 32-prompt freeze remains gated on reviewed
+verification for every family.
