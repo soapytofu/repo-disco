@@ -179,10 +179,15 @@ exact paper reproduction remains separately labeled.
 | Repository representation and variables | File manifest, declared dependency map, fixed contracts/edit scope, revision hashes, task/attempt identity and whole-repository outcome implemented; source remains authoritative for APIs/specifications; finish a consolidated protocol review |
 | Multi-module context and verification | Previously validated; full source plus declared map is the initial policy, not automatic dependency selection |
 | Whole-repository repair loop | New sequential engine preserves failed attempts, feeds back diagnostics and atomically promotes verified revisions; 28 offline tests pass; scripted real-Dafny control job 55802594 queued |
-| Live agent demonstration | Frozen four-task pilot prepared, up to eight calls; requires successful controls and additional budget approval |
+| Live agent demonstration | Frozen four-task pilot prepared, up to eight calls; authorized as automatic continuation; requires successful controls |
 | Begin scaling generation | Still open: schedule generation/extension across multiple repositories, rather than count hand-built controls as generated corpus |
 
 New additive baseline request adapter has ten fake-transport tests; six smoke-runner
 and three agent-adapter tests pass. Existing frozen protocols are unchanged. Neither
 queued controls nor fake transport tests are model findings. All newly prepared
 live settings and scope are documented in the respective experiment directories.
+
+The user requested automatic continuation while asleep. The new combined driver
+keeps one private key handoff in compute-process memory across the 20-call
+baseline and at-most-eight-call agent pilot. Four orchestration tests pass;
+both verifier jobs remain queued. No additional generation budget inferred.

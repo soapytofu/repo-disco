@@ -35,14 +35,16 @@ modules, extension task scheduling, context selection and growing generated
 repositories remain needed to demonstrate the proposal's beginning-to-scale
 component. Existing controlled variants do not constitute autonomous generation.
 
-## Prepared live pilot (not authorized or run)
+## Prepared live pilot (authorized continuation; not yet run)
 
 Verifier-only job **55802594** is queued on shared/sapphire, with no requeue.
 `repository_agent_pilot.py` and frozen-model-001 pin four development tasks:
 branch/shared, inductive/separate, branch/separate, inductive/shared. Each gets at
 most two feedback-driven attempts, stopping on success; unused calls are not
 reassigned. **At most eight additional requests**, separate from the baseline,
-require budget approval after compute controls pass. No requests made yet.
+were subsequently authorized by the request for automatic wrap-up while asleep.
+Compute controls must still pass; no requests made yet. See
+[combined continuation](../weeks1-4-continuation-001/README.md).
 
 Opus 4.5 via Bedrock, temperature 1.0, 4,096 output tokens, complete source plus
 declared dependency map and explicit permitted grammar. Three adapter tests pass:
