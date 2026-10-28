@@ -152,3 +152,15 @@ pilot to test whether the new obligations avoid the ceiling, or a precisely
 specified baseline reproduction. Neither requires more near-duplicate fixture
 variants now. Before training or broad evaluation, agree on family-level splits,
 a matched model/agent comparison and a separately authorized request budget.
+
+## Baseline preparation (October 28)
+
+[Baseline reproduction preparation](../experiments/baseline-reproduction-001/README.md)
+pins the public DafnyBench revision and all 1,567 source-file hashes, provides a
+zero-model compute preflight and separates the Opus annotation evaluation from
+open-ended generation reproduction. The paper reports 555 eligible annotation
+problems: at most 2,220 calls for four attempts, with a proposed 20-call smoke
+subset counted within that cap if settings remain unchanged. Neither stage is
+authorized to make model calls yet. Exact paper problem IDs, source/tool versions
+and evaluation inference settings still need confirmation. Three offline tests
+pass; no preflight job or paid run has been submitted.
