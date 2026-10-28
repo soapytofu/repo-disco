@@ -1,6 +1,6 @@
 # Dafny baseline reproduction preparation
 
-Prepared October 28, 2026. **No model calls authorized or made; no job submitted.**
+Prepared October 28, 2026. **Zero-model preflight submitted as job 55802277. No model calls made.**
 
 ## Target and scope
 
