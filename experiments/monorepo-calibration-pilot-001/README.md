@@ -45,3 +45,11 @@ Artifacts on completion: model-001 contains a copy of the frozen inputs/runtime,
 authorization/environment, durable ledger, every raw response and per-trial
 extraction/candidate/verifier/accepted records. Full non-secret logs and a grouped
 family × depth × sharing analysis will be published without dropping failures.
+
+## Submission
+
+Job **56019657** submitted once at 2026-10-28 23:57:26 UTC on test, confirmed
+PreemptMode=OFF, 2 CPUs / 8 GiB / 2 hours, no requeue. The exclusive submission
+lock and saved job ID prevent duplicate dispatch. Maximum 32 calls; every dispatch
+is also bounded by the 2026-10-29 01:47:35 UTC authorization deadline.
+Results pending. Do not resubmit or launch a standalone runner.
