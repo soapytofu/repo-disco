@@ -1,0 +1,172 @@
+Complete the Prove lemma body in each of: HelperA.dfy, HelperB.dfy.
+
+Return a single JSON object whose exact keys are these filenames and whose values are the COMPLETE file strings. Preserve every byte outside each Prove body, including whitespace, imports, exports, attributes, contracts and decreases. Do not return any other files.
+
+Allowed proof-body syntax: if/else, assert, task-allowed lemma calls; parameter variables, integer/Boolean literals, + and -, comparisons, &&, ||, ==> and !; parentheses, length |s|, empty sequence [], sequence indexing/slicing, and map updates m[k := v]. No comments, declarations, loops, quantifiers, assume, reveal, attributes, assert-by blocks, or arbitrary qualified calls. Assertions and calls still must verify. Copying proof text between editable bodies is permitted; delegating to another helper is not.
+
+Allowed parameters: m, k, v, j, w.
+
+Allowed statement calls (name: arity): {"End.Compose": 5, "End.Finish": 3, "S1.Update": 3, "S2.Preserve": 3}.
+
+Allowed pure expression calls (name: arity): {"K.Frame": 3, "K.FrameTwo": 4, "K.Ready": 3, "K.Valid": 1, "K.Values": 1}.
+
+Output limits: 256 KiB response; 64 KiB and 8192 tokens per body; 256 statements; expression depth 32 and statement depth 24.
+
+Entry point: All.dfy. Each listed file belongs to this same monorepo workspace. Imports and includes below are structural context, not proof steps.
+
+Declared file map: {"imports": {"All.dfy": [], "ClientA.dfy": [["K", "Kernel`Public"], ["H", "HelperA"]], "ClientB.dfy": [["K", "Kernel`Public"], ["H", "HelperB"]], "HelperA.dfy": [["K", "Kernel`Public"], ["S1", "Stage1`Public"], ["S2", "Stage2`Public"], ["End", "Stage3`Deep"]], "HelperB.dfy": [["K", "Kernel`Public"], ["S1", "Stage1`Public"], ["S2", "Stage2`Public"], ["End", "Stage3`Deep"]], "Kernel.dfy": [], "Stage1.dfy": [["K", "Kernel`Internal"]], "Stage2.dfy": [["K", "Kernel`Internal"]], "Stage3.dfy": [["K", "Kernel`Internal"]]}, "includes": {"All.dfy": ["ClientA.dfy", "ClientB.dfy"], "ClientA.dfy": ["Kernel.dfy", "HelperA.dfy"], "ClientB.dfy": ["Kernel.dfy", "HelperB.dfy"], "HelperA.dfy": ["Kernel.dfy", "Stage1.dfy", "Stage2.dfy", "Stage3.dfy"], "HelperB.dfy": ["Kernel.dfy", "Stage1.dfy", "Stage2.dfy", "Stage3.dfy"], "Kernel.dfy": [], "Stage1.dfy": ["Kernel.dfy"], "Stage2.dfy": ["Kernel.dfy"], "Stage3.dfy": ["Kernel.dfy"]}}
+
+Full source:
+
+
+FILE All.dfy
+```dafny
+include "ClientA.dfy"
+include "ClientB.dfy"
+```
+
+
+FILE ClientA.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperA.dfy"
+module ClientA {
+  import K = Kernel`Public
+  import H = HelperA
+  lemma Use(m: map<int, int>, k: int, j: int, v: int, w: int)
+    requires K.Valid(m) && v >= 0 && w >= 0 && k != j
+    ensures K.Valid(m[k := v][j := w]) && K.FrameTwo(m, m[k := v][j := w], k, j)
+  { H.Prove(m, k, v, j, w); }
+}
+```
+
+
+FILE ClientB.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperB.dfy"
+module ClientB {
+  import K = Kernel`Public
+  import H = HelperB
+  lemma Use(m: map<int, int>, k: int, j: int, v: int, w: int)
+    requires K.Valid(m) && v >= 0 && w >= 0 && k != j
+    ensures K.Valid(m[j := w][k := v]) && K.FrameTwo(m, m[j := w][k := v], j, k)
+  { H.Prove(m, j, w, k, v); }
+}
+```
+
+
+FILE HelperA.dfy
+```dafny
+include "Kernel.dfy"
+include "Stage1.dfy"
+include "Stage2.dfy"
+include "Stage3.dfy"
+module HelperA {
+  import K = Kernel`Public
+  import S1 = Stage1`Public
+  import S2 = Stage2`Public
+  import End = Stage3`Deep
+  lemma {:induction false} Prove(m: map<int, int>, k: int, v: int, j: int, w: int)
+    requires K.Valid(m) && v >= 0 && w >= 0 && k != j
+    ensures K.Valid(m[k := v][j := w]) && K.FrameTwo(m, m[k := v][j := w], k, j)
+    ensures m[k := v][j := w][k] == v && m[k := v][j := w][j] == w
+  {
+  }
+}
+```
+
+
+FILE HelperB.dfy
+```dafny
+include "Kernel.dfy"
+include "Stage1.dfy"
+include "Stage2.dfy"
+include "Stage3.dfy"
+module HelperB {
+  import K = Kernel`Public
+  import S1 = Stage1`Public
+  import S2 = Stage2`Public
+  import End = Stage3`Deep
+  lemma {:induction false} Prove(m: map<int, int>, k: int, v: int, j: int, w: int)
+    requires K.Valid(m) && v >= 0 && w >= 0 && k != j
+    ensures K.Valid(m[k := v][j := w]) && K.FrameTwo(m, m[k := v][j := w], k, j)
+    ensures m[k := v][j := w][k] == v && m[k := v][j := w][j] == w
+  {
+  }
+}
+```
+
+
+FILE Kernel.dfy
+```dafny
+module Kernel {
+  export Public provides Valid, Values, Frame, Ready, FrameTwo
+  export Internal reveals Valid, Values, Frame, Ready, FrameTwo
+  opaque predicate Valid(m: map<int, int>) { forall q :: q in m ==> m[q] >= 0 }
+  opaque predicate Values(m: map<int, int>) { forall q :: q in m ==> m[q] >= 0 }
+  opaque predicate Frame(m: map<int, int>, n: map<int, int>, k: int) {
+    forall q :: q in m && q != k ==> q in n && n[q] == m[q]
+  }
+  opaque predicate Ready(m: map<int, int>, k: int, v: int) {
+    Values(m[k := v]) && Frame(m, m[k := v], k)
+  }
+  opaque predicate FrameTwo(m: map<int, int>, n: map<int, int>, k: int, j: int) {
+    forall q :: q in m && q != k && q != j ==> q in n && n[q] == m[q]
+  }
+}
+```
+
+
+FILE Stage1.dfy
+```dafny
+include "Kernel.dfy"
+module Stage1 {
+  export Public provides K, Update
+  import K = Kernel`Internal
+  lemma Update(m: map<int, int>, k: int, v: int)
+    requires K.Valid(m) && v >= 0
+    ensures K.Values(m[k := v])
+  { reveal K.Valid(); reveal K.Values(); }
+}
+```
+
+
+FILE Stage2.dfy
+```dafny
+include "Kernel.dfy"
+module Stage2 {
+  export Public provides K, Preserve
+  import K = Kernel`Internal
+  lemma Preserve(m: map<int, int>, k: int, v: int)
+    requires K.Values(m[k := v])
+    ensures K.Ready(m, k, v)
+  { reveal K.Ready(); reveal K.Frame(); }
+}
+```
+
+
+FILE Stage3.dfy
+```dafny
+include "Kernel.dfy"
+module Stage3 {
+  export Shallow provides K, Direct, Compose
+  export Deep provides K, Finish, Compose
+  import K = Kernel`Internal
+  lemma Direct(m: map<int, int>, k: int, v: int)
+    requires K.Valid(m) && v >= 0
+    ensures K.Valid(m[k := v]) && K.Frame(m, m[k := v], k)
+  { reveal K.Valid(); reveal K.Frame(); }
+  lemma Finish(m: map<int, int>, k: int, v: int)
+    requires K.Ready(m, k, v)
+    ensures K.Valid(m[k := v]) && K.Frame(m, m[k := v], k)
+  { reveal K.Ready(); reveal K.Values(); reveal K.Valid(); }
+  lemma Compose(m: map<int, int>, k: int, v: int, j: int, w: int)
+    requires k != j
+    requires K.Frame(m, m[k := v], k)
+    requires K.Frame(m[k := v], m[k := v][j := w], j)
+    ensures K.FrameTwo(m, m[k := v][j := w], k, j)
+    ensures m[k := v][j := w][k] == v && m[k := v][j := w][j] == w
+  { reveal K.Frame(); reveal K.FrameTwo(); }
+}
+```
