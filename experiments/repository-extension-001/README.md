@@ -41,3 +41,23 @@ spend four calls. Reuse no historical budget, and make no connectivity API calls
 Verifier-only job **55810726** submitted once to test (live PreemptMode=OFF),
 two CPUs/8GiB/15 minutes, no requeue. Results pending. The manifest pins the
 pre-submission README; subsequent status notes are not runtime source changes.
+
+## Reviewed preflight and frozen proposal
+
+Job55810726 completed on test in 44 seconds. All **14 expected outcomes** matched:
+six seed/reference passes and eight targeted proof failures, with no parse or
+name-resolution failures. Exact staged source hashes, seed immutability, controlled
+entry-point changes and diagnostics were reviewed by review_preflight.py. Full
+sources and raw verifier logs are retained in verification-001.
+
+frozen-001 now pins four exact prompts in branch-1, branch-2, inductive-1,
+inductive-2 order, model/settings, guards, seeds and preflight review. Each is one
+independent extension, with no repair retry or unused-call reassignment. Human
+reference controls are excluded from model context. The two existing verified
+clients are deliberately visible as seed context. This order is a development
+collection order, not counterbalanced evidence of a treatment effect.
+
+Still needed before any model dispatch: bounded runner integration and offline
+transport tests, separately hash-bound execution authorization, and a private key
+handoff. No new API requests have been made or authorized. The proposed request
+budget is **four total**, separate from the completed baseline/agent budget.

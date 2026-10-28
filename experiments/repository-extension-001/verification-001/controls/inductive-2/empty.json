@@ -1,0 +1,3 @@
+{
+  "ClientC.dfy": "include \"Facts.dfy\"\nmodule ClientC {\n  import F = Facts`ViewA\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\n    ensures F.Total(t + s + t) == F.Total(t) + F.Total(s) + F.Total(t)\n  {\n  }\n}\n"
+}

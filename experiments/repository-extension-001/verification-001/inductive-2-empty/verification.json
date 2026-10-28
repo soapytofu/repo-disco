@@ -1,0 +1,32 @@
+{
+  "name": "inductive-2-empty",
+  "expected_exit": 4,
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "b21b875de3c779fc57dff06d488e16e0c937c8f8657f39fdebe0bb53c89024f2",
+    "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+    "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+    "ClientC.dfy": "fca9134add97440428ad5782ade47fb7c7982899e849d08fb318f8d6217ab187",
+    "Facts.dfy": "0c8e67405eeb40126c8f6db8d67309881846c09716d9e62688c70a2c2eb1f814"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "ClientC.dfy(6,2): Error: a postcondition could not be proved on this return path\n  |\n6 |   {\n  |   ^\n\nClientC.dfy(5,31): Related location: this is the postcondition that could not be proved\n  |\n5 |     ensures F.Total(t + s + t) == F.Total(t) + F.Total(s) + F.Total(t)\n  |                                ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 1.990596533054486,
+  "model_calls": 0,
+  "attempts": 1
+}

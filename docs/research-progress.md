@@ -204,4 +204,6 @@ are not a generation budget. Weeks 1–4 are not yet claimed complete.
 
 Repository-extension-001 now prepares four new-client extensions across two verified
 seed repositories, with immutable seed checks and separate guards. Four offline
-tests passed; compute preflight and prompt freeze are pending. No new model calls.
+tests passed; compute preflight job55810726 matched all14 expectations (six passes,
+eight proof failures), and four exact prompts/settings are frozen. Bounded runner
+integration and separate request authorization remain open. No new model calls.

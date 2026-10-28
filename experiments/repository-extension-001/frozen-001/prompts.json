@@ -1,0 +1,86 @@
+[
+  {
+    "sequence": 1,
+    "task_id": "branch-1",
+    "seed_revision": "28188c13641440d69bd0664aae31cdb6",
+    "seed_sha256": {
+      "ClientA.dfy": "3a7a3ad14e7015daafbc4ef9c5b2c2345c0ec8225c5c9b63e25fcbc85001df9a",
+      "ClientB.dfy": "8e1ecb65f6f079e584ecdf33d7d62ed3b60b944704162a1e6d73bc0a014d3030",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "ec871b20f6d0c0cdcb92f53f3d459b3a168a73d473b917898b05293c28d9486b"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert Dafny developer. Generate the requested new client module using only the permitted proof grammar and immutable existing APIs. Return strict JSON only."
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"body_grammar\": \"Only F.Case0A/Case1A/Case0B/Case1B calls, integer x/y/literal +/- expressions, and if comparison with optional else. Comparisons < <= > >= == !=. Do not parenthesize an entire comparison. No assertions, assumptions, reveals, loops, comments, attributes or declarations. Maximum 64 statements, 2048 body tokens, nesting 24.\",\n  \"dependency_map\": {\n    \"All.dfy\": [\n      \"ClientA.dfy\",\n      \"ClientB.dfy\"\n    ],\n    \"ClientA.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"ClientB.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"Facts.dfy\": []\n  },\n  \"goal\": \"Extend this verified repository by generating a new ClientC.dfy, preserving its required interface. The host will include it in All.dfy and verify the whole repository.\",\n  \"new_file\": \"ClientC.dfy\",\n  \"output_format\": \"One strict JSON object with exactly ClientC.dfy as key and its COMPLETE source string as value. No Markdown fences, commentary or extra fields. Preserve prefix and suffix byte-for-byte; insert the body between them. Do not return existing files. Maximum 32768 response characters.\",\n  \"required_prefix\": \"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(x: int, y: int)\\n    ensures F.Good(F.Wrap(if x + y >= 0 then (x + y) else -(x + y)))\\n  {\\n\",\n  \"required_suffix\": \"  }\\n}\\n\",\n  \"seed_files\": {\n    \"All.dfy\": \"include \\\"ClientA.dfy\\\"\\ninclude \\\"ClientB.dfy\\\"\\n\",\n    \"ClientA.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientA {\\n  import F = Facts`ViewA\\n  lemma Prove(x: int, y: int)\\n    ensures F.Good(F.Wrap(if x >= 0 then x else -x))\\n  {\\n    if x >= 0 {\\n      F.Case0A(x);\\n    } else {\\n      F.Case1A(x);\\n    }\\n  }\\n}\\n\",\n    \"ClientB.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientB {\\n  import F = Facts`ViewA\\n  lemma Prove(x: int, y: int)\\n    ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\\n  {\\n    if x - y >= 0 {\\n      F.Case0A(x - y);\\n    } else {\\n      F.Case1A(x - y);\\n    }\\n  }\\n}\\n\",\n    \"Facts.dfy\": \"module Facts {\\n  export ViewA provides Wrap, Good, Case0A, Case1A\\n  export ViewB provides Wrap, Good, Case0B, Case1B\\n  opaque function Wrap(x: int): int { x }\\n  opaque predicate Good(x: int) { x >= 0 }\\n  lemma Case0A(x: int)\\n    requires x >= 0\\n    ensures Good(Wrap(x))\\n  { reveal Good(), Wrap(); }\\n  lemma Case1A(x: int)\\n    requires x < 0\\n    ensures Good(Wrap(-x))\\n  { reveal Good(), Wrap(); }\\n  lemma Case0B(x: int)\\n    requires x >= 0\\n    ensures Good(Wrap(x))\\n  { reveal Good(), Wrap(); }\\n  lemma Case1B(x: int)\\n    requires x < 0\\n    ensures Good(Wrap(-x))\\n  { reveal Good(), Wrap(); }\\n}\\n\"\n  },\n  \"task_id\": \"branch-1\"\n}"
+      }
+    ]
+  },
+  {
+    "sequence": 2,
+    "task_id": "branch-2",
+    "seed_revision": "28188c13641440d69bd0664aae31cdb6",
+    "seed_sha256": {
+      "ClientA.dfy": "3a7a3ad14e7015daafbc4ef9c5b2c2345c0ec8225c5c9b63e25fcbc85001df9a",
+      "ClientB.dfy": "8e1ecb65f6f079e584ecdf33d7d62ed3b60b944704162a1e6d73bc0a014d3030",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "ec871b20f6d0c0cdcb92f53f3d459b3a168a73d473b917898b05293c28d9486b"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert Dafny developer. Generate the requested new client module using only the permitted proof grammar and immutable existing APIs. Return strict JSON only."
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"body_grammar\": \"Only F.Case0A/Case1A/Case0B/Case1B calls, integer x/y/literal +/- expressions, and if comparison with optional else. Comparisons < <= > >= == !=. Do not parenthesize an entire comparison. No assertions, assumptions, reveals, loops, comments, attributes or declarations. Maximum 64 statements, 2048 body tokens, nesting 24.\",\n  \"dependency_map\": {\n    \"All.dfy\": [\n      \"ClientA.dfy\",\n      \"ClientB.dfy\"\n    ],\n    \"ClientA.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"ClientB.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"Facts.dfy\": []\n  },\n  \"goal\": \"Extend this verified repository by generating a new ClientC.dfy, preserving its required interface. The host will include it in All.dfy and verify the whole repository.\",\n  \"new_file\": \"ClientC.dfy\",\n  \"output_format\": \"One strict JSON object with exactly ClientC.dfy as key and its COMPLETE source string as value. No Markdown fences, commentary or extra fields. Preserve prefix and suffix byte-for-byte; insert the body between them. Do not return existing files. Maximum 32768 response characters.\",\n  \"required_prefix\": \"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(x: int, y: int)\\n    ensures F.Good(F.Wrap(if x - y - y >= 0 then (x - y - y) else -(x - y - y)))\\n  {\\n\",\n  \"required_suffix\": \"  }\\n}\\n\",\n  \"seed_files\": {\n    \"All.dfy\": \"include \\\"ClientA.dfy\\\"\\ninclude \\\"ClientB.dfy\\\"\\n\",\n    \"ClientA.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientA {\\n  import F = Facts`ViewA\\n  lemma Prove(x: int, y: int)\\n    ensures F.Good(F.Wrap(if x >= 0 then x else -x))\\n  {\\n    if x >= 0 {\\n      F.Case0A(x);\\n    } else {\\n      F.Case1A(x);\\n    }\\n  }\\n}\\n\",\n    \"ClientB.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientB {\\n  import F = Facts`ViewA\\n  lemma Prove(x: int, y: int)\\n    ensures F.Good(F.Wrap(if (x - y) >= 0 then (x - y) else -(x - y)))\\n  {\\n    if x - y >= 0 {\\n      F.Case0A(x - y);\\n    } else {\\n      F.Case1A(x - y);\\n    }\\n  }\\n}\\n\",\n    \"Facts.dfy\": \"module Facts {\\n  export ViewA provides Wrap, Good, Case0A, Case1A\\n  export ViewB provides Wrap, Good, Case0B, Case1B\\n  opaque function Wrap(x: int): int { x }\\n  opaque predicate Good(x: int) { x >= 0 }\\n  lemma Case0A(x: int)\\n    requires x >= 0\\n    ensures Good(Wrap(x))\\n  { reveal Good(), Wrap(); }\\n  lemma Case1A(x: int)\\n    requires x < 0\\n    ensures Good(Wrap(-x))\\n  { reveal Good(), Wrap(); }\\n  lemma Case0B(x: int)\\n    requires x >= 0\\n    ensures Good(Wrap(x))\\n  { reveal Good(), Wrap(); }\\n  lemma Case1B(x: int)\\n    requires x < 0\\n    ensures Good(Wrap(-x))\\n  { reveal Good(), Wrap(); }\\n}\\n\"\n  },\n  \"task_id\": \"branch-2\"\n}"
+      }
+    ]
+  },
+  {
+    "sequence": 3,
+    "task_id": "inductive-1",
+    "seed_revision": "e24794df973649308f13a6d8c8c961f7",
+    "seed_sha256": {
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "0c8e67405eeb40126c8f6db8d67309881846c09716d9e62688c70a2c2eb1f814"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert Dafny developer. Generate the requested new client module using only the permitted proof grammar and immutable existing APIs. Return strict JSON only."
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"body_grammar\": \"Only F.AppendA(sequence_expression, sequence_expression); calls. Expressions are s, t, u joined by +, without parentheses. At most 16 calls and 8192 body characters. No assertions, assumptions, reveals, loops, comments, attributes or declarations.\",\n  \"dependency_map\": {\n    \"All.dfy\": [\n      \"ClientA.dfy\",\n      \"ClientB.dfy\"\n    ],\n    \"ClientA.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"ClientB.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"Facts.dfy\": []\n  },\n  \"goal\": \"Extend this verified repository by generating a new ClientC.dfy, preserving its required interface. The host will include it in All.dfy and verify the whole repository.\",\n  \"new_file\": \"ClientC.dfy\",\n  \"output_format\": \"One strict JSON object with exactly ClientC.dfy as key and its COMPLETE source string as value. No Markdown fences, commentary or extra fields. Preserve prefix and suffix byte-for-byte; insert the body between them. Do not return existing files. Maximum 32768 response characters.\",\n  \"required_prefix\": \"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\\n    ensures F.Total(s + t + u) == F.Total(s) + F.Total(t) + F.Total(u)\\n  {\\n\",\n  \"required_suffix\": \"  }\\n}\\n\",\n  \"seed_files\": {\n    \"All.dfy\": \"include \\\"ClientA.dfy\\\"\\ninclude \\\"ClientB.dfy\\\"\\n\",\n    \"ClientA.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientA {\\n  import F = Facts`ViewA\\n  lemma SumTwo(s: seq<int>, t: seq<int>)\\n    ensures F.Total(s + t) == F.Total(s) + F.Total(t)\\n  { F.AppendA(s, t); }\\n}\\n\",\n    \"ClientB.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientB {\\n  import F = Facts`ViewA\\n  lemma SumThree(s: seq<int>, t: seq<int>, u: seq<int>)\\n    ensures F.Total((s + t) + u) == F.Total(s) + F.Total(t) + F.Total(u)\\n  {\\n    F.AppendA(s, t);\\n    F.AppendA(s + t, u);\\n  }\\n}\\n\",\n    \"Facts.dfy\": \"module Facts {\\n  export ViewA provides Total, AppendA\\n  function Total(s: seq<int>): int\\n    decreases |s|\\n  { if |s| == 0 then 0 else s[0] + Total(s[1..]) }\\n  lemma {:induction false} AppendA(s: seq<int>, t: seq<int>)\\n    ensures Total(s + t) == Total(s) + Total(t)\\n    decreases |s|\\n  {\\n    if |s| == 0 {\\n      assert s + t == t;\\n    } else {\\n      assert (s + t)[0] == s[0];\\n      assert (s + t)[1..] == s[1..] + t;\\n      AppendA(s[1..], t);\\n    }\\n  }\\n}\\n\"\n  },\n  \"task_id\": \"inductive-1\"\n}"
+      }
+    ]
+  },
+  {
+    "sequence": 4,
+    "task_id": "inductive-2",
+    "seed_revision": "e24794df973649308f13a6d8c8c961f7",
+    "seed_sha256": {
+      "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+      "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Facts.dfy": "0c8e67405eeb40126c8f6db8d67309881846c09716d9e62688c70a2c2eb1f814"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert Dafny developer. Generate the requested new client module using only the permitted proof grammar and immutable existing APIs. Return strict JSON only."
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"body_grammar\": \"Only F.AppendA(sequence_expression, sequence_expression); calls. Expressions are s, t, u joined by +, without parentheses. At most 16 calls and 8192 body characters. No assertions, assumptions, reveals, loops, comments, attributes or declarations.\",\n  \"dependency_map\": {\n    \"All.dfy\": [\n      \"ClientA.dfy\",\n      \"ClientB.dfy\"\n    ],\n    \"ClientA.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"ClientB.dfy\": [\n      \"Facts.dfy\"\n    ],\n    \"Facts.dfy\": []\n  },\n  \"goal\": \"Extend this verified repository by generating a new ClientC.dfy, preserving its required interface. The host will include it in All.dfy and verify the whole repository.\",\n  \"new_file\": \"ClientC.dfy\",\n  \"output_format\": \"One strict JSON object with exactly ClientC.dfy as key and its COMPLETE source string as value. No Markdown fences, commentary or extra fields. Preserve prefix and suffix byte-for-byte; insert the body between them. Do not return existing files. Maximum 32768 response characters.\",\n  \"required_prefix\": \"include \\\"Facts.dfy\\\"\\nmodule ClientC {\\n  import F = Facts`ViewA\\n  lemma Extend(s: seq<int>, t: seq<int>, u: seq<int>)\\n    ensures F.Total(t + s + t) == F.Total(t) + F.Total(s) + F.Total(t)\\n  {\\n\",\n  \"required_suffix\": \"  }\\n}\\n\",\n  \"seed_files\": {\n    \"All.dfy\": \"include \\\"ClientA.dfy\\\"\\ninclude \\\"ClientB.dfy\\\"\\n\",\n    \"ClientA.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientA {\\n  import F = Facts`ViewA\\n  lemma SumTwo(s: seq<int>, t: seq<int>)\\n    ensures F.Total(s + t) == F.Total(s) + F.Total(t)\\n  { F.AppendA(s, t); }\\n}\\n\",\n    \"ClientB.dfy\": \"include \\\"Facts.dfy\\\"\\nmodule ClientB {\\n  import F = Facts`ViewA\\n  lemma SumThree(s: seq<int>, t: seq<int>, u: seq<int>)\\n    ensures F.Total((s + t) + u) == F.Total(s) + F.Total(t) + F.Total(u)\\n  {\\n    F.AppendA(s, t);\\n    F.AppendA(s + t, u);\\n  }\\n}\\n\",\n    \"Facts.dfy\": \"module Facts {\\n  export ViewA provides Total, AppendA\\n  function Total(s: seq<int>): int\\n    decreases |s|\\n  { if |s| == 0 then 0 else s[0] + Total(s[1..]) }\\n  lemma {:induction false} AppendA(s: seq<int>, t: seq<int>)\\n    ensures Total(s + t) == Total(s) + Total(t)\\n    decreases |s|\\n  {\\n    if |s| == 0 {\\n      assert s + t == t;\\n    } else {\\n      assert (s + t)[0] == s[0];\\n      assert (s + t)[1..] == s[1..] + t;\\n      AppendA(s[1..], t);\\n    }\\n  }\\n}\\n\"\n  },\n  \"task_id\": \"inductive-2\"\n}"
+      }
+    ]
+  }
+]

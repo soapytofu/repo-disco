@@ -1,0 +1,32 @@
+{
+  "name": "inductive-1-reference",
+  "expected_exit": 0,
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "b21b875de3c779fc57dff06d488e16e0c937c8f8657f39fdebe0bb53c89024f2",
+    "ClientA.dfy": "8b2767cb761210ce0f434a4ce036fbe74cc7f2dd6939adcf01cd7aff60594c39",
+    "ClientB.dfy": "c6d151ffd098831d4cfd1f2b4e0f1ecaeab293c562c443399182e0e5431510b4",
+    "ClientC.dfy": "ea1f725c8985cd922527672aa2f99ab8ee81b64e297d18cf6018212206c7a14a",
+    "Facts.dfy": "0c8e67405eeb40126c8f6db8d67309881846c09716d9e62688c70a2c2eb1f814"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "outcome": "success",
+  "category": "success",
+  "stdout": "\nDafny program verifier finished with 5 verified, 0 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 1.824705310864374,
+  "model_calls": 0,
+  "attempts": 1
+}
