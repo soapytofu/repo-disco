@@ -1,0 +1,89 @@
+{
+  "status": "PROPOSAL_ONLY_NO_EXECUTION_AUTHORIZATION",
+  "created_date": "2026-10-28",
+  "question": "Whole-repository completion and effort under reference dependency depth and shared versus duplicated helper proofs",
+  "task_mode": "contract-guided multi-client helper proof synthesis",
+  "development_families": [
+    "conditional_preconditions",
+    "sequence_induction",
+    "relational_join",
+    "finite_map_frames"
+  ],
+  "reserved_candidate_family_categories": [
+    "recursive_tree_transformations",
+    "finite_set_witnesses"
+  ],
+  "held_out_status": "No concrete held-out corpus or performance claim; later template-ancestry audit required",
+  "cells": [
+    "shallow_shared",
+    "shallow_separate",
+    "deep_shared",
+    "deep_separate"
+  ],
+  "fixed_context": "full_source_plus_declared_file_map",
+  "calibration": {
+    "families": 4,
+    "instances_per_family": 1,
+    "variants_per_instance": 4,
+    "samples_per_variant": 2,
+    "underlying_instances": 4,
+    "repository_variants": 16,
+    "max_calls": 32
+  },
+  "main": {
+    "families": 4,
+    "instances_per_family": 6,
+    "variants_per_instance": 4,
+    "samples_per_variant": 2,
+    "underlying_instances": 24,
+    "repository_variants": 96,
+    "max_calls": 192,
+    "batch_quotas": [
+      48,
+      48,
+      48,
+      48
+    ]
+  },
+  "recommended_total_calls": 224,
+  "automatic_retries": false,
+  "reassign_unused": false,
+  "calibration_instances_excluded_from_main": true,
+  "exact_prompts_frozen": false,
+  "templates_implemented": false,
+  "order": {
+    "seed": 20261028,
+    "design": "Four Latin-square orders, each assigned to six main semantic instances; reverse for sample two; interleave families"
+  },
+  "optional_map_calls": 64,
+  "optional_map_total": 288,
+  "optional_main_repair_max_calls": 192,
+  "optional_main_repair_total_without_map": 416,
+  "token_planning_assumptions": {
+    "input_per_call": [
+      2000,
+      6000
+    ],
+    "output_per_call": [
+      500,
+      2000
+    ],
+    "total_for_224": [
+      560000,
+      1792000
+    ],
+    "dollar_estimate": null
+  },
+  "approval_gates": [
+    "zero-call design/preflight",
+    "separate 32-call calibration approval",
+    "review difficulty and failures",
+    "freeze exact main corpus and request separate 192-call approval"
+  ],
+  "scope_limits": [
+    "Shared versus separate changes editable proof count; not a pure equal-work cognition comparison",
+    "Reference depth is not certified minimum proof depth",
+    "Four development families do not establish generalization",
+    "Accepted corpus size unknown; no replacement sampling budget"
+  ]
+}

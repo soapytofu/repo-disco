@@ -78,3 +78,11 @@ This is explicitly contract-guided extension, not invention of new specification
 or a broad generated corpus. Its controls and a separately approved request budget
 must precede model collection. Completing this protocol review alone does not close
 the generation milestone.
+
+## Current implementation plan
+
+[Weeks 5–6 corpus plan](weeks5-6-corpus-plan.md) now specifies concrete family and
+instance counts, matching limitations, calibration gates, counterbalancing and
+call budgets. Earlier queued/pending references above describe historical design
+checkpoints. The initial extension pilot subsequently completed four verified
+new clients; it is not the larger corpus proposed in the new plan.

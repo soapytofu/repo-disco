@@ -220,3 +220,13 @@ gate; it does not claim completion of the primary corpus or open-ended generatio
 The next phase is a matched, more diverse Weeks 5–6 corpus with a declared family
 split and a separately approved budget. Historical dated checkpoints above are
 retained, including their then-pending status.
+
+## Weeks 5–6 planning (October 28; no execution authorization)
+
+The [larger matched-corpus plan](weeks5-6-corpus-plan.md) recommends a 32-call
+calibration gate followed by a separately approved 192-call main stage: 24
+underlying instances, 96 structural variants and two independent samples each.
+Four development families vary depth and shared/duplicated helper proof workload;
+reserved-family evaluation is separate. Proposed total 224, optional balanced
+map study +64. Templates, guard preflight and exact prompt freeze come first.
+No model requests, new verifier jobs or corpus generation were launched in planning.
