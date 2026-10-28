@@ -97,3 +97,8 @@ The same ten fake-only tests also passed in Cannon's repodisco environment.
 Runtime files are staged at outputs/repository-extension-001; no authorization
 file, model output, submission or private-key access was created by staging.
 remote-offline-tests.log preserves that environment check.
+
+The user has now explicitly approved **four new calls**, with no retries or
+reassignment (approval-record.json). SSH is available, but the private handoff
+is absent. No model job has been submitted; execution authorization will receive
+a fresh expiry after credential readiness and state checks.
