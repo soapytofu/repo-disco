@@ -1,0 +1,1390 @@
+[
+  {
+    "task_id": "conditional-deep-shared",
+    "review_path": "experiments/monorepo-calibration-001/results-review.json",
+    "review_sha256": "19177ade7b1e9fcd8fd247ccfd8f9c0bf01538c8c9ab4ce7025d676f4447b900",
+    "job_id": "55978267",
+    "whole_original_run_all_expected": true,
+    "selected_controls_all_expected": true,
+    "control_count": 6,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "d990d3187711eb280724b012d88da944a33e8548fc84059887aad8cddef3d048",
+          "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-reference.json",
+        "log_sha256": "5f6b47c69ec258b0718fea343899cd1a67fdd5e3579c4bc9188c3a8f861b7558"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+          "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-empty.json",
+        "log_sha256": "00a46079db77ebb36489bde3112756caa4fd01c6e8ef231a17ccd093ed5f4016"
+      },
+      {
+        "variant": "wrong_argument",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "896d33cd28d3debfb44de086e026ed29dc7b571df3d5a257e6d594f1f354ee08",
+          "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-wrong_argument.json",
+        "log_sha256": "73ce14430f1330ab3f2b9447db7803ae145111bee27b0fe1b6d33c71e2cec893"
+      },
+      {
+        "variant": "missing_prerequisite",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "f62635538ccace52f7f1f9851e0a183307ca4a4ab6cf44ef3c1ac3ea2be0e466",
+          "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-missing_prerequisite.json",
+        "log_sha256": "b38df9ad5e86738d81c3c390b1a9471f8db75ea579e0ce41b27ef7fa39a68e81"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "60476b337d75172608b48f2893ca8a13473b43f23638f1ce2daf26a772021666",
+          "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-weakened_helper_contract.json",
+        "log_sha256": "bd82830cf2ccccbe71aab645dc1ef41d28578bb79c59069f9b2fd511dd67252f"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "fc9f1038e3c20cf875c144494216d3471fd94dd196b1363f083eb70ce5f7f13c",
+          "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-hidden_shortcut.json",
+        "log_sha256": "0e5e66f55eed60d53737cbbe95ee36a31a6352a2ac0fee0cf24f75f7ba9abcb8"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "conditional-deep-separate",
+    "review_path": "experiments/monorepo-calibration-001/results-review.json",
+    "review_sha256": "19177ade7b1e9fcd8fd247ccfd8f9c0bf01538c8c9ab4ce7025d676f4447b900",
+    "job_id": "55978267",
+    "whole_original_run_all_expected": true,
+    "selected_controls_all_expected": true,
+    "control_count": 8,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "d990d3187711eb280724b012d88da944a33e8548fc84059887aad8cddef3d048",
+          "HelperB.dfy": "917a2e05c2e68afdcff319641454b05d42414ecb4deb41c40e1719b3b856a520",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-reference.json",
+        "log_sha256": "d3636f6ff9ef25ae161606b4d45560d9d527dfbd0dbb4d9c1e87ba1f9e91b540"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+          "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-empty.json",
+        "log_sha256": "fdc4ede77aad7c931e064785fc7f4a9a1ddd639d4175a16874cef4f761d5937a"
+      },
+      {
+        "variant": "wrong_argument",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "896d33cd28d3debfb44de086e026ed29dc7b571df3d5a257e6d594f1f354ee08",
+          "HelperB.dfy": "9ff1d4c4bca3f0c0c7a22f80976fb0a7252dfa1dfb4ca387f9bbe2b291468964",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-wrong_argument.json",
+        "log_sha256": "c68fd1d244ceebeedb2f955b4bdc6f46bc7e2314517738941114ab4acfdfc823"
+      },
+      {
+        "variant": "missing_prerequisite",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "f62635538ccace52f7f1f9851e0a183307ca4a4ab6cf44ef3c1ac3ea2be0e466",
+          "HelperB.dfy": "bd8ef89467d44252cfa47c843876303dde0398e1337c141e8d84f519b91f0c21",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-missing_prerequisite.json",
+        "log_sha256": "b0ef1385b80591229c316963a4171964c14a76506e624806a9f9f287efb53774"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "60476b337d75172608b48f2893ca8a13473b43f23638f1ce2daf26a772021666",
+          "HelperB.dfy": "917a2e05c2e68afdcff319641454b05d42414ecb4deb41c40e1719b3b856a520",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-weakened_helper_contract.json",
+        "log_sha256": "6104ac726681f26cb71ae1a450b4a1296f6573a5f37e0e241338238c39c6d475"
+      },
+      {
+        "variant": "only_a",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "d990d3187711eb280724b012d88da944a33e8548fc84059887aad8cddef3d048",
+          "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-only_a.json",
+        "log_sha256": "995363dd07caf5cba3ee5c27c7a43f5846be57ea9a14ec8e38236ab85e8b68f4"
+      },
+      {
+        "variant": "only_b",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+          "HelperB.dfy": "917a2e05c2e68afdcff319641454b05d42414ecb4deb41c40e1719b3b856a520",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-only_b.json",
+        "log_sha256": "a473abf672cd210a5e67c88a0490071b3a1af685d19d3350f5d78a3507dec515"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+          "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+          "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+          "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+          "HelperA.dfy": "fc9f1038e3c20cf875c144494216d3471fd94dd196b1363f083eb70ce5f7f13c",
+          "HelperB.dfy": "73f3a95b0c14d081c39b0b398a96cd98fbce8ccd4b6f3ec4c5074e871f0276c7",
+          "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+          "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-hidden_shortcut.json",
+        "log_sha256": "4a60c42efaf0329c26e7fd634ce916ed8ef085fedc98cf2123fa38125c77c2c7"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "review_path": "experiments/monorepo-calibration-v2-001/results-review.json",
+    "review_sha256": "b060c765a045e4fe264336dad8f9e3933af7f5b77db0db356764b74a86ff422e",
+    "job_id": "56196595",
+    "whole_original_run_all_expected": true,
+    "selected_controls_all_expected": true,
+    "control_count": 9,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-reference.json",
+        "log_sha256": "478ad96c91a4822435ab99349aa42b72b1a8e7fbb3a0ceebe7fbb4140aad299e"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-empty.json",
+        "log_sha256": "6d2a004e75b979749bf9fecdd25aa686d0607cd49cb5cdf7a025a0ccf98e380d"
+      },
+      {
+        "variant": "wrong_alias_branch",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "d00843aa4a1a491d4e7f0b2333c1928634e70e316149ea86821039aaea2a087d",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-wrong_alias_branch.json",
+        "log_sha256": "63e15696a21375cc5229e7aac8c2faa4c6bf3bac826ef9303ad8e6657539dc73"
+      },
+      {
+        "variant": "missing_alias",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "4dc79f30a28cca527106a8deb1e5c710873849a755016b79807b2f80a7dd72ec",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-missing_alias.json",
+        "log_sha256": "5dae8fe4fa9f7b232a3fc45014a3f7c4942e8b0c62f00521ddec83b8fd5551c1"
+      },
+      {
+        "variant": "wrong_amount",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "b6471785fd5ef15be6cb9917f44d412fca31df00376092c6e1eb2bdb39c572e4",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-wrong_amount.json",
+        "log_sha256": "82d952adf04866909741134ffca5f5b595272bc86617114717e1d7a4dc4b40f1"
+      },
+      {
+        "variant": "wrong_direction",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "5230f7f24b99dd3d26bb053fe264a285174c30b70bcbb61cfd603e1a28db2fed",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-wrong_direction.json",
+        "log_sha256": "c2d6e6f443f39ac1699690f8c242c875755f82e7657188a06ca2b30a245ab9d9"
+      },
+      {
+        "variant": "missing_credit",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "513bd68e443958d12805501ca10fda84ab732b11f283f552fd123a76130910b5",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-missing_credit.json",
+        "log_sha256": "4411e36dd93c06a42085c2f264a2f09cff5131c65ffdddd95eb5975a56d2e70c"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "68ea5404158d4a4a4cc4f598a2445093e834141e553b4fb5c8334b9c09d18a5e",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-weakened_helper_contract.json",
+        "log_sha256": "76ab2374dc81002d9d9d983eecfffc81eb7e67623b705ac231da949e6becdaac"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "7f899f57412a1486854a390ee2138c01518470148ba4c1a8fed673291e7091e8",
+          "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-hidden_shortcut.json",
+        "log_sha256": "44760124fe2119091b48915c144cce1b87644413dc2df147376c2edbbf24327a"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "review_path": "experiments/monorepo-calibration-v2-001/results-review.json",
+    "review_sha256": "b060c765a045e4fe264336dad8f9e3933af7f5b77db0db356764b74a86ff422e",
+    "job_id": "56196595",
+    "whole_original_run_all_expected": true,
+    "selected_controls_all_expected": true,
+    "control_count": 11,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+          "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-reference.json",
+        "log_sha256": "531c9dd59b270d5a181178d9f26f92c0b60a45c8a1258987ef167d11b23fac52"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+          "HelperB.dfy": "3c7563679d764b0b8dc1a4a784a7a907f1c7533699ea416a031c22dd28643d45",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-empty.json",
+        "log_sha256": "f179211972496231db2945a87adfcf6214cbb7a321f335618e6deca1ca17d6ba"
+      },
+      {
+        "variant": "wrong_alias_branch",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "d00843aa4a1a491d4e7f0b2333c1928634e70e316149ea86821039aaea2a087d",
+          "HelperB.dfy": "97868b75b226c829ad4f786f271404de6459d1afafcf0afca8eb3d7a3f45d991",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-wrong_alias_branch.json",
+        "log_sha256": "0da6da79ee8ebcfe3ab7b7a80272fb6f774fbeaa58ffe936179897bfb9588d6b"
+      },
+      {
+        "variant": "missing_alias",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "4dc79f30a28cca527106a8deb1e5c710873849a755016b79807b2f80a7dd72ec",
+          "HelperB.dfy": "6c30fb426380d4397691047dc8010d7ac39e8ab2fe2c3771eca4247bab916482",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-missing_alias.json",
+        "log_sha256": "035538738a31655ffc63de10302434e71ba8c11f80f4001229cae54c19930645"
+      },
+      {
+        "variant": "wrong_amount",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "b6471785fd5ef15be6cb9917f44d412fca31df00376092c6e1eb2bdb39c572e4",
+          "HelperB.dfy": "352e0aaacdf9c6daacfa6b0dfe78af1d068f201fcde91899e8aaeeee66e8bf35",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-wrong_amount.json",
+        "log_sha256": "fe2303f621104c15b155f4aff864ae6a7127793a9b0efdf37c180ea42557fae8"
+      },
+      {
+        "variant": "wrong_direction",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "5230f7f24b99dd3d26bb053fe264a285174c30b70bcbb61cfd603e1a28db2fed",
+          "HelperB.dfy": "11d43c34317e1f70d8d15c0fae7aab5abcb475e8682a708d8a9d306dae9db709",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-wrong_direction.json",
+        "log_sha256": "10b8de65c84302f18038e5ac832528f8bdbbd58ca1448a6adc5586a694593f94"
+      },
+      {
+        "variant": "missing_credit",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "513bd68e443958d12805501ca10fda84ab732b11f283f552fd123a76130910b5",
+          "HelperB.dfy": "fa2010d294f0777ee172fe0b536f9fb6d064ae294846acbfb5150eeba1c71c0d",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-missing_credit.json",
+        "log_sha256": "6c728e21394ec59714751e460c1441be9c64d38a3f3dd3b4eeadde2760de8515"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "68ea5404158d4a4a4cc4f598a2445093e834141e553b4fb5c8334b9c09d18a5e",
+          "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-weakened_helper_contract.json",
+        "log_sha256": "6bf83a7f71290b09ae09baded75d8aa971bc06958a551cf6017c8970bc7b9d72"
+      },
+      {
+        "variant": "only_a",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+          "HelperB.dfy": "3c7563679d764b0b8dc1a4a784a7a907f1c7533699ea416a031c22dd28643d45",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-only_a.json",
+        "log_sha256": "8d8ec78dd02a6883d8d7d81c8f7ec3c72467698d1a5b143b3ddf6cef1176e3a4"
+      },
+      {
+        "variant": "only_b",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+          "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-only_b.json",
+        "log_sha256": "9fda9960181e9a0d53db7af30486eb224504ad67e73307aea6bf8b084cb288ab"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+          "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+          "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+          "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+          "HelperA.dfy": "7f899f57412a1486854a390ee2138c01518470148ba4c1a8fed673291e7091e8",
+          "HelperB.dfy": "62534cbc9a3b9d5cb2334d96f271cebb3b1dd857ec9f7615015c1c99e937f206",
+          "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+          "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-hidden_shortcut.json",
+        "log_sha256": "542706dfbba948378d76566125b3f1a9118c63caf1dc6b56552e88946f259cae"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "offset-deep-shared",
+    "review_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/results-review.json",
+    "review_sha256": "adde0f97f67bd28df279af5187ae2a4c2d57dab7e9b4b3ba8d71ba7bbc95c454",
+    "job_id": "56197680",
+    "whole_original_run_all_expected": false,
+    "selected_controls_all_expected": true,
+    "control_count": 10,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "b79978d1883ba3790c434bdedeb59f184951c091c07da5ba3ea600da0d55c00f",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-reference.json",
+        "log_sha256": "94b8efb865482a59e8483767e9282d4ede5947b65bb04f120c5ab23d715b929b"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "894cb13e80a53b33aa985dfa37553cbb84de2e0e4a792197a336290dcd85cf86",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-empty.json",
+        "log_sha256": "635a30e91c4b32ca4ce31358f86ef3a33eaa23e56360a196b995b6dec54fd9eb"
+      },
+      {
+        "variant": "missing_recursion",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "0f86905624f5196227bfa195f11cd958da6480f9f1639d6949fc86fdbd971258",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-missing_recursion.json",
+        "log_sha256": "42a4a5ecf9a9ea27d5f17a07f77a3cd8a0d354b2649bb6946dc613bb601469a9"
+      },
+      {
+        "variant": "fixed_offset",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "fa292fafc532b463b898f1eee90e4ce1ab18a007e37bfa2540bd9772e3536fbf",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-fixed_offset.json",
+        "log_sha256": "1b2b7eec98dc7559d785e0cc3fb168beb8936dfc966d84d14c24d650ba4225a8"
+      },
+      {
+        "variant": "missing_base",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "7870e677d1cb359c95a6963043b9658faa6eaff879637f75b7cd522f471d1fcc",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-missing_base.json",
+        "log_sha256": "cf4a355c881d3594360ba3bcbfae00b396e45eeebcd8f7b8ae8960f2a85e0207"
+      },
+      {
+        "variant": "wrong_tail",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "d1bd05587c9d80ba483d4379dee9a8b86554833dfe70f432f098672cec74b31c",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-wrong_tail.json",
+        "log_sha256": "84471b8febb85c80a4981f0c083689b60aca5f3811fec5705ca6924103d889b7"
+      },
+      {
+        "variant": "nondecreasing_recursion",
+        "expected": "termination_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "0d9b719a18b4d42bb47f041b0921922a9c906a032e3c708385f655a66b9bf8c5",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-nondecreasing_recursion.json",
+        "log_sha256": "5c3b3dbaab91fa704441b338589d19258c183d93edc479bcafa49a5e030f0e75"
+      },
+      {
+        "variant": "missing_step",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "76de3c126cf61b1478437fa03ab850e4ddc3e0e1ef5f3b4a2604c3884b4a5649",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-missing_step.json",
+        "log_sha256": "49ce0708d6a0292dadda43e3c43bdfb34c188913d1f81e489a3aac0924b87632"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "af0a867d86848f476e0b83fe615d873a4180d88413d2b7e71c576d068d05dd5f",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-weakened_helper_contract.json",
+        "log_sha256": "4a078e5b8ed54739c4d255193ffe9eb46912c121f65f6774cfb21b1a12321479"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "2988c6f281cec294675979cccc6af11c879801e4fed25748b8aee7c3b3928eb8",
+          "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-hidden_shortcut.json",
+        "log_sha256": "460720c9d9c11d4f660a72f40242a37050a28387e2476d13614fc91356754e39"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "offset-deep-separate",
+    "review_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/results-review.json",
+    "review_sha256": "adde0f97f67bd28df279af5187ae2a4c2d57dab7e9b4b3ba8d71ba7bbc95c454",
+    "job_id": "56197680",
+    "whole_original_run_all_expected": false,
+    "selected_controls_all_expected": true,
+    "control_count": 12,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "b79978d1883ba3790c434bdedeb59f184951c091c07da5ba3ea600da0d55c00f",
+          "HelperB.dfy": "da6254a7fedda815b11a710914ee6eedb9586d41ba23db72939bed414ec4ebb8",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-reference.json",
+        "log_sha256": "806ffa427976bdb1f5cfbf66e5b2921cf870f4b10602036e991c523a30f86157"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "894cb13e80a53b33aa985dfa37553cbb84de2e0e4a792197a336290dcd85cf86",
+          "HelperB.dfy": "ec6f234c26062dc9061d55cda85c55fd4937d50bfd792b46845404f0c0821d5c",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-empty.json",
+        "log_sha256": "9d5504daeba7dd460161fbf5aa504f24933c4971ac51fbdd1136665637cc3218"
+      },
+      {
+        "variant": "missing_recursion",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "0f86905624f5196227bfa195f11cd958da6480f9f1639d6949fc86fdbd971258",
+          "HelperB.dfy": "0827f787adcf7931958b9ff96eb94ae871df8b783c811799710627b5e7462a48",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-missing_recursion.json",
+        "log_sha256": "1fd2f817988aadf9aad646381be9101bffe77379fa27fdf54129ece5b0351a28"
+      },
+      {
+        "variant": "fixed_offset",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "fa292fafc532b463b898f1eee90e4ce1ab18a007e37bfa2540bd9772e3536fbf",
+          "HelperB.dfy": "f5b27c16c9bf1143447f74bb37ef7bfe6f86a081d314553af11edb458f3a03d3",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-fixed_offset.json",
+        "log_sha256": "5be104074cd9462b7fb231fcc15f53fddd076885e6f4d81c941959e3aa950062"
+      },
+      {
+        "variant": "missing_base",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "7870e677d1cb359c95a6963043b9658faa6eaff879637f75b7cd522f471d1fcc",
+          "HelperB.dfy": "b3fdca2060c2cdf14b5c289ab3648edc50a86fa0f8fe0d81ac8d66852f922211",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-missing_base.json",
+        "log_sha256": "8b7be950314f20777bb1521df0e77f80b3e42e7b9b3568d1c344ef7521444d4d"
+      },
+      {
+        "variant": "wrong_tail",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "d1bd05587c9d80ba483d4379dee9a8b86554833dfe70f432f098672cec74b31c",
+          "HelperB.dfy": "926cfde01f72bfe91ff2adabba6e244650bf09da92fc7a6bdd56ac89df1dcd54",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-wrong_tail.json",
+        "log_sha256": "cfc3f902e8d92e7dd89c7fbc1f5994e0332e4673c1b7fb3ea8883d52ae6e90b1"
+      },
+      {
+        "variant": "nondecreasing_recursion",
+        "expected": "termination_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "0d9b719a18b4d42bb47f041b0921922a9c906a032e3c708385f655a66b9bf8c5",
+          "HelperB.dfy": "722f1c86d6c0ad986acc0c1d06ab2e7ee7e0553c2e0b2894958664767a4be45a",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-nondecreasing_recursion.json",
+        "log_sha256": "81ba4cca419d6bef0b60e06cbce038691b45ac5a8cf08db0e29fc7ff2c0def22"
+      },
+      {
+        "variant": "missing_step",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "76de3c126cf61b1478437fa03ab850e4ddc3e0e1ef5f3b4a2604c3884b4a5649",
+          "HelperB.dfy": "c2081733a9b6a45b61cf63bad6ce6db466b6ca9026290f0721ceb245a18fa62d",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-missing_step.json",
+        "log_sha256": "9c7057376894f1202362008475e77119437c205e9045074a8581e319f02f4f08"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "af0a867d86848f476e0b83fe615d873a4180d88413d2b7e71c576d068d05dd5f",
+          "HelperB.dfy": "da6254a7fedda815b11a710914ee6eedb9586d41ba23db72939bed414ec4ebb8",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-weakened_helper_contract.json",
+        "log_sha256": "26613c7f07d0de8cdab0b80470dd39859245f2affb9602e64b2c9d6137e5a254"
+      },
+      {
+        "variant": "only_a",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "b79978d1883ba3790c434bdedeb59f184951c091c07da5ba3ea600da0d55c00f",
+          "HelperB.dfy": "ec6f234c26062dc9061d55cda85c55fd4937d50bfd792b46845404f0c0821d5c",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-only_a.json",
+        "log_sha256": "1ef74480cef2682243af47a638f02bd27cecb69fe844f74c2d0a8756481691ed"
+      },
+      {
+        "variant": "only_b",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "894cb13e80a53b33aa985dfa37553cbb84de2e0e4a792197a336290dcd85cf86",
+          "HelperB.dfy": "da6254a7fedda815b11a710914ee6eedb9586d41ba23db72939bed414ec4ebb8",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-only_b.json",
+        "log_sha256": "61c5c18015d08a9b9727d938769204cf5896d16f977bbe57672f0ecb6a1ea2b4"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+          "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+          "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+          "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+          "HelperA.dfy": "2988c6f281cec294675979cccc6af11c879801e4fed25748b8aee7c3b3928eb8",
+          "HelperB.dfy": "2a625a54b922d819d718b21c0100754b4bb7153274422403ed0fb2bc10c7a3f8",
+          "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+          "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-hidden_shortcut.json",
+        "log_sha256": "28b468dd3c383e71aa60ba5f5e195b724fb4b38e274eb0eb3f667f968d166505"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "witness-deep-shared",
+    "review_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/results-review.json",
+    "review_sha256": "5c7f6d4e3ba0e06bf7aee52ea6064d618fa6b57f5ef0b89d23aa378661c0ee92",
+    "job_id": "56197984",
+    "whole_original_run_all_expected": true,
+    "selected_controls_all_expected": true,
+    "control_count": 9,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "bcb7210f6a2b0766c6bd9c062fcc4345a5e5350886089d91bb9ac7efb9d1ff07",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-reference.json",
+        "log_sha256": "3fa16a9221d665348f44c3b9911aa17ee5446a390d1ee6178f68442a2b21281a"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "1c6659fe15cf5e2773ff4cf4a5b87c5f7b13fbe2a3a98195df6ff031d1f9cbdb",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-empty.json",
+        "log_sha256": "9d5dc1bd01eb33316e7e25d51fd78cae41ac65de93d56485d73332d0fc2317dc"
+      },
+      {
+        "variant": "wrong_witness",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "efe65e377713d56a4c89424ce1472cfc31e842fe23f55d40be2b4dcaa06b6dac",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-wrong_witness.json",
+        "log_sha256": "d25abb5634c979c840db1e50780241529fdb94587e1d9cf89224b3a6ae7f5ea8"
+      },
+      {
+        "variant": "missing_left",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "478e95207a64ba007d6f53f8e62a36039c0679e6618957b3166f7caec4a32511",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-missing_left.json",
+        "log_sha256": "d0b55bf9d3992af51fff597a9909a8824f97910f65c0f6486e0c4c08b14e9ee2"
+      },
+      {
+        "variant": "missing_right",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "27ca4ba4eef95c3beb44c7dae969048c01c8eac9659cde326c97be63ba6ca9f1",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-missing_right.json",
+        "log_sha256": "8e538f7d6541bb0e753b8b5c1e45836d7acd76a3206a141cf5aece3cd37aa45f"
+      },
+      {
+        "variant": "mismatched_right",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "d42bde08640cf15a9278ffb089b54d1ae4671308e987ff91dfa919d6463f7916",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-mismatched_right.json",
+        "log_sha256": "cc809e763bd814d26c3e045f587abae2ca7b1bdaf6a2e3eb9432cf30294be4b9"
+      },
+      {
+        "variant": "missing_join",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "d4170689fb1c96a0e0e05ed89cfc314a44af2b3da4094dced60850137cbe7a7d",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-missing_join.json",
+        "log_sha256": "773c3572dae3741544f81f30c108c19b2e3310baa8bdc86723c07a98cf58cb76"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "a92461c49f2d4170950d17148772a46e3a9c761a3305c3616b1f49a3b18f2f02",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-weakened_helper_contract.json",
+        "log_sha256": "8138be2158f7daf68c956d1735d71509bb784c1acfb1193568e112040be2b1d2"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "0e43b9c357a759f7915196cd0b8008dec13859d8276ce579e8f7678f5b832c6e",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-hidden_shortcut.json",
+        "log_sha256": "fa1f29faf93e776cb1369aaf3756868bf967a5138131183d2c82e7d775f4e654"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  },
+  {
+    "task_id": "witness-deep-separate",
+    "review_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/results-review.json",
+    "review_sha256": "5c7f6d4e3ba0e06bf7aee52ea6064d618fa6b57f5ef0b89d23aa378661c0ee92",
+    "job_id": "56197984",
+    "whole_original_run_all_expected": true,
+    "selected_controls_all_expected": true,
+    "control_count": 11,
+    "evidence": [
+      {
+        "variant": "reference",
+        "expected": "success",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "bcb7210f6a2b0766c6bd9c062fcc4345a5e5350886089d91bb9ac7efb9d1ff07",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "16ff42f0eb6c664b8c5a473358f5ed430d47253b8c164679082ed31e85d1d50c",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-reference.json",
+        "log_sha256": "2ee094361473f63006e3b5cf3385177496ebde5b95a576f0d91d9d7c4e8c82e2"
+      },
+      {
+        "variant": "empty",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "1c6659fe15cf5e2773ff4cf4a5b87c5f7b13fbe2a3a98195df6ff031d1f9cbdb",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "eb10cdd81e685f6300e5ed7d38fd8cc6abb007e6e361968bf58c49e455e118f6",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-empty.json",
+        "log_sha256": "7a8e700749fbad5bcb995717d57d3967035c19eda9b0a65bdf71e8c3638dd6ac"
+      },
+      {
+        "variant": "wrong_witness",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "efe65e377713d56a4c89424ce1472cfc31e842fe23f55d40be2b4dcaa06b6dac",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "a254246a79e1608d787bd5713f861268ed61732437276b19be1f8e4341b57393",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-wrong_witness.json",
+        "log_sha256": "af448a3aa0fcf12886eda0f23a2d2c62757c75c3cadf48bfc8f8dd412c0371c1"
+      },
+      {
+        "variant": "missing_left",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "478e95207a64ba007d6f53f8e62a36039c0679e6618957b3166f7caec4a32511",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "a527fa7b51f53b4c534ebd9e8e56e8a30a90f3cfad0cbe5e6711c75951477a2a",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-missing_left.json",
+        "log_sha256": "4f951969464a7b1c0577b83744c3837863bdd906a0345dda834edb3d7257c33c"
+      },
+      {
+        "variant": "missing_right",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "27ca4ba4eef95c3beb44c7dae969048c01c8eac9659cde326c97be63ba6ca9f1",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "2745e50595349e6e703831d740cf168578596a83c0c431da10164a033bfe1fad",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-missing_right.json",
+        "log_sha256": "58579fd9e15fdeb254549bfd2db257098e5e5a406204d9d41e89505ac8380137"
+      },
+      {
+        "variant": "mismatched_right",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "d42bde08640cf15a9278ffb089b54d1ae4671308e987ff91dfa919d6463f7916",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "5512c44d31e764c57bcccaec5f035df30918d1b32bdfdae318dbcfdd842a155d",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-mismatched_right.json",
+        "log_sha256": "d67b6043447582eae52d8a3418a8c4db832cdd0e481c9c7fe73aab890608b95a"
+      },
+      {
+        "variant": "missing_join",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "d4170689fb1c96a0e0e05ed89cfc314a44af2b3da4094dced60850137cbe7a7d",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "60fed0a1be7c0d1ce5a563c9aeafcae8d0c30cad6ad4ed59a2ed1bda5a90ef8a",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-missing_join.json",
+        "log_sha256": "e9c11be0f87e10494348aac6ce1f3b28d985a5359c478733e9ddc8ed0972a69f"
+      },
+      {
+        "variant": "weakened_helper_contract",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "a92461c49f2d4170950d17148772a46e3a9c761a3305c3616b1f49a3b18f2f02",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "16ff42f0eb6c664b8c5a473358f5ed430d47253b8c164679082ed31e85d1d50c",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-weakened_helper_contract.json",
+        "log_sha256": "7448d1d9633c0444572f328c09be03b7d987bc6504201766f042b4bbe028048c"
+      },
+      {
+        "variant": "only_a",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "bcb7210f6a2b0766c6bd9c062fcc4345a5e5350886089d91bb9ac7efb9d1ff07",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "eb10cdd81e685f6300e5ed7d38fd8cc6abb007e6e361968bf58c49e455e118f6",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-only_a.json",
+        "log_sha256": "ae8a1fd79421ada3ac67668e516c452b4a3eaaa3b40901103540eb9c6f227375"
+      },
+      {
+        "variant": "only_b",
+        "expected": "proof_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "1c6659fe15cf5e2773ff4cf4a5b87c5f7b13fbe2a3a98195df6ff031d1f9cbdb",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "16ff42f0eb6c664b8c5a473358f5ed430d47253b8c164679082ed31e85d1d50c",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-only_b.json",
+        "log_sha256": "c5b95228bc7912b8d731cd9f4ce4b2984b15f2fdcfc556263f8c0af2fd766104"
+      },
+      {
+        "variant": "hidden_shortcut",
+        "expected": "resolution_failure",
+        "source_sha256": {
+          "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+          "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+          "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+          "HelperA.dfy": "0e43b9c357a759f7915196cd0b8008dec13859d8276ce579e8f7678f5b832c6e",
+          "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+          "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+          "HelperB.dfy": "18da5512b63cae2cd66721f47738f4baf148bc4940c0b6f2dbbf24a35584b5f9",
+          "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "log_path": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-hidden_shortcut.json",
+        "log_sha256": "55ba9dd15d362d7bc518fdb2488963a2cf8dcf0bf79f8581f9b2f269a6d30fe0"
+      }
+    ],
+    "reference_body_protocol": "body-json-v2.1"
+  }
+]

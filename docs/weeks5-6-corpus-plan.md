@@ -359,3 +359,12 @@ reference replays and 32 unchanged historical response outcomes. No new model
 or Dafny calls were made, and the parser is byte-identical. The revised 32-slot
 prompt bundle is reviewable and hash-frozen, with no execution authorization.
 This does not establish improved model adherence; main collection remains gated.
+
+## Proposed smaller syntax smoke test (October 29)
+
+Before repeating the full calibration, the [fixed eight-call scope](../experiments/monorepo-syntax-smoke-001/README.md)
+uses unchanged clarified prompts for four deep shared/separate pairs, one sample
+each, with two families starting in each condition. Its primary gate is 8/8
+parser/guard admission with intact source and terminal verifier outcomes. Review
+proof results separately before any larger run. No new calls are yet authorized;
+a tested bounded runner and scope-bound authorization remain prerequisites.

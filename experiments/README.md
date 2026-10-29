@@ -172,3 +172,8 @@ No additional model calls were made for these integrations.
   from pure conditional expressions. Nine test methods pass; all 16 references
   reconstruct exactly and 32 saved parser decisions remain unchanged. No new
   model calls, verifier runs or parser changes; future execution is unauthorized.
+
+- [monorepo-syntax-smoke-001](monorepo-syntax-smoke-001/README.md): proposed
+  eight-call syntax smoke test, all four deep families with shared/separate pairs,
+  unchanged clarified prompts/parser and balanced first-condition order. Four
+  scope tests pass; no calls or execution authorization.

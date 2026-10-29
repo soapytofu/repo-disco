@@ -338,3 +338,13 @@ unchanged. Nine test methods passed, including exact replay of 16 previously
 verified references and all 32 saved responses; the prior 1/32 score is unchanged.
 There were no new model or Dafny calls. A future model benefit remains unmeasured;
 any execution needs separate authorization bound to the new prompt freeze.
+
+## October 29: small syntax pilot scoped before another full calibration
+
+The [eight-call smoke proposal](../experiments/monorepo-syntax-smoke-001/README.md)
+selects every deep shared/separate task across four families, one fresh sample
+each. Exact clarified prompts and parser are unchanged; two families begin shared
+and two separate. Four offline scope checks pass. The gate is 8/8 guard admission,
+intact protected source and completed verifier outcomes, followed by manual proof
+outcome review. No calls are authorized or made by this preparation; a later full
+32-call evaluation is not automatic and will not pool these deep-only samples.

@@ -1,0 +1,49 @@
+{
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "purpose": "Check clarified output syntax before a larger evaluation",
+  "parent_freeze_sha256": "cfa8ae517c07751f45591ce52d91c3f63240dee167f9ffbdf83b5a282799cd32",
+  "proposed_max_new_calls": 8,
+  "model_calls_made": 0,
+  "per_task_calls": 1,
+  "automatic_retries": false,
+  "sdk_total_max_attempts": 1,
+  "reassign_unused": false,
+  "independent_fresh_contexts": true,
+  "feedback": false,
+  "selection": "All four development families, deep only, shared and separate; one sample each",
+  "order_rationale": "Two families shared first, two separate first; paired tasks four positions apart; all deep tasks selected regardless of prior outputs",
+  "primary_metric": "Exact JSON/body syntax and guard admission out of 8 planned trials",
+  "secondary_metrics": [
+    "Strict whole-workspace verifier exit-zero out of 8 planned trials",
+    "Syntax, guard, proof, timeout and infrastructure outcomes reported separately",
+    "Request IDs, SDK attempts, token usage and immutable source/contract hashes"
+  ],
+  "review_gate": {
+    "required_for_syntax_readiness": [
+      "Eight unambiguous saved responses",
+      "8/8 admitted by the unchanged body-json-v2.1 guard",
+      "Protected source and contract integrity checks pass",
+      "Each admitted candidate has a terminal verifier success or proof-failure result; no infrastructure ambiguity"
+    ],
+    "any_syntax_failure": "Do not scale; inspect saved evidence offline without silent repair or rescoring",
+    "proof_outcomes": "Review each family separately; 0/2 and 2/2 are diagnostic floors/ceilings, not reliable difficulty estimates",
+    "full_32": "Never automatic. Requires human review, separately frozen execution scope and a new call authorization",
+    "pooling": "Do not pool these selectively deep smoke trials into a later fresh 32-trial evaluation"
+  },
+  "stopping_rule": "Stop on ambiguous request, source drift, persistence failure or verifier infrastructure error; no retry or reassignment. Syntax/guard/proof failures are saved outcomes and do not trigger repair calls.",
+  "maximum_output_tokens": 32768,
+  "token_note": "32768 is an output-token cap, not expected consumption or a cap on input tokens. No dollar estimate.",
+  "limitations": [
+    "No shallow tasks; cannot estimate a depth effect",
+    "One sample per configuration; not a sharing-effect study",
+    "All families are inspected development data",
+    "Offline prompt validation does not establish model adherence"
+  ],
+  "runner_gate": [
+    "Separate tested bounded runner and runtime hash freeze",
+    "Explicit new eight-call authorization bound to scope and runtime",
+    "Inspect existing ledger/submission state; submit once on a live-confirmed nonpreemptible compute partition",
+    "Private credential handoff only after authorization; no connectivity model calls"
+  ],
+  "publication": "Save exact messages/responses, extraction decisions, admitted source, raw verifier logs, ledger, hashes, request IDs, failures and concise report; exclude credentials"
+}
