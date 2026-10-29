@@ -1,8 +1,10 @@
 # Revised calibration: body-only protocol and strengthened reasoning tasks
 
-**Frozen proposal ready; zero model calls. All 136 selected verifier controls
-match their expected outcomes across 16 variants. Six freeze tests pass. No new
-model budget or live dispatcher is authorized.**
+**Preparation completed: all 136 selected verifier controls match their expected
+outcomes across 16 variants; six freeze tests pass.** The separately authorized
+[execution](../monorepo-calibration-v2-pilot-001/RESULTS.md) is now complete:
+1/32 strict passes, 31 body-syntax rejections, zero retries. Its budget is exhausted.
+The frozen proposal files and historical preparation records remain unchanged.
 The original calibration and its 18/32 score remain unchanged.
 
 

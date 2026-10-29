@@ -6,7 +6,7 @@ Status: October 29, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Revised 32-call calibration proposal is frozen across 16 variants, backed by 136 selected verifier controls. Weighted sequence induction, interval witnesses and alias-aware transfers replace earlier easy instances; conditional tasks anchor the new body-only protocol. No new model calls; main corpus and held-out evaluation remain gated. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Revised calibration completed: 32 calls, 1 strict pass and 31 body-syntax rejections; 136 selected verifier controls validate the fixtures. Syntax-dominated model outcomes do not assess proof difficulty. Main corpus and held-out evaluation remain gated. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -311,3 +311,19 @@ authorized. Historical preparation statuses in the frozen proposal are unchanged
 The revised calibration was subsequently submitted once as **56205855** on test
 (PreemptMode=OFF), 18:55:32 UTC October 29. The 32-call frozen scope and no-retry
 policy remain unchanged. Results pending; no duplicate or standalone job.
+
+## October 29: revised calibration completed and audited
+
+Job **56205855** completed on test in 3m26s. The frozen 32 trials produced
+**1 strict whole-workspace pass and 31 output-syntax rejections**, with 32 unique
+request IDs, zero SDK retries and 86,878 tokens. Full raw responses, source,
+verifier evidence and reproducible audits are in
+[the completed report](../experiments/monorepo-calibration-v2-pilot-001/RESULTS.md).
+All JSON schemas were valid; each rejected trial first used `then` instead of the
+required braced statement block. No rejected proof was repaired or rescored.
+Protected sources/contracts and exact frozen messages passed integrity review.
+
+The budget is exhausted. Next is non-paid prompt syntax clarification and offline
+protocol validation before another frozen proposal; neither a sharing/depth effect
+nor increased reasoning difficulty is established. The earlier preparation and
+submission entries above are historical; main collection remains deferred.

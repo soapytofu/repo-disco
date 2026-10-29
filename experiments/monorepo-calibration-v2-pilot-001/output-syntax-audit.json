@@ -1,0 +1,1249 @@
+{
+  "model_calls": 0,
+  "original_strict_score": "1/32 unchanged",
+  "responses": 32,
+  "valid_json_and_exact_schema": 32,
+  "rejected_body_syntax": 31,
+  "first_failure_categories": {
+    "{ expected; then received": 31
+  },
+  "repair_attempted": false,
+  "new_verification": false,
+  "rows": [
+    {
+      "trial_id": "trial-01",
+      "task_id": "witness-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "aff98c77f129fc83e37ebbd3be09b2776b538a7129e42f3be47d322106e596b7",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            ">=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "c493eb7948d0e2f8c4426849b1063f1fb743ca995d7c94949ce8aa52daa5c959"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-02",
+      "task_id": "offset-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "7824dbbfb5d46f1c3ff3fc01dba6796a9b5341db49ce097813433f36d5115f0f",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "1fa32e7330db082b5a28342da8457410f718beffb1f9dec70c12d28e8526c640"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "1fa32e7330db082b5a28342da8457410f718beffb1f9dec70c12d28e8526c640"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-03",
+      "task_id": "conditional-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "3a01664388d92a0802ecf26f077adbbde43aeed6d7e7edf21525d4dcfc0a7e3a",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "x",
+            ">=",
+            "0",
+            "then",
+            "S1",
+            ".",
+            "Start",
+            "(",
+            "x"
+          ],
+          "body_sha256": "535e3093e02549c3d046d3b9783cdd81efb5117700f69b4060367a51b79446ed"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-04",
+      "task_id": "transfer-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "449135478cb1a641f911bcd76ceeaf6759aff8b0560575e7e3287e050e78ba62",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "8aca956c3c0066a77d8acf48c6e0b5e5051fc3df6779431d61631ef826cb81c8"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "8aca956c3c0066a77d8acf48c6e0b5e5051fc3df6779431d61631ef826cb81c8"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-05",
+      "task_id": "witness-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "89d4187f8bfb51b9abf4f59e571a5e708db73c366fff7d1bc36eae623a357741",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "a",
+            "<=",
+            "c",
+            "then",
+            "End",
+            ".",
+            "Direct",
+            "(",
+            "a"
+          ],
+          "body_sha256": "caa1d6e4d056d00becbc236e92233aae6b6126ff39bb3dc3f1ed6a0d6a9c9370"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "a",
+            "<=",
+            "c",
+            "then",
+            "End",
+            ".",
+            "Direct",
+            "(",
+            "a"
+          ],
+          "body_sha256": "caa1d6e4d056d00becbc236e92233aae6b6126ff39bb3dc3f1ed6a0d6a9c9370"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-06",
+      "task_id": "offset-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "c94281d0f57b0a5b32216247df090f09c6c283d1780ea3f255c28714c1b1d487",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "09b588590e0dee72defaf742da39e0b89b49866029dbc4395b2fa31e3d6fc3f1"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-07",
+      "task_id": "conditional-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "b2c2587c0186384a6fa8e14723b7dfdd328564f6a867ed24664205135354bee0",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "{",
+            "S1",
+            ".",
+            "Start",
+            "("
+          ],
+          "body_sha256": "0244d887727bfb3c127458cbca054f285ef92f3f9d207d1e4d4f7d62fd89a546"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "{",
+            "S1",
+            ".",
+            "Start",
+            "("
+          ],
+          "body_sha256": "0244d887727bfb3c127458cbca054f285ef92f3f9d207d1e4d4f7d62fd89a546"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-08",
+      "task_id": "transfer-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "d54e90eb267fe837d1afcf6bf924cb8acc5561265a0bcdb000cfef31d3eaea27",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "df2e50b752d53fe72a0149edcbda28a775b88e907eaa01b442a16e43abb33fee"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-09",
+      "task_id": "witness-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "66b1aefcb75887dc443bbc5cd34bf5540b55d6383f06f1a98b6ec06551864b39",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            "<=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "138b48fcbfeca091c9a3e59c26ea031b1eb6e5467694f276dd3f4580b777676f"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-10",
+      "task_id": "offset-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "5825bb16ab529653a0f3914e466e9d9154b1352d182e4d653f51a8244a71ef53",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "62d89fa080aa5f3bd475e07e031143a54c254ceac752f8f29ff88f096bb27f96"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "62d89fa080aa5f3bd475e07e031143a54c254ceac752f8f29ff88f096bb27f96"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-11",
+      "task_id": "conditional-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "2564cbab4d263f24cb2e76230d755003e09e2651af734d508f08cdec03fa5e40",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "x",
+            ">=",
+            "0",
+            "then",
+            "if",
+            "y",
+            ">=",
+            "x",
+            "then"
+          ],
+          "body_sha256": "f85015833c4332cc170bbb90c8833d90ef7f8e1ea76f5ef8c555ad93bbf89961"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-12",
+      "task_id": "transfer-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "07f643eb5ad2d46b483219291c828f54d4e07871f048c3f1f67aa3b16aa1df0e",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "df2e50b752d53fe72a0149edcbda28a775b88e907eaa01b442a16e43abb33fee"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "df2e50b752d53fe72a0149edcbda28a775b88e907eaa01b442a16e43abb33fee"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-13",
+      "task_id": "witness-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "62bc8215f3b7020da9daee5fac39a98cd070f01dd23fc4cfbc34ade7c10d4e6e",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            ">=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "f937ccbfac84d27c10ece133764c85e56ad112558b4ef61c3d2527940d7ec5eb"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            ">=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "f937ccbfac84d27c10ece133764c85e56ad112558b4ef61c3d2527940d7ec5eb"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-14",
+      "task_id": "offset-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "9c7fb52c366208f112d56ba10f8a5897f8aed1c04752e2d3ca83ab83a6cba564",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "635dabe666949bcff41666bc9d79d173839836a569d842766079c6d32f6b8bfe"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-15",
+      "task_id": "conditional-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "203578774e12f1d929edd94525b55627ae56942d1ea6bc19d3109fbc0af165be",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "End",
+            ".",
+            "Direct",
+            "(",
+            "K"
+          ],
+          "body_sha256": "136b8e00986769109811421678be9ecf0e0d17a327dc31fcff5c1340088c87d9"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "End",
+            ".",
+            "Direct",
+            "(",
+            "K"
+          ],
+          "body_sha256": "136b8e00986769109811421678be9ecf0e0d17a327dc31fcff5c1340088c87d9"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-16",
+      "task_id": "transfer-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "1fc3b6e174ea9736244d3c78240640b585abfd57fb48685a2b2b768b7c7ac70b",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "b4a60f7c50490c76ce3498febfbb7ebf8e65e610392007b6b1c9652c9e2f1bca"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-17",
+      "task_id": "transfer-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "26e588491af801de34632224cc46e3a631e52116276f65ff280ccf5260487af4",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "b4a60f7c50490c76ce3498febfbb7ebf8e65e610392007b6b1c9652c9e2f1bca"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-18",
+      "task_id": "conditional-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "8407124928cf22cd7537f1c793fb69325ab8d8259753fb7b19da73a709bde4ff",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "End",
+            ".",
+            "Direct",
+            "(",
+            "K"
+          ],
+          "body_sha256": "136b8e00986769109811421678be9ecf0e0d17a327dc31fcff5c1340088c87d9"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "End",
+            ".",
+            "Direct",
+            "(",
+            "K"
+          ],
+          "body_sha256": "136b8e00986769109811421678be9ecf0e0d17a327dc31fcff5c1340088c87d9"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-19",
+      "task_id": "offset-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "0b075c00c1eee447782b068d014d0038f81ca2c63d936efcac8d0ee9b071252b",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "1fa32e7330db082b5a28342da8457410f718beffb1f9dec70c12d28e8526c640"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-20",
+      "task_id": "witness-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "ef8c05c623c9709c9dccc2c38e64fa8e34b6c077b4685afcae6d1c9ab5136804",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            ">=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "f937ccbfac84d27c10ece133764c85e56ad112558b4ef61c3d2527940d7ec5eb"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            ">=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "f937ccbfac84d27c10ece133764c85e56ad112558b4ef61c3d2527940d7ec5eb"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-21",
+      "task_id": "transfer-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "1724c3f6430672a39ec329c1b490af9d738fefeb340fe978cb3cb1d76c3e558a",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "df2e50b752d53fe72a0149edcbda28a775b88e907eaa01b442a16e43abb33fee"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "df2e50b752d53fe72a0149edcbda28a775b88e907eaa01b442a16e43abb33fee"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-22",
+      "task_id": "conditional-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "747688c346904d523892136bf74b55f0adcaf2497f8145876dd091d3d0bdaada",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "x",
+            ">=",
+            "0",
+            "then",
+            "if",
+            "y",
+            ">=",
+            "x",
+            "then"
+          ],
+          "body_sha256": "0226be1f0cad8ae87e0284122d517fe72b203e0a07ad1e0f19d9a23f8b21cf41"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-23",
+      "task_id": "offset-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "f8d4e66e6ef1d5f1373d85a7e7f99b17ef8ea8d41001ac3e8d1d9b52babf59f4",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "e2425774f2e881dd0a8924e954c950ba59f1574ec3456019bed125f710a74781"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "e2425774f2e881dd0a8924e954c950ba59f1574ec3456019bed125f710a74781"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-24",
+      "task_id": "witness-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "5d8d9acf9cec4af96928dc855da7ba88ae00a3e0d05e446896177fe5c100e84e",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            "<=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "138b48fcbfeca091c9a3e59c26ea031b1eb6e5467694f276dd3f4580b777676f"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-25",
+      "task_id": "transfer-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "f4b60ce9877aeb49013851ab787cb8d0036003873f635ebf36f056504a471683",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "df2e50b752d53fe72a0149edcbda28a775b88e907eaa01b442a16e43abb33fee"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-26",
+      "task_id": "conditional-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "4ae5d38b728f1e6f3b7533467626cc2006e07137fe5b0b642a1708f69a92c969",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "S1",
+            ".",
+            "Start",
+            "(",
+            "K"
+          ],
+          "body_sha256": "2d29b3fc6b0fd33ef87b531c3b85f144772bffb0e1073e36250eff3f0e670163"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 9,
+          "nearby_tokens": [
+            ".",
+            "Abs",
+            "(",
+            "x",
+            ")",
+            "then",
+            "S1",
+            ".",
+            "Start",
+            "(",
+            "K"
+          ],
+          "body_sha256": "2d29b3fc6b0fd33ef87b531c3b85f144772bffb0e1073e36250eff3f0e670163"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-27",
+      "task_id": "offset-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "666896a7f87407c278953273397093f1b2cc3a2a2c50c66bc4293fefc9141382",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "09b588590e0dee72defaf742da39e0b89b49866029dbc4395b2fa31e3d6fc3f1"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-28",
+      "task_id": "witness-shallow-separate",
+      "original_outcome": "VERIFIED",
+      "response_sha256": "b0d89b0f7fff2d79ebb993f6665aebd41a18350999e3598d32f2f65916560398",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": []
+    },
+    {
+      "trial_id": "trial-29",
+      "task_id": "transfer-deep-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "fb26ccfbf7ddb4b6f02bec78ff642781869095f09153071f52a90fe79ec3775e",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "b4a60f7c50490c76ce3498febfbb7ebf8e65e610392007b6b1c9652c9e2f1bca"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "k",
+            "==",
+            "j",
+            "then",
+            "End",
+            ".",
+            "Alias",
+            "(",
+            "m"
+          ],
+          "body_sha256": "b4a60f7c50490c76ce3498febfbb7ebf8e65e610392007b6b1c9652c9e2f1bca"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-30",
+      "task_id": "conditional-deep-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "82a578ca96f75df47b15b15070defc93338d3d03433b94e54d3e705afdbb80d6",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 4,
+          "nearby_tokens": [
+            "if",
+            "x",
+            ">=",
+            "0",
+            "then",
+            "S1",
+            ".",
+            "Start",
+            "(",
+            "x"
+          ],
+          "body_sha256": "1e3f657480068efd96018c278b7611ebfb4e7828b0a5d7100176aeb32f7ead32"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-31",
+      "task_id": "offset-shallow-separate",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "ba943d5fb6b758ae3319d2c940955514264ffaac6759f0ef73e3005118d5c744",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "1fa32e7330db082b5a28342da8457410f718beffb1f9dec70c12d28e8526c640"
+        },
+        {
+          "file": "HelperB.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 6,
+          "nearby_tokens": [
+            "|",
+            "s",
+            "|",
+            "==",
+            "0",
+            "then",
+            "End",
+            ".",
+            "Base",
+            "(",
+            "s"
+          ],
+          "body_sha256": "1fa32e7330db082b5a28342da8457410f718beffb1f9dec70c12d28e8526c640"
+        }
+      ]
+    },
+    {
+      "trial_id": "trial-32",
+      "task_id": "witness-shallow-shared",
+      "original_outcome": "OUTPUT_REJECTED",
+      "response_sha256": "a090f2a6a9ed8da8d3b17519ce9406ddac00b7c9dad4a77758532833d8ca62ce",
+      "exact_json_and_body_schema_valid": true,
+      "body_diagnostics": [
+        {
+          "file": "HelperA.dfy",
+          "error": "Unexpected proof token",
+          "expected": "{",
+          "actual": "then",
+          "token_index": 8,
+          "nearby_tokens": [
+            "d",
+            "&&",
+            "c",
+            "<=",
+            "b",
+            "then",
+            "if",
+            "a",
+            "<=",
+            "c",
+            "then"
+          ],
+          "body_sha256": "653628d563ec18f65a82dbc0d940aaf268b486534f3f9bbd7b7189c08cb3448a"
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,14 @@
-# Revised calibration pilot: authorized 32-call execution preparation
+# Revised calibration pilot: completed 32-call execution
 
 The user explicitly authorized the revised 32-call calibration on October 29,
 2026, with the frozen prompts, no retries, and publication of results/full logs.
 **Submitted once as Slurm job 56205855 on test, October 29 at 18:55:32 UTC.**
 Inputs, authorization and the private handoff were checked before submission.
-The partition reported PreemptMode=OFF; no requeue or retries. Results are pending.
+The partition reported PreemptMode=OFF; no requeue or retries. The job completed
+in 3m26s: **1/32 strictly verified, 31 body-syntax rejections**, with 32 unique
+request IDs and zero SDK retries. All 32 authorized calls are exhausted.
+See [RESULTS.md](RESULTS.md) for cell counts and interpretation, and
+[output-syntax-audit.json](output-syntax-audit.json) for the separate offline diagnosis.
 This is the only submitted execution for the 32-call budget.
 
 ## Immutable scope
@@ -44,11 +48,26 @@ existing-ledger refusal, seed drift, invalid metadata, guarded body assembly,
 full-file/bypass rejection, frozen grammar isolation and exact SDK no-retry setup.
 These tests are not live model or Dafny results. Three additional remote SDK and
 body-parser environment checks pass (environment-tests.log); stage-review.json
-records pinned input validation and no previous run/submission. One exclusive
-submission will follow the private key handoff.
+records pinned input validation and no previous run/submission. The single exclusive
+submission is recorded in submission.json and submission.lock; no resubmission occurred.
 
 `runtime-freeze.json` binds the runner, gate, tests/log, Slurm script, audit scripts
 and verifier code to the immutable proposal. `authorization.json` separately binds
 the user's 32-call authorization to both freezes. The proposal's historical
 NO_MODEL_AUTHORIZATION status is preserved; it is superseded only for this bounded
 execution by the separate authorization, not edited in place.
+
+## Reviewed evidence
+
+The full raw archive is in model-001, with Slurm stdout/stderr and accounting
+alongside it. results-review.json reports no integrity issues; model-001-sha256.json
+binds every raw file. Frozen prompts/order/settings and all protected source and
+contracts were checked, including the accepted trial-28 workspace. The temporary
+credential handoff was deleted by the compute process and is not in the archive.
+
+All responses contain valid JSON with the exact filename/body schema. In all 31
+rejected trials the first syntax mismatch is `then` where a statement `{` was
+required. audit_output_syntax.py traces the frozen parser without changing its
+acceptance rules, repairing bodies, rerunning Dafny, or making model calls. The
+strict score remains 1/32; no conclusion about reasoning difficulty or sharing
+effects follows from this syntax-dominated run.

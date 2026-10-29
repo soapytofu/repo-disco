@@ -1,15 +1,14 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current gate:** the first 32-call calibration is complete. A revised 32-call
-proposal is now frozen after stronger task construction and 136 selected verifier
-controls. Its model execution is not authorized. Main collection remains deferred;
-see the latest update at the end.
-The preparation plan below is retained to show the original design.
+**Current gate (October 29):** both 32-call calibrations are complete. The revised
+run produced 1/32 strict passes and 31 body-syntax rejections, all first failing at
+`then` where `{` was required. Main collection remains deferred pending explicit
+statement-syntax instructions and offline protocol validation. No further calls
+are authorized. See the completion update below.
 
-**Plan updated October 28, 2026 following Nada’s scope feedback. No model calls are
-authorized. The user authorized non-paid calibration construction and verifier checks.** The initial Weeks 1–4 milestones
-are recorded in [the acceptance review](weeks1-4-acceptance.md). This plan defines
-the next experiment; all 16 calibration variants and exact 32-trial prompts are now built, verified and frozen. Model execution remains unauthorized.
+The preparation history below is retained; its earlier authorization statements
+describe those checkpoints, not the current completed execution. The initial
+Weeks 1–4 milestones are in [the acceptance review](weeks1-4-acceptance.md).
 
 ## Scope: cross-module reasoning within one monorepo
 
@@ -336,3 +335,17 @@ original 32-call outcomes stay unchanged, and the main 192-call proposal remains
 deferred. Tasks and protocol both changed, so future before/after differences
 cannot be attributed solely to either change. All instances remain development
 data, with shared/edit-count and reference-depth limitations disclosed.
+
+## Revised calibration executed (October 29)
+
+The separately authorized [revised pilot](../experiments/monorepo-calibration-v2-pilot-001/RESULTS.md)
+completed all 32 requests once, with zero retries. One shallow/separate interval
+witness response verified; 31 bodies were rejected before verification for
+statement syntax. All JSON schemas were valid. Exact frozen inputs and protected
+contracts passed audit, with raw logs and diagnostic token positions archived.
+The syntax-dominated outcome does not establish model reasoning difficulty or a
+sharing/depth effect. Preserve both calibration scores and failed evidence.
+
+Next: clarify statement blocks versus pure conditional expressions in a separately
+reviewed protocol, test offline, and freeze any later proposal before requesting
+a new budget. The main 192-call study is still deferred and unauthorized.

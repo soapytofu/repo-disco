@@ -158,9 +158,11 @@ No additional model calls were made for these integrations.
 - [monorepo-calibration-v2-001](monorepo-calibration-v2-001/README.md): revised
   body-only 32-call proposal frozen across 16 variants, backed by 136 selected
   verifier controls. Stronger sequence, witness and map tasks; full failed
-  revision history preserved. Six freeze tests pass; no model calls authorized.
+  revision history preserved. Six freeze tests pass; separately authorized execution is linked below.
 
 - [monorepo-calibration-v2-pilot-001](monorepo-calibration-v2-pilot-001/README.md):
   separately authorized 32-call execution, with unchanged revised freeze and
   no retries. Bounded runner passes 14 offline tests plus three remote environment
-  checks; staged inputs verified. Awaiting private key handoff; no job or calls yet.
+  checks. Completed job 56205855: 32 requests, 1 strict pass, 31 body-syntax
+  rejections, zero SDK retries. Full raw logs and separate syntax audit published;
+  no reasoning-effect claim and no further calls authorized.

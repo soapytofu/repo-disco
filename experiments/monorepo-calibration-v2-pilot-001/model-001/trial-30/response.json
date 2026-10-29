@@ -1,0 +1,18 @@
+{
+  "text": "```json\n{\n  \"HelperA.dfy\": \"if x >= 0 then\\n  S1.Start(x, if y >= x then y else x + x - y);\\n  if y >= x then\\n    S2.Advance(x, y);\\n    End.Finish(x, y);\\n  else\\n    S2.Advance(x, x + x - y);\\n    End.Finish(x, x + x - y);\\nelse\\n  S1.Start(-x, if y >= -x then y else -x + -x - y);\\n  if y >= -x then\\n    S2.Advance(-x, y);\\n    End.Finish(-x, y);\\n  else\\n    S2.Advance(-x, -x + -x - y);\\n    End.Finish(-x, -x + -x - y);\"\n}\n```",
+  "content": [
+    {
+      "text": "```json\n{\n  \"HelperA.dfy\": \"if x >= 0 then\\n  S1.Start(x, if y >= x then y else x + x - y);\\n  if y >= x then\\n    S2.Advance(x, y);\\n    End.Finish(x, y);\\n  else\\n    S2.Advance(x, x + x - y);\\n    End.Finish(x, x + x - y);\\nelse\\n  S1.Start(-x, if y >= -x then y else -x + -x - y);\\n  if y >= -x then\\n    S2.Advance(-x, y);\\n    End.Finish(-x, y);\\n  else\\n    S2.Advance(-x, -x + -x - y);\\n    End.Finish(-x, -x + -x - y);\"\n}\n```"
+    }
+  ],
+  "usage": {
+    "inputTokens": 2142,
+    "outputTokens": 228,
+    "totalTokens": 2370,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "8cb12671-d5eb-4f12-b675-5abf83209b5d",
+  "retry_attempts": 0
+}
