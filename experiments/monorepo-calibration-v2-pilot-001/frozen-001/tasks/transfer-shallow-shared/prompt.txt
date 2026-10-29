@@ -1,0 +1,165 @@
+Complete the Prove lemma body in each of: HelperA.dfy.
+
+Return one JSON object with exactly these filenames as keys and proof BODY STRINGS as values. Do not include the surrounding lemma braces, signature, contract, imports, or whole file. The host inserts the strings inside the existing body braces. JSON escaping must be correct and decoded exactly once. Return plain JSON or one whole-response ```json fence; no prose, extra keys, duplicate keys or other wrappers.
+
+Allowed syntax: if/else statements, assert, listed statement calls; parameters, integer/Boolean literals, + and -, comparisons, &&, ||, ==> and !; parentheses, length |s|, empty sequence [], indexing/slicing, map updates m[k := v], and pure if CONDITION then EXPR else EXPR. No comments, declarations, assignments, loops, quantifiers, multiplication, assume, reveal, attributes, assert-by blocks or unlisted calls. Assertions and all calls must verify. Copying equivalent proof text between bodies is allowed; delegation to another helper is not.
+
+Allowed parameters: m, k, j, v.
+
+Allowed statement calls (name: arity): {"End.Alias": 4, "End.Direct": 4}.
+
+Allowed pure expression calls (name: arity): {"K.Credited": 4, "K.Debited": 4, "K.Move": 4, "K.Transfer": 5, "K.Valid": 1}.
+
+Limits: 256 KiB UTF-8 response; 64 KiB/8192 tokens per body; 256 statements; expression nesting 32 and statement nesting 24. Empty bodies are syntactically accepted but must satisfy the protected contracts.
+
+Entry point: All.dfy. All listed files are one monorepo workspace. The map describes declared structure, not a proof strategy.
+
+Declared file map: {"imports": {"All.dfy": [], "ClientA.dfy": [["K", "Kernel`Public"], ["H", "HelperA"]], "ClientB.dfy": [["K", "Kernel`Public"], ["H", "HelperB"]], "HelperA.dfy": [["K", "Kernel`Public"], ["End", "Stage3`Shallow"]], "HelperB.dfy": [["K", "Kernel`Public"], ["H", "HelperA"]], "Kernel.dfy": [], "Stage1.dfy": [["K", "Kernel`Internal"]], "Stage2.dfy": [["K", "Kernel`Internal"]], "Stage3.dfy": [["K", "Kernel`Internal"]]}, "includes": {"All.dfy": ["ClientA.dfy", "ClientB.dfy"], "ClientA.dfy": ["Kernel.dfy", "HelperA.dfy"], "ClientB.dfy": ["Kernel.dfy", "HelperB.dfy"], "HelperA.dfy": ["Kernel.dfy", "Stage1.dfy", "Stage2.dfy", "Stage3.dfy"], "HelperB.dfy": ["Kernel.dfy", "HelperA.dfy"], "Kernel.dfy": [], "Stage1.dfy": ["Kernel.dfy"], "Stage2.dfy": ["Kernel.dfy"], "Stage3.dfy": ["Kernel.dfy"]}}
+
+Full immutable seed context:
+
+FILE All.dfy
+```dafny
+include "ClientA.dfy"
+include "ClientB.dfy"
+```
+
+FILE ClientA.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperA.dfy"
+module ClientA {
+  import K = Kernel`Public
+  import H = HelperA
+  lemma Use(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m && K.Valid(m) && 0 <= v <= m[k]
+    ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)
+  { H.Prove(m,k,j,v); }
+}
+```
+
+FILE ClientB.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperB.dfy"
+module ClientB {
+  import K = Kernel`Public
+  import H = HelperB
+  lemma Use(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m && K.Valid(m) && 0 <= v <= m[j]
+    ensures K.Valid(K.Move(m,j,k,v)) && K.Transfer(m,K.Move(m,j,k,v),j,k,v)
+  { H.Prove(m,j,k,v); }
+}
+```
+
+FILE HelperA.dfy
+```dafny
+include "Kernel.dfy"
+include "Stage1.dfy"
+include "Stage2.dfy"
+include "Stage3.dfy"
+module HelperA {
+  import K = Kernel`Public
+  import End = Stage3`Shallow
+  lemma {:induction false} Prove(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m
+    requires K.Valid(m) && 0 <= v <= m[k]
+    ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)
+  {
+  }
+}
+```
+
+FILE HelperB.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperA.dfy"
+module HelperB {
+  import K = Kernel`Public
+  import H = HelperA
+  lemma {:induction false} Prove(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m
+    requires K.Valid(m) && 0 <= v <= m[k]
+    ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)
+  {
+    H.Prove(m,k,j,v);
+  }
+}
+```
+
+FILE Kernel.dfy
+```dafny
+module Kernel {
+  export Public reveals Move provides Valid, Transfer, Debited, Credited
+  export Internal reveals Move, Valid, Transfer, Debited, Credited
+  function Move(m: map<int,int>, k: int, j: int, v: int): map<int,int>
+    requires k in m && j in m
+  { if k == j then m else m[k := m[k] - v][j := m[j] + v] }
+  opaque predicate Valid(m: map<int,int>) { forall q :: q in m ==> m[q] >= 0 }
+  opaque predicate Transfer(m: map<int,int>, n: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m
+  {
+    n.Keys == m.Keys && k in n && j in n &&
+    n[k] + n[j] == m[k] + m[j] &&
+    (if k == j then n == m else n[k] == m[k] - v && n[j] == m[j] + v) &&
+    (forall q :: q in m && q != k && q != j ==> q in n && n[q] == m[q])
+  }
+  opaque predicate Debited(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m
+  { k != j && 0 <= v <= m[k] && Valid(m) && Valid(m[k := m[k] - v]) }
+  opaque predicate Credited(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m
+  { Valid(Move(m,k,j,v)) && Transfer(m,Move(m,k,j,v),k,j,v) }
+}
+```
+
+FILE Stage1.dfy
+```dafny
+include "Kernel.dfy"
+module Stage1 {
+  export Public provides K, Debit
+  import K = Kernel`Internal
+  lemma Debit(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m && k != j
+    requires K.Valid(m) && 0 <= v <= m[k]
+    ensures K.Debited(m,k,j,v)
+  { reveal K.Valid(); reveal K.Debited(); }
+}
+```
+
+FILE Stage2.dfy
+```dafny
+include "Kernel.dfy"
+module Stage2 {
+  export Public provides K, Credit
+  import K = Kernel`Internal
+  lemma Credit(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m
+    requires K.Debited(m,k,j,v)
+    ensures K.Credited(m,k,j,v)
+  { reveal K.Debited(); reveal K.Valid(); reveal K.Credited(); reveal K.Transfer(); }
+}
+```
+
+FILE Stage3.dfy
+```dafny
+include "Kernel.dfy"
+module Stage3 {
+  export Shallow provides K, Alias, Direct
+  export Deep provides K, Alias, Finish
+  import K = Kernel`Internal
+  lemma Alias(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m && k == j && K.Valid(m)
+    ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)
+  { reveal K.Transfer(); }
+  lemma Direct(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m && k != j
+    requires K.Valid(m) && 0 <= v <= m[k]
+    ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)
+  { reveal K.Valid(); reveal K.Transfer(); }
+  lemma Finish(m: map<int,int>, k: int, j: int, v: int)
+    requires k in m && j in m && K.Credited(m,k,j,v)
+    ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)
+  { reveal K.Credited(); }
+}
+```

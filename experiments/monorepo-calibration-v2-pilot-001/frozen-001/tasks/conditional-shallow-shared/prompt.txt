@@ -1,0 +1,140 @@
+Complete the Prove lemma body in each of: HelperA.dfy.
+
+Return one JSON object with exactly these filenames as keys and proof BODY STRINGS as values. Do not include the surrounding lemma braces, signature, contract, imports, or whole file. The host inserts the strings inside the existing body braces. JSON escaping must be correct and decoded exactly once. Return plain JSON or one whole-response ```json fence; no prose, extra keys, duplicate keys or other wrappers.
+
+Allowed syntax: if/else statements, assert, listed statement calls; parameters, integer/Boolean literals, + and -, comparisons, &&, ||, ==> and !; parentheses, length |s|, empty sequence [], indexing/slicing, map updates m[k := v], and pure if CONDITION then EXPR else EXPR. No comments, declarations, assignments, loops, quantifiers, multiplication, assume, reveal, attributes, assert-by blocks or unlisted calls. Assertions and all calls must verify. Copying equivalent proof text between bodies is allowed; delegation to another helper is not.
+
+Allowed parameters: x, y.
+
+Allowed statement calls (name: arity): {"End.Direct": 2}.
+
+Allowed pure expression calls (name: arity): {"K.Abs": 1, "K.Encode": 2, "K.Ready1": 2, "K.Ready2": 2, "K.Safe": 1}.
+
+Limits: 256 KiB UTF-8 response; 64 KiB/8192 tokens per body; 256 statements; expression nesting 32 and statement nesting 24. Empty bodies are syntactically accepted but must satisfy the protected contracts.
+
+Entry point: All.dfy. All listed files are one monorepo workspace. The map describes declared structure, not a proof strategy.
+
+Declared file map: {"imports": {"All.dfy": [], "ClientA.dfy": [["K", "Kernel`Public"], ["H", "HelperA"]], "ClientB.dfy": [["K", "Kernel`Public"], ["H", "HelperB"]], "HelperA.dfy": [["K", "Kernel`Public"], ["End", "Stage3`Shallow"]], "HelperB.dfy": [["K", "Kernel`Public"], ["H", "HelperA"]], "Kernel.dfy": [], "Stage1.dfy": [["K", "Kernel`Internal"]], "Stage2.dfy": [["K", "Kernel`Internal"]], "Stage3.dfy": [["K", "Kernel`Internal"]]}, "includes": {"All.dfy": ["ClientA.dfy", "ClientB.dfy"], "ClientA.dfy": ["Kernel.dfy", "HelperA.dfy"], "ClientB.dfy": ["Kernel.dfy", "HelperB.dfy"], "HelperA.dfy": ["Kernel.dfy", "Stage1.dfy", "Stage2.dfy", "Stage3.dfy"], "HelperB.dfy": ["Kernel.dfy", "HelperA.dfy"], "Kernel.dfy": [], "Stage1.dfy": ["Kernel.dfy"], "Stage2.dfy": ["Kernel.dfy"], "Stage3.dfy": ["Kernel.dfy"]}}
+
+Full immutable seed context:
+
+FILE All.dfy
+```dafny
+include "ClientA.dfy"
+include "ClientB.dfy"
+```
+
+FILE ClientA.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperA.dfy"
+module ClientA {
+  import K = Kernel`Public
+  import H = HelperA
+  lemma Use(a: int, b: int)
+    ensures K.Safe(K.Encode(K.Abs(a + b), if (a - b) >= K.Abs(a + b) then (a - b) else K.Abs(a + b) + K.Abs(a + b) - (a - b)))
+  { H.Prove(a + b, a - b); }
+}
+```
+
+FILE ClientB.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperB.dfy"
+module ClientB {
+  import K = Kernel`Public
+  import H = HelperB
+  lemma Use(a: int, b: int)
+    ensures K.Safe(K.Encode(K.Abs(a - b), if (a + b) >= K.Abs(a - b) then (a + b) else K.Abs(a - b) + K.Abs(a - b) - (a + b)))
+  { H.Prove(a - b, a + b); }
+}
+```
+
+FILE HelperA.dfy
+```dafny
+include "Kernel.dfy"
+include "Stage1.dfy"
+include "Stage2.dfy"
+include "Stage3.dfy"
+module HelperA {
+  import K = Kernel`Public
+  import End = Stage3`Shallow
+  lemma {:induction false} Prove(x: int, y: int)
+    ensures K.Safe(K.Encode(K.Abs(x), if y >= K.Abs(x) then y else K.Abs(x) + K.Abs(x) - y))
+  {
+  }
+}
+```
+
+FILE HelperB.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperA.dfy"
+module HelperB {
+  import K = Kernel`Public
+  import H = HelperA
+  lemma {:induction false} Prove(x: int, y: int)
+    ensures K.Safe(K.Encode(K.Abs(x), if y >= K.Abs(x) then y else K.Abs(x) + K.Abs(x) - y))
+  {
+    H.Prove(x, y);
+  }
+}
+```
+
+FILE Kernel.dfy
+```dafny
+module Kernel {
+  export Public provides Encode, Safe, Ready1, Ready2 reveals Abs
+  export Internal reveals Encode, Safe, Ready1, Ready2, Abs
+  function Abs(x: int): int { if x >= 0 then x else -x }
+  opaque function Encode(x: int, y: int): int { y - x }
+  opaque predicate Safe(z: int) { z >= 0 }
+  opaque predicate Ready1(x: int, y: int) { x >= 0 }
+  opaque predicate Ready2(x: int, y: int) { x >= 0 && y >= x }
+}
+```
+
+FILE Stage1.dfy
+```dafny
+include "Kernel.dfy"
+module Stage1 {
+  export Public provides K, Start
+  import K = Kernel`Internal
+  lemma Start(x: int, y: int)
+    requires x >= 0
+    ensures K.Ready1(x, y)
+  { reveal K.Ready1(); }
+}
+```
+
+FILE Stage2.dfy
+```dafny
+include "Kernel.dfy"
+module Stage2 {
+  export Public provides K, Advance
+  import K = Kernel`Internal
+  lemma Advance(x: int, y: int)
+    requires K.Ready1(x, y)
+    requires y >= x
+    ensures K.Ready2(x, y)
+  { reveal K.Ready1(); reveal K.Ready2(); }
+}
+```
+
+FILE Stage3.dfy
+```dafny
+include "Kernel.dfy"
+module Stage3 {
+  export Shallow provides K, Direct
+  export Deep provides K, Finish
+  import K = Kernel`Internal
+  lemma Direct(x: int, y: int)
+    requires x >= 0 && y >= x
+    ensures K.Safe(K.Encode(x, y))
+  { reveal K.Ready2(); reveal K.Safe(); reveal K.Encode(); }
+  lemma Finish(x: int, y: int)
+    requires K.Ready2(x, y)
+    ensures K.Safe(K.Encode(x, y))
+  { reveal K.Ready2(); reveal K.Safe(); reveal K.Encode(); }
+}
+```

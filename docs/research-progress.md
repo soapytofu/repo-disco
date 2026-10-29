@@ -296,3 +296,13 @@ settings, counterbalanced order and independent contexts. Six freeze tests pass.
 No new model calls were made or authorized. This is development calibration, not
 measured difficulty improvement or a causal shared-proof effect; main collection
 remains deferred until a separately authorized calibration has been analyzed.
+
+## October 29: revised calibration execution authorized and prepared
+
+The user authorized the frozen revised 32-call pilot with no retries. The additive
+[execution runner](../experiments/monorepo-calibration-v2-pilot-001/README.md)
+passes 14 fake-transport/verifier tests and is hash-bound to the unchanged proposal
+and a separate 32-call authorization. No job has been submitted or model requests
+made yet: the old connection timed out and a fresh Cannon socket/private key
+handoff was requested. No main-corpus or additional diagnostic model budget is
+authorized. Historical preparation statuses in the frozen proposal are unchanged.

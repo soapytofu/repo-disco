@@ -159,3 +159,8 @@ No additional model calls were made for these integrations.
   body-only 32-call proposal frozen across 16 variants, backed by 136 selected
   verifier controls. Stronger sequence, witness and map tasks; full failed
   revision history preserved. Six freeze tests pass; no model calls authorized.
+
+- [monorepo-calibration-v2-pilot-001](monorepo-calibration-v2-pilot-001/README.md):
+  separately authorized 32-call execution, with unchanged revised freeze and
+  no retries. Bounded runner passes 14 offline tests; awaiting Cannon connection
+  and private key handoff. No requests or job submission yet.
