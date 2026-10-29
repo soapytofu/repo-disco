@@ -1,0 +1,536 @@
+[
+  {
+    "task_id": "conditional-deep-shared",
+    "family": "conditional_preconditions",
+    "semantic_instance": "dependent-reflection-001",
+    "split": "calibration-development",
+    "repository_boundary": "single_monorepo_workspace",
+    "depth": "deep",
+    "sharing": "shared",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "client_count": 2,
+    "reference_contract_application_chain": 3,
+    "reference_chain_not_proven_minimal": true,
+    "imports": {
+      "modules": [
+        "Kernel",
+        "Stage1",
+        "Stage2",
+        "Stage3",
+        "HelperA",
+        "HelperB",
+        "ClientA",
+        "ClientB"
+      ],
+      "imports": {
+        "Kernel": {},
+        "Stage1": {
+          "K": "Kernel"
+        },
+        "Stage2": {
+          "K": "Kernel"
+        },
+        "Stage3": {
+          "K": "Kernel"
+        },
+        "HelperA": {
+          "K": "Kernel",
+          "S1": "Stage1",
+          "S2": "Stage2",
+          "End": "Stage3"
+        },
+        "HelperB": {
+          "K": "Kernel",
+          "H": "HelperA"
+        },
+        "ClientA": {
+          "K": "Kernel",
+          "H": "HelperA"
+        },
+        "ClientB": {
+          "K": "Kernel",
+          "H": "HelperB"
+        }
+      }
+    },
+    "source_sha256": {
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "bytes": 2598,
+    "includes": {
+      "Kernel.dfy": [],
+      "Stage1.dfy": [
+        "Kernel.dfy"
+      ],
+      "Stage2.dfy": [
+        "Kernel.dfy"
+      ],
+      "Stage3.dfy": [
+        "Kernel.dfy"
+      ],
+      "HelperA.dfy": [
+        "Kernel.dfy",
+        "Stage1.dfy",
+        "Stage2.dfy",
+        "Stage3.dfy"
+      ],
+      "HelperB.dfy": [
+        "Kernel.dfy",
+        "HelperA.dfy"
+      ],
+      "ClientA.dfy": [
+        "Kernel.dfy",
+        "HelperA.dfy"
+      ],
+      "ClientB.dfy": [
+        "Kernel.dfy",
+        "HelperB.dfy"
+      ],
+      "All.dfy": [
+        "ClientA.dfy",
+        "ClientB.dfy"
+      ]
+    },
+    "fixture_root": "../monorepo-calibration-001",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "calls": {
+      "S1.Start": 2,
+      "S2.Advance": 2,
+      "End.Finish": 2
+    },
+    "prompt_sha256": "6b1ee9deadcbff385348c6b0dc0d24c63bc095572dd008f7cdba80b92bfb0a90",
+    "prompt_utf8_bytes": 6784,
+    "editable_body_count": 1
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "family": "map_transfer",
+    "semantic_instance": "alias-aware-conservation-001",
+    "lineage": "development finite-map frames; adds alias cases, source balance bound, exact balances, conservation and reverse-direction client",
+    "split": "development",
+    "depth": "deep",
+    "sharing": "separate",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "variables": [
+      "m",
+      "k",
+      "j",
+      "v"
+    ],
+    "calls": {
+      "End.Alias": 4,
+      "S1.Debit": 4,
+      "S2.Credit": 4,
+      "End.Finish": 4
+    },
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+      "HelperB.dfy": "3c7563679d764b0b8dc1a4a784a7a907f1c7533699ea416a031c22dd28643d45",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "reference_depth": {
+      "alias": 1,
+      "distinct_keys": 3
+    },
+    "reference_depth_not_minimal": true,
+    "fixture_root": ".",
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "prompt_sha256": "2312684b05dfb3b25121dd3fa1f6c60e51f9089135ed30cefe2a06201acf59b0",
+    "prompt_utf8_bytes": 8562,
+    "editable_body_count": 2,
+    "client_count": 2,
+    "repository_boundary": "single_monorepo_workspace"
+  },
+  {
+    "task_id": "offset-deep-separate",
+    "family": "sequence_offset",
+    "semantic_instance": "offset-weighted-concatenation-001",
+    "lineage": "development append induction ancestry; weighted Score requires generalized offset o+1 in recursive hypothesis and shifted suffix o+length(s)",
+    "split": "calibration-development",
+    "depth": "deep",
+    "sharing": "separate",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "variables": [
+      "s",
+      "t",
+      "o"
+    ],
+    "calls": {
+      "End.Base": 3,
+      "S1.Split": 3,
+      "S2.Lift": 3,
+      "End.Finish": 3,
+      "Prove": 3
+    },
+    "source_sha256": {
+      "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+      "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+      "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+      "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+      "HelperA.dfy": "894cb13e80a53b33aa985dfa37553cbb84de2e0e4a792197a336290dcd85cf86",
+      "HelperB.dfy": "ec6f234c26062dc9061d55cda85c55fd4937d50bfd792b46845404f0c0821d5c",
+      "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+      "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "reference_depth": {
+      "provider_critical_path": 3,
+      "shape": "generalized offset induction plus base case"
+    },
+    "reference_depth_not_minimal": true,
+    "fixture_root": "remaining-families-001",
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "prompt_sha256": "ef46cc03c44c53404ebe0e82e28b8391cd3657ef9b8aa6ce8857362ba441eb29",
+    "prompt_utf8_bytes": 8038,
+    "editable_body_count": 2,
+    "client_count": 2,
+    "repository_boundary": "single_monorepo_workspace"
+  },
+  {
+    "task_id": "witness-deep-shared",
+    "family": "interval_witness",
+    "semantic_instance": "intersection-witness-001",
+    "lineage": "development relational diamond ancestry; witness not supplied as parameter, must satisfy both intervals; offset/swapped second client",
+    "split": "calibration-development",
+    "depth": "deep",
+    "sharing": "shared",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "calls": {
+      "S1.Left": 3,
+      "S1.Right": 3,
+      "S2.Join": 5,
+      "End.Finish": 5
+    },
+    "source_sha256": {
+      "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+      "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+      "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+      "HelperA.dfy": "1c6659fe15cf5e2773ff4cf4a5b87c5f7b13fbe2a3a98195df6ff031d1f9cbdb",
+      "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+      "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+      "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+      "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "reference_depth": {
+      "provider_critical_path": 3,
+      "shape": "construct common witness; two prerequisite facts join"
+    },
+    "reference_depth_not_minimal": true,
+    "revision": "003: Overlap explicitly ghost for unbounded proof-only existential; helper/client contracts unchanged",
+    "fixture_root": "remaining-families-001/revision-003",
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "prompt_sha256": "c8ddc4c45280f53dd9744d1ed0cf6088a45f7d55d04efefb53c89aea973764fb",
+    "prompt_utf8_bytes": 7534,
+    "editable_body_count": 1,
+    "client_count": 2,
+    "repository_boundary": "single_monorepo_workspace"
+  },
+  {
+    "task_id": "conditional-deep-separate",
+    "family": "conditional_preconditions",
+    "semantic_instance": "dependent-reflection-001",
+    "split": "calibration-development",
+    "repository_boundary": "single_monorepo_workspace",
+    "depth": "deep",
+    "sharing": "separate",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "client_count": 2,
+    "reference_contract_application_chain": 3,
+    "reference_chain_not_proven_minimal": true,
+    "imports": {
+      "modules": [
+        "Kernel",
+        "Stage1",
+        "Stage2",
+        "Stage3",
+        "HelperA",
+        "HelperB",
+        "ClientA",
+        "ClientB"
+      ],
+      "imports": {
+        "Kernel": {},
+        "Stage1": {
+          "K": "Kernel"
+        },
+        "Stage2": {
+          "K": "Kernel"
+        },
+        "Stage3": {
+          "K": "Kernel"
+        },
+        "HelperA": {
+          "K": "Kernel",
+          "S1": "Stage1",
+          "S2": "Stage2",
+          "End": "Stage3"
+        },
+        "HelperB": {
+          "K": "Kernel",
+          "S1": "Stage1",
+          "S2": "Stage2",
+          "End": "Stage3"
+        },
+        "ClientA": {
+          "K": "Kernel",
+          "H": "HelperA"
+        },
+        "ClientB": {
+          "K": "Kernel",
+          "H": "HelperB"
+        }
+      }
+    },
+    "source_sha256": {
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+      "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "bytes": 2682,
+    "includes": {
+      "Kernel.dfy": [],
+      "Stage1.dfy": [
+        "Kernel.dfy"
+      ],
+      "Stage2.dfy": [
+        "Kernel.dfy"
+      ],
+      "Stage3.dfy": [
+        "Kernel.dfy"
+      ],
+      "HelperA.dfy": [
+        "Kernel.dfy",
+        "Stage1.dfy",
+        "Stage2.dfy",
+        "Stage3.dfy"
+      ],
+      "HelperB.dfy": [
+        "Kernel.dfy",
+        "Stage1.dfy",
+        "Stage2.dfy",
+        "Stage3.dfy"
+      ],
+      "ClientA.dfy": [
+        "Kernel.dfy",
+        "HelperA.dfy"
+      ],
+      "ClientB.dfy": [
+        "Kernel.dfy",
+        "HelperB.dfy"
+      ],
+      "All.dfy": [
+        "ClientA.dfy",
+        "ClientB.dfy"
+      ]
+    },
+    "fixture_root": "../monorepo-calibration-001",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "calls": {
+      "S1.Start": 2,
+      "S2.Advance": 2,
+      "End.Finish": 2
+    },
+    "prompt_sha256": "37a025e327399966a1b97f5dbb82953376ffad5b27fa8021928b4ddd49a16723",
+    "prompt_utf8_bytes": 7075,
+    "editable_body_count": 2
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "family": "map_transfer",
+    "semantic_instance": "alias-aware-conservation-001",
+    "lineage": "development finite-map frames; adds alias cases, source balance bound, exact balances, conservation and reverse-direction client",
+    "split": "development",
+    "depth": "deep",
+    "sharing": "shared",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "variables": [
+      "m",
+      "k",
+      "j",
+      "v"
+    ],
+    "calls": {
+      "End.Alias": 4,
+      "S1.Debit": 4,
+      "S2.Credit": 4,
+      "End.Finish": 4
+    },
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "reference_depth": {
+      "alias": 1,
+      "distinct_keys": 3
+    },
+    "reference_depth_not_minimal": true,
+    "fixture_root": ".",
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "prompt_sha256": "a9dc74299d880a546fab914643118a42ae6dac734933c968520c0eca787aac8a",
+    "prompt_utf8_bytes": 8274,
+    "editable_body_count": 1,
+    "client_count": 2,
+    "repository_boundary": "single_monorepo_workspace"
+  },
+  {
+    "task_id": "offset-deep-shared",
+    "family": "sequence_offset",
+    "semantic_instance": "offset-weighted-concatenation-001",
+    "lineage": "development append induction ancestry; weighted Score requires generalized offset o+1 in recursive hypothesis and shifted suffix o+length(s)",
+    "split": "calibration-development",
+    "depth": "deep",
+    "sharing": "shared",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "variables": [
+      "s",
+      "t",
+      "o"
+    ],
+    "calls": {
+      "End.Base": 3,
+      "S1.Split": 3,
+      "S2.Lift": 3,
+      "End.Finish": 3,
+      "Prove": 3
+    },
+    "source_sha256": {
+      "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+      "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+      "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+      "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+      "HelperA.dfy": "894cb13e80a53b33aa985dfa37553cbb84de2e0e4a792197a336290dcd85cf86",
+      "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+      "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+      "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "reference_depth": {
+      "provider_critical_path": 3,
+      "shape": "generalized offset induction plus base case"
+    },
+    "reference_depth_not_minimal": true,
+    "fixture_root": "remaining-families-001",
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "prompt_sha256": "546d4deda1a7836c3dd5396d5d2fc67714ecada873c8d50499f1c03404081d7e",
+    "prompt_utf8_bytes": 7748,
+    "editable_body_count": 1,
+    "client_count": 2,
+    "repository_boundary": "single_monorepo_workspace"
+  },
+  {
+    "task_id": "witness-deep-separate",
+    "family": "interval_witness",
+    "semantic_instance": "intersection-witness-001",
+    "lineage": "development relational diamond ancestry; witness not supplied as parameter, must satisfy both intervals; offset/swapped second client",
+    "split": "calibration-development",
+    "depth": "deep",
+    "sharing": "separate",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "calls": {
+      "S1.Left": 3,
+      "S1.Right": 3,
+      "S2.Join": 5,
+      "End.Finish": 5
+    },
+    "source_sha256": {
+      "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+      "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+      "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+      "HelperA.dfy": "1c6659fe15cf5e2773ff4cf4a5b87c5f7b13fbe2a3a98195df6ff031d1f9cbdb",
+      "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+      "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+      "HelperB.dfy": "eb10cdd81e685f6300e5ed7d38fd8cc6abb007e6e361968bf58c49e455e118f6",
+      "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "reference_depth": {
+      "provider_critical_path": 3,
+      "shape": "construct common witness; two prerequisite facts join"
+    },
+    "reference_depth_not_minimal": true,
+    "revision": "003: Overlap explicitly ghost for unbounded proof-only existential; helper/client contracts unchanged",
+    "fixture_root": "remaining-families-001/revision-003",
+    "editable_scope": "Prove body strings only; body-json-v2.1",
+    "prompt_sha256": "765ce8b14132bcde96e30a74af700d9f4fc13f96b23d26b088b98f87e14963be",
+    "prompt_utf8_bytes": 7822,
+    "editable_body_count": 2,
+    "client_count": 2,
+    "repository_boundary": "single_monorepo_workspace"
+  }
+]

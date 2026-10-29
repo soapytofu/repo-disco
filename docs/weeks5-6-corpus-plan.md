@@ -1,10 +1,10 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current gate (October 29):** both 32-call calibrations are complete. The revised
-run produced 1/32 strict passes and 31 body-syntax rejections, all first failing at
-`then` where `{` was required. A separate prompt-only syntax revision now passes offline validation; parser
-and sources remain unchanged. Main collection remains deferred, and model
-adherence to the revised instructions is unmeasured. No further calls are authorized. See the completion update below.
+**Current gate (October 29):** the clarified-syntax eight-call smoke test is complete:
+8/8 guard admission and 7/8 strict whole-workspace verification, with one interval
+witness precondition failure. The small syntax gate passed. Main collection and
+a fresh full calibration remain deferred pending review and separate authorization.
+No model calls remain authorized. Earlier calibration scores are unchanged.
 
 The preparation history below is retained; its earlier authorization statements
 describe those checkpoints, not the current completed execution. The initial
@@ -368,3 +368,12 @@ each, with two families starting in each condition. Its primary gate is 8/8
 parser/guard admission with intact source and terminal verifier outcomes. Review
 proof results separately before any larger run. No new calls are yet authorized;
 a tested bounded runner and scope-bound authorization remain prerequisites.
+
+## Eight-call smoke outcome (October 29)
+
+The [completed smoke report](../experiments/monorepo-syntax-smoke-001/RESULTS.md)
+records 8/8 admitted responses, 7/8 verified workspaces, eight unique requests and
+zero retries. The sole failure is a genuine witness precondition failure; no
+syntax repair or new verification was used in the audit. The predeclared syntax
+gate passed. Review the witness failure and per-family floors/ceilings before any
+new frozen evaluation/budget; do not pool this deep-only smoke with a later study.

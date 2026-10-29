@@ -182,3 +182,8 @@ The eight-call smoke pilot now has explicit user approval and a tested, staged
 [execution runner](monorepo-syntax-smoke-001/EXECUTION.md): 15 local and three
 remote fake-transport/parser tests pass. Waiting for the private key handoff;
 no model calls or submission yet. The frozen proposal remains unchanged.
+
+The [eight-call smoke results](monorepo-syntax-smoke-001/RESULTS.md) are now complete:
+8/8 guard admission, 7/8 strict whole-workspace verification, one witness-precondition
+failure, eight unique requests and zero retries. Full raw archive and source/contract
+audit published; syntax gate passed, no automatic larger study.

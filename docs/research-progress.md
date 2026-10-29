@@ -6,7 +6,7 @@ Status: October 29, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Revised calibration completed: 32 calls, 1 strict pass and 31 body-syntax rejections; 136 selected verifier controls validate the fixtures. Syntax-dominated model outcomes do not assess proof difficulty. A prompt-only syntax revision now passes nine offline test methods, with unchanged parser and sources. Main corpus and held-out evaluation remain gated. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Clarified-syntax eight-call smoke test completed: 8/8 guard admission, 7/8 strict verification, one interval-witness proof-precondition failure. Syntax gate passed; no causal sharing/depth claim. Prior pilot scores remain unchanged; full/main evaluation remains gated. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -377,3 +377,14 @@ nonpreemptible test (higher tier and substantially fewer higher-priority queue
 rows), without changing its resources, 30-minute limit or eight-call/no-retry cap.
 It was still pending immediately afterward; zero calls reserved. Evidence and
 limitations are in the [execution log](../experiments/monorepo-syntax-smoke-001/EXECUTION.md).
+
+## October 29: eight-call syntax smoke completed
+
+After the in-place return to test, job 56210087 completed in 2m04s. The reviewed
+[results](../experiments/monorepo-syntax-smoke-001/RESULTS.md) are **8/8 parser/guard
+admission and 7/8 whole-workspace verification**, eight unique requests, zero SDK
+retries and 25,704 tokens. Protected contracts/source passed audit. The failed
+deep/shared interval proof chooses c without establishing its membership in the
+other interval. All original evidence is preserved; no repair or rerun was made.
+The eight-call budget is exhausted. The syntax gate passed, but full calibration
+and main collection still require review and separate authorization.

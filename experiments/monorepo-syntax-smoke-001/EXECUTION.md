@@ -1,6 +1,10 @@
-# Authorized eight-call execution: submitted once
+# Authorized eight-call execution: complete
 
-**Job 56210087 submitted October 29 at 19:47:24 UTC** on test with live
+**Completed: 8/8 guard admission, 7/8 verified, eight unique requests, zero SDK
+retries.** See [RESULTS.md](RESULTS.md) and the full model-001 archive. All calls
+are exhausted; no automatic expansion.
+
+Historical submission: **job 56210087 submitted October 29 at 19:47:24 UTC** on test with live
 PreemptMode=OFF. authorization.json binds eight calls and no retries to the frozen
 scope/runtime; submission.json records the sole submission. Results are pending.
 The preparation history below is retained. No additional job or calls are authorized.
@@ -109,3 +113,13 @@ scheduling-adjustment-003.json. Unrelated user-level RPC statistics are excluded
 If scheduling remains stale despite the smaller queue, FAS Research Computing can
 inspect the controller using this job ID and the recorded timestamps; no support
 message has been sent.
+
+## Completed and reviewed
+
+The job started on test after scheduling-adjustment-003 and completed in 2m04s,
+exit 0. All eight requests completed once; the one failed proof was an ordinary
+completed evaluation outcome. Full raw logs, sources and request evidence are
+archived, and the reproducible offline audit found no integrity issues.
+Syntax-readiness passed with 8/8 admission; 7/8 whole-workspace verification.
+Earlier pending states above are retained as history. No new model calls or
+verifier reruns were used in the review.

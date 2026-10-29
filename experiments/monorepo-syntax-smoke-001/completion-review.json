@@ -1,0 +1,26 @@
+{
+  "reviewed_utc": "2026-10-29T20:39:06.764967+00:00",
+  "job_id": "56210087",
+  "model_calls_added_by_review": 0,
+  "new_dafny_runs": 0,
+  "scope": "All eight saved responses, exact guarded candidate bytes, protected source/contracts, and saved verifier diagnostics reviewed",
+  "results_review_sha256": "8708a5f3971e324e8f6086b767d1c77da89501b3bfb5b59366f0f2bbdd33e834",
+  "failed_trial": "smoke-04",
+  "failure_category": "proof_precondition",
+  "failure": "Unconditional witness c does not guarantee a <= c <= b required by S1.Left(a,b,c)",
+  "illustrative_counterexample": {
+    "a": 2,
+    "b": 5,
+    "c": 0,
+    "d": 4
+  },
+  "counterexample_note": "Manual arithmetic explanation only; no repaired candidate or extra verification run",
+  "family_review": {
+    "conditional_preconditions": "Both accepted candidates normalize inputs before the Start/Advance/Finish chain",
+    "map_transfer": "Both accepted candidates distinguish alias and distinct-key branches",
+    "sequence_offset": "Both accepted candidates use the empty case and recursive tail proof with offset o+1",
+    "interval_witness": "Shared sample chooses c unconditionally and fails; separate sample branches on a <= c to choose c or a and verifies"
+  },
+  "prior_scores_unchanged": true,
+  "no_new_budget": true
+}
