@@ -1,0 +1,113 @@
+{
+  "accepted": true,
+  "version": "calibration-body-v1",
+  "syntax_trees": {
+    "HelperA.dfy": [
+      [
+        "if",
+        [
+          "binary",
+          "==",
+          [
+            "length",
+            [
+              "variable",
+              "s"
+            ]
+          ],
+          [
+            "integer",
+            "0"
+          ]
+        ],
+        [
+          [
+            "call",
+            "End.Base",
+            [
+              [
+                "variable",
+                "s"
+              ],
+              [
+                "variable",
+                "t"
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "call",
+            "S1.Split",
+            [
+              [
+                "variable",
+                "s"
+              ],
+              [
+                "variable",
+                "t"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "Prove",
+            [
+              [
+                "slice",
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "integer",
+                  "1"
+                ],
+                null
+              ],
+              [
+                "variable",
+                "t"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "S2.Lift",
+            [
+              [
+                "variable",
+                "s"
+              ],
+              [
+                "variable",
+                "t"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "End.Finish",
+            [
+              [
+                "variable",
+                "s"
+              ],
+              [
+                "variable",
+                "t"
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  "extraction": {
+    "start": 1077,
+    "end": 1633,
+    "policy": "exact JSON substring; no source or escape repair"
+  }
+}

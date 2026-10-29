@@ -53,3 +53,13 @@ PreemptMode=OFF, 2 CPUs / 8 GiB / 2 hours, no requeue. The exclusive submission
 lock and saved job ID prevent duplicate dispatch. Maximum 32 calls; every dispatch
 is also bounded by the 2026-10-29 01:47:35 UTC authorization deadline.
 Results pending. Do not resubmit or launch a standalone runner.
+
+## Completed original pilot
+
+Job56019657 completed in **7m20s**, exit0: all32requests,32uniqueIDs,zeroSDKretries,
+101,595tokens. Full frozen/runtime/source/guard/request evidence reviewed.
+[Results](RESULTS.md): **18/32** strict successes;14output rejections and no
+verifier failures among admitted candidates. Family totals: conditional0/8,
+sequence3/8,relational7/8,map8/8. This is output-policy-confounded calibration,
+not evidence of a reasoning-depth effect. Raw failures remain in model-001.
+A separate non-paid diagnostic is pending; the frozen score stays unchanged.

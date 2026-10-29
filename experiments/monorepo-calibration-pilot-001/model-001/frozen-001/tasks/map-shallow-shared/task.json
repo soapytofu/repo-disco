@@ -1,0 +1,89 @@
+{
+  "task_id": "map-shallow-shared",
+  "family": "finite_map_frames",
+  "semantic_instance": "two-distinct-updates-001",
+  "lineage": "new development map update/frame composition",
+  "split": "calibration-development",
+  "repository_boundary": "single_monorepo_workspace",
+  "depth": "shallow",
+  "sharing": "shared",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy"
+  ],
+  "client_count": 2,
+  "reference_depth": {
+    "provider_stages_per_update": {
+      "shallow": 1,
+      "deep": 3
+    },
+    "call_count": {
+      "shallow": 3,
+      "deep": 7
+    },
+    "shape": "two sequential updates then common Compose; Compose shared in both depths"
+  },
+  "reference_depth_not_minimal": true,
+  "variables": [
+    "m",
+    "k",
+    "v",
+    "j",
+    "w"
+  ],
+  "calls": {
+    "End.Direct": 3,
+    "End.Compose": 5
+  },
+  "source_sha256": {
+    "Kernel.dfy": "5d8b87014ae79f238647e153a0f144b69e73fc9337cafc1987804d569cffd7e8",
+    "Stage1.dfy": "72a1e88be23b4f2a208bdc21df3ba46a8f8c9db8b48fa9135f05de678deaff2b",
+    "Stage2.dfy": "dc0ea3883dd009aea37a69e2bde02e7920b50d562f2150a7aa9551d5cf6f4d4f",
+    "Stage3.dfy": "6741b394f521f26c5287989838678d3e3c1af4323e827f7dd5ee42e321e0c118",
+    "HelperA.dfy": "03fc2c4af2a727d317c5ea866f062bf63eb890bf62ac65cac53aeb39ee33a5dd",
+    "HelperB.dfy": "1f35426e4932afd311562f13a5ea543ef05cd3f5d1727093cd17f3954fee017a",
+    "ClientA.dfy": "d96c4a8a0da0db5354d903b8aca9071da068c01a272137086be84073e4719052",
+    "ClientB.dfy": "62d41a2f7d9f0910808099af4ba7e1a17a9b77632fa04d9662d0bf70832bf8f6",
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+  },
+  "bytes": 3712,
+  "includes": {
+    "Kernel.dfy": [],
+    "Stage1.dfy": [
+      "Kernel.dfy"
+    ],
+    "Stage2.dfy": [
+      "Kernel.dfy"
+    ],
+    "Stage3.dfy": [
+      "Kernel.dfy"
+    ],
+    "HelperA.dfy": [
+      "Kernel.dfy",
+      "Stage1.dfy",
+      "Stage2.dfy",
+      "Stage3.dfy"
+    ],
+    "HelperB.dfy": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "ClientA.dfy": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "ClientB.dfy": [
+      "Kernel.dfy",
+      "HelperB.dfy"
+    ],
+    "All.dfy": [
+      "ClientA.dfy",
+      "ClientB.dfy"
+    ]
+  },
+  "fixture_root": "remaining-families-001",
+  "prompt_sha256": "922699077d43e9dbeb3f80a78090b8093029c915637a5498ee447020dcd5463d",
+  "prompt_utf8_bytes": 6167,
+  "editable_body_count": 1,
+  "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar"
+}

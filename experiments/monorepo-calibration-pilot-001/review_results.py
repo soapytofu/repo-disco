@@ -1,5 +1,5 @@
 """Offline audit of saved evidence; never dispatches or reruns verification."""
-import collections,json,sys
+import collections,hashlib,json,sys
 from pathlib import Path
 import run_pilot as r
 ROOT=Path(__file__).resolve().parent
@@ -34,12 +34,17 @@ def main():
    for k,v in (response.get('usage') or {}).items():
     if isinstance(v,(int,float)):tokens[k]+=v
    try:edited,meta=guard.parse_response(response['text'],{n:b.decode() for n,b in seed.items()},task)
-   except (ValueError,TypeError,UnicodeError,RecursionError):
+   except (ValueError,TypeError,UnicodeError,RecursionError) as error:
+    row['output_rejection_reason']=str(error)
+    try:guard.extract(response['text'],task['editable_files'])
+    except (ValueError,TypeError,UnicodeError,RecursionError):row['output_rejection_stage']='extraction'
+    else:row['output_rejection_stage']='edit_guard'
     if result['outcome'] not in ['OUTPUT_REJECTED','REQUEST_METADATA_STOP','RESPONSE_ERROR']:raise ValueError('Guard result mismatch')
     if (folder/'accepted.json').exists():raise ValueError('Rejected output accepted')
    else:
     if result['outcome']!='REQUEST_METADATA_STOP':
      if r.load(folder/'extraction.json')!=dict(accepted=True,**meta):raise ValueError('Extraction changed')
+     row['proof_syntax_sha256']=hashlib.sha256(json.dumps(meta['syntax_trees'],sort_keys=True).encode()).hexdigest()
      candidate=dict(seed);candidate.update({n:s.encode() for n,s in edited.items()})
      saved={p.name:p.read_bytes() for p in (folder/'candidate').glob('*.dfy')}
      if candidate!=saved:raise ValueError('Saved candidate differs from guarded response')
@@ -63,6 +68,8 @@ def main():
    rs=[x for x in rows if x['family']==family and x['cell']==cell]
    cells.append(dict(family=family,cell=cell,planned=2,reserved=len(rs),completed=sum(x['reservation_status']=='COMPLETED' for x in rs),verified=sum(x['strict_success'] for x in rs),outcomes=dict(collections.Counter(x['outcome'] for x in rs))))
  summary=dict(planned_requests=32,reserved=len(records),completed_responses=sum(x['reservation_status']=='COMPLETED' for x in rows),unique_request_ids=len(set(ids)),verified=sum(x['strict_success'] for x in rows),no_sdk_retries=all(x.get('retry_attempts')==0 for x in rows if x['reservation_status']=='COMPLETED'),all32_completed=len(rows)==32 and all(x['reservation_status']=='COMPLETED' for x in rows),integrity_issues=integrity,request_outcomes=dict(categories),token_usage=dict(tokens),cells=cells,trials=rows,limitations='One development instance per family and two samples per cell. Shared/edit-count and per-family depth differences are disclosed. Descriptive calibration only; no causal, held-out or population claim.')
+ summary['output_rejection_reasons']=dict(collections.Counter(x.get('output_rejection_reason') for x in rows if x.get('output_rejection_reason')))
+ summary['output_rejection_stages']=dict(collections.Counter(x.get('output_rejection_stage') for x in rows if x.get('output_rejection_stage')))
  (ROOT/'results-review.json').write_text(json.dumps(summary,indent=2)+'\n')
  (ROOT/'model-001-sha256.json').write_text(json.dumps({str(p.relative_to(out)):r.sha(p) for p in sorted(out.rglob('*')) if p.is_file()},indent=2)+'\n')
  print(json.dumps({k:v for k,v in summary.items() if k not in ['cells','trials']},indent=2))
