@@ -75,3 +75,37 @@ edits were first verified byte-for-byte against published commit 2337a72; no
 unpublished edits were discarded. The checkout is synchronized with the GitHub
 evidence through 59304b4. Disk space remains limited (about 131 MiB at the check).
 Job 56210087 was still pending on sapphire; no result is claimed.
+
+## October 29 scheduler investigation and third in-place adjustment
+
+At 20:30 UTC, the job was eligible, unheld and without a dependency; its reported
+reason was None and LastSchedEval remained 15:52:37 Eastern. The account/user
+association permits normal QOS, and Slurm reported no account-limit reason for
+this job. No requests were reserved.
+
+Focused diagnostics showed approximately 83,847 pending cluster jobs, repeated
+main-scheduler exits at the controller RPC threshold, and a backfill cycle still
+in progress whose last reported start was 15:47:06 Eastern. The live configuration
+uses partition_job_depth=10 and bf_continue. These observations support scheduler
+congestion and priority ordering as the explanation; they do not prove a particular
+Slurm defect. Idle cores do not guarantee that a lower-priority job can run.
+[Slurm's scheduling guide](https://slurm.schedmd.com/sched_config.html) explains
+strict-priority scheduling, backfill and delayed consideration under bf_continue.
+
+At the user's request, the same pending job was moved from sapphire back to test.
+Live test settings were PreemptMode=OFF, State=UP and PriorityTier=5 (versus 3
+for shared/sapphire). Queue aggregation found 56 higher-priority rows for test
+versus 1,361 for shared and 2,194 for sapphire. Rows may include arrays, multiple
+partitions, dependencies and holds; these counts are not exact scheduling ranks
+or an ETA. This is a plausible improvement, not a promise of immediate launch.
+
+The change succeeded: job ID 56210087, 2 CPUs, 8 GB, 30-minute wall limit, Requeue=0,
+Restarts=0, eight-call cap, no SDK retries, and no reassignment remain unchanged.
+We did not shorten the wall limit, create a new job, bypass priority, or run work
+on a login node. The post-change state was still PENDING.
+
+Full focused evidence: scheduling-investigation-001.json and
+scheduling-adjustment-003.json. Unrelated user-level RPC statistics are excluded.
+If scheduling remains stale despite the smaller queue, FAS Research Computing can
+inspect the controller using this job ID and the recorded timestamps; no support
+message has been sent.

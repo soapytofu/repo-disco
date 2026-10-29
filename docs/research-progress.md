@@ -367,3 +367,13 @@ The same pending smoke job was subsequently moved in place to sapphire after
 live PreemptMode=OFF verification. A mixed-partition update failed first; both
 attempts are archived. No duplicate job was created. Local disk exhaustion
 blocks checkout synchronization, so evidence publication uses GitHub directly.
+
+## October 29: queued smoke pilot scheduling diagnosis
+
+User-requested investigation found stale job evaluation, an old in-progress
+backfill cycle and heavy controller/queue load. No hold, dependency or account-limit
+reason was reported for job 56210087. Moved that same job back to live-confirmed
+nonpreemptible test (higher tier and substantially fewer higher-priority queue
+rows), without changing its resources, 30-minute limit or eight-call/no-retry cap.
+It was still pending immediately afterward; zero calls reserved. Evidence and
+limitations are in the [execution log](../experiments/monorepo-syntax-smoke-001/EXECUTION.md).

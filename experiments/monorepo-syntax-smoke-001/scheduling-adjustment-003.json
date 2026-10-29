@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-29T20:33:09.202405+00:00",
+  "job_id": "56210087",
+  "reason": "User requested investigation/acceleration without preemption or duplication. Stale backfill and controller congestion; test higher PriorityTier and fewer higher-priority pending rows than general CPU queues.",
+  "command": [
+    "scontrol",
+    "update",
+    "JobId=56210087",
+    "Partition=test"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "before": "JobId=56210087 JobName=monorepo-syntax-smoke\n   UserId=sophiezeng(69388) GroupId=amin_lab(5114) MCS_label=N/A\n   Priority=1747704 Nice=0 Account=amin_lab QOS=normal\n   JobState=PENDING Reason=None Dependency=(null)\n   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:00:00 TimeLimit=00:30:00 TimeMin=N/A\n   SubmitTime=2026-10-29T15:47:24 EligibleTime=2026-10-29T15:47:24\n   AccrueTime=2026-10-29T15:47:24\n   StartTime=Unknown EndTime=Unknown Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-29T15:52:37 Scheduler=Main\n   Partition=sapphire AllocNode:Sid=holylogin06:791077\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=\n   StepMgrEnabled=Yes\n   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=2,mem=8G,node=1\n   AllocTRES=(null)\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=2 MinMemoryNode=8G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model.sbatch\n   SubmitLine=sbatch --parsable model.sbatch\n   WorkDir=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001\n   StdErr=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model-56210087.err\n   StdIn=/dev/null\n   StdOut=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model-56210087.log\n   TresPerTask=cpu=2\n\n",
+  "partition_evidence": "PartitionName=test\n   AllowGroups=cluster_users,cluster_users_2,slurm-admin AllowAccounts=ALL AllowQos=ALL\n   AllocNodes=ALL Default=NO QoS=test\n   DefaultTime=NONE DisableRootJobs=NO Exclusive=NO GraceTime=0 Hidden=NO\n   MaxNodes=UNLIMITED MaxTime=12:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED\n   Nodes=holy8a[24101-24102,24301-24302,24401-24402,24501-24502,24601-24602,26101-26102,26301-26302,26401-26402,26501-26502,26601-26602]\n   PriorityJobFactor=1 PriorityTier=5 RootOnly=NO ReqResv=NO OverSubscribe=NO\n   OverTimeLimit=NONE PreemptMode=OFF\n   State=UP TotalCPUs=2240 TotalNodes=20 SelectTypeParameters=NONE\n   JobDefaults=(null)\n   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED\n   TRES=cpu=2240,mem=20624340M,node=20\n   TRESBillingWeights=CPU=0.0,Mem=0.0G\n\n",
+  "after": "JobId=56210087 JobName=monorepo-syntax-smoke\n   UserId=sophiezeng(69388) GroupId=amin_lab(5114) MCS_label=N/A\n   Priority=1737722 Nice=0 Account=amin_lab QOS=normal\n   JobState=PENDING Reason=None Dependency=(null)\n   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:00:00 TimeLimit=00:30:00 TimeMin=N/A\n   SubmitTime=2026-10-29T15:47:24 EligibleTime=2026-10-29T15:47:24\n   AccrueTime=Unknown\n   StartTime=Unknown EndTime=Unknown Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-29T15:52:37 Scheduler=Main\n   Partition=test AllocNode:Sid=holylogin06:791077\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=\n   StepMgrEnabled=Yes\n   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=2,mem=8G,node=1\n   AllocTRES=(null)\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=2 MinMemoryNode=8G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model.sbatch\n   SubmitLine=sbatch --parsable model.sbatch\n   WorkDir=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001\n   StdErr=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model-56210087.err\n   StdIn=/dev/null\n   StdOut=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model-56210087.log\n   TresPerTask=cpu=2\n\n",
+  "reserved_calls": 0,
+  "max_calls": 8,
+  "retries": false,
+  "requeue": false,
+  "resources_changed": false,
+  "duplicate_submission": false
+}

@@ -1,0 +1,138 @@
+{
+  "utc": "2026-10-29T20:31:13.746245+00:00",
+  "job": {
+    "command": [
+      "scontrol",
+      "show",
+      "job",
+      "56210087"
+    ],
+    "exit": 0,
+    "stdout": "JobId=56210087 JobName=monorepo-syntax-smoke\n   UserId=sophiezeng(69388) GroupId=amin_lab(5114) MCS_label=N/A\n   Priority=1747149 Nice=0 Account=amin_lab QOS=normal\n   JobState=PENDING Reason=None Dependency=(null)\n   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:00:00 TimeLimit=00:30:00 TimeMin=N/A\n   SubmitTime=2026-10-29T15:47:24 EligibleTime=2026-10-29T15:47:24\n   AccrueTime=2026-10-29T15:47:24\n   StartTime=Unknown EndTime=Unknown Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-29T15:52:37 Scheduler=Main\n   Partition=sapphire AllocNode:Sid=holylogin06:791077\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=\n   StepMgrEnabled=Yes\n   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=2,mem=8G,node=1\n   AllocTRES=(null)\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=2 MinMemoryNode=8G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model.sbatch\n   SubmitLine=sbatch --parsable model.sbatch\n   WorkDir=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001\n   StdErr=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model-56210087.err\n   StdIn=/dev/null\n   StdOut=/n/home13/sophiezeng/formal-disco/outputs/monorepo-syntax-smoke-001/model-56210087.log\n   TresPerTask=cpu=2\n\n",
+    "stderr": ""
+  },
+  "partitions": {
+    "test": {
+      "command": [
+        "scontrol",
+        "show",
+        "partition",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "PartitionName=test\n   AllowGroups=cluster_users,cluster_users_2,slurm-admin AllowAccounts=ALL AllowQos=ALL\n   AllocNodes=ALL Default=NO QoS=test\n   DefaultTime=NONE DisableRootJobs=NO Exclusive=NO GraceTime=0 Hidden=NO\n   MaxNodes=UNLIMITED MaxTime=12:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED\n   Nodes=holy8a[24101-24102,24301-24302,24401-24402,24501-24502,24601-24602,26101-26102,26301-26302,26401-26402,26501-26502,26601-26602]\n   PriorityJobFactor=1 PriorityTier=5 RootOnly=NO ReqResv=NO OverSubscribe=NO\n   OverTimeLimit=NONE PreemptMode=OFF\n   State=UP TotalCPUs=2240 TotalNodes=20 SelectTypeParameters=NONE\n   JobDefaults=(null)\n   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED\n   TRES=cpu=2240,mem=20624340M,node=20\n   TRESBillingWeights=CPU=0.0,Mem=0.0G\n\n",
+      "stderr": ""
+    },
+    "shared": {
+      "command": [
+        "scontrol",
+        "show",
+        "partition",
+        "shared"
+      ],
+      "exit": 0,
+      "stdout": "PartitionName=shared\n   AllowGroups=cluster_users,cluster_users_2,slurm-admin DenyAccounts=kempner_ai_fellows,kempner_albergo_lab,kempner_alvarez_lab,kempner_amin_lab,kempner_annwu_lab,kempner_audreyhuang_lab,kempner_ba_lab,kempner_barak_lab,kempner_bsabatini_lab,kempner_bingbin_lab,kempner_binxuwang_lab,kempner_dam_lab,kempner_eamematsro_lab,kempner_gershman_lab,kempner_gil_lab,kempner_grads,kempner_gtuckute_lab,kempner_hms,kempner_horgad_lab,kempner_ijones_lab,kempner_kdbrantley_lab,kempner_konkle_lab,kempner_krajan_lab,kempner_lab,kempner_murphy_lab,kempner_murthy_users,kempner_mzitnik_lab,kempner_noorsajid_lab,kempner_nvafa_lab,kempner_pehlevan_lab,kempner_pgozdil_lab,kempner_pslade_lab,kempner_qianqian_lab,kempner_rcai_lab,kempner_rhakim_lab,kempner_rmarjieh_lab,kempner_schung_lab,kempner_sham_lab,kempner_sitanc_lab,kempner_sompolinsky_lab,kempner_undergrads,kempner_wdorrell_lab,kempner_ydu_lab,kempner_yr_lab AllowQos=ALL\n   AllocNodes=ALL Default=NO QoS=N/A\n   DefaultTime=NONE DisableRootJobs=NO Exclusive=NO GraceTime=0 Hidden=NO\n   MaxNodes=UNLIMITED MaxTime=3-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED\n   Nodes=holy7c[04101-04112,04201-04212,04301-04312,04401-04412,04501-04512,06101-06112,06201-06212,06301-06312,06401-06412,06501-06512,06601-06612,08101-08112,08201-08212,08301-08312,08401-08412,08501-08512,08601-08612,10101-10112,10201-10212,10301-10312,10401-10410,10601-10612,12101-12112,16101-16110,16407-16412,16501-16512,16607-16610,18201-18204,18301-18312,22501-22512,22601-22612,24101-24104,24201-24204,24301-24304,24401-24404,24501-24504,24601-24604]\n   PriorityJobFactor=1 PriorityTier=3 RootOnly=NO ReqResv=NO OverSubscribe=NO\n   OverTimeLimit=NONE PreemptMode=OFF\n   State=UP TotalCPUs=17760 TotalNodes=370 SelectTypeParameters=NONE\n   JobDefaults=(null)\n   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED\n   TRES=cpu=17760,mem=71247200M,node=370,billing=35154\n   TRESBillingWeights=CPU=1.0,Mem=0.25G\n\n",
+      "stderr": ""
+    },
+    "sapphire": {
+      "command": [
+        "scontrol",
+        "show",
+        "partition",
+        "sapphire"
+      ],
+      "exit": 0,
+      "stdout": "PartitionName=sapphire\n   AllowGroups=cluster_users,cluster_users_2,slurm-admin DenyAccounts=kempner_ai_fellows,kempner_albergo_lab,kempner_alvarez_lab,kempner_amin_lab,kempner_annwu_lab,kempner_audreyhuang_lab,kempner_ba_lab,kempner_barak_lab,kempner_bsabatini_lab,kempner_bingbin_lab,kempner_binxuwang_lab,kempner_dam_lab,kempner_eamematsro_lab,kempner_gershman_lab,kempner_gil_lab,kempner_grads,kempner_gtuckute_lab,kempner_hms,kempner_horgad_lab,kempner_ijones_lab,kempner_kdbrantley_lab,kempner_konkle_lab,kempner_krajan_lab,kempner_lab,kempner_murphy_lab,kempner_murthy_users,kempner_mzitnik_lab,kempner_noorsajid_lab,kempner_nvafa_lab,kempner_pehlevan_lab,kempner_pgozdil_lab,kempner_pslade_lab,kempner_qianqian_lab,kempner_rcai_lab,kempner_rhakim_lab,kempner_rmarjieh_lab,kempner_schung_lab,kempner_sham_lab,kempner_sitanc_lab,kempner_sompolinsky_lab,kempner_undergrads,kempner_wdorrell_lab,kempner_ydu_lab,kempner_yr_lab AllowQos=ALL\n   AllocNodes=ALL Default=NO QoS=N/A\n   DefaultTime=NONE DisableRootJobs=NO Exclusive=NO GraceTime=0 Hidden=NO\n   MaxNodes=UNLIMITED MaxTime=3-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED\n   Nodes=holy8a[24105-24112,24201-24212,26105-26112,26201-26212,28101-28112,28201-28212,28301-28312,28401-28412,28501-28508,28601-28608,30101-30112,30201-30212,30301-30312,30401-30412,30501-30508,30601-30608,32501-32508,32601-32608]\n   PriorityJobFactor=1 PriorityTier=3 RootOnly=NO ReqResv=NO OverSubscribe=NO\n   OverTimeLimit=NONE PreemptMode=OFF\n   State=UP TotalCPUs=20608 TotalNodes=184 SelectTypeParameters=NONE\n   JobDefaults=(null)\n   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED\n   TRES=cpu=20608,mem=189743928M,node=184,billing=25335\n   TRESBillingWeights=CPU=0.6,Mem=0.07G\n\n",
+      "stderr": ""
+    }
+  },
+  "queue_summary": {
+    "test": {
+      "pending_rows": 100,
+      "higher_priority_rows": 56,
+      "reason_counts": {
+        "Resources": 1,
+        "BeginTime": 12,
+        "Priority": 55,
+        "Dependency": 23,
+        "QOSMaxCpuPerUserLimit": 3,
+        "JobHeldUser": 6
+      }
+    },
+    "shared": {
+      "pending_rows": 2055,
+      "higher_priority_rows": 1361,
+      "reason_counts": {
+        "BeginTime": 24,
+        "Resources": 9,
+        "Priority": 1355,
+        "Dependency": 377,
+        "Dependency,Priority": 10,
+        "Dependency,None,Priority": 1,
+        "JobArrayTaskLimit": 42,
+        "None": 156,
+        "JobHeldUser": 37,
+        "Insufficient resources in topology unit": 1,
+        "BadConstraints": 41,
+        "DependencyNeverSatisfied": 1,
+        "Dependency,None": 1
+      }
+    },
+    "sapphire": {
+      "pending_rows": 3421,
+      "higher_priority_rows": 2194,
+      "reason_counts": {
+        "Priority": 2598,
+        "JobArrayTaskLimit": 32,
+        "None": 523,
+        "Dependency": 170,
+        "BeginTime": 17,
+        "Resources": 3,
+        "JobHeldUser": 35,
+        "AssocMaxJobsLimit": 1,
+        "BadConstraints": 40,
+        "DependencyNeverSatisfied": 1,
+        "Dependency,None": 1
+      }
+    }
+  },
+  "queue_summary_note": "Aggregated only for test/shared/sapphire; multi-partition rows count once in each eligible partition and arrays may be compressed. Not an exact ahead-of-job rank; no other user/account queue records retained.",
+  "queue_exit": 0,
+  "queue_stderr": "",
+  "scheduler": {
+    "command": [
+      "sdiag"
+    ],
+    "exit": 0,
+    "stdout": "*******************************************************\nsdiag output at Thu Oct 29 16:31:13 2026 (1793305873)\nData since      Thu Oct 29 10:40:54 2026 (1793284854)\n*******************************************************\nServer thread count:  74\nRPC queue enabled:    0\nAgent queue size:     2\nAgent count:          0\nAgent thread count:   0\nDBD Agent queue size: 4\n\nJobs submitted: 62844\nJobs started:   36276\nJobs completed: 39591\nJobs canceled:  1703\nJobs failed:    0\n\nJob states ts:  Thu Oct 29 16:30:47 2026 (1793305847)\nJobs pending:   83847\nJobs running:   12956\n\nMain schedule statistics (microseconds):\n\tLast cycle:   143094\n\tMax cycle:    1007750\n\tTotal cycles: 13946\n\tMean cycle:   299098\n\tMean depth cycle:  78\n\tCycles per minute: 39\n\tLast queue length: 25100\n\nMain scheduler exit:\n\tEnd of job queue:294\n\tHit default_queue_depth: 0\n\tHit sched_max_job_start: 0\n\tBlocked on licenses: 0\n\tHit max_rpc_cnt:8211\n\tTimeout (max_sched_time): 0\n\nBackfilling stats (WARNING: data obtained in the middle of backfilling execution.)\n\tTotal backfilled jobs (since last slurm start): 3234\n\tTotal backfilled jobs (since last stats cycle start): 3234\n\tTotal backfilled heterogeneous job components: 2\n\tTotal cycles: 64\n\tLast cycle when: Thu Oct 29 15:47:06 2026 (1793303226)\n\tLast cycle: 2827292\n\tMax cycle:  19452892\n\tMean cycle: 6528117\n\tLast depth cycle: 0\n\tLast depth cycle (try sched): 0\n\tDepth Mean: 3822\n\tDepth Mean (try depth): 257\n\tLast queue length: 24168\n\tQueue length mean: 17980\n\tLast table size: 110\n\tMean table size: 125\n\nBackfill exit\n\tEnd of job queue: 0\n\tHit bf_max_job_start: 0\n\tHit bf_max_job_test: 0\n\tSystem state changed: 3\n\tHit table size limit (bf_node_space_size): 0\n\tTimeout (bf_max_time):61\n\nLatency for 1000 calls to gettimeofday(): 16 microseconds\n\n",
+    "stderr": ""
+  },
+  "account_limits": {
+    "command": [
+      "sacctmgr",
+      "-n",
+      "-P",
+      "show",
+      "assoc",
+      "where",
+      "account=amin_lab",
+      "format=Account,User,Partition,QOS,DefaultQOS,GrpJobs,MaxJobs,GrpTRES,MaxTRES"
+    ],
+    "exit": 0,
+    "stdout": "amin_lab|||normal|||10100||\namin_lab|sophiezeng||normal|||10100||",
+    "stderr": ""
+  },
+  "reserved_calls": 0,
+  "scheduler_configuration": {
+    "command": [
+      "scontrol",
+      "show",
+      "config"
+    ],
+    "exit": 0,
+    "stdout": "SchedulerParameters     = default_queue_depth=2000,partition_job_depth=10,bf_continue,bf_interval=30,bf_resolution=600,bf_window=11520,bf_max_job_test=300000,bf_max_job_start=1000,bf_max_job_user=10,bf_allow_magnetic_slot,bf_one_resv_per_job,enable_expedited_requeue,enable_user_top,pack_serial_at_end,nohold_on_prolog_fail,max_rpc_cnt=64\nSchedulerType           = sched/backfill",
+    "stderr": ""
+  },
+  "interpretation": "Evidence supports controller/backfill congestion and priority ordering; it does not prove a specific Slurm defect. Idle cores are not a promise of immediate allocation. No hold, dependency or reported account-limit reason on this job.",
+  "reference": "https://slurm.schedmd.com/sched_config.html"
+}
