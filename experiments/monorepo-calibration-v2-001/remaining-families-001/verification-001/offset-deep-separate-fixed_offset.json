@@ -1,0 +1,38 @@
+{
+  "task_id": "offset-deep-separate",
+  "variant": "fixed_offset",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "HelperA.dfy": "fa292fafc532b463b898f1eee90e4ce1ab18a007e37bfa2540bd9772e3536fbf",
+    "HelperB.dfy": "f5b27c16c9bf1143447f74bb37ef7bfe6f86a081d314553af11edb458f3a03d3",
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(19,13): Error: a precondition for this call could not be proved\n   |\n19 |       S2.Lift(s,t,o);\n   |              ^\n\nStage2.dfy(7,35): Related location: this is the precondition that could not be proved\n  |\n7 |     requires K.Score(s[1..]+t,o+1) == K.Score(s[1..],o+1) + K.Score(t,(o+1)+|s[1..]|)\n  |                                    ^^\n\nHelperB.dfy(19,13): Error: a precondition for this call could not be proved\n   |\n19 |       S2.Lift(s,t,o);\n   |              ^\n\nStage2.dfy(7,35): Related location: this is the precondition that could not be proved\n  |\n7 |     requires K.Score(s[1..]+t,o+1) == K.Score(s[1..],o+1) + K.Score(t,(o+1)+|s[1..]|)\n  |                                    ^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.4675531050015707,
+  "model_calls": 0,
+  "attempts": 1
+}

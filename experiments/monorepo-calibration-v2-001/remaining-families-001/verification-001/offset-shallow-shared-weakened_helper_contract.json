@@ -1,0 +1,38 @@
+{
+  "task_id": "offset-shallow-shared",
+  "variant": "weakened_helper_contract",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "HelperA.dfy": "b39ef4fc76583ab41a5ee55eeed151d1113a1011cd5eb5af1dbe8b05a4d3aeb4",
+    "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "ClientA.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   { H.Prove(s,t,o); }\n  |   ^\n\nClientA.dfy(7,27): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Score(s+t,o) == K.Score(s,o) + K.Score(t,o+|s|)\n  |                            ^^\n\nHelperB.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelperB.dfy(7,27): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Score(s+t,o) == K.Score(s,o) + K.Score(t,o+|s|)\n  |                            ^^\n\nHelperA.dfy(16,16): Error: a precondition for this call could not be proved\n   |\n16 |       End.Direct(s,t,o);\n   |                 ^\n\nStage3.dfy(12,35): Related location: this is the precondition that could not be proved\n   |\n12 |     requires K.Score(s[1..]+t,o+1) == K.Score(s[1..],o+1) + K.Score(t,(o+1)+|s[1..]|)\n   |                                    ^^\n\n\nDafny program verifier finished with 11 verified, 3 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.4362210130202584,
+  "model_calls": 0,
+  "attempts": 1
+}

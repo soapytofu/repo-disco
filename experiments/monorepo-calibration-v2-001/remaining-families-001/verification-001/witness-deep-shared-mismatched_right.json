@@ -1,0 +1,38 @@
+{
+  "task_id": "witness-deep-shared",
+  "variant": "mismatched_right",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+    "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+    "HelperA.dfy": "d42bde08640cf15a9278ffb089b54d1ae4671308e987ff91dfa919d6463f7916",
+    "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+    "Kernel.dfy": "3f0444f7012d6337ab1a04e2643d682956986bf6d69d1dcc1a297d28f341cbd5",
+    "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+    "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+    "Stage3.dfy": "e4c78148e4a54bafec544a028fc6ddd4dbad40875213c018b94b8e373287b22a"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "Kernel.dfy(10,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n10 |     exists w: int :: a <= w <= b && c <= w <= d\n   |     ^^^^^^\n\nStage3.dfy(9,31): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n9 |   { reveal K.Overlap(); assert exists q: int :: a <= q <= b && c <= q <= d; }\n  |                                ^^^^^^\n\nStage3.dfy(16,11): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n16 |     assert exists q: int :: a <= q <= b && c <= q <= d;\n   |            ^^^^^^\n\nStage3.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   { reveal K.Overlap(); assert exists q: int :: a <= q <= b && c <= q <= d; }\n  |   ^\n\nStage3.dfy(8,21): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Overlap(a,b,c,d)\n  |                      ^\n\nStage3.dfy(9,24): Error: assertion might not hold\n  |\n9 |   { reveal K.Overlap(); assert exists q: int :: a <= q <= b && c <= q <= d; }\n  |                         ^^^^^^\n\nStage3.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   {\n   |   ^\n\nStage3.dfy(12,21): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures K.Overlap(a,b,c,d)\n   |                      ^\n\nStage3.dfy(16,4): Error: assertion might not hold\n   |\n16 |     assert exists q: int :: a <= q <= b && c <= q <= d;\n   |     ^^^^^^\n\nHelperA.dfy(17,13): Error: a precondition for this call could not be proved\n   |\n17 |       S2.Join(a,b,c,d,a);\n   |              ^\n\nStage2.dfy(6,45): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.LeftFact(a,b,w) && K.RightFact(c,d,w)\n  |                                              ^\n\nHelperA.dfy(22,13): Error: a precondition for this call could not be proved\n   |\n22 |       S2.Join(a,b,c,d,c);\n   |              ^\n\nStage2.dfy(6,45): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.LeftFact(a,b,w) && K.RightFact(c,d,w)\n  |                                              ^\n\n\nDafny program verifier finished with 6 verified, 6 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.1268573260167614,
+  "model_calls": 0,
+  "attempts": 1
+}

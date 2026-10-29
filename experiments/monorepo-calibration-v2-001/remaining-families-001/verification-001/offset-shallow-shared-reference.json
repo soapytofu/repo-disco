@@ -1,0 +1,38 @@
+{
+  "task_id": "offset-shallow-shared",
+  "variant": "reference",
+  "expected": "success",
+  "matched": true,
+  "protocol_replayed": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "HelperA.dfy": "5eef3f779f18dd04101877da253323a6fc735d763aab91ab7173c7b922cbfb88",
+    "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "outcome": "success",
+  "category": "success",
+  "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.5407069610082544,
+  "model_calls": 0,
+  "attempts": 1
+}

@@ -1,0 +1,111 @@
+{
+  "payload": "{\"HelperA.dfy\": \"\\n    if a >= c {\\n      End.Direct(a,b,c,d,a);\\n    } else {\\n      End.Direct(a,b,c,d,c);\\n    }\\n\"}",
+  "decision": {
+    "version": "body-json-v2.1",
+    "wrapper": "plain JSON",
+    "syntax_trees": {
+      "HelperA.dfy": [
+        [
+          "if",
+          [
+            "binary",
+            ">=",
+            [
+              "variable",
+              "a"
+            ],
+            [
+              "variable",
+              "c"
+            ]
+          ],
+          [
+            [
+              "call",
+              "End.Direct",
+              [
+                [
+                  "variable",
+                  "a"
+                ],
+                [
+                  "variable",
+                  "b"
+                ],
+                [
+                  "variable",
+                  "c"
+                ],
+                [
+                  "variable",
+                  "d"
+                ],
+                [
+                  "variable",
+                  "a"
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              "call",
+              "End.Direct",
+              [
+                [
+                  "variable",
+                  "a"
+                ],
+                [
+                  "variable",
+                  "b"
+                ],
+                [
+                  "variable",
+                  "c"
+                ],
+                [
+                  "variable",
+                  "d"
+                ],
+                [
+                  "variable",
+                  "c"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    },
+    "boundaries": {
+      "HelperA.dfy": {
+        "prefix_sha256": "930d6dc0bedae9dbf7529aa0eb7d5eed88d7f6e0d24917f1cb9ca59cc3baaae2",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "c8a7ec739e2328646381b01f2f6537a6535acf1dc47beb54e4234fe3fa346ffe"
+      }
+    },
+    "parent_sha256": {
+      "Kernel.dfy": "3f0444f7012d6337ab1a04e2643d682956986bf6d69d1dcc1a297d28f341cbd5",
+      "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+      "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+      "Stage3.dfy": "e4c78148e4a54bafec544a028fc6ddd4dbad40875213c018b94b8e373287b22a",
+      "HelperA.dfy": "1a2862e9a5b79748cbf597a81d33df3a01c3a3f49b500b96dbcd856eb4b8a744",
+      "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+      "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+      "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "candidate_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+      "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+      "Kernel.dfy": "3f0444f7012d6337ab1a04e2643d682956986bf6d69d1dcc1a297d28f341cbd5",
+      "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+      "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+      "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+      "Stage3.dfy": "e4c78148e4a54bafec544a028fc6ddd4dbad40875213c018b94b8e373287b22a",
+      "HelperA.dfy": "9368bec32828bfa93618e2588fef23988f069c7313f32ba137c8f063313af1d6"
+    }
+  }
+}

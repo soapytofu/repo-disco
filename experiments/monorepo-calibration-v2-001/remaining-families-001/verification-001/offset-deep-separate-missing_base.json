@@ -1,0 +1,38 @@
+{
+  "task_id": "offset-deep-separate",
+  "variant": "missing_base",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "HelperA.dfy": "7870e677d1cb359c95a6963043b9658faa6eaff879637f75b7cd522f471d1fcc",
+    "HelperB.dfy": "b3fdca2060c2cdf14b5c289ab3648edc50a86fa0f8fe0d81ac8d66852f922211",
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(14,16): Error: a postcondition could not be proved on this return path\n   |\n14 |     if |s| == 0 {\n   |                 ^\n\nHelperA.dfy(11,27): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures K.Score(s+t,o) == K.Score(s,o) + K.Score(t,o+|s|)\n   |                            ^^\n\nHelperB.dfy(14,16): Error: a postcondition could not be proved on this return path\n   |\n14 |     if |s| == 0 {\n   |                 ^\n\nHelperB.dfy(11,27): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures K.Score(s+t,o) == K.Score(s,o) + K.Score(t,o+|s|)\n   |                            ^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.631029537995346,
+  "model_calls": 0,
+  "attempts": 1
+}

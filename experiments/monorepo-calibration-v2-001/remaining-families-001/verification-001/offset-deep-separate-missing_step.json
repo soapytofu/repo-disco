@@ -1,0 +1,38 @@
+{
+  "task_id": "offset-deep-separate",
+  "variant": "missing_step",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "HelperA.dfy": "76de3c126cf61b1478437fa03ab850e4ddc3e0e1ef5f3b4a2604c3884b4a5649",
+    "HelperB.dfy": "c2081733a9b6a45b61cf63bad6ce6db466b6ca9026290f0721ceb245a18fa62d",
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(19,16): Error: a precondition for this call could not be proved\n   |\n19 |       End.Finish(s,t,o);\n   |                 ^\n\nStage3.dfy(24,35): Related location: this is the precondition that could not be proved\n   |\n24 |     requires |s| > 0 && K.StepReady(s,t,o)\n   |                                    ^\n\nHelperB.dfy(19,16): Error: a precondition for this call could not be proved\n   |\n19 |       End.Finish(s,t,o);\n   |                 ^\n\nStage3.dfy(24,35): Related location: this is the precondition that could not be proved\n   |\n24 |     requires |s| > 0 && K.StepReady(s,t,o)\n   |                                    ^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.400389257003553,
+  "model_calls": 0,
+  "attempts": 1
+}

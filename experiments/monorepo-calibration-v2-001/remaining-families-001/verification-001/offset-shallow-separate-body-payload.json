@@ -1,0 +1,231 @@
+{
+  "payload": "{\"HelperA.dfy\": \"\\n    if |s| == 0 {\\n      End.Base(s,t,o);\\n    } else {\\n      Prove(s[1..],t,o+1);\\n      End.Direct(s,t,o);\\n    }\\n\", \"HelperB.dfy\": \"\\n    if |s| == 0 {\\n      End.Base(s,t,o);\\n    } else {\\n      Prove(s[1..],t,o+1);\\n      End.Direct(s,t,o);\\n    }\\n\"}",
+  "decision": {
+    "version": "body-json-v2.1",
+    "wrapper": "plain JSON",
+    "syntax_trees": {
+      "HelperA.dfy": [
+        [
+          "if",
+          [
+            "binary",
+            "==",
+            [
+              "length",
+              [
+                "variable",
+                "s"
+              ]
+            ],
+            [
+              "integer",
+              "0"
+            ]
+          ],
+          [
+            [
+              "call",
+              "End.Base",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "variable",
+                  "o"
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              "call",
+              "Prove",
+              [
+                [
+                  "slice",
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "integer",
+                    "1"
+                  ],
+                  null
+                ],
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "binary",
+                  "+",
+                  [
+                    "variable",
+                    "o"
+                  ],
+                  [
+                    "integer",
+                    "1"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "call",
+              "End.Direct",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "variable",
+                  "o"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "HelperB.dfy": [
+        [
+          "if",
+          [
+            "binary",
+            "==",
+            [
+              "length",
+              [
+                "variable",
+                "s"
+              ]
+            ],
+            [
+              "integer",
+              "0"
+            ]
+          ],
+          [
+            [
+              "call",
+              "End.Base",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "variable",
+                  "o"
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              "call",
+              "Prove",
+              [
+                [
+                  "slice",
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "integer",
+                    "1"
+                  ],
+                  null
+                ],
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "binary",
+                  "+",
+                  [
+                    "variable",
+                    "o"
+                  ],
+                  [
+                    "integer",
+                    "1"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "call",
+              "End.Direct",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "variable",
+                  "o"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    },
+    "boundaries": {
+      "HelperA.dfy": {
+        "prefix_sha256": "4c4df420d3883aa563389d195d38f92e09be949b0eca6a38458d00eb3609e729",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "6cfce13223dcde3e43dd5f61e62781e9c0de470345d16d124854c06b424931fb"
+      },
+      "HelperB.dfy": {
+        "prefix_sha256": "62601847339197662e5b6e7944b2a487f5b37bf8d2df1ef56b630ae4528608fe",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "6cfce13223dcde3e43dd5f61e62781e9c0de470345d16d124854c06b424931fb"
+      }
+    },
+    "parent_sha256": {
+      "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+      "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+      "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+      "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+      "HelperA.dfy": "1634eb76f6c230fbb8a2eab97a374b7217b07a9b95019a639ad90b33e5ec0432",
+      "HelperB.dfy": "b125479b8bb56e512e4775e2446f5818528812472074f4bfa6c87adb424efb12",
+      "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+      "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "candidate_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+      "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+      "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+      "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+      "HelperB.dfy": "e92cd859d865cb9d8475acb606b0a84fab54647c486807b0dfb066c6c83d67cf",
+      "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+      "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+      "HelperA.dfy": "5eef3f779f18dd04101877da253323a6fc735d763aab91ab7173c7b922cbfb88"
+    }
+  }
+}

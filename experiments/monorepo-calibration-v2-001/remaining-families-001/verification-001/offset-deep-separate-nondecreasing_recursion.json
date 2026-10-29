@@ -1,0 +1,38 @@
+{
+  "task_id": "offset-deep-separate",
+  "variant": "nondecreasing_recursion",
+  "expected": "termination_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "HelperA.dfy": "0d9b719a18b4d42bb47f041b0921922a9c906a032e3c708385f655a66b9bf8c5",
+    "HelperB.dfy": "722f1c86d6c0ad986acc0c1d06ab2e7ee7e0553c2e0b2894958664767a4be45a",
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(17,11): Error: decreases clause might not decrease\n   |\n17 |       Prove(s,t,o+1);\n   |            ^\n\nHelperB.dfy(17,11): Error: decreases clause might not decrease\n   |\n17 |       Prove(s,t,o+1);\n   |            ^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.4542737510055304,
+  "model_calls": 0,
+  "attempts": 1
+}
