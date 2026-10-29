@@ -307,3 +307,7 @@ made yet. Cannon is reconnected, all staged inputs match their pins, and three
 fake SDK/parser checks pass in the actual repodisco environment. The private key
 handoff is still absent and was requested. No main-corpus or diagnostic model budget is
 authorized. Historical preparation statuses in the frozen proposal are unchanged.
+
+The revised calibration was subsequently submitted once as **56205855** on test
+(PreemptMode=OFF), 18:55:32 UTC October 29. The 32-call frozen scope and no-retry
+policy remain unchanged. Results pending; no duplicate or standalone job.

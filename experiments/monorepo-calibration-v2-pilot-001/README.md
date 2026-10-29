@@ -2,11 +2,10 @@
 
 The user explicitly authorized the revised 32-call calibration on October 29,
 2026, with the frozen prompts, no retries, and publication of results/full logs.
-**No model calls have been made and no Slurm job has been submitted yet.**
-The new Cannon connection works and the runtime is staged. All staged hashes
-match; three SDK/body-parser checks passed in the repodisco environment using
-fake transport/verifier. The private key handoff is still absent and has been
-requested. No credential contents were accessed during preparation.
+**Submitted once as Slurm job 56205855 on test, October 29 at 18:55:32 UTC.**
+Inputs, authorization and the private handoff were checked before submission.
+The partition reported PreemptMode=OFF; no requeue or retries. Results are pending.
+This is the only submitted execution for the 32-call budget.
 
 ## Immutable scope
 
