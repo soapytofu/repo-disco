@@ -154,3 +154,7 @@ These pilots do not yet constitute a published-baseline reproduction, a comparis
 [Current coverage and baseline gaps](../docs/research-progress.md#current-evidence-map-and-coverage-audit-october-26-utc)
 summarizes what these development experiments establish and what remains open.
 No additional model calls were made for these integrations.
+
+- [monorepo-calibration-v2-001](monorepo-calibration-v2-001/README.md): body-only
+  protocol (9 offline tests) and four alias-aware map-transfer task designs;
+  38 compute verifier checks pending reconnection. No model calls or new freeze.
