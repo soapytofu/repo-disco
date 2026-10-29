@@ -348,3 +348,12 @@ and two separate. Four offline scope checks pass. The gate is 8/8 guard admissio
 intact protected source and completed verifier outcomes, followed by manual proof
 outcome review. No calls are authorized or made by this preparation; a later full
 32-call evaluation is not automatic and will not pool these deep-only samples.
+
+## October 29: eight-call smoke runner prepared after approval
+
+The user approved eight requests with no retries. The [bounded runner](../experiments/monorepo-syntax-smoke-001/EXECUTION.md)
+passed 15 local fake-transport/verifier tests and three remote SDK/parser checks.
+Exact inputs/runtime are staged in a fresh Cannon directory; the existing socket
+works. The private handoff is absent and was requested. No model calls, submission
+or key consumption yet; runtime-bound authorization and a fresh state check precede
+the single job submission after key readiness. No automatic larger run.

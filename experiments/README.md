@@ -177,3 +177,8 @@ No additional model calls were made for these integrations.
   eight-call syntax smoke test, all four deep families with shared/separate pairs,
   unchanged clarified prompts/parser and balanced first-condition order. Four
   scope tests pass; no calls or execution authorization.
+
+The eight-call smoke pilot now has explicit user approval and a tested, staged
+[execution runner](monorepo-syntax-smoke-001/EXECUTION.md): 15 local and three
+remote fake-transport/parser tests pass. Waiting for the private key handoff;
+no model calls or submission yet. The frozen proposal remains unchanged.
