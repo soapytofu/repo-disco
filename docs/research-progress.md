@@ -204,7 +204,7 @@ are not a generation budget. This earlier pending checkpoint is superseded by th
 
 Repository-extension-001 now prepares four new-client extensions across two verified
 seed repositories, with immutable seed checks and separate guards. Four offline
-tests passed; compute preflight job55810726 matched all14 expectations (six passes,
+tests passed; compute preflight job 55810726 matched all14 expectations (six passes,
 eight proof failures), and four exact prompts/settings are frozen. Bounded runner
 integration now has ten passing fake-transport tests; separate four-call approval
 and a new private key handoff remain required. No new model calls.
@@ -212,7 +212,7 @@ and a new private key handoff remain required. No new model calls.
 ## Weeks 1–4 completion (October 28)
 
 [Acceptance review](weeks1-4-acceptance.md): **the initial proposal milestones are
-complete**. Repository-extension-001 job55813370 finished in 1m48s: four requests,
+complete**. Repository-extension-001 job 55813370 finished in 1m48s: four requests,
 four whole-repository passes, zero retries, 4,613 tokens. Frozen prompts/runtime,
 new-file guards, immutable seed bytes and accepted evidence hashes were reviewed.
 Full logs and generated sources are archived. This closes the initial-generation
@@ -248,3 +248,16 @@ versus separate workloads are disclosed, not presented as equal-work matches.
 Week 5's calibration construction/preflight gate is complete. Calibration execution
 requires new 32-call approval and a bounded dispatcher bound to this freeze. The
 main 192-call corpus, calibration findings and held-out evaluation remain open.
+
+## Calibration collected and audited (October 28 Eastern)
+
+[Full results](../experiments/monorepo-calibration-pilot-001/RESULTS.md): all 32 authorized
+requests completed without retries. Original strict score 18/32; fourteen output
+rejections, no verifier failures among admitted candidates. A separate zero-call
+diagnostic verified11/11 newline/inline-expression cases; original results remain
+unchanged. Three wrapper failures remain unevaluated. All logs are published.
+
+Week 5 calibration has exposed output-protocol confounding and task-ceiling risk,
+so Week 6 main collection is **not ready**. Next gates are a revised body-only
+output protocol, explicit pure-expression support and harder verified obligations,
+followed by a separately approved calibration. No model budget remains.

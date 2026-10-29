@@ -2,13 +2,23 @@
 
 A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 28, 2026.
 
-## Next planned corpus (not running)
+## Main corpus deferred
 
-[matched-corpus-001](matched-corpus-001/README.md): 32 calibration calls followed
-by a gated 192-call main study, proposed 224 total. The main set contains 96
-matched variants from 24 semantic instances across 4 development families.
-No new requests authorized; [full plan](../docs/weeks5-6-corpus-plan.md).
-Scope is cross-module reasoning within one monorepo. The [calibration archive](monorepo-calibration-001/README.md) now has 16 verified variants, 118 selected expected controls, tested output guards and a frozen 32-trial proposal; no model calls. Initial failed sequence evidence is preserved.
+[matched-corpus-001](matched-corpus-001/README.md): the proposed 192-call main
+study remains gated after the completed 32-call calibration. Its intended main
+set contains 96 variants from 24 semantic instances across four development
+families. No further requests are authorized; [full plan](../docs/weeks5-6-corpus-plan.md).
+Scope is cross-module reasoning within one monorepo. The original 16 calibration
+variants, 118 selected verifier controls, guards and frozen prompts are preserved
+in the [calibration archive](monorepo-calibration-001/README.md).
+
+## Completed 32-call calibration
+
+[monorepo-calibration-pilot-001](monorepo-calibration-pilot-001/RESULTS.md):32 requests,
+zero retries,18/32 strict successes; all 14 other responses were output-rejected.
+Separate verifier-only diagnostic:11/11 selected responses passed after limited
+output-policy adjustments, without changing the frozen score or making calls.
+The larger main study is deferred pending protocol and difficulty revisions.
 
 ## Weeks 1–4 completion checkpoint
 

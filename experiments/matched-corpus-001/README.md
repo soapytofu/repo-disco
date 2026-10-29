@@ -18,3 +18,11 @@ variants, 118 selected expected verifier outcomes, tested guards and exact froze
 32-trial prompts/order/settings. An initial sequence-fixture failure is preserved
 alongside the corrected, verified revision. Model-call estimates are unchanged;
 none of these preparation steps made model calls.
+
+## Execution update
+
+The 32-call calibration was subsequently authorized and completed. See the
+[original results and separate diagnostic](../monorepo-calibration-pilot-001/RESULTS.md).
+Strict 18/32;14 output rejections. Eleven selected rejected responses verified under
+separate limited output-policy changes. Original score unchanged; main collection
+is deferred pending protocol/difficulty revisions, with no further paid budget.

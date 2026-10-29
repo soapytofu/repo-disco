@@ -1,0 +1,3791 @@
+[
+  {
+    "trial_id": "trial-01",
+    "task": {
+      "task_id": "sequence-shallow-shared",
+      "family": "sequence_induction",
+      "semantic_instance": "opaque-total-append-001",
+      "lineage": "inspected Total/Append induction; new opaque stage contracts",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "shallow",
+      "sharing": "shared",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy"
+      ],
+      "client_count": 2,
+      "reference_depth": {
+        "provider_stages_per_induction_step": {
+          "shallow": 1,
+          "deep": 3
+        },
+        "recursive_edge": "Prove(s[1..],t), not a finite acyclic depth"
+      },
+      "reference_depth_not_minimal": true,
+      "variables": [
+        "s",
+        "t"
+      ],
+      "calls": {
+        "End.Base": 2,
+        "End.Direct": 2,
+        "Prove": 2
+      },
+      "source_sha256": {
+        "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+        "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+        "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+        "HelperA.dfy": "07dc0dff7196814f772e093349d12b6b782ef8f6d985e674760836ed25400dc2",
+        "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+        "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+        "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+        "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 3206,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": "remaining-families-001/revision-002",
+      "prompt_sha256": "b765c0921abe93a2b8b8b9939d2bb15c819127ab5d4d58adfffbdc03f4248176",
+      "prompt_utf8_bytes": 5638,
+      "editable_body_count": 1,
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar"
+    },
+    "original_response_sha256": "bfe0a391d7180b9ea6f445357ca36d605816be269c871d0e91a9b044a98453eb",
+    "original_reason": "Protected source changed",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [
+      "HelperA.dfy"
+    ],
+    "original_edit_sha256": {
+      "HelperA.dfy": "0eb7a2727e9260e91bd573968eeff54ca9a9d2e969e2de33138808e0cbd362c5"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "40267c769735d6d31630bbb0393d211f0e4d10a1f04e715fdf427ccfef3836dd",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "07dc0dff7196814f772e093349d12b6b782ef8f6d985e674760836ed25400dc2",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "d7b13c305dfb17b533bfffc023dbd3772621bbe286a0311606ff0af93516cca6",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              "==",
+              [
+                "length",
+                [
+                  "variable",
+                  "s"
+                ]
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "call",
+                "End.Base",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "Prove",
+                [
+                  [
+                    "slice",
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "1"
+                    ],
+                    null
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Direct",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 832,
+      "end": 1286,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-01"
+  },
+  {
+    "trial_id": "trial-04",
+    "task": {
+      "task_id": "conditional-deep-separate",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "deep",
+      "sharing": "separate",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 3,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "S1": "Stage1",
+            "S2": "Stage2",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "S1": "Stage1",
+            "S2": "Stage2",
+            "End": "Stage3"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+        "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2682,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "S1.Start": 2,
+        "S2.Advance": 2,
+        "End.Finish": 2
+      },
+      "prompt_sha256": "5cc30e8a80bed33b2900658ee6d45e74b7c74b4ffabe5cd28c346312eb654a86",
+      "prompt_utf8_bytes": 5281,
+      "editable_body_count": 2
+    },
+    "original_response_sha256": "0d56b201bf2733eb4dd3b5190096c64d8493c1ae51b88376ec3e1bd4ba9e1df4",
+    "original_reason": "Protected source changed",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "original_edit_sha256": {
+      "HelperA.dfy": "e7804ecf3c3e460089e1e0ca7a0e2604ed85669d6010a5e0e011acff8f3fc6e7",
+      "HelperB.dfy": "767111c20a21ee9985958551759df52ae5b44e9aca88a929a17052b6a2170bd2"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "59273dbfdf8a53a6e61914844fa56429f06069ec351d2945726d0c7811cd0821",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "9a2e912f4bc0635cad5cb5109b81ee4d55de551b6019c401719180d545cf2cfc",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              ">=",
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "S1.Start",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Advance",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "S1.Start",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "binary",
+                    "-",
+                    [
+                      "binary",
+                      "+",
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "y"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Advance",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "binary",
+                    "-",
+                    [
+                      "binary",
+                      "+",
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "y"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "binary",
+                    "-",
+                    [
+                      "binary",
+                      "+",
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "y"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "HelperB.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              ">=",
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "S1.Start",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Advance",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "S1.Start",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "binary",
+                    "-",
+                    [
+                      "binary",
+                      "+",
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "y"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Advance",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "binary",
+                    "-",
+                    [
+                      "binary",
+                      "+",
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "y"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "binary",
+                    "-",
+                    [
+                      "binary",
+                      "+",
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Abs",
+                        [
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "y"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1268,
+      "end": 2676,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-04"
+  },
+  {
+    "trial_id": "trial-08",
+    "task": {
+      "task_id": "conditional-shallow-shared",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "shallow",
+      "sharing": "shared",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 1,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+        "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2545,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "End.Direct": 2
+      },
+      "prompt_sha256": "c6535a2c07b8d0fda0d8ad5de140476af312e581458913dc8b5caf7bea95b652",
+      "prompt_utf8_bytes": 4969,
+      "editable_body_count": 1
+    },
+    "original_response_sha256": "3c7c192f8eb4585e552c6a6c0f22e1c6594421114c205392e68d420dfc95cfef",
+    "original_reason": "Unknown expression name",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [],
+    "original_edit_sha256": {
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "End.Direct",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1488,
+      "end": 1922,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-08"
+  },
+  {
+    "trial_id": "trial-12",
+    "task": {
+      "task_id": "conditional-shallow-separate",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "shallow",
+      "sharing": "separate",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 1,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "End": "Stage3"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+        "HelperB.dfy": "4a7ede78d3928c0579adb3b2a5adcf5528e8d6185609ae0a66c15a678a4c18d4",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2576,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "End.Direct": 2
+      },
+      "prompt_sha256": "2e5805312c592739a1c5421bbda39741c9a0f56a17e42dc17078dfd538995d8d",
+      "prompt_utf8_bytes": 5049,
+      "editable_body_count": 2
+    },
+    "original_response_sha256": "83d853a2c02c30d3fdbc180353a4015f4b9a35c098e5789058e89015967a7ac0",
+    "original_reason": "Unknown expression name",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [],
+    "original_edit_sha256": {
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e",
+      "HelperB.dfy": "ec9416dfdcdfe72f80444eb39fa20c09b8ea75c32a7ae867c03fca8eb1cfad40"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "ec9416dfdcdfe72f80444eb39fa20c09b8ea75c32a7ae867c03fca8eb1cfad40",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "4a7ede78d3928c0579adb3b2a5adcf5528e8d6185609ae0a66c15a678a4c18d4",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "End.Direct",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "HelperB.dfy": [
+          [
+            "call",
+            "End.Direct",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1514,
+      "end": 2380,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-12"
+  },
+  {
+    "trial_id": "trial-13",
+    "task": {
+      "task_id": "sequence-deep-separate",
+      "family": "sequence_induction",
+      "semantic_instance": "opaque-total-append-001",
+      "lineage": "inspected Total/Append induction; new opaque stage contracts",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "deep",
+      "sharing": "separate",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "client_count": 2,
+      "reference_depth": {
+        "provider_stages_per_induction_step": {
+          "shallow": 1,
+          "deep": 3
+        },
+        "recursive_edge": "Prove(s[1..],t), not a finite acyclic depth"
+      },
+      "reference_depth_not_minimal": true,
+      "variables": [
+        "s",
+        "t"
+      ],
+      "calls": {
+        "End.Base": 2,
+        "S1.Split": 2,
+        "S2.Lift": 2,
+        "End.Finish": 2,
+        "Prove": 2
+      },
+      "source_sha256": {
+        "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+        "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+        "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+        "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+        "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+        "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+        "HelperB.dfy": "ea66c31b6ab3f8d2e3676042ed87d9fd6863f731dfbf336595b4bf362b4f05bb",
+        "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 3343,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": "remaining-families-001/revision-002",
+      "prompt_sha256": "e0ae382f430274be0a6f6b602de04dde2b59b8cd5a7df3939b9cda26d45a580e",
+      "prompt_utf8_bytes": 5947,
+      "editable_body_count": 2,
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar"
+    },
+    "original_response_sha256": "20a83ac249aadf853f6cbd2f3eee9b64aef5cc81d2c01f4575167f02b8252bf6",
+    "original_reason": "Protected source changed",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "original_edit_sha256": {
+      "HelperA.dfy": "22a929ed989382c2cb4ddf89b98f887410b65a321681e30a6a9ae7f36ce12c80",
+      "HelperB.dfy": "e033265541d2390ee3aecae02fe7851f4dd3284e4f15ecb6cadeb287c0fe528a"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ace0d18bd35b7939f28282f3214d7dbe772dd3fd65b10dea786fc89f781974c1",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "66a20ab34cbe8bd6f99c0dd162ffc810300f1adba4297244b5215ee2a1afde7d",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "ea66c31b6ab3f8d2e3676042ed87d9fd6863f731dfbf336595b4bf362b4f05bb",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              "==",
+              [
+                "length",
+                [
+                  "variable",
+                  "s"
+                ]
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "call",
+                "End.Base",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "Prove",
+                [
+                  [
+                    "slice",
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "1"
+                    ],
+                    null
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S1.Split",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Lift",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "HelperB.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              "==",
+              [
+                "length",
+                [
+                  "variable",
+                  "s"
+                ]
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "call",
+                "End.Base",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "Prove",
+                [
+                  [
+                    "slice",
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "1"
+                    ],
+                    null
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S1.Split",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Lift",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1060,
+      "end": 2166,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-13"
+  },
+  {
+    "trial_id": "trial-17",
+    "task": {
+      "task_id": "conditional-deep-shared",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "deep",
+      "sharing": "shared",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 3,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "S1": "Stage1",
+            "S2": "Stage2",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+        "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2598,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "S1.Start": 2,
+        "S2.Advance": 2,
+        "End.Finish": 2
+      },
+      "prompt_sha256": "d51bc0a1e17ce1a37972b03e01b014bb005874fd19f09e9d12b52de6fb416ac2",
+      "prompt_utf8_bytes": 5101,
+      "editable_body_count": 1
+    },
+    "original_response_sha256": "861e5ba860e5147ce9a19f4f0c3d355c2b64ed28fcb7ee7c5d02cdc7700bd099",
+    "original_reason": "Unknown expression name",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [],
+    "original_edit_sha256": {
+      "HelperA.dfy": "b42d75d463c00bdb771970bfdd6f93fbb4f02ed79e87274dc6c9e7f76d95d7cf"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "b42d75d463c00bdb771970bfdd6f93fbb4f02ed79e87274dc6c9e7f76d95d7cf",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "S1.Start",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "S2.Advance",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "End.Finish",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1572,
+      "end": 2221,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-17"
+  },
+  {
+    "trial_id": "trial-20",
+    "task": {
+      "task_id": "sequence-deep-separate",
+      "family": "sequence_induction",
+      "semantic_instance": "opaque-total-append-001",
+      "lineage": "inspected Total/Append induction; new opaque stage contracts",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "deep",
+      "sharing": "separate",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "client_count": 2,
+      "reference_depth": {
+        "provider_stages_per_induction_step": {
+          "shallow": 1,
+          "deep": 3
+        },
+        "recursive_edge": "Prove(s[1..],t), not a finite acyclic depth"
+      },
+      "reference_depth_not_minimal": true,
+      "variables": [
+        "s",
+        "t"
+      ],
+      "calls": {
+        "End.Base": 2,
+        "S1.Split": 2,
+        "S2.Lift": 2,
+        "End.Finish": 2,
+        "Prove": 2
+      },
+      "source_sha256": {
+        "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+        "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+        "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+        "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+        "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+        "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+        "HelperB.dfy": "ea66c31b6ab3f8d2e3676042ed87d9fd6863f731dfbf336595b4bf362b4f05bb",
+        "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 3343,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": "remaining-families-001/revision-002",
+      "prompt_sha256": "e0ae382f430274be0a6f6b602de04dde2b59b8cd5a7df3939b9cda26d45a580e",
+      "prompt_utf8_bytes": 5947,
+      "editable_body_count": 2,
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar"
+    },
+    "original_response_sha256": "720fe368e2935e5e72b9961407d33f788c1d9eddb6944b318b7af0dc487ab773",
+    "original_reason": "Protected source changed",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "original_edit_sha256": {
+      "HelperA.dfy": "22a929ed989382c2cb4ddf89b98f887410b65a321681e30a6a9ae7f36ce12c80",
+      "HelperB.dfy": "e033265541d2390ee3aecae02fe7851f4dd3284e4f15ecb6cadeb287c0fe528a"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "ace0d18bd35b7939f28282f3214d7dbe772dd3fd65b10dea786fc89f781974c1",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "66a20ab34cbe8bd6f99c0dd162ffc810300f1adba4297244b5215ee2a1afde7d",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "a6b10afaef2f4c593fc994b6034aaaeb6d3a2925d5c2a0b4b0127ca63e5cc605",
+      "ClientB.dfy": "8b04d4eb4c3b3e96b8d74a7359c0c219d2b18baa3a514a7cbaf30feca178824d",
+      "Stage1.dfy": "bbebaa5498ab3266b91b0438d79a3b2471829e02818e84169a6dbf93abeac992",
+      "HelperA.dfy": "b111e8aa0da702de5bdef20f59e435255ec1a37f18f82c52b8381b55af0e3716",
+      "Kernel.dfy": "dcbf18005c008b01e76d5680fa3b4575f3de02248dce9b26491c9fbd12e95a31",
+      "Stage2.dfy": "57c6165e634298aff6c7d904368ddc10e4041957a5e09e9fc32973e6b30eb949",
+      "HelperB.dfy": "ea66c31b6ab3f8d2e3676042ed87d9fd6863f731dfbf336595b4bf362b4f05bb",
+      "Stage3.dfy": "5b69bd4cac773513a0440cbfa753d44a66accbded8f42514c43a5a23ac5aacff",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              "==",
+              [
+                "length",
+                [
+                  "variable",
+                  "s"
+                ]
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "call",
+                "End.Base",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "Prove",
+                [
+                  [
+                    "slice",
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "1"
+                    ],
+                    null
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S1.Split",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Lift",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "HelperB.dfy": [
+          [
+            "if",
+            [
+              "binary",
+              "==",
+              [
+                "length",
+                [
+                  "variable",
+                  "s"
+                ]
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "call",
+                "End.Base",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "call",
+                "Prove",
+                [
+                  [
+                    "slice",
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "1"
+                    ],
+                    null
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S1.Split",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "S2.Lift",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "End.Finish",
+                [
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "variable",
+                    "t"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1058,
+      "end": 2164,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-20"
+  },
+  {
+    "trial_id": "trial-21",
+    "task": {
+      "task_id": "conditional-shallow-separate",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "shallow",
+      "sharing": "separate",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 1,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "End": "Stage3"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+        "HelperB.dfy": "4a7ede78d3928c0579adb3b2a5adcf5528e8d6185609ae0a66c15a678a4c18d4",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2576,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "End.Direct": 2
+      },
+      "prompt_sha256": "2e5805312c592739a1c5421bbda39741c9a0f56a17e42dc17078dfd538995d8d",
+      "prompt_utf8_bytes": 5049,
+      "editable_body_count": 2
+    },
+    "original_response_sha256": "956de0f41555a991dcd33cadf62de7d2b373f43468974893e4d2b4bd1ebc6375",
+    "original_reason": "Unknown expression name",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [],
+    "original_edit_sha256": {
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e",
+      "HelperB.dfy": "ec9416dfdcdfe72f80444eb39fa20c09b8ea75c32a7ae867c03fca8eb1cfad40"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "ec9416dfdcdfe72f80444eb39fa20c09b8ea75c32a7ae867c03fca8eb1cfad40",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "4a7ede78d3928c0579adb3b2a5adcf5528e8d6185609ae0a66c15a678a4c18d4",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "End.Direct",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "HelperB.dfy": [
+          [
+            "call",
+            "End.Direct",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1255,
+      "end": 2121,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-21"
+  },
+  {
+    "trial_id": "trial-25",
+    "task": {
+      "task_id": "conditional-shallow-shared",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "shallow",
+      "sharing": "shared",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 1,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+        "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2545,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "End.Direct": 2
+      },
+      "prompt_sha256": "c6535a2c07b8d0fda0d8ad5de140476af312e581458913dc8b5caf7bea95b652",
+      "prompt_utf8_bytes": 4969,
+      "editable_body_count": 1
+    },
+    "original_response_sha256": "aaff3cefab5c2d549d048e5ce8ba180d93156edd6878b218af882fa040bedd65",
+    "original_reason": "Unknown expression name",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [],
+    "original_edit_sha256": {
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "7b5af9c2db30033dd783dfc71a20655a76e7986610637e7349fa6fb83eaea19e",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "8d5de792f9cfa9108796e0f96e8a812491a12151ad251e08ba35e7b8987e53e5",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "End.Direct",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1476,
+      "end": 1910,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-25"
+  },
+  {
+    "trial_id": "trial-29",
+    "task": {
+      "task_id": "conditional-deep-separate",
+      "family": "conditional_preconditions",
+      "semantic_instance": "dependent-reflection-001",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "deep",
+      "sharing": "separate",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar",
+      "client_count": 2,
+      "reference_contract_application_chain": 3,
+      "reference_chain_not_proven_minimal": true,
+      "imports": {
+        "modules": [
+          "Kernel",
+          "Stage1",
+          "Stage2",
+          "Stage3",
+          "HelperA",
+          "HelperB",
+          "ClientA",
+          "ClientB"
+        ],
+        "imports": {
+          "Kernel": {},
+          "Stage1": {
+            "K": "Kernel"
+          },
+          "Stage2": {
+            "K": "Kernel"
+          },
+          "Stage3": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "S1": "Stage1",
+            "S2": "Stage2",
+            "End": "Stage3"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "S1": "Stage1",
+            "S2": "Stage2",
+            "End": "Stage3"
+          },
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          }
+        }
+      },
+      "source_sha256": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+        "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2682,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": ".",
+      "variables": [
+        "x",
+        "y"
+      ],
+      "calls": {
+        "S1.Start": 2,
+        "S2.Advance": 2,
+        "End.Finish": 2
+      },
+      "prompt_sha256": "5cc30e8a80bed33b2900658ee6d45e74b7c74b4ffabe5cd28c346312eb654a86",
+      "prompt_utf8_bytes": 5281,
+      "editable_body_count": 2
+    },
+    "original_response_sha256": "db4a86a398d973c807dea0aab4de52f8913276d065fdeee7a49537cbbcb6a76d",
+    "original_reason": "Unknown expression name",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [],
+    "original_edit_sha256": {
+      "HelperA.dfy": "b42d75d463c00bdb771970bfdd6f93fbb4f02ed79e87274dc6c9e7f76d95d7cf",
+      "HelperB.dfy": "6b01119954a30d4ff2aa37f064d9af79bdcb2e8e4507c4fc296d55f470a3f27f"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "b42d75d463c00bdb771970bfdd6f93fbb4f02ed79e87274dc6c9e7f76d95d7cf",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "6b01119954a30d4ff2aa37f064d9af79bdcb2e8e4507c4fc296d55f470a3f27f",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+      "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+      "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+      "HelperA.dfy": "f2fa6472724ac7478497ba4a0f08584a852ea470e31f4d6ca8d72e83882efa8c",
+      "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+      "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+      "HelperB.dfy": "ab0ba3379f6c5602316d3cc8973180070cdab8bfd6ad484789e72fbf1472a4cb",
+      "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "S1.Start",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "S2.Advance",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "End.Finish",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "HelperB.dfy": [
+          [
+            "call",
+            "S1.Start",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "S2.Advance",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "End.Finish",
+            [
+              [
+                "pure",
+                "K.Abs",
+                [
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "if_expression",
+                [
+                  "binary",
+                  ">=",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "pure",
+                    "K.Abs",
+                    [
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "variable",
+                  "y"
+                ],
+                [
+                  "binary",
+                  "-",
+                  [
+                    "binary",
+                    "+",
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "pure",
+                      "K.Abs",
+                      [
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 1435,
+      "end": 2731,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-29"
+  },
+  {
+    "trial_id": "trial-30",
+    "task": {
+      "task_id": "relational-deep-shared",
+      "family": "relational_join",
+      "semantic_instance": "bounded-transitive-diamond-001",
+      "lineage": "development relation/diamond ancestry; two facts share a join witness",
+      "split": "calibration-development",
+      "repository_boundary": "single_monorepo_workspace",
+      "depth": "deep",
+      "sharing": "shared",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy"
+      ],
+      "client_count": 2,
+      "reference_depth": {
+        "provider_critical_path_stages": {
+          "shallow": 1,
+          "deep": 3
+        },
+        "call_count": {
+          "shallow": 1,
+          "deep": 4
+        },
+        "deep_shape": "two Stage1 facts -> Stage2.Join -> Stage3.Finish"
+      },
+      "reference_depth_not_minimal": true,
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "calls": {
+        "S1.Left": 2,
+        "S1.Right": 2,
+        "S2.Join": 3,
+        "End.Finish": 3
+      },
+      "source_sha256": {
+        "Kernel.dfy": "5e256ef95dd9d1baa1003d538140f3dccab9a1b7799f656a1a682c09313942e2",
+        "Stage1.dfy": "7257a800868eee773acf4d92dfddb583f72adb170184b59605ce131c336d4f51",
+        "Stage2.dfy": "f3f32c7ec1ca3b616eca42c016c49caddfb43ac0505ac7a83d55e639906e3d12",
+        "Stage3.dfy": "080f64f70891ce57aabd920b6f32903b16e8ab424ee62e9dc4d157b61d7ba541",
+        "HelperA.dfy": "f49e5b1deb25836a3306d78dc48ec562c4ceb126f58ae27e78b987083936491b",
+        "HelperB.dfy": "7bc980a9c17d1199547cd9a25c3b036594500055173ba6524b713fc7164bd2dc",
+        "ClientA.dfy": "8614fe53c14c15f8985aeeb0048836ed8dd225df963253aa56402269e2b32ba2",
+        "ClientB.dfy": "19e009a8a2973be6079ca8ae94dff4cba192be2c2d90eb94ed9746b3092b7063",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "bytes": 2520,
+      "includes": {
+        "Kernel.dfy": [],
+        "Stage1.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage2.dfy": [
+          "Kernel.dfy"
+        ],
+        "Stage3.dfy": [
+          "Kernel.dfy"
+        ],
+        "HelperA.dfy": [
+          "Kernel.dfy",
+          "Stage1.dfy",
+          "Stage2.dfy",
+          "Stage3.dfy"
+        ],
+        "HelperB.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientA.dfy": [
+          "Kernel.dfy",
+          "HelperA.dfy"
+        ],
+        "ClientB.dfy": [
+          "Kernel.dfy",
+          "HelperB.dfy"
+        ],
+        "All.dfy": [
+          "ClientA.dfy",
+          "ClientB.dfy"
+        ]
+      },
+      "fixture_root": "remaining-families-001",
+      "prompt_sha256": "5401a16edb83b48dab376f3b1f99429d99813f54909a841762bbe464dfad67f2",
+      "prompt_utf8_bytes": 5030,
+      "editable_body_count": 1,
+      "editable_scope": "Prove bodies only; exact immutable bytes and calibration-body-v1 grammar"
+    },
+    "original_response_sha256": "90d29c6b499b550c0f2e712b9cf31965b6cd134d6d931947419157405adb0c12",
+    "original_reason": "Protected source changed",
+    "normalization": "append one final LF only if absent; no other source or escape repair",
+    "appended_lf": [
+      "HelperA.dfy"
+    ],
+    "original_edit_sha256": {
+      "HelperA.dfy": "b1273b3ff436e69e2e892f6f3a28f353e6d4dcc38fc0a5a1bc1bbabdfd905f13"
+    },
+    "candidate_sha256": {
+      "ClientA.dfy": "8614fe53c14c15f8985aeeb0048836ed8dd225df963253aa56402269e2b32ba2",
+      "ClientB.dfy": "19e009a8a2973be6079ca8ae94dff4cba192be2c2d90eb94ed9746b3092b7063",
+      "Stage1.dfy": "7257a800868eee773acf4d92dfddb583f72adb170184b59605ce131c336d4f51",
+      "HelperA.dfy": "20e2331727f1ae97b70972456395c588b6cd801ab6531b1e9476480d2aabb224",
+      "Kernel.dfy": "5e256ef95dd9d1baa1003d538140f3dccab9a1b7799f656a1a682c09313942e2",
+      "Stage2.dfy": "f3f32c7ec1ca3b616eca42c016c49caddfb43ac0505ac7a83d55e639906e3d12",
+      "HelperB.dfy": "7bc980a9c17d1199547cd9a25c3b036594500055173ba6524b713fc7164bd2dc",
+      "Stage3.dfy": "080f64f70891ce57aabd920b6f32903b16e8ab424ee62e9dc4d157b61d7ba541",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "parent_sha256": {
+      "ClientA.dfy": "8614fe53c14c15f8985aeeb0048836ed8dd225df963253aa56402269e2b32ba2",
+      "ClientB.dfy": "19e009a8a2973be6079ca8ae94dff4cba192be2c2d90eb94ed9746b3092b7063",
+      "Stage1.dfy": "7257a800868eee773acf4d92dfddb583f72adb170184b59605ce131c336d4f51",
+      "HelperA.dfy": "f49e5b1deb25836a3306d78dc48ec562c4ceb126f58ae27e78b987083936491b",
+      "Kernel.dfy": "5e256ef95dd9d1baa1003d538140f3dccab9a1b7799f656a1a682c09313942e2",
+      "Stage2.dfy": "f3f32c7ec1ca3b616eca42c016c49caddfb43ac0505ac7a83d55e639906e3d12",
+      "HelperB.dfy": "7bc980a9c17d1199547cd9a25c3b036594500055173ba6524b713fc7164bd2dc",
+      "Stage3.dfy": "080f64f70891ce57aabd920b6f32903b16e8ab424ee62e9dc4d157b61d7ba541",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "guard_decision": {
+      "version": "diagnostic-inline-if-v1",
+      "syntax_trees": {
+        "HelperA.dfy": [
+          [
+            "call",
+            "S1.Left",
+            [
+              [
+                "variable",
+                "x"
+              ],
+              [
+                "variable",
+                "y"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "S1.Right",
+            [
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "variable",
+                "z"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "S2.Join",
+            [
+              [
+                "variable",
+                "x"
+              ],
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "variable",
+                "z"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "End.Finish",
+            [
+              [
+                "variable",
+                "x"
+              ],
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "variable",
+                "z"
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "extraction": {
+      "start": 879,
+      "end": 1346,
+      "policy": "exact JSON substring; no source or escape repair"
+    },
+    "path": "fixtures/trial-30"
+  }
+]

@@ -1,5 +1,10 @@
 # Frozen 32-call monorepo calibration — bounded execution
 
+**Complete and audited: 32 calls, zero retries, 18/32 original strict successes.**
+The separate verifier-only diagnostic passed 11/11 selected cases without new
+model calls or changes to the original score. [Results and next gates](RESULTS.md).
+Preparation/submission checkpoints below are retained as history.
+
 The user authorized the 32-call pilot on October 28, 2026, with frozen prompts and
 no retries, plus two hours of monitoring/analysis through October 29 01:47:35 UTC
 (October 28 9:47 PM Eastern). This budget is **32 total**, not per follow-up.
@@ -56,10 +61,13 @@ Results pending. Do not resubmit or launch a standalone runner.
 
 ## Completed original pilot
 
-Job56019657 completed in **7m20s**, exit0: all32requests,32uniqueIDs,zeroSDKretries,
+Job 56019657 completed in **7m20s**, exit0: all32 requests,32 unique IDs,zero SDK retries,
 101,595tokens. Full frozen/runtime/source/guard/request evidence reviewed.
-[Results](RESULTS.md): **18/32** strict successes;14output rejections and no
-verifier failures among admitted candidates. Family totals: conditional0/8,
-sequence3/8,relational7/8,map8/8. This is output-policy-confounded calibration,
+[Results](RESULTS.md): **18/32** strict successes;14 output rejections and no
+verifier failures among admitted candidates. Family totals: conditional 0/8,
+sequence 3/8,relational 7/8,map 8/8. This is output-policy-confounded calibration,
 not evidence of a reasoning-depth effect. Raw failures remain in model-001.
-A separate non-paid diagnostic is pending; the frozen score stays unchanged.
+The separate [non-paid diagnostic](diagnostic-001/README.md) completed:
+11/11 checked responses verified after precisely logged output-policy adjustments;
+zero new calls. Frozen score stays 18/32. Main-corpus scale-up is deferred; see
+[RESULTS.md](RESULTS.md) for the next gates. No jobs remain active.

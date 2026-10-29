@@ -1,5 +1,10 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
+**Current gate:** the authorized 32-call calibration is complete and published.
+Main collection is deferred because of output-policy confounding and ceiling risk;
+see the execution update at the end. No further model calls are authorized.
+The preparation plan below is retained to show the original design.
+
 **Plan updated October 28, 2026 following Nada’s scope feedback. No model calls are
 authorized. The user authorized non-paid calibration construction and verifier checks.** The initial Weeks 1–4 milestones
 are recorded in [the acceptance review](weeks1-4-acceptance.md). This plan defines
@@ -272,3 +277,25 @@ requests, credentials or live dispatcher are used in this preparation.
 Next: review this frozen scope and obtain separate 32-call approval before binding
 a bounded dispatcher to it. Do not run the main 192 calls until calibration has
 been analyzed. The larger main corpus is not built or frozen by this milestone.
+
+## Calibration execution and scale-up gate (October 28 Eastern)
+
+The separately authorized [32-call pilot](../experiments/monorepo-calibration-pilot-001/RESULTS.md)
+completed in 7m20s:32 requests,32 unique IDs,zero SDK retries,101,595 tokens. Frozen
+end-to-end score **18/32**:conditional 0/8,sequence 3/8,relational 7/8,map 8/8.
+All fourteen other responses failed output checks before verification; all eighteen
+admitted candidates verified. This is not evidence that deeper reasoning failed.
+
+Five rejections were missing final newlines, six used unsupported pure inline if
+expressions, and three failed the frozen JSON-wrapper rule. A separately logged
+verifier-only diagnostic checked the first eleven with exact limited output-policy
+adjustments: **11/11 verified**, no new requests. Original scores remain unchanged;
+the three wrapper cases are not evaluated. Full raw archives and guarded-source
+audits are published, including all failures.
+
+**Do not start the main 192-call collection.** First version the output protocol
+(body-only insertion and explicitly supported pure expression grammar), then
+strengthen obligations and verifier controls where ceiling risk is apparent.
+Any revised calibration needs a new freeze and separately approved call budget;
+this run exhausted its 32 calls. Earlier no-execution statements in this document
+record the preparation stage, not the current authorization history.
