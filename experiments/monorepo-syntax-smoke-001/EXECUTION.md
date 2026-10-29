@@ -51,3 +51,18 @@ or sbatch. A redundant temporary dataset download was removed only after all 1,6
 files were matched byte-for-byte to existing local copies. The subsequent command
 rechecked remote state and submitted once; these local failures caused no requests
 or Slurm jobs. No experimental evidence was removed.
+
+## Scheduler adjustment and local disk limitation
+
+The mixed test/shared/sapphire update failed. A subsequent in-place change to
+sapphire succeeded, with live PreemptMode=OFF; job 56210087 retained 2 CPUs,
+8 GB, 30 minutes, no requeue and the eight-call cap. Both attempts are archived
+in scheduling-adjustment-001.json and scheduling-adjustment-002.json. No new job
+was submitted. The latest observed state is pending, without a start estimate.
+
+The local Mac disk filled again and prevented Git from creating its lock file.
+Submission and scheduling evidence were therefore published through the GitHub
+connection after verifying the account's author/committer identity. The local
+checkout is behind the remote API commits and needs synchronization after space
+is available; preserve local edits and compare them with the remote before syncing.
+Cluster outputs remain independent of the local disk. No model results yet.

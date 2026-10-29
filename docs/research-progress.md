@@ -362,3 +362,8 @@ After private key readiness, smoke job **56210087** was submitted once at 19:47:
 UTC October 29 on live-confirmed nonpreemptible test. The exact eight-call scope
 and runtime are bound by authorization.json; no retries, requeue or reassignment.
 Results are pending. Earlier local disk-space failures occurred before submission.
+
+The same pending smoke job was subsequently moved in place to sapphire after
+live PreemptMode=OFF verification. A mixed-partition update failed first; both
+attempts are archived. No duplicate job was created. Local disk exhaustion
+blocks checkout synchronization, so evidence publication uses GitHub directly.
