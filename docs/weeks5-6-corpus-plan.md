@@ -2,9 +2,9 @@
 
 **Current gate (October 29):** both 32-call calibrations are complete. The revised
 run produced 1/32 strict passes and 31 body-syntax rejections, all first failing at
-`then` where `{` was required. Main collection remains deferred pending explicit
-statement-syntax instructions and offline protocol validation. No further calls
-are authorized. See the completion update below.
+`then` where `{` was required. A separate prompt-only syntax revision now passes offline validation; parser
+and sources remain unchanged. Main collection remains deferred, and model
+adherence to the revised instructions is unmeasured. No further calls are authorized. See the completion update below.
 
 The preparation history below is retained; its earlier authorization statements
 describe those checkpoints, not the current completed execution. The initial
@@ -349,3 +349,13 @@ sharing/depth effect. Preserve both calibration scores and failed evidence.
 Next: clarify statement blocks versus pure conditional expressions in a separately
 reviewed protocol, test offline, and freeze any later proposal before requesting
 a new budget. The main 192-call study is still deferred and unauthorized.
+
+## Syntax-only revision validated offline (October 29)
+
+[statement-syntax-v1](../experiments/monorepo-calibration-syntax-001/README.md)
+clarifies statement versus expression conditionals and adds neutral JSON/body
+examples to all 16 prompts. Nine offline test methods pass, including 16 exact
+reference replays and 32 unchanged historical response outcomes. No new model
+or Dafny calls were made, and the parser is byte-identical. The revised 32-slot
+prompt bundle is reviewable and hash-frozen, with no execution authorization.
+This does not establish improved model adherence; main collection remains gated.

@@ -1,0 +1,433 @@
+{
+  "model_calls": 0,
+  "new_dafny_runs": 0,
+  "parser_changed": false,
+  "frozen_sha256": "cfa8ae517c07751f45591ce52d91c3f63240dee167f9ffbdf83b5a282799cd32",
+  "previously_verified_reference_replays": [
+    {
+      "task_id": "conditional-shallow-shared",
+      "reference_hashes": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "54424bc47241185e70926122ab9aeb5c94b2500d754222d82559f7da1ad8df16",
+        "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-001/verification-001/conditional-shallow-shared-reference.json",
+      "prior_verifier_sha256": "5584708cfcb0276ca279b793e45ce479195cc0406d9bebf24cad6c4d227c53a4"
+    },
+    {
+      "task_id": "conditional-shallow-separate",
+      "reference_hashes": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "54424bc47241185e70926122ab9aeb5c94b2500d754222d82559f7da1ad8df16",
+        "HelperB.dfy": "18b0aba82d827a86e72c99ba847c666c577ac42bf712d8b6ccd73c334444713d",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-001/verification-001/conditional-shallow-separate-reference.json",
+      "prior_verifier_sha256": "651b47cdd06235a9e42837d461a69962eacddf89b44dea2291fc604109d15ae1"
+    },
+    {
+      "task_id": "conditional-deep-shared",
+      "reference_hashes": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "d990d3187711eb280724b012d88da944a33e8548fc84059887aad8cddef3d048",
+        "HelperB.dfy": "393bf7eb85c384bafd8a3ebe726d3402ae18d10704a587eff3443a63a2404681",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-001/verification-001/conditional-deep-shared-reference.json",
+      "prior_verifier_sha256": "5f6b47c69ec258b0718fea343899cd1a67fdd5e3579c4bc9188c3a8f861b7558"
+    },
+    {
+      "task_id": "conditional-deep-separate",
+      "reference_hashes": {
+        "Kernel.dfy": "70520ae5bf5cb928727cafafb0889f0983217072ea7c14d1580ad482b1b054dd",
+        "Stage1.dfy": "8329aab6de978ecdfdadb85369c82ff3bffcf335deb3f216987314f80c57c8ab",
+        "Stage2.dfy": "8f2b04065f4b9a2a251a1b6bd7e45b4e9c2993b9dedb91606a6d0a2dd2d6905a",
+        "Stage3.dfy": "dfdc1cffc05ef9b51459b0d1efa613b5e6ea68be5c76f98ccb71da3f8b379631",
+        "HelperA.dfy": "d990d3187711eb280724b012d88da944a33e8548fc84059887aad8cddef3d048",
+        "HelperB.dfy": "917a2e05c2e68afdcff319641454b05d42414ecb4deb41c40e1719b3b856a520",
+        "ClientA.dfy": "0949a64dce36a42e9c2e2077f32d8b989a8df58bfdc3c17555771c09ffa0ea0e",
+        "ClientB.dfy": "22172b19ae95f234045afa42338389f42f047ec46fc46d5fc02a66211fd12e85",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-001/verification-001/conditional-deep-separate-reference.json",
+      "prior_verifier_sha256": "d3636f6ff9ef25ae161606b4d45560d9d527dfbd0dbb4d9c1e87ba1f9e91b540"
+    },
+    {
+      "task_id": "transfer-shallow-shared",
+      "reference_hashes": {
+        "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+        "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+        "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+        "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+        "HelperA.dfy": "4300cf3a6b66a8ef83d4e655c04d2f7cba81ed6f42633928b5ff42cc7998d923",
+        "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+        "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+        "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/verification-001/transfer-shallow-shared-reference.json",
+      "prior_verifier_sha256": "1605807bb1dc323de22f160d4a7526b555ee964d5e8ac4ec615dcfdd1ce2b9fe"
+    },
+    {
+      "task_id": "transfer-shallow-separate",
+      "reference_hashes": {
+        "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+        "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+        "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+        "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+        "HelperA.dfy": "4300cf3a6b66a8ef83d4e655c04d2f7cba81ed6f42633928b5ff42cc7998d923",
+        "HelperB.dfy": "23ada953f0f528f32519714405ce50000e25fa20a1670dfe884782f0b009bd9f",
+        "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+        "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/verification-001/transfer-shallow-separate-reference.json",
+      "prior_verifier_sha256": "e1fd6bbd0a950b658b1d439be6955b67ddb7cd095e25ee51f816b45c115f1d6c"
+    },
+    {
+      "task_id": "transfer-deep-shared",
+      "reference_hashes": {
+        "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+        "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+        "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+        "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+        "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+        "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+        "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+        "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-shared-reference.json",
+      "prior_verifier_sha256": "478ad96c91a4822435ab99349aa42b72b1a8e7fbb3a0ceebe7fbb4140aad299e"
+    },
+    {
+      "task_id": "transfer-deep-separate",
+      "reference_hashes": {
+        "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+        "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+        "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+        "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+        "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+        "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+        "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+        "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/verification-001/transfer-deep-separate-reference.json",
+      "prior_verifier_sha256": "531c9dd59b270d5a181178d9f26f92c0b60a45c8a1258987ef167d11b23fac52"
+    },
+    {
+      "task_id": "offset-shallow-shared",
+      "reference_hashes": {
+        "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+        "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+        "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+        "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+        "HelperA.dfy": "5eef3f779f18dd04101877da253323a6fc735d763aab91ab7173c7b922cbfb88",
+        "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+        "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+        "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-shallow-shared-reference.json",
+      "prior_verifier_sha256": "fd60d8da72e094fe1feeba2527cd10f5312c89848bb648e69142906f927e7cab"
+    },
+    {
+      "task_id": "offset-shallow-separate",
+      "reference_hashes": {
+        "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+        "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+        "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+        "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+        "HelperA.dfy": "5eef3f779f18dd04101877da253323a6fc735d763aab91ab7173c7b922cbfb88",
+        "HelperB.dfy": "e92cd859d865cb9d8475acb606b0a84fab54647c486807b0dfb066c6c83d67cf",
+        "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+        "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-shallow-separate-reference.json",
+      "prior_verifier_sha256": "4465d319046ea60bc980cbb9ffdd5e6a09bee409556d1c4747d70cc728d9d36a"
+    },
+    {
+      "task_id": "offset-deep-shared",
+      "reference_hashes": {
+        "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+        "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+        "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+        "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+        "HelperA.dfy": "b79978d1883ba3790c434bdedeb59f184951c091c07da5ba3ea600da0d55c00f",
+        "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+        "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+        "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-shared-reference.json",
+      "prior_verifier_sha256": "94b8efb865482a59e8483767e9282d4ede5947b65bb04f120c5ab23d715b929b"
+    },
+    {
+      "task_id": "offset-deep-separate",
+      "reference_hashes": {
+        "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+        "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+        "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+        "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+        "HelperA.dfy": "b79978d1883ba3790c434bdedeb59f184951c091c07da5ba3ea600da0d55c00f",
+        "HelperB.dfy": "da6254a7fedda815b11a710914ee6eedb9586d41ba23db72939bed414ec4ebb8",
+        "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+        "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/verification-001/offset-deep-separate-reference.json",
+      "prior_verifier_sha256": "806ffa427976bdb1f5cfbf66e5b2921cf870f4b10602036e991c523a30f86157"
+    },
+    {
+      "task_id": "witness-shallow-shared",
+      "reference_hashes": {
+        "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+        "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+        "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+        "HelperA.dfy": "9368bec32828bfa93618e2588fef23988f069c7313f32ba137c8f063313af1d6",
+        "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+        "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+        "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+        "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-shallow-shared-reference.json",
+      "prior_verifier_sha256": "746108dbb325752cfacff3363031100b6b2cfb182ce018d2696f367da6d74a96"
+    },
+    {
+      "task_id": "witness-shallow-separate",
+      "reference_hashes": {
+        "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+        "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+        "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+        "HelperA.dfy": "9368bec32828bfa93618e2588fef23988f069c7313f32ba137c8f063313af1d6",
+        "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+        "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+        "HelperB.dfy": "68d48ac8edefb3488268b0fa8facf8b691215a9fb155eba3b7d66fdc29ee472b",
+        "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-shallow-separate-reference.json",
+      "prior_verifier_sha256": "81b6aec2616c570dec93979ff6d998370db49200735d7b6a48af46166595e5aa"
+    },
+    {
+      "task_id": "witness-deep-shared",
+      "reference_hashes": {
+        "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+        "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+        "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+        "HelperA.dfy": "bcb7210f6a2b0766c6bd9c062fcc4345a5e5350886089d91bb9ac7efb9d1ff07",
+        "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+        "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+        "HelperB.dfy": "1b540f7e15a3ac1936c4fa6f6edb6e7cbeffd8260230372b857ce6c0fe2f93cc",
+        "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-shared-reference.json",
+      "prior_verifier_sha256": "3fa16a9221d665348f44c3b9911aa17ee5446a390d1ee6178f68442a2b21281a"
+    },
+    {
+      "task_id": "witness-deep-separate",
+      "reference_hashes": {
+        "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+        "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+        "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+        "HelperA.dfy": "bcb7210f6a2b0766c6bd9c062fcc4345a5e5350886089d91bb9ac7efb9d1ff07",
+        "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+        "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+        "HelperB.dfy": "16ff42f0eb6c664b8c5a473358f5ed430d47253b8c164679082ed31e85d1d50c",
+        "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "prior_verifier_log": "experiments/monorepo-calibration-v2-001/remaining-families-001/revision-003/verification-001/witness-deep-separate-reference.json",
+      "prior_verifier_sha256": "2ee094361473f63006e3b5cf3385177496ebde5b95a576f0d91d9d7c4e8c82e2"
+    }
+  ],
+  "historical_response_replays": [
+    {
+      "trial_id": "trial-01",
+      "response_sha256": "aff98c77f129fc83e37ebbd3be09b2776b538a7129e42f3be47d322106e596b7",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-02",
+      "response_sha256": "7824dbbfb5d46f1c3ff3fc01dba6796a9b5341db49ce097813433f36d5115f0f",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-03",
+      "response_sha256": "3a01664388d92a0802ecf26f077adbbde43aeed6d7e7edf21525d4dcfc0a7e3a",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-04",
+      "response_sha256": "449135478cb1a641f911bcd76ceeaf6759aff8b0560575e7e3287e050e78ba62",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-05",
+      "response_sha256": "89d4187f8bfb51b9abf4f59e571a5e708db73c366fff7d1bc36eae623a357741",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-06",
+      "response_sha256": "c94281d0f57b0a5b32216247df090f09c6c283d1780ea3f255c28714c1b1d487",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-07",
+      "response_sha256": "b2c2587c0186384a6fa8e14723b7dfdd328564f6a867ed24664205135354bee0",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-08",
+      "response_sha256": "d54e90eb267fe837d1afcf6bf924cb8acc5561265a0bcdb000cfef31d3eaea27",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-09",
+      "response_sha256": "66b1aefcb75887dc443bbc5cd34bf5540b55d6383f06f1a98b6ec06551864b39",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-10",
+      "response_sha256": "5825bb16ab529653a0f3914e466e9d9154b1352d182e4d653f51a8244a71ef53",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-11",
+      "response_sha256": "2564cbab4d263f24cb2e76230d755003e09e2651af734d508f08cdec03fa5e40",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-12",
+      "response_sha256": "07f643eb5ad2d46b483219291c828f54d4e07871f048c3f1f67aa3b16aa1df0e",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-13",
+      "response_sha256": "62bc8215f3b7020da9daee5fac39a98cd070f01dd23fc4cfbc34ade7c10d4e6e",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-14",
+      "response_sha256": "9c7fb52c366208f112d56ba10f8a5897f8aed1c04752e2d3ca83ab83a6cba564",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-15",
+      "response_sha256": "203578774e12f1d929edd94525b55627ae56942d1ea6bc19d3109fbc0af165be",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-16",
+      "response_sha256": "1fc3b6e174ea9736244d3c78240640b585abfd57fb48685a2b2b768b7c7ac70b",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-17",
+      "response_sha256": "26e588491af801de34632224cc46e3a631e52116276f65ff280ccf5260487af4",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-18",
+      "response_sha256": "8407124928cf22cd7537f1c793fb69325ab8d8259753fb7b19da73a709bde4ff",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-19",
+      "response_sha256": "0b075c00c1eee447782b068d014d0038f81ca2c63d936efcac8d0ee9b071252b",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-20",
+      "response_sha256": "ef8c05c623c9709c9dccc2c38e64fa8e34b6c077b4685afcae6d1c9ab5136804",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-21",
+      "response_sha256": "1724c3f6430672a39ec329c1b490af9d738fefeb340fe978cb3cb1d76c3e558a",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-22",
+      "response_sha256": "747688c346904d523892136bf74b55f0adcaf2497f8145876dd091d3d0bdaada",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-23",
+      "response_sha256": "f8d4e66e6ef1d5f1373d85a7e7f99b17ef8ea8d41001ac3e8d1d9b52babf59f4",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-24",
+      "response_sha256": "5d8d9acf9cec4af96928dc855da7ba88ae00a3e0d05e446896177fe5c100e84e",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-25",
+      "response_sha256": "f4b60ce9877aeb49013851ab787cb8d0036003873f635ebf36f056504a471683",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-26",
+      "response_sha256": "4ae5d38b728f1e6f3b7533467626cc2006e07137fe5b0b642a1708f69a92c969",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-27",
+      "response_sha256": "666896a7f87407c278953273397093f1b2cc3a2a2c50c66bc4293fefc9141382",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-28",
+      "response_sha256": "b0d89b0f7fff2d79ebb993f6665aebd41a18350999e3598d32f2f65916560398",
+      "unchanged_outcome": "accepted"
+    },
+    {
+      "trial_id": "trial-29",
+      "response_sha256": "fb26ccfbf7ddb4b6f02bec78ff642781869095f09153071f52a90fe79ec3775e",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-30",
+      "response_sha256": "82a578ca96f75df47b15b15070defc93338d3d03433b94e54d3e705afdbb80d6",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-31",
+      "response_sha256": "ba943d5fb6b758ae3319d2c940955514264ffaac6759f0ef73e3005118d5c744",
+      "unchanged_outcome": "rejected"
+    },
+    {
+      "trial_id": "trial-32",
+      "response_sha256": "a090f2a6a9ed8da8d3b17519ce9406ddac00b7c9dad4a77758532833d8ca62ce",
+      "unchanged_outcome": "rejected"
+    }
+  ],
+  "historical_strict_score": "1/32 unchanged; no new verification or repair",
+  "positive_syntax_cases": 112,
+  "fenced_examples": 16,
+  "negative_statement_syntax_cases": 128,
+  "negative_schema_or_bypass_cases": 320,
+  "test_methods": 9,
+  "all_passed": true
+}

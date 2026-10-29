@@ -1,0 +1,48 @@
+{
+  "task_id": "offset-deep-shared",
+  "family": "sequence_offset",
+  "semantic_instance": "offset-weighted-concatenation-001",
+  "lineage": "development append induction ancestry; weighted Score requires generalized offset o+1 in recursive hypothesis and shifted suffix o+length(s)",
+  "split": "calibration-development",
+  "depth": "deep",
+  "sharing": "shared",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy"
+  ],
+  "variables": [
+    "s",
+    "t",
+    "o"
+  ],
+  "calls": {
+    "End.Base": 3,
+    "S1.Split": 3,
+    "S2.Lift": 3,
+    "End.Finish": 3,
+    "Prove": 3
+  },
+  "source_sha256": {
+    "Kernel.dfy": "d8336fcc18d29277633f157fca2af45730d0fc2955255c76425afa24bf003c1d",
+    "Stage1.dfy": "5f73eaa4767780469a435bf3e2489ec5213786d178fbce154acd21428cddbd4e",
+    "Stage2.dfy": "1b848d376b835acd70286683526d6cdab7b4e3deea93df83e5051997c9fa345b",
+    "Stage3.dfy": "e3e1c5b2ab4b1211c54ea1622064c8d2be677645efe53bad1364fb2cac5e5997",
+    "HelperA.dfy": "894cb13e80a53b33aa985dfa37553cbb84de2e0e4a792197a336290dcd85cf86",
+    "HelperB.dfy": "58c393ba2e2e591827843457054d7e3a76e0e6607189142b0b9cb3fe7a24ca05",
+    "ClientA.dfy": "6c5d38916a543fea6e570d88b43c7098383ca65c07bbf55d5220de963fe95088",
+    "ClientB.dfy": "ca248103697ee5e1dae9718027c647900775b75fd70c0e98aa6d1cc515f64f46",
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+  },
+  "reference_depth": {
+    "provider_critical_path": 3,
+    "shape": "generalized offset induction plus base case"
+  },
+  "reference_depth_not_minimal": true,
+  "fixture_root": "remaining-families-001",
+  "editable_scope": "Prove body strings only; body-json-v2.1",
+  "prompt_sha256": "546d4deda1a7836c3dd5396d5d2fc67714ecada873c8d50499f1c03404081d7e",
+  "prompt_utf8_bytes": 7748,
+  "editable_body_count": 1,
+  "client_count": 2,
+  "repository_boundary": "single_monorepo_workspace"
+}

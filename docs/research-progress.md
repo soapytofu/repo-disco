@@ -6,7 +6,7 @@ Status: October 29, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Revised calibration completed: 32 calls, 1 strict pass and 31 body-syntax rejections; 136 selected verifier controls validate the fixtures. Syntax-dominated model outcomes do not assess proof difficulty. Main corpus and held-out evaluation remain gated. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Revised calibration completed: 32 calls, 1 strict pass and 31 body-syntax rejections; 136 selected verifier controls validate the fixtures. Syntax-dominated model outcomes do not assess proof difficulty. A prompt-only syntax revision now passes nine offline test methods, with unchanged parser and sources. Main corpus and held-out evaluation remain gated. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -327,3 +327,14 @@ The budget is exhausted. Next is non-paid prompt syntax clarification and offlin
 protocol validation before another frozen proposal; neither a sharing/depth effect
 nor increased reasoning difficulty is established. The earlier preparation and
 submission entries above are historical; main collection remains deferred.
+
+## October 29: prompt syntax clarified and validated offline
+
+[statement-syntax-v1](../experiments/monorepo-calibration-syntax-001/README.md)
+updates all 16 prompts and the system message with explicit braced statement
+syntax, required semicolons, single JSON escaping and neutral examples. The
+parser, protected sources, contracts, model settings and 32-slot order are
+unchanged. Nine test methods passed, including exact replay of 16 previously
+verified references and all 32 saved responses; the prior 1/32 score is unchanged.
+There were no new model or Dafny calls. A future model benefit remains unmeasured;
+any execution needs separate authorization bound to the new prompt freeze.

@@ -71,3 +71,7 @@ required. audit_output_syntax.py traces the frozen parser without changing its
 acceptance rules, repairing bodies, rerunning Dafny, or making model calls. The
 strict score remains 1/32; no conclusion about reasoning difficulty or sharing
 effects follows from this syntax-dominated run.
+
+A subsequent [offline prompt revision](../monorepo-calibration-syntax-001/README.md)
+clarifies statement syntax with the same parser. It preserves this archive and
+score and makes no new model or verifier calls.

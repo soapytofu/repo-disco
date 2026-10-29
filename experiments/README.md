@@ -166,3 +166,9 @@ No additional model calls were made for these integrations.
   checks. Completed job 56205855: 32 requests, 1 strict pass, 31 body-syntax
   rejections, zero SDK retries. Full raw logs and separate syntax audit published;
   no reasoning-effect claim and no further calls authorized.
+
+- [monorepo-calibration-syntax-001](monorepo-calibration-syntax-001/README.md):
+  offline prompt-only syntax revision, explicitly separating braced statements
+  from pure conditional expressions. Nine test methods pass; all 16 references
+  reconstruct exactly and 32 saved parser decisions remain unchanged. No new
+  model calls, verifier runs or parser changes; future execution is unauthorized.
