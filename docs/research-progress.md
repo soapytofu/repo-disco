@@ -357,3 +357,8 @@ Exact inputs/runtime are staged in a fresh Cannon directory; the existing socket
 works. The private handoff is absent and was requested. No model calls, submission
 or key consumption yet; runtime-bound authorization and a fresh state check precede
 the single job submission after key readiness. No automatic larger run.
+
+After private key readiness, smoke job **56210087** was submitted once at 19:47:24
+UTC October 29 on live-confirmed nonpreemptible test. The exact eight-call scope
+and runtime are bound by authorization.json; no retries, requeue or reassignment.
+Results are pending. Earlier local disk-space failures occurred before submission.

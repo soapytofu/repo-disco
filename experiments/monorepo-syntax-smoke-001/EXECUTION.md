@@ -1,4 +1,9 @@
-# Authorized eight-call execution: runner ready, awaiting private key
+# Authorized eight-call execution: submitted once
+
+**Job 56210087 submitted October 29 at 19:47:24 UTC** on test with live
+PreemptMode=OFF. authorization.json binds eight calls and no retries to the frozen
+scope/runtime; submission.json records the sole submission. Results are pending.
+The preparation history below is retained. No additional job or calls are authorized.
 
 The user explicitly approved the eight-call pilot with no retries. This execution
 record supersedes the original preparation-only authorization status in README.md
@@ -40,3 +45,9 @@ review_results.py replays exact messages/guard assembly, validates protected byt
 accepted hashes and verifier exit categories, then evaluates the predeclared syntax
 readiness gate. summarize.py produces the report. Publish full non-secret evidence.
 No future 32-call batch follows automatically; unused calls cannot be reassigned.
+
+Two local submission-command attempts failed on disk space before reaching SSH
+or sbatch. A redundant temporary dataset download was removed only after all 1,625
+files were matched byte-for-byte to existing local copies. The subsequent command
+rechecked remote state and submitted once; these local failures caused no requests
+or Slurm jobs. No experimental evidence was removed.
