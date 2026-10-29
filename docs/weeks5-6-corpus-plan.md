@@ -299,3 +299,20 @@ strengthen obligations and verifier controls where ceiling risk is apparent.
 Any revised calibration needs a new freeze and separately approved call budget;
 this run exhausted its 32 calls. Earlier no-execution statements in this document
 record the preparation stage, not the current authorization history.
+
+## Revised protocol and first stronger instance (October 29)
+
+[Calibration v2 preparation](../experiments/monorepo-calibration-v2-001/README.md)
+now implements body-only JSON insertion with immutable host-owned contracts and
+file structure, plus bounded pure inline conditional expressions. Nine offline
+tests pass, including exact reconstruction of previously verified examples. A new
+alias-aware map-transfer instance has all four matched configurations validated:
+job 56196595 completed 38/38 expected controls, including four references through
+the new assembly path. Full source hashes and raw diagnostics are published.
+
+This adds semantic obligations for aliasing, exact balances, conservation and
+untouched entries; it does not establish greater model difficulty. The other
+families still need substantive review/redesign before a complete revised pilot
+freeze. No new prompts have been dispatched, no new model budget is authorized,
+and the original 32-call experiment remains unchanged. Main collection is still
+deferred.

@@ -157,4 +157,4 @@ No additional model calls were made for these integrations.
 
 - [monorepo-calibration-v2-001](monorepo-calibration-v2-001/README.md): body-only
   protocol (9 offline tests) and four alias-aware map-transfer task designs;
-  38 compute verifier checks pending reconnection. No model calls or new freeze.
+  38/38 compute verifier outcomes matched (job 56196595). No model calls or new freeze.

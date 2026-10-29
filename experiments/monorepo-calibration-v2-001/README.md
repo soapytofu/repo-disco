@@ -1,7 +1,7 @@
 # Calibration v2 preparation: body-only protocol and alias-aware map transfer
 
-**Zero model calls. Nine offline test methods pass. New Dafny controls are pending
-Cannon reconnection; no job has been submitted. This is not a frozen model pilot.**
+**Zero model calls. Nine offline test methods pass. All 38 verifier controls match
+their expected outcomes (job 56196595, test, 2m23s). This is not a frozen model pilot.**
 The original calibration and its 18/32 score remain unchanged.
 
 ## Output protocol
@@ -48,15 +48,34 @@ branch, not a claim of minimum possible proof depth.
 
 ## Validation gate
 
-38 planned checks: four reference passes, 32 intended proof failures, and two
+38 completed checks: four reference passes, 32 intended proof failures, and two
 explicit hidden-helper name failures. Controls omit alias handling or a credit
 prerequisite, invert the branch, use the wrong amount/direction, weaken the helper
 contract, and repair only one separate helper. Reference checks round-trip through
 the body-only protocol before actual whole-workspace verification. Parse/type
 errors do not count as proof failures. Exact fixtures, decisions, stdout/stderr and
-source hashes will be archived; no automatic reruns or model transport exist.
+source hashes are archived in verification-001; no automatic reruns or model transport exist.
 
-The four task designs and reference bodies are **not semantically validated yet**.
-Even after verifier validation, no claim of increased model difficulty follows.
-Only after this gate should the other families be strengthened and a revised
+The four task designs and reference bodies are **verifier validated**. This does
+not establish increased model difficulty. Next, strengthen the other families before a revised
 calibration's complete prompts, settings, order and new budget be frozen.
+
+## Reviewed evidence
+
+Job 56196595 completed on holy8a24101 in 2m23s, exit zero, with requeue disabled
+and test partition PreemptMode=OFF checked before submission. No model requests,
+credentials, retries or replacement runs were used. `verification-001/` contains
+every manifest-pinned source and script plus all 38 raw verifier reports, four
+body-payload/assembly decisions, environment metadata and the summary.
+`verify-56196595.log/.err`, `submission.json` and `accounting-56196595.txt` preserve
+execution details. `results-review.json` and `verification-001-sha256.json` bind
+the local audit to the retrieved bytes.
+
+All four references verify through the body-only assembly path. All 32 negative
+reasoning controls fail with precondition/postcondition diagnostics, not parse
+errors. The two explicitly labeled export controls report unresolved Direct
+(and the consequent expected-method-call error). Providers remain identical
+across cells; only the intended helper-body/contract mutations occur in controls.
+Original model archive hashes and the historical 18/32 calibration score remain
+unchanged. The counts are controls for one semantic instance across four structural
+variants, not 38 independent tasks or any measured model performance.

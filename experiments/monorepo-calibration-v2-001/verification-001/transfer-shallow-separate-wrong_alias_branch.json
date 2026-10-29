@@ -1,0 +1,38 @@
+{
+  "task_id": "transfer-shallow-separate",
+  "variant": "wrong_alias_branch",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+    "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+    "HelperA.dfy": "744196bb8e83d14c00980abc07195edf9e44c5e17ca86a1dc8c7bfb143799ef4",
+    "HelperB.dfy": "da4ae598d526993cd8ab2390a177733f6c5bda9391aa1110ab71e2e4970eb89c",
+    "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+    "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+    "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+    "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(14,15): Error: a precondition for this call could not be proved\n   |\n14 |       End.Alias(m,k,j,v);\n   |                ^\n\nStage3.dfy(7,35): Related location: this is the precondition that could not be proved\n  |\n7 |     requires k in m && j in m && k == j && K.Valid(m)\n  |                                    ^^\n\nHelperA.dfy(16,16): Error: a precondition for this call could not be proved\n   |\n16 |       End.Direct(m,k,j,v);\n   |                 ^\n\nStage3.dfy(11,35): Related location: this is the precondition that could not be proved\n   |\n11 |     requires k in m && j in m && k != j\n   |                                    ^^\n\nHelperB.dfy(14,15): Error: a precondition for this call could not be proved\n   |\n14 |       End.Alias(m,k,j,v);\n   |                ^\n\nStage3.dfy(7,35): Related location: this is the precondition that could not be proved\n  |\n7 |     requires k in m && j in m && k == j && K.Valid(m)\n  |                                    ^^\n\nHelperB.dfy(16,16): Error: a precondition for this call could not be proved\n   |\n16 |       End.Direct(m,k,j,v);\n   |                 ^\n\nStage3.dfy(11,35): Related location: this is the precondition that could not be proved\n   |\n11 |     requires k in m && j in m && k != j\n   |                                    ^^\n\n\nDafny program verifier finished with 21 verified, 4 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 3.2029881620255765,
+  "model_calls": 0,
+  "attempts": 1
+}

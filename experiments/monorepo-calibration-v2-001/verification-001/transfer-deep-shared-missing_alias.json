@@ -1,0 +1,38 @@
+{
+  "task_id": "transfer-deep-shared",
+  "variant": "missing_alias",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+    "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+    "HelperA.dfy": "4dc79f30a28cca527106a8deb1e5c710873849a755016b79807b2f80a7dd72ec",
+    "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+    "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+    "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+    "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+    "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(15,14): Error: a postcondition could not be proved on this return path\n   |\n15 |     if k == j {\n   |               ^\n\nHelperA.dfy(13,50): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures K.Valid(K.Move(m,k,j,v)) && K.Transfer(m,K.Move(m,k,j,v),k,j,v)\n   |                                                   ^\n\n\nDafny program verifier finished with 22 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 3.041448014002526,
+  "model_calls": 0,
+  "attempts": 1
+}

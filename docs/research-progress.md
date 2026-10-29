@@ -270,10 +270,13 @@ assembly and bounded pure inline conditional expressions. Nine offline test
 methods pass, including exact replay of 16 verified references and 11 diagnostic
 workspaces. The original 32-call archive and 18/32 score remain unchanged.
 
-Four matched alias-aware map-transfer configurations are built, with 38 verifier
-checks planned (4 passes, 32 proof failures, 2 hidden-name failures). They add
+Four matched alias-aware map-transfer configurations are built and verified, with
+38 controls (4 passes, 32 proof failures, 2 hidden-name failures). They add
 self-transfer semantics, balance conservation, exact balances, domain and frame
 preservation, and an opposite-direction second client. These are development
-tasks; no measured model-difficulty improvement is claimed. Cannon authentication
-expired before submission, so these fixtures are **not yet verifier validated**.
-The complete revised pilot is not frozen, and no new model budget is authorized.
+tasks; no measured model-difficulty improvement is claimed. After reconnection,
+verifier job **56196595** completed on non-preemptible test in **2m23s** with all
+**38/38 expected outcomes** (4 reference passes, 32 proof failures, 2 hidden-name
+failures). Full source/hash/diagnostic review and four body-only assembly records
+are published. The complete revised pilot is not frozen, and no new model budget
+is authorized.

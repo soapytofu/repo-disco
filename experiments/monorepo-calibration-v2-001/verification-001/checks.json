@@ -1,0 +1,648 @@
+[
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "reference",
+    "path": "fixtures/transfer-shallow-shared/reference",
+    "expected": "success",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4300cf3a6b66a8ef83d4e655c04d2f7cba81ed6f42633928b5ff42cc7998d923",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "empty",
+    "path": "fixtures/transfer-shallow-shared/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "f9cec430910fdc06ef9feac5ee4f43efece87e682a1a6804fec18261b0d06bb7",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "wrong_alias_branch",
+    "path": "fixtures/transfer-shallow-shared/wrong_alias_branch",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "744196bb8e83d14c00980abc07195edf9e44c5e17ca86a1dc8c7bfb143799ef4",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "missing_alias",
+    "path": "fixtures/transfer-shallow-shared/missing_alias",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "f60e65c1b401fc7e843226e2bfe3fc53cc908f07657ad5bd5448bdad80590019",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "wrong_amount",
+    "path": "fixtures/transfer-shallow-shared/wrong_amount",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "345028b79a5fa6b025ee7418c8396c0dd13594e6519cbf42261c463c2426e6ce",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "wrong_direction",
+    "path": "fixtures/transfer-shallow-shared/wrong_direction",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "7af0e7ffffccbe289853fa502380c8d5f142bfb9f838a3523cdbbb7f66f8df5a",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "missing_credit",
+    "path": "fixtures/transfer-shallow-shared/missing_credit",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "fc37dcee8adf6b1d59734191415affdc776fdff6af62f3a8fe3b4cb436cc229b",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-shared",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/transfer-shallow-shared/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "b3073ad307fbce9fa7312fb7f06f334c108e49b2a1da731397577d1f2ff778b3",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "reference",
+    "path": "fixtures/transfer-shallow-separate/reference",
+    "expected": "success",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4300cf3a6b66a8ef83d4e655c04d2f7cba81ed6f42633928b5ff42cc7998d923",
+      "HelperB.dfy": "23ada953f0f528f32519714405ce50000e25fa20a1670dfe884782f0b009bd9f",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "empty",
+    "path": "fixtures/transfer-shallow-separate/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "f9cec430910fdc06ef9feac5ee4f43efece87e682a1a6804fec18261b0d06bb7",
+      "HelperB.dfy": "89590232302c4eefae119b9ace0e7ad8e9ac91e6bdc3129b3a9729432cb9b811",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "wrong_alias_branch",
+    "path": "fixtures/transfer-shallow-separate/wrong_alias_branch",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "744196bb8e83d14c00980abc07195edf9e44c5e17ca86a1dc8c7bfb143799ef4",
+      "HelperB.dfy": "da4ae598d526993cd8ab2390a177733f6c5bda9391aa1110ab71e2e4970eb89c",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "missing_alias",
+    "path": "fixtures/transfer-shallow-separate/missing_alias",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "f60e65c1b401fc7e843226e2bfe3fc53cc908f07657ad5bd5448bdad80590019",
+      "HelperB.dfy": "65636303eb135669765dd3633d80510fd9bb9836fc39759a6ce7cff1c286dc83",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "wrong_amount",
+    "path": "fixtures/transfer-shallow-separate/wrong_amount",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "345028b79a5fa6b025ee7418c8396c0dd13594e6519cbf42261c463c2426e6ce",
+      "HelperB.dfy": "940e54e077284868f7e4ef0a36eb3a3ede8b6e6bcfaf399ccf35531f19188047",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "wrong_direction",
+    "path": "fixtures/transfer-shallow-separate/wrong_direction",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "7af0e7ffffccbe289853fa502380c8d5f142bfb9f838a3523cdbbb7f66f8df5a",
+      "HelperB.dfy": "a18658d31678bd23fb840217a032fd7bdca51850e4687d3da1c33f1920303191",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "missing_credit",
+    "path": "fixtures/transfer-shallow-separate/missing_credit",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "fc37dcee8adf6b1d59734191415affdc776fdff6af62f3a8fe3b4cb436cc229b",
+      "HelperB.dfy": "e131a22cb36adcaceb37ad4c7e7df48ad204bc12e0cc448f59aa65c4c2c88b57",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/transfer-shallow-separate/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "b3073ad307fbce9fa7312fb7f06f334c108e49b2a1da731397577d1f2ff778b3",
+      "HelperB.dfy": "23ada953f0f528f32519714405ce50000e25fa20a1670dfe884782f0b009bd9f",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "only_a",
+    "path": "fixtures/transfer-shallow-separate/only_a",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4300cf3a6b66a8ef83d4e655c04d2f7cba81ed6f42633928b5ff42cc7998d923",
+      "HelperB.dfy": "89590232302c4eefae119b9ace0e7ad8e9ac91e6bdc3129b3a9729432cb9b811",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-shallow-separate",
+    "variant": "only_b",
+    "path": "fixtures/transfer-shallow-separate/only_b",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "f9cec430910fdc06ef9feac5ee4f43efece87e682a1a6804fec18261b0d06bb7",
+      "HelperB.dfy": "23ada953f0f528f32519714405ce50000e25fa20a1670dfe884782f0b009bd9f",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "reference",
+    "path": "fixtures/transfer-deep-shared/reference",
+    "expected": "success",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "empty",
+    "path": "fixtures/transfer-deep-shared/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "wrong_alias_branch",
+    "path": "fixtures/transfer-deep-shared/wrong_alias_branch",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "d00843aa4a1a491d4e7f0b2333c1928634e70e316149ea86821039aaea2a087d",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "missing_alias",
+    "path": "fixtures/transfer-deep-shared/missing_alias",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4dc79f30a28cca527106a8deb1e5c710873849a755016b79807b2f80a7dd72ec",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "wrong_amount",
+    "path": "fixtures/transfer-deep-shared/wrong_amount",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "b6471785fd5ef15be6cb9917f44d412fca31df00376092c6e1eb2bdb39c572e4",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "wrong_direction",
+    "path": "fixtures/transfer-deep-shared/wrong_direction",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "5230f7f24b99dd3d26bb053fe264a285174c30b70bcbb61cfd603e1a28db2fed",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "missing_credit",
+    "path": "fixtures/transfer-deep-shared/missing_credit",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "513bd68e443958d12805501ca10fda84ab732b11f283f552fd123a76130910b5",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/transfer-deep-shared/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "68ea5404158d4a4a4cc4f598a2445093e834141e553b4fb5c8334b9c09d18a5e",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-shared",
+    "variant": "hidden_shortcut",
+    "path": "fixtures/transfer-deep-shared/hidden_shortcut",
+    "expected": "resolution_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "7f899f57412a1486854a390ee2138c01518470148ba4c1a8fed673291e7091e8",
+      "HelperB.dfy": "852159d415893bd94c39e20016f539328cb0aab6bb3967269d150a9e44a4f9e5",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "reference",
+    "path": "fixtures/transfer-deep-separate/reference",
+    "expected": "success",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+      "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "empty",
+    "path": "fixtures/transfer-deep-separate/empty",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+      "HelperB.dfy": "3c7563679d764b0b8dc1a4a784a7a907f1c7533699ea416a031c22dd28643d45",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "wrong_alias_branch",
+    "path": "fixtures/transfer-deep-separate/wrong_alias_branch",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "d00843aa4a1a491d4e7f0b2333c1928634e70e316149ea86821039aaea2a087d",
+      "HelperB.dfy": "97868b75b226c829ad4f786f271404de6459d1afafcf0afca8eb3d7a3f45d991",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "missing_alias",
+    "path": "fixtures/transfer-deep-separate/missing_alias",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4dc79f30a28cca527106a8deb1e5c710873849a755016b79807b2f80a7dd72ec",
+      "HelperB.dfy": "6c30fb426380d4397691047dc8010d7ac39e8ab2fe2c3771eca4247bab916482",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "wrong_amount",
+    "path": "fixtures/transfer-deep-separate/wrong_amount",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "b6471785fd5ef15be6cb9917f44d412fca31df00376092c6e1eb2bdb39c572e4",
+      "HelperB.dfy": "352e0aaacdf9c6daacfa6b0dfe78af1d068f201fcde91899e8aaeeee66e8bf35",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "wrong_direction",
+    "path": "fixtures/transfer-deep-separate/wrong_direction",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "5230f7f24b99dd3d26bb053fe264a285174c30b70bcbb61cfd603e1a28db2fed",
+      "HelperB.dfy": "11d43c34317e1f70d8d15c0fae7aab5abcb475e8682a708d8a9d306dae9db709",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "missing_credit",
+    "path": "fixtures/transfer-deep-separate/missing_credit",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "513bd68e443958d12805501ca10fda84ab732b11f283f552fd123a76130910b5",
+      "HelperB.dfy": "fa2010d294f0777ee172fe0b536f9fb6d064ae294846acbfb5150eeba1c71c0d",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "weakened_helper_contract",
+    "path": "fixtures/transfer-deep-separate/weakened_helper_contract",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "68ea5404158d4a4a4cc4f598a2445093e834141e553b4fb5c8334b9c09d18a5e",
+      "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "only_a",
+    "path": "fixtures/transfer-deep-separate/only_a",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "a531c72fee6e360d34619ce4c54f0ab050d171c661bc545191b6b78613a97888",
+      "HelperB.dfy": "3c7563679d764b0b8dc1a4a784a7a907f1c7533699ea416a031c22dd28643d45",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "only_b",
+    "path": "fixtures/transfer-deep-separate/only_b",
+    "expected": "proof_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "4c8502c9c10fafdfc0dfa82e98287f33a419607f705cd3c3e4c5f73c9f50cc86",
+      "HelperB.dfy": "752198450cf1a531cf39fe83513e4399159e1e3a2447b0125a99503f0165d279",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  },
+  {
+    "task_id": "transfer-deep-separate",
+    "variant": "hidden_shortcut",
+    "path": "fixtures/transfer-deep-separate/hidden_shortcut",
+    "expected": "resolution_failure",
+    "source_sha256": {
+      "Kernel.dfy": "32a7e277f4ec7a2087b7044bc833c89a1f0b42670e0acc1545d4c1ee4788c34d",
+      "Stage1.dfy": "2306a2accf9b4d9ec703cc72c2dc8f72cc5530f5145c4639488865b8bb5a71dd",
+      "Stage2.dfy": "d9aca70de9cb3a6d43922c59e3065e1bb1469988b872da378ca601e96f654491",
+      "Stage3.dfy": "4835f07aa1d8a2df9913580207dbe90bf8c3a05ac0b3c2d0121b3421b05c07b5",
+      "HelperA.dfy": "7f899f57412a1486854a390ee2138c01518470148ba4c1a8fed673291e7091e8",
+      "HelperB.dfy": "62534cbc9a3b9d5cb2334d96f271cebb3b1dd857ec9f7615015c1c99e937f206",
+      "ClientA.dfy": "4983a5da4a4d925e2cc2bfcc2bb32ce2dda4773c5b74dfa15c7307a0aaae2cec",
+      "ClientB.dfy": "4f06123f51c343b0fcae96a8fe25b33243a1b33ef1467272b7b6d06d5d792a9d",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    }
+  }
+]
