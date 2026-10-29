@@ -9,7 +9,7 @@ def tasks():
  out=[]
  for t in legacy.tasks():
   if t['family']=='conditional_preconditions':out.append({**t,'fixture_root':'../monorepo-calibration-001'})
- for folder in [ROOT,ROOT/'remaining-families-001',ROOT/'remaining-families-001/revision-002']:
+ for folder in [ROOT,ROOT/'remaining-families-001',ROOT/'remaining-families-001/revision-003']:
   for t in json.loads((folder/'tasks.json').read_text()):
    if folder==ROOT/'remaining-families-001' and t['family']=='interval_witness':continue
    out.append({**t,'fixture_root':str(folder.relative_to(ROOT))})

@@ -6,7 +6,10 @@ All four relational references failed in trusted existential provider proofs;
 the relational negative controls are therefore not validation evidence. The full
 failed run is preserved. Only sequence tasks are selected from this directory.
 A separate revision-002 re-expresses the same existential using a named Witness
-predicate/trigger, preserving helper and client contracts; its 30 checks are pending.
+predicate/trigger, preserving helper and client contracts; it failed on a
+non-ghost quantifier frontend error. Revision 003 adds the ghost modifier and
+passes all 30 relational checks in job 56197984 (1m52s). Both failed runs and
+their full logs are preserved. Only revision 003 relational tasks are selected.
 No model calls, retries or credentials. This additive directory preserves all
 prior calibration fixtures, guards, failures and scores.
 

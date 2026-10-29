@@ -155,6 +155,7 @@ These pilots do not yet constitute a published-baseline reproduction, a comparis
 summarizes what these development experiments establish and what remains open.
 No additional model calls were made for these integrations.
 
-- [monorepo-calibration-v2-001](monorepo-calibration-v2-001/README.md): body-only
-  protocol (9 offline tests) and four alias-aware map-transfer task designs;
-  38/38 compute verifier outcomes matched (job 56196595). No model calls or new freeze.
+- [monorepo-calibration-v2-001](monorepo-calibration-v2-001/README.md): revised
+  body-only 32-call proposal frozen across 16 variants, backed by 136 selected
+  verifier controls. Stronger sequence, witness and map tasks; full failed
+  revision history preserved. Six freeze tests pass; no model calls authorized.

@@ -61,7 +61,7 @@ def gate(tasks):
    if c['expected']=='proof_failure' and (not any(s in text for s in ['postcondition','precondition','assertion','for this call']) or 'parse errors' in text):raise ValueError('Not a proof diagnostic')
    if c['expected']=='termination_failure' and not any(s in text for s in ['termination','decreases']):raise ValueError('Not a termination diagnostic')
    if c['expected']=='resolution_failure' and ('direct' not in text or not any(s in text for s in ['unresolved','not found','not a member','does not exist'])):raise ValueError('Not a hidden-helper diagnostic')
-   evidence.append(dict(variant=c['variant'],expected=c['expected'],source_sha256=c['source_sha256'],log_path=str(log.relative_to(ROOT.parent.parent)),log_sha256=sha(log.read_bytes())))
+   evidence.append(dict(variant=c['variant'],expected=c['expected'],source_sha256=c['source_sha256'],log_path=str(log.resolve().relative_to(ROOT.parent.parent.resolve())),log_sha256=sha(log.read_bytes())))
   seed=catalog_v2.sources(t);ref=catalog_v2.sources(t,'reference')
   if {n:sha(s.encode()) for n,s in seed.items()}!=t['source_sha256']:raise ValueError('Seed hash drift')
   candidate,decision=body_protocol.parse_response(reference_payload(t,seed,ref),seed,t)
@@ -100,6 +100,29 @@ def main():
  save(out/'tasks.json',metadata);trials,order=make_order(metadata);save(out/'trials.json',trials);save(out/'order-design.json',order)
  (out/'preparation').mkdir()
  for n in ['catalog_v2.py','freeze_pilot.py','test_freeze_v2.py']:shutil.copy2(ROOT/n,out/'preparation'/n)
+ (out/'README.md').write_text('''# Revised calibration: frozen proposal, no model authorization
+
+32 independent one-response trials: four development families × four structural
+variants × two samples. Conditional tasks are retained as a protocol anchor;
+sequence-offset, interval-witness and alias-aware map-transfer replace the earlier
+instances. All use body-json-v2.1, full source plus declared file maps, fixed model
+settings, no retries, no feedback and no reassignment. References and controls are
+excluded from prompts.
+
+All selected controls and exact archived source hashes must pass the preparation
+gate. preflight-gate.json links every selected verifier report and source hash.
+Two failed relational provider revisions remain preserved outside this bundle;
+they are excluded from the selected validation evidence.
+
+One semantic instance per family and two samples per cell is diagnostic, not a
+causal or population study. Shared/separate output workload differs; declared
+reference depth is not minimum proof depth. All tasks are development data.
+Changing tasks and output policy together prevents attributing differences from
+the old pilot solely to either change. Main 192-call collection remains deferred.
+
+The status and budget here describe a proposal, not execution approval. No model
+transport, credential access, authorization file, or live runner is included.
+''')
  save(out/'freeze.json',dict(status='FROZEN_PROPOSAL_NO_MODEL_AUTHORIZATION',model_calls=0,trial_count=32,files={str(p.relative_to(out)):sha(p.read_bytes()) for p in sorted(out.rglob('*')) if p.is_file()}))
  print('Frozen 32 proposed independent trials after',sum(r['control_count'] for r in reviews),'reviewed controls; zero model calls')
 if __name__=='__main__':main()

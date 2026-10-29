@@ -1,8 +1,9 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current gate:** the authorized 32-call calibration is complete and published.
-Main collection is deferred because of output-policy confounding and ceiling risk;
-see the execution update at the end. No further model calls are authorized.
+**Current gate:** the first 32-call calibration is complete. A revised 32-call
+proposal is now frozen after stronger task construction and 136 selected verifier
+controls. Its model execution is not authorized. Main collection remains deferred;
+see the latest update at the end.
 The preparation plan below is retained to show the original design.
 
 **Plan updated October 28, 2026 following Nada’s scope feedback. No model calls are
@@ -316,3 +317,22 @@ families still need substantive review/redesign before a complete revised pilot
 freeze. No new prompts have been dispatched, no new model budget is authorized,
 and the original 32-call experiment remains unchanged. Main collection is still
 deferred.
+
+## Revised calibration frozen (October 29)
+
+The [new frozen proposal](../experiments/monorepo-calibration-v2-001/frozen-001/README.md)
+has 16 variants and 32 independent one-response samples. It retains conditional
+preconditions as a protocol anchor and substitutes weighted offset induction,
+constructed interval witnesses and alias-aware transfers for the other instances.
+All four families use body-json-v2.1, immutable host assembly, full source plus
+declared maps, the previous model/settings, a new fixed Latin-square order,
+no feedback and no retries. Preparation validates **136 selected controls**:
+16 reference passes, 108 proof failures, 4 termination failures, 8 hidden-name
+failures. Two unsuccessful relational provider revisions remain archived and
+excluded from that validation set. Six freeze tests pass.
+
+This proposes **32 additional calls**; none have been authorized or made. The
+original 32-call outcomes stay unchanged, and the main 192-call proposal remains
+deferred. Tasks and protocol both changed, so future before/after differences
+cannot be attributed solely to either change. All instances remain development
+data, with shared/edit-count and reference-depth limitations disclosed.

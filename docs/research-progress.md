@@ -1,12 +1,12 @@
 # Research progress and next milestone
 
-Status: October 28, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: October 29, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Development families now cover composition, conditional preconditions and inductive helper synthesis. Small composition, conditional and inductive development pilots have saturated; they do not establish a sharing effect. No frozen representative corpus or held-out family split yet. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Revised 32-call calibration proposal is frozen across 16 variants, backed by 136 selected verifier controls. Weighted sequence induction, interval witnesses and alias-aware transfers replace earlier easy instances; conditional tasks anchor the new body-only protocol. No new model calls; main corpus and held-out evaluation remain gated. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -280,3 +280,19 @@ verifier job **56196595** completed on non-preemptible test in **2m23s** with al
 failures). Full source/hash/diagnostic review and four body-only assembly records
 are published. The complete revised pilot is not frozen, and no new model budget
 is authorized.
+
+## October 29: strengthened sequence/relational tasks and revised freeze
+
+[Calibration v2](../experiments/monorepo-calibration-v2-001/README.md) now includes
+42 validated weighted-sequence controls and 30 corrected interval-witness controls.
+Sequence proofs must generalize the recursive offset; relational proofs construct
+a common witness instead of receiving one as a parameter. Two failed trusted
+provider revisions (existential proof, then non-ghost compilation) and all raw logs
+remain archived. They are excluded from the selected validation evidence.
+
+The revised 16-variant / **32-request proposal is frozen**, with **136/136 selected
+expected outcomes** across the four families, one common body-only guard, fixed
+settings, counterbalanced order and independent contexts. Six freeze tests pass.
+No new model calls were made or authorized. This is development calibration, not
+measured difficulty improvement or a causal shared-proof effect; main collection
+remains deferred until a separately authorized calibration has been analyzed.

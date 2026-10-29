@@ -1,0 +1,38 @@
+{
+  "task_id": "witness-deep-separate",
+  "variant": "only_a",
+  "expected": "proof_failure",
+  "matched": true,
+  "protocol_replayed": false,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "f4646fabc7bcafab4963bccf484739064886a36645c43d0dee001a5b829826dc",
+    "ClientB.dfy": "295cd042d515ea86d3fd69882cd024c08080c83d08e0940e34554b09736bec8c",
+    "HelperA.dfy": "bcb7210f6a2b0766c6bd9c062fcc4345a5e5350886089d91bb9ac7efb9d1ff07",
+    "HelperB.dfy": "eb10cdd81e685f6300e5ed7d38fd8cc6abb007e6e361968bf58c49e455e118f6",
+    "Kernel.dfy": "88b795756f49652498eac25e4a555ab6e9823167d1cf1dffffae1b4c90ccf6ba",
+    "Stage1.dfy": "4d722aaccdfe95f428ccfa6141554840838d8ae320998ec805fedab71907dc3f",
+    "Stage2.dfy": "44fd8d43fbbb7ee9db6ce9647842c19d4e01e69154a2fe2287b1a7e700baad91",
+    "Stage3.dfy": "bec580090195d1c412a00c9bc5abc16504d97b3b07ca7a3cf344fd5315a5b0f3"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "30s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperB.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   {\n   |   ^\n\nHelperB.dfy(12,21): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures K.Overlap(a,b,c,d)\n   |                      ^\n\n\nDafny program verifier finished with 8 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 2.073521690996131,
+  "model_calls": 0,
+  "attempts": 1
+}

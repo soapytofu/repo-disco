@@ -1,12 +1,51 @@
-# Calibration v2 preparation: body-only protocol and alias-aware map transfer
+# Revised calibration: body-only protocol and strengthened reasoning tasks
 
-**Zero model calls. Nine offline test methods pass. All 38 verifier controls match
-their expected outcomes (job 56196595, test, 2m23s). This is not a frozen model pilot.**
+**Frozen proposal ready; zero model calls. All 136 selected verifier controls
+match their expected outcomes across 16 variants. Six freeze tests pass. No new
+model budget or live dispatcher is authorized.**
 The original calibration and its 18/32 score remain unchanged.
+
+
+## Frozen pilot
+
+[frozen-001](frozen-001/README.md) pins **32 independent one-response trials**:
+four development families × shallow/deep × shared/separate × two samples.
+Every prompt contains only its complete empty-body seed workspace, declared file
+map and body-only output instructions. No reference proofs or failure controls
+enter messages. All families use the same versioned body-json-v2.1 guard.
+
+| Family | Change / role | Selected verifier controls |
+| --- | --- | ---: |
+| Conditional preconditions | Retained as a protocol anchor; interacting sign/offset conditions | 26 |
+| Sequence offset induction | Weighted concatenation with a generalized recursive offset and shifted suffix | 42 |
+| Interval witness | Construct one witness for two interval contracts, then compose their facts | 30 |
+| Map transfer | Aliasing, exact balances, conservation, domain and frame preservation | 38 |
+
+Total: **16 reference passes, 108 ordinary proof failures, 4 termination failures,
+8 explicit hidden-helper/name failures**. The sequence controls come from the
+valid portion of job 56197680; the first relational provider failures in that job
+and revision 002 frontend errors are preserved but excluded from selected evidence.
+Corrected relational revision 003 passed all 30 controls in job 56197984 (1m52s).
+No helper/client contract was weakened to make a reference pass.
+
+The model ID and inference settings match the previous calibration (Opus 4.5,
+maxTokens 4096, temperature 1.0); each sample gets fresh context, no feedback,
+no automatic retries or quota reassignment. Four cyclic Latin rows are assigned
+once each, families interleaved, with cell/family order reversed for sample two
+(seed 20261029). Source, prompt, guard, order and evidence hashes are pinned.
+The proposed **32 new requests have not been authorized or dispatched**.
+
+This is a diagnostic development pilot. There is one semantic instance per family;
+shared/separate editable-body count differs, and depth is reference-relative.
+The conditional instance is reused with a new output protocol. Other tasks and
+output policy both changed, so a future comparison against the original score
+cannot isolate either change's effect. Main 192-call collection stays deferred.
+
+Freeze SHA-256: `c37781be6014e0b5ba53ae99b28a90bf7a5bf05be2cd15650098dadc3ac0a590`.
 
 ## Output protocol
 
-`body_protocol.py` accepts a strict JSON object mapping the exact editable helper
+The frozen `frozen-001/guard/body_protocol.py` accepts a strict JSON object mapping the exact editable helper
 filenames to **body contents only** (without surrounding braces or declarations).
 A single whole-response JSON fence is allowed. Prose search, duplicate keys,
 nested/double-escaped JSON, extra files, and automatic escape/proof repairs are
@@ -14,7 +53,7 @@ rejected. The host inserts each body into pinned seed files; all imports,
 attributes, contracts, decreases clauses, wrappers, providers and clients remain
 byte-identical. Body whitespace is model-owned; file suffix/newlines are host-owned.
 
-`grammar.py` is a separately versioned derivative of the reviewed inline-if
+The frozen `frozen-001/guard/grammar.py` is a separately versioned derivative of the reviewed inline-if
 diagnostic grammar. It permits bounded pure conditional expressions as well as
 statement branches, assertions and explicitly allowed lemma calls. It forbids
 assumptions, reveals, attributes, declarations, loops and cross-helper delegation.
@@ -46,7 +85,7 @@ and the shared wrapper's import edge remain disclosed workload differences.
 Reference path depth is 1 on the alias branch and 1 versus 3 on the distinct-key
 branch, not a claim of minimum possible proof depth.
 
-## Validation gate
+## Map-transfer validation gate
 
 38 completed checks: four reference passes, 32 intended proof failures, and two
 explicit hidden-helper name failures. Controls omit alias handling or a credit
@@ -56,11 +95,11 @@ the body-only protocol before actual whole-workspace verification. Parse/type
 errors do not count as proof failures. Exact fixtures, decisions, stdout/stderr and
 source hashes are archived in verification-001; no automatic reruns or model transport exist.
 
-The four task designs and reference bodies are **verifier validated**. This does
-not establish increased model difficulty. Next, strengthen the other families before a revised
-calibration's complete prompts, settings, order and new budget be frozen.
+The four map task designs and reference bodies are **verifier validated**. This
+does not establish increased model difficulty. The complete revised pilot above
+is now frozen as a proposal; model execution requires separate authorization.
 
-## Reviewed evidence
+## Reviewed map-transfer evidence
 
 Job 56196595 completed on holy8a24101 in 2m23s, exit zero, with requeue disabled
 and test partition PreemptMode=OFF checked before submission. No model requests,
