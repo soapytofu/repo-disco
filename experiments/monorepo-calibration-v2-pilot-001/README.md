@@ -3,8 +3,10 @@
 The user explicitly authorized the revised 32-call calibration on October 29,
 2026, with the frozen prompts, no retries, and publication of results/full logs.
 **No model calls have been made and no Slurm job has been submitted yet.**
-The old SSH connection timed out; a new connection and private credential handoff
-have been requested. No credential contents are accessed during preparation.
+The new Cannon connection works and the runtime is staged. All staged hashes
+match; three SDK/body-parser checks passed in the repodisco environment using
+fake transport/verifier. The private key handoff is still absent and has been
+requested. No credential contents were accessed during preparation.
 
 ## Immutable scope
 
@@ -41,8 +43,10 @@ Fourteen offline runner tests pass with fake transport and verifier, including
 32 exact messages in order, quota exhaustion, ambiguous-request stop, deadline,
 existing-ledger refusal, seed drift, invalid metadata, guarded body assembly,
 full-file/bypass rejection, frozen grammar isolation and exact SDK no-retry setup.
-These tests are not live model or Dafny results. Remote SDK/environment checks and
-one exclusive submission will follow the user's connection/key-ready response.
+These tests are not live model or Dafny results. Three additional remote SDK and
+body-parser environment checks pass (environment-tests.log); stage-review.json
+records pinned input validation and no previous run/submission. One exclusive
+submission will follow the private key handoff.
 
 `runtime-freeze.json` binds the runner, gate, tests/log, Slurm script, audit scripts
 and verifier code to the immutable proposal. `authorization.json` separately binds

@@ -162,5 +162,5 @@ No additional model calls were made for these integrations.
 
 - [monorepo-calibration-v2-pilot-001](monorepo-calibration-v2-pilot-001/README.md):
   separately authorized 32-call execution, with unchanged revised freeze and
-  no retries. Bounded runner passes 14 offline tests; awaiting Cannon connection
-  and private key handoff. No requests or job submission yet.
+  no retries. Bounded runner passes 14 offline tests plus three remote environment
+  checks; staged inputs verified. Awaiting private key handoff; no job or calls yet.
