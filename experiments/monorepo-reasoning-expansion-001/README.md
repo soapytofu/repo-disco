@@ -118,3 +118,7 @@ application and concatenation reassociation explicit, changing helper bodies onl
 Eleven offline checks pass. Job **57111126** will run just its four revised references;
 44 previously reviewed outcomes have identical sources and will not be rerun.
 The 116 targeted-negative checks remain gated. No model calls.
+
+The [current reviewed results](RESULTS.md) now establish all 24 reference
+workspaces and all 24 empty-proof controls. The distinct 116 targeted negatives
+are pending in job **57112358**. No model calls.

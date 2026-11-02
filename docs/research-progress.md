@@ -484,3 +484,9 @@ Revision 003 now makes the reverse proof steps explicit while preserving all
 contracts, clients and providers. Eleven offline checks pass. Job 57111126 was
 submitted once for just four changed references; the 44 byte-identical successful
 control outcomes are reused with hashes. All first-run failures remain published.
+
+Job 57111126 verified all four revised reverse references. The audited reference
+gate now covers all 24 reference workspaces and all 24 expected empty-proof failures,
+reusing 44 byte-identical prior outcomes without creating new trials. Full logs
+and original failures are preserved. Distinct targeted-negative job 57112358 is
+submitted on nonpreemptible shared for 116 checks; no model requests.
