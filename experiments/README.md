@@ -2,6 +2,15 @@
 
 A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 2, 2026.
 
+## Six-task reasoning calibration frozen — not run
+
+[monorepo-reasoning-calibration-001](monorepo-reasoning-calibration-001/README.md)
+proposes **24 new calls**: six strengthened instances × shallow/deep ×
+shared/separate, one sample per variant. Exact requests, order, source hashes,
+settings and unchanged output guard are frozen; 12 offline tests pass. All 164
+prior verifier outcomes were audited. No model calls or execution authorization.
+This is a first difficulty/format check; main corpus collection remains deferred.
+
 ## Balanced calibration completed
 
 [monorepo-balanced-calibration-pilot-001](monorepo-balanced-calibration-pilot-001/README.md):

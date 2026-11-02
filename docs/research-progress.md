@@ -6,7 +6,7 @@ Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Balanced calibration complete: 32/32 admission, 29/32 verification, no retries. Three interval-witness precondition failures; three other families at 8/8. Main corpus remains deferred for difficulty/diversity revision; previous scores unchanged. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Previous balanced calibration: 29/32 verified, with three families at 8/8. Six strengthened instances now pass all 164 verifier controls; a fresh 24-call calibration proposal is frozen and tested, not run or authorized. Main corpus remains deferred; previous scores unchanged. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -512,3 +512,22 @@ development tasks, and separate conditions still permit duplicated proofs.
 Weeks 5–6 next gate: separately review/freeze prompts and output policy for these
 final sources and approve a bounded model calibration before any larger corpus
 collection. No such new pilot is frozen or authorized by this verifier work.
+
+## November 2: six-task calibration proposal frozen
+
+[New plan and prompts](../experiments/monorepo-reasoning-calibration-001/README.md)
+propose 24 fresh requests: six semantic instances × two depths × two sharing
+conditions × one sample. This covers all 24 verified configurations, eight calls
+per family and six per cell. Exact prompt/request bytes, source/guard/settings
+hashes and counterbalanced order are frozen. Twelve offline tests pass, including
+24 reference and 104 semantic-negative reconstructions, prompt isolation and
+deterministic regeneration. The 164 prior verifier outcomes were audited without
+rerunning Dafny. Zero new model calls; no runtime submission or execution approval.
+
+This small run is intended to detect difficulty and output-policy problems before
+larger collection. One sample per configuration cannot measure sampling variance
+or establish causal depth/sharing effects; separate conditions have two editable
+bodies and allow copying. All instances remain development data. Any floor,
+ceiling or output-policy problem requires review before scale-up. The next gate
+is explicit approval of 24 new requests and a separately tested bounded runner;
+no historical unused budget is reassigned and no main corpus is launched.

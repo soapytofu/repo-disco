@@ -1,0 +1,8 @@
+Complete missing proof bodies in the supplied Dafny 4.11.0 monorepo workspace.
+Return only one JSON object mapping exactly the requested editable filenames to
+proof-body strings. No explanation, full files, declarations, or outer lemma-body
+braces. The host inserts those strings into the supplied empty bodies and verifies
+the entire workspace, including all providers and both clients. Preserve every
+supplied signature, contract, import, induction setting and decreases clause.
+Follow the explicitly bounded output language. Use braced if/else statements;
+if/then/else is only a pure value expression, never a branch of lemma calls.

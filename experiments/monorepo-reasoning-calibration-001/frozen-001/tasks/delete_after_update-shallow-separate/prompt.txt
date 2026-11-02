@@ -1,0 +1,306 @@
+Fill the empty Prove body in each editable file below so that all existing contracts and clients verify.
+
+Editable files: HelperA.dfy, HelperB.dfy. All other files and all declarations are immutable.
+
+Required JSON shape (replace each empty string with its proof body):
+{"HelperA.dfy": "", "HelperB.dfy": ""}
+
+Allowed output language (syntax examples below are illustrative, not proofs of the task):
+- Semicolon-terminated assertions and calls to the listed lemmas.
+- Braced if/else statements. Do not write `if condition then Call(); else Call();`.
+- Fresh inferred-type locals: `var name := expression;`. No explicit local types,
+  shadowing parameters/module aliases/active locals, or assignments after declaration.
+- One-bound-variable proof blocks: `forall name | domain ensures property { statements }`.
+  The bound name is fresh and available only inside this proof block. Use one ensures
+  expression; combine multiple required facts with &&. This is a proof statement,
+  not a quantified expression inside an assertion.
+- Integer and boolean literals; +, -, !, comparisons, ==>, &&, ||, in and !in;
+  parentheses; pure `if condition then value else value`; sequence literals, indexing
+  and slices; cardinality |expression|; .Keys; and the listed pure functions.
+- Calls to Prove refer only to the same helper. Its fixed decreases clause must hold.
+Not allowed: comments, assumptions, expects, reveals, attributes, declarations,
+imports, cross-helper calls, loops, calc/match blocks, strings, lambdas, explicit
+types, map/set literals or comprehensions, map updates, multiplication/division,
+unlisted operations, or arbitrary Dafny syntax. Do not bypass verification.
+All calls/assertions/local declarations end with a semicolon. Do not add a semicolon
+after a braced if or forall block. JSON must escape body newlines normally; do not
+double-escape them into literal backslash-n tokens in the Dafny body.
+Limits: 262144 UTF-8 bytes for the response; each body at most 65536 bytes, 8192
+tokens and 256 statements, with at most 24 statement nesting levels and 32 expression
+nesting levels. Integer literals have at most 12 digits. Syntax admission alone
+does not establish proof correctness: all obligations and termination must verify.
+
+
+Concrete syntax examples:
+if true { assert true; } else { assert true; }
+var tmp := if true then 0 else 1; assert tmp == 0;
+var xs := [0,1]; assert |xs| == 2;
+forall key | key == 0 ensures key == 0 { assert key == 0; }
+
+Parameters in each editable helper: m, k, j, v.
+
+Allowed lemma calls and argument counts: {"A.Equal": 2, "A.ObserveDrop": 2, "A.ObservePut": 3, "Prove": 4}.
+
+Allowed pure functions and argument counts: {"K.Drop": 2, "K.Put": 3}.
+
+Only calls through the imported/exported views and the explicit lists above are allowed, even if other definitions are visible in the supplied provider sources.
+
+Declared file/include/import map (derived from the source):
+{
+  "All.dfy": {
+    "includes": [
+      "ClientA.dfy",
+      "ClientB.dfy"
+    ],
+    "imports": []
+  },
+  "Api.dfy": {
+    "includes": [
+      "Kernel.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Internal"
+      }
+    ]
+  },
+  "ClientA.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "H",
+        "module": "HelperA",
+        "view": "default"
+      }
+    ]
+  },
+  "ClientB.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "HelperB.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "H",
+        "module": "HelperB",
+        "view": "default"
+      }
+    ]
+  },
+  "HelperA.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "Ops1.dfy",
+      "Ops2.dfy",
+      "Api.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "A",
+        "module": "Api",
+        "view": "Shallow"
+      }
+    ]
+  },
+  "HelperB.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "Ops1.dfy",
+      "Ops2.dfy",
+      "Api.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "A",
+        "module": "Api",
+        "view": "Shallow"
+      }
+    ]
+  },
+  "Kernel.dfy": {
+    "includes": [],
+    "imports": []
+  },
+  "Ops1.dfy": {
+    "includes": [
+      "Kernel.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Internal"
+      }
+    ]
+  },
+  "Ops2.dfy": {
+    "includes": [
+      "Kernel.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Internal"
+      }
+    ]
+  }
+}
+
+Complete workspace source follows. The only edits you return are the requested body strings.
+
+FILE All.dfy
+```dafny
+include "ClientA.dfy"
+include "ClientB.dfy"
+```
+
+FILE Api.dfy
+```dafny
+include "Kernel.dfy"
+module Api {
+  export Shallow provides K, ObservePut, ObserveDrop, Equal
+  export Deep provides K, Equal
+  import K = Kernel`Internal
+  lemma ObservePut(m: map<int,int>, k: int, v: int)
+    ensures K.Put(m,k,v) == m[k := v]
+  { reveal K.Put(); }
+  lemma ObserveDrop(m: map<int,int>, k: int)
+    ensures K.Drop(m,k) == (map q | q in m && q != k :: m[q])
+  { reveal K.Drop(); }
+  lemma Equal(a: map<int,int>, b: map<int,int>)
+    requires a.Keys == b.Keys
+    requires forall q :: q in a ==> q in b && a[q] == b[q]
+    ensures a == b
+  { }
+}
+```
+
+FILE ClientA.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperA.dfy"
+module ClientA {
+  import K = Kernel`Public
+  import H = HelperA
+  lemma Use(m: map<int,int>, k: int, j: int, v: int)
+    ensures K.Drop(K.Put(m,k,v),j) == (if k == j then K.Drop(m,j) else K.Put(K.Drop(m,j),k,v))
+  { H.Prove(m,k,j,v); }
+}
+```
+
+FILE ClientB.dfy
+```dafny
+include "Kernel.dfy"
+include "HelperB.dfy"
+module ClientB {
+  import K = Kernel`Public
+  import H = HelperB
+  lemma Use(m: map<int,int>, k: int, j: int, v: int)
+    ensures K.Drop(K.Put(m,j,v+1),k) == (if j == k then K.Drop(m,k) else K.Put(K.Drop(m,k),j,v+1))
+  { H.Prove(m,j,k,v+1); }
+}
+```
+
+FILE HelperA.dfy
+```dafny
+include "Kernel.dfy"
+include "Ops1.dfy"
+include "Ops2.dfy"
+include "Api.dfy"
+module HelperA {
+  import K = Kernel`Public
+  import A = Api`Shallow
+  lemma {:induction false} Prove(m: map<int,int>, k: int, j: int, v: int)
+    ensures K.Drop(K.Put(m,k,v),j) == (if k == j then K.Drop(m,j) else K.Put(K.Drop(m,j),k,v))
+  {
+  }
+}
+```
+
+FILE HelperB.dfy
+```dafny
+include "Kernel.dfy"
+include "Ops1.dfy"
+include "Ops2.dfy"
+include "Api.dfy"
+module HelperB {
+  import K = Kernel`Public
+  import A = Api`Shallow
+  lemma {:induction false} Prove(m: map<int,int>, k: int, j: int, v: int)
+    ensures K.Drop(K.Put(m,k,v),j) == (if k == j then K.Drop(m,j) else K.Put(K.Drop(m,j),k,v))
+  {
+  }
+}
+```
+
+FILE Kernel.dfy
+```dafny
+module Kernel {
+  export Public provides Put, Drop
+  export Internal reveals Put, Drop
+  opaque function Put(m: map<int,int>, k: int, v: int): map<int,int> { m[k := v] }
+  opaque function Drop(m: map<int,int>, k: int): map<int,int>
+  { map q | q in m && q != k :: m[q] }
+}
+```
+
+FILE Ops1.dfy
+```dafny
+include "Kernel.dfy"
+module Ops1 {
+  export Public provides K, PutKeys, DropKeys
+  import K = Kernel`Internal
+  lemma PutKeys(m: map<int,int>, k: int, v: int)
+    ensures K.Put(m,k,v).Keys == m.Keys + {k}
+  { reveal K.Put(); }
+  lemma DropKeys(m: map<int,int>, k: int)
+    ensures K.Drop(m,k).Keys == m.Keys - {k}
+  { reveal K.Drop(); }
+}
+```
+
+FILE Ops2.dfy
+```dafny
+include "Kernel.dfy"
+module Ops2 {
+  export Public provides K, PutAt, DropAt
+  import K = Kernel`Internal
+  lemma PutAt(m: map<int,int>, k: int, v: int, q: int)
+    requires q in K.Put(m,k,v)
+    ensures q == k ==> K.Put(m,k,v)[q] == v
+    ensures q != k ==> q in m && K.Put(m,k,v)[q] == m[q]
+  { reveal K.Put(); }
+  lemma DropAt(m: map<int,int>, k: int, q: int)
+    requires q in K.Drop(m,k)
+    ensures q in m && q != k && K.Drop(m,k)[q] == m[q]
+  { reveal K.Drop(); }
+}
+```
+
+Return the JSON object only. Every editable body must be supplied; no changes outside those bodies.
