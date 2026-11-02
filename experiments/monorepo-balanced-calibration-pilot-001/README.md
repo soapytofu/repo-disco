@@ -1,6 +1,9 @@
 # Balanced 32-call calibration execution
 
-Status: user authorized **at most 32 new requests, no retries** on November 2,
+**Current status: job 57099049 submitted once on nonpreemptible test.**
+Results pending; no requeue, retries or duplicate submission.
+
+Preparation history: user authorized **at most 32 new requests, no retries** on November 2,
 2026. Runner preparation and 18 fake-transport/verifier tests are complete.
 Staging and three real-environment offline checks passed; hashes and the installed
 SDK's single-attempt configuration match. `preflight-review.json` records the
@@ -70,3 +73,11 @@ strict exit zero. Shared and separate output workloads differ, and this remains
 development calibration on four semantic instances. Review floors, ceilings,
 protocol issues and strategies before any scale-up. The main 192-call corpus
 and extra diagnostic model requests remain unauthorized.
+
+## Submission
+
+Job **57099049** was submitted once on November 2 at 19:49:40 UTC.
+`submission.json` and `submission.lock/intent.json` record live PreemptMode=OFF,
+empty prior job/run state and scope/runtime/authorization hashes. No duplicated
+submission or model connectivity request was made. The approved cap is 32 total
+requests for this run, with no reassignment or automatic restart.
