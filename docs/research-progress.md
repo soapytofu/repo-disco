@@ -6,7 +6,7 @@ Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Smoke completed (8/8 admission, 7/8 verification); difficulty/failure review completed. Fresh balanced 32-call clarified-syntax proposal frozen and validated offline, not authorized to run. Main corpus remains deferred; previous scores unchanged. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Smoke and difficulty review complete. Fresh balanced 32-call calibration approved; bounded runner passed 18 local and three Cannon offline tests, ready for single submission. Main corpus remains deferred; previous scores unchanged. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -407,3 +407,13 @@ equal-work causal sharing experiment or a held-out evaluation. New trial IDs and
 separate ledgers prevent mixing prior samples. The 32 calls are a proposal only;
 a separately tested runner/runtime freeze and explicit authorization are needed.
 The 192-call main stage remains deferred pending protocol and difficulty review.
+
+## November 2: balanced calibration approved and runner ready
+
+The user approved the frozen 32-call plan with no retries. The isolated
+[execution runner](../experiments/monorepo-balanced-calibration-pilot-001/README.md)
+passed 18 fake-transport/verifier tests and three real-environment offline checks
+on Cannon. Exact frozen inputs and runtime hashes match; the private handoff is
+ready. Authorization pins the unchanged scope/runtime, 32-request cap, no retry
+or reassignment, and a finite dispatch deadline. Single submission is next; no
+model requests at this checkpoint. The main corpus remains unauthorized.

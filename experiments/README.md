@@ -2,6 +2,13 @@
 
 A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 2, 2026.
 
+## Balanced calibration execution approved
+
+[monorepo-balanced-calibration-pilot-001](monorepo-balanced-calibration-pilot-001/README.md):
+user authorized 32 new calls, no retries. The isolated runner passed 18 local and
+three Cannon offline tests and is ready for a single submission. Earlier planning
+statuses below describe preparation checkpoints; the main corpus is still gated.
+
 ## Balanced clarified-syntax calibration prepared
 
 [monorepo-balanced-calibration-001](monorepo-balanced-calibration-001/README.md):
