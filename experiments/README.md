@@ -208,10 +208,8 @@ failure, eight unique requests and zero retries. Full raw archive and source/con
 audit published; syntax gate passed, no automatic larger study.
 
 - [monorepo-reasoning-expansion-001](monorepo-reasoning-expansion-001/README.md):
-  six new semantic tasks across the three saturated families, 24 matched workspace
-  variants and 164 planned verifier controls. Six construction tests pass.
-  Initial job 57104220 failed on a missing runtime import before Dafny ran; logs
-  preserved. Corrected runtime passed two offline tests locally and on Cannon;
-  job 57106124 yielded 20/24 reference passes and all 24 expected empty-proof
-  failures. Four reverse-concatenation references need repair; full logs preserved.
-  No model calls or completed-family-validation claim.
+  six semantic tasks, 24 matched workspaces; **164/164 final verifier outcomes
+  matched** (24 passes, 120 proof failures, 8 termination failures, 12 hidden-export
+  failures). Full code, raw logs and audits published; original startup/proof
+  failures preserved. Separate output guard tested offline. No model calls or
+  measured model-difficulty claim.

@@ -1,0 +1,38 @@
+{
+  "task_id": "clamp_stability-deep-separate",
+  "variant": "wrong_equality",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "83e598c351961aa7be86c088635d62499ee571de6156605499b4030cd606ba0f",
+    "ClientA.dfy": "068ea693e7ac7ec09664b1547f4d9470313ca6005995be227a896e235f539730",
+    "ClientB.dfy": "db67066e96597c1f9a950173097d5c2a68514454e5a69c0fb23663afedba3be4",
+    "HelperA.dfy": "6fb25d0af9f723e4097ee70dbe45cd6ee342f37b24980729875dd6415287a392",
+    "HelperB.dfy": "0d27a4061a44dfd86a2e5244df0ad16deb60383b10133dab5907be9bd8bc42ad",
+    "Kernel.dfy": "9daa4bf3ba0b290cad997e664235b0a490c3ff544c24b19f2f51398228780c4e",
+    "Ops1.dfy": "887b863046a2d5e268d3820ba05bf73cd8e5e7a239bd9a6823aefdc4db5cfa8b",
+    "Ops2.dfy": "de407d77e480897b89c29f03d62b55c474cc5645b567b3baa7c8b0d82763f3d1"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(25,4): Error: assertion might not hold\n   |\n25 |     assert K.Clamp(x,l,h) == x;\n   |     ^^^^^^\n\nHelperB.dfy(25,4): Error: assertion might not hold\n   |\n25 |     assert K.Clamp(x,l,h) == x;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.499834585003555,
+  "model_calls": 0,
+  "attempts": 1
+}

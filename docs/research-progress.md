@@ -490,3 +490,25 @@ gate now covers all 24 reference workspaces and all 24 expected empty-proof fail
 reusing 44 byte-identical prior outcomes without creating new trials. Full logs
 and original failures are preserved. Distinct targeted-negative job 57112358 is
 submitted on nonpreemptible shared for 116 checks; no model requests.
+
+## November 2: richer task validation complete
+
+[Final results](../experiments/monorepo-reasoning-expansion-001/RESULTS.md) now cover
+all 164 final fixture conditions: 24 reference passes, 120 ordinary proof failures,
+8 explicit termination failures and 12 hidden-export name-resolution failures.
+Job 57112358 completed all 116 targeted controls in 6m32s on shared. Exact source
+hashes, diagnostic categories and protected-source consistency were reviewed;
+no parse error was credited as a reasoning failure. Full raw code/log archives
+and acceptance evidence are published, including the initial import failure and
+four original reverse-proof failures. Zero model calls.
+
+This completes the requested verifier-only strengthening of the three saturated
+families: six semantic instances, 24 matched workspace variants, and a tested
+separate body-output guard. Forty-four unchanged earlier outcomes are reused with
+exact hashes, not counted as new independent trials. There were 168 actual Dafny
+invocations across history. Model difficulty remains unmeasured; all families are
+development tasks, and separate conditions still permit duplicated proofs.
+
+Weeks 5–6 next gate: separately review/freeze prompts and output policy for these
+final sources and approve a bounded model calibration before any larger corpus
+collection. No such new pilot is frozen or authorized by this verifier work.

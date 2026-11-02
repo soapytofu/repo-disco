@@ -1,0 +1,38 @@
+{
+  "task_id": "reverse_concat-deep-separate",
+  "variant": "only_a",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "3687c04ed529bb3538aa8dd6b82ada3a249aec66e88106fd198beaf165a7b846",
+    "ClientA.dfy": "dea00e8cfc8d6319782b1e5c7c47b087b21bfeb9f232db3df952f9f529ba0425",
+    "ClientB.dfy": "807acaef90d518ee796bda9b0ce4a7285f0d03c709463bbb722c92b5d6977851",
+    "HelperA.dfy": "0b5bf2eaa974bdb86685e14cc1e3d2c9df3ec1c6dfc198a48d8a901eff812445",
+    "HelperB.dfy": "eae1ada907206e478fc1f0b63efdd55665bc62615b59fa1c77f6dae2117df3f9",
+    "Kernel.dfy": "7e1b662105f0fd55641cca2cc6e6dc8867f47827127fe1631735ca8ff140cb91",
+    "Ops1.dfy": "95fbdb088c4da71ebbfeb43d2c58b7295d25b03f7162bb80b7a16da7da11dae4",
+    "Ops2.dfy": "40e825c89d76b64362e6b02398f41bdbd57a1fee0d2a436e05dcc3a91d9d4693"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperB.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   {\n   |   ^\n\nHelperB.dfy(11,23): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures K.Rev(s+t) == K.Rev(t)+K.Rev(s)\n   |                        ^^\n\n\nDafny program verifier finished with 10 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 2.66924140881747,
+  "model_calls": 0,
+  "attempts": 1
+}

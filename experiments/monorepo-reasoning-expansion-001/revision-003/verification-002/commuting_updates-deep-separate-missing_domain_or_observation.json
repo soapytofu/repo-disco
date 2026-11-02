@@ -1,0 +1,38 @@
+{
+  "task_id": "commuting_updates-deep-separate",
+  "variant": "missing_domain_or_observation",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+    "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+    "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+    "HelperA.dfy": "1f623499143b51a033882e50cb989893c21d469460182d05aaef1a2a837b53ad",
+    "HelperB.dfy": "12bdccbffdf14d1b0c3587d2c8f2452d6b63bd0bcd26c9c48e60ff2c9d686f26",
+    "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+    "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+    "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(21,4): Error: assertion might not hold\n   |\n21 |     assert left.Keys == right.Keys;\n   |     ^^^^^^\n\nHelperB.dfy(21,4): Error: assertion might not hold\n   |\n21 |     assert left.Keys == right.Keys;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 14 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 3.223782539134845,
+  "model_calls": 0,
+  "attempts": 1
+}

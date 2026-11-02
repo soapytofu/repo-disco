@@ -1,0 +1,38 @@
+{
+  "task_id": "commuting_updates-deep-separate",
+  "variant": "weaken_contract",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+    "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+    "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+    "HelperA.dfy": "f0d6e4ad9322888a2fdfb9908ca96cda556a8ff23910f3bd7f7b9fed72cdf1ef",
+    "HelperB.dfy": "61a57eed949e132467797b9718e69a6770312a5f56b8bd443d43e2fd3e3666d7",
+    "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+    "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+    "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "ClientA.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   { H.Prove(m,k,j,x,y); }\n  |   ^\n\nClientA.dfy(8,36): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Put(K.Put(m,k,x),j,y) == K.Put(K.Put(m,j,y),k,x)\n  |                                     ^^\n\n\nDafny program verifier finished with 15 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 2.8020277281757444,
+  "model_calls": 0,
+  "attempts": 1
+}

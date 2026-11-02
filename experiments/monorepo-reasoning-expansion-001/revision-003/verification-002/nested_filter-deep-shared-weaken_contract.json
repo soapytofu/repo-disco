@@ -1,0 +1,38 @@
+{
+  "task_id": "nested_filter-deep-shared",
+  "variant": "weaken_contract",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "35443f733e10e05cded0da2a2c4a4b168d2dd88eeb222b8722856e3c79cc014a",
+    "ClientA.dfy": "fdc71b45ce96f82dcc49b9e602bebeac242e248b135dd790988da95d5f41edf5",
+    "ClientB.dfy": "a278a123f998741d3a91201ed7db206735f89c1b079ec2603198b96ddc55de12",
+    "HelperA.dfy": "d88a2b1039059c2c1a24fe19943e427fd7eb0fc76144c6ce3b9cb9aa7a4789d3",
+    "HelperB.dfy": "266f2b1604a3a9e8de81caf27dbf6bf392ddd42f6942f8e1ae31579b30538736",
+    "Kernel.dfy": "9f4361bb09fe2faeae6da4be9af45bbc512a3d1037504dd2b03ec321447624c4",
+    "Ops1.dfy": "2b0e5b32437a12c22f6dd0aa4c421b1a997f9959fa8a5b4a1e03374e0e08477e",
+    "Ops2.dfy": "49f72a6e53aa2c2300732156ce8af58217fb21ce772c890655d62fdb8b9c2475"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "ClientA.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   { H.Prove(s,p,q); }\n  |   ^\n\nClientA.dfy(8,38): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Filter(K.Filter(s,p),q) == K.Filter(s,q)\n  |                                       ^^\n\nHelperB.dfy(10,2): Error: a postcondition could not be proved on this return path\n   |\n10 |   {\n   |   ^\n\nHelperB.dfy(8,38): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Filter(K.Filter(s,p),q) == K.Filter(s,q)\n  |                                       ^^\n\nHelperA.dfy(28,37): Error: assertion might not hold\n   |\n28 |     assert K.Filter(K.Filter(s,p),q) == K.Filter(s,q);\n   |                                      ^^\n\n\nDafny program verifier finished with 8 verified, 3 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 3.0641548559069633,
+  "model_calls": 0,
+  "attempts": 1
+}

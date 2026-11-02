@@ -1,0 +1,38 @@
+{
+  "task_id": "delete_after_update-deep-separate",
+  "variant": "hidden_shortcut",
+  "expected": "resolution_failure",
+  "diagnostic": "resolution_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+    "ClientA.dfy": "e7e9eb02992408d9d4810debe6ab4c482830d681408043784bb602d39e99339b",
+    "ClientB.dfy": "b38cf05fefd68353b4e69366e38333664574541ac9cf700c100a90c8c344c289",
+    "HelperA.dfy": "19431b5c388d74aec6533e86fca764f400531ef40f3b852c5ddc27fcf951d328",
+    "HelperB.dfy": "7f75f7321643f3147a6ccafe9dbf3495fc90bd4e3fe1bc208444879771731cf8",
+    "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+    "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+    "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "outcome": "fail",
+  "category": "frontend_error",
+  "stdout": "HelperB.dfy(13,6): Error: unresolved identifier: ObservePut\n   |\n13 |     A.ObservePut(m,k,v);\n   |       ^^^^^^^^^^\n\nHelperB.dfy(13,16): Error: expected method call, found expression\n   |\n13 |     A.ObservePut(m,k,v);\n   |                 ^\n\nHelperA.dfy(13,6): Error: unresolved identifier: ObservePut\n   |\n13 |     A.ObservePut(m,k,v);\n   |       ^^^^^^^^^^\n\nHelperA.dfy(13,16): Error: expected method call, found expression\n   |\n13 |     A.ObservePut(m,k,v);\n   |                 ^\n\n4 resolution/type errors detected in All.dfy\n",
+  "stderr": "",
+  "elapsed_seconds": 0.9364747870713472,
+  "model_calls": 0,
+  "attempts": 1
+}

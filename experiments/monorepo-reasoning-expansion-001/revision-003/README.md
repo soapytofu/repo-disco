@@ -42,3 +42,12 @@ creates no new independent trials. It also does not erase the prior four failure
 The distinct 116 targeted-negative controls were submitted ONCE as **57112358**
 on nonpreemptible shared. The submission binds the reviewed reference-gate hash;
 output is verification-002. Those outcomes are pending.
+
+## Final targeted controls complete
+
+Job 57112358 completed in 6m32s on holy7c04102 (shared). All 116 targeted controls
+matched: 96 ordinary proof failures, 8 explicit decreases-clause failures and
+12 unresolved hidden-helper failures. No parse errors counted as proof failures.
+`review_completion.py` and `completion-review.json` audit the full final 164-case
+set across both raw archives and the hash-checked reused prior evidence. See the
+[parent results](../RESULTS.md) for the consolidated findings and limitations.
