@@ -1,8 +1,18 @@
 # Reasoning expansion: six development tasks
 
 Status: constructed, six offline design tests pass; verifier-only reference gate
-**57104220** submitted on `test` (live `PreemptMode=OFF`, no requeue). Actual Dafny
+**57104220** submitted once and pending. It was updated in place from `test` to
+`shared,sapphire`, both live-confirmed `PreemptMode=OFF`; no requeue or duplicate
+job. An earlier attempt to combine test with those partitions was rejected by
+Slurm and made no change; both scheduling records are preserved. Actual Dafny
 results are pending. No model requests, credentials, or future pilot authorization.
+
+At approximately 20:20 UTC November 2, the [Harvard status page](https://fasrc.instatus.com/)
+reported scheduler maintenance scheduled through 23:00 UTC (6 PM Eastern). This
+is consistent with the pending job and absent start estimate, not proof of an
+individual scheduler cause. A follow-up will inspect the existing job, review
+all reference evidence, then submit the distinct negative phase only if that
+gate passes. No fixture is marked validated at this checkpoint.
 
 The preceding [balanced pilot](../monorepo-balanced-calibration-pilot-001/RESULTS.md)
 reached 8/8 in each of conditional, sequence and map families. This new experiment

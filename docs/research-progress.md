@@ -439,3 +439,21 @@ worked in this run, but these small development results establish no general
 sharing/depth effect. Main collection remains deferred: next build more varied
 reasoning obligations with matched semantics and verifier controls before spending
 on a larger corpus. All 32 approved calls are exhausted; no further model budget.
+
+## November 2: richer obligations built; verifier gate pending
+
+[Reasoning expansion](../experiments/monorepo-reasoning-expansion-001/README.md)
+adds six authored development instances: nested clamping, clamp stability,
+reverse over concatenation, nested filtering, commuting map updates and deletion
+after update. Across 24 shallow/deep × shared/separate variants, clients,
+provider files and helper contracts remain matched within each semantic instance.
+Reference proofs construct relationships among primitive operations; providers
+do not expose the target law. Six offline construction tests pass.
+
+The first verifier-only phase (job 57104220) is queued for 24 reference and 24
+empty-proof checks. The 116 targeted-negative checks remain gated on reviewing
+that phase. The existing job was updated in place to nonpreemptible shared/sapphire;
+Harvard reports scheduler maintenance through 23:00 UTC November 2. Sources,
+tests, submission records and scheduling evidence are published. No new model
+calls, measured difficulty claim or completed-verification claim. This remains
+Weeks 5–6 development/calibration work; larger collection is still deferred.
