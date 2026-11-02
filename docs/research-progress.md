@@ -1,12 +1,12 @@
 # Research progress and next milestone
 
-Status: October 29, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Clarified-syntax eight-call smoke test completed: 8/8 guard admission, 7/8 strict verification, one interval-witness proof-precondition failure. Syntax gate passed; no causal sharing/depth claim. Prior pilot scores remain unchanged; full/main evaluation remains gated. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Smoke completed (8/8 admission, 7/8 verification); difficulty/failure review completed. Fresh balanced 32-call clarified-syntax proposal frozen and validated offline, not authorized to run. Main corpus remains deferred; previous scores unchanged. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -388,3 +388,22 @@ deep/shared interval proof chooses c without establishing its membership in the
 other interval. All original evidence is preserved; no repair or rerun was made.
 The eight-call budget is exhausted. The syntax gate passed, but full calibration
 and main collection still require review and separate authorization.
+
+## November 2: difficulty reviewed and balanced calibration frozen
+
+[New preparation](../experiments/monorepo-balanced-calibration-001/README.md)
+retains the clarified prompts, all 16 task configurations, parser, settings and
+counterbalanced order for 32 fresh samples. Nine offline tests pass, including
+replay of 16 reference workspaces and all eight smoke responses, integrity checks
+for the 136 selected prior verifier controls, and matched client/provider/contract
+checks. No model requests, SSH access or new Dafny runs were made.
+
+The interval-witness failure chose c without establishing a <= c; a concrete
+counterexample and the already verified branch strategy are documented only for
+reviewers. Other families remain ceiling risks: providers discharge much of the
+underlying mathematics, and all separate smoke responses copied one proof into
+both bodies. This is contract-composition and output-workload calibration, not an
+equal-work causal sharing experiment or a held-out evaluation. New trial IDs and
+separate ledgers prevent mixing prior samples. The 32 calls are a proposal only;
+a separately tested runner/runtime freeze and explicit authorization are needed.
+The 192-call main stage remains deferred pending protocol and difficulty review.

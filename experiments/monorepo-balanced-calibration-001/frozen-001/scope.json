@@ -1,0 +1,66 @@
+{
+  "status": "FROZEN_PROPOSAL_NO_MODEL_AUTHORIZATION",
+  "experiment": "monorepo-balanced-calibration-001",
+  "model_calls_made": 0,
+  "proposed_max_new_calls": 32,
+  "historical_calls_reused": 0,
+  "parent_freeze_sha256": "cfa8ae517c07751f45591ce52d91c3f63240dee167f9ffbdf83b5a282799cd32",
+  "prompts_sources_parser_settings_changed": false,
+  "design": "Four development families x two depths x two sharing conditions x two fresh samples",
+  "semantic_instances": 4,
+  "workspace_variants": 16,
+  "per_variant_requests": 2,
+  "per_family_requests": 8,
+  "attempts_per_sample": 1,
+  "sdk_total_max_attempts": 1,
+  "automatic_retries": false,
+  "reassign_unused": false,
+  "fresh_context": true,
+  "feedback": false,
+  "resume_existing_runs": false,
+  "pooling_with_prior_runs": false,
+  "order": "Exact parent order: four cyclic Latin rows, interleaved families; complete reversal for sample two",
+  "order_limit": "Balances positions, not all ordered transitions; midpoint repeats one variant in fresh contexts",
+  "primary_metric": "Strict whole-workspace exit zero AND intact guarded source/contracts out of planned 32; report reserved/dispatched/completed separately",
+  "secondary_metrics": [
+    "Parser/guard admission; JSON/schema/body/edit rejection categories",
+    "Proof precondition/postcondition/assertion/termination, frontend, timeout and infrastructure categories",
+    "Per-family four-cell results (2 samples per cell), with repeats grouped under variant and semantic instance",
+    "Tokens, bytes, editable-body count, latency, and identical/normalized body reuse; not independent task counts"
+  ],
+  "stopping_rule": "Stop on transport ambiguity, hash drift, persistence or verifier infrastructure failure; no automatic retry, restart or replacement. Ordinary output/proof failures consume their slots.",
+  "review_gate": {
+    "protocol": "Any output-format/guard failure blocks main scale-up for offline diagnosis; never silently repair/rescore",
+    "difficulty": "Family 0/8 or 8/8 requires floor/ceiling inspection before scale-up; any near-ceiling or trivial reusable template also needs review",
+    "matching": "Check invariant client targets, shared-vs-separate workload, reference-relative depth and shortcut controls",
+    "analysis": "Inspect all failures and proof strategy/duplicates for every success; distinguish difficulty from format",
+    "no_automatic_expansion": "Even a successful calibration does not authorize the 192-call main corpus"
+  },
+  "output_token_ceiling": 131072,
+  "cost_note": "Output-token cap only; input tokens additional. No price or expected-use claim.",
+  "model_message_inputs_only": [
+    "system.txt",
+    "trial.prompt_path"
+  ],
+  "reviewer_only_not_model_context": [
+    "evidence-review.json",
+    "difficulty-review.md",
+    "preflight-gate.json",
+    "scope.json"
+  ],
+  "future_execution_gates": [
+    "Explicit new 32-call authorization bound to this scope and separately tested/frozen runner",
+    "Fake-transport and real-environment offline tests; every-dispatch budget/deadline and durable reservation",
+    "Fresh output/ledger/submission state check; one job on live-confirmed nonpreemptible compute; no requeue",
+    "No model connectivity tests; credential handoff only for later authorized execution"
+  ],
+  "publication": "Exact frozen messages, raw responses, ledger/request IDs, guarded candidates, verifier stdout/stderr, hashes, all failures and summary; no secrets",
+  "limitations": [
+    "Development calibration, one semantic instance per family; no held-out or population claim",
+    "Shared one helper vs separate two equivalent helper bodies changes output workload; copying is allowed",
+    "Provider implementations are visible trusted context; this is API-contract composition, not from-scratch provider synthesis",
+    "Reference depth is not proved minimal; all mathematical Kernel/provider definitions remain shared",
+    "Fresh requests are new samples of already inspected problems, not independent new semantic tasks",
+    "Old scores remain 18/32, 1/32 and smoke 7/8; no causal prompt-effect claim"
+  ]
+}

@@ -1,6 +1,16 @@
 # Experiment log
 
-A concise record of what we tried, which program changed, and what the evidence supports. Last updated October 28, 2026.
+A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 2, 2026.
+
+## Balanced clarified-syntax calibration prepared
+
+[monorepo-balanced-calibration-001](monorepo-balanced-calibration-001/README.md):
+difficulty review and a fresh 32-call proposal are frozen, with nine offline tests
+passing. All 16 configurations, clarified prompts, settings and parser are unchanged;
+new trial identities keep this plan separate from earlier pilots. The interval
+witness error is explained without repairing/rescoring its response. Prior smoke
+remains 7/8 verified. Zero new model/Dafny calls; execution and the larger main
+corpus remain unauthorized.
 
 ## Main corpus deferred
 

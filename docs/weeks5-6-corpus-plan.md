@@ -1,10 +1,13 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current gate (October 29):** the clarified-syntax eight-call smoke test is complete:
-8/8 guard admission and 7/8 strict whole-workspace verification, with one interval
-witness precondition failure. The small syntax gate passed. Main collection and
-a fresh full calibration remain deferred pending review and separate authorization.
-No model calls remain authorized. Earlier calibration scores are unchanged.
+**Current gate (November 2):** the clarified-syntax smoke test completed with
+8/8 admission and 7/8 strict verification. The interval-witness failure and task
+difficulty are now reviewed; a [fresh balanced 32-call proposal](../experiments/monorepo-balanced-calibration-001/README.md)
+is frozen with unchanged clarified prompts and nine passing offline tests.
+Execution awaits a tested runner/runtime freeze and separate authorization.
+Main collection remains deferred. No model calls are authorized; prior scores
+are unchanged. Providers already prove much of the mathematics, and separate
+helpers can copy equivalent bodies, so ceiling/workload limits require review.
 
 The preparation history below is retained; its earlier authorization statements
 describe those checkpoints, not the current completed execution. The initial
