@@ -1,7 +1,15 @@
 # Reasoning expansion: six development tasks
 
-Status: constructed, six offline design tests pass; verifier-only reference gate
-**57104220** submitted once and pending. It was updated in place from `test` to
+Status: constructed, six offline design tests pass. Original reference gate
+**57104220** started on shared but failed before any Dafny check because the staged
+package lacked a transitive `execute` import. Its raw logs/accounting are preserved.
+The deliberate [runtime-002 correction](runtime-002/correction.json) adds the two
+missing package files (`execute.py`, `language/dafny/prompt.py`), changes no fixture
+bytes and passes two fake-process/import tests locally and in Cannon's environment.
+Corrected reference job **57106124** was submitted once on nonpreemptible shared;
+actual Dafny results remain pending. No model calls.
+
+The original job was updated in place from `test` to
 `shared,sapphire`, both live-confirmed `PreemptMode=OFF`; no requeue or duplicate
 job. An earlier attempt to combine test with those partitions was rejected by
 Slurm and made no change; both scheduling records are preserved. Actual Dafny
@@ -12,7 +20,9 @@ reported scheduler maintenance scheduled through 23:00 UTC (6 PM Eastern). This
 is consistent with the pending job and absent start estimate, not proof of an
 individual scheduler cause. A follow-up will inspect the existing job, review
 all reference evidence, then submit the distinct negative phase only if that
-gate passes. No fixture is marked validated at this checkpoint.
+gate passes. The first job subsequently started despite that maintenance notice;
+the notice did not prove its individual scheduling cause. No fixture is marked
+validated at this checkpoint.
 
 The preceding [balanced pilot](../monorepo-balanced-calibration-pilot-001/RESULTS.md)
 reached 8/8 in each of conditional, sequence and map families. This new experiment

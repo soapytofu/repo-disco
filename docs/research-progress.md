@@ -465,3 +465,11 @@ contracts and immutable sources. All 24 reference workspaces and 104 semantic
 negative-control bodies reconstruct exactly. This is output admission, not
 Dafny success; reference semantics are still pending. Old frozen protocols and
 the running/queued verifier inputs are unchanged. No model pilot or calls added.
+
+The original reference job 57104220 then started and failed before any Dafny check:
+two transitive package dependencies were omitted from the staged runtime. Full
+startup logs/accounting are preserved. Deliberate `runtime-002` adds those imports
+with all 1,476 fixture files unchanged; two import/fake-process tests pass locally
+and in Cannon's environment. Corrected reference job 57106124 was submitted once
+on nonpreemptible shared. This is an infrastructure correction, not a proof
+finding. Semantic validation is still pending; no model calls.

@@ -210,5 +210,6 @@ audit published; syntax gate passed, no automatic larger study.
 - [monorepo-reasoning-expansion-001](monorepo-reasoning-expansion-001/README.md):
   six new semantic tasks across the three saturated families, 24 matched workspace
   variants and 164 planned verifier controls. Six construction tests pass.
-  Reference/empty job 57104220 is pending during reported scheduler maintenance;
-  no model calls or claim of completed Dafny validation.
+  Initial job 57104220 failed on a missing runtime import before Dafny ran; logs
+  preserved. Corrected runtime passed two offline tests locally and on Cannon;
+  reference/empty job 57106124 is pending. No model calls or completed-validation claim.
