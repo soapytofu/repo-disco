@@ -457,3 +457,11 @@ Harvard reports scheduler maintenance through 23:00 UTC November 2. Sources,
 tests, submission records and scheduling evidence are published. No new model
 calls, measured difficulty claim or completed-verification claim. This remains
 Weeks 5–6 development/calibration work; larger collection is still deferred.
+
+During the user-authorized two-hour verifier-only continuation, a separate
+reasoning-body output guard passed nine offline tests. It supports bounded locals,
+recursion and universal pointwise proof blocks while preserving imports, helper
+contracts and immutable sources. All 24 reference workspaces and 104 semantic
+negative-control bodies reconstruct exactly. This is output admission, not
+Dafny success; reference semantics are still pending. Old frozen protocols and
+the running/queued verifier inputs are unchanged. No model pilot or calls added.

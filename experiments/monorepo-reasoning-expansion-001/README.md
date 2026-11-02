@@ -86,6 +86,13 @@ or held-out tasks. Their proofs use locals and universal pointwise proof blocks
 beyond the old calibration grammar. A separately tested protected-body protocol
 is required before any future model trial; no old parser or freeze is changed.
 
+The separate [development output guard](protocol/README.md) now passes nine
+offline test methods, including exact reconstruction of all 24 reference sources
+and 104 semantic negatives plus adversarial contract/scope/bypass rejections.
+This code is outside the original verifier input manifest and does not change the
+queued job. Its own test/code hashes are archived separately. Semantic fixture
+validation and any future model protocol freeze remain pending.
+
 Reproduce construction in a fresh directory with `build.build(path)`, run
 `python3 -B test_design.py`, and use the pinned scripts only inside a Slurm compute
 allocation. `preflight.py` refuses login-node execution and existing output paths.
