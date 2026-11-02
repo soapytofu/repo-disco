@@ -2,12 +2,14 @@
 
 A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 2, 2026.
 
-## Balanced calibration execution approved
+## Balanced calibration completed
 
 [monorepo-balanced-calibration-pilot-001](monorepo-balanced-calibration-pilot-001/README.md):
-user authorized 32 new calls, no retries. The isolated runner passed 18 local and
-three Cannon offline tests and is ready for a single submission. Earlier planning
-statuses below describe preparation checkpoints; the main corpus is still gated.
+job 57099049 completed 32 requests with zero retries, 32/32 guard admission and
+29/32 strict passes. Three interval-witness precondition failures are preserved;
+three other families each reached 8/8. All contracts/source and raw evidence were
+reviewed. The budget is exhausted; the main corpus remains gated on difficulty
+and diversity revision. Earlier planning statuses below are historical checkpoints.
 
 ## Balanced clarified-syntax calibration prepared
 

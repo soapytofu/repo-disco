@@ -6,7 +6,7 @@ Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Smoke and difficulty review complete. Fresh balanced 32-call calibration approved; bounded runner passed 18 local and three Cannon offline tests, submitted once as job 57099049 on nonpreemptible test. Main corpus remains deferred; previous scores unchanged. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Balanced calibration complete: 32/32 admission, 29/32 verification, no retries. Three interval-witness precondition failures; three other families at 8/8. Main corpus remains deferred for difficulty/diversity revision; previous scores unchanged. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -421,3 +421,21 @@ model requests at this checkpoint. The main corpus remains unauthorized.
 The approved balanced pilot was submitted once as **57099049** on test, with live
 PreemptMode=OFF checked, at 19:49:40 UTC November 2. Results are pending; no retries,
 requeue or duplicate jobs. Submission/authorization/lock records are archived.
+
+## November 2: balanced calibration completed and reviewed
+
+[Full results](../experiments/monorepo-balanced-calibration-pilot-001/RESULTS.md)
+and [source review](../experiments/monorepo-balanced-calibration-pilot-001/MANUAL_REVIEW.md):
+job 57099049 completed on test in 4m29s. Exactly 32 distinct requests, zero SDK
+retries, 100,376 tokens, 32/32 output admission and 29/32 strict workspace passes.
+All three failures are deep interval-witness preconditions (two shared, one
+separate); all protected contracts and source passed review. Full raw evidence
+and failed attempts are archived, with no repair/rescoring or further calls.
+
+Conditional, sequence and map families each reached 8/8; interval witness reached
+5/8. All 16 separate trials duplicate body syntax across their two helpers; 14/16
+configurations repeat the same body syntax in both samples. The syntax protocol
+worked in this run, but these small development results establish no general
+sharing/depth effect. Main collection remains deferred: next build more varied
+reasoning obligations with matched semantics and verifier controls before spending
+on a larger corpus. All 32 approved calls are exhausted; no further model budget.

@@ -1,0 +1,20 @@
+include "Kernel.dfy"
+include "Stage1.dfy"
+include "Stage2.dfy"
+include "Stage3.dfy"
+module HelperA {
+  import K = Kernel`Public
+  import End = Stage3`Shallow
+  lemma {:induction false} Prove(a: int, b: int, c: int, d: int)
+    requires a <= b && c <= d && a <= d && c <= b
+    ensures K.Overlap(a,b,c,d)
+  {if a <= d {
+  if c <= b {
+    End.Direct(a, b, c, d, (if a >= c then a else c));
+  } else {
+    End.Direct(a, b, c, d, (if a >= c then a else c));
+  }
+} else {
+  End.Direct(a, b, c, d, (if a >= c then a else c));
+}  }
+}

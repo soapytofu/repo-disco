@@ -1,7 +1,14 @@
 # Balanced 32-call calibration execution
 
-**Current status: job 57099049 submitted once on nonpreemptible test.**
-Results pending; no requeue, retries or duplicate submission.
+**Complete:** job 57099049 finished on nonpreemptible test in 4m29s.
+Exactly **32 calls, 32/32 guard admission, 29/32 whole-workspace passes**, three
+interval-witness precondition failures and zero SDK retries. Protected source and
+full raw evidence passed audit. The approved budget is exhausted.
+[Results](RESULTS.md) · [Manual proof/difficulty review](MANUAL_REVIEW.md) ·
+[Raw archive](model-001) · [Reproducible audit](results-review.json).
+
+Three families reached 8/8; main collection remains deferred and unauthorized.
+The historical preparation/submission notes below are retained.
 
 Preparation history: user authorized **at most 32 new requests, no retries** on November 2,
 2026. Runner preparation and 18 fake-transport/verifier tests are complete.

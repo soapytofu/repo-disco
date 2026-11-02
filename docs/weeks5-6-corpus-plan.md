@@ -4,12 +4,13 @@
 8/8 admission and 7/8 strict verification. The interval-witness failure and task
 difficulty are now reviewed; a [fresh balanced 32-call proposal](../experiments/monorepo-balanced-calibration-001/README.md)
 is frozen with unchanged clarified prompts and nine passing offline tests.
-The user subsequently approved those 32 requests, no retries. The
-[bounded runner](../experiments/monorepo-balanced-calibration-pilot-001/README.md)
-passed 18 local and three Cannon offline tests and is ready for single submission.
-Main collection remains deferred; prior scores are unchanged. Providers already
-prove much of the mathematics, and separate
-helpers can copy equivalent bodies, so ceiling/workload limits require review.
+The subsequently approved [32-call run](../experiments/monorepo-balanced-calibration-pilot-001/RESULTS.md)
+is complete: 32/32 admission, 29/32 verification, zero retries. Three failures were
+deep interval-witness preconditions; the other three families each reached 8/8.
+The full budget is exhausted. Main collection remains deferred pending harder,
+more varied obligations and matched verifier controls; previous scores remain
+unchanged. Providers already prove much of the mathematics, and every separate
+response copied equivalent bodies, so this is not a causal equal-work sharing test.
 
 The preparation history below is retained; its earlier authorization statements
 describe those checkpoints, not the current completed execution. The initial
