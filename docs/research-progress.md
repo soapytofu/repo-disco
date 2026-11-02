@@ -473,3 +473,9 @@ with all 1,476 fixture files unchanged; two import/fake-process tests pass local
 and in Cannon's environment. Corrected reference job 57106124 was submitted once
 on nonpreemptible shared. This is an infrastructure correction, not a proof
 finding. Semantic validation is still pending; no model calls.
+
+Corrected runtime job 57106124 finished: 20/24 reference workspaces passed and
+24/24 empty-proof controls failed as intended, with exact source/hash/diagnostic
+review and full logs archived. The four reverse-concatenation references fail
+their final equality assertion. This is a reference-proof issue requiring a
+versioned repair, not a model result. Targeted negatives remain gated. No calls.

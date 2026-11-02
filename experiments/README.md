@@ -212,4 +212,6 @@ audit published; syntax gate passed, no automatic larger study.
   variants and 164 planned verifier controls. Six construction tests pass.
   Initial job 57104220 failed on a missing runtime import before Dafny ran; logs
   preserved. Corrected runtime passed two offline tests locally and on Cannon;
-  reference/empty job 57106124 is pending. No model calls or completed-validation claim.
+  job 57106124 yielded 20/24 reference passes and all 24 expected empty-proof
+  failures. Four reverse-concatenation references need repair; full logs preserved.
+  No model calls or completed-family-validation claim.

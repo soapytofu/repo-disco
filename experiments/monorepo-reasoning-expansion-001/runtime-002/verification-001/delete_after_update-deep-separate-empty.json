@@ -1,0 +1,38 @@
+{
+  "task_id": "delete_after_update-deep-separate",
+  "variant": "empty",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+    "ClientA.dfy": "e7e9eb02992408d9d4810debe6ab4c482830d681408043784bb602d39e99339b",
+    "ClientB.dfy": "b38cf05fefd68353b4e69366e38333664574541ac9cf700c100a90c8c344c289",
+    "HelperA.dfy": "89e7dd3d1625cd135afaa7dd77c79c8e81fae22f5973d6272d59e0e42008bce8",
+    "HelperB.dfy": "ea4d27d91662a400f6df68527ca864395cd4fe6b547372ba036290d5b88a959e",
+    "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+    "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+    "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperA.dfy(11,35): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures K.Drop(K.Put(m,k,v),j) == (if k == j then K.Drop(m,j) else K.Put(K.Drop(m,j),k,v))\n   |                                    ^^\n\nHelperB.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperB.dfy(11,35): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures K.Drop(K.Put(m,k,v),j) == (if k == j then K.Drop(m,j) else K.Put(K.Drop(m,j),k,v))\n   |                                    ^^\n\n\nDafny program verifier finished with 14 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 3.0573143819347024,
+  "model_calls": 0,
+  "attempts": 1
+}

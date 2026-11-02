@@ -6,8 +6,12 @@ package lacked a transitive `execute` import. Its raw logs/accounting are preser
 The deliberate [runtime-002 correction](runtime-002/correction.json) adds the two
 missing package files (`execute.py`, `language/dafny/prompt.py`), changes no fixture
 bytes and passes two fake-process/import tests locally and in Cannon's environment.
-Corrected reference job **57106124** was submitted once on nonpreemptible shared;
-actual Dafny results remain pending. No model calls.
+Corrected reference job **57106124** completed on nonpreemptible shared in 4m12s.
+**44/48 outcomes matched**: 20/24 references passed, all 24 empty controls failed
+proof obligations. Four reverse-concatenation reference variants failed their
+final assertion. Exact source hashes and diagnostics were reviewed; full logs
+are in [runtime-002/verification-001](runtime-002/verification-001). No model calls.
+The remaining negative controls stay gated while that reference proof is repaired.
 
 The original job was updated in place from `test` to
 `shared,sapphire`, both live-confirmed `PreemptMode=OFF`; no requeue or duplicate

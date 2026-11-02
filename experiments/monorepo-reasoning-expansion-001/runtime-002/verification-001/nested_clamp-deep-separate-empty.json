@@ -1,0 +1,38 @@
+{
+  "task_id": "nested_clamp-deep-separate",
+  "variant": "empty",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "83e598c351961aa7be86c088635d62499ee571de6156605499b4030cd606ba0f",
+    "ClientA.dfy": "6217f867fa647a0e4f28b4add3e8cc2d823e437a941327beddcfccfe5a632066",
+    "ClientB.dfy": "17166a18476ad5695bad9a61aaf198b261985471507a0c8329184c10ec60b338",
+    "HelperA.dfy": "63f57f3c954c81dc314e51d4a30319f788b86a7c61c46d0d20786ddf46e01fa0",
+    "HelperB.dfy": "c027760b84b4da72cb7ef33719e9fbafb91a53e6a66f6c3468a7259a02a7326c",
+    "Kernel.dfy": "9daa4bf3ba0b290cad997e664235b0a490c3ff544c24b19f2f51398228780c4e",
+    "Ops1.dfy": "887b863046a2d5e268d3820ba05bf73cd8e5e7a239bd9a6823aefdc4db5cfa8b",
+    "Ops2.dfy": "de407d77e480897b89c29f03d62b55c474cc5645b567b3baa7c8b0d82763f3d1"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   {\n   |   ^\n\nHelperA.dfy(12,40): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures K.Clamp(K.Clamp(x,l,h),a,b) == K.Clamp(x,a,b)\n   |                                         ^^\n\nHelperB.dfy(13,2): Error: a postcondition could not be proved on this return path\n   |\n13 |   {\n   |   ^\n\nHelperB.dfy(12,40): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures K.Clamp(K.Clamp(x,l,h),a,b) == K.Clamp(x,a,b)\n   |                                         ^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.9493281822651625,
+  "model_calls": 0,
+  "attempts": 1
+}
