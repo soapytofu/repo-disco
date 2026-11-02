@@ -479,3 +479,8 @@ Corrected runtime job 57106124 finished: 20/24 reference workspaces passed and
 review and full logs archived. The four reverse-concatenation references fail
 their final equality assertion. This is a reference-proof issue requiring a
 versioned repair, not a model result. Targeted negatives remain gated. No calls.
+
+Revision 003 now makes the reverse proof steps explicit while preserving all
+contracts, clients and providers. Eleven offline checks pass. Job 57111126 was
+submitted once for just four changed references; the 44 byte-identical successful
+control outcomes are reused with hashes. All first-run failures remain published.

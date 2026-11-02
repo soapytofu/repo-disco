@@ -110,3 +110,11 @@ validation and any future model protocol freeze remain pending.
 Reproduce construction in a fresh directory with `build.build(path)`, run
 `python3 -B test_design.py`, and use the pinned scripts only inside a Slurm compute
 allocation. `preflight.py` refuses login-node execution and existing output paths.
+
+## Current correction gate
+
+[Revision 003](revision-003/README.md) makes reverse base identities, induction
+application and concatenation reassociation explicit, changing helper bodies only.
+Eleven offline checks pass. Job **57111126** will run just its four revised references;
+44 previously reviewed outcomes have identical sources and will not be rerun.
+The 116 targeted-negative checks remain gated. No model calls.
