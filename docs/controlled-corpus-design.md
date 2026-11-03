@@ -93,5 +93,9 @@ Following Nada’s feedback, the active plan concerns dependencies and proof reu
 **between modules inside one monorepo workspace**. The corpus contains alternative
 workspace snapshots, not integrations of separate Git repositories. See the
 [updated plan](weeks5-6-corpus-plan.md) and its verified four-family calibration.
-The 32-trial proposal is frozen; source/workload and per-family contract-depth
-differences are recorded in the calibration catalog audit. No new model calls.
+Earlier 32-trial calibration proposals have since run. The latest six-task
+24-call pilot and separately logged syntax/semantic diagnostics are summarized in
+the [current decision table](weeks5-6-corpus-plan.md#current-task-and-protocol-decisions).
+Source/workload and per-family contract-depth differences remain explicit. The
+new v2 output policy is validated offline; no next model batch is frozen or
+authorized, and the larger corpus is still gated on difficulty and family coverage.

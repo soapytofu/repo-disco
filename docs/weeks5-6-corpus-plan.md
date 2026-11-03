@@ -1,16 +1,24 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current gate (November 2):** the clarified-syntax smoke test completed with
-8/8 admission and 7/8 strict verification. The interval-witness failure and task
-difficulty are now reviewed; a [fresh balanced 32-call proposal](../experiments/monorepo-balanced-calibration-001/README.md)
-is frozen with unchanged clarified prompts and nine passing offline tests.
-The subsequently approved [32-call run](../experiments/monorepo-balanced-calibration-pilot-001/RESULTS.md)
-is complete: 32/32 admission, 29/32 verification, zero retries. Three failures were
-deep interval-witness preconditions; the other three families each reached 8/8.
-The full budget is exhausted. Main collection remains deferred pending harder,
-more varied obligations and matched verifier controls; previous scores remain
-unchanged. Providers already prove much of the mathematics, and every separate
-response copied equivalent bodies, so this is not a causal equal-work sharing test.
+**Current gate (November 2 evening, Eastern):** the six-task
+[reasoning pilot](../experiments/monorepo-reasoning-calibration-pilot-001/RESULTS.md)
+completed its 24 requests with **18 strict successes, five output-policy rejections
+and one assertion failure**. All calls are exhausted. Separate verifier-only
+diagnostics now distinguish the rejected bodies: three strictly verify unchanged,
+one fails assertions and one has warning-only exit 2. The original score is unchanged.
+
+A separately versioned [v2 output policy](../experiments/reasoning-output-policy-002/README.md)
+passes 25 offline tests and reconstructs all 24 saved responses, 24 reference
+proofs and 104 negative controls exactly. One analyst-authored alias substitution
+also removes the observed trigger warnings under unchanged strict verifier flags.
+This is post-hoc protocol development, not a prospective model result. Main
+collection remains deferred pending task difficulty, family coverage and a new
+coherent freeze. **The older 192-call proposal is neither ready nor authorized.**
+
+The earlier balanced four-family pilot remains **29/32**, including three deep
+interval-witness precondition failures. It is a separate experiment. The latest
+24-call pilot covers conditional, sequence and map tasks only; it does not replace
+the missing relational-family gate. See the current decision table below.
 
 The preparation history below is retained; its earlier authorization statements
 describe those checkpoints, not the current completed execution. The initial
@@ -32,9 +40,53 @@ as dependencies between repositories. All required files must be checked within
 each selected workspace. Previously saved repository-level experiments retain
 their names and evidence; the clarified scope does not change their results.
 
-The existing counts remain unchanged: 16 calibration snapshots and 96 main
-snapshots. “Repository variant” below means an isolated monorepo configuration,
-not a separate external repository or integration boundary.
+The original planning counts below remain a **historical four-family proposal**:
+16 calibration snapshots and 96 main snapshots. Later calibration development used
+different counts; those runs do not silently authorize or instantiate this plan.
+“Repository variant” means an isolated monorepo configuration, not a separate
+external repository or integration boundary.
+
+## Current task and protocol decisions
+
+| Evidence | Measured observation | Decision before another collection |
+| --- | --- | --- |
+| Nested clamp and clamp stability | Each strictly verified in all four sampled configurations; successful shallow bodies use two or three API observations | Keep as development/regression anchors. Do not multiply constants or names to count them as new hard instances. A replacement should introduce a different proof obligation and prerequisite choices, not just extra wrapper modules. |
+| Nested filtering | Four strict successes, with explicit induction and branch reasoning | Valid semantic task, but these samples did not distinguish conditions. Diversify the inductive invariant or branch interaction before using repeated copies as the main corpus. |
+| Reverse concatenation | Deep bodies strictly pass; the two shallow bodies were rejected for primed names and later strictly verify unchanged | Fix the language policy, not the mathematics based on these rejections. Retain as an induction regression; do not count syntax failures as a depth effect. |
+| Commuting updates | One original strict success; two saved deep bodies fail the same value assertion; another body verifies obligations but produces trigger warnings | Retain as a development reasoning candidate. The shared deep failure has a verified analyst one-fact repair; the other is not a new independent failure mechanism. Preserve all original outcomes. |
+| Delete after update | Three original strict successes; the fourth strictly verifies unchanged after separate diagnostic admission | A useful map/control anchor; no observed semantic failure among these four saved bodies. |
+| Relational interval witness, earlier pilot | Three genuine precondition failures among eight balanced requests | Still relevant development evidence, but this family is absent from the six-task pilot and unsupported by the new six-instance policy registry. It needs explicit guard/prompt/preflight alignment before any combined study. |
+| Shared versus separate | All 12 separate responses in the latest pilot have identical helper-body strings | Measure repository completion and generation workload. Do not claim independent proof discovery for each client or a pure reasoning advantage at equal work. |
+
+The **next non-paid build** should target the conditional prerequisite/branch
+obligation and the inductive invariant/branch interaction that remain saturated,
+while retaining regression anchors and the two known real failure mechanisms
+(map value observation and relational witness preconditions). A candidate is not
+accepted merely because its hand-written reference is longer: require a valid
+fixed client specification, distinct semantic obligation, and targeted omission,
+boundary and wrong-instantiation controls. All references must strictly verify;
+negative controls must fail in their declared category. Model difficulty remains
+unmeasured until a separately frozen prospective calibration.
+
+Before that calibration, explicitly choose either a four-family corpus with the
+relational task integrated, or a re-scoped three-family corpus with new counts.
+Record a common JSON/edit protocol, task-specific allowed API registry, guard
+version, strict warning policy, verifier settings and matching limits. Do not
+silently combine scores from different syntax policies or count copied bodies and
+structural variants as independent semantic instances. A new freeze must contain
+the exact trial order and requests; unused historic calls cannot be reassigned.
+
+Retain **strict exit-zero acceptance** for the next proposed protocol. The current
+warning diagnostic shows an admitted ordinary-syntax repair for one case, so it
+does not justify weakening that rule or admitting trigger/axiom attributes. Log
+warning-only nonzero exits separately from output rejection, parser/name errors
+and proof failures. Future model repairs, if studied, remain a distinct adaptive
+experiment with their own call budget.
+
+All inspected templates, saved outputs, diagnostic repairs and syntax-informed
+policy choices remain **development data**. The proposed tree/set holdouts below
+have not been validated as independent families; no held-out claim follows from
+leaving a file out of the current prompt.
 
 ## Research question and why the next batch differs
 
