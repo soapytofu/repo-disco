@@ -620,5 +620,8 @@ Unlike unconditional clamp observations, wrong-region and equality-boundary call
 now fail preconditions. This establishes fixture behavior, not model difficulty.
 The deep reference has two independent facts followed by assembly (three calls,
 two application stages, one edge between applications); separate mode still permits copied helper bodies and has
-greater edit workload. The new API registry and future prompts need a separate
-policy mapping/freeze; no model budget is inferred.
+greater edit workload. A separate monotonicity API registry now passes 25 offline
+methods on the unchanged v2 grammar, including old-registry equality, protected
+boundaries and exact replay of the 28 admitted new control bodies. Four hidden
+views are rejected. Future prompts/order/settings still need a coherent freeze;
+no model budget is inferred.

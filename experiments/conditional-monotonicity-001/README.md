@@ -65,7 +65,9 @@ The [32-case review](verification-001-review.json) links each declared outcome;
 [full evidence](verification-001/) includes every exact source file and diagnostic.
 
 This semantic instance is development data derived from inspected clamp work.
-It is not held out. The six-instance v2 parser registry does not yet include these
-new API names; a separately reviewed registry/guard mapping and exact prompt
-freeze would be required before any model request. No paid budget is requested or
-inferred by building the fixtures. Existing pilots and their scores remain intact.
+It is not held out. A separate [registry extension](protocol/README.md) now admits
+these API names on the unchanged v2 grammar, with 25 offline test methods and exact
+replay of prior compute evidence. The original six-instance v2 parser is untouched.
+Exact model prompts/settings/order still need a coherent future freeze. No paid
+budget is requested or inferred by building the fixtures. Existing pilots and
+their scores remain intact.
