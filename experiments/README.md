@@ -18,6 +18,12 @@ assertions and one has warning-only exit 2. A one-statement repair of the origin
 proof failure also verifies. Original pilot score remains 18/24; full diagnostic
 sources/logs are archived separately.
 
+The separate [v2 output policy](reasoning-output-policy-002/README.md) passed 25
+offline tests and reconstructs all 24 saved responses, 24 references and 104
+negative controls exactly. It admits the observed primed identifiers and collection
+syntax while preserving protected source and strict warning handling. All semantic
+evidence is linked to earlier runs; no new model calls, rescoring or revised pilot.
+
 ## Six-task reasoning calibration frozen — not run
 
 [monorepo-reasoning-calibration-001](monorepo-reasoning-calibration-001/README.md)

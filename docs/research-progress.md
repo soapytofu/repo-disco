@@ -582,3 +582,20 @@ The next gate is a separately versioned output-language decision with boundary
 tests and continued difficulty review; conditional and nested-filtering ceilings
 persist. All requested model calls and the additional non-paid diagnosis are now
 complete and documented. No further model budget or main collection is authorized.
+
+## November 2 Eastern: separately versioned output policy
+
+[Policy v2](../experiments/reasoning-output-policy-002/README.md) now admits the
+primed identifiers, set displays, functional updates and one-binder map
+comprehensions observed in the saved outputs. Twenty-five offline test methods
+passed, including unchanged legacy tests, scope/bypass/complexity cases and
+evidence checks. All 24 saved responses reconstruct exact prior candidate bytes;
+24 references and 104 semantic negative controls also reconstruct unchanged.
+The audit links prior verifier records and distinguishes the warning-only exit
+from assertion failure. It invokes neither a model nor Dafny.
+
+This is post-hoc protocol development, not a revised 21/24 score or a prospective
+evaluation. Original score remains 18/24; all frozen files and source/diagnostic
+archives are unchanged. Strict warnings remain non-success. The syntax contract
+and code are versioned separately; no new pilot prompts or model budget are
+authorized. Task difficulty and a future task-set decision remain open.
