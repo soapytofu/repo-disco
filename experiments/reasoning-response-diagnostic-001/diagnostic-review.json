@@ -1,0 +1,162 @@
+{
+  "job_id": "57167108",
+  "new_model_calls": 0,
+  "diagnostic_verifier_runs": 6,
+  "counts": {
+    "strict_success": 4,
+    "assertion_failure": 1,
+    "warning_only_nonzero_exit": 1
+  },
+  "unchanged_rejected_body_strict_successes": 3,
+  "inserted_fact_repair_strict_success": true,
+  "original_pilot_score": "18/24 unchanged",
+  "original_model_archive_hashes_unchanged": true,
+  "rows": [
+    {
+      "case_id": "reasoning-cal-02-unaltered-body",
+      "original_trial": "reasoning-cal-02",
+      "original_outcome": "OUTPUT_REJECTED",
+      "source_sha256": {
+        "ClientA.dfy": "dea00e8cfc8d6319782b1e5c7c47b087b21bfeb9f232db3df952f9f529ba0425",
+        "Api.dfy": "3687c04ed529bb3538aa8dd6b82ada3a249aec66e88106fd198beaf165a7b846",
+        "ClientB.dfy": "807acaef90d518ee796bda9b0ce4a7285f0d03c709463bbb722c92b5d6977851",
+        "Ops2.dfy": "40e825c89d76b64362e6b02398f41bdbd57a1fee0d2a436e05dcc3a91d9d4693",
+        "HelperA.dfy": "63736cf32624c1b3cca8e414ed268fe3b38249bf97c08226ecc68695d7473ce7",
+        "Kernel.dfy": "7e1b662105f0fd55641cca2cc6e6dc8867f47827127fe1631735ca8ff140cb91",
+        "Ops1.dfy": "95fbdb088c4da71ebbfeb43d2c58b7295d25b03f7162bb80b7a16da7da11dae4",
+        "HelperB.dfy": "3f0d007c3864ecdefbcbf45f54e2ecdf8d61abf24ba84c333a66634e334c954a",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "record_sha256": "83380652e9a2f23fdbc059ad95c258f7c916697a719225c7c8cdecb6f5781394",
+      "unchanged_body_strings": true,
+      "mutation": null,
+      "exit_code": 0,
+      "diagnostic_category": "strict_success",
+      "stdout": "\nDafny program verifier finished with 11 verified, 0 errors\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "reasoning-cal-08-unaltered-body",
+      "original_trial": "reasoning-cal-08",
+      "original_outcome": "OUTPUT_REJECTED",
+      "source_sha256": {
+        "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+        "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d",
+        "HelperA.dfy": "0bc5b5f70d1f081cc532957dcbf6ceaadb644b2095d715370aeee9002a3097d3",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+        "HelperB.dfy": "4465f1a42be8a6458bb99bfa0bae60b7ae36e321ce46dbe1cdab497e4945b5ad",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "record_sha256": "601500828126bc451a75831dbf4a6c7644922220afe032b7b697103433de62e1",
+      "unchanged_body_strings": true,
+      "mutation": null,
+      "exit_code": 4,
+      "diagnostic_category": "assertion_failure",
+      "stdout": "HelperA.dfy(29,8): Error: assertion might not hold\n   |\n29 |         assert rhs[q] == y;\n   |         ^^^^^^\n\nHelperB.dfy(29,8): Error: assertion might not hold\n   |\n29 |         assert rhs[q] == y;\n   |         ^^^^^^\n\n\nDafny program verifier finished with 14 verified, 2 errors\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "reasoning-cal-18-unaltered-body",
+      "original_trial": "reasoning-cal-18",
+      "original_outcome": "OUTPUT_REJECTED",
+      "source_sha256": {
+        "ClientA.dfy": "dea00e8cfc8d6319782b1e5c7c47b087b21bfeb9f232db3df952f9f529ba0425",
+        "Api.dfy": "3687c04ed529bb3538aa8dd6b82ada3a249aec66e88106fd198beaf165a7b846",
+        "ClientB.dfy": "807acaef90d518ee796bda9b0ce4a7285f0d03c709463bbb722c92b5d6977851",
+        "Ops2.dfy": "40e825c89d76b64362e6b02398f41bdbd57a1fee0d2a436e05dcc3a91d9d4693",
+        "HelperA.dfy": "7c18ef6dd574fbecd75b992ccf835e474189fd4e411ff84877c3c688d06be70a",
+        "Kernel.dfy": "7e1b662105f0fd55641cca2cc6e6dc8867f47827127fe1631735ca8ff140cb91",
+        "Ops1.dfy": "95fbdb088c4da71ebbfeb43d2c58b7295d25b03f7162bb80b7a16da7da11dae4",
+        "HelperB.dfy": "a832bb23f1f0c237ff2ab12323d3bbe9ee828991623da9224de4d163e28e37d7",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "record_sha256": "2e8f6eda0b126480a4f0efe82633ffe620fca2329feac07baee080c758aa7f8b",
+      "unchanged_body_strings": true,
+      "mutation": null,
+      "exit_code": 0,
+      "diagnostic_category": "strict_success",
+      "stdout": "\nDafny program verifier finished with 11 verified, 0 errors\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "reasoning-cal-21-unaltered-body",
+      "original_trial": "reasoning-cal-21",
+      "original_outcome": "OUTPUT_REJECTED",
+      "source_sha256": {
+        "ClientA.dfy": "e7e9eb02992408d9d4810debe6ab4c482830d681408043784bb602d39e99339b",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientB.dfy": "b38cf05fefd68353b4e69366e38333664574541ac9cf700c100a90c8c344c289",
+        "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d",
+        "HelperA.dfy": "b2a1bad6617adc5aec64800ec0520bb6a10d13fe0fee9ba412852da3cbf82248",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+        "HelperB.dfy": "f39ad41de90b7c2d6ad27bce6e6b459a7bf3ad3bc9a6870406fbd458da9ba0c8",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "record_sha256": "c9dfc2f1b2d2854dac61b786188c0f158d1cfa2bc15a8b4c5cf90f1bcd944242",
+      "unchanged_body_strings": true,
+      "mutation": null,
+      "exit_code": 0,
+      "diagnostic_category": "strict_success",
+      "stdout": "\nDafny program verifier finished with 16 verified, 0 errors\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "reasoning-cal-24-unaltered-body",
+      "original_trial": "reasoning-cal-24",
+      "original_outcome": "OUTPUT_REJECTED",
+      "source_sha256": {
+        "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+        "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d",
+        "HelperA.dfy": "f1426b3884cc5d4edb848d67dda8e13e7a8dec0390016bdafda287df54494d1c",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+        "HelperB.dfy": "aaf3673335452734492ddc9a1d71ed920216068ffc4faa0108ed3e1b6b48b22e",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "record_sha256": "054f8673e1283bb1c186aad8644168611d437431cce8689a248221e3d429ca72",
+      "unchanged_body_strings": true,
+      "mutation": null,
+      "exit_code": 2,
+      "diagnostic_category": "warning_only_nonzero_exit",
+      "stdout": "HelperA.dfy(23,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n23 |     forall q | q in m[k := x][j := y].Keys ensures q in m[j := y][k := x].Keys && m[k := x][j := y][q] == m[j := y][k := x][q] {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nHelperA.dfy(37,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n37 |     forall q | q in m[j := y][k := x].Keys ensures q in m[k := x][j := y].Keys {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 16 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+      "stderr": ""
+    },
+    {
+      "case_id": "reasoning-cal-03-single-fact-repair",
+      "original_trial": "reasoning-cal-03",
+      "original_outcome": "PROOF_FAILURE",
+      "source_sha256": {
+        "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+        "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d",
+        "HelperA.dfy": "ec4e572e0cb7555f1189443b722f358f62da163382bc4f5551c6e33743ee7b0b",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+        "HelperB.dfy": "aaf3673335452734492ddc9a1d71ed920216068ffc4faa0108ed3e1b6b48b22e",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "record_sha256": "313c9e10fc339952ce8933d31c0ddac9c8cdf1dc007df8a9433265c323e9f18a",
+      "unchanged_body_strings": false,
+      "mutation": {
+        "file": "HelperA.dfy",
+        "inserted_statement": "O2.PutAt(m,j,y,q);",
+        "location": "First statement of the existing q == j branch",
+        "original_body_sha256": "cf8d8d75334df40c78f36c056e9f955f94d1617d865e605a9ceb0724a79cb7d2",
+        "changed_body_sha256": "6250921607c5cbbff2778987d55ea7427b363ca3666a6cf8ef5f0ec1f2f936c1",
+        "reason": "Test suspected missing inner-update observation; original score stays proof failure"
+      },
+      "exit_code": 0,
+      "diagnostic_category": "strict_success",
+      "stdout": "\nDafny program verifier finished with 16 verified, 0 errors\n",
+      "stderr": ""
+    }
+  ],
+  "interpretation": "One-off hash-pinned diagnostic, not a revised output policy or retrospective acceptance. Warnings are not strict successes or parse/proof failures."
+}

@@ -1,0 +1,75 @@
+{
+  "case": {
+    "case_id": "reasoning-cal-21-unaltered-body",
+    "original_trial": "reasoning-cal-21",
+    "task_id": "delete_after_update-shallow-shared",
+    "family": "map",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_response_sha256": "81efd8e15b5550ca4bf89f25d945028c0426688b5be98b7b27c951bbfed939fa",
+    "original_result_sha256": "a3d84b23d2560a8779d73df3f3ddf7a656f0341d1ebf695ce346990ddf2a6191",
+    "source_path": "experiments/monorepo-reasoning-calibration-pilot-001/model-001/reasoning-cal-21",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "original_seed_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "e7e9eb02992408d9d4810debe6ab4c482830d681408043784bb602d39e99339b",
+      "ClientB.dfy": "b38cf05fefd68353b4e69366e38333664574541ac9cf700c100a90c8c344c289",
+      "HelperA.dfy": "7806af91c4680c55dd4eecacf8513e8bcb30718ffa0ca448beafdc293445bf88",
+      "HelperB.dfy": "f39ad41de90b7c2d6ad27bce6e6b459a7bf3ad3bc9a6870406fbd458da9ba0c8",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "candidate_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "e7e9eb02992408d9d4810debe6ab4c482830d681408043784bb602d39e99339b",
+      "ClientB.dfy": "b38cf05fefd68353b4e69366e38333664574541ac9cf700c100a90c8c344c289",
+      "HelperA.dfy": "b2a1bad6617adc5aec64800ec0520bb6a10d13fe0fee9ba412852da3cbf82248",
+      "HelperB.dfy": "f39ad41de90b7c2d6ad27bce6e6b459a7bf3ad3bc9a6870406fbd458da9ba0c8",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "path": "fixtures/reasoning-cal-21-unaltered-body",
+    "mutation": null,
+    "unchanged_body_strings": true,
+    "expected": "Unknown; observe without changing original guard-rejection score"
+  },
+  "evidence": {
+    "schema": "repository-verification-v1",
+    "entry": "All.dfy",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "e7e9eb02992408d9d4810debe6ab4c482830d681408043784bb602d39e99339b",
+      "ClientB.dfy": "b38cf05fefd68353b4e69366e38333664574541ac9cf700c100a90c8c344c289",
+      "HelperA.dfy": "b2a1bad6617adc5aec64800ec0520bb6a10d13fe0fee9ba412852da3cbf82248",
+      "HelperB.dfy": "f39ad41de90b7c2d6ad27bce6e6b459a7bf3ad3bc9a6870406fbd458da9ba0c8",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "command": [
+      "timeout",
+      "-k",
+      "5s",
+      "60s",
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "exit_code": 0,
+    "outcome": "success",
+    "category": "success",
+    "stdout": "\nDafny program verifier finished with 16 verified, 0 errors\n",
+    "stderr": "",
+    "elapsed_seconds": 2.4947476250818,
+    "model_calls": 0,
+    "attempts": 1
+  },
+  "model_calls": 0
+}

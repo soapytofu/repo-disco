@@ -1,0 +1,76 @@
+{
+  "case": {
+    "case_id": "reasoning-cal-08-unaltered-body",
+    "original_trial": "reasoning-cal-08",
+    "task_id": "commuting_updates-deep-separate",
+    "family": "map",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_response_sha256": "b0a815596878c1eba9cb6a4a64cf1045dc4662503672572db1338b5c548951d3",
+    "original_result_sha256": "29325f55aa9918f23887d2686e3769face9e26a7c606aaff22f4a88a30f4fdd4",
+    "source_path": "experiments/monorepo-reasoning-calibration-pilot-001/model-001/reasoning-cal-08",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "original_seed_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "f6b4833168f29aaff631f65ec61c7e0ac4b97db6faa6bb8ab2f0e30ea530b786",
+      "HelperB.dfy": "78686776674e548d68f74866b238e1f6b9ab58e88acdd02cf1ffb4ed0878b784",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "candidate_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "0bc5b5f70d1f081cc532957dcbf6ceaadb644b2095d715370aeee9002a3097d3",
+      "HelperB.dfy": "4465f1a42be8a6458bb99bfa0bae60b7ae36e321ce46dbe1cdab497e4945b5ad",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "path": "fixtures/reasoning-cal-08-unaltered-body",
+    "mutation": null,
+    "unchanged_body_strings": true,
+    "expected": "Unknown; observe without changing original guard-rejection score"
+  },
+  "evidence": {
+    "schema": "repository-verification-v1",
+    "entry": "All.dfy",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "0bc5b5f70d1f081cc532957dcbf6ceaadb644b2095d715370aeee9002a3097d3",
+      "HelperB.dfy": "4465f1a42be8a6458bb99bfa0bae60b7ae36e321ce46dbe1cdab497e4945b5ad",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "command": [
+      "timeout",
+      "-k",
+      "5s",
+      "60s",
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "exit_code": 4,
+    "outcome": "goal_unproven",
+    "category": "proof_failure",
+    "stdout": "HelperA.dfy(29,8): Error: assertion might not hold\n   |\n29 |         assert rhs[q] == y;\n   |         ^^^^^^\n\nHelperB.dfy(29,8): Error: assertion might not hold\n   |\n29 |         assert rhs[q] == y;\n   |         ^^^^^^\n\n\nDafny program verifier finished with 14 verified, 2 errors\n",
+    "stderr": "",
+    "elapsed_seconds": 2.576378245023079,
+    "model_calls": 0,
+    "attempts": 1
+  },
+  "model_calls": 0
+}

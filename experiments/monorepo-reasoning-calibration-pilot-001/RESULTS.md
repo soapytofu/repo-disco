@@ -34,6 +34,9 @@ independent problems or repeated samples of one configuration.
 
 ## What failed
 
+The table describes outcomes in the original frozen pipeline. A subsequent,
+separately labeled verifier-only diagnostic is linked below; it does not rescore them.
+
 | Trial | Observed cause | Interpretation |
 |---|---|---|
 | [02](model-001/reasoning-cal-02/response.json), [18](model-001/reasoning-cal-18/response.json) | Local identifier `s'` contains an apostrophe outside the frozen guard's identifier alphabet | Output-policy mismatch. The prompt did not explicitly spell out the allowed identifier alphabet. Neither response was semantically checked. |
@@ -45,7 +48,7 @@ independent problems or repeated samples of one configuration.
 For trial 03, code inspection suggests a missing inner-update fact. The outer
 update observation relates `rhs[q]` to `K.Put(m,j,y)[q]`, but this branch does not
 call `O2.PutAt(m,j,y,q)` to expose that value. This is a diagnosis from the saved
-code/contracts, **not a verified repair**. Trial 08 appears to have the same
+code/contracts, **not a verified repair at the initial audit**. Trial 08 appears to have the same
 omission after its rejected set expressions, but its semantic outcome is unknown.
 All original responses and diagnostics are retained unchanged.
 
@@ -98,9 +101,10 @@ verifications in this pilot.
 ## Next gate before larger collection
 
 Keep the larger corpus deferred. First separate output-language coverage from
-proof ability: a future, explicitly labeled verifier-only diagnostic can check
-the five saved rejected bodies without changing this score, and test the proposed
-single-step repair for trial 03. A later protocol should either support the
+proof ability. The subsequent [verifier-only diagnostic](../reasoning-response-diagnostic-001/RESULTS.md)
+checked all five saved rejected bodies unchanged: three strictly verify, one
+fails assertions, and one has warning-only exit 2. The single-step trial 03 repair
+also verifies. These six non-paid checks do not alter this score. A later protocol should either support the
 needed pure syntax with protected-boundary tests or explicitly teach the exact
 accepted identifier/expression forms. Any change needs a separate version and
 freeze, not modification of this run.

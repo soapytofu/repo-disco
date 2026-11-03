@@ -12,6 +12,12 @@ source/contracts, requests and full logs were audited. [Results](monorepo-reason
 All calls are exhausted. Main collection remains gated on output-policy and
 difficulty review; earlier proposal statuses below are historical.
 
+The separate [saved-response diagnostic](reasoning-response-diagnostic-001/RESULTS.md)
+made zero model calls: three of five rejected bodies verify unchanged, one fails
+assertions and one has warning-only exit 2. A one-statement repair of the original
+proof failure also verifies. Original pilot score remains 18/24; full diagnostic
+sources/logs are archived separately.
+
 ## Six-task reasoning calibration frozen — not run
 
 [monorepo-reasoning-calibration-001](monorepo-reasoning-calibration-001/README.md)

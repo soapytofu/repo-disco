@@ -564,3 +564,21 @@ no causal effect or held-out result is claimed. Original scores and raw evidence
 remain unchanged. All 24 calls are exhausted. Next gate: separately labeled
 offline/compute-only diagnosis of rejected syntax and the failed assertion,
 then a versioned protocol/difficulty decision before any larger paid collection.
+
+## November 2 Eastern: saved-response semantic diagnostic
+
+[Separate verifier-only evidence](../experiments/reasoning-response-diagnostic-001/RESULTS.md)
+now distinguishes the five body-guard rejections: three exact original bodies
+verify, one fails the same map-value assertion in both copied helpers, and one
+finishes proof verification but exits 2 because missing-trigger warnings are
+disallowed. The originally admitted failing proof verifies after adding exactly
+one missing inner-update observation. This repair is analyst-authored, not another
+model response. Job 57167108 ran all six checks in 25 seconds with zero model
+calls; exact protected source and original response hashes were audited.
+
+The original 18/24 result is unchanged. These findings establish concrete protocol
+exclusions alongside a real missing-fact failure, not a revised success rate.
+The next gate is a separately versioned output-language decision with boundary
+tests and continued difficulty review; conditional and nested-filtering ceilings
+persist. All requested model calls and the additional non-paid diagnosis are now
+complete and documented. No further model budget or main collection is authorized.

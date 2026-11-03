@@ -1,5 +1,10 @@
 # Saved-response diagnostic — zero model calls
 
+**Complete:** three of five unchanged rejected bodies verify; one fails assertions
+and one exits nonzero on trigger warnings. The separately authored one-statement
+repair also verifies. [Results and full evidence](RESULTS.md). Original pilot
+score remains 18/24.
+
 This separately labeled verifier-only diagnostic uses the remaining authorized
 two-hour analysis window after the [24-call pilot](../monorepo-reasoning-calibration-pilot-001/RESULTS.md).
 The original **18/24** score, five guard rejections and one proof failure remain
@@ -24,4 +29,4 @@ exact original response hashes, five unchanged body reconstructions, the single
 insertion, protected sources and unchanged original guard decisions. The compute
 job will perform six checks once on a live-confirmed nonpreemptible partition,
 recording every stdout/stderr and exit category. No verification runs locally or
-on login nodes. Job **57167108** was submitted once on live-confirmed nonpreemptible `test`; [submission evidence](submission-responses.json). Results pending.
+on login nodes. Job **57167108** completed once on live-confirmed nonpreemptible `test` in 25 seconds; [submission evidence](submission-responses.json).

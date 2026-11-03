@@ -1,0 +1,75 @@
+{
+  "case": {
+    "case_id": "reasoning-cal-24-unaltered-body",
+    "original_trial": "reasoning-cal-24",
+    "task_id": "commuting_updates-shallow-shared",
+    "family": "map",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_response_sha256": "b22349f60511d777f50f413673f6983f45efe110365cbd4b3eb81e0bdd98926e",
+    "original_result_sha256": "1e4728855e246387e2d600cd7301094d5cab4d22b778356a9ac8661a8a45bc53",
+    "source_path": "experiments/monorepo-reasoning-calibration-pilot-001/model-001/reasoning-cal-24",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "original_seed_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "1484a31f7edbd72d95d0540348276e99f537b59cf864f97958c5b069ba6b34f4",
+      "HelperB.dfy": "aaf3673335452734492ddc9a1d71ed920216068ffc4faa0108ed3e1b6b48b22e",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "candidate_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "f1426b3884cc5d4edb848d67dda8e13e7a8dec0390016bdafda287df54494d1c",
+      "HelperB.dfy": "aaf3673335452734492ddc9a1d71ed920216068ffc4faa0108ed3e1b6b48b22e",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "path": "fixtures/reasoning-cal-24-unaltered-body",
+    "mutation": null,
+    "unchanged_body_strings": true,
+    "expected": "Unknown; observe without changing original guard-rejection score"
+  },
+  "evidence": {
+    "schema": "repository-verification-v1",
+    "entry": "All.dfy",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "f1426b3884cc5d4edb848d67dda8e13e7a8dec0390016bdafda287df54494d1c",
+      "HelperB.dfy": "aaf3673335452734492ddc9a1d71ed920216068ffc4faa0108ed3e1b6b48b22e",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "command": [
+      "timeout",
+      "-k",
+      "5s",
+      "60s",
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "exit_code": 2,
+    "outcome": "fail",
+    "category": "frontend_error",
+    "stdout": "HelperA.dfy(23,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n23 |     forall q | q in m[k := x][j := y].Keys ensures q in m[j := y][k := x].Keys && m[k := x][j := y][q] == m[j := y][k := x][q] {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nHelperA.dfy(37,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n   |\n37 |     forall q | q in m[j := y][k := x].Keys ensures q in m[k := x][j := y].Keys {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 16 verified, 0 errors\nCompilation failed because warnings were found and --allow-warnings is false\n",
+    "stderr": "",
+    "elapsed_seconds": 2.455062836059369,
+    "model_calls": 0,
+    "attempts": 1
+  },
+  "model_calls": 0
+}
