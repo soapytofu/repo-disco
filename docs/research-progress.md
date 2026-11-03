@@ -6,7 +6,7 @@ Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Previous balanced calibration: 29/32 verified, with three families at 8/8. Six strengthened instances now pass all 164 verifier controls; a fresh 24-call calibration proposal is frozen and tested, not run or authorized. Main corpus remains deferred; previous scores unchanged. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Previous balanced calibration: 29/32 verified, with three families at 8/8. Six strengthened instances pass all 164 verifier controls; the approved frozen 24-call pilot is running as job 57162314. Results pending; main corpus deferred and previous scores unchanged. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -531,3 +531,16 @@ bodies and allow copying. All instances remain development data. Any floor,
 ceiling or output-policy problem requires review before scale-up. The next gate
 is explicit approval of 24 new requests and a separately tested bounded runner;
 no historical unused budget is reassigned and no main corpus is launched.
+
+## November 2 Eastern: approved reasoning pilot started
+
+The user approved 24 new requests, no retries, and two hours of follow-up.
+[The bounded runner](../experiments/monorepo-reasoning-calibration-pilot-001/README.md)
+passed 21 local fake-transport/verifier tests and three selected fake-only checks
+in Cannon's actual package environment. Exact proposal/prompt bytes remain pinned.
+Job 57162314 started at 00:48 UTC November 3 on live-confirmed nonpreemptible
+`test`, with no requeue. It reserves each request durably, uses one SDK attempt,
+stops on ambiguity/infrastructure failure and cannot reopen an existing ledger.
+Full raw responses, candidates, verifier logs and request-count audit will be
+published after completion. No result or larger-corpus authorization is implied
+by startup. Follow-up and dispatch authorization end at 02:44:13 UTC.

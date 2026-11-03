@@ -5,8 +5,11 @@ The user approved **24 new Claude requests with no retries** for the six-task
 two hours of follow-up through November 3, 2026, 02:44:13 UTC (November 2,
 9:44 PM Eastern). This approval does not expand the model budget.
 
-Status: runner staged and remote offline preflight passed; one submission remains
-after this publication. **No model requests made at this checkpoint.**
+Status: **job 57162314 started on `test` at 00:48 UTC November 3** after local and
+remote preflight passed and the runner was published in `77625c8`.
+[Submission and live preemption evidence](submission.json) record one submission,
+`PreemptMode=OFF`, no requeue and the exact authorization/runtime hashes.
+Results are pending; startup is not a completed model trial.
 
 The proposal copy is byte-identical: SHA-256
 `56dc93326ba4ebaa7ba6d5787207665c3ed89f81cf2f5703362b2815640d0afc`.

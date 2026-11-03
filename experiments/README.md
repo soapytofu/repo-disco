@@ -2,6 +2,14 @@
 
 A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 2, 2026.
 
+## Approved 24-call reasoning pilot running
+
+[monorepo-reasoning-calibration-pilot-001](monorepo-reasoning-calibration-pilot-001/README.md):
+job 57162314 started on nonpreemptible `test` after 21 local fake-runner tests and
+three remote fake preflight tests passed. The exact six-task, four-cell proposal
+is unchanged; total cap 24 new requests, no retries or reassignment. Full results
+and source/ledger audit are pending. The earlier proposal status below is historical.
+
 ## Six-task reasoning calibration frozen — not run
 
 [monorepo-reasoning-calibration-001](monorepo-reasoning-calibration-001/README.md)
