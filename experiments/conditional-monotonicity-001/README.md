@@ -1,10 +1,11 @@
 # Guarded clamp monotonicity — development candidate
 
-November 2, 2026 Eastern. **Verifier controls submitted; results pending. No model
-calls or model prompts.** Job 57180678 was submitted once to live-confirmed
-nonpreemptible `test`, two CPUs/8 GB/15 minutes, without requeue or automatic retry.
-Five offline construction/import/fake-process tests passed. Until reference and
-negative evidence is reviewed, this is not a validated task.
+November 2, 2026 Eastern. **All 32 verifier outcomes matched: four reference
+successes, 24 proof failures, four hidden-export resolution failures. No model
+calls or model prompts.** Job 57180678 ran once on live-confirmed nonpreemptible
+`test` in 1m27s, two CPUs/8 GB, without requeue or retry. Five offline
+construction/import/fake-process tests passed. Exact sources, protected contracts,
+raw diagnostics and runtime hashes were reviewed; [full results](RESULTS.md).
 
 ## Concrete reasoning obligation
 
@@ -23,9 +24,11 @@ a model will find the task harder.
 
 Shallow references use one applicable API observation per input. Deep references
 combine one lower fact and one upper fact, then call `Assemble`: **three calls per
-selected branch, but a two-edge reference prerequisite chain**, because the lower
-and upper facts can be established independently before assembly. Do not call this
-a three-deep proof simply by counting statements. The two branch tests per input
+selected branch, but two contract-application stages** (one application-to-application
+edge), because the lower and upper facts can be established independently before
+assembly. The shallow reference has one application stage. These counts exclude
+the final solver-discharged target and are not minimality claims. Do not call this
+a three-stage dependency chain by counting statements. The two branch tests per input
 are shared by the reference implementations in both conditions.
 
 ## Matched conditions and controls
@@ -36,8 +39,8 @@ therefore differs; common provider definitions exist in both modes. This is not
 an equal-work causal sharing experiment. Clients A and B are two target lemmas,
 not independent semantic instances or repeated trials.
 
-The fixed 32-check set has four reference successes, 24 ordinary proof failures,
-and four explicit hidden-export resolution failures planned:
+The fixed 32-check set produced four reference successes, 24 ordinary proof failures,
+and four explicit hidden-export resolution failures:
 
 | Control per cell | Intended failure mechanism |
 | --- | --- |
@@ -50,15 +53,16 @@ and four explicit hidden-export resolution failures planned:
 | Call API from the hidden alternate export | Explicit resolution failure, not a proof failure |
 
 All mutations stay within the editable proof bodies. Contracts, providers, entry
-point and client bytes remain fixed. A parse/type error is not a successful
-negative proof control. Full source and failing evidence will be retained if the
-fixture or diagnostic matcher needs a deliberate revision.
+point and client bytes remain fixed. No parse error was counted as a negative
+proof control. Full source and all intended-failure evidence are retained.
 
 ## Evidence and remaining gates
 
 [Tasks](tasks.json), [checks](checks.json), [deterministic builder](build.py),
 [offline tests](offline-tests.log), [runtime manifest](manifest.json),
 [submission](submission-monotonicity.json), [compute script](verify-monotonicity.sbatch).
+The [32-case review](verification-001-review.json) links each declared outcome;
+[full evidence](verification-001/) includes every exact source file and diagnostic.
 
 This semantic instance is development data derived from inspected clamp work.
 It is not held out. The six-instance v2 parser registry does not yet include these

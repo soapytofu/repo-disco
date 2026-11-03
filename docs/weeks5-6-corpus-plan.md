@@ -58,7 +58,7 @@ external repository or integration boundary.
 | Relational interval witness, earlier pilot | Three genuine precondition failures among eight balanced requests | Still relevant development evidence, but this family is absent from the six-task pilot and unsupported by the new six-instance policy registry. It needs explicit guard/prompt/preflight alignment before any combined study. |
 | Shared versus separate | All 12 separate responses in the latest pilot have identical helper-body strings | Measure repository completion and generation workload. Do not claim independent proof discovery for each client or a pure reasoning advantage at equal work. |
 
-The **next non-paid build** should target the conditional prerequisite/branch
+The **next non-paid builds** target the conditional prerequisite/branch
 obligation and the inductive invariant/branch interaction that remain saturated,
 while retaining regression anchors and the two known real failure mechanisms
 (map value observation and relational witness preconditions). A candidate is not
@@ -67,6 +67,15 @@ fixed client specification, distinct semantic obligation, and targeted omission,
 boundary and wrong-instantiation controls. All references must strictly verify;
 negative controls must fail in their declared category. Model difficulty remains
 unmeasured until a separately frozen prospective calibration.
+
+The first such conditional candidate is now verifier-validated:
+[guarded clamp monotonicity](../experiments/conditional-monotonicity-001/RESULTS.md)
+has four reference successes, 24 targeted proof failures and four hidden-view
+resolution failures. Wrong-region and equality-boundary calls violate provider
+preconditions. This is one new development instance, not a larger corpus or
+observed difficulty improvement. Its deep reference has two contract-application
+stages (two independent facts then assembly; one edge between applications), and that difference from a desired
+three-stage chain must stay explicit in any later task-set choice.
 
 Before that calibration, explicitly choose either a four-family corpus with the
 relational task integrated, or a re-scoped three-family corpus with new counts.

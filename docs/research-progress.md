@@ -606,3 +606,19 @@ proof's existing `lhs`/`rhs` aliases in 15 expressions from the first quantifier
 onward. No new lemma calls, attributes, contracts or warning-policy changes.
 Job 57178004 returned 16 verified, zero errors and warnings, exit 0. This is an
 analyst-authored repair of one body, not model credit or a general guarantee.
+
+## November 2 Eastern: guarded conditional monotonicity
+
+[conditional-monotonicity-001](../experiments/conditional-monotonicity-001/RESULTS.md)
+adds a different conditional obligation: show clamping preserves order by selecting
+guarded below/within/above facts for two inputs. All four matched reference
+workspaces pass; 24 targeted bodies fail proof obligations and four hidden-view
+calls fail resolution. Job 57180678 completed all 32 checks in 1m27s, with zero
+model calls and full byte/diagnostic review. Five offline construction tests pass.
+
+Unlike unconditional clamp observations, wrong-region and equality-boundary calls
+now fail preconditions. This establishes fixture behavior, not model difficulty.
+The deep reference has two independent facts followed by assembly (three calls,
+two application stages, one edge between applications); separate mode still permits copied helper bodies and has
+greater edit workload. The new API registry and future prompts need a separate
+policy mapping/freeze; no model budget is inferred.

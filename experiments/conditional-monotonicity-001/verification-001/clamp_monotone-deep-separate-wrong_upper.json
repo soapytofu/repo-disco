@@ -1,0 +1,38 @@
+{
+  "task_id": "clamp_monotone-deep-separate",
+  "variant": "wrong_upper",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+    "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+    "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+    "HelperA.dfy": "590f611a6aaa4e0a196a15b32f68a51a9ab018e63683a40e32e1c3e475bfffe5",
+    "HelperB.dfy": "da957f992e1682aa57ba17ba9b5789c68c2bd923477a310f2711db99bfb8e6a0",
+    "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+    "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+    "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(19,48): Error: a precondition for this call could not be proved\n   |\n19 |       O1.Above(x,l,h); O2.Above(x,l); A.Assemble(x,l,h,x,h);\n   |                                                 ^\n\nApi.dfy(19,55): Related location: this is the precondition that could not be proved\n   |\n19 |     requires K.Lower(x,l) == lower && K.Upper(lower,h) == result\n   |                                                        ^^\n\nHelperB.dfy(19,48): Error: a precondition for this call could not be proved\n   |\n19 |       O1.Above(x,l,h); O2.Above(x,l); A.Assemble(x,l,h,x,h);\n   |                                                 ^\n\nApi.dfy(19,55): Related location: this is the precondition that could not be proved\n   |\n19 |     requires K.Lower(x,l) == lower && K.Upper(lower,h) == result\n   |                                                        ^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.264362840913236,
+  "model_calls": 0,
+  "attempts": 1
+}

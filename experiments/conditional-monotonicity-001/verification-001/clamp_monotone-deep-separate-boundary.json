@@ -1,0 +1,38 @@
+{
+  "task_id": "clamp_monotone-deep-separate",
+  "variant": "boundary",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+    "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+    "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+    "HelperA.dfy": "56617c5156ef8686cea6a9eaccbba163cdee7cba2a9f218ec1cb7e2a9faa120e",
+    "HelperB.dfy": "cf3c9088bc09d2ad2a77550ebecc41f43c8e0a5506b89a6b09bc6df7bf6575a8",
+    "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+    "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+    "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(15,14): Error: a precondition for this call could not be proved\n   |\n15 |       O1.Below(x,l,h); O2.Below(l,h); A.Assemble(x,l,h,l,l);\n   |               ^\n\nOps1.dfy(7,25): Related location: this is the precondition that could not be proved\n  |\n7 |     requires l <= h && x < l\n  |                          ^\n\nHelperB.dfy(15,14): Error: a precondition for this call could not be proved\n   |\n15 |       O1.Below(x,l,h); O2.Below(l,h); A.Assemble(x,l,h,l,l);\n   |               ^\n\nOps1.dfy(7,25): Related location: this is the precondition that could not be proved\n  |\n7 |     requires l <= h && x < l\n  |                          ^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.169230316998437,
+  "model_calls": 0,
+  "attempts": 1
+}

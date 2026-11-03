@@ -28,6 +28,13 @@ passes strictly after replacing concrete map expressions with existing local
 aliases: 16 verified, zero errors/warnings. It is an analyst-authored diagnostic,
 with unchanged contracts and original results.
 
+The new [guarded conditional monotonicity task](conditional-monotonicity-001/RESULTS.md)
+passed 32 verifier controls: four references, 24 intended proof failures and four
+hidden-export failures. It requires applicable below/within/above observations
+for two ordered inputs, with matched fixed client contracts across four cells.
+This is verifier-validated development work, with no model-difficulty result or
+new model calls.
+
 ## Six-task reasoning calibration frozen — not run
 
 [monorepo-reasoning-calibration-001](monorepo-reasoning-calibration-001/README.md)
