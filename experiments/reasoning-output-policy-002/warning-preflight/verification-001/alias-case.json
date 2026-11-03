@@ -1,0 +1,63 @@
+{
+  "evidence": {
+    "schema": "repository-verification-v1",
+    "entry": "All.dfy",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+      "ClientA.dfy": "be60edc479df5581fc2bfe4c3a7e8fc1264170f88c7d1013c2201d30712fe087",
+      "ClientB.dfy": "114a5d4d3ff2a52533cd0f951fc281545edc63390bb043e04854759f02ef3d21",
+      "HelperA.dfy": "f5709795493e6dbd80e3b5157e615f575ec670f5d90981e117250e2c68669e6d",
+      "HelperB.dfy": "aaf3673335452734492ddc9a1d71ed920216068ffc4faa0108ed3e1b6b48b22e",
+      "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+      "Ops1.dfy": "b6f1199f7d076c9c2af59026d3ed220b7dbc7fa9cbdebaf090db45b09ffd3b20",
+      "Ops2.dfy": "1708eb1ac34bb51e642fa16d7dc6b649c25ee989d35eca215ca9ef501f2c250d"
+    },
+    "command": [
+      "timeout",
+      "-k",
+      "5s",
+      "60s",
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "exit_code": 0,
+    "outcome": "success",
+    "category": "success",
+    "stdout": "\nDafny program verifier finished with 16 verified, 0 errors\n",
+    "stderr": "",
+    "elapsed_seconds": 4.159126562997699,
+    "model_calls": 0,
+    "attempts": 1
+  },
+  "mutation": {
+    "original_trial": "reasoning-cal-24",
+    "analyst_authored": true,
+    "original_response_sha256": "b22349f60511d777f50f413673f6983f45efe110365cbd4b3eb81e0bdd98926e",
+    "original_body_sha256": "a8cccb6d21763e01a76650df7ef0ef7ec9ecbc19c7c460982946497c65c0810c",
+    "changed_body_sha256": "239b7ffe219ca84ec7cbf7c90a51c7d6ba10e6e8d89e1ab4d190b7d05f2185de",
+    "original_warning_evidence_sha256": "054f8673e1283bb1c186aad8644168611d437431cce8689a248221e3d429ca72",
+    "replacements": [
+      {
+        "old": "m[k := x][j := y]",
+        "new": "lhs",
+        "occurrences": 8
+      },
+      {
+        "old": "m[j := y][k := x]",
+        "new": "rhs",
+        "occurrences": 7
+      }
+    ],
+    "prefix_before_first_forall_unchanged": true,
+    "purpose": "Test whether existing lhs/rhs aliases permit trigger inference without attributes or relaxing warnings.",
+    "added_lemma_calls": 0,
+    "source_contracts_unchanged": true,
+    "policy_freeze_sha256": "2ce330f5ba16e1f56f914f3d934cad501cb28497317d51816564233af0f68987",
+    "original_pilot_score": "18/24 unchanged",
+    "new_model_calls": 0
+  },
+  "model_calls": 0
+}

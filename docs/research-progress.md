@@ -599,3 +599,10 @@ evaluation. Original score remains 18/24; all frozen files and source/diagnostic
 archives are unchanged. Strict warnings remain non-success. The syntax contract
 and code are versioned separately; no new pilot prompts or model budget are
 authorized. Task difficulty and a future task-set decision remain open.
+
+A [single compute-only follow-up](../experiments/reasoning-output-policy-002/warning-preflight/README.md)
+then confirmed a permitted warning-free formulation for trial 24: substitute the
+proof's existing `lhs`/`rhs` aliases in 15 expressions from the first quantifier
+onward. No new lemma calls, attributes, contracts or warning-policy changes.
+Job 57178004 returned 16 verified, zero errors and warnings, exit 0. This is an
+analyst-authored repair of one body, not model credit or a general guarantee.

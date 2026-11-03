@@ -23,6 +23,10 @@ offline tests and reconstructs all 24 saved responses, 24 references and 104
 negative controls exactly. It admits the observed primed identifiers and collection
 syntax while preserving protected source and strict warning handling. All semantic
 evidence is linked to earlier runs; no new model calls, rescoring or revised pilot.
+One additional [warning-alias check](reasoning-output-policy-002/warning-preflight/README.md)
+passes strictly after replacing concrete map expressions with existing local
+aliases: 16 verified, zero errors/warnings. It is an analyst-authored diagnostic,
+with unchanged contracts and original results.
 
 ## Six-task reasoning calibration frozen — not run
 

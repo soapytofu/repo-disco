@@ -57,6 +57,14 @@ limited to the observed saved-response categories; unfamiliar or inconsistent
 evidence fails review instead of being guessed. It is not installed in the old
 runner or backend.
 
+A subsequent [one-case compute preflight](warning-preflight/README.md) replaces
+the warning-producing concrete map expressions with existing `lhs`/`rhs` aliases.
+It passes strictly: 16 verified, zero errors, zero warnings, exit 0. This
+analyst-authored syntax substitution adds no lemma calls and leaves all contracts
+unchanged. It demonstrates one permitted warning-free formulation; the original
+output and its diagnostic remain unchanged. This is the only new verifier call
+in the follow-up and used no model request.
+
 ## Reproduce offline
 
 From the repository root:
