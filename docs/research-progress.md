@@ -625,3 +625,20 @@ methods on the unchanged v2 grammar, including old-registry equality, protected
 boundaries and exact replay of the 28 admitted new control bodies. Four hidden
 views are rejected. Future prompts/order/settings still need a coherent freeze;
 no model budget is inferred.
+
+## November 2 Eastern: four-family grammar compatibility
+
+[monorepo-policy-integration-001](../experiments/monorepo-policy-integration-001/README.md)
+adds the existing interval-witness registry on the common bounded grammar and
+protects its module aliases from local shadowing. Twenty-seven offline methods
+pass. Four witness references and 20 admissible negative bodies reconstruct
+exactly; two hidden calls and four contract edits are rejected. All eight saved
+witness candidates, including three precondition failures, retain their bytes
+and prior verifier evidence. No new verification or model calls.
+
+The compatibility catalog covers eight inspected semantic instances and 32
+workspace variants across four families. It is not a new pilot or the main
+corpus. Existing scores 29/32 and 18/24 stay separate and unchanged. Technical
+family compatibility is now addressed; task selection/difficulty, per-family
+depth annotations and a complete prospective request freeze remain before any
+new model-budget decision.

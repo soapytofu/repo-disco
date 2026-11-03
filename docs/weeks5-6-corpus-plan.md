@@ -12,13 +12,15 @@ passes 25 offline tests and reconstructs all 24 saved responses, 24 reference
 proofs and 104 negative controls exactly. One analyst-authored alias substitution
 also removes the observed trigger warnings under unchanged strict verifier flags.
 This is post-hoc protocol development, not a prospective model result. Main
-collection remains deferred pending task difficulty, family coverage and a new
+collection remains deferred pending task difficulty, task selection and a new
 coherent freeze. **The older 192-call proposal is neither ready nor authorized.**
 
 The earlier balanced four-family pilot remains **29/32**, including three deep
 interval-witness precondition failures. It is a separate experiment. The latest
 24-call pilot covers conditional, sequence and map tasks only; it does not replace
-the missing relational-family gate. See the current decision table below.
+the relational-family evidence. A later zero-call [compatibility integration](../experiments/monorepo-policy-integration-001/README.md)
+now includes that family under a separately versioned common grammar. It does not
+pool the scores or freeze a new batch. See the current decision table below.
 
 The preparation history below is retained; its earlier authorization statements
 describe those checkpoints, not the current completed execution. The initial
@@ -55,7 +57,7 @@ external repository or integration boundary.
 | Reverse concatenation | Deep bodies strictly pass; the two shallow bodies were rejected for primed names and later strictly verify unchanged | Fix the language policy, not the mathematics based on these rejections. Retain as an induction regression; do not count syntax failures as a depth effect. |
 | Commuting updates | One original strict success; two saved deep bodies fail the same value assertion; another body verifies obligations but produces trigger warnings | Retain as a development reasoning candidate. The shared deep failure has a verified analyst one-fact repair; the other is not a new independent failure mechanism. Preserve all original outcomes. |
 | Delete after update | Three original strict successes; the fourth strictly verifies unchanged after separate diagnostic admission | A useful map/control anchor; no observed semantic failure among these four saved bodies. |
-| Relational interval witness, earlier pilot | Three genuine precondition failures among eight balanced requests | Still relevant development evidence, but this family is absent from the six-task pilot and unsupported by the new six-instance policy registry. It needs explicit guard/prompt/preflight alignment before any combined study. |
+| Relational interval witness, earlier pilot | Three genuine precondition failures among eight balanced requests | A separate four-family registry now reproduces its references, admissible negatives and eight saved candidates exactly. The original six-task pilot remains unchanged; a future combined study still needs aligned prompts, depth annotations and a complete freeze. |
 | Shared versus separate | All 12 separate responses in the latest pilot have identical helper-body strings | Measure repository completion and generation workload. Do not claim independent proof discovery for each client or a pure reasoning advantage at equal work. |
 
 The **next non-paid builds** target the conditional prerequisite/branch
@@ -77,8 +79,10 @@ observed difficulty improvement. Its deep reference has two contract-application
 stages (two independent facts then assembly; one edge between applications), and that difference from a desired
 three-stage chain must stay explicit in any later task-set choice.
 
-Before that calibration, explicitly choose either a four-family corpus with the
-relational task integrated, or a re-scoped three-family corpus with new counts.
+Before that calibration, explicitly choose the instances to include. The
+[compatibility catalog](../experiments/monorepo-policy-integration-001/task-catalog.json)
+now covers four families, eight development instances and 32 existing snapshots;
+it is not a trial manifest or a new 32-call proposal.
 Record a common JSON/edit protocol, task-specific allowed API registry, guard
 version, strict warning policy, verifier settings and matching limits. Do not
 silently combine scores from different syntax policies or count copied bodies and

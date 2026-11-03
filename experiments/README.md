@@ -35,6 +35,12 @@ for two ordered inputs, with matched fixed client contracts across four cells.
 This is verifier-validated development work, with no model-difficulty result or
 new model calls.
 
+[Four-family policy integration](monorepo-policy-integration-001/README.md) now
+adds the earlier interval-witness registry on the common bounded grammar: 27
+offline tests, exact reference/control and eight saved-response replays, with
+original failures unchanged. The catalog's 32 existing snapshots are a compatibility
+library, not another 32-call pilot. No new calls or pooled score.
+
 ## Six-task reasoning calibration frozen — not run
 
 [monorepo-reasoning-calibration-001](monorepo-reasoning-calibration-001/README.md)
