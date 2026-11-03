@@ -1,0 +1,123 @@
+{
+  "All.dfy": {
+    "includes": [
+      "ClientA.dfy",
+      "ClientB.dfy"
+    ],
+    "imports": []
+  },
+  "Api.dfy": {
+    "includes": [
+      "Kernel.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Internal"
+      }
+    ]
+  },
+  "ClientA.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "H",
+        "module": "HelperA",
+        "view": "default"
+      }
+    ]
+  },
+  "ClientB.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "HelperB.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "H",
+        "module": "HelperB",
+        "view": "default"
+      }
+    ]
+  },
+  "HelperA.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "Ops1.dfy",
+      "Ops2.dfy",
+      "Api.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "A",
+        "module": "Api",
+        "view": "Shallow"
+      }
+    ]
+  },
+  "HelperB.dfy": {
+    "includes": [
+      "Kernel.dfy",
+      "HelperA.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Public"
+      },
+      {
+        "alias": "H",
+        "module": "HelperA",
+        "view": "default"
+      }
+    ]
+  },
+  "Kernel.dfy": {
+    "includes": [],
+    "imports": []
+  },
+  "Ops1.dfy": {
+    "includes": [
+      "Kernel.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Internal"
+      }
+    ]
+  },
+  "Ops2.dfy": {
+    "includes": [
+      "Kernel.dfy"
+    ],
+    "imports": [
+      {
+        "alias": "K",
+        "module": "Kernel",
+        "view": "Internal"
+      }
+    ]
+  }
+}
