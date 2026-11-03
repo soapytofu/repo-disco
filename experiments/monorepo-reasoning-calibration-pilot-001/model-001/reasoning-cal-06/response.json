@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.PutKeys(m, k, v);\\n    var pm := K.Put(m, k, v);\\n    O1.DropKeys(pm, j);\\n    O1.DropKeys(m, j);\\n    var lhs := K.Drop(pm, j);\\n    if k == j {\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      O1.PutKeys(K.Drop(m, j), k, v);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"O1.PutKeys(m, k, v);\\n    var pm := K.Put(m, k, v);\\n    O1.DropKeys(pm, j);\\n    O1.DropKeys(m, j);\\n    var lhs := K.Drop(pm, j);\\n    if k == j {\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      O1.PutKeys(K.Drop(m, j), k, v);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.PutKeys(m, k, v);\\n    var pm := K.Put(m, k, v);\\n    O1.DropKeys(pm, j);\\n    O1.DropKeys(m, j);\\n    var lhs := K.Drop(pm, j);\\n    if k == j {\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      O1.PutKeys(K.Drop(m, j), k, v);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"O1.PutKeys(m, k, v);\\n    var pm := K.Put(m, k, v);\\n    O1.DropKeys(pm, j);\\n    O1.DropKeys(m, j);\\n    var lhs := K.Drop(pm, j);\\n    if k == j {\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      O1.PutKeys(K.Drop(m, j), k, v);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3390,
+    "outputTokens": 893,
+    "totalTokens": 4283,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "1928a168-c08c-4182-9e32-26a043b80c0f",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "1928a168-c08c-4182-9e32-26a043b80c0f",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:50:07 GMT",
+        "content-type": "application/json",
+        "content-length": "2180",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "1928a168-c08c-4182-9e32-26a043b80c0f"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.PutKeys(m, k, v);\\n    var pm := K.Put(m, k, v);\\n    O1.DropKeys(pm, j);\\n    O1.DropKeys(m, j);\\n    var lhs := K.Drop(pm, j);\\n    if k == j {\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      O1.PutKeys(K.Drop(m, j), k, v);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"O1.PutKeys(m, k, v);\\n    var pm := K.Put(m, k, v);\\n    O1.DropKeys(pm, j);\\n    O1.DropKeys(m, j);\\n    var lhs := K.Drop(pm, j);\\n    if k == j {\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      O1.PutKeys(K.Drop(m, j), k, v);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(pm, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(K.Drop(m, j), k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3390,
+      "outputTokens": 893,
+      "totalTokens": 4283,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 9863
+    }
+  }
+}

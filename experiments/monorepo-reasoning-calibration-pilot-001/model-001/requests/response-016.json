@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.PutKeys(m, k, v);\\n    var putMKV := K.Put(m, k, v);\\n    O1.DropKeys(putMKV, j);\\n    O1.DropKeys(m, j);\\n    var dropMJ := K.Drop(m, j);\\n    var lhs := K.Drop(putMKV, j);\\n    if k == j {\\n      assert lhs.Keys == dropMJ.Keys;\\n      forall q | q in lhs ensures q in dropMJ && lhs[q] == dropMJ[q] {\\n        O2.DropAt(putMKV, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, dropMJ);\\n    } else {\\n      O1.PutKeys(dropMJ, k, v);\\n      var rhs := K.Put(dropMJ, k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(putMKV, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(dropMJ, k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(dropMJ, k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.PutKeys(m, k, v);\\n    var putMKV := K.Put(m, k, v);\\n    O1.DropKeys(putMKV, j);\\n    O1.DropKeys(m, j);\\n    var dropMJ := K.Drop(m, j);\\n    var lhs := K.Drop(putMKV, j);\\n    if k == j {\\n      assert lhs.Keys == dropMJ.Keys;\\n      forall q | q in lhs ensures q in dropMJ && lhs[q] == dropMJ[q] {\\n        O2.DropAt(putMKV, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, dropMJ);\\n    } else {\\n      O1.PutKeys(dropMJ, k, v);\\n      var rhs := K.Put(dropMJ, k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(putMKV, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(dropMJ, k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(dropMJ, k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3267,
+    "outputTokens": 452,
+    "totalTokens": 3719,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "e7ac749c-86f3-4d41-9a4a-793ffb0cdcb2",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "e7ac749c-86f3-4d41-9a4a-793ffb0cdcb2",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:51:41 GMT",
+        "content-type": "application/json",
+        "content-length": "1258",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "e7ac749c-86f3-4d41-9a4a-793ffb0cdcb2"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.PutKeys(m, k, v);\\n    var putMKV := K.Put(m, k, v);\\n    O1.DropKeys(putMKV, j);\\n    O1.DropKeys(m, j);\\n    var dropMJ := K.Drop(m, j);\\n    var lhs := K.Drop(putMKV, j);\\n    if k == j {\\n      assert lhs.Keys == dropMJ.Keys;\\n      forall q | q in lhs ensures q in dropMJ && lhs[q] == dropMJ[q] {\\n        O2.DropAt(putMKV, j, q);\\n        O2.PutAt(m, k, v, q);\\n        O2.DropAt(m, j, q);\\n      }\\n      A.Equal(lhs, dropMJ);\\n    } else {\\n      O1.PutKeys(dropMJ, k, v);\\n      var rhs := K.Put(dropMJ, k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        O2.DropAt(putMKV, j, q);\\n        O2.PutAt(m, k, v, q);\\n        if q == k {\\n          O2.PutAt(dropMJ, k, v, q);\\n        } else {\\n          O2.DropAt(m, j, q);\\n          O2.PutAt(dropMJ, k, v, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3267,
+      "outputTokens": 452,
+      "totalTokens": 3719,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6340
+    }
+  }
+}

@@ -5,11 +5,14 @@ The user approved **24 new Claude requests with no retries** for the six-task
 two hours of follow-up through November 3, 2026, 02:44:13 UTC (November 2,
 9:44 PM Eastern). This approval does not expand the model budget.
 
-Status: **job 57162314 started on `test` at 00:48 UTC November 3** after local and
-remote preflight passed and the runner was published in `77625c8`.
+Status: **job 57162314 completed in 4m39s: 24 requests, 18 verified, five body-guard
+rejections and one assertion failure, zero SDK retries.** Read the
+[results and failure analysis](RESULTS.md) and [per-trial log](TRIALS.md).
+It started on `test` at 00:48 UTC November 3 after local/remote preflight passed
+and the runner was published in `77625c8`.
 [Submission and live preemption evidence](submission.json) record one submission,
 `PreemptMode=OFF`, no requeue and the exact authorization/runtime hashes.
-Results are pending; startup is not a completed model trial.
+The full request budget is exhausted. Original results and frozen sources are preserved.
 
 The proposal copy is byte-identical: SHA-256
 `56dc93326ba4ebaa7ba6d5787207665c3ed89f81cf2f5703362b2815640d0afc`.
@@ -52,12 +55,12 @@ kept only in that process's environment, cleared on normal/error exit; it is not
 copied into evidence. No provider connectivity request is made. Cluster jobs
 can finish independently of local monitoring.
 
-After completion, [the offline reviewer](review_results.py) checks exact frozen
+After completion, [the offline reviewer](review_results.py) checked exact frozen
 payloads/order, request counts and IDs, deadlines, original response metadata,
 guard reconstruction, protected files, candidate hashes, verifier commands and
 accepted records. All sources, raw responses, extraction decisions, stdout/stderr,
-ledger, environment and accounting will be published with the summary. Failed
-evidence is retained; no silent repair or rescoring.
+ledger, environment and accounting are archived in [model-001](model-001) and
+linked from the results. Failed evidence is retained; no silent repair or rescoring.
 
 Analysis reports every task's four cells and each family's eight distinct
 configuration outcomes, alongside reserved/dispatched/returned/admitted/verified

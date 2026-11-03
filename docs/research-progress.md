@@ -6,7 +6,7 @@ Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Previous balanced calibration: 29/32 verified, with three families at 8/8. Six strengthened instances pass all 164 verifier controls; the approved frozen 24-call pilot is running as job 57162314. Results pending; main corpus deferred and previous scores unchanged. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six strengthened instances have 164 validated controls. Their 24-call pilot completed: 18 strict passes, five body-syntax rejections, one assertion failure. Conditional 8/8, sequence 6/8, maps 4/8. Main corpus remains deferred for output-policy/difficulty review; previous scores unchanged. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
@@ -544,3 +544,23 @@ stops on ambiguity/infrastructure failure and cannot reopen an existing ledger.
 Full raw responses, candidates, verifier logs and request-count audit will be
 published after completion. No result or larger-corpus authorization is implied
 by startup. Follow-up and dispatch authorization end at 02:44:13 UTC.
+
+## November 2 Eastern: reasoning pilot completed and audited
+
+[Full results and logs](../experiments/monorepo-reasoning-calibration-pilot-001/RESULTS.md):
+job 57162314 completed in 4m39s with exactly 24 requests, unique request IDs,
+zero SDK retries and 83,777 tokens. Nineteen bodies were admitted; 18 whole
+repositories verified and one commuting-update proof failed an assertion.
+The other five responses had valid JSON but used body syntax outside the guard:
+two primed local identifiers and three set/map-expression cases. They were not
+sent to Dafny and are not established reasoning failures. All 19 candidate source
+hashes and protected contracts were checked; 18 accepted bodies manually reviewed.
+
+Conditional 8/8, sequence 6/8 and maps 4/8, with one request per configuration.
+All 12 separate responses duplicate helper-body strings. The two conditional
+instances and nested filtering remain at four-cell ceiling. Differences across
+sharing/depth cells are descriptive and confounded by output-policy rejection;
+no causal effect or held-out result is claimed. Original scores and raw evidence
+remain unchanged. All 24 calls are exhausted. Next gate: separately labeled
+offline/compute-only diagnosis of rejected syntax and the failed assertion,
+then a versioned protocol/difficulty decision before any larger paid collection.

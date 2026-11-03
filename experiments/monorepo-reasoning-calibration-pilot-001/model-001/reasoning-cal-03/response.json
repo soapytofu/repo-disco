@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"var lhs := K.Put(K.Put(m,k,x),j,y);\\n    var rhs := K.Put(K.Put(m,j,y),k,x);\\n    O1.PutKeys(m,k,x);\\n    O1.PutKeys(K.Put(m,k,x),j,y);\\n    O1.PutKeys(m,j,y);\\n    O1.PutKeys(K.Put(m,j,y),k,x);\\n    assert lhs.Keys == rhs.Keys;\\n    forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n      O2.PutAt(K.Put(m,k,x),j,y,q);\\n      O2.PutAt(K.Put(m,j,y),k,x,q);\\n      if q == j {\\n        assert lhs[q] == y;\\n        assert rhs[q] == y;\\n      } else {\\n        if q == k {\\n          O2.PutAt(m,k,x,q);\\n          assert lhs[q] == x;\\n          assert rhs[q] == x;\\n        } else {\\n          O2.PutAt(m,k,x,q);\\n          O2.PutAt(m,j,y,q);\\n          assert lhs[q] == m[q];\\n          assert rhs[q] == m[q];\\n        }\\n      }\\n    }\\n    A.Equal(lhs, rhs);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"var lhs := K.Put(K.Put(m,k,x),j,y);\\n    var rhs := K.Put(K.Put(m,j,y),k,x);\\n    O1.PutKeys(m,k,x);\\n    O1.PutKeys(K.Put(m,k,x),j,y);\\n    O1.PutKeys(m,j,y);\\n    O1.PutKeys(K.Put(m,j,y),k,x);\\n    assert lhs.Keys == rhs.Keys;\\n    forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n      O2.PutAt(K.Put(m,k,x),j,y,q);\\n      O2.PutAt(K.Put(m,j,y),k,x,q);\\n      if q == j {\\n        assert lhs[q] == y;\\n        assert rhs[q] == y;\\n      } else {\\n        if q == k {\\n          O2.PutAt(m,k,x,q);\\n          assert lhs[q] == x;\\n          assert rhs[q] == x;\\n        } else {\\n          O2.PutAt(m,k,x,q);\\n          O2.PutAt(m,j,y,q);\\n          assert lhs[q] == m[q];\\n          assert rhs[q] == m[q];\\n        }\\n      }\\n    }\\n    A.Equal(lhs, rhs);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3277,
+    "outputTokens": 414,
+    "totalTokens": 3691,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "d296618b-1797-4e4a-8928-25303d75ae72",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "d296618b-1797-4e4a-8928-25303d75ae72",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:49:34 GMT",
+        "content-type": "application/json",
+        "content-length": "1136",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "d296618b-1797-4e4a-8928-25303d75ae72"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"var lhs := K.Put(K.Put(m,k,x),j,y);\\n    var rhs := K.Put(K.Put(m,j,y),k,x);\\n    O1.PutKeys(m,k,x);\\n    O1.PutKeys(K.Put(m,k,x),j,y);\\n    O1.PutKeys(m,j,y);\\n    O1.PutKeys(K.Put(m,j,y),k,x);\\n    assert lhs.Keys == rhs.Keys;\\n    forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n      O2.PutAt(K.Put(m,k,x),j,y,q);\\n      O2.PutAt(K.Put(m,j,y),k,x,q);\\n      if q == j {\\n        assert lhs[q] == y;\\n        assert rhs[q] == y;\\n      } else {\\n        if q == k {\\n          O2.PutAt(m,k,x,q);\\n          assert lhs[q] == x;\\n          assert rhs[q] == x;\\n        } else {\\n          O2.PutAt(m,k,x,q);\\n          O2.PutAt(m,j,y,q);\\n          assert lhs[q] == m[q];\\n          assert rhs[q] == m[q];\\n        }\\n      }\\n    }\\n    A.Equal(lhs, rhs);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3277,
+      "outputTokens": 414,
+      "totalTokens": 3691,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 5746
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "status": "FROZEN_PROPOSAL_NO_MODEL_AUTHORIZATION",
+  "experiment": "monorepo-reasoning-calibration-001",
+  "prepared_date": "2026-11-02",
+  "proposed_max_new_calls": 24,
+  "model_calls_made": 0,
+  "new_dafny_runs": 0,
+  "design": "Six semantic instances x two depths x two sharing conditions x one fresh request",
+  "semantic_instances": 6,
+  "families": 3,
+  "workspace_variants": 24,
+  "requests_per_variant": 1,
+  "requests_per_instance": 4,
+  "requests_per_family": 8,
+  "requests_per_cell": 6,
+  "historical_calls_reused": 0,
+  "feedback": false,
+  "retries": false,
+  "reassign_unused": false,
+  "pooling_prior_model_samples": false,
+  "dispatch": "Sequential frozen trial order, fresh output/ledger/submission, exactly one SDK attempt per reservation",
+  "stopping": "Stop without restart/replacement on transport ambiguity, persistence failure, hash drift, verifier timeout/killing/launch failure or interrupted dispatch. Ordinary output/proof/frontend failures consume their reserved slots.",
+  "model_request_inputs_only": [
+    "trial.request_path"
+  ],
+  "reviewer_only_not_model_context": [
+    "evidence-review.json",
+    "tasks.json metadata",
+    "scope.json",
+    "order-design.json",
+    "preparation",
+    "source reference/control archives"
+  ],
+  "primary_metric": "Strict whole-workspace exit zero with protected sources/contracts intact out of 24 planned requests; report reserved/dispatched/returned/admitted/verified denominators separately",
+  "secondary_metrics": [
+    "Per-instance four-cell outcomes and per-family results with two distinct instances per cell",
+    "JSON/schema/guard/length or truncation failures separate from proof/precondition/postcondition/termination/frontend/infrastructure failures",
+    "Tokens, response/body bytes, latency, editable-body count, exact and normalized syntax duplication; syntax is not proof identity",
+    "Inspect every accepted proof and every failure, including visible-provider reuse and copying across separate bodies"
+  ],
+  "decision_gate": [
+    "Any output-format/guard failure requires offline review before collection scale-up; no silent repair/rescore",
+    "Any task at 4/4 or 0/4 or family at 8/8 or 0/8 requires ceiling/floor review; near-ceiling and shared strategy templates also require inspection",
+    "One request per variant cannot estimate sampling variability, pass@k or a causal sharing/depth effect",
+    "No automatic main-corpus collection or repeat round; additional calls require a separately reviewed scope and approval"
+  ],
+  "token_budget": {
+    "max_output_tokens_per_request": 4096,
+    "aggregate_output_ceiling": 98304,
+    "input_tokens": "Additional, measured by provider only during an authorized run",
+    "dollar_estimate": "Not quoted; no pricing/availability probe performed"
+  },
+  "future_execution_gates": [
+    "Explicit approval of 24 NEW requests bound to this freeze",
+    "Separately tested/frozen bounded runner with every-dispatch deadline, durable reservation, one SDK attempt and no automatic recovery",
+    "Offline real-environment package/parser tests, exact freeze and verifier version checks",
+    "One compute job on live-confirmed nonpreemptible partition, no Slurm requeue or duplicate submission",
+    "Inspect all existing output/ledger/job state before any action; no API connectivity test",
+    "Private credential handoff only after execution approval; no key is needed for this preparation"
+  ],
+  "publication": "Frozen request payloads, raw responses, parser decisions, guarded candidates, source hashes, verifier logs, request IDs/ledger, token usage, all failures and summaries; no secrets",
+  "limitations": [
+    "All six instances are inspected development tasks, not held-out or generated corpus",
+    "Shared has one editable body, separate has two equivalent bodies; copying is allowed, output workload/source/imports differ",
+    "Primitive implementations are visible in all contexts and remain shared in both conditions",
+    "Depth is the designed reference fact path, not proved minimum proof depth",
+    "The frozen guard is a bounded output language, not full Dafny; reference admission is verified but grammar rejection may restrict otherwise valid proofs",
+    "No model-performance claim follows from the 164 verifier controls"
+  ]
+}

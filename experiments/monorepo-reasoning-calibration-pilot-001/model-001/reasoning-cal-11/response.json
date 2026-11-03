@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, v);\\n    A.ObserveDrop(K.Put(m, k, v), j);\\n    A.ObserveDrop(m, j);\\n    if k == j {\\n      assert K.Drop(K.Put(m, k, v), j) == K.Drop(m, j);\\n    } else {\\n      A.ObservePut(K.Drop(m, j), k, v);\\n      var lhs := K.Drop(K.Put(m, k, v), j);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in rhs;\\n        assert lhs[q] == rhs[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"A.ObservePut(m, k, v);\\n    A.ObserveDrop(K.Put(m, k, v), j);\\n    A.ObserveDrop(m, j);\\n    if k == j {\\n      assert K.Drop(K.Put(m, k, v), j) == K.Drop(m, j);\\n    } else {\\n      A.ObservePut(K.Drop(m, j), k, v);\\n      var lhs := K.Drop(K.Put(m, k, v), j);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in rhs;\\n        assert lhs[q] == rhs[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, v);\\n    A.ObserveDrop(K.Put(m, k, v), j);\\n    A.ObserveDrop(m, j);\\n    if k == j {\\n      assert K.Drop(K.Put(m, k, v), j) == K.Drop(m, j);\\n    } else {\\n      A.ObservePut(K.Drop(m, j), k, v);\\n      var lhs := K.Drop(K.Put(m, k, v), j);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in rhs;\\n        assert lhs[q] == rhs[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"A.ObservePut(m, k, v);\\n    A.ObserveDrop(K.Put(m, k, v), j);\\n    A.ObserveDrop(m, j);\\n    if k == j {\\n      assert K.Drop(K.Put(m, k, v), j) == K.Drop(m, j);\\n    } else {\\n      A.ObservePut(K.Drop(m, j), k, v);\\n      var lhs := K.Drop(K.Put(m, k, v), j);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in rhs;\\n        assert lhs[q] == rhs[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3192,
+    "outputTokens": 517,
+    "totalTokens": 3709,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "538f48fd-1a5d-403e-9787-743e73955576",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "538f48fd-1a5d-403e-9787-743e73955576",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:50:55 GMT",
+        "content-type": "application/json",
+        "content-length": "1414",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "538f48fd-1a5d-403e-9787-743e73955576"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, v);\\n    A.ObserveDrop(K.Put(m, k, v), j);\\n    A.ObserveDrop(m, j);\\n    if k == j {\\n      assert K.Drop(K.Put(m, k, v), j) == K.Drop(m, j);\\n    } else {\\n      A.ObservePut(K.Drop(m, j), k, v);\\n      var lhs := K.Drop(K.Put(m, k, v), j);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in rhs;\\n        assert lhs[q] == rhs[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"A.ObservePut(m, k, v);\\n    A.ObserveDrop(K.Put(m, k, v), j);\\n    A.ObserveDrop(m, j);\\n    if k == j {\\n      assert K.Drop(K.Put(m, k, v), j) == K.Drop(m, j);\\n    } else {\\n      A.ObservePut(K.Drop(m, j), k, v);\\n      var lhs := K.Drop(K.Put(m, k, v), j);\\n      var rhs := K.Put(K.Drop(m, j), k, v);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in rhs;\\n        assert lhs[q] == rhs[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3192,
+      "outputTokens": 517,
+      "totalTokens": 3709,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6063
+    }
+  }
+}

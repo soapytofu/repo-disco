@@ -1,0 +1,42 @@
+include "Kernel.dfy"
+include "Ops1.dfy"
+include "Ops2.dfy"
+include "Api.dfy"
+module HelperB {
+  import K = Kernel`Public
+  import O1 = Ops1`Public
+  import O2 = Ops2`Public
+  import A = Api`Deep
+  lemma {:induction false} Prove(m: map<int,int>, k: int, j: int, v: int)
+    ensures K.Drop(K.Put(m,k,v),j) == (if k == j then K.Drop(m,j) else K.Put(K.Drop(m,j),k,v))
+  {O1.PutKeys(m, k, v);
+    var pm := K.Put(m, k, v);
+    O1.DropKeys(pm, j);
+    O1.DropKeys(m, j);
+    var lhs := K.Drop(pm, j);
+    if k == j {
+      var rhs := K.Drop(m, j);
+      assert lhs.Keys == rhs.Keys;
+      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {
+        O2.DropAt(pm, j, q);
+        O2.PutAt(m, k, v, q);
+        O2.DropAt(m, j, q);
+      }
+      A.Equal(lhs, rhs);
+    } else {
+      O1.PutKeys(K.Drop(m, j), k, v);
+      var rhs := K.Put(K.Drop(m, j), k, v);
+      assert lhs.Keys == rhs.Keys;
+      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {
+        O2.DropAt(pm, j, q);
+        O2.PutAt(m, k, v, q);
+        if q == k {
+          O2.PutAt(K.Drop(m, j), k, v, q);
+        } else {
+          O2.DropAt(m, j, q);
+          O2.PutAt(K.Drop(m, j), k, v, q);
+        }
+      }
+      A.Equal(lhs, rhs);
+    }  }
+}

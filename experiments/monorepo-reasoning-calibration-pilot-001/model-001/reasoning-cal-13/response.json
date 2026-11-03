@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, x);\\n    var m1 := K.Put(m, k, x);\\n    A.ObservePut(m1, j, y);\\n    A.ObservePut(m, j, y);\\n    var m2 := K.Put(m, j, y);\\n    A.ObservePut(m2, k, x);\\n    var lhs := K.Put(K.Put(m, k, x), j, y);\\n    var rhs := K.Put(K.Put(m, j, y), k, x);\\n    forall q | q in lhs.Keys ensures q in rhs.Keys && lhs[q] == rhs[q] {\\n      assert q in rhs.Keys;\\n    }\\n    forall q | q in rhs.Keys ensures q in lhs.Keys {\\n      assert q in lhs.Keys;\\n    }\\n    A.Equal(lhs, rhs);\", \"HelperB.dfy\": \"A.ObservePut(m, k, x);\\n    var m1 := K.Put(m, k, x);\\n    A.ObservePut(m1, j, y);\\n    A.ObservePut(m, j, y);\\n    var m2 := K.Put(m, j, y);\\n    A.ObservePut(m2, k, x);\\n    var lhs := K.Put(K.Put(m, k, x), j, y);\\n    var rhs := K.Put(K.Put(m, j, y), k, x);\\n    forall q | q in lhs.Keys ensures q in rhs.Keys && lhs[q] == rhs[q] {\\n      assert q in rhs.Keys;\\n    }\\n    forall q | q in rhs.Keys ensures q in lhs.Keys {\\n      assert q in lhs.Keys;\\n    }\\n    A.Equal(lhs, rhs);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, x);\\n    var m1 := K.Put(m, k, x);\\n    A.ObservePut(m1, j, y);\\n    A.ObservePut(m, j, y);\\n    var m2 := K.Put(m, j, y);\\n    A.ObservePut(m2, k, x);\\n    var lhs := K.Put(K.Put(m, k, x), j, y);\\n    var rhs := K.Put(K.Put(m, j, y), k, x);\\n    forall q | q in lhs.Keys ensures q in rhs.Keys && lhs[q] == rhs[q] {\\n      assert q in rhs.Keys;\\n    }\\n    forall q | q in rhs.Keys ensures q in lhs.Keys {\\n      assert q in lhs.Keys;\\n    }\\n    A.Equal(lhs, rhs);\", \"HelperB.dfy\": \"A.ObservePut(m, k, x);\\n    var m1 := K.Put(m, k, x);\\n    A.ObservePut(m1, j, y);\\n    A.ObservePut(m, j, y);\\n    var m2 := K.Put(m, j, y);\\n    A.ObservePut(m2, k, x);\\n    var lhs := K.Put(K.Put(m, k, x), j, y);\\n    var rhs := K.Put(K.Put(m, j, y), k, x);\\n    forall q | q in lhs.Keys ensures q in rhs.Keys && lhs[q] == rhs[q] {\\n      assert q in rhs.Keys;\\n    }\\n    forall q | q in rhs.Keys ensures q in lhs.Keys {\\n      assert q in lhs.Keys;\\n    }\\n    A.Equal(lhs, rhs);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3200,
+    "outputTokens": 513,
+    "totalTokens": 3713,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "073e9049-4164-4502-a81c-edf398a644a6",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "073e9049-4164-4502-a81c-edf398a644a6",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:51:13 GMT",
+        "content-type": "application/json",
+        "content-length": "1360",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "073e9049-4164-4502-a81c-edf398a644a6"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, x);\\n    var m1 := K.Put(m, k, x);\\n    A.ObservePut(m1, j, y);\\n    A.ObservePut(m, j, y);\\n    var m2 := K.Put(m, j, y);\\n    A.ObservePut(m2, k, x);\\n    var lhs := K.Put(K.Put(m, k, x), j, y);\\n    var rhs := K.Put(K.Put(m, j, y), k, x);\\n    forall q | q in lhs.Keys ensures q in rhs.Keys && lhs[q] == rhs[q] {\\n      assert q in rhs.Keys;\\n    }\\n    forall q | q in rhs.Keys ensures q in lhs.Keys {\\n      assert q in lhs.Keys;\\n    }\\n    A.Equal(lhs, rhs);\", \"HelperB.dfy\": \"A.ObservePut(m, k, x);\\n    var m1 := K.Put(m, k, x);\\n    A.ObservePut(m1, j, y);\\n    A.ObservePut(m, j, y);\\n    var m2 := K.Put(m, j, y);\\n    A.ObservePut(m2, k, x);\\n    var lhs := K.Put(K.Put(m, k, x), j, y);\\n    var rhs := K.Put(K.Put(m, j, y), k, x);\\n    forall q | q in lhs.Keys ensures q in rhs.Keys && lhs[q] == rhs[q] {\\n      assert q in rhs.Keys;\\n    }\\n    forall q | q in rhs.Keys ensures q in lhs.Keys {\\n      assert q in lhs.Keys;\\n    }\\n    A.Equal(lhs, rhs);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3200,
+      "outputTokens": 513,
+      "totalTokens": 3713,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6099
+    }
+  }
+}

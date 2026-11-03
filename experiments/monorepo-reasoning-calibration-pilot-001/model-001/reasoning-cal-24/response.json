@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"var lhs := K.Put(K.Put(m,k,x),j,y);\\n    var rhs := K.Put(K.Put(m,j,y),k,x);\\n    A.ObservePut(m,k,x);\\n    A.ObservePut(m,j,y);\\n    var mk := m[k := x];\\n    var mj := m[j := y];\\n    A.ObservePut(mk,j,y);\\n    A.ObservePut(mj,k,x);\\n    assert lhs == mk[j := y];\\n    assert rhs == mj[k := x];\\n    assert mk[j := y] == m[k := x][j := y];\\n    assert mj[k := x] == m[j := y][k := x];\\n    forall q | q in m[k := x][j := y].Keys ensures q in m[j := y][k := x].Keys && m[k := x][j := y][q] == m[j := y][k := x][q] {\\n      if q == j {\\n        assert m[k := x][j := y][q] == y;\\n        assert m[j := y][k := x][q] == y;\\n      } else {\\n        if q == k {\\n          assert m[k := x][j := y][q] == x;\\n          assert m[j := y][k := x][q] == x;\\n        } else {\\n          assert m[k := x][j := y][q] == m[q];\\n          assert m[j := y][k := x][q] == m[q];\\n        }\\n      }\\n    }\\n    forall q | q in m[j := y][k := x].Keys ensures q in m[k := x][j := y].Keys {\\n      assert q in m[k := x][j := y].Keys;\\n    }\\n    A.Equal(m[k := x][j := y], m[j := y][k := x]);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"var lhs := K.Put(K.Put(m,k,x),j,y);\\n    var rhs := K.Put(K.Put(m,j,y),k,x);\\n    A.ObservePut(m,k,x);\\n    A.ObservePut(m,j,y);\\n    var mk := m[k := x];\\n    var mj := m[j := y];\\n    A.ObservePut(mk,j,y);\\n    A.ObservePut(mj,k,x);\\n    assert lhs == mk[j := y];\\n    assert rhs == mj[k := x];\\n    assert mk[j := y] == m[k := x][j := y];\\n    assert mj[k := x] == m[j := y][k := x];\\n    forall q | q in m[k := x][j := y].Keys ensures q in m[j := y][k := x].Keys && m[k := x][j := y][q] == m[j := y][k := x][q] {\\n      if q == j {\\n        assert m[k := x][j := y][q] == y;\\n        assert m[j := y][k := x][q] == y;\\n      } else {\\n        if q == k {\\n          assert m[k := x][j := y][q] == x;\\n          assert m[j := y][k := x][q] == x;\\n        } else {\\n          assert m[k := x][j := y][q] == m[q];\\n          assert m[j := y][k := x][q] == m[q];\\n        }\\n      }\\n    }\\n    forall q | q in m[j := y][k := x].Keys ensures q in m[k := x][j := y].Keys {\\n      assert q in m[k := x][j := y].Keys;\\n    }\\n    A.Equal(m[k := x][j := y], m[j := y][k := x]);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3167,
+    "outputTokens": 519,
+    "totalTokens": 3686,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "ace46080-07e8-4037-92ca-46aaab0e2f7f",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "ace46080-07e8-4037-92ca-46aaab0e2f7f",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:52:59 GMT",
+        "content-type": "application/json",
+        "content-length": "1443",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "ace46080-07e8-4037-92ca-46aaab0e2f7f"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"var lhs := K.Put(K.Put(m,k,x),j,y);\\n    var rhs := K.Put(K.Put(m,j,y),k,x);\\n    A.ObservePut(m,k,x);\\n    A.ObservePut(m,j,y);\\n    var mk := m[k := x];\\n    var mj := m[j := y];\\n    A.ObservePut(mk,j,y);\\n    A.ObservePut(mj,k,x);\\n    assert lhs == mk[j := y];\\n    assert rhs == mj[k := x];\\n    assert mk[j := y] == m[k := x][j := y];\\n    assert mj[k := x] == m[j := y][k := x];\\n    forall q | q in m[k := x][j := y].Keys ensures q in m[j := y][k := x].Keys && m[k := x][j := y][q] == m[j := y][k := x][q] {\\n      if q == j {\\n        assert m[k := x][j := y][q] == y;\\n        assert m[j := y][k := x][q] == y;\\n      } else {\\n        if q == k {\\n          assert m[k := x][j := y][q] == x;\\n          assert m[j := y][k := x][q] == x;\\n        } else {\\n          assert m[k := x][j := y][q] == m[q];\\n          assert m[j := y][k := x][q] == m[q];\\n        }\\n      }\\n    }\\n    forall q | q in m[j := y][k := x].Keys ensures q in m[k := x][j := y].Keys {\\n      assert q in m[k := x][j := y].Keys;\\n    }\\n    A.Equal(m[k := x][j := y], m[j := y][k := x]);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3167,
+      "outputTokens": 519,
+      "totalTokens": 3686,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 7091
+    }
+  }
+}

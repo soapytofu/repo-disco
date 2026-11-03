@@ -1,0 +1,315 @@
+{
+  "review_scope": "Offline review of original saved model results; no new model calls or Dafny runs",
+  "raw_model_requests": 24,
+  "unique_request_ids": 24,
+  "sdk_retries": 0,
+  "json_filename_string_schema_valid": 24,
+  "protected_sources_and_contracts_preserved_for_all_19_admitted_candidates": true,
+  "accepted_proofs_manually_inspected": 18,
+  "verifier_exit_zero": 18,
+  "verifier_exit_four_assertion_failure": 1,
+  "body_guard_rejections": 5,
+  "separate_responses_identical_body_strings": [
+    {
+      "trial_id": "reasoning-cal-02",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-04",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-06",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-08",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-11",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-12",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-13",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-15",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-17",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-19",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-20",
+      "identical_body_strings": true
+    },
+    {
+      "trial_id": "reasoning-cal-23",
+      "identical_body_strings": true
+    }
+  ],
+  "failure_notes": {
+    "reasoning-cal-02": {
+      "category": "guard_identifier_alphabet",
+      "observation": "The local identifier s' contains an apostrophe, outside the frozen guard's identifier alphabet. The prompt did not explicitly spell out that alphabet.",
+      "semantic_status": "Not sent to Dafny; unknown"
+    },
+    "reasoning-cal-18": {
+      "category": "guard_identifier_alphabet",
+      "observation": "The local identifier s' contains an apostrophe, outside the frozen guard's identifier alphabet. The prompt did not explicitly spell out that alphabet.",
+      "semantic_status": "Not sent to Dafny; unknown"
+    },
+    "reasoning-cal-08": {
+      "category": "guard_set_literal",
+      "observation": "Assertions contain {k} and {j} set literals, explicitly excluded by the frozen prompt. The rejection is Identifier required.",
+      "semantic_status": "Not sent to Dafny; unknown; the q == j branch also appears to omit the inner update observation, but this is an unverified code-reading inference"
+    },
+    "reasoning-cal-21": {
+      "category": "guard_map_update_and_comprehension",
+      "observation": "Proof uses m[k := v] and map q | ... :: ... expressions, explicitly excluded by the frozen prompt.",
+      "semantic_status": "Not sent to Dafny; unknown"
+    },
+    "reasoning-cal-24": {
+      "category": "guard_map_update",
+      "observation": "Proof uses m[k := x] and nested map updates, explicitly excluded by the frozen prompt.",
+      "semantic_status": "Not sent to Dafny; unknown"
+    },
+    "reasoning-cal-03": {
+      "category": "verified_assertion_failure",
+      "observation": "Dafny reports assertion might not hold at HelperA.dfy(25,8): assert rhs[q] == y, inside q == j.",
+      "semantic_status": "Original candidate failed with exit 4, 15 verified and one assertion error",
+      "inference": "The outer rhs update fact gives rhs[q] == K.Put(m,j,y)[q] when q != k; this branch omits O2.PutAt(m,j,y,q), which would expose the inner value. A repair has not been applied or verified."
+    }
+  },
+  "reviewed_trials": [
+    {
+      "trial_id": "reasoning-cal-01",
+      "task_id": "nested_clamp-shallow-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "4f3fd2f082f7322ec05916c6a4234f64537b9051d6288c39f876f1df48af6d19",
+      "result_sha256": "469aff8c0aae8816ea0a29b4d5ff022dc495fe1c0423f45991cbdc21e814d9be",
+      "accepted_record_sha256": "5e74c1c9d36730cc0b9efe3c777062fbf7f11a2ab8c9f2976adcbbfb661c898f",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-02",
+      "task_id": "reverse_concat-shallow-separate",
+      "outcome": "OUTPUT_REJECTED",
+      "response_sha256": "2bc8e55324e4d0b0da45770b59cc899e035f5cb7649f5b5c02f7b191fa3e8e22",
+      "result_sha256": "f1c9db52c3767c1777d4044606d6f5dea4aad54282103ba7d8ac27424f2bc95d",
+      "accepted_record_sha256": null,
+      "source_contract_review": "Failure retained; no repair or rescore"
+    },
+    {
+      "trial_id": "reasoning-cal-03",
+      "task_id": "commuting_updates-deep-shared",
+      "outcome": "PROOF_FAILURE",
+      "response_sha256": "3e1f57e6aa63417b46a2d6e6464ba743378b58ddc062680d35a213704777f507",
+      "result_sha256": "ba2c88671004651dc6386cb3e926d1cf41431b9db2d996cf79bbdd8c5c1adb61",
+      "accepted_record_sha256": null,
+      "source_contract_review": "Failure retained; no repair or rescore"
+    },
+    {
+      "trial_id": "reasoning-cal-04",
+      "task_id": "clamp_stability-deep-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "6465bdd5333d97d901ecfb221fd3df20599b529c29cdeff24e72346bb10fbe1c",
+      "result_sha256": "5b69c887eabd682c4014ca889f6e5d235363a50f4d1c76e2a4412759d043cadd",
+      "accepted_record_sha256": "e1f095090bd054ec535011c61529405ee0018fff144587be93889304a099f132",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-05",
+      "task_id": "nested_filter-shallow-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "dda978a418cf36334978aa76974e7cbcbba1ee59643851ae0d510d137acec06a",
+      "result_sha256": "aa8ea906baedec678dda5fe8443bdf9db43dbd87e0b14c5dd91e3812733ec5e4",
+      "accepted_record_sha256": "60322a64fa7108f6298210fdfe652962bc6a4320ca585708a691241283bc8b01",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-06",
+      "task_id": "delete_after_update-deep-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "116cb39a6b99bb9037aae071de0d831ba135d2b45612eb4b279122aa3f4d8268",
+      "result_sha256": "f34f3b655afe61f2be93fd244c6e3f9848588e50bb0837465cdd777b8109cbf4",
+      "accepted_record_sha256": "73a3a5afc9715566079735e67a7d294c60c274f9064c5e88984185b4da70a4f8",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-07",
+      "task_id": "reverse_concat-deep-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "38f9887ac9eb65377a991a9facc41a42f91522b34802a5cc5228d2aa0bf7c26a",
+      "result_sha256": "806754a31f5a3f1a335077b891b12a046e73dbd33f60ba24d8f8d4ee2f709458",
+      "accepted_record_sha256": "53c371d13bbf8f2ce3ccc3b31ce573b9e397fc4544a290bce280065a92ac31ce",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-08",
+      "task_id": "commuting_updates-deep-separate",
+      "outcome": "OUTPUT_REJECTED",
+      "response_sha256": "b0a815596878c1eba9cb6a4a64cf1045dc4662503672572db1338b5c548951d3",
+      "result_sha256": "29325f55aa9918f23887d2686e3769face9e26a7c606aaff22f4a88a30f4fdd4",
+      "accepted_record_sha256": null,
+      "source_contract_review": "Failure retained; no repair or rescore"
+    },
+    {
+      "trial_id": "reasoning-cal-09",
+      "task_id": "clamp_stability-shallow-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "0f9ba23453958b66755424c316c645134febabe7ba4d2df87b4bf2fe784272b1",
+      "result_sha256": "11315b1f5bfb9781a9b0f7a75ba9b353b7173aca00715c446e931a334c4cec26",
+      "accepted_record_sha256": "4afcc232422e159d47ad9f25ca5e7725ed1d1ea52d27cb12a8f74fde84cf0cbd",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-10",
+      "task_id": "nested_filter-deep-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "172bd71a85a9bfa4aec135c0d1a11c0827aff50afcb4e68b8096469101373dbd",
+      "result_sha256": "eb7891234f16fcc41b32152437e1acdb3fe1f173af3115db163995a3fd2133a6",
+      "accepted_record_sha256": "3f2cc0d46292d4b67fafe7e727759227baa2cbaf42705795235da58ee37783e7",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-11",
+      "task_id": "delete_after_update-shallow-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "a7e43f13b7374b1099ba3e059f729da3c0fe629152b752ba809e1aad9850b4c5",
+      "result_sha256": "e3b42fe5a99781e9796a5da45ccc6dd643abbfaa20632c065dcf6ecd60525f75",
+      "accepted_record_sha256": "55f5166d3b33d3c99004ef75a48df4c2a1e048fa4d3f55e8ae992570a025acc0",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-12",
+      "task_id": "nested_clamp-shallow-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "f0e705579fa96498a7c3e0d2e87032940115377a779a7e3308f8873e6cfa404f",
+      "result_sha256": "329942de784de37e875a44438e8c7a431bdc96f02c259982a68b6dae5e0a8aa4",
+      "accepted_record_sha256": "621b7d7e522e3e4eff30338a9b673e0a6c21fb83d668eff443607240543b6255",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-13",
+      "task_id": "commuting_updates-shallow-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "c387a16d72fe22f7b4a3d005c95fedf9523c53216ded53b62cd56555af3d51b5",
+      "result_sha256": "6b7f7bfa35f2e89df0c69031628cb5422da3f8342b3cd07daf5704816d2db409",
+      "accepted_record_sha256": "ba72ec687e0b771f206207ac6eeccd01ebdc373005a1c5e9424f7729b9dd5a2f",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-14",
+      "task_id": "clamp_stability-deep-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "448370a49c0f4f28100049684b09dbf8cf866bce36e5398dd9adc40f0acc1b32",
+      "result_sha256": "8b89169e4d1094fb6b78f8f34c0dac07e97d47ffa9db1a65ae879143c2e51cbd",
+      "accepted_record_sha256": "e1a578b418fc5fd40c481a21e604a87dfc295f0e6e2814f45fb971e17b9e04fe",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-15",
+      "task_id": "nested_filter-shallow-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "fbba57ac5716828e89a51a44b9ae2cc095de18308fc50dd64390981b47834b0d",
+      "result_sha256": "8f8beb3fa0eaf201f6da857510a3ff13168897410e18b7e2287ba1b590b3e314",
+      "accepted_record_sha256": "9c2dbf882ab52524a72fa3ba462366912f9a0007ef3cdedfc030b098a9886b27",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-16",
+      "task_id": "delete_after_update-deep-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "fb3b9fc7a18576b8ee8865eb6a276af51a1b84b18589eca366e5049c72e66011",
+      "result_sha256": "750f35f4a5b130a8cd331437c7689666aab514f8d0696bb6efb30d86111b3a2a",
+      "accepted_record_sha256": "9f14e4969911404d123f4152592d7d8066916ac2af7e21265124fd32e7e65e0b",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-17",
+      "task_id": "nested_clamp-deep-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "7a74e0861b5e8cc5547bff855e42ada72cc2280c0c2c806d03be4ed7cb1fa960",
+      "result_sha256": "4410d6310c94bb7037467fbe024f986ad272e1944f46bf4d39bfb9fdea7dde27",
+      "accepted_record_sha256": "797e01bf33192011562b7cd38319cee0fd1f9144e9fba8fd7689d2c9fdc1977a",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-18",
+      "task_id": "reverse_concat-shallow-shared",
+      "outcome": "OUTPUT_REJECTED",
+      "response_sha256": "e9c67d2db054bae07feb4b5002fe398593144c6bf5f57e3b7e2dc1feec4ed63e",
+      "result_sha256": "589e8ae86732f5c9b8a4bc104094a6fb742d23dba05d1adfa3dc74d3450dacdc",
+      "accepted_record_sha256": null,
+      "source_contract_review": "Failure retained; no repair or rescore"
+    },
+    {
+      "trial_id": "reasoning-cal-19",
+      "task_id": "clamp_stability-shallow-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "f519b83ab830d5a349a6f441e3f2e8e32855fae1480868f6229d098be17a5337",
+      "result_sha256": "b195b3a2e11b529124b7465912d886eb9592f8210b9607f4daa688d276158b88",
+      "accepted_record_sha256": "14ec86d7ed6183f984a46cb2bc521c5dde272113cff2716cbf2e9f2228118ffe",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-20",
+      "task_id": "nested_filter-deep-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "f8a9cae73a3af0b06b24683463025249f6d1291d0ca1a28a74cbfcc7e37b1da7",
+      "result_sha256": "64dc7a532c7589252c2c97296124f89ec3825a515558d0e715f44004b839d3a9",
+      "accepted_record_sha256": "ae1c017b67b2b52693ac9476d00e1ecb4b8577be02b9b100b4c3950f90ffb026",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-21",
+      "task_id": "delete_after_update-shallow-shared",
+      "outcome": "OUTPUT_REJECTED",
+      "response_sha256": "81efd8e15b5550ca4bf89f25d945028c0426688b5be98b7b27c951bbfed939fa",
+      "result_sha256": "a3d84b23d2560a8779d73df3f3ddf7a656f0341d1ebf695ce346990ddf2a6191",
+      "accepted_record_sha256": null,
+      "source_contract_review": "Failure retained; no repair or rescore"
+    },
+    {
+      "trial_id": "reasoning-cal-22",
+      "task_id": "nested_clamp-deep-shared",
+      "outcome": "VERIFIED",
+      "response_sha256": "3d880923a4d96d042bd9ac26f6df0fc3a226116182ae10f7f58203d1329fb03a",
+      "result_sha256": "84b2130c2eee258d9e4740d8af83c6cbec7f8df8c1477cd37a07088a15f2e67c",
+      "accepted_record_sha256": "72a4d1c3033278f40c57062e67310fb67daf45bf7418a5737dfff2ac97206b5c",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-23",
+      "task_id": "reverse_concat-deep-separate",
+      "outcome": "VERIFIED",
+      "response_sha256": "60809d4c1aa30b490730e2bf46759bfca8bd8e5509a54f505e58e3356423b117",
+      "result_sha256": "39477e13f7e5bbb9e4f2d68d88f63f72456a0ecf90199347a52a3513b674847a",
+      "accepted_record_sha256": "a65b934b837aeb792b550afbf93073485002b169de5be8dd01627ca27095a89c",
+      "source_contract_review": "Exact guarded reconstruction/protected bytes checked; accepted proof body manually inspected"
+    },
+    {
+      "trial_id": "reasoning-cal-24",
+      "task_id": "commuting_updates-shallow-shared",
+      "outcome": "OUTPUT_REJECTED",
+      "response_sha256": "b22349f60511d777f50f413673f6983f45efe110365cbd4b3eb81e0bdd98926e",
+      "result_sha256": "1e4728855e246387e2d600cd7301094d5cab4d22b778356a9ac8661a8a45bc53",
+      "accepted_record_sha256": null,
+      "source_contract_review": "Failure retained; no repair or rescore"
+    }
+  ],
+  "no_silent_repair_rescore_or_additional_verification": true,
+  "main_collection_authorized": false
+}

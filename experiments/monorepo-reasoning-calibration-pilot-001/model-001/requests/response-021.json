@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, v);\\n    var putMKV := K.Put(m, k, v);\\n    A.ObserveDrop(putMKV, j);\\n    A.ObserveDrop(m, j);\\n    var dropMJ := K.Drop(m, j);\\n    if k == j {\\n      assert putMKV == m[k := v];\\n      assert K.Drop(putMKV, j) == (map q | q in putMKV && q != j :: putMKV[q]);\\n      assert K.Drop(m, j) == (map q | q in m && q != j :: m[q]);\\n      var lhs := K.Drop(putMKV, j);\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in m;\\n        assert q != j;\\n        assert lhs[q] == putMKV[q];\\n        assert q != k;\\n        assert putMKV[q] == m[q];\\n        assert rhs[q] == m[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      A.ObservePut(dropMJ, k, v);\\n      var lhs := K.Drop(putMKV, j);\\n      var rhs := K.Put(dropMJ, k, v);\\n      assert putMKV == m[k := v];\\n      assert lhs == (map q | q in putMKV && q != j :: putMKV[q]);\\n      assert dropMJ == (map q | q in m && q != j :: m[q]);\\n      assert rhs == dropMJ[k := v];\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        if q == k {\\n          assert lhs[q] == putMKV[q];\\n          assert putMKV[q] == v;\\n          assert rhs[q] == v;\\n        } else {\\n          assert lhs[q] == putMKV[q];\\n          assert q in m;\\n          assert putMKV[q] == m[q];\\n          assert q in dropMJ;\\n          assert dropMJ[q] == m[q];\\n          assert rhs[q] == dropMJ[q];\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, v);\\n    var putMKV := K.Put(m, k, v);\\n    A.ObserveDrop(putMKV, j);\\n    A.ObserveDrop(m, j);\\n    var dropMJ := K.Drop(m, j);\\n    if k == j {\\n      assert putMKV == m[k := v];\\n      assert K.Drop(putMKV, j) == (map q | q in putMKV && q != j :: putMKV[q]);\\n      assert K.Drop(m, j) == (map q | q in m && q != j :: m[q]);\\n      var lhs := K.Drop(putMKV, j);\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in m;\\n        assert q != j;\\n        assert lhs[q] == putMKV[q];\\n        assert q != k;\\n        assert putMKV[q] == m[q];\\n        assert rhs[q] == m[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      A.ObservePut(dropMJ, k, v);\\n      var lhs := K.Drop(putMKV, j);\\n      var rhs := K.Put(dropMJ, k, v);\\n      assert putMKV == m[k := v];\\n      assert lhs == (map q | q in putMKV && q != j :: putMKV[q]);\\n      assert dropMJ == (map q | q in m && q != j :: m[q]);\\n      assert rhs == dropMJ[k := v];\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        if q == k {\\n          assert lhs[q] == putMKV[q];\\n          assert putMKV[q] == v;\\n          assert rhs[q] == v;\\n        } else {\\n          assert lhs[q] == putMKV[q];\\n          assert q in m;\\n          assert putMKV[q] == m[q];\\n          assert q in dropMJ;\\n          assert dropMJ[q] == m[q];\\n          assert rhs[q] == dropMJ[q];\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3157,
+    "outputTokens": 689,
+    "totalTokens": 3846,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "f38a8045-323a-4611-a6e5-a3c10b03d044",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "f38a8045-323a-4611-a6e5-a3c10b03d044",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:52:29 GMT",
+        "content-type": "application/json",
+        "content-length": "1945",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "f38a8045-323a-4611-a6e5-a3c10b03d044"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObservePut(m, k, v);\\n    var putMKV := K.Put(m, k, v);\\n    A.ObserveDrop(putMKV, j);\\n    A.ObserveDrop(m, j);\\n    var dropMJ := K.Drop(m, j);\\n    if k == j {\\n      assert putMKV == m[k := v];\\n      assert K.Drop(putMKV, j) == (map q | q in putMKV && q != j :: putMKV[q]);\\n      assert K.Drop(m, j) == (map q | q in m && q != j :: m[q]);\\n      var lhs := K.Drop(putMKV, j);\\n      var rhs := K.Drop(m, j);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        assert q in m;\\n        assert q != j;\\n        assert lhs[q] == putMKV[q];\\n        assert q != k;\\n        assert putMKV[q] == m[q];\\n        assert rhs[q] == m[q];\\n      }\\n      A.Equal(lhs, rhs);\\n    } else {\\n      A.ObservePut(dropMJ, k, v);\\n      var lhs := K.Drop(putMKV, j);\\n      var rhs := K.Put(dropMJ, k, v);\\n      assert putMKV == m[k := v];\\n      assert lhs == (map q | q in putMKV && q != j :: putMKV[q]);\\n      assert dropMJ == (map q | q in m && q != j :: m[q]);\\n      assert rhs == dropMJ[k := v];\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs ensures q in rhs && lhs[q] == rhs[q] {\\n        if q == k {\\n          assert lhs[q] == putMKV[q];\\n          assert putMKV[q] == v;\\n          assert rhs[q] == v;\\n        } else {\\n          assert lhs[q] == putMKV[q];\\n          assert q in m;\\n          assert putMKV[q] == m[q];\\n          assert q in dropMJ;\\n          assert dropMJ[q] == m[q];\\n          assert rhs[q] == dropMJ[q];\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3157,
+      "outputTokens": 689,
+      "totalTokens": 3846,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 8361
+    }
+  }
+}

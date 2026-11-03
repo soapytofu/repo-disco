@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"if |s| == 0 {\\n  A.Empty(s, p);\\n  A.Empty(s, q);\\n} else {\\n  A.Observe(s, p);\\n  if s[0] <= p {\\n    A.Observe([s[0]] + K.Filter(s[1..], p), q);\\n    if s[0] <= q {\\n      Prove(s[1..], p, q);\\n      A.Observe(s, q);\\n    } else {\\n      Prove(s[1..], p, q);\\n      A.Observe(s, q);\\n    }\\n  } else {\\n    Prove(s[1..], p, q);\\n    A.Observe(s, q);\\n  }\\n}\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"if |s| == 0 {\\n  A.Empty(s, p);\\n  A.Empty(s, q);\\n} else {\\n  A.Observe(s, p);\\n  if s[0] <= p {\\n    A.Observe([s[0]] + K.Filter(s[1..], p), q);\\n    if s[0] <= q {\\n      Prove(s[1..], p, q);\\n      A.Observe(s, q);\\n    } else {\\n      Prove(s[1..], p, q);\\n      A.Observe(s, q);\\n    }\\n  } else {\\n    Prove(s[1..], p, q);\\n    A.Observe(s, q);\\n  }\\n}\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 2874,
+    "outputTokens": 214,
+    "totalTokens": 3088,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "0c99dafd-35e9-4ab4-a967-3c07dfb76599",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "0c99dafd-35e9-4ab4-a967-3c07dfb76599",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 03 Nov 2026 00:49:53 GMT",
+        "content-type": "application/json",
+        "content-length": "718",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "0c99dafd-35e9-4ab4-a967-3c07dfb76599"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"if |s| == 0 {\\n  A.Empty(s, p);\\n  A.Empty(s, q);\\n} else {\\n  A.Observe(s, p);\\n  if s[0] <= p {\\n    A.Observe([s[0]] + K.Filter(s[1..], p), q);\\n    if s[0] <= q {\\n      Prove(s[1..], p, q);\\n      A.Observe(s, q);\\n    } else {\\n      Prove(s[1..], p, q);\\n      A.Observe(s, q);\\n    }\\n  } else {\\n    Prove(s[1..], p, q);\\n    A.Observe(s, q);\\n  }\\n}\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 2874,
+      "outputTokens": 214,
+      "totalTokens": 3088,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 5363
+    }
+  }
+}

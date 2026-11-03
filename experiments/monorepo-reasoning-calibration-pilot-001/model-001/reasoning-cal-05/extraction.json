@@ -1,0 +1,327 @@
+{
+  "accepted": true,
+  "version": "reasoning-body-json-v1-development",
+  "wrapper": "plain JSON",
+  "parent_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "35443f733e10e05cded0da2a2c4a4b168d2dd88eeb222b8722856e3c79cc014a",
+    "ClientA.dfy": "fdc71b45ce96f82dcc49b9e602bebeac242e248b135dd790988da95d5f41edf5",
+    "ClientB.dfy": "a278a123f998741d3a91201ed7db206735f89c1b079ec2603198b96ddc55de12",
+    "HelperA.dfy": "a24fbc112475e820c3959b6034b8232ba253ebe1cb08a75e619aebeb0b60a3f5",
+    "HelperB.dfy": "266f2b1604a3a9e8de81caf27dbf6bf392ddd42f6942f8e1ae31579b30538736",
+    "Kernel.dfy": "9f4361bb09fe2faeae6da4be9af45bbc512a3d1037504dd2b03ec321447624c4",
+    "Ops1.dfy": "2b0e5b32437a12c22f6dd0aa4c421b1a997f9959fa8a5b4a1e03374e0e08477e",
+    "Ops2.dfy": "49f72a6e53aa2c2300732156ce8af58217fb21ce772c890655d62fdb8b9c2475"
+  },
+  "candidate_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "35443f733e10e05cded0da2a2c4a4b168d2dd88eeb222b8722856e3c79cc014a",
+    "ClientB.dfy": "a278a123f998741d3a91201ed7db206735f89c1b079ec2603198b96ddc55de12",
+    "ClientA.dfy": "fdc71b45ce96f82dcc49b9e602bebeac242e248b135dd790988da95d5f41edf5",
+    "Kernel.dfy": "9f4361bb09fe2faeae6da4be9af45bbc512a3d1037504dd2b03ec321447624c4",
+    "HelperB.dfy": "266f2b1604a3a9e8de81caf27dbf6bf392ddd42f6942f8e1ae31579b30538736",
+    "Ops2.dfy": "49f72a6e53aa2c2300732156ce8af58217fb21ce772c890655d62fdb8b9c2475",
+    "Ops1.dfy": "2b0e5b32437a12c22f6dd0aa4c421b1a997f9959fa8a5b4a1e03374e0e08477e",
+    "HelperA.dfy": "e772d9a6d291ef06733c04058d9c8c6a3e1b92078ba87a7eafc7c8b4c1436f95"
+  },
+  "bodies": {
+    "HelperA.dfy": {
+      "prefix_sha256": "e651059d5251e9923eef0aeec484d81e9d61a5d72da0e64001fee6af41283d8e",
+      "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+      "body_sha256": "dd8fc7a655758ea5b1d4758adb4c07d2327f069cf762ea5292faa90fa57c1e21",
+      "syntax": [
+        [
+          "if_statement",
+          [
+            "infix_syntax",
+            "==",
+            [
+              "cardinality",
+              [
+                "variable",
+                "s"
+              ]
+            ],
+            [
+              "integer",
+              "0"
+            ]
+          ],
+          [
+            [
+              "call",
+              "A.Empty",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "p"
+                ]
+              ]
+            ],
+            [
+              "call",
+              "A.Empty",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "q"
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              "call",
+              "A.Observe",
+              [
+                [
+                  "variable",
+                  "s"
+                ],
+                [
+                  "variable",
+                  "p"
+                ]
+              ]
+            ],
+            [
+              "if_statement",
+              [
+                "infix_syntax",
+                "<=",
+                [
+                  "index",
+                  [
+                    "variable",
+                    "s"
+                  ],
+                  [
+                    "integer",
+                    "0"
+                  ]
+                ],
+                [
+                  "variable",
+                  "p"
+                ]
+              ],
+              [
+                [
+                  "call",
+                  "A.Observe",
+                  [
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "sequence_literal",
+                        [
+                          [
+                            "index",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "0"
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        "pure",
+                        "K.Filter",
+                        [
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ],
+                          [
+                            "variable",
+                            "p"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "q"
+                    ]
+                  ]
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "index",
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "integer",
+                        "0"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "q"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "variable",
+                          "p"
+                        ],
+                        [
+                          "variable",
+                          "q"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Observe",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "q"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "variable",
+                          "p"
+                        ],
+                        [
+                          "variable",
+                          "q"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Observe",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "q"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "call",
+                  "Prove",
+                  [
+                    [
+                      "slice",
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "integer",
+                        "1"
+                      ],
+                      null
+                    ],
+                    [
+                      "variable",
+                      "p"
+                    ],
+                    [
+                      "variable",
+                      "q"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "A.Observe",
+                  [
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "variable",
+                      "q"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "tokens": 155,
+      "statements": 13
+    }
+  },
+  "semantic_verification_performed": false
+}
