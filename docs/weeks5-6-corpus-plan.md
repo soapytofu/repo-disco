@@ -1,6 +1,8 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current gate (November 2 evening, Eastern):** the six-task
+**Current step (November 4, Eastern).** The [guarded clamp pilot](../experiments/conditional-monotonicity-calibration-001/README.md) now has a frozen eight-request plan and four exact payloads. It samples each depth and sharing combination twice on one development instance. Its difficulty remains unmeasured and the new budget awaits approval.
+
+**Previous gate (November 2 evening, Eastern):** the six-task
 [reasoning pilot](../experiments/monorepo-reasoning-calibration-pilot-001/RESULTS.md)
 completed its 24 requests with **18 strict successes, five output-policy rejections
 and one assertion failure**. All calls are exhausted. Separate verifier-only

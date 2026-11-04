@@ -1,6 +1,10 @@
 # Experiment log
 
-A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 2, 2026.
+A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 4, 2026.
+
+## Conditional monotonicity calibration
+
+The [eight-call proposal](conditional-monotonicity-calibration-001/README.md) freezes two fresh samples for each of four workspace variants. All four request payloads reproduce from the verified seeds. Execution awaits a separate budget.
 
 ## Completed 24-call reasoning pilot
 
