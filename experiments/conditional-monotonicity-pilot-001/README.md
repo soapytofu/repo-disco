@@ -1,0 +1,13 @@
+# Conditional monotonicity pilot execution
+
+November 6, 2026. Sophie requested starting the frozen eight-call pilot and supplied a private credential handoff. The execution cap is eight fresh Claude requests with one SDK attempt each, two samples per workspace and the published order. The runner and its offline evidence are ready for one compute submission. [Proposal](../conditional-monotonicity-calibration-001/README.md)
+
+Thirteen fake-transport tests passed. They cover identical request replay across samples, spending limits, deadlines, ambiguous timeouts, refusal to restart, metadata errors, disk failure, protected source, truncation and result-review tampering. The staged runtime also passed the real Cannon package/import check with a fake SDK client and a fake verifier process. [Local tests](runner-tests.log) · [Cannon preflight](environment-preflight.log)
+
+The runner consumes the account-private key handoff when the compute process starts and removes its environment copy at exit. Each request is reserved durably before dispatch. An ambiguous transport, integrity or infrastructure error stops the batch. Ordinary proof and output failures consume their slots. Only exact guarded edits followed by strict whole-workspace exit zero are accepted. Nonzero warning exits are recorded explicitly.
+
+The frozen request files are byte-identical to proposal commit 920795b. The input directory copies the dependencies listed in that proposal's hash inventory. Reference proofs appear there solely for provenance and replay checks. The dispatcher sends only each trial's request.json. The v4 guard, providers, client contracts and seeds are pinned in that inventory. [Runtime digest](runtime-freeze.json) · [Runner](run_pilot.py) · [Offline reviewer](review_results.py)
+
+The batch reserves two CPUs and 8 GB for up to one hour on test, with requeue disabled. Submission requires a live PreemptMode=OFF check, a fresh output directory, an exclusive submission lock and a queue check. Authorization binds the eight-call cap to the proposal and runtime digests and expires within 24 hours. Logs persist under the experiment's Cannon output directory independently of the local connection.
+
+Interpret results per four structural cells and two samples each. The task is one inspected conditional-monotonicity development instance. Its shallow reference has one contract-application stage and deep has two. Separate mode exposes two equivalent editable bodies and permits copying. Broad performance estimates and task selection require further evidence.

@@ -1,0 +1,33 @@
+{
+  "study": "conditional-monotonicity-calibration-001",
+  "status": "frozen proposal",
+  "execution_authorized": false,
+  "semantic_instance": "clamp_monotone",
+  "split": "development",
+  "blocks": [
+    ["shallow-shared", "deep-separate", "shallow-separate", "deep-shared"],
+    ["deep-separate", "shallow-shared", "deep-shared", "shallow-separate"]
+  ],
+  "proposed_calls": 8,
+  "samples_per_workspace": 2,
+  "fresh_context_per_request": true,
+  "feedback": false,
+  "sdk_total_max_attempts": 1,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "region": "us-east-1",
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "inference_config": {"temperature": 1.0, "maxTokens": 4096},
+  "max_output_tokens_total": 32768,
+  "context": "full_empty_workspace_plus_declared_import_and_include_map",
+  "guard_version": "reasoning-body-json-v4-integration-development",
+  "verifier": {
+    "entry": "All.dfy",
+    "include_all_files": true,
+    "toolchain": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit",
+    "timeout_seconds": 60,
+    "success_exit_code": 0
+  },
+  "base_commit": "a6fba00e069b4cd04d8a35d7acd297230dea1bb8"
+}
