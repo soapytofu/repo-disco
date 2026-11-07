@@ -1,5 +1,10 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
+**Latest measured gate (November 6, Eastern).** The user authorized the [16-call witness/map pilot](../experiments/witness-map-calibration-pilot-001/RESULTS.md), now complete: 16/16 output admission, **8 strict passes, 7 proof failures and 1 warning-only result**; no retries. Witness 2/8 and map 6/8 reflect only two semantic instances. The endpoint counterexample and missing inner-map observation are genuine reasoning failures; the trigger warning is separate. Exact contracts/source and all original responses are preserved. The budget is exhausted. Retain these development candidates while designing independent instances and an honest held-out split before broader collection; do not infer a general sharing/depth effect or authorize further calls from these counts.
+
+The preparation entries below record their original checkpoints; the new pilot is complete.
+
+
 **Latest non-paid validation (November 6, Eastern).** [Tolerant JSON extraction](../experiments/reasoning-envelope-policy-001/README.md) now passes nine adversarial tests and reconstructs 40 saved candidates exactly; mathematical failures and original scores are unchanged. [Two stronger development instances](../experiments/witness-map-strengthening-001/README.md) add two separated interval witnesses and alias-sensitive overwrite/delete reasoning. Their eight matched variants passed all 64 verifier expectations with unchanged contracts and immutable clients. The task registry changes only bindings/version on the existing grammar. These are suitable candidates for prospective calibration, not evidence of increased model difficulty. No model calls or execution authorization is included. A subsequent [16-call proposal](../experiments/witness-map-calibration-001/README.md) freezes eight exact payloads, two samples per variant, partially counterbalanced order, and both extraction/guard layers. Five offline tests pass; the proposal remains unexecuted and needs separate approval.
 
 

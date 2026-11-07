@@ -1,0 +1,54 @@
+{
+  "text": "```json\n{\"HelperA.dfy\": \"var m1 := K.Put(m, k, x);\\n    var m2 := K.Put(m1, j, y);\\n    var lhs := K.Drop(m2, k);\\n    O1.PutKeys(m, k, x);\\n    O1.PutKeys(m1, j, y);\\n    O1.DropKeys(m2, k);\\n    O1.DropKeys(m, k);\\n    var dm := K.Drop(m, k);\\n    if k == j {\\n      assert lhs.Keys == dm.Keys;\\n      forall q | q in lhs\\n        ensures q in dm && lhs[q] == dm[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        O2.PutAt(m, k, x, q);\\n        O2.DropAt(m, k, q);\\n      }\\n      A.Equal(lhs, dm);\\n    } else {\\n      var rhs := K.Put(dm, j, y);\\n      O1.PutKeys(dm, j, y);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs\\n        ensures q in rhs && lhs[q] == rhs[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        if q == j {\\n          O2.PutAt(dm, j, y, q);\\n        } else {\\n          O2.PutAt(m, k, x, q);\\n          O2.DropAt(m, k, q);\\n          O2.PutAt(dm, j, y, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"var m1 := K.Put(m, k, x);\\n    var m2 := K.Put(m1, j, y);\\n    var lhs := K.Drop(m2, k);\\n    O1.PutKeys(m, k, x);\\n    O1.PutKeys(m1, j, y);\\n    O1.DropKeys(m2, k);\\n    O1.DropKeys(m, k);\\n    var dm := K.Drop(m, k);\\n    if k == j {\\n      assert lhs.Keys == dm.Keys;\\n      forall q | q in lhs\\n        ensures q in dm && lhs[q] == dm[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        O2.PutAt(m, k, x, q);\\n        O2.DropAt(m, k, q);\\n      }\\n      A.Equal(lhs, dm);\\n    } else {\\n      var rhs := K.Put(dm, j, y);\\n      O1.PutKeys(dm, j, y);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs\\n        ensures q in rhs && lhs[q] == rhs[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        if q == j {\\n          O2.PutAt(dm, j, y, q);\\n        } else {\\n          O2.PutAt(m, k, x, q);\\n          O2.DropAt(m, k, q);\\n          O2.PutAt(dm, j, y, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}\n```",
+  "content": [
+    {
+      "text": "```json\n{\"HelperA.dfy\": \"var m1 := K.Put(m, k, x);\\n    var m2 := K.Put(m1, j, y);\\n    var lhs := K.Drop(m2, k);\\n    O1.PutKeys(m, k, x);\\n    O1.PutKeys(m1, j, y);\\n    O1.DropKeys(m2, k);\\n    O1.DropKeys(m, k);\\n    var dm := K.Drop(m, k);\\n    if k == j {\\n      assert lhs.Keys == dm.Keys;\\n      forall q | q in lhs\\n        ensures q in dm && lhs[q] == dm[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        O2.PutAt(m, k, x, q);\\n        O2.DropAt(m, k, q);\\n      }\\n      A.Equal(lhs, dm);\\n    } else {\\n      var rhs := K.Put(dm, j, y);\\n      O1.PutKeys(dm, j, y);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs\\n        ensures q in rhs && lhs[q] == rhs[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        if q == j {\\n          O2.PutAt(dm, j, y, q);\\n        } else {\\n          O2.PutAt(m, k, x, q);\\n          O2.DropAt(m, k, q);\\n          O2.PutAt(dm, j, y, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"var m1 := K.Put(m, k, x);\\n    var m2 := K.Put(m1, j, y);\\n    var lhs := K.Drop(m2, k);\\n    O1.PutKeys(m, k, x);\\n    O1.PutKeys(m1, j, y);\\n    O1.DropKeys(m2, k);\\n    O1.DropKeys(m, k);\\n    var dm := K.Drop(m, k);\\n    if k == j {\\n      assert lhs.Keys == dm.Keys;\\n      forall q | q in lhs\\n        ensures q in dm && lhs[q] == dm[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        O2.PutAt(m, k, x, q);\\n        O2.DropAt(m, k, q);\\n      }\\n      A.Equal(lhs, dm);\\n    } else {\\n      var rhs := K.Put(dm, j, y);\\n      O1.PutKeys(dm, j, y);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs\\n        ensures q in rhs && lhs[q] == rhs[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        if q == j {\\n          O2.PutAt(dm, j, y, q);\\n        } else {\\n          O2.PutAt(m, k, x, q);\\n          O2.DropAt(m, k, q);\\n          O2.PutAt(dm, j, y, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}\n```"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3168,
+    "outputTokens": 1020,
+    "totalTokens": 4188,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "9c0b2ef6-a2f1-4f60-a73f-7ad6d51b68bb",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "9c0b2ef6-a2f1-4f60-a73f-7ad6d51b68bb",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Sat, 07 Nov 2026 04:26:44 GMT",
+        "content-type": "application/json",
+        "content-length": "2432",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "9c0b2ef6-a2f1-4f60-a73f-7ad6d51b68bb"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "```json\n{\"HelperA.dfy\": \"var m1 := K.Put(m, k, x);\\n    var m2 := K.Put(m1, j, y);\\n    var lhs := K.Drop(m2, k);\\n    O1.PutKeys(m, k, x);\\n    O1.PutKeys(m1, j, y);\\n    O1.DropKeys(m2, k);\\n    O1.DropKeys(m, k);\\n    var dm := K.Drop(m, k);\\n    if k == j {\\n      assert lhs.Keys == dm.Keys;\\n      forall q | q in lhs\\n        ensures q in dm && lhs[q] == dm[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        O2.PutAt(m, k, x, q);\\n        O2.DropAt(m, k, q);\\n      }\\n      A.Equal(lhs, dm);\\n    } else {\\n      var rhs := K.Put(dm, j, y);\\n      O1.PutKeys(dm, j, y);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs\\n        ensures q in rhs && lhs[q] == rhs[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        if q == j {\\n          O2.PutAt(dm, j, y, q);\\n        } else {\\n          O2.PutAt(m, k, x, q);\\n          O2.DropAt(m, k, q);\\n          O2.PutAt(dm, j, y, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\", \"HelperB.dfy\": \"var m1 := K.Put(m, k, x);\\n    var m2 := K.Put(m1, j, y);\\n    var lhs := K.Drop(m2, k);\\n    O1.PutKeys(m, k, x);\\n    O1.PutKeys(m1, j, y);\\n    O1.DropKeys(m2, k);\\n    O1.DropKeys(m, k);\\n    var dm := K.Drop(m, k);\\n    if k == j {\\n      assert lhs.Keys == dm.Keys;\\n      forall q | q in lhs\\n        ensures q in dm && lhs[q] == dm[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        O2.PutAt(m, k, x, q);\\n        O2.DropAt(m, k, q);\\n      }\\n      A.Equal(lhs, dm);\\n    } else {\\n      var rhs := K.Put(dm, j, y);\\n      O1.PutKeys(dm, j, y);\\n      assert lhs.Keys == rhs.Keys;\\n      forall q | q in lhs\\n        ensures q in rhs && lhs[q] == rhs[q]\\n      {\\n        O2.DropAt(m2, k, q);\\n        O2.PutAt(m1, j, y, q);\\n        if q == j {\\n          O2.PutAt(dm, j, y, q);\\n        } else {\\n          O2.PutAt(m, k, x, q);\\n          O2.DropAt(m, k, q);\\n          O2.PutAt(dm, j, y, q);\\n        }\\n      }\\n      A.Equal(lhs, rhs);\\n    }\"}\n```"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3168,
+      "outputTokens": 1020,
+      "totalTokens": 4188,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 10641
+    }
+  }
+}

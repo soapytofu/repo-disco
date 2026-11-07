@@ -1,0 +1,497 @@
+{
+  "status": "REVIEWED",
+  "new_model_calls": 0,
+  "new_verifier_invocations": 0,
+  "original_primary_score": "8/16",
+  "protected_file_comparisons": 120,
+  "protected_body_boundary_comparisons": 24,
+  "exact_model_body_strings_preserved": true,
+  "wrappers": {
+    "plain object": 5,
+    "whole-response fence": 3,
+    "surrounding prose/fence": 8
+  },
+  "witness_counterexample": {
+    "a": 0,
+    "b": 2,
+    "c": 1,
+    "d": 2,
+    "gap": 1,
+    "chosen_u": 0,
+    "chosen_v": 1,
+    "violated": "c <= u",
+    "valid_alternative_u": 1,
+    "valid_alternative_v": 2,
+    "checked_with": "integer arithmetic, no solver/model call"
+  },
+  "separate_duplicate_body_responses": 8,
+  "interpretation": "Six witness failures share one invalid endpoint choice; one map proof failure and one warning-only result are distinct. No general sharing/depth effect or historical rescore is inferred.",
+  "report_sha256": "d4325ff973fa5091f7173894a9f920a6a92c215e6b23f84ed7a086bc4941912a",
+  "analysis_code_sha256": "1b37f7185040bfdbd9710e4f6c399b311490f8e48be7178f85ffbe5ac53c2828",
+  "trials": [
+    {
+      "trial_id": "witness-map-01",
+      "task_id": "separated_witness-shallow-shared",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "plain object",
+      "interpretation": "Unconditional lower witness a need not satisfy c <= a; correct interval width/overlap assumptions do not establish this ordering.",
+      "verification_path": "model-001/witness-map-01/verification.json",
+      "verification_sha256": "448224fea922ccadba65595b8008045e7bd605752a1f96197ef4397cda7d47d8",
+      "response_sha256": "55a45f8344b71c94b60fdf65a25984c27a3d128eb6256b2646c31435f8cf03ef",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "bd530678ba53db162bec3e33322cff79818f41fbe37765225539526694185958",
+        "HelperB.dfy": "97e197b7d57616e035e8b60ccc2c9b806c9e3d1816590619cea0096f9daccf6c",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "5482d3722539880af3ea44e81c1142a8420096a2d883042799cda2c232fafa4b"
+      },
+      "separate_bodies_identical": null,
+      "errors": [
+        "HelperA.dfy(14,11): Error: a precondition for this call could not be proved"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-02",
+      "task_id": "overwrite_delete-deep-separate",
+      "outcome": "VERIFIED",
+      "wrapper": "whole-response fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-02/verification.json",
+      "verification_sha256": "d9611a6cfb412458837eb96b5ff89a9ca43352fb18b102741e1e6dc01220599d",
+      "response_sha256": "91894ea09a1285522a91c3fd78ee37a6976c27cc14117e2c5f0a94a97a9da234",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "0537a759c56b60b7f7f1a044f5b740f5aa2ae4749703a9462f9a50809bc9d6fa",
+        "HelperB.dfy": "8e108ca798b5f6e2011bd2414e55c005fecc8e5ed3039f4fdc50c0fce76f639c",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "433e2cb62b066f4f2867e875f9848bae1bf37c5dca9e3bc549cb62570610671a",
+        "HelperB.dfy": "433e2cb62b066f4f2867e875f9848bae1bf37c5dca9e3bc549cb62570610671a"
+      },
+      "separate_bodies_identical": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-03",
+      "task_id": "separated_witness-deep-separate",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "plain object",
+      "interpretation": "Unconditional lower witness a need not satisfy c <= a; correct interval width/overlap assumptions do not establish this ordering.",
+      "verification_path": "model-001/witness-map-03/verification.json",
+      "verification_sha256": "88edc25a0899e8faa466eb545516751a833665fb48a95f06c54e65bfadd48959",
+      "response_sha256": "84a2c6a791933319e89d3b08b09138f6a65e92a7306e473f13d447dc64d4c50f",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "141f381c482939e9b47ac531539d5e51eb0e2ec4bc46393af8aa7f2b0b98e317",
+        "HelperB.dfy": "d5e605c85b5370553f3acbb7fd01a52b29b24fa272ffaeda752b220efef9f55e",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "50d61cf6a5f8e39e0dbf2ac9bdae15c94d539d2b8697d12ea47ca2406985c277",
+        "HelperB.dfy": "50d61cf6a5f8e39e0dbf2ac9bdae15c94d539d2b8697d12ea47ca2406985c277"
+      },
+      "separate_bodies_identical": true,
+      "errors": [
+        "HelperA.dfy(15,12): Error: a precondition for this call could not be proved",
+        "HelperB.dfy(15,12): Error: a precondition for this call could not be proved"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-04",
+      "task_id": "overwrite_delete-shallow-shared",
+      "outcome": "VERIFIED",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-04/verification.json",
+      "verification_sha256": "a35028ece853cdb7ae9d58c8e784dfe676dba7af5e13d6224e39ebc5c9288861",
+      "response_sha256": "7cf26b4f24b13adde790b922648332873db1d104f49832c6b3c4bfb769bdd3ab",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "d057e0da8f19e50ed81f440c96a373469fd851b05f8088a16eb119edd9bd694a",
+        "HelperB.dfy": "9fd490055b37c5b50a4cbe9636600bb29029734fbb0794a6372a0151239d2d36",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "566f8e813a7fb670025d4fe4c692b516ced4a87f067b9b1e40b649c6b9d2e799"
+      },
+      "separate_bodies_identical": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-05",
+      "task_id": "separated_witness-shallow-separate",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "plain object",
+      "interpretation": "Unconditional lower witness a need not satisfy c <= a; correct interval width/overlap assumptions do not establish this ordering.",
+      "verification_path": "model-001/witness-map-05/verification.json",
+      "verification_sha256": "ba2b9399335d8d2a29c1091bc187d5418e33e86e2a99804571699c1e0bbf85a4",
+      "response_sha256": "9d4cf861cc102f5f4d4679015d54fa4799a6ccf18fbcac50affbeb200fadfea9",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "bd530678ba53db162bec3e33322cff79818f41fbe37765225539526694185958",
+        "HelperB.dfy": "5e8c39d19399b5c9d8f9d2995123989e17274bd5e0a3e13b8d5f1ad5ed077c62",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "5482d3722539880af3ea44e81c1142a8420096a2d883042799cda2c232fafa4b",
+        "HelperB.dfy": "5482d3722539880af3ea44e81c1142a8420096a2d883042799cda2c232fafa4b"
+      },
+      "separate_bodies_identical": true,
+      "errors": [
+        "HelperA.dfy(14,11): Error: a precondition for this call could not be proved",
+        "HelperB.dfy(14,11): Error: a precondition for this call could not be proved"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-06",
+      "task_id": "overwrite_delete-deep-shared",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Pointwise value proof lacks the inner update observation linking K.Put(m,k,x)[q] to m[q] for surviving keys; both forall postconditions fail.",
+      "verification_path": "model-001/witness-map-06/verification.json",
+      "verification_sha256": "b78378efeaed1d21df6c1af40f2e6d32700a03006898c40cbcc96da74c8953ca",
+      "response_sha256": "a207ac96605f731e966c021f79dd5650d11e3815e3f23439d1297d05e109f420",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "69a461eeedd906dd928202b4202fbaf6381d271732f3bcb9f4c56703d1da3317",
+        "HelperB.dfy": "9fd490055b37c5b50a4cbe9636600bb29029734fbb0794a6372a0151239d2d36",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "38f80080f0becd424b5cf7a9df650a2b33d8500122aa2d8bab40148909b7593d"
+      },
+      "separate_bodies_identical": null,
+      "errors": [
+        "HelperA.dfy(22,53): Error: possible violation of postcondition of forall statement",
+        "HelperA.dfy(37,53): Error: possible violation of postcondition of forall statement"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-07",
+      "task_id": "separated_witness-deep-shared",
+      "outcome": "VERIFIED",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-07/verification.json",
+      "verification_sha256": "75c260a2b1bad2316f44d3d67d7a5f021c9d413c70ed78bf5a2abff0638ab2f6",
+      "response_sha256": "79fcad8e4e9f776ef5cb454937b8bc331b678a5c7243dc2a3457c78cb188cbe4",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "b1a50c2b10939a86a8e8e2b159632becc6cb400ca118febed928e692a6d7b91a",
+        "HelperB.dfy": "97e197b7d57616e035e8b60ccc2c9b806c9e3d1816590619cea0096f9daccf6c",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "5acb09849bfd3c2a6fde6bd1909de8ea1f39ac1f750c62cc94cd17b9e8bef708"
+      },
+      "separate_bodies_identical": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-08",
+      "task_id": "overwrite_delete-shallow-separate",
+      "outcome": "VERIFIED",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-08/verification.json",
+      "verification_sha256": "5fd1b0f3ca5fa36eb446f5dda4924008779549c64179e7eba6ba47ba85112af2",
+      "response_sha256": "454df6bb14a580010f9f917ecb944c5992aef1017d0e58cae925ab9dfcc5b8ce",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "3489c6dfe4672487222c756d2631263f5f439427d898d0022d8be2763eb6f037",
+        "HelperB.dfy": "20803638a10f2ac046c3225730853ab21e6ae672dea618a9a4ca51add0e4d78e",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "c91c383bb62b2ce582a0504df8f2958389c2b8790bdfa2edb8b37a27c79d3404",
+        "HelperB.dfy": "c91c383bb62b2ce582a0504df8f2958389c2b8790bdfa2edb8b37a27c79d3404"
+      },
+      "separate_bodies_identical": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-09",
+      "task_id": "overwrite_delete-deep-separate",
+      "outcome": "VERIFIED",
+      "wrapper": "whole-response fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-09/verification.json",
+      "verification_sha256": "0046be4f08ab3f4cabc5cad4c8091b8c3e534a282936046fb8401f09a391eca0",
+      "response_sha256": "234059afcc774143de6aa1a80738f3385e2400e63a6980825c80059bb7c8dbed",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "0537a759c56b60b7f7f1a044f5b740f5aa2ae4749703a9462f9a50809bc9d6fa",
+        "HelperB.dfy": "8e108ca798b5f6e2011bd2414e55c005fecc8e5ed3039f4fdc50c0fce76f639c",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "433e2cb62b066f4f2867e875f9848bae1bf37c5dca9e3bc549cb62570610671a",
+        "HelperB.dfy": "433e2cb62b066f4f2867e875f9848bae1bf37c5dca9e3bc549cb62570610671a"
+      },
+      "separate_bodies_identical": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-10",
+      "task_id": "separated_witness-shallow-shared",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "plain object",
+      "interpretation": "Unconditional lower witness a need not satisfy c <= a; correct interval width/overlap assumptions do not establish this ordering.",
+      "verification_path": "model-001/witness-map-10/verification.json",
+      "verification_sha256": "e885c55c892449a57ef1e766efe45f3f99c5316c4bca83630aaa9ea695e26cf2",
+      "response_sha256": "7ff87d0a2320a17f77a37c7b088e297d4c2082cf61c512070b0207380b423dfa",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "bd530678ba53db162bec3e33322cff79818f41fbe37765225539526694185958",
+        "HelperB.dfy": "97e197b7d57616e035e8b60ccc2c9b806c9e3d1816590619cea0096f9daccf6c",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "5482d3722539880af3ea44e81c1142a8420096a2d883042799cda2c232fafa4b"
+      },
+      "separate_bodies_identical": null,
+      "errors": [
+        "HelperA.dfy(14,11): Error: a precondition for this call could not be proved"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-11",
+      "task_id": "overwrite_delete-shallow-shared",
+      "outcome": "VERIFIED",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-11/verification.json",
+      "verification_sha256": "6c6a1f98c92cb859cfac82453a7a1c77c25cbe904e6291ed5ebb2257530e537b",
+      "response_sha256": "a0f66fca2f9a6ccc10d7b8853f52ee6f789f9060e2c39dd8c4a2f405f1d457f7",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "7caa8aac7a0121388b47f5d31ed9dcb6869aae56dd63aed856106ced5871895a",
+        "HelperB.dfy": "9fd490055b37c5b50a4cbe9636600bb29029734fbb0794a6372a0151239d2d36",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "b44b8c626cac2a7117b1c4ea22850d7af77c95c22b1c85bcf91281626e89d4ab"
+      },
+      "separate_bodies_identical": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-12",
+      "task_id": "separated_witness-deep-separate",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Unconditional lower witness a need not satisfy c <= a; correct interval width/overlap assumptions do not establish this ordering.",
+      "verification_path": "model-001/witness-map-12/verification.json",
+      "verification_sha256": "c68b86ee5c77c0691476cf0c1b2d5cb0210388f7a6b74600b212d88b7d66e6d3",
+      "response_sha256": "7377ba666532cd9a52a42c32e3197cbc3ba215703dd5f8e8c3fd1a911c401e25",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "141f381c482939e9b47ac531539d5e51eb0e2ec4bc46393af8aa7f2b0b98e317",
+        "HelperB.dfy": "d5e605c85b5370553f3acbb7fd01a52b29b24fa272ffaeda752b220efef9f55e",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "50d61cf6a5f8e39e0dbf2ac9bdae15c94d539d2b8697d12ea47ca2406985c277",
+        "HelperB.dfy": "50d61cf6a5f8e39e0dbf2ac9bdae15c94d539d2b8697d12ea47ca2406985c277"
+      },
+      "separate_bodies_identical": true,
+      "errors": [
+        "HelperA.dfy(15,12): Error: a precondition for this call could not be proved",
+        "HelperB.dfy(15,12): Error: a precondition for this call could not be proved"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-13",
+      "task_id": "overwrite_delete-deep-shared",
+      "outcome": "VERIFIED",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-13/verification.json",
+      "verification_sha256": "e0f47568493fecf0b8d4b8da059e53656b802bf81b241df0e663550ae6b05b7f",
+      "response_sha256": "d365302925606630fbc972429b13802b4f79f207cba2847d2b7e61ea8064e07e",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "669e8405677cdfa37f1de3b92557e194d546bed9ff2e363eb3cef97e33822d1e",
+        "HelperB.dfy": "9fd490055b37c5b50a4cbe9636600bb29029734fbb0794a6372a0151239d2d36",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "b6c5a894932cb3344e1f84201bcb0fff920203d79d3dd407a6c479aa9a05f420"
+      },
+      "separate_bodies_identical": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-14",
+      "task_id": "separated_witness-shallow-separate",
+      "outcome": "PROOF_FAILURE",
+      "wrapper": "plain object",
+      "interpretation": "Unconditional lower witness a need not satisfy c <= a; correct interval width/overlap assumptions do not establish this ordering.",
+      "verification_path": "model-001/witness-map-14/verification.json",
+      "verification_sha256": "2be013776d1ac928c570df5049fff3d6e4559a14db23c4b9703ae72169d5c97d",
+      "response_sha256": "1e054bb250d9878a3f3c276a76f69502afa1c9827f4da65296d6303f4a7e657e",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "bd530678ba53db162bec3e33322cff79818f41fbe37765225539526694185958",
+        "HelperB.dfy": "5e8c39d19399b5c9d8f9d2995123989e17274bd5e0a3e13b8d5f1ad5ed077c62",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "5482d3722539880af3ea44e81c1142a8420096a2d883042799cda2c232fafa4b",
+        "HelperB.dfy": "5482d3722539880af3ea44e81c1142a8420096a2d883042799cda2c232fafa4b"
+      },
+      "separate_bodies_identical": true,
+      "errors": [
+        "HelperA.dfy(14,11): Error: a precondition for this call could not be proved",
+        "HelperB.dfy(14,11): Error: a precondition for this call could not be proved"
+      ],
+      "warnings": []
+    },
+    {
+      "trial_id": "witness-map-15",
+      "task_id": "overwrite_delete-shallow-separate",
+      "outcome": "WARNING_ONLY",
+      "wrapper": "whole-response fence",
+      "interpretation": "All obligations verify but concrete map comprehensions emit four missing-trigger warnings; strict exit-zero policy keeps this a non-pass.",
+      "verification_path": "model-001/witness-map-15/verification.json",
+      "verification_sha256": "8ee0a423e1f91bfb49e1fa41db3c5540eeded7e6d2e688629104f094523df9af",
+      "response_sha256": "d7be4c28760b733e187466dae9cc431bbaf1a0227426905505abbe9321145bf1",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "3c2e2780b4bd9a307515e03b45e0fe80bd8fc1cafcddcf57f4868012bca99e6e",
+        "HelperB.dfy": "3d056271bc556d0519529e034c150e94d33d2219f740bf9a5d632271a205554f",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "268c596cf6e8df494c70eeb329698d4ca79ccfa5fe69d9929c486323a490d42b",
+        "HelperB.dfy": "268c596cf6e8df494c70eeb329698d4ca79ccfa5fe69d9929c486323a490d42b"
+      },
+      "separate_bodies_identical": true,
+      "errors": [],
+      "warnings": [
+        "HelperB.dfy(18,18): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.",
+        "HelperB.dfy(29,18): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.",
+        "HelperA.dfy(18,18): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.",
+        "HelperA.dfy(29,18): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual."
+      ]
+    },
+    {
+      "trial_id": "witness-map-16",
+      "task_id": "separated_witness-deep-shared",
+      "outcome": "VERIFIED",
+      "wrapper": "surrounding prose/fence",
+      "interpretation": "Whole workspace strictly verified under unchanged contracts and source boundary.",
+      "verification_path": "model-001/witness-map-16/verification.json",
+      "verification_sha256": "69bf193fab8853d300d60cb988cac1a2b910f4b747c294733624cf977543e408",
+      "response_sha256": "79b0ac9da41c54ddc32ed862bcb1c8e7884c59679284a11d047cd42356d43ace",
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+        "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+        "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+        "HelperA.dfy": "523a47cd7ca8a2a21f007d32811a602919b8ae6ec861edd5b6435b14dcb49fe5",
+        "HelperB.dfy": "97e197b7d57616e035e8b60ccc2c9b806c9e3d1816590619cea0096f9daccf6c",
+        "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+        "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+        "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+      },
+      "body_sha256": {
+        "HelperA.dfy": "175f1a8172f9bca3dc5b03be477ccb5fea86c1acd36afac8bb6f93fa03ba863f"
+      },
+      "separate_bodies_identical": null,
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

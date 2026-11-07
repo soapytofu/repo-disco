@@ -1,9 +1,8 @@
 # Experiment log
 
-## Authorized witness/map pilot — submitted
+## Sixteen-call witness/map pilot — complete
 
-[witness-map-calibration-pilot-001](witness-map-calibration-pilot-001/README.md): the user approved all 16 proposed calls with no retries. Fifteen offline runner tests and Cannon's fake-transport/import check passed; runner and pinned inputs are staged. Job 58541149 was submitted once on nonpreemptible `test` with the fixed 16-call cap and no retries/requeue. Results are pending. The proposal below stays frozen as originally prepared.
-
+[witness-map-calibration-pilot-001](witness-map-calibration-pilot-001/RESULTS.md): job 58541149 completed all 16 unique requests with zero retries. All 16 passed extraction/guard admission; **8 strict passes, 7 proof failures, 1 warning-only result**, 64,085 tokens. Witness 2/8; map 6/8. Exact-source review preserved all contracts; full responses and verifier logs are archived. The budget is exhausted. Earlier proposal statuses below are historical.
 
 ## New witness/map calibration proposal — not executed
 
