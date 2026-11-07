@@ -22,7 +22,7 @@ Report task-by-condition counts and paired differences before pooled percentages
 | Metric | Operational definition | Limitation |
 | --- | --- | --- |
 | Import depth | Longest directed path from the client in an acyclic module import graph; edge direction is importer to imported module | Imports can be redundant. Reject cycles for this corpus rather than silently assigning a depth. |
-| Required proof depth | Longest prerequisite chain in a manually annotated graph of contract applications for the intended solution | Reference-relative until alternative proofs are audited; not inferred from imports alone. |
+| Reference contract-application depth | Longest prerequisite chain in a manually annotated graph of contract applications for the intended solution | A reference route, not necessary or minimum proof depth, even after auditing selected alternatives; not inferred from imports or call order. |
 | Provider coverage | Number of distinct provider modules called in an accepted proof | Record resolved symbols, not aliases alone; more calls are not necessarily better. |
 | Lemma reuse | Number of distinct client targets using each resolved provider lemma, plus the fraction used by at least two targets | Several repeats of the same task do not create additional client targets. |
 | Shared-proof dependence | Number of target proofs that fail after a specified shared lemma contract is weakened/removed in a deterministic ablation | Run ablations on compute nodes; resolution errors and proof failures are distinct. |
@@ -80,6 +80,12 @@ must precede model collection. Completing this protocol review alone does not cl
 the generation milestone.
 
 ## Current implementation plan
+
+[The active varied-corpus and family-split proposal](corpus-family-split-plan.md)
+replaces the older unexecuted collection counts with 18 semantic instances and
+separately proposed 32/64/48-call stages. Numerical proof depths remain unknown
+until per-family construction and evidence review. Reserved tree/transition
+families still need lineage and protocol audits; no held-out result exists.
 
 [Weeks 5–6 corpus plan](weeks5-6-corpus-plan.md) now specifies concrete family and
 instance counts, matching limitations, calibration gates, counterbalancing and

@@ -1,5 +1,7 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
+**Active next-stage proposal (November 6): [varied corpus and family split](corpus-family-split-plan.md).** It proposes 12 development instances plus six reserved test instances, 72 structural variants, and separately gated stages of 32 + 64 + 48 = **144 calls for one model**. No calls are authorized or made by that proposal; fixtures and exact prompts are not yet built. It supersedes the unexecuted 192-call main/224-call total recommendation below. The older counts and preparation checkpoints are retained as history, not a second active budget.
+
 **Latest measured gate (November 6, Eastern).** The user authorized the [16-call witness/map pilot](../experiments/witness-map-calibration-pilot-001/RESULTS.md), now complete: 16/16 output admission, **8 strict passes, 7 proof failures and 1 warning-only result**; no retries. Witness 2/8 and map 6/8 reflect only two semantic instances. The endpoint counterexample and missing inner-map observation are genuine reasoning failures; the trigger warning is separate. Exact contracts/source and all original responses are preserved. The budget is exhausted. Retain these development candidates while designing independent instances and an honest held-out split before broader collection; do not infer a general sharing/depth effect or authorize further calls from these counts.
 
 The preparation entries below record their original checkpoints; the new pilot is complete.

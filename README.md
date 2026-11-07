@@ -2,6 +2,8 @@
 
 Research on extending verified program discovery toward multi-module repositories, built on Formal Disco.
 
+**Next research stage (November 6): [varied monorepo corpus and family split](docs/corpus-family-split-plan.md).** Eighteen proposed semantic instances across development and reserved test families; no new calls authorized. The latest [16-call pilot](experiments/witness-map-calibration-pilot-001/RESULTS.md) scored 8/16 under strict verification; separate analyst diagnostics preserve that score.
+
 **Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
 
 **[Experiment log](experiments/README.md):** generation, extension, and repair pilots, plus a completed [50-call repair-format comparison](experiments/format-comparison-001/README.md). Complete-program responses verified in 25/25 trials; custom diffs verified in 13/25, with 12 patches rejected. These are five single-file cases repeated across formats, not a repository-level benchmark. Exact prompts, responses, usage, and verifier logs are archived.
@@ -15,7 +17,7 @@ Research on extending verified program discovery toward multi-module repositorie
 
 **[Multi-client proof sharing](experiments/shared-proof-001/README.md):** 16 deterministic controls validate two client proofs depending on one lemma. The [matched reference control](experiments/sharing-control-001/README.md) passed 22 checks comparing shared versus separate helper calls. Both are verifier-only experiments with zero model calls; the latter does not force a different model solution because equivalent helpers remain available.
 
-**Current status (October 28): initial Weeks 1–4 milestones complete.** The bounded
+**Implementation milestone (October 28): initial Weeks 1–4 milestones complete.** The bounded
 [baseline evaluation](experiments/baseline-reproduction-001/README.md) completed
 20 calls (7 legacy / 6 strict verification successes); the [repository agent](experiments/repository-agent-001/README.md)
 repaired four development repositories on the first attempt; the [extension pilot](experiments/repository-extension-001/README.md)

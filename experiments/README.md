@@ -1,5 +1,9 @@
 # Experiment log
 
+## Varied corpus and family split — proposal only
+
+[Task and evaluation plan](../docs/corpus-family-split-plan.md), [18-instance manifest](matched-corpus-002/plan.json): 12 development instances across conditional, sequence, witness and map families; six reserved tree/transition-system test instances. Four structural cells yield 72 variants. Proposed stages are 32 + 64 + 48 = **144 calls for one model**, replacing the older unexecuted collection recommendation. No new calls or verifier runs; construction, lineage audit and exact prompt freeze remain pending. Existing results are unchanged.
+
 ## Witness/map analyst diagnostics — complete, zero model calls
 
 [witness-map-diagnostic-001](witness-map-diagnostic-001/README.md): job 58545377 passed two separate analyst candidates, each with 16 verified obligations, zero errors and no warnings. Adding the missing inner-update fact resolves trial 06; replacing concrete comprehensions removes trial 15's warnings without extra lemma calls. Original score stays **8/16**; all original sources and logs remain unchanged. Full diagnostic sources, raw logs and preservation review are archived.
