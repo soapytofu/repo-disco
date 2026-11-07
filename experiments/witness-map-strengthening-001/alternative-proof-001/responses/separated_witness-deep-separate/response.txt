@@ -1,0 +1,5 @@
+An alternative proof strategy follows.
+```json
+{"HelperA.dfy": "    var v := if b <= d then b else d;\n    var u := v - gap;\n    O1.Right(c,d,v); O1.Left(a,b,v); O2.Join(a,b,c,d,v);\n    O1.Separate(u,v,gap);\n    O1.Right(c,d,u); O1.Left(a,b,u); O2.Join(a,b,c,d,u);\n    A.Finish(a,b,c,d,gap,u,v);\n", "HelperB.dfy": "    var v := if b <= d then b else d;\n    var u := v - gap;\n    O1.Right(c,d,v); O1.Left(a,b,v); O2.Join(a,b,c,d,v);\n    O1.Separate(u,v,gap);\n    O1.Right(c,d,u); O1.Left(a,b,u); O2.Join(a,b,c,d,u);\n    A.Finish(a,b,c,d,gap,u,v);\n"}
+```
+The immutable interfaces remain unchanged.
