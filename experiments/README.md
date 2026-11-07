@@ -1,5 +1,9 @@
 # Experiment log
 
+## New witness/map calibration proposal — not executed
+
+[witness-map-calibration-001](witness-map-calibration-001/README.md): **16 calls proposed**, two samples for each of eight variants from two semantic instances. Exact requests, partially counterbalanced order, tolerant envelope and task-specific guard are frozen; five offline tests pass. This is a plan, not an execution authorization or a model result.
+
 ## Tolerant extraction and strengthened interval/map tasks — November 6
 
 [reasoning-envelope-policy-001](reasoning-envelope-policy-001/README.md): nine adversarial tests, 40 byte-identical saved-candidate replays, no old rescoring or new model calls. Surrounding prose is allowed only around one unambiguous JSON object.
