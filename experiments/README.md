@@ -1,5 +1,12 @@
 # Experiment log
 
+## Tolerant extraction and strengthened interval/map tasks — November 6
+
+[reasoning-envelope-policy-001](reasoning-envelope-policy-001/README.md): nine adversarial tests, 40 byte-identical saved-candidate replays, no old rescoring or new model calls. Surrounding prose is allowed only around one unambiguous JSON object.
+
+[witness-map-strengthening-001](witness-map-strengthening-001/README.md): eight variants of two new development instances, 64/64 verifier expectations (8 references, 48 proof failures, 8 hidden-export failures), no warnings or parse errors. Five separate registry tests preserve the existing grammar and reconstruct 56 semantic controls exactly. Full code, source hashes, diagnostics and scheduler logs are archived. No model pilot is frozen here.
+
+
 A concise record of what we tried, which program changed, and what the evidence supports. Last updated November 6, 2026.
 
 ## Conditional monotonicity calibration

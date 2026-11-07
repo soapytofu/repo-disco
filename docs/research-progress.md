@@ -1,14 +1,20 @@
 # Research progress and next milestone
 
-Status: November 2, 2026. Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 6, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six strengthened instances have 164 validated controls. Their 24-call pilot completed: 18 strict passes, five body-syntax rejections, one assertion failure. Conditional 8/8, sequence 6/8, maps 4/8. Main corpus remains deferred for output-policy/difficulty review; previous scores unchanged. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Difficulty/output calibration continues. A tolerant JSON envelope passed nine adversarial tests and 40 byte-exact saved-response replays. Two new interval/map instances passed all 64 verifier controls across eight variants. These new tasks have no model results yet; main collection remains deferred pending prospective task selection and freeze. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 6: tolerant extraction and stronger witness/map obligations
+
+[JSON envelope validation](../experiments/reasoning-envelope-policy-001/README.md) admits exactly one complete JSON object with surrounding prose and preserves the unchanged bounded body guard. Nine adversarial tests and 40 exact saved-candidate replays passed, including the original mathematical failures. No old score changed.
+
+[Separated-witness and overwrite/delete tasks](../experiments/witness-map-strengthening-001/README.md) add two development instances across shallow/deep and shared/separate cells. Job 58529512 passed all 64 declared outcomes: eight references, 48 proof failures and eight hidden-export failures; no parse errors or warnings. The interval target requires two common witnesses separated by a positive gap. The map target handles both equal and distinct updated keys before deletion. A separate registry passes five offline tests and reconstructs all 56 semantic controls exactly. Full raw sources and logs are archived. **Zero model calls** in this phase; greater model difficulty remains unmeasured.
 
 ## Original implementation plan (retained for context)
 

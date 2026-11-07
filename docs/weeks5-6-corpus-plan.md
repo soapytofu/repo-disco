@@ -1,5 +1,8 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
+**Latest non-paid validation (November 6, Eastern).** [Tolerant JSON extraction](../experiments/reasoning-envelope-policy-001/README.md) now passes nine adversarial tests and reconstructs 40 saved candidates exactly; mathematical failures and original scores are unchanged. [Two stronger development instances](../experiments/witness-map-strengthening-001/README.md) add two separated interval witnesses and alias-sensitive overwrite/delete reasoning. Their eight matched variants passed all 64 verifier expectations with unchanged contracts and immutable clients. The task registry changes only bindings/version on the existing grammar. These are suitable candidates for prospective calibration, not evidence of increased model difficulty. No model calls, new prompt freeze, or execution authorization is included.
+
+
 **Current step (November 4, Eastern).** The [guarded clamp pilot](../experiments/conditional-monotonicity-calibration-001/README.md) now has a frozen eight-request plan and four exact payloads. It samples each depth and sharing combination twice on one development instance. The authorized [eight-call execution](../experiments/conditional-monotonicity-pilot-001/RESULTS.md) completed November 6 with one strict success and seven JSON-envelope rejections. Those seven responses did not reach Dafny in the primary pilot. A separate saved-response diagnostic now verifies all seven extracted bodies without proof edits or new model calls. Treat this instance as an easy development anchor and validate unambiguous JSON extraction before the next prospective run.
 
 **Previous gate (November 2 evening, Eastern):** the six-task

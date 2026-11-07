@@ -1,0 +1,38 @@
+{
+  "task_id": "overwrite_delete-shallow-shared",
+  "variant": "wrong_snapshot",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+    "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+    "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+    "HelperA.dfy": "96c2041b7dbbf576d7fdbebf7a86f3f433f6b5ffeb05ba7b7a569fcfb5f4cbe8",
+    "HelperB.dfy": "9fd490055b37c5b50a4cbe9636600bb29029734fbb0794a6372a0151239d2d36",
+    "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+    "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+    "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(21,4): Error: assertion might not hold\n   |\n21 |     assert left.Keys == right.Keys;\n   |     ^^^^^^\n\nHelperA.dfy(22,55): Error: possible violation of postcondition of forall statement\n   |\n22 |     forall q | q in left ensures q in right && left[q] == right[q] {\n   |                                                        ^^\n\n\nDafny program verifier finished with 15 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.338497463031672,
+  "model_calls": 0,
+  "attempts": 1
+}

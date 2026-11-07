@@ -1,0 +1,38 @@
+{
+  "task_id": "separated_witness-shallow-shared",
+  "variant": "short_gap",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "2f220da88916582e4ec4c91e4ed14b25813635f69783ddd511d030166c9aba7e",
+    "ClientA.dfy": "9218be1230c107dd4ca3b88251699685fa1897e27b1ba179fe59f73420997a52",
+    "ClientB.dfy": "2cf3f9d5ed62f2823c7ffa5f297e44b9775d0f8e6eeba0ec9017e59d7617b22d",
+    "HelperA.dfy": "82a042752000cde5a8d228e6ffc3c906bb827b07b824cdf43337377dd93d42cc",
+    "HelperB.dfy": "97e197b7d57616e035e8b60ccc2c9b806c9e3d1816590619cea0096f9daccf6c",
+    "Kernel.dfy": "241efeb40b4777a6bb8b32a477244530b1b7f00be11f6638ec14848951dad05d",
+    "Ops1.dfy": "0e7fee1b642200b4f96c594a2d6f079fa187285e919eb6c6d19c127530add543",
+    "Ops2.dfy": "1ff888a0864082c51db425b75b0c475cc78f7a14a7bdf281c322f33cb8d4e473"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(17,12): Error: a precondition for this call could not be proved\n   |\n17 |     A.Direct(a,b,c,d,gap,u,v);\n   |             ^\n\nApi.dfy(8,32): Related location: this is the precondition that could not be proved\n  |\n8 |     requires 0 < gap && u + gap <= v\n  |                                 ^^\n\n\nDafny program verifier finished with 9 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 2.3353599379770458,
+  "model_calls": 0,
+  "attempts": 1
+}
