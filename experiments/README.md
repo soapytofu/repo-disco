@@ -1,8 +1,8 @@
 # Experiment log
 
-## Authorized witness/map runner — awaiting private key
+## Authorized witness/map pilot — submitted
 
-[witness-map-calibration-pilot-001](witness-map-calibration-pilot-001/README.md): the user approved all 16 proposed calls with no retries. Fifteen offline runner tests and Cannon's fake-transport/import check passed; runner and pinned inputs are staged. No model job or request has started; only the private key handoff remains. The proposal below stays frozen as originally prepared.
+[witness-map-calibration-pilot-001](witness-map-calibration-pilot-001/README.md): the user approved all 16 proposed calls with no retries. Fifteen offline runner tests and Cannon's fake-transport/import check passed; runner and pinned inputs are staged. Job 58541149 was submitted once on nonpreemptible `test` with the fixed 16-call cap and no retries/requeue. Results are pending. The proposal below stays frozen as originally prepared.
 
 
 ## New witness/map calibration proposal — not executed
