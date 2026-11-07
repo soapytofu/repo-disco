@@ -1,6 +1,6 @@
 # Conditional monotonicity pilot execution
 
-November 6, 2026. Sophie requested starting the frozen eight-call pilot and supplied a private credential handoff. The execution cap is eight fresh Claude requests with one SDK attempt each, two samples per workspace and the published order. The runner and its offline evidence are ready for one compute submission. [Proposal](../conditional-monotonicity-calibration-001/README.md)
+November 6, 2026. Sophie requested starting the frozen eight-call pilot and supplied a private credential handoff. The execution cap is eight fresh Claude requests with one SDK attempt each, two samples per workspace and the published order. Job **58523116** was submitted once on November 6 at 10:36 PM Eastern and started on nonpreemptible test. Results are pending. [Submission](submission.json) [Proposal](../conditional-monotonicity-calibration-001/README.md)
 
 Thirteen fake-transport tests passed. They cover identical request replay across samples, spending limits, deadlines, ambiguous timeouts, refusal to restart, metadata errors, disk failure, protected source, truncation and result-review tampering. The staged runtime also passed the real Cannon package/import check with a fake SDK client and a fake verifier process. [Local tests](runner-tests.log) · [Cannon preflight](environment-preflight.log)
 
