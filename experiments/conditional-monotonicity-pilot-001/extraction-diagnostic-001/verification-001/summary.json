@@ -1,0 +1,459 @@
+{
+  "completed_cases": 7,
+  "model_calls": 0,
+  "results": [
+    {
+      "case": {
+        "case_id": "monotone-01",
+        "original_trial": "monotone-01",
+        "task_id": "clamp_monotone-shallow-shared",
+        "path": "fixtures/monotone-01",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "315997115c39bae5f4eaa016099a2e7a3be7a8f75c4581548b794631d7609f66",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "33773b043896647f87b0e0edbced9b4ef089624ed1f75ea4085b9a4467f670b9",
+        "original_result_sha256": "2ad12cc2fe16c413fca5ea98aed1c060d40dfd3a0fb6ed0b453af35398919c0d",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 1125,
+          "end_char": 1550,
+          "schema_matching_objects": 1,
+          "json_sha256": "247aad892ac1a81490333c6385597471bf87dda2a463fa72da2f8dc7fa93a466"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "315997115c39bae5f4eaa016099a2e7a3be7a8f75c4581548b794631d7609f66",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 2.152968261973001,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    },
+    {
+      "case": {
+        "case_id": "monotone-02",
+        "original_trial": "monotone-02",
+        "task_id": "clamp_monotone-deep-separate",
+        "path": "fixtures/monotone-02",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "f4a21815342cbefaa5a44b2bee0567dcb890f2a47d4c8c69700f64ee3e1075a6",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "4cdb4b1ec133a8082013c8b6a890b24f88aa81fbd436d9a04ca0c38b7045bc2e",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "1eb242e08f72a9d5ae123906d0f58d27f64ae5de4ee590afa94a600488a3670f",
+        "original_result_sha256": "42fad20839117795a0122c0c19b2beb7273cc536ab194d3c682a19aaae05cd8e",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 1604,
+          "end_char": 3266,
+          "schema_matching_objects": 1,
+          "json_sha256": "5932f29ffb1a0a38d0775715a161e906bc533733b45f1e6b73c16eeab7d01d0c"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "f4a21815342cbefaa5a44b2bee0567dcb890f2a47d4c8c69700f64ee3e1075a6",
+          "HelperB.dfy": "4cdb4b1ec133a8082013c8b6a890b24f88aa81fbd436d9a04ca0c38b7045bc2e",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 2.084312311024405,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    },
+    {
+      "case": {
+        "case_id": "monotone-03",
+        "original_trial": "monotone-03",
+        "task_id": "clamp_monotone-shallow-separate",
+        "path": "fixtures/monotone-03",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "783b2d8880ff8cc0e723ca5ec2366b0c1fdbe8d33fd47b7b6a558fc818f2db32",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "4aceae36586c91918434b9d856c60a636418830ffbfc6e58c89a85caea5bde3a",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "b477307ea29663d07f32883d0b0dbe60f7a590247cad5aaa3f412f4fbe95e72d",
+        "original_result_sha256": "2c65c52aaff73e8c7e40144ae239169b585357b37cd1a096ba9c665785c60bab",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 1214,
+          "end_char": 1912,
+          "schema_matching_objects": 1,
+          "json_sha256": "5a0ac946170b78c37be1ac97684784fe6780676d4d85bd95905df549b6c88b4c"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "783b2d8880ff8cc0e723ca5ec2366b0c1fdbe8d33fd47b7b6a558fc818f2db32",
+          "HelperB.dfy": "4aceae36586c91918434b9d856c60a636418830ffbfc6e58c89a85caea5bde3a",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 2.0529162760358304,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    },
+    {
+      "case": {
+        "case_id": "monotone-04",
+        "original_trial": "monotone-04",
+        "task_id": "clamp_monotone-deep-shared",
+        "path": "fixtures/monotone-04",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "f4a21815342cbefaa5a44b2bee0567dcb890f2a47d4c8c69700f64ee3e1075a6",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "f165cf35222e89c17677f19bf9c757a65870d94fdfc6694e549b5d5fc3d70c33",
+        "original_result_sha256": "4330419ee041cb4d238569bd8e09141de80b77aa2241d8603f93729df3040f6d",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 1592,
+          "end_char": 2423,
+          "schema_matching_objects": 1,
+          "json_sha256": "f8d75362f7f87f01766e2240a943bbe45ee83a246f78c80f9fa090c375f86371"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "f4a21815342cbefaa5a44b2bee0567dcb890f2a47d4c8c69700f64ee3e1075a6",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 2.041384849930182,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    },
+    {
+      "case": {
+        "case_id": "monotone-05",
+        "original_trial": "monotone-05",
+        "task_id": "clamp_monotone-deep-separate",
+        "path": "fixtures/monotone-05",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "f4a21815342cbefaa5a44b2bee0567dcb890f2a47d4c8c69700f64ee3e1075a6",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "4cdb4b1ec133a8082013c8b6a890b24f88aa81fbd436d9a04ca0c38b7045bc2e",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "c1733bd3f465ac44932b79405cc8d7615a0a3bffe72822ff5fd870ac03dcc6e5",
+        "original_result_sha256": "bda1958200a46a4b40332476e8867386e1b894ec7764429d430e72e101a94a03",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 1079,
+          "end_char": 2741,
+          "schema_matching_objects": 1,
+          "json_sha256": "5932f29ffb1a0a38d0775715a161e906bc533733b45f1e6b73c16eeab7d01d0c"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "f4a21815342cbefaa5a44b2bee0567dcb890f2a47d4c8c69700f64ee3e1075a6",
+          "HelperB.dfy": "4cdb4b1ec133a8082013c8b6a890b24f88aa81fbd436d9a04ca0c38b7045bc2e",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 2.1031767439562827,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    },
+    {
+      "case": {
+        "case_id": "monotone-06",
+        "original_trial": "monotone-06",
+        "task_id": "clamp_monotone-shallow-shared",
+        "path": "fixtures/monotone-06",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "783b2d8880ff8cc0e723ca5ec2366b0c1fdbe8d33fd47b7b6a558fc818f2db32",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "ec2994210a897092a2a4fc08b3b64cd9d81a3e3304dde066aa8e8a7776a71063",
+        "original_result_sha256": "78d7c14b38cb09fdc2389e8d5ec735ecc0a5dfd22f586eb682933a37bbe75237",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 1284,
+          "end_char": 1633,
+          "schema_matching_objects": 1,
+          "json_sha256": "b6a01887ab475faa5ad7c5b70f5cc436ed8e995134ae4da4f627f25b81b85219"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "783b2d8880ff8cc0e723ca5ec2366b0c1fdbe8d33fd47b7b6a558fc818f2db32",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 2.1055498550413176,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    },
+    {
+      "case": {
+        "case_id": "monotone-07",
+        "original_trial": "monotone-07",
+        "task_id": "clamp_monotone-deep-shared",
+        "path": "fixtures/monotone-07",
+        "candidate_sha256": {
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+          "HelperA.dfy": "2579bee84587954c1d2f770e998519e83577c9d89645b3f257a9e4375ec84728",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+        },
+        "original_response_sha256": "8175d71289998c8e7c5eee2101935dc58c63dce747a1b2b3e41301f877b4ff34",
+        "original_result_sha256": "f266344774a9a5e891526a01869263d637a575a80900fac73f61e7b6621a04a9",
+        "original_outcome": "OUTPUT_REJECTED",
+        "body_edits": false,
+        "extraction": {
+          "start_char": 908,
+          "end_char": 1887,
+          "schema_matching_objects": 1,
+          "json_sha256": "737184ef75cac7e139f01cb5830b5866f005c18bd1fa716c63c90abba6a8607c"
+        },
+        "expected": "Observed diagnostic only; original strict result is retained"
+      },
+      "evidence": {
+        "schema": "repository-verification-v1",
+        "entry": "All.dfy",
+        "source_sha256": {
+          "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+          "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+          "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+          "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+          "HelperA.dfy": "2579bee84587954c1d2f770e998519e83577c9d89645b3f257a9e4375ec84728",
+          "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+          "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+          "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+          "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+        },
+        "command": [
+          "timeout",
+          "-k",
+          "5s",
+          "60s",
+          "dafny",
+          "verify",
+          "--verify-included-files",
+          "All.dfy"
+        ],
+        "exit_code": 0,
+        "outcome": "success",
+        "category": "success",
+        "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+        "stderr": "",
+        "elapsed_seconds": 1.970762350014411,
+        "model_calls": 0,
+        "attempts": 1
+      },
+      "model_calls": 0
+    }
+  ],
+  "exit_counts": {
+    "0": 7
+  },
+  "original_pilot_score": "1/8 unchanged",
+  "no_retrospective_acceptance": true
+}

@@ -13,8 +13,10 @@ The frozen primary outcome is **1/8 strict successes**. Seven responses were rej
 
 All requests, settings, order, seeds, runtime hashes and archived dependencies reproduce exactly. The accepted source preserves every contract, client and provider. Its two separate helper bodies are identical, using nested input-region branches and the exported shallow observation lemmas.
 
-Seven envelope rejections prevent a mathematical difficulty comparison across the cells. Their raw responses contain apparent proof-body JSON that can be inspected in a separate verifier-only diagnostic. The primary 1/8 score records the frozen full-response parser decision.
+Seven envelope rejections prevent a mathematical difficulty comparison across the cells. A separately logged [verifier-only diagnostic](extraction-diagnostic-001/README.md) extracted the single JSON object from each of the seven rejected responses. All seven proof bodies strictly verified without edits, additional model calls or changes to the primary archive. The primary 1/8 score records the frozen full-response parser decision.
 
 [Audited ledger and counts](results-review.json) · [All raw evidence](model-001/) · [Evidence hashes](model-001-sha256.json) · [Slurm stdout](model-58523116.log) · [Slurm stderr](model-58523116.err) · [Accounting](accounting-58523116.txt)
 
 This is one development semantic instance with two samples per cell. The task has one versus two reference contract-application stages. Separate mode allows copying between two editable bodies. These observations support output-protocol diagnosis and subsequent task selection.
+
+The diagnostic makes this an easy development anchor for task selection. The next protocol revision should admit a single unambiguous JSON object surrounded by prose while retaining body and source guards, with ambiguity tests before any prospective run. Further task development should focus on families with observed mathematical failures. [Source and strategy review](manual-review.json)

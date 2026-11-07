@@ -1,6 +1,6 @@
 # Weeks 5–6: matched cross-module monorepo corpus
 
-**Current step (November 4, Eastern).** The [guarded clamp pilot](../experiments/conditional-monotonicity-calibration-001/README.md) now has a frozen eight-request plan and four exact payloads. It samples each depth and sharing combination twice on one development instance. The authorized [eight-call execution](../experiments/conditional-monotonicity-pilot-001/RESULTS.md) completed November 6 with one strict success and seven JSON-envelope rejections. Those seven responses did not reach Dafny, so task difficulty still needs a saved-response diagnostic.
+**Current step (November 4, Eastern).** The [guarded clamp pilot](../experiments/conditional-monotonicity-calibration-001/README.md) now has a frozen eight-request plan and four exact payloads. It samples each depth and sharing combination twice on one development instance. The authorized [eight-call execution](../experiments/conditional-monotonicity-pilot-001/RESULTS.md) completed November 6 with one strict success and seven JSON-envelope rejections. Those seven responses did not reach Dafny in the primary pilot. A separate saved-response diagnostic now verifies all seven extracted bodies without proof edits or new model calls. Treat this instance as an easy development anchor and validate unambiguous JSON extraction before the next prospective run.
 
 **Previous gate (November 2 evening, Eastern):** the six-task
 [reasoning pilot](../experiments/monorepo-reasoning-calibration-pilot-001/RESULTS.md)

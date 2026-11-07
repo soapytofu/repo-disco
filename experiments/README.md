@@ -4,7 +4,7 @@ A concise record of what we tried, which program changed, and what the evidence 
 
 ## Conditional monotonicity calibration
 
-The [eight-call proposal](conditional-monotonicity-calibration-001/README.md) freezes two fresh samples for each of four workspace variants. All four request payloads reproduce from the verified seeds. The [eight-call execution](conditional-monotonicity-pilot-001/README.md) completed with **1/8 strict successes and seven JSON-envelope rejections**, eight unique requests and zero retries. [Results](conditional-monotonicity-pilot-001/RESULTS.md).
+The [eight-call proposal](conditional-monotonicity-calibration-001/README.md) freezes two fresh samples for each of four workspace variants. All four request payloads reproduce from the verified seeds. The [eight-call execution](conditional-monotonicity-pilot-001/README.md) completed with **1/8 strict successes and seven JSON-envelope rejections**, eight unique requests and zero retries. [Results](conditional-monotonicity-pilot-001/RESULTS.md). A separate zero-call diagnostic verified all seven rejected responses’ extracted proof bodies without edits. The primary score remains 1/8.
 
 ## Completed 24-call reasoning pilot
 

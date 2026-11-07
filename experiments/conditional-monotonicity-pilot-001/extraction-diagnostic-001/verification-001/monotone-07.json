@@ -1,0 +1,64 @@
+{
+  "case": {
+    "case_id": "monotone-07",
+    "original_trial": "monotone-07",
+    "task_id": "clamp_monotone-deep-shared",
+    "path": "fixtures/monotone-07",
+    "candidate_sha256": {
+      "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+      "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+      "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+      "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69",
+      "HelperA.dfy": "2579bee84587954c1d2f770e998519e83577c9d89645b3f257a9e4375ec84728",
+      "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+      "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+      "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "original_response_sha256": "8175d71289998c8e7c5eee2101935dc58c63dce747a1b2b3e41301f877b4ff34",
+    "original_result_sha256": "f266344774a9a5e891526a01869263d637a575a80900fac73f61e7b6621a04a9",
+    "original_outcome": "OUTPUT_REJECTED",
+    "body_edits": false,
+    "extraction": {
+      "start_char": 908,
+      "end_char": 1887,
+      "schema_matching_objects": 1,
+      "json_sha256": "737184ef75cac7e139f01cb5830b5866f005c18bd1fa716c63c90abba6a8607c"
+    },
+    "expected": "Observed diagnostic only; original strict result is retained"
+  },
+  "evidence": {
+    "schema": "repository-verification-v1",
+    "entry": "All.dfy",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "c71886422a88d9db243659a56dda8d29e916dc8688dbf451522bf7c55a62d47b",
+      "ClientA.dfy": "57dba289b7d901d7e91836b3ec25bf32d7482dc6fceb023a2458a347ea828036",
+      "ClientB.dfy": "522501c9aad58a8b5125e32652afdd46b263f59b3c35e959e3411444aa1e2f8a",
+      "HelperA.dfy": "2579bee84587954c1d2f770e998519e83577c9d89645b3f257a9e4375ec84728",
+      "HelperB.dfy": "d7fa2d9b972c6c6674b4affa937e2222b1bd0374893b385e02d2b361a6b01741",
+      "Kernel.dfy": "ef5d5aadd8b382f9aef1a3180458d5b8c56c858a726162231c1c60100fab668b",
+      "Ops1.dfy": "69d5b4dbb7b553c1978870c7f34890c07e06a8d75f04d8c3444a94ebf620c935",
+      "Ops2.dfy": "1328e620de65d29500d253d2c0f473b9ebb6a5b43c805e054b8d19bf8db7ff69"
+    },
+    "command": [
+      "timeout",
+      "-k",
+      "5s",
+      "60s",
+      "dafny",
+      "verify",
+      "--verify-included-files",
+      "All.dfy"
+    ],
+    "exit_code": 0,
+    "outcome": "success",
+    "category": "success",
+    "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+    "stderr": "",
+    "elapsed_seconds": 1.970762350014411,
+    "model_calls": 0,
+    "attempts": 1
+  },
+  "model_calls": 0
+}
