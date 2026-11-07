@@ -1,5 +1,9 @@
 # Experiment log
 
+## Witness/map analyst diagnostics — complete, zero model calls
+
+[witness-map-diagnostic-001](witness-map-diagnostic-001/README.md): job 58545377 passed two separate analyst candidates, each with 16 verified obligations, zero errors and no warnings. Adding the missing inner-update fact resolves trial 06; replacing concrete comprehensions removes trial 15's warnings without extra lemma calls. Original score stays **8/16**; all original sources and logs remain unchanged. Full diagnostic sources, raw logs and preservation review are archived.
+
 ## Sixteen-call witness/map pilot — complete
 
 [witness-map-calibration-pilot-001](witness-map-calibration-pilot-001/RESULTS.md): job 58541149 completed all 16 unique requests with zero retries. All 16 passed extraction/guard admission; **8 strict passes, 7 proof failures, 1 warning-only result**, 64,085 tokens. Witness 2/8; map 6/8. Exact-source review preserved all contracts; full responses and verifier logs are archived. The budget is exhausted. Earlier proposal statuses below are historical.

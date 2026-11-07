@@ -35,7 +35,9 @@ The offline review reconstructed all 16 candidates from their original response 
 
 The new tasks produce genuine mathematical failures after successful output admission, so they are useful development candidates. The observed witness deep/shared advantage is only two samples in one instance; prompt/interface structure, output workload and copied proofs prevent a general causal depth/sharing claim. More calls on these same two instances alone would not create semantic diversity or held-out evidence.
 
-Before any new paid collection, retain the primary score and inspect bounded, separately logged diagnostics for the missing map fact and trigger warning if needed. Use the witness counterexample to define the failure mechanism. Then select additional independently specified instances and a genuinely unseen family split. Do not expand the main corpus by renaming these tasks or infer new spending authorization from this completed budget.
+Two [separate analyst diagnostics](../witness-map-diagnostic-001/README.md) subsequently passed with 16 verified obligations, zero errors and no warnings each. Adding the omitted inner-update observation resolves trial 06's failure; substituting existing opaque expressions for the four concrete comprehensions removes trial 15's warnings without adding lemma calls. These are zero-model-call follow-ups, not model repairs or a rescore: **the primary score remains 8/16**. They establish sufficient edits, not minimality or necessary proof depth.
+
+Before any new paid collection, use these diagnostics and the witness counterexample to define the failure mechanisms. Then select additional independently specified instances and a genuinely unseen family split. Do not expand the main corpus by renaming these tasks or infer new spending authorization from this completed budget.
 
 ## Full evidence
 
