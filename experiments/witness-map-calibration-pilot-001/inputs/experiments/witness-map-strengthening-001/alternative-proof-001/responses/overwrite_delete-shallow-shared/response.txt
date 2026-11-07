@@ -1,0 +1,5 @@
+An alternative proof strategy follows.
+```json
+{"HelperA.dfy": "    var u := K.Put(m,k,x);\n    var v := K.Put(u,j,y);\n    var base := K.Drop(m,k);\n    var left := K.Drop(v,k);\n    var right := if k == j then base else K.Put(base,j,y);\n    A.ObserveDrop(m,k); A.ObservePut(m,k,x);\n    A.ObservePut(u,j,y); A.ObserveDrop(v,k);\n    if j != k { A.ObservePut(base,j,y); }\n    assert left.Keys == right.Keys;\n    forall q | q in left ensures q in right && left[q] == right[q] {\n      if q == j { assert j != k; } else { assert q in m; }\n    }\n    A.Equal(left,right);\n"}
+```
+The immutable interfaces remain unchanged.
