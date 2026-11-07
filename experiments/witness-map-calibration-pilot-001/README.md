@@ -12,4 +12,4 @@ Before submission, validate both freezes, bind the explicit approval to their ha
 
 The final archive will include every reservation/request ID, frozen payload, full provider response, token/latency metadata, extraction/rejection decisions, exact candidate and protected-source hashes, verifier stdout/stderr, accepted records and scheduler accounting. Review reports eight task-specific cells (two samples each), never pooling the two semantic instances as one condition. Sharing changes one versus two copyable bodies, so it is not an equal-work causal intervention; this is development calibration.
 
-Current status: awaiting private key handoff and remote offline preflight; no model job submitted and zero requests dispatched.
+Current status: staged on Cannon; remote offline preflight passed with boto3/botocore 1.43.115, exactly one SDK attempt and exact mocked verifier source bytes. Awaiting the private key handoff only; no model job submitted and zero requests dispatched. The user has already approved all 16 calls; no additional budget approval is needed.

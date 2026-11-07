@@ -1,5 +1,10 @@
 # Experiment log
 
+## Authorized witness/map runner — awaiting private key
+
+[witness-map-calibration-pilot-001](witness-map-calibration-pilot-001/README.md): the user approved all 16 proposed calls with no retries. Fifteen offline runner tests and Cannon's fake-transport/import check passed; runner and pinned inputs are staged. No model job or request has started; only the private key handoff remains. The proposal below stays frozen as originally prepared.
+
+
 ## New witness/map calibration proposal — not executed
 
 [witness-map-calibration-001](witness-map-calibration-001/README.md): **16 calls proposed**, two samples for each of eight variants from two semantic instances. Exact requests, partially counterbalanced order, tolerant envelope and task-specific guard are frozen; five offline tests pass. This is a plan, not an execution authorization or a model result.
