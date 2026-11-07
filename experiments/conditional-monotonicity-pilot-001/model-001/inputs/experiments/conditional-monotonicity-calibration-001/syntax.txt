@@ -1,0 +1,7 @@
+Return a JSON object with exactly the editable filenames as keys. Each value is the complete text inside the corresponding empty Prove body. Omit outer lemma braces. Escape line breaks as JSON newlines. Supply each key once. No explanation or full-file replacements.
+
+For proof steps, use a listed lemma call followed by a semicolon, an assertion such as `assert true;`, or an inferred local such as `var tmp := 0;`. Use braces for branching statements, for example `if true { assert true; } else { assert true; }`. The form `if c then a else b` is a value expression only. For a proof block the syntax is `forall k | k == 0 ensures k == 0 { assert k == 0; }`. Omit the trailing semicolon after a braced block.
+
+Use fresh names for locals and binders. Keep parameters, active locals and module aliases in scope without shadowing. Ordinary expressions can use the listed pure functions, integers, booleans, comparisons, +, -, !, &&, ||, ==>, in and !in. The grammar also admits ASCII primed identifiers, cardinality, sequence displays, indices and slices, .Keys, set displays, functional updates and single-binder map comprehensions where well typed. Prove(...) denotes self-recursion and must satisfy Dafny termination checks.
+
+Keep every signature, contract, import, provider and client intact. Use only the listed calls through the exported views. Comments, assume, reveal, expect, attributes, loops, mutable assignments, calc blocks, new declarations and calls to another helper are outside the accepted language.
