@@ -1,0 +1,38 @@
+{
+  "task_id": "prefix_split-deep-separate",
+  "variant": "hidden_shortcut",
+  "expected": "resolution_failure",
+  "diagnostic": "resolution_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "028d7d94876d029fbe78cab2f0bafe6c914d4e32a3ce6aaa37fd92f8c71f7676",
+    "ClientA.dfy": "e0143d802c4fb3fceb8441bc3eba985319c63f50433fc015030be474be526278",
+    "ClientB.dfy": "9cd00bde5616850a01046eff5d57500dd854fa2890843d4248a2c83aa03ebb4e",
+    "HelperA.dfy": "2f2ed6e7e3e70904b6dc85584de392a1c76ac8c58792c76c1c58afa340e08185",
+    "HelperB.dfy": "ba584e2ca8b2fc110245765a640a555e6ee58035d5cb6c55575dc1597b10e26c",
+    "Kernel.dfy": "96fa54191353ae20976098b78b2c208170beb177c97e09e8e4d0651b61834eff",
+    "Ops1.dfy": "da64051027cdcbaff3c1940fabbb3da545ba30d985daca9e7e5387f8be01cbb4",
+    "Ops2.dfy": "126d5e4e083b051644223df9885fdafec339d0eaa68fcf912b0dee9daa7e0c45"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "outcome": "fail",
+  "category": "frontend_error",
+  "stdout": "HelperB.dfy(15,6): Error: unresolved identifier: Observe\n   |\n15 |     A.Observe(s,i);\n   |       ^^^^^^^\n\nHelperB.dfy(15,13): Error: expected method call, found expression\n   |\n15 |     A.Observe(s,i);\n   |              ^\n\nHelperA.dfy(15,6): Error: unresolved identifier: Observe\n   |\n15 |     A.Observe(s,i);\n   |       ^^^^^^^\n\nHelperA.dfy(15,13): Error: expected method call, found expression\n   |\n15 |     A.Observe(s,i);\n   |              ^\n\n4 resolution/type errors detected in All.dfy\n",
+  "stderr": "",
+  "elapsed_seconds": 0.789754037046805,
+  "model_calls": 0,
+  "attempts": 1
+}

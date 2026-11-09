@@ -1,8 +1,8 @@
 # Experiment log
 
-## Four varied calibration tasks — reference core passed; map depth correction pending
+## Four varied calibration tasks — 126/126 expected verifier outcomes
 
-[varied-calibration-001](varied-calibration-001/README.md) implements bounded allocation, map-swap involution, clamp nonexpansiveness and prefix-sum splitting in 16 structural workspaces. First job 59351309 matched all 32 reference/empty outcomes, with exact-source review and full logs published. [Revision 002](varied-calibration-001/revision-002/README.md) corrects the map reference dependency contrast and adds two missing-certificate controls; nine offline tests passed locally and on Cannon. Eight changed map core checks are submitted; 24 unchanged prior observations will be reused after exact comparison. The 94 revised targeted negatives remain gated. No model calls or prompt freeze.
+[varied-calibration-001](varied-calibration-001/RESULTS.md) validates bounded allocation, map-swap involution, clamp nonexpansiveness and prefix splitting in 16 structural workspaces. Current results: 16 strict reference passes, 90 ordinary proof failures, four termination failures and 16 hidden-export failures; no warnings or parse errors. A deliberate map-domain revision corrects the reference path contrast; all earlier evidence is preserved. Exact-source audits cover 945 protected files and 189 body boundaries. Nine construction/runtime tests and eight output-compatibility tests pass. Full raw logs, per-family depth limits and sharing/workload confounds are documented. Zero model calls; reserved test families untouched.
 
 ## Varied corpus and family split — proposal only
 

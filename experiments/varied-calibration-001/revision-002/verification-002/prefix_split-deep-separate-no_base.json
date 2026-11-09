@@ -1,0 +1,38 @@
+{
+  "task_id": "prefix_split-deep-separate",
+  "variant": "no_base",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "028d7d94876d029fbe78cab2f0bafe6c914d4e32a3ce6aaa37fd92f8c71f7676",
+    "ClientA.dfy": "e0143d802c4fb3fceb8441bc3eba985319c63f50433fc015030be474be526278",
+    "ClientB.dfy": "9cd00bde5616850a01046eff5d57500dd854fa2890843d4248a2c83aa03ebb4e",
+    "HelperA.dfy": "691f09dbefe4331051fea2d16e1cc19345f17c0ea0ba547769a62b788bfd9e66",
+    "HelperB.dfy": "387ca911256ea9d5677c035d4c0603cae081e262154c5c73b1d1554c45973a18",
+    "Kernel.dfy": "96fa54191353ae20976098b78b2c208170beb177c97e09e8e4d0651b61834eff",
+    "Ops1.dfy": "da64051027cdcbaff3c1940fabbb3da545ba30d985daca9e7e5387f8be01cbb4",
+    "Ops2.dfy": "126d5e4e083b051644223df9885fdafec339d0eaa68fcf912b0dee9daa7e0c45"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(15,12): Error: a postcondition could not be proved on this return path\n   |\n15 |     if i==0 {\n   |             ^\n\nHelperA.dfy(12,27): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures K.Prefix(s,i+j)==K.Prefix(s,i)+K.Prefix(s[i..],j)\n   |                            ^^\n\nHelperB.dfy(15,12): Error: a postcondition could not be proved on this return path\n   |\n15 |     if i==0 {\n   |             ^\n\nHelperB.dfy(12,27): Related location: this is the postcondition that could not be proved\n   |\n12 |     ensures K.Prefix(s,i+j)==K.Prefix(s,i)+K.Prefix(s[i..],j)\n   |                            ^^\n\n\nDafny program verifier finished with 15 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.2857281640172005,
+  "model_calls": 0,
+  "attempts": 1
+}
