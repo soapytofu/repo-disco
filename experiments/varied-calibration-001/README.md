@@ -1,6 +1,6 @@
 # Four varied development calibration tasks
 
-**Prepared; not yet verified. Zero model calls.** These implement the four C1
+**First core verified: 32/32 expected outcomes. Zero model calls.** These implement the four C1
 proposals in [the active corpus plan](../../docs/corpus-family-split-plan.md).
 All reserved tree/transition-family tasks remain untouched.
 
@@ -39,7 +39,19 @@ Verification is restricted to compute nodes, with live-confirmed nonpreemptible
 one verifier invocation per control. The bounded SSH tools use the user-created
 socket `repodisco-codex-12.sock`; no API key is needed or accessed.
 
-November 9 status: the reconnect attempt timed out before authentication. All task
-construction and offline logs are saved, but **no Slurm job has been submitted**.
-References, parser/name behavior and negative outcomes remain unverified until
-the compute-only run completes. No model calls are planned for this build phase.
+November 9: job **59351309** completed on nonpreemptible `test` in 2m05s.
+All 16 references verified strictly and all 16 empty proofs failed with proof
+diagnostics. [The reproducible review](verification-001-review.json) checked the
+full archived manifest and exact source hashes. All inputs, raw diagnostics and
+relevant scheduler logs are retained under `verification-001/` and the job logs.
+Unrelated projects' queue rows are omitted from public scheduler receipts only;
+[scheduler-redactions.json](scheduler-redactions.json) records before/after hashes.
+
+The remaining 92 original controls have **not** been submitted. A source audit
+identified that the map reference's granular interface need not lengthen its
+contract-application path versus the bundled interface (both have a three-stage
+reference path). A deliberate revision will add a required domain certificate,
+then validate the changed map sources before the targeted negatives. This first
+core run remains unchanged; its 24 non-map outcomes can be reused only after
+exact source and verifier-code comparisons. No model difficulty or minimal-depth
+claim follows from the verifier results.
