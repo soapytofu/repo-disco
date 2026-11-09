@@ -1,8 +1,8 @@
 # Experiment log
 
-## Four varied calibration tasks — prepared, verification pending
+## Four varied calibration tasks — reference core passed; map depth correction pending
 
-[varied-calibration-001](varied-calibration-001/README.md) implements bounded allocation, map-swap involution, clamp nonexpansiveness and prefix-sum splitting in 16 structural workspaces. Seven offline construction/runtime tests pass. There are 124 planned verifier controls; the first 32 reference/empty checks gate the remaining 92 negatives. No model calls or Slurm jobs have been submitted yet; Cannon reconnection is pending. Prepared source and offline logs are saved without claiming verifier success.
+[varied-calibration-001](varied-calibration-001/README.md) implements bounded allocation, map-swap involution, clamp nonexpansiveness and prefix-sum splitting in 16 structural workspaces. First job 59351309 matched all 32 reference/empty outcomes, with exact-source review and full logs published. [Revision 002](varied-calibration-001/revision-002/README.md) corrects the map reference dependency contrast and adds two missing-certificate controls; nine offline tests passed locally and on Cannon. Eight changed map core checks are submitted; 24 unchanged prior observations will be reused after exact comparison. The 94 revised targeted negatives remain gated. No model calls or prompt freeze.
 
 ## Varied corpus and family split — proposal only
 
