@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 6, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 9, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,10 @@ Status: November 6, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Researc
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Latest witness/map pilot: 8/16 strict passes, all outputs admitted. A new proposal specifies 12 development instances and six reserved tree/transition test instances, 72 variants and separately gated 32/64/48-call stages. No new calls authorized; construction, lineage audit, verification and prompt freeze remain. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 9: four calibration tasks constructed
+
+[varied-calibration-001](../experiments/varied-calibration-001/README.md) implements D3-C1 bounded allocation and D4-C1 map swap, followed by D1-C1 clamp distance and D2-C1 prefix splitting. Sixteen workspaces and 124 planned controls are built; seven offline tests passed, including exact protected-source checks and a fake-process runtime check. Actual Dafny verification is pending Cannon connectivity; no job or model call has been submitted. The first compute phase checks references and empty bodies, with the remaining negative controls gated on reviewed core results. Reserved test-family tasks remain untouched, and this construction is not a model pilot or evidence of task difficulty.
 
 ## November 6: varied corpus and reserved family proposal
 

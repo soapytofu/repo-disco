@@ -1,5 +1,9 @@
 # Experiment log
 
+## Four varied calibration tasks — prepared, verification pending
+
+[varied-calibration-001](varied-calibration-001/README.md) implements bounded allocation, map-swap involution, clamp nonexpansiveness and prefix-sum splitting in 16 structural workspaces. Seven offline construction/runtime tests pass. There are 124 planned verifier controls; the first 32 reference/empty checks gate the remaining 92 negatives. No model calls or Slurm jobs have been submitted yet; Cannon reconnection is pending. Prepared source and offline logs are saved without claiming verifier success.
+
 ## Varied corpus and family split — proposal only
 
 [Task and evaluation plan](../docs/corpus-family-split-plan.md), [18-instance manifest](matched-corpus-002/plan.json): 12 development instances across conditional, sequence, witness and map families; six reserved tree/transition-system test instances. Four structural cells yield 72 variants. Proposed stages are 32 + 64 + 48 = **144 calls for one model**, replacing the older unexecuted collection recommendation. No new calls or verifier runs; construction, lineage audit and exact prompt freeze remain pending. Existing results are unchanged.
