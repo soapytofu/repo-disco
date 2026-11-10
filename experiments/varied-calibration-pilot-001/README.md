@@ -1,9 +1,11 @@
 # Varied calibration: authorized 32-call pilot
 
 The user approved **32 new Claude requests, no retries**, on November 10, 2026.
-The runner is tested and staged on Cannon; no live request has been dispatched
-at this publication. A fresh hash-bound authorization and one compute submission
-are the remaining execution steps.
+The tested runner was published before dispatch in commit `63ed440`. Job
+**59517240** was submitted once and started on Cannon's `test` partition, with
+live `PreemptMode=OFF`. Results are pending. [authorization.json](authorization.json)
+binds the human approval to both freezes; [submission.json](submission.json)
+preserves the partition check, exclusive-submission metadata and job ID.
 
 This executes the existing [frozen proposal](../varied-calibration-plan-001/README.md):
 bounded allocation, map swap, clamp distance and prefix splitting, each in
