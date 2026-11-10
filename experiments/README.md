@@ -1,5 +1,9 @@
 # Experiment log
 
+## Separate map-swap/parser diagnostics — complete, zero model calls
+
+[map-swap-diagnostic-001](map-swap-diagnostic-001/README.md): adding both omitted original-map key observations repairs shared and separate saved proofs; either single addition alone still fails in the tested shared body. A separate scoped quantified-expression guard admits trial 27 byte-for-byte, which verifies strictly. These three diagnostic workspaces each verify 14 obligations, zero errors/warnings. A corrected false-quantifier control fails its assertion (with a trigger warning); its initial reserved-binder parse error is preserved. Six current expectations matched across seven verifier invocations, reusing five unchanged observations. All 1,846 original pilot files are unchanged; **27/32 remains the model score**. Full code, parser tests, source hashes, failures and scheduler/verifier logs are archived.
+
 ## Varied calibration completed — 27/32 strict passes
 
 [varied-calibration-pilot-001](varied-calibration-pilot-001/RESULTS.md): job 59517240 completed all 32 approved requests with unique IDs and zero retries. Allocation, clamp distance and prefix splitting each passed 8/8; map swap passed 3/8, with four deep proof failures and one shallow body-policy rejection. All JSON envelopes extracted; 31 bodies admitted, no warnings or frontend errors among verified candidates. Full raw evidence, exact frozen inputs, 233 protected-file and 46 body-boundary checks are published. The 32-call budget is exhausted; the later proposed 64/48-call stages remain unauthorized. Earlier preparation entries below are historical.

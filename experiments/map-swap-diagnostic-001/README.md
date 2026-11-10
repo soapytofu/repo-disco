@@ -3,9 +3,12 @@
 **No new model calls. The original varied-calibration score remains 27/32.**
 This experiment investigates the four deep-map proof failures and the shallow
 map body-policy rejection without modifying the original pilot, its frozen
-prompts/guard, or any original candidate and score. The first verifier job
-completed with five expected outcomes; one diagnostic control needs a binder
-correction, described below. The table records the pre-run expectations.
+prompts/guard, or any original candidate and score. **Complete:** both added-fact
+repairs and the unchanged parser-rejected response verify strictly. Two one-fact
+controls and the corrected false assertion fail proof checking as intended.
+The [combined review](diagnostic-review.json) links six current checks across
+two jobs, preserving the first run's malformed control. The table below records
+the initial pre-run expectations; the last control was explicitly revised.
 
 ## Six verifier-only checks
 
@@ -80,6 +83,51 @@ and is not counted as a successful negative reasoning control.
 [verification-001](verification-001), [review](verification-001-review.json),
 [stdout](verify-59527654.log), [stderr](verify-59527654.err) and
 [accounting](accounting-59527654.txt) retain the full failed-run evidence. A
-deliberate [revision-002](revision-002/README.md) changes only this control's
-binder to `badKey0` and will run that one control; the five unchanged reviewed
-observations will be reused, not rerun or represented as independent new trials.
+deliberate [revision-002](revision-002/README.md) changed only this control's
+binder to `badKey0` and ran that one control; the five unchanged reviewed
+observations are reused, not rerun or represented as independent new trials.
+
+## Final findings and evidence
+
+- **Missing map facts:** adding `O2.SwapAt(m, k, j, k)` and
+  `O2.SwapAt(m, k, j, j)` repairs the shared proof and both separate bodies.
+  Each complete workspace verifies 14 obligations with zero errors and warnings.
+  Either single addition alone leaves the original quantified postcondition
+  unproved in the tested shared body. These are sufficient repairs of these
+  saved proofs, not a minimum-proof claim or new model successes.
+- **Output-policy limitation:** the exact saved trial 27 raw response and proof
+  strings verify 14 obligations, zero errors and warnings under the separate
+  diagnostic guard. No proof rewrite is needed. The original policy rejection
+  and 27/32 model score remain unchanged; this is post-hoc diagnostic evidence.
+- **False assertions still require proof:** corrected-control job **59528781**
+  completed in six seconds on nonpreemptible `test`, returning exit 4 with an
+  assertion failure. It also emits one missing-trigger warning, recorded
+  separately; it is not a warning-only outcome or a strict pass. The original
+  `fresh` binder parse error remains archived. The guard checks bounded syntax
+  and scope, not all Dafny keyword/type rules or logical truth.
+
+The combined evidence contains **three strict diagnostic passes and three
+expected proof failures**. There were seven actual verifier invocations: six
+in the initial run and one deliberately corrected control. No successful or
+unchanged proof was rerun, and no retry loop was used.
+
+[diagnostic-review.json](diagnostic-review.json) records exact input and output
+hashes, all **1,846 unchanged original pilot files**, 645 original parent inputs,
+807 transferred evidence files, 52 protected-file comparisons and 11 body-boundary
+checks across both runs. The original guard/envelope are unchanged. Both original
+deep shared responses have identical bodies, as do both deep separate responses;
+the tested representatives cover those saved texts without claiming independent
+new trials for their duplicates.
+
+Reproduce this offline cross-run audit with
+`python3 -B experiments/map-swap-diagnostic-001/review_diagnostics.py`;
+[preservation-review.log](preservation-review.log) records its result. It checks
+the saved evidence without invoking Dafny or a provider.
+
+The corrected run's [review](revision-002/verification-001-review.json),
+[full sources and verifier log](revision-002/verification-001/),
+[stdout](revision-002/verify-59528781.log), [stderr](revision-002/verify-59528781.err),
+[accounting](revision-002/accounting-59528781.txt) and
+[submission](revision-002/submission.json) are retained separately. All code,
+local/remote offline logs, original responses and the initial test/runtime failure
+evidence remain available. No new model calls were made.
