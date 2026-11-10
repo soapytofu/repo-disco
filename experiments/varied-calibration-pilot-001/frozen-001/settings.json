@@ -1,0 +1,105 @@
+{
+  "study": "varied-calibration-plan-001",
+  "status": "FROZEN_PROPOSAL_NOT_AUTHORIZED",
+  "execution_authorized": false,
+  "split": "development_calibration",
+  "source_commit": "41d9c0218a871a36b7f04e8bf02ac806abb69111",
+  "source_experiment": "varied-calibration-001/revision-002",
+  "semantic_instances": [
+    "bounded_allocation",
+    "map_swap",
+    "clamp_distance",
+    "prefix_split"
+  ],
+  "cells": [
+    "shallow-shared",
+    "shallow-separate",
+    "deep-shared",
+    "deep-separate"
+  ],
+  "replicates": [
+    [
+      [
+        "bounded_allocation-shallow-shared",
+        "map_swap-shallow-separate",
+        "clamp_distance-deep-shared",
+        "prefix_split-deep-separate"
+      ],
+      [
+        "map_swap-deep-shared",
+        "bounded_allocation-deep-separate",
+        "prefix_split-shallow-shared",
+        "clamp_distance-shallow-separate"
+      ],
+      [
+        "clamp_distance-deep-separate",
+        "prefix_split-deep-shared",
+        "bounded_allocation-shallow-separate",
+        "map_swap-shallow-shared"
+      ],
+      [
+        "prefix_split-shallow-separate",
+        "clamp_distance-shallow-shared",
+        "map_swap-deep-separate",
+        "bounded_allocation-deep-shared"
+      ]
+    ],
+    [
+      [
+        "map_swap-shallow-shared",
+        "bounded_allocation-shallow-separate",
+        "prefix_split-deep-shared",
+        "clamp_distance-deep-separate"
+      ],
+      [
+        "clamp_distance-shallow-separate",
+        "prefix_split-shallow-shared",
+        "bounded_allocation-deep-separate",
+        "map_swap-deep-shared"
+      ],
+      [
+        "prefix_split-deep-separate",
+        "clamp_distance-deep-shared",
+        "map_swap-shallow-separate",
+        "bounded_allocation-shallow-shared"
+      ],
+      [
+        "bounded_allocation-deep-shared",
+        "map_swap-deep-separate",
+        "clamp_distance-shallow-shared",
+        "prefix_split-shallow-separate"
+      ]
+    ]
+  ],
+  "proposed_calls": 32,
+  "samples_per_workspace": 2,
+  "fresh_context_per_request": true,
+  "feedback": false,
+  "sdk_total_max_attempts": 1,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "automatic_retries": false,
+  "max_output_tokens_total": 131072,
+  "guard_version": "reasoning-body-json-varied-calibration-v1",
+  "envelope_version": "single-json-envelope-v1",
+  "context": "full_empty_workspace_plus_declared_include_import_map",
+  "order_note": "Four families and four cells occur once per four-slot block and once per within-block position in each 16-slot replicate. Each workspace occurs once per replicate. Replicate two reverses block/position order then rotates one block.",
+  "primary_success": "Guard-admitted immutable candidate and whole-repository strict exit zero with no warnings",
+  "stop_on_ambiguous_request": true,
+  "retry_or_repair_feedback": false,
+  "local_request_deadline_required_at_future_authorization": true,
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "inference_config": {
+    "temperature": 1.0,
+    "maxTokens": 4096
+  },
+  "verifier": {
+    "entry": "All.dfy",
+    "include_all_files": true,
+    "toolchain": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit",
+    "timeout_seconds": 60,
+    "success_exit_code": 0
+  }
+}

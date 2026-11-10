@@ -1,0 +1,2768 @@
+{
+  "method": "Exact source headers plus existing repository_map_metrics; analyst-annotated sufficient reference paths",
+  "family_annotations": {
+    "bounded_allocation": {
+      "shallow": [
+        "A.Direct(a,b,c,d,t,u,w)"
+      ],
+      "deep": [
+        "O1.Left(a,b,u) or O1.Right(c,d,w)",
+        "O2.Join(a,b,c,d,u,w)",
+        "A.Finish(a,b,c,d,t,u,w)"
+      ],
+      "explanation": "Opaque individual bounds feed the joined bounds, then the final existence certificate. Balance is an additional independent prerequisite."
+    },
+    "map_swap": {
+      "shallow": [
+        "A.ObserveSwap(m,k,j)",
+        "A.ObserveSwap(once,k,j)",
+        "A.Equal(m,twice)"
+      ],
+      "deep": [
+        "O1.Certify(m,k,j)",
+        "O2.SwapKeys(m,k,j)",
+        "O1.Certify(once,k,j)",
+        "O2.SwapKeys(once,k,j) or O2.SwapAt(once,k,j,q)",
+        "A.Equal(m,twice)"
+      ],
+      "explanation": "The recorded path uses the first domain certificate and key equality to justify certification of the intermediate map. Inner/outer pointwise value facts are also required by the chosen reference."
+    },
+    "clamp_distance": {
+      "shallow": [
+        "A.Below/Within/Above(l,h,x)"
+      ],
+      "deep": [
+        "O1.Below/Within/Above(l,h,x)",
+        "O2.ReadBelow/ReadWithin/ReadAbove(l,h,x)"
+      ],
+      "explanation": "Per-input guarded facts: the other input is handled independently; arithmetic assertions finish the distance inequality."
+    },
+    "prefix_split": {
+      "shallow": [
+        "A.Observe(s,n)"
+      ],
+      "deep": [
+        "O1.Unfold(s,n)",
+        "O2.Expose(s,n)"
+      ],
+      "explanation": "Local unfolding only. Prove(s[1..],i-1,j) is a separate recursive contract application. Unbounded i means there is no fixed full recursion-depth number.",
+      "recursion": {
+        "call": "Prove(s[1..],i-1,j)",
+        "decreases": "i",
+        "whole_proof_depth": null
+      }
+    }
+  },
+  "minimum_depth_claim": false,
+  "model_effect_claim": false,
+  "rows": [
+    {
+      "task_id": "bounded_allocation-shallow-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.Direct(a,b,c,d,t,u,w)"
+      ],
+      "reference_path_stages": 1,
+      "reference_path_edges": 0,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 90
+      },
+      "total_editable_body_bytes": 90,
+      "full_reference_source_bytes": 3599
+    },
+    {
+      "task_id": "bounded_allocation-shallow-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.Direct(a,b,c,d,t,u,w)"
+      ],
+      "reference_path_stages": 1,
+      "reference_path_edges": 0,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 90,
+        "HelperB.dfy": 90
+      },
+      "total_editable_body_bytes": 180,
+      "full_reference_source_bytes": 3754
+    },
+    {
+      "task_id": "bounded_allocation-deep-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Left(a,b,u) or O1.Right(c,d,w)",
+        "O2.Join(a,b,c,d,u,w)",
+        "A.Finish(a,b,c,d,t,u,w)"
+      ],
+      "reference_path_stages": 3,
+      "reference_path_edges": 2,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 172
+      },
+      "total_editable_body_bytes": 172,
+      "full_reference_source_bytes": 3678
+    },
+    {
+      "task_id": "bounded_allocation-deep-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Left(a,b,u) or O1.Right(c,d,w)",
+        "O2.Join(a,b,c,d,u,w)",
+        "A.Finish(a,b,c,d,t,u,w)"
+      ],
+      "reference_path_stages": 3,
+      "reference_path_edges": 2,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 172,
+        "HelperB.dfy": 172
+      },
+      "total_editable_body_bytes": 344,
+      "full_reference_source_bytes": 3912
+    },
+    {
+      "task_id": "map_swap-shallow-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.ObserveSwap(m,k,j)",
+        "A.ObserveSwap(once,k,j)",
+        "A.Equal(m,twice)"
+      ],
+      "reference_path_stages": 3,
+      "reference_path_edges": 2,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 240
+      },
+      "total_editable_body_bytes": 240,
+      "full_reference_source_bytes": 3216
+    },
+    {
+      "task_id": "map_swap-shallow-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.ObserveSwap(m,k,j)",
+        "A.ObserveSwap(once,k,j)",
+        "A.Equal(m,twice)"
+      ],
+      "reference_path_stages": 3,
+      "reference_path_edges": 2,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 240,
+        "HelperB.dfy": 240
+      },
+      "total_editable_body_bytes": 480,
+      "full_reference_source_bytes": 3525
+    },
+    {
+      "task_id": "map_swap-deep-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Certify(m,k,j)",
+        "O2.SwapKeys(m,k,j)",
+        "O1.Certify(once,k,j)",
+        "O2.SwapKeys(once,k,j) or O2.SwapAt(once,k,j,q)",
+        "A.Equal(m,twice)"
+      ],
+      "reference_path_stages": 5,
+      "reference_path_edges": 4,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 376
+      },
+      "total_editable_body_bytes": 376,
+      "full_reference_source_bytes": 3349
+    },
+    {
+      "task_id": "map_swap-deep-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Certify(m,k,j)",
+        "O2.SwapKeys(m,k,j)",
+        "O1.Certify(once,k,j)",
+        "O2.SwapKeys(once,k,j) or O2.SwapAt(once,k,j,q)",
+        "A.Equal(m,twice)"
+      ],
+      "reference_path_stages": 5,
+      "reference_path_edges": 4,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 376,
+        "HelperB.dfy": 376
+      },
+      "total_editable_body_bytes": 752,
+      "full_reference_source_bytes": 3791
+    },
+    {
+      "task_id": "clamp_distance-shallow-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.Below/Within/Above(l,h,x)"
+      ],
+      "reference_path_stages": 1,
+      "reference_path_edges": 0,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 418
+      },
+      "total_editable_body_bytes": 418,
+      "full_reference_source_bytes": 3578
+    },
+    {
+      "task_id": "clamp_distance-shallow-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.Below/Within/Above(l,h,x)"
+      ],
+      "reference_path_stages": 1,
+      "reference_path_edges": 0,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 418,
+        "HelperB.dfy": 418
+      },
+      "total_editable_body_bytes": 836,
+      "full_reference_source_bytes": 4063
+    },
+    {
+      "task_id": "clamp_distance-deep-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 13,
+          "distinct_import_edge_count": 13,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 4,
+            "HelperA": 2,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Below/Within/Above(l,h,x)",
+        "O2.ReadBelow/ReadWithin/ReadAbove(l,h,x)"
+      ],
+      "reference_path_stages": 2,
+      "reference_path_edges": 1,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 552
+      },
+      "total_editable_body_bytes": 552,
+      "full_reference_source_bytes": 3709
+    },
+    {
+      "task_id": "clamp_distance-deep-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Internal"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 3,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 1,
+            "ClientA": 3,
+            "ClientB": 3,
+            "HelperA": 2,
+            "HelperB": 2,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Below/Within/Above(l,h,x)",
+        "O2.ReadBelow/ReadWithin/ReadAbove(l,h,x)"
+      ],
+      "reference_path_stages": 2,
+      "reference_path_edges": 1,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 552,
+        "HelperB.dfy": 552
+      },
+      "total_editable_body_bytes": 1104,
+      "full_reference_source_bytes": 4325
+    },
+    {
+      "task_id": "prefix_split-shallow-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Public",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 5,
+            "HelperA": 3,
+            "HelperB": 4,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 5,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 5,
+            "HelperA": 3,
+            "HelperB": 4,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.Observe(s,n)"
+      ],
+      "reference_path_stages": 1,
+      "reference_path_edges": 0,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 191
+      },
+      "total_editable_body_bytes": 191,
+      "full_reference_source_bytes": 3109
+    },
+    {
+      "task_id": "prefix_split-shallow-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Public",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Shallow",
+          "O1": "Hidden",
+          "O2": "Hidden"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 17,
+          "distinct_import_edge_count": 17,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 4,
+            "HelperA": 3,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 17,
+          "distinct_import_edge_count": 17,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 4,
+            "HelperA": 3,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "A.Observe(s,n)"
+      ],
+      "reference_path_stages": 1,
+      "reference_path_edges": 0,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 191,
+        "HelperB.dfy": 191
+      },
+      "total_editable_body_bytes": 382,
+      "full_reference_source_bytes": 3369
+    },
+    {
+      "task_id": "prefix_split-deep-shared",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "H": "HelperA"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Public",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "H": null
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 5,
+            "HelperA": 3,
+            "HelperB": 4,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 15,
+          "distinct_import_edge_count": 15,
+          "root_import_depth": 5,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperA",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 5,
+            "HelperA": 3,
+            "HelperB": 4,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Unfold(s,n)",
+        "O2.Expose(s,n)"
+      ],
+      "reference_path_stages": 2,
+      "reference_path_edges": 1,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove",
+          "HelperA.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 241
+      },
+      "total_editable_body_bytes": 241,
+      "full_reference_source_bytes": 3156
+    },
+    {
+      "task_id": "prefix_split-deep-separate",
+      "module_map": {
+        "modules": [
+          "Api",
+          "ClientA",
+          "ClientB",
+          "HelperA",
+          "HelperB",
+          "Kernel",
+          "Ops1",
+          "Ops2"
+        ],
+        "imports": {
+          "ClientA": {
+            "K": "Kernel",
+            "H": "HelperA"
+          },
+          "Api": {
+            "K": "Kernel",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "ClientB": {
+            "K": "Kernel",
+            "H": "HelperB"
+          },
+          "Ops2": {
+            "K": "Kernel"
+          },
+          "HelperA": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          },
+          "Kernel": {},
+          "Ops1": {
+            "K": "Kernel"
+          },
+          "HelperB": {
+            "K": "Kernel",
+            "A": "Api",
+            "O1": "Ops1",
+            "O2": "Ops2"
+          }
+        }
+      },
+      "export_views": {
+        "ClientA": {
+          "K": "Public",
+          "H": null
+        },
+        "Api": {
+          "K": "Public",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "ClientB": {
+          "K": "Public",
+          "H": null
+        },
+        "Ops2": {
+          "K": "Internal"
+        },
+        "HelperA": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        },
+        "Kernel": {},
+        "Ops1": {
+          "K": "Internal"
+        },
+        "HelperB": {
+          "K": "Public",
+          "A": "Deep",
+          "O1": "Public",
+          "O2": "Public"
+        }
+      },
+      "import_metrics": {
+        "ClientA": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientA",
+          "module_count": 8,
+          "alias_binding_count": 17,
+          "distinct_import_edge_count": 17,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientA",
+            "HelperA",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientB",
+            "HelperB"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 4,
+            "HelperA": 3,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        },
+        "ClientB": {
+          "schema_version": 1,
+          "edge_semantics": "importer_to_imported",
+          "root": "ClientB",
+          "module_count": 8,
+          "alias_binding_count": 17,
+          "distinct_import_edge_count": 17,
+          "root_import_depth": 4,
+          "reachable_modules": [
+            "Api",
+            "ClientB",
+            "HelperB",
+            "Kernel",
+            "Ops1",
+            "Ops2"
+          ],
+          "unreachable_modules": [
+            "ClientA",
+            "HelperA"
+          ],
+          "module_import_depths": {
+            "Api": 2,
+            "ClientA": 4,
+            "ClientB": 4,
+            "HelperA": 3,
+            "HelperB": 3,
+            "Kernel": 0,
+            "Ops1": 1,
+            "Ops2": 1
+          },
+          "proof_depth": null,
+          "proof_depth_note": "Not inferable from import structure alone"
+        }
+      },
+      "reference_contract_path": [
+        "O1.Unfold(s,n)",
+        "O2.Expose(s,n)"
+      ],
+      "reference_path_stages": 2,
+      "reference_path_edges": 1,
+      "path_scope": "Local reference path excluding clients, the shared forwarding helper and recursive expansion; not a lower bound",
+      "minimum_proof_depth": null,
+      "prompt_tokens": null,
+      "client_helper_paths": {
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "editable_body_bytes": {
+        "HelperA.dfy": 241,
+        "HelperB.dfy": 241
+      },
+      "total_editable_body_bytes": 482,
+      "full_reference_source_bytes": 3463
+    }
+  ]
+}

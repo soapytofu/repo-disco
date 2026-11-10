@@ -1,0 +1,38 @@
+{
+  "task_id": "clamp_distance-shallow-separate",
+  "variant": "isometry",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c0ec5bf891097d5f8d71c4c1b7cd0cc412757be8dea6fbbc1f64d1e085ae48ec",
+    "ClientA.dfy": "256f98e3fca9b28ce9f2b5c7bb81e411197c5eaa9870cc277de965b809e91e21",
+    "ClientB.dfy": "fa4e51c618d9b6f0ad52018d2bc4aa93988b41a9a1d0d88ddb0a165fa20b1e2a",
+    "HelperA.dfy": "7e7cfd8da05237e0fd8e22534a9a966f72ac11e3dd7265bb880904212d18a991",
+    "HelperB.dfy": "e8ddd6fab5a506c75caeafca343a976368a68b0eb4c5f58b6bfeb94ff552f131",
+    "Kernel.dfy": "660a8a39465552b7c175d709e3bb584959b29979a015f6a02212ad79cadf996a",
+    "Ops1.dfy": "687aaef901a2f389f210602e7814bbcb054b82c0817fe25643cba36911a6368b",
+    "Ops2.dfy": "662cb88d427e5a91dce834b255c1ba59b0b57b7f7f475865c1bae7e5f280a0a3"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(27,4): Error: assertion might not hold\n   |\n27 |     assert K.Abs(K.Clamp(l,h,x)-K.Clamp(l,h,y)) == K.Abs(x-y);\n   |     ^^^^^^\n\nHelperB.dfy(27,4): Error: assertion might not hold\n   |\n27 |     assert K.Abs(K.Clamp(l,h,x)-K.Clamp(l,h,y)) == K.Abs(x-y);\n   |     ^^^^^^\n\n\nDafny program verifier finished with 11 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.151267477951478,
+  "model_calls": 0,
+  "attempts": 1
+}
