@@ -1,0 +1,38 @@
+{
+  "task_id": "bounded_allocation-shallow-separate",
+  "variant": "hidden_shortcut",
+  "expected": "resolution_failure",
+  "diagnostic": "resolution_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "94ba082ed574a7a9df8bc95222e373bfa08d1c655b1b83f673935ce0c28ca1b5",
+    "ClientA.dfy": "e756af9dea9c0fc60e106eb6146a3eb0802d847631766b4e84222e4d7a67bac6",
+    "ClientB.dfy": "9a26978101fc6eddb0d7b3d5aee4b38c99f5b6467946f4e9fe1709c4d4628448",
+    "HelperA.dfy": "7aba520be3fddbe6c73a19ef4e3a2ce154c49b0fd116448d89ffd60d1a5b6953",
+    "HelperB.dfy": "32f5dd9fb6deed564fa4da50ec453e796c6510af5266dbe40639b259a9005d33",
+    "Kernel.dfy": "1bb03677a6a5dbe1ade606629b722794cd527b1f9fd3243dd68ae535e154be89",
+    "Ops1.dfy": "abad98ffc228594020e6050a7220cf5aee87474083bc4f8c54c8204d2bec489c",
+    "Ops2.dfy": "6bc3bb20e531e450e4297ba956fc80d2784eae2f362a5e9fa7dd3f61862a9940"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "outcome": "fail",
+  "category": "frontend_error",
+  "stdout": "HelperB.dfy(16,6): Error: unresolved identifier: Finish\n   |\n16 |     A.Finish(a,b,c,d,t,u,w);\n   |       ^^^^^^\n\nHelperB.dfy(16,12): Error: expected method call, found expression\n   |\n16 |     A.Finish(a,b,c,d,t,u,w);\n   |             ^\n\nHelperA.dfy(16,6): Error: unresolved identifier: Finish\n   |\n16 |     A.Finish(a,b,c,d,t,u,w);\n   |       ^^^^^^\n\nHelperA.dfy(16,12): Error: expected method call, found expression\n   |\n16 |     A.Finish(a,b,c,d,t,u,w);\n   |             ^\n\n4 resolution/type errors detected in All.dfy\n",
+  "stderr": "",
+  "elapsed_seconds": 0.9805072880117223,
+  "model_calls": 0,
+  "attempts": 1
+}

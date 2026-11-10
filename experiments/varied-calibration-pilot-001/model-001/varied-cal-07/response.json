@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"if i == 0 {\\n  A.Observe(s, j);\\n  A.Observe(s, 0);\\n  assert K.Prefix(s, 0) == 0;\\n  assert K.Prefix(s, 0 + j) == K.Prefix(s, j);\\n  assert K.Prefix(s, 0) + K.Prefix(s[0..], j) == 0 + K.Prefix(s, j);\\n} else {\\n  A.Observe(s, i + j);\\n  A.Observe(s, i);\\n  A.Observe(s[1..], i - 1 + j);\\n  A.Observe(s[1..], i - 1);\\n  Prove(s[1..], i - 1, j);\\n  assert K.Prefix(s[1..], i - 1 + j) == K.Prefix(s[1..], i - 1) + K.Prefix(s[1..][i - 1..], j);\\n  assert s[1..][i - 1..] == s[i..];\\n  assert K.Prefix(s, i + j) == s[0] + K.Prefix(s[1..], i - 1 + j);\\n  assert K.Prefix(s, i) == s[0] + K.Prefix(s[1..], i - 1);\\n  assert K.Prefix(s, i + j) == K.Prefix(s, i) + K.Prefix(s[i..], j);\\n}\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"if i == 0 {\\n  A.Observe(s, j);\\n  A.Observe(s, 0);\\n  assert K.Prefix(s, 0) == 0;\\n  assert K.Prefix(s, 0 + j) == K.Prefix(s, j);\\n  assert K.Prefix(s, 0) + K.Prefix(s[0..], j) == 0 + K.Prefix(s, j);\\n} else {\\n  A.Observe(s, i + j);\\n  A.Observe(s, i);\\n  A.Observe(s[1..], i - 1 + j);\\n  A.Observe(s[1..], i - 1);\\n  Prove(s[1..], i - 1, j);\\n  assert K.Prefix(s[1..], i - 1 + j) == K.Prefix(s[1..], i - 1) + K.Prefix(s[1..][i - 1..], j);\\n  assert s[1..][i - 1..] == s[i..];\\n  assert K.Prefix(s, i + j) == s[0] + K.Prefix(s[1..], i - 1 + j);\\n  assert K.Prefix(s, i) == s[0] + K.Prefix(s[1..], i - 1);\\n  assert K.Prefix(s, i + j) == K.Prefix(s, i) + K.Prefix(s[i..], j);\\n}\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3225,
+    "outputTokens": 411,
+    "totalTokens": 3636,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "a2231e7a-b182-4de5-8b08-5b073b26cd27",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "a2231e7a-b182-4de5-8b08-5b073b26cd27",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 10 Nov 2026 16:17:03 GMT",
+        "content-type": "application/json",
+        "content-length": "1037",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "a2231e7a-b182-4de5-8b08-5b073b26cd27"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"if i == 0 {\\n  A.Observe(s, j);\\n  A.Observe(s, 0);\\n  assert K.Prefix(s, 0) == 0;\\n  assert K.Prefix(s, 0 + j) == K.Prefix(s, j);\\n  assert K.Prefix(s, 0) + K.Prefix(s[0..], j) == 0 + K.Prefix(s, j);\\n} else {\\n  A.Observe(s, i + j);\\n  A.Observe(s, i);\\n  A.Observe(s[1..], i - 1 + j);\\n  A.Observe(s[1..], i - 1);\\n  Prove(s[1..], i - 1, j);\\n  assert K.Prefix(s[1..], i - 1 + j) == K.Prefix(s[1..], i - 1) + K.Prefix(s[1..][i - 1..], j);\\n  assert s[1..][i - 1..] == s[i..];\\n  assert K.Prefix(s, i + j) == s[0] + K.Prefix(s[1..], i - 1 + j);\\n  assert K.Prefix(s, i) == s[0] + K.Prefix(s[1..], i - 1);\\n  assert K.Prefix(s, i + j) == K.Prefix(s, i) + K.Prefix(s[i..], j);\\n}\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3225,
+      "outputTokens": 411,
+      "totalTokens": 3636,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 5441
+    }
+  }
+}

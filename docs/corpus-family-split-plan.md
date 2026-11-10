@@ -1,18 +1,23 @@
 # Varied monorepo corpus and family split
 
-**Proposal, November 6, 2026 Eastern. No new model calls authorized or made.**
+**Proposal originally prepared November 6, 2026 Eastern; execution update November 10.**
+The first 32-call calibration stage is now complete; the subsequent 64/48-call
+stages remain unapproved. The original planning narrative below is retained.
 This is the active next-stage design, replacing the unexecuted 192-call main-corpus
 recommendation in the [earlier plan](weeks5-6-corpus-plan.md). Historical experiments,
 freezes and scores remain unchanged. The [machine-readable task list](../experiments/matched-corpus-002/plan.json)
 contains 18 proposed semantic instances, not implemented fixtures or frozen prompts.
 
-## November 9 implementation checkpoint
+## November 10 calibration checkpoint
 
 The four C1 development cases are now [implemented and verified](../experiments/varied-calibration-001/RESULTS.md):
 126 primary controls matched expected outcomes, and 16 analyst alternatives
 verified strictly. The [calibration proposal](../experiments/varied-calibration-plan-001/README.md)
-freezes 16 exact workspace requests and 32 balanced trial slots, with no execution
-authorization. This is the first 32-call stage below, not extra budget. The
+freezes 16 exact workspace requests and 32 balanced trial slots. The separately
+approved [pilot](../experiments/varied-calibration-pilot-001/RESULTS.md) completed
+all 32 calls with zero retries: 27 strict passes, four deep-map proof failures and
+one shallow-map body-policy rejection. The other three C1 instances each passed
+8/8. This is the first 32-call stage below, not extra budget. The
 machine-readable November 6 proposal retains its original historical status
 fields; current concrete contracts, lineage limits and two documented client/
 existential-proof implementation choices are described in the verified results.

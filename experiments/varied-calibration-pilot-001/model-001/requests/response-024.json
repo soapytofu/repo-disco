@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.Certify(m, k, j);\\n    O2.SwapKeys(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    O1.Certify(m1, k, j);\\n    O2.SwapKeys(m1, k, j);\\n    forall q | q in m ensures q in K.Swap(m1, k, j) && K.Swap(m1, k, j)[q] == m[q] {\\n      O2.SwapAt(m, k, j, q);\\n      O2.SwapAt(m1, k, j, q);\\n    }\\n    A.Equal(K.Swap(m1, k, j), m);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.Certify(m, k, j);\\n    O2.SwapKeys(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    O1.Certify(m1, k, j);\\n    O2.SwapKeys(m1, k, j);\\n    forall q | q in m ensures q in K.Swap(m1, k, j) && K.Swap(m1, k, j)[q] == m[q] {\\n      O2.SwapAt(m, k, j, q);\\n      O2.SwapAt(m1, k, j, q);\\n    }\\n    A.Equal(K.Swap(m1, k, j), m);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3122,
+    "outputTokens": 204,
+    "totalTokens": 3326,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "6021e975-8a46-4c6e-8c20-87db5c33637d",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "6021e975-8a46-4c6e-8c20-87db5c33637d",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 10 Nov 2026 16:19:57 GMT",
+        "content-type": "application/json",
+        "content-length": "673",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "6021e975-8a46-4c6e-8c20-87db5c33637d"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.Certify(m, k, j);\\n    O2.SwapKeys(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    O1.Certify(m1, k, j);\\n    O2.SwapKeys(m1, k, j);\\n    forall q | q in m ensures q in K.Swap(m1, k, j) && K.Swap(m1, k, j)[q] == m[q] {\\n      O2.SwapAt(m, k, j, q);\\n      O2.SwapAt(m1, k, j, q);\\n    }\\n    A.Equal(K.Swap(m1, k, j), m);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3122,
+      "outputTokens": 204,
+      "totalTokens": 3326,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 3689
+    }
+  }
+}

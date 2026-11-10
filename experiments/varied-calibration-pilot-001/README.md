@@ -2,8 +2,11 @@
 
 The user approved **32 new Claude requests, no retries**, on November 10, 2026.
 The tested runner was published before dispatch in commit `63ed440`. Job
-**59517240** was submitted once and started on Cannon's `test` partition, with
-live `PreemptMode=OFF`. Results are pending. [authorization.json](authorization.json)
+**59517240** completed on Cannon's `test` partition, with live `PreemptMode=OFF`,
+in 6 minutes 14 seconds. **27/32 strict passes, four proof failures and one body-policy
+rejection**; all 32 request IDs are unique, with zero retries. All calls are exhausted.
+See [RESULTS.md](RESULTS.md) for per-task/cell outcomes and full evidence links.
+[authorization.json](authorization.json)
 binds the human approval to both freezes; [submission.json](submission.json)
 preserves the partition check, exclusive-submission metadata and job ID.
 

@@ -1,5 +1,9 @@
 # Experiment log
 
+## Varied calibration completed — 27/32 strict passes
+
+[varied-calibration-pilot-001](varied-calibration-pilot-001/RESULTS.md): job 59517240 completed all 32 approved requests with unique IDs and zero retries. Allocation, clamp distance and prefix splitting each passed 8/8; map swap passed 3/8, with four deep proof failures and one shallow body-policy rejection. All JSON envelopes extracted; 31 bodies admitted, no warnings or frontend errors among verified candidates. Full raw evidence, exact frozen inputs, 233 protected-file and 46 body-boundary checks are published. The 32-call budget is exhausted; the later proposed 64/48-call stages remain unauthorized. Earlier preparation entries below are historical.
+
 ## Varied calibration proposal — 32 calls prepared, none authorized
 
 [varied-calibration-plan-001](varied-calibration-plan-001/README.md) freezes 16 exact prompts and 32 fresh-context slots (four C1 instances × four structural cells × two responses). Family and cell positions are balanced in each replicate. Seven offline tests pass, including exact regeneration and the literal syntax examples. The preceding 126-control gate and 16 strict alternative-proof checks are complete. No runner, credentials, Slurm model job or new model calls; separate approval is required. This is the 32-call calibration stage already included in the 144-call corpus proposal.

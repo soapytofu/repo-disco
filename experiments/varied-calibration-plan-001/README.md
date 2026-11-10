@@ -1,4 +1,10 @@
-# Varied calibration: frozen proposal, not authorized
+# Varied calibration: frozen proposal (pre-execution record)
+
+**November 10 update:** this exact proposal was subsequently approved and
+executed. The [separate pilot archive](../varied-calibration-pilot-001/RESULTS.md)
+records all 32 calls, 27 strict passes, four proof failures and one policy
+rejection, with no retries. The preparation narrative below and all frozen
+payloads remain unchanged; no additional calls are authorized.
 
 **32 proposed Claude requests; zero dispatched.** This is the calibration stage
 of the existing [144-call staged corpus proposal](../../docs/corpus-family-split-plan.md),

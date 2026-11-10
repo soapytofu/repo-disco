@@ -1,14 +1,18 @@
 # Research progress and next milestone
 
-Status: November 9, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 10, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Latest witness/map pilot: 8/16 strict passes, all outputs admitted. A new proposal specifies 12 development instances and six reserved tree/transition test instances, 72 variants and separately gated 32/64/48-call stages. The four C1 calibration tasks now match all 126 verifier controls. Sixteen alternative strategies also verify; the exact balanced 32-call calibration proposal is frozen and tested, with no calls authorized. Broader collection/lineage gates remain. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Four C1 instances across 16 workspaces passed 126 verifier controls and 16 alternative-proof checks. The approved 32-call varied calibration is complete: 27 strict passes, four map proof failures and one map body-policy rejection; zero retries. The 12-development/six-reserved-instance corpus proposal remains only partly implemented. Later 64/48-call stages are unapproved; difficulty, policy, collection and lineage gates remain. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 10: varied calibration model pilot completed
+
+[varied-calibration-pilot-001](../experiments/varied-calibration-pilot-001/RESULTS.md) completed all 32 approved requests on job 59517240 in 6m14s: 32 unique provider IDs, zero SDK retries, 119,194 tokens. Allocation, clamp distance and prefix splitting each scored 8/8; map swap scored 3/8. Four deep map responses repeat a proof that lacks the other swapped-key instantiation and fail a quantified postcondition. One shallow map response uses a quantified assertion outside the frozen body grammar; it was not verified. All 32 JSON envelopes extracted, 31 bodies admitted. Exact-source audits preserve 233 protected files and 46 body boundaries; all 16 separate responses copy identical helper bodies. This is development calibration, not a causal sharing/depth or held-out result. No budget remains. Next: separately diagnose the policy mismatch and map instantiation issue offline, then build distinct M1/M2 collection instances and review family lineage before any new paid scope.
 
 ## November 9: four calibration tasks verified
 
