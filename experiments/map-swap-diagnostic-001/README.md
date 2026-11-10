@@ -3,8 +3,9 @@
 **No new model calls. The original varied-calibration score remains 27/32.**
 This experiment investigates the four deep-map proof failures and the shallow
 map body-policy rejection without modifying the original pilot, its frozen
-prompts/guard, or any original candidate and score. Verification results are
-pending; all hypotheses below are prospective.
+prompts/guard, or any original candidate and score. The first verifier job
+completed with five expected outcomes; one diagnostic control needs a binder
+correction, described below. The table records the pre-run expectations.
 
 ## Six verifier-only checks
 
@@ -65,3 +66,20 @@ partition. No API transport, keys, or paid scope is involved.
 
 Offline reproduction: `python3 -B experiments/map-swap-diagnostic-001/test_design.py`.
 The preparation script intentionally refuses to overwrite existing inputs.
+
+## First compute run: five expected outcomes, one malformed control
+
+Job **59527654** completed all six checks on nonpreemptible `test` in 41 seconds.
+Both added-fact repairs and the unchanged trial 27 response verified strictly:
+14 obligations, zero errors and no warnings each. Both one-fact ablations failed
+the original quantified postcondition as intended. The false-assertion control
+used `fresh`, a reserved Dafny keyword: the new guard admitted it syntactically,
+but Dafny rejected the binder before proof checking. That parse error is preserved
+and is not counted as a successful negative reasoning control.
+
+[verification-001](verification-001), [review](verification-001-review.json),
+[stdout](verify-59527654.log), [stderr](verify-59527654.err) and
+[accounting](accounting-59527654.txt) retain the full failed-run evidence. A
+deliberate [revision-002](revision-002/README.md) changes only this control's
+binder to `badKey0` and will run that one control; the five unchanged reviewed
+observations will be reused, not rerun or represented as independent new trials.

@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    assert k in m1;\\n    assert j in m1;\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m2.Keys == m.Keys;\\n    forall q | q in m\\n      ensures q in m2 && m2[q] == m[q]\\n    {\\n      if q == k {\\n        assert m2[q] == m1[j];\\n        assert m1[j] == m[k];\\n        assert m2[q] == m[q];\\n      } else if q == j {\\n        assert m2[q] == m1[k];\\n        assert m1[k] == m[j];\\n        assert m2[q] == m[q];\\n      } else {\\n        assert m2[q] == m1[q];\\n        assert m1[q] == m[q];\\n        assert m2[q] == m[q];\\n      }\\n    }\\n    A.Equal(m2, m);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    assert k in m1;\\n    assert j in m1;\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m2.Keys == m.Keys;\\n    forall q | q in m\\n      ensures q in m2 && m2[q] == m[q]\\n    {\\n      if q == k {\\n        assert m2[q] == m1[j];\\n        assert m1[j] == m[k];\\n        assert m2[q] == m[q];\\n      } else if q == j {\\n        assert m2[q] == m1[k];\\n        assert m1[k] == m[j];\\n        assert m2[q] == m[q];\\n      } else {\\n        assert m2[q] == m1[q];\\n        assert m1[q] == m[q];\\n        assert m2[q] == m[q];\\n      }\\n    }\\n    A.Equal(m2, m);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3103,
+    "outputTokens": 319,
+    "totalTokens": 3422,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "5758d446-769f-4ad3-9418-7dd36da5c9aa",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "5758d446-769f-4ad3-9418-7dd36da5c9aa",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 10 Nov 2026 16:18:44 GMT",
+        "content-type": "application/json",
+        "content-length": "1006",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "5758d446-769f-4ad3-9418-7dd36da5c9aa"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    assert k in m1;\\n    assert j in m1;\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m2.Keys == m.Keys;\\n    forall q | q in m\\n      ensures q in m2 && m2[q] == m[q]\\n    {\\n      if q == k {\\n        assert m2[q] == m1[j];\\n        assert m1[j] == m[k];\\n        assert m2[q] == m[q];\\n      } else if q == j {\\n        assert m2[q] == m1[k];\\n        assert m1[k] == m[j];\\n        assert m2[q] == m[q];\\n      } else {\\n        assert m2[q] == m1[q];\\n        assert m1[q] == m[q];\\n        assert m2[q] == m[q];\\n      }\\n    }\\n    A.Equal(m2, m);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3103,
+      "outputTokens": 319,
+      "totalTokens": 3422,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4974
+    }
+  }
+}

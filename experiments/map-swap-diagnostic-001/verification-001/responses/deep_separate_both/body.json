@@ -1,0 +1,4 @@
+{
+  "HelperA.dfy": "O1.Certify(m, k, j);\n    O2.SwapKeys(m, k, j);\n    var m1 := K.Swap(m, k, j);\n    O1.Certify(m1, k, j);\n    O2.SwapKeys(m1, k, j);\n    forall q | q in m ensures q in K.Swap(m1, k, j) && K.Swap(m1, k, j)[q] == m[q] {\n      O2.SwapAt(m, k, j, k);\n      O2.SwapAt(m, k, j, j);\n      O2.SwapAt(m, k, j, q);\n      O2.SwapAt(m1, k, j, q);\n    }\n    A.Equal(K.Swap(m1, k, j), m);",
+  "HelperB.dfy": "O1.Certify(m, k, j);\n    O2.SwapKeys(m, k, j);\n    var m1 := K.Swap(m, k, j);\n    O1.Certify(m1, k, j);\n    O2.SwapKeys(m1, k, j);\n    forall q | q in m ensures q in K.Swap(m1, k, j) && K.Swap(m1, k, j)[q] == m[q] {\n      O2.SwapAt(m, k, j, k);\n      O2.SwapAt(m, k, j, j);\n      O2.SwapAt(m, k, j, q);\n      O2.SwapAt(m1, k, j, q);\n    }\n    A.Equal(K.Swap(m1, k, j), m);"
+}

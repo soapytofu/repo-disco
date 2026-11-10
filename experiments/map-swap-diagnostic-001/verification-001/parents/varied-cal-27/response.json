@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m1.Keys == m.Keys;\\n    assert k in m1 && j in m1;\\n    assert forall q :: q in m1 ==> q in m2 && m2[q] == (if q == k then m1[j] else if q == j then m1[k] else m1[q]);\\n    assert forall q :: q in m ==> q in m1 && m1[q] == (if q == k then m[j] else if q == j then m[k] else m[q]);\\n    assert forall q :: q in m ==> m2[q] == m[q];\\n    assert m2.Keys == m.Keys;\\n    A.Equal(m2, m);\", \"HelperB.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m1.Keys == m.Keys;\\n    assert k in m1 && j in m1;\\n    assert forall q :: q in m1 ==> q in m2 && m2[q] == (if q == k then m1[j] else if q == j then m1[k] else m1[q]);\\n    assert forall q :: q in m ==> q in m1 && m1[q] == (if q == k then m[j] else if q == j then m[k] else m[q]);\\n    assert forall q :: q in m ==> m2[q] == m[q];\\n    assert m2.Keys == m.Keys;\\n    A.Equal(m2, m);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m1.Keys == m.Keys;\\n    assert k in m1 && j in m1;\\n    assert forall q :: q in m1 ==> q in m2 && m2[q] == (if q == k then m1[j] else if q == j then m1[k] else m1[q]);\\n    assert forall q :: q in m ==> q in m1 && m1[q] == (if q == k then m[j] else if q == j then m[k] else m[q]);\\n    assert forall q :: q in m ==> m2[q] == m[q];\\n    assert m2.Keys == m.Keys;\\n    A.Equal(m2, m);\", \"HelperB.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m1.Keys == m.Keys;\\n    assert k in m1 && j in m1;\\n    assert forall q :: q in m1 ==> q in m2 && m2[q] == (if q == k then m1[j] else if q == j then m1[k] else m1[q]);\\n    assert forall q :: q in m ==> q in m1 && m1[q] == (if q == k then m[j] else if q == j then m[k] else m[q]);\\n    assert forall q :: q in m ==> m2[q] == m[q];\\n    assert m2.Keys == m.Keys;\\n    A.Equal(m2, m);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3222,
+    "outputTokens": 523,
+    "totalTokens": 3745,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "0fc16ad1-8415-4d1f-bb75-daaf8162ff83",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "0fc16ad1-8415-4d1f-bb75-daaf8162ff83",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 10 Nov 2026 16:20:32 GMT",
+        "content-type": "application/json",
+        "content-length": "1410",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "0fc16ad1-8415-4d1f-bb75-daaf8162ff83"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m1.Keys == m.Keys;\\n    assert k in m1 && j in m1;\\n    assert forall q :: q in m1 ==> q in m2 && m2[q] == (if q == k then m1[j] else if q == j then m1[k] else m1[q]);\\n    assert forall q :: q in m ==> q in m1 && m1[q] == (if q == k then m[j] else if q == j then m[k] else m[q]);\\n    assert forall q :: q in m ==> m2[q] == m[q];\\n    assert m2.Keys == m.Keys;\\n    A.Equal(m2, m);\", \"HelperB.dfy\": \"A.ObserveSwap(m, k, j);\\n    var m1 := K.Swap(m, k, j);\\n    A.ObserveSwap(m1, k, j);\\n    var m2 := K.Swap(m1, k, j);\\n    assert m1.Keys == m.Keys;\\n    assert k in m1 && j in m1;\\n    assert forall q :: q in m1 ==> q in m2 && m2[q] == (if q == k then m1[j] else if q == j then m1[k] else m1[q]);\\n    assert forall q :: q in m ==> q in m1 && m1[q] == (if q == k then m[j] else if q == j then m[k] else m[q]);\\n    assert forall q :: q in m ==> m2[q] == m[q];\\n    assert m2.Keys == m.Keys;\\n    A.Equal(m2, m);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3222,
+      "outputTokens": 523,
+      "totalTokens": 3745,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 5508
+    }
+  }
+}

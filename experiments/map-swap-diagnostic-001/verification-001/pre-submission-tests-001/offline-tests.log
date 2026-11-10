@@ -1,0 +1,23 @@
+test_110_semantic_controls_and_16_hidden_export_rejections (__main__.Tests.test_110_semantic_controls_and_16_hidden_export_rejections) ... ok
+test_all_32_saved_responses_exact_replay (__main__.Tests.test_all_32_saved_responses_exact_replay) ... ok
+test_exact_six_analyst_edits_and_original_parser_response (__main__.Tests.test_exact_six_analyst_edits_and_original_parser_response) ... ok
+test_immutable_inputs_edit_scope_and_envelope_protections (__main__.Tests.test_immutable_inputs_edit_scope_and_envelope_protections) ... ok
+test_isolated_verifier_and_remote_script_syntax (__main__.Tests.test_isolated_verifier_and_remote_script_syntax) ... ERROR
+test_only_scoped_atom_and_version_policy_changes (__main__.Tests.test_only_scoped_atom_and_version_policy_changes) ... ok
+test_quantifier_scope_boundaries_and_negative_truth (__main__.Tests.test_quantifier_scope_boundaries_and_negative_truth) ... ok
+
+======================================================================
+ERROR: test_isolated_verifier_and_remote_script_syntax (__main__.Tests.test_isolated_verifier_and_remote_script_syntax)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/map-swap-diagnostic-001/test_design.py", line 152, in test_isolated_verifier_and_remote_script_syntax
+    compile(node.value.replace('REMOTE_ROOT',repr('formal-disco/outputs/map-swap-diagnostic-001')),'remote-snippet','exec')
+  File "remote-snippet", line 11
+    r=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),live_partition=partition,queue_before="
+                                                                                                              ^
+SyntaxError: unterminated string literal (detected at line 11)
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.693s
+
+FAILED (errors=1)
