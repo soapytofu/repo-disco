@@ -1,0 +1,261 @@
+{
+  "envelope": {
+    "version": "single-json-envelope-v1",
+    "start_char": 40,
+    "end_char": 314,
+    "raw_sha256": "72215231b5891e380b1a4a80c412ce5e854a2a9605e5a4731bb54ecb863d16cb",
+    "payload_sha256": "04be0ec2ebbdd522bc44726684f0fcdcd298254c6d28c797b3660f294ebe7d38"
+  },
+  "body_guard": {
+    "version": "reasoning-body-json-varied-calibration-v1",
+    "wrapper": "plain JSON",
+    "parent_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "028d7d94876d029fbe78cab2f0bafe6c914d4e32a3ce6aaa37fd92f8c71f7676",
+      "ClientA.dfy": "e0143d802c4fb3fceb8441bc3eba985319c63f50433fc015030be474be526278",
+      "ClientB.dfy": "9cd00bde5616850a01046eff5d57500dd854fa2890843d4248a2c83aa03ebb4e",
+      "HelperA.dfy": "92c6d9e4afc1eaa999387cf92b9b20025c887e32e4631bf4b649a327f196adb5",
+      "HelperB.dfy": "446fc7c6d0a94055ece58e53082b8685916885892f768ac45b1329c2789971c0",
+      "Kernel.dfy": "96fa54191353ae20976098b78b2c208170beb177c97e09e8e4d0651b61834eff",
+      "Ops1.dfy": "da64051027cdcbaff3c1940fabbb3da545ba30d985daca9e7e5387f8be01cbb4",
+      "Ops2.dfy": "126d5e4e083b051644223df9885fdafec339d0eaa68fcf912b0dee9daa7e0c45"
+    },
+    "candidate_sha256": {
+      "Kernel.dfy": "96fa54191353ae20976098b78b2c208170beb177c97e09e8e4d0651b61834eff",
+      "Ops1.dfy": "da64051027cdcbaff3c1940fabbb3da545ba30d985daca9e7e5387f8be01cbb4",
+      "Ops2.dfy": "126d5e4e083b051644223df9885fdafec339d0eaa68fcf912b0dee9daa7e0c45",
+      "Api.dfy": "028d7d94876d029fbe78cab2f0bafe6c914d4e32a3ce6aaa37fd92f8c71f7676",
+      "HelperA.dfy": "040191523bc3932e343b80563a024954c01f958a0e3dd1e532f81593d945bf91",
+      "HelperB.dfy": "446fc7c6d0a94055ece58e53082b8685916885892f768ac45b1329c2789971c0",
+      "ClientA.dfy": "e0143d802c4fb3fceb8441bc3eba985319c63f50433fc015030be474be526278",
+      "ClientB.dfy": "9cd00bde5616850a01046eff5d57500dd854fa2890843d4248a2c83aa03ebb4e",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "bodies": {
+      "HelperA.dfy": {
+        "prefix_sha256": "378e7751c8ea990b9caf0f9299fdee7e74b03fa5867a19b460348f31eea4dd81",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "0367613a1622347a51b0ad5369c1b4958a577eba710ab74502c46d541d05e956",
+        "syntax": [
+          [
+            "if_statement",
+            [
+              "infix_syntax",
+              "==",
+              [
+                "variable",
+                "j"
+              ],
+              [
+                "integer",
+                "0"
+              ]
+            ],
+            [
+              [
+                "call",
+                "A.Observe",
+                [
+                  [
+                    "slice",
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "variable",
+                      "i"
+                    ],
+                    null
+                  ],
+                  [
+                    "integer",
+                    "0"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "==",
+                  [
+                    "variable",
+                    "i"
+                  ],
+                  [
+                    "integer",
+                    "0"
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "A.Observe",
+                    [
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "integer",
+                        "0"
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "slice",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "integer",
+                          "0"
+                        ],
+                        null
+                      ],
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "Prove",
+                    [
+                      [
+                        "slice",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "integer",
+                          "1"
+                        ],
+                        null
+                      ],
+                      [
+                        "infix_syntax",
+                        "-",
+                        [
+                          "variable",
+                          "i"
+                        ],
+                        [
+                          "integer",
+                          "1"
+                        ]
+                      ],
+                      [
+                        "variable",
+                        "j"
+                      ]
+                    ]
+                  ],
+                  [
+                    "call",
+                    "A.Observe",
+                    [
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "variable",
+                        "i"
+                      ]
+                    ]
+                  ],
+                  [
+                    "call",
+                    "A.Observe",
+                    [
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "infix_syntax",
+                        "+",
+                        [
+                          "variable",
+                          "i"
+                        ],
+                        [
+                          "variable",
+                          "j"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "slice",
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "infix_syntax",
+                          "-",
+                          [
+                            "variable",
+                            "i"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ]
+                        ],
+                        null
+                      ],
+                      [
+                        "slice",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "i"
+                        ],
+                        null
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "tokens": 103,
+        "statements": 9
+      }
+    },
+    "semantic_verification_performed": false
+  }
+}

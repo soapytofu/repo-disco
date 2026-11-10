@@ -87,7 +87,7 @@ whose displayed quantifier binder conflicted with a map parameter. The final
 example uses fresh `key0`, and the tests now extract the actual printed snippets.
 No mathematical fixture or old result changed. A separate verifier-only
 [alternative-proof check](../varied-calibration-001/alternative-proof-001/README.md)
-is pending; it does not change these request bytes or authorize execution.
+completed as job 59355663 with 16/16 strict passes and no errors/warnings. Its [readiness review](../varied-calibration-001/alternative-proof-001/readiness-review.json) binds the unchanged proposal freeze. It does not change request bytes or authorize execution.
 
 Reproduce offline:
 
@@ -96,5 +96,5 @@ python3 -B experiments/varied-calibration-plan-001/prepare.py
 python3 -B experiments/varied-calibration-plan-001/test_plan.py
 ```
 
-After alternative-proof review, the next execution gate is separate user budget
+The alternative-proof review is complete. The next execution gate is separate user budget
 approval and a tested, hash-bound bounded runner. None is currently authorized.

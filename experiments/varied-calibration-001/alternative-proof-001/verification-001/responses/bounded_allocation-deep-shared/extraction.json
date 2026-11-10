@@ -1,0 +1,224 @@
+{
+  "envelope": {
+    "version": "single-json-envelope-v1",
+    "start_char": 40,
+    "end_char": 241,
+    "raw_sha256": "e000e77635ae7b48adaac0eef8d2fb57029f15df8959401533a80c5c7c716320",
+    "payload_sha256": "e6f29511b44be9e987c26eccfe3b8a3f74e9278aaf3ad7f454857353a3693e4d"
+  },
+  "body_guard": {
+    "version": "reasoning-body-json-varied-calibration-v1",
+    "wrapper": "plain JSON",
+    "parent_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "94ba082ed574a7a9df8bc95222e373bfa08d1c655b1b83f673935ce0c28ca1b5",
+      "ClientA.dfy": "e756af9dea9c0fc60e106eb6146a3eb0802d847631766b4e84222e4d7a67bac6",
+      "ClientB.dfy": "9a26978101fc6eddb0d7b3d5aee4b38c99f5b6467946f4e9fe1709c4d4628448",
+      "HelperA.dfy": "b390bd905d07d3094dc8a9a8080c47b92f86bdf440a2837378e6a8404ac61f30",
+      "HelperB.dfy": "0c350ad539adb7eec49de5050114e41aa6048efb4da125f86eeb28d133c7522b",
+      "Kernel.dfy": "1bb03677a6a5dbe1ade606629b722794cd527b1f9fd3243dd68ae535e154be89",
+      "Ops1.dfy": "abad98ffc228594020e6050a7220cf5aee87474083bc4f8c54c8204d2bec489c",
+      "Ops2.dfy": "6bc3bb20e531e450e4297ba956fc80d2784eae2f362a5e9fa7dd3f61862a9940"
+    },
+    "candidate_sha256": {
+      "Kernel.dfy": "1bb03677a6a5dbe1ade606629b722794cd527b1f9fd3243dd68ae535e154be89",
+      "Ops1.dfy": "abad98ffc228594020e6050a7220cf5aee87474083bc4f8c54c8204d2bec489c",
+      "Ops2.dfy": "6bc3bb20e531e450e4297ba956fc80d2784eae2f362a5e9fa7dd3f61862a9940",
+      "Api.dfy": "94ba082ed574a7a9df8bc95222e373bfa08d1c655b1b83f673935ce0c28ca1b5",
+      "HelperA.dfy": "9562a05b82618ef27551024f6fbe6e10c8fe430d6b3d7590da287f1f1154e548",
+      "HelperB.dfy": "0c350ad539adb7eec49de5050114e41aa6048efb4da125f86eeb28d133c7522b",
+      "ClientA.dfy": "e756af9dea9c0fc60e106eb6146a3eb0802d847631766b4e84222e4d7a67bac6",
+      "ClientB.dfy": "9a26978101fc6eddb0d7b3d5aee4b38c99f5b6467946f4e9fe1709c4d4628448",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "bodies": {
+      "HelperA.dfy": {
+        "prefix_sha256": "6d9773259792c4a0927520992a1d4b09ad85199f347aa3f734a70f6682d5f442",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "7756f3f93b5532fec577db484040ef680db249032bd3d9d1cc430e14446a72ed",
+        "syntax": [
+          [
+            "local",
+            "u",
+            [
+              "if_expression",
+              [
+                "infix_syntax",
+                "<=",
+                [
+                  "variable",
+                  "b"
+                ],
+                [
+                  "infix_syntax",
+                  "-",
+                  [
+                    "variable",
+                    "t"
+                  ],
+                  [
+                    "variable",
+                    "c"
+                  ]
+                ]
+              ],
+              [
+                "variable",
+                "b"
+              ],
+              [
+                "infix_syntax",
+                "-",
+                [
+                  "variable",
+                  "t"
+                ],
+                [
+                  "variable",
+                  "c"
+                ]
+              ]
+            ]
+          ],
+          [
+            "local",
+            "w",
+            [
+              "infix_syntax",
+              "-",
+              [
+                "variable",
+                "t"
+              ],
+              [
+                "variable",
+                "u"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "O1.Left",
+            [
+              [
+                "variable",
+                "a"
+              ],
+              [
+                "variable",
+                "b"
+              ],
+              [
+                "variable",
+                "u"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "O1.Right",
+            [
+              [
+                "variable",
+                "c"
+              ],
+              [
+                "variable",
+                "d"
+              ],
+              [
+                "variable",
+                "w"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "O2.Join",
+            [
+              [
+                "variable",
+                "a"
+              ],
+              [
+                "variable",
+                "b"
+              ],
+              [
+                "variable",
+                "c"
+              ],
+              [
+                "variable",
+                "d"
+              ],
+              [
+                "variable",
+                "u"
+              ],
+              [
+                "variable",
+                "w"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "O1.Balance",
+            [
+              [
+                "variable",
+                "t"
+              ],
+              [
+                "variable",
+                "u"
+              ],
+              [
+                "variable",
+                "w"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.Finish",
+            [
+              [
+                "variable",
+                "a"
+              ],
+              [
+                "variable",
+                "b"
+              ],
+              [
+                "variable",
+                "c"
+              ],
+              [
+                "variable",
+                "d"
+              ],
+              [
+                "variable",
+                "t"
+              ],
+              [
+                "variable",
+                "u"
+              ],
+              [
+                "variable",
+                "w"
+              ]
+            ]
+          ]
+        ],
+        "tokens": 92,
+        "statements": 7
+      }
+    },
+    "semantic_verification_performed": false
+  }
+}

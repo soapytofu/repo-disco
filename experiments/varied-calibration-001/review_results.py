@@ -20,6 +20,12 @@ def module(name,path):
 MAP=module('map_metrics',ROOT.parents[1]/'scripts/repository_map_metrics.py')
 GUARD=module('varied_guard',ROOT/'protocol/body_guard.py')
 
+def audit_save(path,data):
+    # Reproducing an audit must not rewrite hash-pinned inputs merely because
+    # a filesystem enumerates semantically identical dictionary keys differently.
+    if path.exists():assert load(path)==data,('Existing audit differs; version it deliberately',path)
+    else:save(path,data)
+
 PATHS={
  'bounded_allocation':dict(shallow=['A.Direct(a,b,c,d,t,u,w)'],
      deep=['O1.Left(a,b,u) or O1.Right(c,d,w)','O2.Join(a,b,c,d,u,w)','A.Finish(a,b,c,d,t,u,w)'],
@@ -107,9 +113,49 @@ def main():
         distinct_actual_verifier_invocations=134,superseded_original_map_checks=8,
         interpretation='126 current control observations; 24 reused unchanged, eight revised map checks, 94 new negatives. The eight original map core outcomes are preserved outside this current inventory.',
         rows=inventory)
-    save(ROOT/'current-evidence.json',report);save(ROOT/'diagnostic-audit.json',diagnostics)
-    save(ROOT/'structural-audit.json',dict(method='Exact source headers plus existing repository_map_metrics; analyst-annotated sufficient reference paths',
+    audit_save(ROOT/'current-evidence.json',report);audit_save(ROOT/'diagnostic-audit.json',diagnostics)
+    audit_save(ROOT/'structural-audit.json',dict(method='Exact source headers plus existing repository_map_metrics; analyst-annotated sufficient reference paths',
         family_annotations=PATHS,minimum_depth_claim=False,model_effect_claim=False,rows=structure))
     print(json.dumps({k:v for k,v in report.items() if k!='rows'},indent=2))
+    if (ROOT/'alternative-proof-001/verification-001/summary.json').exists():review_alternatives()
+
+def review_alternatives():
+    alt=ROOT/'alternative-proof-001';out=alt/'verification-001'
+    assert (alt/'tasks.json').read_bytes()==(REV/'tasks.json').read_bytes()
+    assert (out/'manifest.json').read_bytes()==(alt/'manifest.json').read_bytes()
+    for name,h in load(alt/'manifest.json').items():
+        assert sha((alt/name).read_bytes())==sha((out/name).read_bytes())==h
+    for name,h in load(alt/'lineage.json')['parent_hashes'].items():assert sha((alt/name).read_bytes())==h
+    assert (alt/'body_guard.py').read_bytes()==(ROOT/'protocol/body_guard.py').read_bytes()
+    envelope=module('alternative_envelope',alt/'extract_response.py')
+    tasks=load(alt/'tasks.json');checks=load(alt/'checks.json');rows=[];fixed=boundaries=0
+    env=load(out/'environment.json');assert 'login' not in env['host'] and env['model_calls']==0
+    assert env['dafny']==load(REV/'verification-001/environment.json')['dafny']
+    assert env['z3']==load(REV/'verification-001/environment.json')['z3']
+    summary=load(out/'summary.json');assert summary['completed']==summary['planned']==16 and summary['all_expected']
+    for t,c in zip(tasks,checks):
+        path=out/(t['task_id']+'-alternative.json');rec=load(path)
+        assert t['task_id']==c['task_id']==rec['task_id']
+        assert rec['matched'] and matches(c,rec) and rec['exit_code']==0 and rec['attempts']==1 and rec['model_calls']==0
+        assert 'warning' not in (rec['stdout']+rec['stderr']).lower()
+        seed={p.name:p.read_text() for p in (REV/'fixtures'/t['task_id']/'empty').glob('*.dfy')}
+        candidate,decision=envelope.parse_response((alt/'responses'/t['task_id']/'response.txt').read_text(),seed,t,GUARD)
+        assert candidate=={p.name:p.read_text() for p in (alt/c['path']).glob('*.dfy')}
+        assert candidate=={p.name:p.read_text() for p in (out/c['path']).glob('*.dfy')}
+        assert decision==load(alt/'responses'/t['task_id']/'extraction.json')
+        assert decision['body_guard']['candidate_sha256']==c['source_sha256']==rec['source_sha256']
+        for name,text in candidate.items():
+            if name not in t['editable_files']:assert text==seed[name];fixed+=1
+            else:
+                pre,suf=GUARD.split_seed(seed[name]);assert text.startswith(pre) and text.endswith(suf);boundaries+=1
+        rows.append(dict(task_id=t['task_id'],evidence=str(path.relative_to(ROOT)),evidence_sha256=sha(path.read_bytes()),
+            source_sha256=rec['source_sha256'],analyst_authored=True,exit_code=0))
+    assert len(rows)==16 and fixed==120 and boundaries==24
+    report=dict(new_model_calls=0,new_verifier_checks=16,strict_successes=16,warnings=0,job_id=env['job_id'],runtime_seconds=52,
+        protected_file_comparisons=fixed,body_boundary_comparisons=boundaries,
+        current_primary_inventory_sha256=sha((ROOT/'current-evidence.json').read_bytes()),
+        unchanged_proposal_freeze_sha256=sha((ROOT.parent/'varied-calibration-plan-001/frozen-001/freeze.json').read_bytes()),rows=rows)
+    audit_save(alt/'readiness-review.json',report)
+    print('PASS: 16 exact analyst alternative reconstructions, strict verification, 120 protected files and 24 body boundaries.')
 
 if __name__=='__main__':main()

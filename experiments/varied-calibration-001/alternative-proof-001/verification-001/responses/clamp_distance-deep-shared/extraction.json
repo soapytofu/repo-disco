@@ -1,0 +1,339 @@
+{
+  "envelope": {
+    "version": "single-json-envelope-v1",
+    "start_char": 40,
+    "end_char": 399,
+    "raw_sha256": "8558f1e74f66bb57f2e73484bb9d70f36c81582d85d94d3ec4bde893db663f63",
+    "payload_sha256": "b2f20e49f843d39b379ca759be6724567ce7603dfc15ac20527ba1cf8904d314"
+  },
+  "body_guard": {
+    "version": "reasoning-body-json-varied-calibration-v1",
+    "wrapper": "plain JSON",
+    "parent_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "c0ec5bf891097d5f8d71c4c1b7cd0cc412757be8dea6fbbc1f64d1e085ae48ec",
+      "ClientA.dfy": "256f98e3fca9b28ce9f2b5c7bb81e411197c5eaa9870cc277de965b809e91e21",
+      "ClientB.dfy": "fa4e51c618d9b6f0ad52018d2bc4aa93988b41a9a1d0d88ddb0a165fa20b1e2a",
+      "HelperA.dfy": "86c5af4b450189d86efc13828dbbaf65c144578663178d1e5d511e775b763cb5",
+      "HelperB.dfy": "ab9e1b86ac215351feab3477307521251602e97aa47279137d87289b6e045517",
+      "Kernel.dfy": "660a8a39465552b7c175d709e3bb584959b29979a015f6a02212ad79cadf996a",
+      "Ops1.dfy": "687aaef901a2f389f210602e7814bbcb054b82c0817fe25643cba36911a6368b",
+      "Ops2.dfy": "662cb88d427e5a91dce834b255c1ba59b0b57b7f7f475865c1bae7e5f280a0a3"
+    },
+    "candidate_sha256": {
+      "Kernel.dfy": "660a8a39465552b7c175d709e3bb584959b29979a015f6a02212ad79cadf996a",
+      "Ops1.dfy": "687aaef901a2f389f210602e7814bbcb054b82c0817fe25643cba36911a6368b",
+      "Ops2.dfy": "662cb88d427e5a91dce834b255c1ba59b0b57b7f7f475865c1bae7e5f280a0a3",
+      "Api.dfy": "c0ec5bf891097d5f8d71c4c1b7cd0cc412757be8dea6fbbc1f64d1e085ae48ec",
+      "HelperA.dfy": "5657c56d5553ceb994bfc8c23d848526c8aa564642586f9b29b8db4a856d9e63",
+      "HelperB.dfy": "ab9e1b86ac215351feab3477307521251602e97aa47279137d87289b6e045517",
+      "ClientA.dfy": "256f98e3fca9b28ce9f2b5c7bb81e411197c5eaa9870cc277de965b809e91e21",
+      "ClientB.dfy": "fa4e51c618d9b6f0ad52018d2bc4aa93988b41a9a1d0d88ddb0a165fa20b1e2a",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "bodies": {
+      "HelperA.dfy": {
+        "prefix_sha256": "d90bf5593fb0e6483e03d475f5d12d69d17d1dbf3958e0d904ace06b68bd8d07",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "38a3c39a6a3b17b1395084aa2e86de9fd104701ce27948b18c0e39d82a4ce9a7",
+        "syntax": [
+          [
+            "if_statement",
+            [
+              "infix_syntax",
+              ">",
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "variable",
+                "h"
+              ]
+            ],
+            [
+              [
+                "call",
+                "O1.Above",
+                [
+                  [
+                    "variable",
+                    "l"
+                  ],
+                  [
+                    "variable",
+                    "h"
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "O2.ReadAbove",
+                [
+                  [
+                    "variable",
+                    "l"
+                  ],
+                  [
+                    "variable",
+                    "h"
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "variable",
+                    "l"
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "O1.Below",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "y"
+                      ]
+                    ]
+                  ],
+                  [
+                    "call",
+                    "O2.ReadBelow",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "y"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "O1.Within",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "y"
+                      ]
+                    ]
+                  ],
+                  [
+                    "call",
+                    "O2.ReadWithin",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "y"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "if_statement",
+            [
+              "infix_syntax",
+              ">",
+              [
+                "variable",
+                "x"
+              ],
+              [
+                "variable",
+                "h"
+              ]
+            ],
+            [
+              [
+                "call",
+                "O1.Above",
+                [
+                  [
+                    "variable",
+                    "l"
+                  ],
+                  [
+                    "variable",
+                    "h"
+                  ],
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ],
+              [
+                "call",
+                "O2.ReadAbove",
+                [
+                  [
+                    "variable",
+                    "l"
+                  ],
+                  [
+                    "variable",
+                    "h"
+                  ],
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<",
+                  [
+                    "variable",
+                    "x"
+                  ],
+                  [
+                    "variable",
+                    "l"
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "O1.Below",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "call",
+                    "O2.ReadBelow",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "O1.Within",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ],
+                  [
+                    "call",
+                    "O2.ReadWithin",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "tokens": 164,
+        "statements": 16
+      }
+    },
+    "semantic_verification_performed": false
+  }
+}

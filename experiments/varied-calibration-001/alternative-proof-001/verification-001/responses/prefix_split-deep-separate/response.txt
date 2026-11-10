@@ -1,0 +1,7 @@
+An analyst alternative follows.
+```json
+{
+  "HelperA.dfy": "\n    if j==0 {\n      O1.Unfold(s[i..],0); O2.Expose(s[i..],0);\n    } else if i==0 {\n      O1.Unfold(s,0); O2.Expose(s,0);\n      assert s[0..]==s;\n    } else {\n      Prove(s[1..],i-1,j);\n      O1.Unfold(s,i); O2.Expose(s,i);\n      O1.Unfold(s,i+j); O2.Expose(s,i+j);\n      assert (s[1..])[i-1..]==s[i..];\n    }\n",
+  "HelperB.dfy": "\n    if j==0 {\n      O1.Unfold(s[i..],0); O2.Expose(s[i..],0);\n    } else if i==0 {\n      O1.Unfold(s,0); O2.Expose(s,0);\n      assert s[0..]==s;\n    } else {\n      Prove(s[1..],i-1,j);\n      O1.Unfold(s,i); O2.Expose(s,i);\n      O1.Unfold(s,i+j); O2.Expose(s,i+j);\n      assert (s[1..])[i-1..]==s[i..];\n    }\n"
+}
+```

@@ -1,5 +1,9 @@
 # Experiment log
 
+## Varied calibration proposal — 32 calls prepared, none authorized
+
+[varied-calibration-plan-001](varied-calibration-plan-001/README.md) freezes 16 exact prompts and 32 fresh-context slots (four C1 instances × four structural cells × two responses). Family and cell positions are balanced in each replicate. Seven offline tests pass, including exact regeneration and the literal syntax examples. The preceding 126-control gate and 16 strict alternative-proof checks are complete. No runner, credentials, Slurm model job or new model calls; separate approval is required. This is the 32-call calibration stage already included in the 144-call corpus proposal.
+
 ## Four varied calibration tasks — 126/126 expected verifier outcomes
 
 [varied-calibration-001](varied-calibration-001/RESULTS.md) validates bounded allocation, map-swap involution, clamp nonexpansiveness and prefix splitting in 16 structural workspaces. Current results: 16 strict reference passes, 90 ordinary proof failures, four termination failures and 16 hidden-export failures; no warnings or parse errors. A deliberate map-domain revision corrects the reference path contrast; all earlier evidence is preserved. Exact-source audits cover 945 protected files and 189 body boundaries. Nine construction/runtime tests and eight output-compatibility tests pass. Full raw logs, per-family depth limits and sharing/workload confounds are documented. Zero model calls; reserved test families untouched.

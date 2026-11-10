@@ -1,0 +1,6 @@
+An analyst alternative follows.
+```json
+{
+  "HelperA.dfy": "\n    if j==0 {\n      A.Observe(s[i..],0);\n    } else if i==0 {\n      A.Observe(s,0);\n      assert s[0..]==s;\n    } else {\n      Prove(s[1..],i-1,j);\n      A.Observe(s,i);\n      A.Observe(s,i+j);\n      assert (s[1..])[i-1..]==s[i..];\n    }\n"
+}
+```

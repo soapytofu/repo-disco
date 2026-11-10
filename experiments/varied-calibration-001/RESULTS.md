@@ -101,15 +101,26 @@ Nine construction/revision tests passed locally and on Cannon. A separate
 scope/JSON checks. The existing bounded grammar and tolerant envelope are
 unchanged. Syntactic admission does not make a proof true.
 
+A separate [alternative-proof run](alternative-proof-001/README.md), job
+59355663, passed **16/16 strict checks** in 52 seconds, with zero errors/warnings.
+It validates upper-endpoint allocation, explicit map alias/query cases, a clamp
+proof without input-order case splitting and a prefix proof with an empty-suffix
+base case. These are analyst candidates, not model responses or new task
+instances. The unchanged policy admits all of them; 120 fixed files and 24 body
+boundaries match their parent seeds. Their full raw archive and readiness review
+are preserved separately from the primary 126-control inventory.
+
 All four calibration instances remain in development and inherit existing
 conditional, aggregate-sequence, interval-witness and map-update lineages.
-Reserved tree/transition families were not implemented or inspected. Next is a
-reviewable calibration prompt/order/settings freeze and separate paid approval;
-no past budget can be reused.
+Reserved tree/transition families were not implemented or inspected. The next
+[32-call calibration proposal](../varied-calibration-plan-001/README.md) now freezes
+exact prompts, settings and balanced order and passes seven offline plan tests.
+It is **not authorized or dispatched**; no past budget can be reused.
 
-Reproduce the review offline:
+Reproduce the reviews offline:
 
 ```bash
 python3 -B experiments/varied-calibration-001/revision-002/review.py verification-002
+python3 -B experiments/varied-calibration-001/alternative-proof-001/review.py verification-001
 python3 -B experiments/varied-calibration-001/review_results.py
 ```

@@ -1,0 +1,231 @@
+{
+  "envelope": {
+    "version": "single-json-envelope-v1",
+    "start_char": 40,
+    "end_char": 265,
+    "raw_sha256": "2f34dd1734ab45322caf4a77b3eb2d1902141ff38ed5848e5f477ad0b2e3071f",
+    "payload_sha256": "349c1d293d223963f5e3d6dc8885c11a733250b0516a77251110b07ef2864dbe"
+  },
+  "body_guard": {
+    "version": "reasoning-body-json-varied-calibration-v1",
+    "wrapper": "plain JSON",
+    "parent_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "c0ec5bf891097d5f8d71c4c1b7cd0cc412757be8dea6fbbc1f64d1e085ae48ec",
+      "ClientA.dfy": "256f98e3fca9b28ce9f2b5c7bb81e411197c5eaa9870cc277de965b809e91e21",
+      "ClientB.dfy": "fa4e51c618d9b6f0ad52018d2bc4aa93988b41a9a1d0d88ddb0a165fa20b1e2a",
+      "HelperA.dfy": "cd221e9da70d252be855099547dc630d82b8be9a1aa187cef28c5d9ba55eeafa",
+      "HelperB.dfy": "ab9e1b86ac215351feab3477307521251602e97aa47279137d87289b6e045517",
+      "Kernel.dfy": "660a8a39465552b7c175d709e3bb584959b29979a015f6a02212ad79cadf996a",
+      "Ops1.dfy": "687aaef901a2f389f210602e7814bbcb054b82c0817fe25643cba36911a6368b",
+      "Ops2.dfy": "662cb88d427e5a91dce834b255c1ba59b0b57b7f7f475865c1bae7e5f280a0a3"
+    },
+    "candidate_sha256": {
+      "Kernel.dfy": "660a8a39465552b7c175d709e3bb584959b29979a015f6a02212ad79cadf996a",
+      "Ops1.dfy": "687aaef901a2f389f210602e7814bbcb054b82c0817fe25643cba36911a6368b",
+      "Ops2.dfy": "662cb88d427e5a91dce834b255c1ba59b0b57b7f7f475865c1bae7e5f280a0a3",
+      "Api.dfy": "c0ec5bf891097d5f8d71c4c1b7cd0cc412757be8dea6fbbc1f64d1e085ae48ec",
+      "HelperA.dfy": "e414b1d5bb23b8891a68bf2d649c26cded5a55298526cbe7ebf3da13e9afb245",
+      "HelperB.dfy": "ab9e1b86ac215351feab3477307521251602e97aa47279137d87289b6e045517",
+      "ClientA.dfy": "256f98e3fca9b28ce9f2b5c7bb81e411197c5eaa9870cc277de965b809e91e21",
+      "ClientB.dfy": "fa4e51c618d9b6f0ad52018d2bc4aa93988b41a9a1d0d88ddb0a165fa20b1e2a",
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+    },
+    "bodies": {
+      "HelperA.dfy": {
+        "prefix_sha256": "714a586e092fbf9f08c1c0b54f8357fc7e033349c6a8fe8079de313be31c5d30",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "57b73151de0ea79e4c6e0985e7c065f1e4e006e73924cd98282c88a37d38331d",
+        "syntax": [
+          [
+            "if_statement",
+            [
+              "infix_syntax",
+              ">",
+              [
+                "variable",
+                "y"
+              ],
+              [
+                "variable",
+                "h"
+              ]
+            ],
+            [
+              [
+                "call",
+                "A.Above",
+                [
+                  [
+                    "variable",
+                    "l"
+                  ],
+                  [
+                    "variable",
+                    "h"
+                  ],
+                  [
+                    "variable",
+                    "y"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<",
+                  [
+                    "variable",
+                    "y"
+                  ],
+                  [
+                    "variable",
+                    "l"
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "A.Below",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "y"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "A.Within",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "y"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "if_statement",
+            [
+              "infix_syntax",
+              ">",
+              [
+                "variable",
+                "x"
+              ],
+              [
+                "variable",
+                "h"
+              ]
+            ],
+            [
+              [
+                "call",
+                "A.Above",
+                [
+                  [
+                    "variable",
+                    "l"
+                  ],
+                  [
+                    "variable",
+                    "h"
+                  ],
+                  [
+                    "variable",
+                    "x"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<",
+                  [
+                    "variable",
+                    "x"
+                  ],
+                  [
+                    "variable",
+                    "l"
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "A.Below",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "call",
+                    "A.Within",
+                    [
+                      [
+                        "variable",
+                        "l"
+                      ],
+                      [
+                        "variable",
+                        "h"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "tokens": 98,
+        "statements": 10
+      }
+    },
+    "semantic_verification_performed": false
+  }
+}

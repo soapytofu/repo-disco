@@ -12,6 +12,11 @@ providers and the output grammar are unchanged.
 Each synthetic JSON response passes the existing tolerant extraction and body
 registry, producing the exact archived candidate bytes. Three offline test methods
 pass, including protected boundaries and an isolated fake verifier process. The
-16 actual compute checks are submitted as job **59355663** on nonpreemptible test. Cannon also passed all three offline tests; semantic outcomes are pending. Any failure will be retained separately;
+16 actual compute checks completed as job **59355663** on nonpreemptible test in
+52 seconds: **16/16 strict successes, zero errors and warnings**. Cannon also
+passed all three offline tests. Exact-source review checked 120 protected files
+and 24 body boundaries against the unchanged parent fixtures. Full responses,
+extraction decisions, source archives, diagnostics and scheduler logs are saved;
+see verification-001-review.json and readiness-review.json. Any failure will be retained separately;
 these proofs cannot be counted as model successes or minimum-length solutions.
 Prior model scores and the 126 current primary controls remain unchanged.

@@ -6,6 +6,18 @@ recommendation in the [earlier plan](weeks5-6-corpus-plan.md). Historical experi
 freezes and scores remain unchanged. The [machine-readable task list](../experiments/matched-corpus-002/plan.json)
 contains 18 proposed semantic instances, not implemented fixtures or frozen prompts.
 
+## November 9 implementation checkpoint
+
+The four C1 development cases are now [implemented and verified](../experiments/varied-calibration-001/RESULTS.md):
+126 primary controls matched expected outcomes, and 16 analyst alternatives
+verified strictly. The [calibration proposal](../experiments/varied-calibration-plan-001/README.md)
+freezes 16 exact workspace requests and 32 balanced trial slots, with no execution
+authorization. This is the first 32-call stage below, not extra budget. The
+machine-readable November 6 proposal retains its original historical status
+fields; current concrete contracts, lineage limits and two documented client/
+existential-proof implementation choices are described in the verified results.
+All M1/M2 and reserved-family tasks remain unimplemented by this calibration work.
+
 ## Recommendation
 
 Build **12 development instances in four familiar proof families**, and reserve

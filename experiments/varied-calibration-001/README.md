@@ -52,3 +52,7 @@ Full relevant raw logs and source hashes are published. Unrelated projects'
 queue rows are omitted from scheduler receipts only, with before/after hashes in
 scheduler-redactions.json. No model calls or API keys were used. Reserved test
 families remain untouched; model difficulty and minimum proof depth are unknown.
+
+The separate [alternative-proof check](alternative-proof-001/README.md) also passed
+16/16 strict verifications. A [balanced 32-call proposal](../varied-calibration-plan-001/README.md)
+is now frozen and tested, but no model execution is authorized or started.
