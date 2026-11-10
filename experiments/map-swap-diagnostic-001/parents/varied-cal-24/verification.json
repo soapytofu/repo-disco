@@ -1,0 +1,33 @@
+{
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "aff0a3ac9dbe59a007bbf5ac47917bfd747ac32becde90e3f1f49b934b73d6ba",
+    "ClientA.dfy": "a5a08aad7abdcb47b2e202f630b3498ae2e61d938ff0a62fcfd64e5ec0f26c3c",
+    "ClientB.dfy": "37ed3e9f2952700a19007b0f798ab5b81d706d7d0dfb82c308e0378123e27f55",
+    "HelperA.dfy": "c48b00a3028fed37680b5f9017ddcb931880a8520ac1b73c05f3680b922749d9",
+    "HelperB.dfy": "f3fffd1cbe03c0c0c54111e7bf38dd5ee823bd94c742397dfceb4d007e43186a",
+    "Kernel.dfy": "eb49e6db81563e2d9e7e05007f573841d6caa7d27409d30a8fb6d292b63e7dce",
+    "Ops1.dfy": "b63e4bdd62e699076b236e2d4fb2146032a04f6a1e4a43de41ecc6c8bd6ae4ff",
+    "Ops2.dfy": "d6821f18a00f1ee66ea0a0b91fd4e8ce013b664118e680652228aca871f860c2"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(18,75): Error: possible violation of postcondition of forall statement\n   |\n18 |     forall q | q in m ensures q in K.Swap(m1, k, j) && K.Swap(m1, k, j)[q] == m[q] {\n   |                                                                            ^^\n\n\nDafny program verifier finished with 13 verified, 1 error\n",
+  "stderr": "",
+  "elapsed_seconds": 2.2094204029999673,
+  "model_calls": 0,
+  "attempts": 1
+}
