@@ -1,5 +1,9 @@
 # Experiment log
 
+## Fresh-key move composition — offline checks complete, compute pending
+
+[development-moves-001](development-moves-001/README.md): D4-M1 adds changing-domain/value-history reasoning in four matched workspaces. Eight offline tests pass, including 288 finite cases and exact guarded reconstruction of 34 semantic controls. Thirty-eight Dafny checks are prepared (4 reference passes, 30 proof failures, 4 hidden-export failures); none has run yet. Compute verification awaits the new authenticated Cannon socket. No model calls or frozen model pilot; prior results are unchanged.
+
 ## Separate map-swap/parser diagnostics — complete, zero model calls
 
 [map-swap-diagnostic-001](map-swap-diagnostic-001/README.md): adding both omitted original-map key observations repairs shared and separate saved proofs; either single addition alone still fails in the tested shared body. A separate scoped quantified-expression guard admits trial 27 byte-for-byte, which verifies strictly. These three diagnostic workspaces each verify 14 obligations, zero errors/warnings. A corrected false-quantifier control fails its assertion (with a trigger warning); its initial reserved-binder parse error is preserved. Six current expectations matched across seven verifier invocations, reusing five unchanged observations. All 1,846 original pilot files are unchanged; **27/32 remains the model score**. Full code, parser tests, source hashes, failures and scheduler/verifier logs are archived.

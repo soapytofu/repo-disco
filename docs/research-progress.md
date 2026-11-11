@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 10, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 11, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,18 @@ Status: November 10, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Four C1 instances across 16 workspaces passed 126 verifier controls and 16 alternative-proof checks. The approved 32-call varied calibration is complete: 27 strict passes, four map proof failures and one map body-policy rejection; zero retries. The 12-development/six-reserved-instance corpus proposal remains only partly implemented. Later 64/48-call stages are unapproved; difficulty, policy, collection and lineage gates remain. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 11: fresh-key move collection task under construction
+
+[development-moves-001](../experiments/development-moves-001/README.md) implements
+the planned D4-M1 move-composition obligation in four structural workspaces. Eight
+offline methods pass, including 288 finite map cases, exact fixture reconstruction,
+protected-source checks and the separate task registry. Thirty-eight verifier
+checks are prepared: four reference successes, 30 proof failures and four hidden
+export failures. **No Dafny job has been submitted; validation awaits Cannon
+reconnection.** References and empty bodies will run first, with the 30 remaining
+negatives gated on reviewed core evidence. No model calls, prompts or paid scope
+are added. The map instance is development data; reserved families remain untouched.
 
 ## November 10: varied calibration model pilot completed
 

@@ -21,7 +21,13 @@ one shallow-map body-policy rejection. The other three C1 instances each passed
 machine-readable November 6 proposal retains its original historical status
 fields; current concrete contracts, lineage limits and two documented client/
 existential-proof implementation choices are described in the verified results.
-All M1/M2 and reserved-family tasks remain unimplemented by this calibration work.
+All M1/M2 and reserved-family tasks remained unimplemented by that calibration work.
+
+November 11: [D4-M1 fresh-key move composition](../experiments/development-moves-001/README.md)
+is now constructed across four cells and passes eight offline design methods.
+Its 38 planned Dafny checks are pending Cannon access; it is not yet a verified
+collection fixture. Other M1/M2 tasks and both reserved families remain unimplemented.
+No new model prompts or budget are frozen by this implementation work.
 
 ## Recommendation
 
