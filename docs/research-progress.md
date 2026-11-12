@@ -23,12 +23,15 @@ fixed-contract audits are preserved. No partial editable-helper success was
 observed; supplied-client local verification is explicitly excluded from model
 credit. A separate verifier-only diagnostic will examine the ordering issue.
 
-That [four-case diagnostic](../experiments/map-order-diagnostic-001/README.md)
-is prepared and passes four offline tests. It moves only the existing certificate
-call, and separately checks the originally policy-rejected response without
-changing its score. Sources are staged, but the SSH connection disappeared before
-remote preflight; no diagnostic job has been submitted. Its mathematical outcomes
-remain unmeasured until reconnection and compute verification.
+That [four-case diagnostic](../experiments/map-order-diagnostic-001/RESULTS.md)
+is now complete: job 60066865 matched all four expectations in 24 seconds.
+Moving only the existing certificate call after both restriction-key facts makes
+three analyst candidates strictly verify 20 obligations with no warnings. The
+unchanged policy-rejected response also fails that certificate precondition:
+it has a grammar-policy issue and a proof-ordering issue. All 646 original model
+archive files remain unchanged. This confirms a concrete cross-module
+prerequisite-ordering mechanism, not a model improvement or general depth/sharing
+effect. Four offline tests passed locally and on Cannon; zero new model calls.
 
 ## November 12: two map collection tasks and target-level measurement verified
 

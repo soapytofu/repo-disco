@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.Certify(m, n);\\n    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    forall key0 | key0 in left ensures key0 in right && left[key0] == right[key0] {\\n      O2.RestrictAt(K.Merge(m, n), keep, key0);\\n      O2.MergeAt(m, n, key0);\\n      if key0 in m {\\n        O2.RestrictAt(m, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      } else {\\n        O2.RestrictAt(n, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      }\\n    }\\n    forall key1 | key1 in right ensures key1 in left && right[key1] == left[key1] {\\n      O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key1);\\n      if key1 in K.Restrict(m, keep) {\\n        O2.RestrictAt(m, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      } else {\\n        O2.RestrictAt(n, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      }\\n    }\\n    A.Equal(left, right);\", \"HelperB.dfy\": \"O1.Certify(m, n);\\n    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    forall key0 | key0 in left ensures key0 in right && left[key0] == right[key0] {\\n      O2.RestrictAt(K.Merge(m, n), keep, key0);\\n      O2.MergeAt(m, n, key0);\\n      if key0 in m {\\n        O2.RestrictAt(m, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      } else {\\n        O2.RestrictAt(n, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      }\\n    }\\n    forall key1 | key1 in right ensures key1 in left && right[key1] == left[key1] {\\n      O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key1);\\n      if key1 in K.Restrict(m, keep) {\\n        O2.RestrictAt(m, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      } else {\\n        O2.RestrictAt(n, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      }\\n    }\\n    A.Equal(left, right);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.Certify(m, n);\\n    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    forall key0 | key0 in left ensures key0 in right && left[key0] == right[key0] {\\n      O2.RestrictAt(K.Merge(m, n), keep, key0);\\n      O2.MergeAt(m, n, key0);\\n      if key0 in m {\\n        O2.RestrictAt(m, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      } else {\\n        O2.RestrictAt(n, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      }\\n    }\\n    forall key1 | key1 in right ensures key1 in left && right[key1] == left[key1] {\\n      O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key1);\\n      if key1 in K.Restrict(m, keep) {\\n        O2.RestrictAt(m, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      } else {\\n        O2.RestrictAt(n, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      }\\n    }\\n    A.Equal(left, right);\", \"HelperB.dfy\": \"O1.Certify(m, n);\\n    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    forall key0 | key0 in left ensures key0 in right && left[key0] == right[key0] {\\n      O2.RestrictAt(K.Merge(m, n), keep, key0);\\n      O2.MergeAt(m, n, key0);\\n      if key0 in m {\\n        O2.RestrictAt(m, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      } else {\\n        O2.RestrictAt(n, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      }\\n    }\\n    forall key1 | key1 in right ensures key1 in left && right[key1] == left[key1] {\\n      O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key1);\\n      if key1 in K.Restrict(m, keep) {\\n        O2.RestrictAt(m, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      } else {\\n        O2.RestrictAt(n, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      }\\n    }\\n    A.Equal(left, right);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3755,
+    "outputTokens": 1237,
+    "totalTokens": 4992,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "12c70e5f-30bf-4a51-b23a-20b36270986a",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "12c70e5f-30bf-4a51-b23a-20b36270986a",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 18:51:40 GMT",
+        "content-type": "application/json",
+        "content-length": "3066",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "12c70e5f-30bf-4a51-b23a-20b36270986a"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.Certify(m, n);\\n    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    forall key0 | key0 in left ensures key0 in right && left[key0] == right[key0] {\\n      O2.RestrictAt(K.Merge(m, n), keep, key0);\\n      O2.MergeAt(m, n, key0);\\n      if key0 in m {\\n        O2.RestrictAt(m, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      } else {\\n        O2.RestrictAt(n, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      }\\n    }\\n    forall key1 | key1 in right ensures key1 in left && right[key1] == left[key1] {\\n      O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key1);\\n      if key1 in K.Restrict(m, keep) {\\n        O2.RestrictAt(m, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      } else {\\n        O2.RestrictAt(n, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      }\\n    }\\n    A.Equal(left, right);\", \"HelperB.dfy\": \"O1.Certify(m, n);\\n    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    forall key0 | key0 in left ensures key0 in right && left[key0] == right[key0] {\\n      O2.RestrictAt(K.Merge(m, n), keep, key0);\\n      O2.MergeAt(m, n, key0);\\n      if key0 in m {\\n        O2.RestrictAt(m, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      } else {\\n        O2.RestrictAt(n, keep, key0);\\n        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key0);\\n      }\\n    }\\n    forall key1 | key1 in right ensures key1 in left && right[key1] == left[key1] {\\n      O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), key1);\\n      if key1 in K.Restrict(m, keep) {\\n        O2.RestrictAt(m, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      } else {\\n        O2.RestrictAt(n, keep, key1);\\n        O2.MergeAt(m, n, key1);\\n        O2.RestrictAt(K.Merge(m, n), keep, key1);\\n      }\\n    }\\n    A.Equal(left, right);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3755,
+      "outputTokens": 1237,
+      "totalTokens": 4992,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 11804
+    }
+  }
+}

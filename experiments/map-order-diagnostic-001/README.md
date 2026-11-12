@@ -1,9 +1,15 @@
 # Certificate-order analyst diagnostic
 
-November 12, 2026. **Prepared and staged; no compute job submitted yet.**
-Four offline tests pass. The shared SSH connection disappeared before the remote
-offline preflight, so compute validation awaits reconnection. Zero model calls.
+November 12, 2026. **All four expected outcomes confirmed** on job 60066865,
+nonpreemptible test, in 24 seconds. Three analyst repairs strictly verify
+20 obligations each with zero errors/warnings; the unchanged unadmitted response
+fails the expected certificate precondition. Four offline tests pass locally and
+on Cannon. Zero model calls. [Full results and logs](RESULTS.md).
 The [original partial pilot](../map-development-pilot-001/RESULTS.md) is preserved.
+
+The earlier connection failure is retained in `connection-blocker-001.json`.
+After reconnection, `reconnection-state-001.json` confirmed no prior remote
+preflight, output, submission or matching job before proceeding once.
 
 The completed model responses exposed a specific ordering issue: call the
 disjointness certificate for restricted maps before the facts showing their
@@ -39,5 +45,6 @@ Dafny checks must run on compute nodes. `review.py` checks exact diagnostic
 categories, source hashes and preservation of every original model-archive file.
 Unexpected results are retained before any deliberate correction.
 
-A successful reorder would establish sufficiency of that analyst edit, not
-minimality, model improvement, necessary proof depth or a causal sharing effect.
+The verified reorder establishes sufficiency of that analyst edit on these three
+saved responses, not minimality, model improvement, necessary proof depth or a
+general causal sharing effect. The original model scores remain unchanged.

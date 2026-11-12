@@ -8,10 +8,12 @@ failures and one policy rejection. Request 10 raised ServiceUnavailableException
 no retries or replacement calls. Full raw logs, target metrics and protected-source
 audits are saved. This is an incomplete development cohort, not a balanced result.
 
-[map-order-diagnostic-001](map-order-diagnostic-001/README.md) stages four
-verifier-only analyst checks of the certificate-order explanation. Four offline
-tests pass; compute verification awaits SSH reconnection. No model calls or
-rescoring; no verifier results claimed yet.
+[map-order-diagnostic-001](map-order-diagnostic-001/RESULTS.md) confirms all four
+verifier-only expectations: three analyst reorders strictly pass, while the
+unchanged policy-rejected response fails its early certificate precondition.
+Moving only the existing call after its prerequisite facts suffices. Four offline
+tests pass locally and on Cannon; all original model scores and 646 archive files
+are preserved. No new model calls or rescoring.
 
 ## Prospective two-operation map follow-up
 

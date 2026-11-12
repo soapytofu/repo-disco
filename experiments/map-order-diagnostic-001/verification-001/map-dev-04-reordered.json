@@ -1,0 +1,40 @@
+{
+  "case_id": "map-dev-04-reordered",
+  "expected_exit": 0,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 20 verified, 0 errors\nResults File: /tmp/repodisco-targets-6i2cuzu_/TestResults/2026-11-12_15_08_42-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.5766696089413017,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+    "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+    "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+    "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+    "HelperB.dfy": "a6b9bd8cde6b9b68fbcb350a3d2dfffb797f2e1a4cae2fa4c971611a1e70fa39",
+    "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8",
+    "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+    "HelperA.dfy": "db701ba05657e34080130eb07bcdff1c4b854ae0e0d0c74632f286a0ec5268b3"
+  },
+  "csv": {
+    "TestResults/2026-11-12_15_08_42-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Merge (well-formedness),Passed,00:00:00.0632764,17308,0\nApi.ObserveRestrict (correctness),Passed,00:00:00.0523530,21710,0\nHelperA.Prove (correctness),Passed,00:00:00.0468635,102423,0\nClientB.Target (well-formedness),Passed,00:00:00.0214249,17334,0\nApi.ObserveMerge (well-formedness),Passed,00:00:00.0202600,18005,0\nApi.ObserveMerge (correctness),Passed,00:00:00.0175406,38476,0\nOps2.MergeKeys (correctness),Passed,00:00:00.0154692,25253,0\nClientB.Target (correctness),Passed,00:00:00.0142723,22775,0\nHelperB.Prove (correctness),Passed,00:00:00.0125761,17762,0\nOps1.Certify (correctness),Passed,00:00:00.0123659,13021,0\nOps2.RestrictKeys (correctness),Passed,00:00:00.0123530,18812,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0121382,9696,0\nOps2.MergeAt (correctness),Passed,00:00:00.0121029,18498,0\nClientA.Target (correctness),Passed,00:00:00.0119420,17762,0\nOps2.MergeAt (well-formedness),Passed,00:00:00.0115618,15689,0\nApi.Equal (correctness),Passed,00:00:00.0114207,14713,0\nOps2.RestrictAt (correctness),Passed,00:00:00.0111701,14947,0\nApi.ObserveRestrict (well-formedness),Passed,00:00:00.0108200,13032,0\nOps2.RestrictAt (well-formedness),Passed,00:00:00.0107864,12133,0\nApi.Equal (well-formedness),Passed,00:00:00.0106501,11988,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-12_15_08_42-0.csv": "ba9ee8438b17acf92d328f0fdf94307cb65640d37c856d23b0e113378679edc8"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}
