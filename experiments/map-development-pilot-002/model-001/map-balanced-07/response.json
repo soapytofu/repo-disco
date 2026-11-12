@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.Certify(m, a, b);\\n    O2.MoveKeys(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    O1.Certify(m1, b, c);\\n    O2.MoveKeys(m1, b, c);\\n    O1.Certify(m, a, c);\\n    O2.MoveKeys(m, a, c);\\n    var m2 := K.Move(m1, b, c);\\n    var m3 := K.Move(m, a, c);\\n    forall q0 | q0 in m2 ensures q0 in m3 && m2[q0] == m3[q0] {\\n      if q0 == c {\\n        O2.MoveAt(m1, b, c, c);\\n        O2.MoveAt(m, a, b, b);\\n        O2.MoveAt(m, a, c, c);\\n      } else {\\n        O2.MoveAt(m1, b, c, q0);\\n        O2.MoveAt(m, a, b, q0);\\n        O2.MoveAt(m, a, c, q0);\\n      }\\n    }\\n    forall q1 | q1 in m3 ensures q1 in m2 && m3[q1] == m2[q1] {\\n      if q1 == c {\\n        O2.MoveAt(m, a, c, c);\\n        O2.MoveAt(m, a, b, b);\\n        O2.MoveAt(m1, b, c, c);\\n      } else {\\n        O2.MoveAt(m, a, c, q1);\\n        O2.MoveAt(m, a, b, q1);\\n        O2.MoveAt(m1, b, c, q1);\\n      }\\n    }\\n    A.Equal(m2, m3);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.Certify(m, a, b);\\n    O2.MoveKeys(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    O1.Certify(m1, b, c);\\n    O2.MoveKeys(m1, b, c);\\n    O1.Certify(m, a, c);\\n    O2.MoveKeys(m, a, c);\\n    var m2 := K.Move(m1, b, c);\\n    var m3 := K.Move(m, a, c);\\n    forall q0 | q0 in m2 ensures q0 in m3 && m2[q0] == m3[q0] {\\n      if q0 == c {\\n        O2.MoveAt(m1, b, c, c);\\n        O2.MoveAt(m, a, b, b);\\n        O2.MoveAt(m, a, c, c);\\n      } else {\\n        O2.MoveAt(m1, b, c, q0);\\n        O2.MoveAt(m, a, b, q0);\\n        O2.MoveAt(m, a, c, q0);\\n      }\\n    }\\n    forall q1 | q1 in m3 ensures q1 in m2 && m3[q1] == m2[q1] {\\n      if q1 == c {\\n        O2.MoveAt(m, a, c, c);\\n        O2.MoveAt(m, a, b, b);\\n        O2.MoveAt(m1, b, c, c);\\n      } else {\\n        O2.MoveAt(m, a, c, q1);\\n        O2.MoveAt(m, a, b, q1);\\n        O2.MoveAt(m1, b, c, q1);\\n      }\\n    }\\n    A.Equal(m2, m3);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3463,
+    "outputTokens": 529,
+    "totalTokens": 3992,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "4bc6cda5-5856-4ea7-94bc-6caa1b2c127e",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "4bc6cda5-5856-4ea7-94bc-6caa1b2c127e",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 20:31:29 GMT",
+        "content-type": "application/json",
+        "content-length": "1274",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "4bc6cda5-5856-4ea7-94bc-6caa1b2c127e"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.Certify(m, a, b);\\n    O2.MoveKeys(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    O1.Certify(m1, b, c);\\n    O2.MoveKeys(m1, b, c);\\n    O1.Certify(m, a, c);\\n    O2.MoveKeys(m, a, c);\\n    var m2 := K.Move(m1, b, c);\\n    var m3 := K.Move(m, a, c);\\n    forall q0 | q0 in m2 ensures q0 in m3 && m2[q0] == m3[q0] {\\n      if q0 == c {\\n        O2.MoveAt(m1, b, c, c);\\n        O2.MoveAt(m, a, b, b);\\n        O2.MoveAt(m, a, c, c);\\n      } else {\\n        O2.MoveAt(m1, b, c, q0);\\n        O2.MoveAt(m, a, b, q0);\\n        O2.MoveAt(m, a, c, q0);\\n      }\\n    }\\n    forall q1 | q1 in m3 ensures q1 in m2 && m3[q1] == m2[q1] {\\n      if q1 == c {\\n        O2.MoveAt(m, a, c, c);\\n        O2.MoveAt(m, a, b, b);\\n        O2.MoveAt(m1, b, c, c);\\n      } else {\\n        O2.MoveAt(m, a, c, q1);\\n        O2.MoveAt(m, a, b, q1);\\n        O2.MoveAt(m1, b, c, q1);\\n      }\\n    }\\n    A.Equal(m2, m3);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3463,
+      "outputTokens": 529,
+      "totalTokens": 3992,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6982
+    }
+  }
+}

@@ -1,5 +1,16 @@
 # Experiment log
 
+## Fresh balanced map pilot — complete, 12/16 strict passes
+
+[map-development-pilot-002](map-development-pilot-002/RESULTS.md): job 60073401
+completed all sixteen requests with unique IDs and zero retries. Fresh move
+passed 8/8; restriction/merge passed 4/8, with all four deep variants failing
+the early restricted-domain certificate precondition. All sixteen outputs were
+admitted. Full responses, source/contract audits, target metrics and verifier
+logs are saved; 70,333 tokens. Seven separate body pairs are byte-identical and
+one differs only by binder renaming. The prior interrupted run is unchanged.
+The sixteen-call budget is exhausted.
+
 ## Fresh balanced map pilot — proposed sixteen new calls
 
 [map-development-plan-002](map-development-plan-002/README.md) freezes eight
@@ -12,7 +23,7 @@ execution authorization; prior interrupted results remain separate.
 Subsequent explicit approval is recorded in the separate
 [map-development-pilot-002 runtime](map-development-pilot-002/README.md). Its 20
 offline tests and Cannon fake-transport preflight pass; the exact frozen prompts
-and order are unchanged. Results and full logs will be recorded there.
+and order are unchanged. Its completed results and full logs are summarized above.
 
 ## Map collection stopped safely on provider error
 

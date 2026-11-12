@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures left[q0] == right[q0] {\\n      assert q0 in K.Merge(m, n);\\n      assert K.Merge(m, n)[q0] == (if q0 in m then m[q0] else n[q0]);\\n      if q0 in m {\\n        assert q0 in K.Restrict(m, keep);\\n        assert K.Restrict(m, keep)[q0] == m[q0];\\n        assert right[q0] == m[q0];\\n      } else {\\n        assert q0 in n;\\n        assert q0 in K.Restrict(n, keep);\\n        assert K.Restrict(n, keep)[q0] == n[q0];\\n        assert right[q0] == n[q0];\\n      }\\n    }\\n    A.Equal(left, right);\", \"HelperB.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures left[q0] == right[q0] {\\n      assert q0 in K.Merge(m, n);\\n      assert K.Merge(m, n)[q0] == (if q0 in m then m[q0] else n[q0]);\\n      if q0 in m {\\n        assert q0 in K.Restrict(m, keep);\\n        assert K.Restrict(m, keep)[q0] == m[q0];\\n        assert right[q0] == m[q0];\\n      } else {\\n        assert q0 in n;\\n        assert q0 in K.Restrict(n, keep);\\n        assert K.Restrict(n, keep)[q0] == n[q0];\\n        assert right[q0] == n[q0];\\n      }\\n    }\\n    A.Equal(left, right);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures left[q0] == right[q0] {\\n      assert q0 in K.Merge(m, n);\\n      assert K.Merge(m, n)[q0] == (if q0 in m then m[q0] else n[q0]);\\n      if q0 in m {\\n        assert q0 in K.Restrict(m, keep);\\n        assert K.Restrict(m, keep)[q0] == m[q0];\\n        assert right[q0] == m[q0];\\n      } else {\\n        assert q0 in n;\\n        assert q0 in K.Restrict(n, keep);\\n        assert K.Restrict(n, keep)[q0] == n[q0];\\n        assert right[q0] == n[q0];\\n      }\\n    }\\n    A.Equal(left, right);\", \"HelperB.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures left[q0] == right[q0] {\\n      assert q0 in K.Merge(m, n);\\n      assert K.Merge(m, n)[q0] == (if q0 in m then m[q0] else n[q0]);\\n      if q0 in m {\\n        assert q0 in K.Restrict(m, keep);\\n        assert K.Restrict(m, keep)[q0] == m[q0];\\n        assert right[q0] == m[q0];\\n      } else {\\n        assert q0 in n;\\n        assert q0 in K.Restrict(n, keep);\\n        assert K.Restrict(n, keep)[q0] == n[q0];\\n        assert right[q0] == n[q0];\\n      }\\n    }\\n    A.Equal(left, right);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3883,
+    "outputTokens": 805,
+    "totalTokens": 4688,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "e2f79461-fe48-4993-916c-afbb8aa5ae9e",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "e2f79461-fe48-4993-916c-afbb8aa5ae9e",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 20:30:26 GMT",
+        "content-type": "application/json",
+        "content-length": "2166",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "e2f79461-fe48-4993-916c-afbb8aa5ae9e"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures left[q0] == right[q0] {\\n      assert q0 in K.Merge(m, n);\\n      assert K.Merge(m, n)[q0] == (if q0 in m then m[q0] else n[q0]);\\n      if q0 in m {\\n        assert q0 in K.Restrict(m, keep);\\n        assert K.Restrict(m, keep)[q0] == m[q0];\\n        assert right[q0] == m[q0];\\n      } else {\\n        assert q0 in n;\\n        assert q0 in K.Restrict(n, keep);\\n        assert K.Restrict(n, keep)[q0] == n[q0];\\n        assert right[q0] == n[q0];\\n      }\\n    }\\n    A.Equal(left, right);\", \"HelperB.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures left[q0] == right[q0] {\\n      assert q0 in K.Merge(m, n);\\n      assert K.Merge(m, n)[q0] == (if q0 in m then m[q0] else n[q0]);\\n      if q0 in m {\\n        assert q0 in K.Restrict(m, keep);\\n        assert K.Restrict(m, keep)[q0] == m[q0];\\n        assert right[q0] == m[q0];\\n      } else {\\n        assert q0 in n;\\n        assert q0 in K.Restrict(n, keep);\\n        assert K.Restrict(n, keep)[q0] == n[q0];\\n        assert right[q0] == n[q0];\\n      }\\n    }\\n    A.Equal(left, right);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3883,
+      "outputTokens": 805,
+      "totalTokens": 4688,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 9177
+    }
+  }
+}

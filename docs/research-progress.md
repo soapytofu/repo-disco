@@ -6,9 +6,28 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map collection stopped after ten dispatches; a fresh balanced sixteen-call syntax-clarified proposal is frozen but unapproved. Other collection and reserved-family evaluation gates remain. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Remaining development and reserved-family evaluation are still unapproved. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 12: fresh balanced map pilot completed — 12/16
+
+[map-development-pilot-002](../experiments/map-development-pilot-002/RESULTS.md)
+completed job 60073401 in 4m05s: sixteen unique responses, zero retries, twelve
+strict passes and four precondition failures; all outputs were admitted.
+Fresh move passed 8/8. Restriction/merge passed all four shallow responses and
+failed all four deep responses, each requesting the restricted-map certificate
+before its prerequisite key-set facts. Shared and separate each scored 6/8
+across the two tasks; no general sharing advantage is established. Seven
+separate body pairs are exact copies and the eighth differs only by a binder
+rename. Failed workspaces have zero dependency-closed clients despite local
+client passes against unproved helper contracts. Full 819-file transfer evidence,
+812 model-file digests, 120 protected-file and 24 body-boundary comparisons are
+reviewed; all original 646 model files remain unchanged. Usage: 70,333 tokens.
+The sixteen-call budget is exhausted. Six of twelve development instances are
+implemented; remaining development collection and reserved-family lineage/
+evaluation gates remain open. This result does not certify held-out performance,
+minimum proof depth or a causal syntax/depth/sharing effect.
 
 ## November 12: fresh balanced map pilot frozen — no new calls
 

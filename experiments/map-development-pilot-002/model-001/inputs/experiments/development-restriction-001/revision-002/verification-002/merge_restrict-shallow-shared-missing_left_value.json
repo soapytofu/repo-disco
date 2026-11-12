@@ -1,0 +1,38 @@
+{
+  "task_id": "merge_restrict-shallow-shared",
+  "variant": "missing_left_value",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+    "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+    "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+    "HelperA.dfy": "dc97533d9de07a25d3fa7d990ce04fd99d5290e1162653e6a927f6ff7afdffd3",
+    "HelperB.dfy": "a6b9bd8cde6b9b68fbcb350a3d2dfffb797f2e1a4cae2fa4c971611a1e70fa39",
+    "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+    "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+    "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(22,18): Error: a precondition for this call could not be proved\n   |\n22 |     A.ObserveMerge(rm,rn);\n   |                   ^\n\nApi.dfy(7,13): Related location: this is the precondition that could not be proved\n  |\n7 |     requires forall q :: q in m ==> q !in n\n  |              ^^^^^^\n\nHelperA.dfy(23,4): Error: assertion might not hold\n   |\n23 |     assert left.Keys == right.Keys;\n   |     ^^^^^^\n\nHelperA.dfy(24,55): Error: possible violation of postcondition of forall statement\n   |\n24 |     forall q | q in left ensures q in right && left[q] == right[q] {\n   |                                                        ^^\n\n\nDafny program verifier finished with 19 verified, 3 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.56330529297702,
+  "model_calls": 0,
+  "attempts": 1
+}

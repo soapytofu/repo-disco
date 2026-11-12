@@ -1,0 +1,226 @@
+{
+  "job_id": "60035863",
+  "new_model_calls": 0,
+  "cases": [
+    {
+      "case_id": "shared_reference",
+      "source_sha256": {
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "HelperA.dfy": "293148838c4e04d6e8d15c242a1d34d646b111967ed863670ae0a5f902b78cdf",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperB.dfy": "65f68b0b2711d881e8059b15f7d8af3999caac2ab78e8709172feee0e410c703",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "raw_evidence": "verification-001/shared_reference.json",
+      "strict_workspace_success": true,
+      "logger_rows": 14,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "shared_empty",
+      "source_sha256": {
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "HelperA.dfy": "9207e36fec516441efc1dfe788c1fea1ba4337b6721128df6072c0dc389a6983",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperB.dfy": "65f68b0b2711d881e8059b15f7d8af3999caac2ab78e8709172feee0e410c703",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "raw_evidence": "verification-001/shared_empty.json",
+      "strict_workspace_success": false,
+      "logger_rows": 14,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "separate_A_only",
+      "source_sha256": {
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "HelperA.dfy": "293148838c4e04d6e8d15c242a1d34d646b111967ed863670ae0a5f902b78cdf",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperB.dfy": "a19bbdb04daf9b5e1dc5c6f07f59db5b7bcb4d3d9d9ac5217d58c2e4bcb3ff23",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "raw_evidence": "verification-001/separate_A_only.json",
+      "strict_workspace_success": false,
+      "logger_rows": 14,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": false
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": false,
+        "HelperA.Prove": true,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 1,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "separate_B_only",
+      "source_sha256": {
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "HelperA.dfy": "9207e36fec516441efc1dfe788c1fea1ba4337b6721128df6072c0dc389a6983",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperB.dfy": "b060ea1d1f2f8308b07408f627fb97bab87d62579ec51c2ebdba261467d42206",
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201"
+      },
+      "raw_evidence": "verification-001/separate_B_only.json",
+      "strict_workspace_success": false,
+      "logger_rows": 14,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 1,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    }
+  ],
+  "restriction_compatibility": {
+    "job_id": "60038131",
+    "strict_workspace_success": true,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+      "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+      "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+      "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+      "HelperB.dfy": "a6b9bd8cde6b9b68fbcb350a3d2dfffb797f2e1a4cae2fa4c971611a1e70fa39",
+      "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8",
+      "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+      "HelperA.dfy": "ab0f7b0eff56fdd2eee978bd1f559108c5518bbb04cf80ca0a9366c94fdbde7e"
+    },
+    "evidence": "restriction-001/verification-001/restriction_reference.json",
+    "logger_rows": 20,
+    "local_targets": {
+      "ClientA.Target": true,
+      "ClientB.Target": true,
+      "HelperA.Prove": true,
+      "HelperB.Prove": true
+    },
+    "dependency_closed_targets": {
+      "ClientA.Target": true,
+      "ClientB.Target": true,
+      "HelperA.Prove": true,
+      "HelperB.Prove": true
+    },
+    "supplied_providers_verified": true,
+    "editable_local": {
+      "passed": 1,
+      "total": 1
+    },
+    "supplied_clients_local": {
+      "passed": 2,
+      "total": 2
+    },
+    "supplied_clients_closed": {
+      "passed": 2,
+      "total": 2
+    },
+    "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+  },
+  "manifest_sha256": "a7cf3db43762a1f3263f4eeffe968468f916494def28aea633407e3ed573dbd8",
+  "analyst_controls": true,
+  "original_model_scores_unchanged": true,
+  "analysis_code_sha256": "9d139aa959b4d5005fb67a0eab18f6c1bb35c5e67ce36a54973b0eb2dad8c323",
+  "limitation": "Diagnostic of measurement on supplied analyst states; not evidence of model local-to-global performance"
+}

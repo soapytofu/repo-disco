@@ -35,11 +35,15 @@ not model scores. Six other M1/M2 tasks and both reserved families remain
 unimplemented. The approved [initial map cohort](../experiments/map-development-pilot-001/RESULTS.md)
 stopped after ten dispatches, nine responses and six strict passes, with no retry.
 Its six undispatched slots are not reassigned. The [fresh balanced proposal](../experiments/map-development-plan-002/README.md)
-now freezes sixteen NEW syntax-clarified requests, with unchanged tasks, guards,
-settings and relative cell order. Eleven offline tests pass; no calls are
-authorized. The remaining six development instances still require 48 calls,
+froze sixteen NEW syntax-clarified requests, with unchanged tasks, guards,
+settings and relative cell order. Its subsequently approved
+[fresh pilot](../experiments/map-development-pilot-002/RESULTS.md) is now complete:
+16/16 outputs admitted, 12 strict passes, four certificate-precondition failures,
+zero retries. Fresh move is 8/8; restriction/merge is 4/8 (shallow 4/4, deep 0/4).
+The original interrupted cohort remains separate. The remaining six development
+instances still require 48 proposed calls,
 and the reserved families another 48. The updated attempted-request forecast
-is **32 completed + 10 interrupted + 16 fresh proposed + 48 development + 48
+is **32 completed + 10 interrupted + 16 fresh completed + 48 development + 48
 reserved = 154**, if all remaining stages are later approved and dispatched.
 The original 144-call table below is retained as historical planning, not a
 current spending cap or an authorization. No before/after causal prompt effect
