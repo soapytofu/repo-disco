@@ -1,7 +1,13 @@
 # Fresh-key move composition — D4-M1 development task
 
-Prepared November 11, 2026. **Constructed and tested offline; Dafny verification
-pending authenticated Cannon access. No job submitted and zero model calls.**
+Prepared November 11, 2026; completed November 12. **All 38 expected outcomes
+matched.** Core job 60032605 passed 8/8: all four references strictly verify 14
+obligations, zero errors/warnings; the four empty-body cases fail only the
+intended helper postconditions. Full archived source hashes and diagnostics were
+reviewed. The distinct 30 negative controls passed their expected categories on
+job 60033595: 26 proof failures and four hidden-export resolution failures. Both
+runs used nonpreemptible test with no requeue. Zero model calls. See
+[results and limitations](RESULTS.md).
 
 This implements the map M1 instance in the existing
 [family split plan](../../docs/corpus-family-split-plan.md). It stays in the map
@@ -102,6 +108,6 @@ core`, `fetch core`, then offline `review.py verification-001`. Only after revie
 that evidence may `ops.py gate` and `submit negatives` be used, followed by the
 corresponding fetch/review. The commands do not authorize model execution.
 
-Current missing evidence: actual provider/reference verification, negative
-diagnostics, and runtime/compute accounting. No measured model performance or
+Both reviewed phase archives include exact inputs, compute accounting and raw
+diagnostics. There is no measured model performance or
 minimum-depth, causal-sharing, or held-out claim follows from this construction.

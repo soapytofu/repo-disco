@@ -1,8 +1,10 @@
 # Experiment log
 
-## Fresh-key move composition — offline checks complete, compute pending
+## Fresh-key move composition — all 38 verifier expectations matched
 
-[development-moves-001](development-moves-001/README.md): D4-M1 adds changing-domain/value-history reasoning in four matched workspaces. Eight offline tests pass, including 288 finite cases and exact guarded reconstruction of 34 semantic controls. Thirty-eight Dafny checks are prepared (4 reference passes, 30 proof failures, 4 hidden-export failures); none has run yet. Compute verification awaits the new authenticated Cannon socket. No model calls or frozen model pilot; prior results are unchanged.
+[development-moves-001](development-moves-001/RESULTS.md): D4-M1 adds changing-domain/value-history reasoning in four matched workspaces. Jobs 60032605/60033595 matched all 38 expectations: four strict reference passes, 30 proof failures and four hidden-export failures, with no warnings or parse errors. Eight offline methods passed locally and on Cannon; full exact-source/runtime/scheduler logs are archived. No model calls or frozen model pilot; prior results are unchanged.
+
+[development-restriction-001](development-restriction-001/README.md) constructs D4-M2 restriction over disjoint merge. The first core job 60033315 failed all eight cases before proof checking because the map comprehension lacked a syntactically inferable finite domain. Its original inputs and complete failure evidence are preserved; this version is not validated. A separate explicit-domain correction is planned.
 
 ## Separate map-swap/parser diagnostics — complete, zero model calls
 
