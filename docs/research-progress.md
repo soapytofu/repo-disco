@@ -10,6 +10,19 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 12: prerequisite reorder confirmed on all four fresh failures
+
+[map-order-diagnostic-002](../experiments/map-order-diagnostic-002/RESULTS.md)
+completed verifier-only job 60085443 in 44 seconds. Moving only the existing
+restricted-map certificate after its two existing key-set facts makes all four
+failed deep workspaces strictly verify 20 obligations with zero errors/warnings.
+Four parent-linked checks cover two unique repaired workspace contents; six
+helper bodies changed only in call order. All 812 original model files and the
+original structured score remain unchanged at **12/16**. The successful analyst
+edit confirms sufficiency of prerequisite ordering for these saved failures,
+without a new model success, minimality or general causal claim. No model calls.
+Full separate sources, raw logs, parent evidence and preservation review are saved.
+
 ## November 12: fresh balanced map pilot completed — 12/16
 
 [map-development-pilot-002](../experiments/map-development-pilot-002/RESULTS.md)

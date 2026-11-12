@@ -40,8 +40,12 @@ settings and relative cell order. Its subsequently approved
 [fresh pilot](../experiments/map-development-pilot-002/RESULTS.md) is now complete:
 16/16 outputs admitted, 12 strict passes, four certificate-precondition failures,
 zero retries. Fresh move is 8/8; restriction/merge is 4/8 (shallow 4/4, deep 0/4).
-The original interrupted cohort remains separate. The remaining six development
-instances still require 48 proposed calls,
+The original interrupted cohort remains separate. A subsequent
+[verifier-only diagnostic](../experiments/map-order-diagnostic-002/RESULTS.md)
+confirms that moving the existing certificate after its prerequisite key-set
+facts repairs all four fresh failures (two unique source workspaces), with no
+other edits and no model calls. The original model score remains 12/16.
+The remaining six development instances still require 48 proposed calls,
 and the reserved families another 48. The updated attempted-request forecast
 is **32 completed + 10 interrupted + 16 fresh completed + 48 development + 48
 reserved = 154**, if all remaining stages are later approved and dispatched.

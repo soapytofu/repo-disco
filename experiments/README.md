@@ -1,5 +1,15 @@
 # Experiment log
 
+## Fresh-pilot call-order diagnostic — four strict successes, zero model calls
+
+[map-order-diagnostic-002](map-order-diagnostic-002/RESULTS.md): moving only the
+existing certificate call after both prerequisite key-set facts repairs all four
+deep restriction/merge failures from the fresh pilot. Job 60085443 verifies 20
+obligations, zero errors/warnings per workspace. These are four analyst checks
+of two unique repaired workspace contents, not new model successes. All 812
+original model files and score **12/16** are unchanged; full sources, CSV, verifier
+and scheduler logs are archived separately.
+
 ## Fresh balanced map pilot — complete, 12/16 strict passes
 
 [map-development-pilot-002](map-development-pilot-002/RESULTS.md): job 60073401

@@ -1,6 +1,6 @@
 # Fresh-pilot prerequisite-order diagnostic
 
-November 12, 2026. **Verifier-only analyst diagnostic; zero new model calls.** The original [fresh map pilot](../map-development-pilot-002/RESULTS.md) remains **12/16 strict passes**. This separate experiment tests whether reordering existing calls is sufficient to repair its four deep restriction/merge failures. Verification results are pending.
+November 12, 2026. **Verifier-only analyst diagnostic; zero new model calls.** The original [fresh map pilot](../map-development-pilot-002/RESULTS.md) remains **12/16 strict passes**. This separate experiment tests whether reordering existing calls is sufficient to repair its four deep restriction/merge failures. Job **60085443** completed in 44 seconds: **all four reordered workspaces strictly verify 20 obligations with zero errors/warnings**. [Full results and logs](RESULTS.md).
 
 ## Exact scope
 
@@ -23,8 +23,8 @@ The two shared candidates are byte-identical, as are the two separate candidates
 `84ddfb4499af4dfd7555ed0c07c0f4aa2e324162574833cced59466dac127ced`.
 [provenance.json](provenance.json) binds source commit `f91576c95e0420d000efa013ff0a75d05b501479`, original results and the complete original model-file inventory. The verifier wrapper preserves UTF-8 CSV bytes, including line endings.
 
-The job is prepared for nonpreemptible `test`, two CPUs, 8 GB, fifteen minutes, no requeue. Submission checks live partition status and exclusive output/submission locks; no duplicate or automatic retry is allowed. Dafny runs only on a compute node, verifies all includes and has a sixty-second timeout per candidate. No API client, connectivity check or credential handoff is involved.
+The job ran once on live-confirmed nonpreemptible `test`, two CPUs, 8 GB, a fifteen-minute limit and no requeue. [The submission record](submission-core.json) captures the partition state and exclusive job. Submission checks live partition status and exclusive output/submission locks; no duplicate or automatic retry is allowed. Dafny runs only on a compute node, verifies all includes and has a sixty-second timeout per candidate. No API client, connectivity check or credential handoff is involved.
 
 The offline reviewer checks exact source/runtime hashes, four strict exit-zero results with 20 verified obligations each and no warnings/errors, raw CSV digests, byte-identical parent inputs and preservation of every original model-archive file. Unexpected outcomes must be archived before a deliberate correction.
 
-Success would establish sufficiency of this analyst reorder on the four saved responses, not a new model success, minimal repair, necessary proof-depth bound or general causal sharing effect. No rescoring or promotion into the original pilot occurs. Full source, verification and scheduler evidence will be published separately here.
+The confirmed success establishes sufficiency of this analyst reorder on the four saved responses, not a new model success, minimal repair, necessary proof-depth bound or general causal sharing effect. No rescoring or promotion into the original pilot occurs. Full source, verification and scheduler evidence is published separately here. All 812 original model files and the original score hash are unchanged.
