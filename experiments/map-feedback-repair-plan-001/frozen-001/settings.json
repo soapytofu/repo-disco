@@ -1,0 +1,95 @@
+{
+  "study": "map-feedback-repair-plan-001",
+  "status": "FROZEN_PROPOSAL_NOT_AUTHORIZED",
+  "execution_authorized": false,
+  "source_commit": "5fb3be95cfb41c55a0dfcbc8a9713039baccc5a6",
+  "parent_pilot": "map-development-pilot-002",
+  "diagnostic": "map-order-diagnostic-002",
+  "parent_trials": [
+    "map-balanced-04",
+    "map-balanced-08",
+    "map-balanced-09",
+    "map-balanced-11"
+  ],
+  "semantic_instance": "merge_restrict",
+  "depth": "deep",
+  "split": "failure_selected_development_repair",
+  "unique_base_workspaces": 2,
+  "feedback_conditions": [
+    "verifier_diagnostics",
+    "failure_notice_only"
+  ],
+  "proposed_calls": 8,
+  "max_calls_per_trial": 1,
+  "max_output_tokens_total": 32768,
+  "samples_per_sharing_feedback_cell": 2,
+  "fresh_context_per_request": true,
+  "feedback_after_repair": false,
+  "automatic_retries": false,
+  "sdk_total_max_attempts": 1,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "inference_config": {
+    "temperature": 1.0,
+    "maxTokens": 4096
+  },
+  "verifier": {
+    "entry": "All.dfy",
+    "include_all_files": true,
+    "toolchain": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit",
+    "timeout_seconds": 60,
+    "success_exit_code": 0
+  },
+  "order": [
+    [
+      "map-balanced-04",
+      "verifier_diagnostics"
+    ],
+    [
+      "map-balanced-08",
+      "failure_notice_only"
+    ],
+    [
+      "map-balanced-04",
+      "failure_notice_only"
+    ],
+    [
+      "map-balanced-08",
+      "verifier_diagnostics"
+    ],
+    [
+      "map-balanced-11",
+      "verifier_diagnostics"
+    ],
+    [
+      "map-balanced-09",
+      "failure_notice_only"
+    ],
+    [
+      "map-balanced-11",
+      "failure_notice_only"
+    ],
+    [
+      "map-balanced-09",
+      "verifier_diagnostics"
+    ]
+  ],
+  "primary": "Guard-admitted whole-workspace strict verification: exit zero, nonzero obligations, zero errors and warnings",
+  "secondary": [
+    "Named editable-helper completion",
+    "Dependency-closed supplied clients",
+    "Failure category",
+    "Body-edit classification: reorder only versus other proof edits",
+    "Tokens and copied separate bodies"
+  ],
+  "agent_scope": "One model-driven repair round from the fixed failing revision, then guarded whole-workspace verification; fresh isolated store per trial; promote only strict success. This is not a multi-round autonomous-agent evaluation.",
+  "feedback_policy": "Both arms receive identical failing source, contracts, declared include/import map, output syntax and failure notice. Only verifier_diagnostics receives the original exit code/stdout/stderr; remove the incidental CSV Results File line only. No analyst advice or corrected proof is supplied.",
+  "old_score_unchanged": "12/16 strict passes",
+  "automatic_model_calls_during_preparation": 0,
+  "future_gate": "Separate explicit eight-call approval and a tested bounded runner binding this exact freeze; one fixed request per trial, no response reuse or feedback updates. Validate logged-verifier/agent promotion compatibility with fake transport before dispatch.",
+  "budget_accounting": "Eight NEW supplemental repair requests, not reused old slots or the remaining development/held-out collection budget.",
+  "interpretation": "One selected failure mode in one inspected map task; two unique workspaces. Paired condition counts are descriptive, not general causal or held-out performance evidence."
+}

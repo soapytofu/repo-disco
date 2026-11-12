@@ -1,5 +1,15 @@
 # Experiment log
 
+## Verifier-feedback repair pilot — eight calls proposed, none authorized
+
+[map-feedback-repair-plan-001](map-feedback-repair-plan-001/README.md) freezes four
+unique payloads and eight one-call trials: detailed verifier feedback versus a
+matched failure-notice control, shared/separate, two fresh responses per cell.
+Four saved failures contain two distinct workspaces. Both arms see the same
+failing source; neither receives analyst repair advice. Eight offline tests pass,
+including exact repaired-source replay and feedback-only prompt differences. No
+model calls, verifier jobs or execution authorization; original score stays 12/16.
+
 ## Fresh-pilot call-order diagnostic — four strict successes, zero model calls
 
 [map-order-diagnostic-002](map-order-diagnostic-002/RESULTS.md): moving only the

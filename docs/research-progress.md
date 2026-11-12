@@ -10,6 +10,21 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 12: feedback repair comparison frozen — eight calls proposed
+
+[map-feedback-repair-plan-001](../experiments/map-feedback-repair-plan-001/README.md)
+freezes eight one-call repair/control trials over the saved deep failures. Four
+attempts receive exact verifier diagnostics (only the incidental CSV path removed);
+four receive only the shared failure notice. Source, contracts, allowed syntax,
+settings and all other context match. The four parent records contain two unique
+workspaces, with two responses per sharing × feedback cell. The second half
+reverses the first condition order. Eight offline tests pass, including exact
+base/analyst-repair reconstruction and preservation of all 812 original model
+files. No model calls, new verifier checks or execution authorization. A tested
+bounded agent adapter and separate approval are needed before the proposed eight
+new requests. This is selected-failure repair feasibility, not held-out or general
+causal evidence, and cannot change the original generation score of 12/16.
+
 ## November 12: prerequisite reorder confirmed on all four fresh failures
 
 [map-order-diagnostic-002](../experiments/map-order-diagnostic-002/RESULTS.md)

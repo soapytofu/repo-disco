@@ -50,7 +50,13 @@ and the reserved families another 48. The updated attempted-request forecast
 is **32 completed + 10 interrupted + 16 fresh completed + 48 development + 48
 reserved = 154**, if all remaining stages are later approved and dispatched.
 The original 144-call table below is retained as historical planning, not a
-current spending cap or an authorization. No before/after causal prompt effect
+current spending cap or an authorization.
+A separate [repair-feedback proposal](../experiments/map-feedback-repair-plan-001/README.md)
+adds eight unapproved one-call trials (four detailed-feedback and four
+failure-notice controls) on the saved failures. This is supplemental repair
+evaluation, not new matched-corpus instances; if retained, it raises the
+all-stages attempted-request forecast from 154 to 162. No new model calls were
+made for that freeze, and its selected failures remain development material. No before/after causal prompt effect
 is inferred from the separate incomplete and fresh cohorts.
 
 ## Recommendation
