@@ -6,9 +6,24 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. Development collection and reserved-family evaluation remain unapproved; matching, collection and lineage gates remain. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map collection stopped after ten dispatches; a fresh balanced sixteen-call syntax-clarified proposal is frozen but unapproved. Other collection and reserved-family evaluation gates remain. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 12: fresh balanced map pilot frozen — no new calls
+
+[map-development-plan-002](../experiments/map-development-plan-002/README.md)
+proposes **16 new requests**: two map instances × four structural cells × two
+fresh responses. Eight exact payloads, sixteen fresh trial IDs, balanced relative
+cell positions and all settings are frozen. Instructions explicitly require one
+`ensures` per `forall` proof statement and `&&` for multiple conditions; task
+sources, parser, metrics and semantic context are unchanged. Eleven offline test
+methods pass, including a syntax-only delta audit and all nine saved-response
+replays; all 646 old archive files are preserved. No old slots are reassigned,
+no new calls are authorized, and no live runner is prepared. This is development
+calibration, not held-out evaluation or a causal prompt-effect experiment. With
+other corpus stages unchanged, the attempted-request forecast is now 154,
+including ten prior interrupted dispatches; this is not a new budget approval.
 
 ## November 12: map development collection interrupted; mechanism evidence saved
 
@@ -21,7 +36,7 @@ certificate before supplying its key-set facts. The incomplete cohort cannot
 supply a completed balanced rate or general causal comparison. All raw logs and
 fixed-contract audits are preserved. No partial editable-helper success was
 observed; supplied-client local verification is explicitly excluded from model
-credit. A separate verifier-only diagnostic will examine the ordering issue.
+credit. A separate verifier-only diagnostic examines the ordering issue (completed below).
 
 That [four-case diagnostic](../experiments/map-order-diagnostic-001/RESULTS.md)
 is now complete: job 60066865 matched all four expectations in 24 seconds.

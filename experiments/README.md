@@ -1,5 +1,14 @@
 # Experiment log
 
+## Fresh balanced map pilot — proposed sixteen new calls
+
+[map-development-plan-002](map-development-plan-002/README.md) freezes eight
+exact syntax-clarified payloads and sixteen fresh balanced trial slots. One
+`ensures` per `forall` proof block is explicit; tasks, parser and semantic context
+are unchanged. Eleven offline tests pass, including nine exact saved-response
+replays and preservation of 646 original archive files. No model calls or new
+execution authorization; prior interrupted results remain separate.
+
 ## Map collection stopped safely on provider error
 
 [map-development-pilot-001](map-development-pilot-001/RESULTS.md): ten of sixteen
@@ -15,17 +24,18 @@ Moving only the existing call after its prerequisite facts suffices. Four offlin
 tests pass locally and on Cannon; all original model scores and 646 archive files
 are preserved. No new model calls or rescoring.
 
-## Prospective two-operation map follow-up
+## Historical initial two-operation map freeze
 
 [map-development-plan-001](map-development-plan-001/README.md) freezes eight exact
 requests and 16 balanced slots for fresh move and restriction/merge, with 76
 reviewed controls and target-level measurement evidence. Seven offline tests pass.
-**No execution authorization or model calls.**
+The freeze recorded no authorization at preparation; its later approved partial
+execution is summarized above.
 
 [map-development-pilot-001](map-development-pilot-001/README.md) provides its
 bounded 16-request runner with 19 passing offline tests and a successful Cannon
-fake-transport environment preflight. Staged, awaiting new approval; no model job
-or credential access.
+fake-transport environment preflight. Its interrupted execution is closed; the
+new proposal has separate trial IDs and requires its own future runtime.
 
 ## Fresh-key move composition — all 38 verifier expectations matched
 

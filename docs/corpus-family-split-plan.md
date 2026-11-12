@@ -32,9 +32,18 @@ corrected version. A [five-case measurement diagnostic](../experiments/target-co
 validates named editable-target and dependency-closed client reporting without
 changing the strict whole-workspace criterion. These are verifier/analyst results,
 not model scores. Six other M1/M2 tasks and both reserved families remain
-unimplemented. The next prospective map cohort would use 16 of the proposed
-64 collection slots, leaving 48 collection and 48 reserved-family calls separate;
-none of those requests is currently authorized.
+unimplemented. The approved [initial map cohort](../experiments/map-development-pilot-001/RESULTS.md)
+stopped after ten dispatches, nine responses and six strict passes, with no retry.
+Its six undispatched slots are not reassigned. The [fresh balanced proposal](../experiments/map-development-plan-002/README.md)
+now freezes sixteen NEW syntax-clarified requests, with unchanged tasks, guards,
+settings and relative cell order. Eleven offline tests pass; no calls are
+authorized. The remaining six development instances still require 48 calls,
+and the reserved families another 48. The updated attempted-request forecast
+is **32 completed + 10 interrupted + 16 fresh proposed + 48 development + 48
+reserved = 154**, if all remaining stages are later approved and dispatched.
+The original 144-call table below is retained as historical planning, not a
+current spending cap or an authorization. No before/after causal prompt effect
+is inferred from the separate incomplete and fresh cohorts.
 
 ## Recommendation
 
@@ -44,8 +53,9 @@ four structural cells: shallow/shared, shallow/separate, deep/shared and
 deep/separate. These yield **72 monorepo workspace variants**. The proposed staged
 budget is **32 calibration + 64 development collection + 48 reserved-family test =
 144 new calls for one model**, with two independent responses per variant.
-Every paid stage needs its own later scope approval. Today's work is a zero-call
-proposal and split review; there is no dispatcher or execution-ready prompt freeze.
+Every paid stage needs its own scope approval. This paragraph records the
+original proposal; the dated checkpoints above describe completed collection
+and the current syntax-clarified freeze.
 
 The aim is broader obligations, not an arbitrary target failure rate. Keep easy
 contrasts and publish ceilings/floors. Do not create apparent diversity by changing
