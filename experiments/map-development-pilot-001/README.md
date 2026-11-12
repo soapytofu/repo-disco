@@ -1,10 +1,14 @@
-# Bounded map-development runner — awaiting approval
+# Bounded map-development pilot — submitted
 
 November 12, 2026. Prepared for the [frozen 16-call proposal](../map-development-plan-001/README.md).
-**No execution authorization, model submission, model output or credential access.**
+Sophie explicitly approved **16 new calls, no retries**, then reported the private
+key handoff ready. Job **60045391** was submitted once on live-confirmed
+nonpreemptible test at 18:48:58 UTC. Results are pending review.
 All 19 offline runner tests pass. Cannon's real environment preflight also passes
 with fake transport and a fake verifier: zero API requests and zero Dafny runs.
 The existing authenticated socket 14 worked; no reconnection was needed.
+[authorization.json](authorization.json) binds the exact scope and deadline;
+[submission.json](submission.json) records the live partition and exclusive job.
 
 ## Scope and pins
 
@@ -21,8 +25,8 @@ The existing authenticated socket 14 worked; no reconnection was needed.
   `~/formal-disco/outputs/map-development-pilot-001`.
 
 These calls would use 16 of the previously proposed 64 development-collection
-slots. Old budgets cannot be reused. The current task is ready for explicit
-scope approval, not already authorized by staging or testing.
+slots. Old budgets cannot be reused. Execution is authorized by the subsequent explicit human approval recorded
+here, not by staging or testing.
 
 ## Runtime behavior
 
@@ -38,7 +42,7 @@ only then consumes/deletes a private key handoff. It clears the process token at
 exit and never includes it in archives. The submission tool checks existing
 outputs/locks/jobs and live `test PreemptMode=OFF`, creates an exclusive lock and
 submits once. The prepared job requests two CPUs, 8 GB and one hour, no requeue.
-None of these execution operations has been invoked.
+The one authorized submission is recorded above; no alternate runner was launched.
 
 The verifier function is copied exactly from the measured logging diagnostic.
 The interpreter is a byte-identical copy of its reviewed source. All includes
