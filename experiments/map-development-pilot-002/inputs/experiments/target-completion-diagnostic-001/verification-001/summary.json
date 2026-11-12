@@ -1,0 +1,170 @@
+{
+  "model_calls": 0,
+  "planned": 4,
+  "completed": 4,
+  "all_expected": true,
+  "phase": "core",
+  "results": [
+    {
+      "case_id": "shared_reference",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\nResults File: /tmp/repodisco-targets-yjf8mkv2/TestResults/2026-11-12_13_19_22-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.4472975230310112,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "HelperB.dfy": "65f68b0b2711d881e8059b15f7d8af3999caac2ab78e8709172feee0e410c703",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperA.dfy": "293148838c4e04d6e8d15c242a1d34d646b111967ed863670ae0a5f902b78cdf"
+      },
+      "csv": {
+        "TestResults/2026-11-12_13_19_22-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Passed,00:00:00.0641712,52954,0\nKernel.Move (well-formedness),Passed,00:00:00.0582048,13058,0\nClientB.Target (correctness),Passed,00:00:00.0174875,16641,0\nOps2.MoveAt (well-formedness),Passed,00:00:00.0171972,14837,0\nClientB.Target (well-formedness),Passed,00:00:00.0164840,14106,0\nOps2.MoveKeys (correctness),Passed,00:00:00.0158294,26215,0\nApi.ObserveMove (correctness),Passed,00:00:00.0141378,29082,0\nApi.ObserveMove (well-formedness),Passed,00:00:00.0132191,23905,0\nOps2.MoveAt (correctness),Passed,00:00:00.0126678,21976,0\nOps1.Certify (correctness),Passed,00:00:00.0121580,11873,0\nHelperB.Prove (correctness),Passed,00:00:00.0113221,14762,0\nClientA.Target (correctness),Passed,00:00:00.0108666,14762,0\nApi.Equal (correctness),Passed,00:00:00.0105142,14713,0\nApi.Equal (well-formedness),Passed,00:00:00.0096101,11988,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-12_13_19_22-0.csv": "c16a70bb6b13d10de4dfabeb3432dd7816cfc19c6d69aeceddbd7fe891e09eb3"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "shared_empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(14,2): Error: a postcondition could not be proved on this return path\n   |\n14 |   {\n   |   ^\n\nHelperA.dfy(13,38): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures K.Move(K.Move(m,a,b),b,c) == K.Move(m,a,c)\n   |                                       ^^\n\n\nDafny program verifier finished with 13 verified, 1 error\nResults File: /tmp/repodisco-targets-66bj4xbg/TestResults/2026-11-12_13_19_24-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.2048579819966108,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "HelperB.dfy": "65f68b0b2711d881e8059b15f7d8af3999caac2ab78e8709172feee0e410c703",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperA.dfy": "9207e36fec516441efc1dfe788c1fea1ba4337b6721128df6072c0dc389a6983"
+      },
+      "csv": {
+        "TestResults/2026-11-12_13_19_24-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Move (well-formedness),Passed,00:00:00.0578812,13058,0\nHelperA.Prove (correctness),Failed,00:00:00.0469750,20094,0\nApi.ObserveMove (correctness),Passed,00:00:00.0186001,29082,0\nClientB.Target (correctness),Passed,00:00:00.0175403,16641,0\nOps2.MoveKeys (correctness),Passed,00:00:00.0160673,26215,0\nApi.ObserveMove (well-formedness),Passed,00:00:00.0139118,23905,0\nOps2.MoveAt (correctness),Passed,00:00:00.0124768,21976,0\nOps1.Certify (correctness),Passed,00:00:00.0124760,11873,0\nHelperB.Prove (correctness),Passed,00:00:00.0111931,14762,0\nClientA.Target (correctness),Passed,00:00:00.0109737,14762,0\nClientB.Target (well-formedness),Passed,00:00:00.0107173,14106,0\nOps2.MoveAt (well-formedness),Passed,00:00:00.0106673,14837,0\nApi.Equal (correctness),Passed,00:00:00.0102157,14713,0\nApi.Equal (well-formedness),Passed,00:00:00.0096293,11988,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-12_13_19_24-0.csv": "8fd5ca80389e7da87b84f40a1e81103c6beafb87fd5df851a3b609da5e3040d2"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "separate_A_only",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperB.dfy(14,2): Error: a postcondition could not be proved on this return path\n   |\n14 |   {\n   |   ^\n\nHelperB.dfy(13,38): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures K.Move(K.Move(m,a,b),b,c) == K.Move(m,a,c)\n   |                                       ^^\n\n\nDafny program verifier finished with 13 verified, 1 error\nResults File: /tmp/repodisco-targets-4jx587m9/TestResults/2026-11-12_13_19_26-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.3161269270349294,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "HelperB.dfy": "a19bbdb04daf9b5e1dc5c6f07f59db5b7bcb4d3d9d9ac5217d58c2e4bcb3ff23",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperA.dfy": "293148838c4e04d6e8d15c242a1d34d646b111967ed863670ae0a5f902b78cdf"
+      },
+      "csv": {
+        "TestResults/2026-11-12_13_19_26-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperB.Prove (correctness),Failed,00:00:00.0782011,20094,0\nKernel.Move (well-formedness),Passed,00:00:00.0582734,13058,0\nHelperA.Prove (correctness),Passed,00:00:00.0220596,52954,0\nOps2.MoveKeys (correctness),Passed,00:00:00.0218681,26215,0\nApi.ObserveMove (correctness),Passed,00:00:00.0213623,29082,0\nClientA.Target (correctness),Passed,00:00:00.0168761,14762,0\nOps2.MoveAt (well-formedness),Passed,00:00:00.0167538,14837,0\nApi.ObserveMove (well-formedness),Passed,00:00:00.0135212,23905,0\nOps1.Certify (correctness),Passed,00:00:00.0126747,11873,0\nOps2.MoveAt (correctness),Passed,00:00:00.0125648,21976,0\nClientB.Target (correctness),Passed,00:00:00.0110518,16641,0\nClientB.Target (well-formedness),Passed,00:00:00.0104272,14106,0\nApi.Equal (correctness),Passed,00:00:00.0103855,14713,0\nApi.Equal (well-formedness),Passed,00:00:00.0097633,11988,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-12_13_19_26-0.csv": "6466890053fc8e3c707d6a9a634a754253478c9fdb625171940898a8c3d1e252"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "separate_B_only",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(14,2): Error: a postcondition could not be proved on this return path\n   |\n14 |   {\n   |   ^\n\nHelperA.dfy(13,38): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures K.Move(K.Move(m,a,b),b,c) == K.Move(m,a,c)\n   |                                       ^^\n\n\nDafny program verifier finished with 13 verified, 1 error\nResults File: /tmp/repodisco-targets-gw38nvo2/TestResults/2026-11-12_13_19_29-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.330546349985525,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+        "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+        "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+        "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+        "HelperB.dfy": "b060ea1d1f2f8308b07408f627fb97bab87d62579ec51c2ebdba261467d42206",
+        "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce",
+        "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+        "HelperA.dfy": "9207e36fec516441efc1dfe788c1fea1ba4337b6721128df6072c0dc389a6983"
+      },
+      "csv": {
+        "TestResults/2026-11-12_13_19_29-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperB.Prove (correctness),Passed,00:00:00.0742974,52954,0\nKernel.Move (well-formedness),Passed,00:00:00.0739381,13058,0\nHelperA.Prove (correctness),Failed,00:00:00.0460801,20094,0\nOps1.Certify (correctness),Passed,00:00:00.0180294,11873,0\nOps2.MoveAt (well-formedness),Passed,00:00:00.0165904,14837,0\nOps2.MoveKeys (correctness),Passed,00:00:00.0159862,26215,0\nApi.ObserveMove (correctness),Passed,00:00:00.0144496,29082,0\nApi.ObserveMove (well-formedness),Passed,00:00:00.0139284,23905,0\nOps2.MoveAt (correctness),Passed,00:00:00.0123688,21976,0\nClientB.Target (correctness),Passed,00:00:00.0114772,16641,0\nClientA.Target (correctness),Passed,00:00:00.0108596,14762,0\nClientB.Target (well-formedness),Passed,00:00:00.0107798,14106,0\nApi.Equal (correctness),Passed,00:00:00.0104725,14713,0\nApi.Equal (well-formedness),Passed,00:00:00.0099354,11988,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-12_13_19_29-0.csv": "f8f4631fb5cdfb391f55f8c5468465bc7429b5af32f4611b5daf7c71045a3c06"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    }
+  ],
+  "claim": "Exit/logger check only; named-target review follows offline"
+}

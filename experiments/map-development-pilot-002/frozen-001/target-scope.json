@@ -1,0 +1,488 @@
+{
+  "tasks": {
+    "fresh_move-shallow-shared": {
+      "expected_units": {
+        "Kernel.Move": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MoveKeys": [
+          "correctness"
+        ],
+        "Ops2.MoveAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMove": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "fresh_move-shallow-separate": {
+      "expected_units": {
+        "Kernel.Move": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MoveKeys": [
+          "correctness"
+        ],
+        "Ops2.MoveAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMove": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "fresh_move-deep-shared": {
+      "expected_units": {
+        "Kernel.Move": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MoveKeys": [
+          "correctness"
+        ],
+        "Ops2.MoveAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMove": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "fresh_move-deep-separate": {
+      "expected_units": {
+        "Kernel.Move": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MoveKeys": [
+          "correctness"
+        ],
+        "Ops2.MoveAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMove": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "merge_restrict-shallow-shared": {
+      "expected_units": {
+        "Kernel.Merge": [
+          "well-formedness"
+        ],
+        "Kernel.Restrict": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MergeKeys": [
+          "correctness"
+        ],
+        "Ops2.MergeAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops2.RestrictKeys": [
+          "correctness"
+        ],
+        "Ops2.RestrictAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMerge": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveRestrict": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "merge_restrict-shallow-separate": {
+      "expected_units": {
+        "Kernel.Merge": [
+          "well-formedness"
+        ],
+        "Kernel.Restrict": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MergeKeys": [
+          "correctness"
+        ],
+        "Ops2.MergeAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops2.RestrictKeys": [
+          "correctness"
+        ],
+        "Ops2.RestrictAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMerge": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveRestrict": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "merge_restrict-deep-shared": {
+      "expected_units": {
+        "Kernel.Merge": [
+          "well-formedness"
+        ],
+        "Kernel.Restrict": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MergeKeys": [
+          "correctness"
+        ],
+        "Ops2.MergeAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops2.RestrictKeys": [
+          "correctness"
+        ],
+        "Ops2.RestrictAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMerge": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveRestrict": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    },
+    "merge_restrict-deep-separate": {
+      "expected_units": {
+        "Kernel.Merge": [
+          "well-formedness"
+        ],
+        "Kernel.Restrict": [
+          "well-formedness"
+        ],
+        "Ops1.Certify": [
+          "correctness"
+        ],
+        "Ops2.MergeKeys": [
+          "correctness"
+        ],
+        "Ops2.MergeAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops2.RestrictKeys": [
+          "correctness"
+        ],
+        "Ops2.RestrictAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveMerge": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.ObserveRestrict": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      }
+    }
+  },
+  "unit": "Named lemma contract, all obligations; never individual CSV rows or ensures clauses",
+  "supplied_clients_are_model_credit": false,
+  "provider_obligations_are_model_credit": false,
+  "missing_or_malformed_csv": "Measurement unavailable and execution review required; never infer target success",
+  "invalid_output": "Primary non-pass; no credited editable completion; per-declaration verification unavailable",
+  "primary": "Guard admission plus strict whole-workspace exit zero without warnings",
+  "diagnostic_report_sha256": "c4e4abf6cf4df1be0333165436dfa6ceb2e0e5b612be1d81775af93a07a062d3",
+  "interpretation_sha256": "9d139aa959b4d5005fb67a0eab18f6c1bb35c5e67ce36a54973b0eb2dad8c323"
+}

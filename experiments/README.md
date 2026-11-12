@@ -9,6 +9,11 @@ are unchanged. Eleven offline tests pass, including nine exact saved-response
 replays and preservation of 646 original archive files. No model calls or new
 execution authorization; prior interrupted results remain separate.
 
+Subsequent explicit approval is recorded in the separate
+[map-development-pilot-002 runtime](map-development-pilot-002/README.md). Its 20
+offline tests and Cannon fake-transport preflight pass; the exact frozen prompts
+and order are unchanged. Results and full logs will be recorded there.
+
 ## Map collection stopped safely on provider error
 
 [map-development-pilot-001](map-development-pilot-001/RESULTS.md): ten of sixteen
