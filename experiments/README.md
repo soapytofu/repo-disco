@@ -8,6 +8,11 @@ failures and one policy rejection. Request 10 raised ServiceUnavailableException
 no retries or replacement calls. Full raw logs, target metrics and protected-source
 audits are saved. This is an incomplete development cohort, not a balanced result.
 
+[map-order-diagnostic-001](map-order-diagnostic-001/README.md) stages four
+verifier-only analyst checks of the certificate-order explanation. Four offline
+tests pass; compute verification awaits SSH reconnection. No model calls or
+rescoring; no verifier results claimed yet.
+
 ## Prospective two-operation map follow-up
 
 [map-development-plan-001](map-development-plan-001/README.md) freezes eight exact

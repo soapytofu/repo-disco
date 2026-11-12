@@ -23,6 +23,13 @@ fixed-contract audits are preserved. No partial editable-helper success was
 observed; supplied-client local verification is explicitly excluded from model
 credit. A separate verifier-only diagnostic will examine the ordering issue.
 
+That [four-case diagnostic](../experiments/map-order-diagnostic-001/README.md)
+is prepared and passes four offline tests. It moves only the existing certificate
+call, and separately checks the originally policy-rejected response without
+changing its score. Sources are staged, but the SSH connection disappeared before
+remote preflight; no diagnostic job has been submitted. Its mathematical outcomes
+remain unmeasured until reconnection and compute verification.
+
 ## November 12: two map collection tasks and target-level measurement verified
 
 [Fresh-key move composition](../experiments/development-moves-001/RESULTS.md)

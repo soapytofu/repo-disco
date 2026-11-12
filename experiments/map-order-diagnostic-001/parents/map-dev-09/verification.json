@@ -1,0 +1,37 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(14,14): Error: a precondition for this call could not be proved\n   |\n14 |     O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));\n   |               ^\n\nOps1.dfy(7,13): Related location: this is the precondition that could not be proved\n  |\n7 |     requires forall q :: q in m ==> q !in n\n  |              ^^^^^^\n\n\nDafny program verifier finished with 19 verified, 1 error\nResults File: /tmp/repodisco-targets-q3old0zv/TestResults/2026-11-12_13_52_05-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.5993679771199822,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+    "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+    "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+    "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+    "HelperB.dfy": "a6b9bd8cde6b9b68fbcb350a3d2dfffb797f2e1a4cae2fa4c971611a1e70fa39",
+    "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8",
+    "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+    "HelperA.dfy": "122f6fe81c5877d9720d5e8683af3fa4071993f544626904b70b5b14dfb7f6e0"
+  },
+  "csv": {
+    "TestResults/2026-11-12_13_52_05-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Failed,00:00:00.0653082,110839,0\nKernel.Merge (well-formedness),Passed,00:00:00.0591343,17308,0\nApi.ObserveMerge (correctness),Passed,00:00:00.0240749,38476,0\nClientB.Target (correctness),Passed,00:00:00.0209290,22775,0\nApi.ObserveRestrict (correctness),Passed,00:00:00.0192532,21710,0\nApi.ObserveMerge (well-formedness),Passed,00:00:00.0189244,18005,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0188840,9696,0\nOps2.MergeAt (well-formedness),Passed,00:00:00.0169106,15689,0\nOps2.MergeKeys (correctness),Passed,00:00:00.0157487,25253,0\nClientA.Target (correctness),Passed,00:00:00.0124759,17762,0\nOps1.Certify (correctness),Passed,00:00:00.0123859,13021,0\nHelperB.Prove (correctness),Passed,00:00:00.0119529,17762,0\nClientB.Target (well-formedness),Passed,00:00:00.0118406,17334,0\nOps2.MergeAt (correctness),Passed,00:00:00.0114048,18498,0\nOps2.RestrictKeys (correctness),Passed,00:00:00.0113689,18812,0\nApi.ObserveRestrict (well-formedness),Passed,00:00:00.0105135,13032,0\nApi.Equal (correctness),Passed,00:00:00.0103593,14713,0\nOps2.RestrictAt (correctness),Passed,00:00:00.0102465,14947,0\nApi.Equal (well-formedness),Passed,00:00:00.0099924,11988,0\nOps2.RestrictAt (well-formedness),Passed,00:00:00.0096826,12133,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-12_13_52_05-0.csv": "dc0a5bb9bad56f2671a4d9172b21a9aa99488a65e99da96d03460fda34ab2291"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}
