@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.Certify(m, a, b);\\n    O2.MoveKeys(m, a, b);\\n    O1.Certify(K.Move(m, a, b), b, c);\\n    O2.MoveKeys(K.Move(m, a, b), b, c);\\n    O1.Certify(m, a, c);\\n    O2.MoveKeys(m, a, c);\\n    var left := K.Move(K.Move(m, a, b), b, c);\\n    var right := K.Move(m, a, c);\\n    assert left.Keys == (m.Keys - {a}) + {c};\\n    assert right.Keys == (m.Keys - {a}) + {c};\\n    forall q | q in left ensures q in right && left[q] == right[q] {\\n        if q == c {\\n            O2.MoveAt(K.Move(m, a, b), b, c, c);\\n            O2.MoveAt(m, a, b, b);\\n            O2.MoveAt(m, a, c, c);\\n            assert left[q] == m[a];\\n            assert right[q] == m[a];\\n        } else {\\n            assert q in m.Keys - {a};\\n            assert q != b;\\n            O2.MoveAt(m, a, b, q);\\n            O2.MoveAt(K.Move(m, a, b), b, c, q);\\n            O2.MoveAt(m, a, c, q);\\n            assert left[q] == m[q];\\n            assert right[q] == m[q];\\n        }\\n    }\\n    A.Equal(left, right);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.Certify(m, a, b);\\n    O2.MoveKeys(m, a, b);\\n    O1.Certify(K.Move(m, a, b), b, c);\\n    O2.MoveKeys(K.Move(m, a, b), b, c);\\n    O1.Certify(m, a, c);\\n    O2.MoveKeys(m, a, c);\\n    var left := K.Move(K.Move(m, a, b), b, c);\\n    var right := K.Move(m, a, c);\\n    assert left.Keys == (m.Keys - {a}) + {c};\\n    assert right.Keys == (m.Keys - {a}) + {c};\\n    forall q | q in left ensures q in right && left[q] == right[q] {\\n        if q == c {\\n            O2.MoveAt(K.Move(m, a, b), b, c, c);\\n            O2.MoveAt(m, a, b, b);\\n            O2.MoveAt(m, a, c, c);\\n            assert left[q] == m[a];\\n            assert right[q] == m[a];\\n        } else {\\n            assert q in m.Keys - {a};\\n            assert q != b;\\n            O2.MoveAt(m, a, b, q);\\n            O2.MoveAt(K.Move(m, a, b), b, c, q);\\n            O2.MoveAt(m, a, c, q);\\n            assert left[q] == m[q];\\n            assert right[q] == m[q];\\n        }\\n    }\\n    A.Equal(left, right);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3307,
+    "outputTokens": 457,
+    "totalTokens": 3764,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "90c4c084-f969-4870-b980-82e9d5a4c9bb",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "90c4c084-f969-4870-b980-82e9d5a4c9bb",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 18:51:24 GMT",
+        "content-type": "application/json",
+        "content-length": "1342",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "90c4c084-f969-4870-b980-82e9d5a4c9bb"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.Certify(m, a, b);\\n    O2.MoveKeys(m, a, b);\\n    O1.Certify(K.Move(m, a, b), b, c);\\n    O2.MoveKeys(K.Move(m, a, b), b, c);\\n    O1.Certify(m, a, c);\\n    O2.MoveKeys(m, a, c);\\n    var left := K.Move(K.Move(m, a, b), b, c);\\n    var right := K.Move(m, a, c);\\n    assert left.Keys == (m.Keys - {a}) + {c};\\n    assert right.Keys == (m.Keys - {a}) + {c};\\n    forall q | q in left ensures q in right && left[q] == right[q] {\\n        if q == c {\\n            O2.MoveAt(K.Move(m, a, b), b, c, c);\\n            O2.MoveAt(m, a, b, b);\\n            O2.MoveAt(m, a, c, c);\\n            assert left[q] == m[a];\\n            assert right[q] == m[a];\\n        } else {\\n            assert q in m.Keys - {a};\\n            assert q != b;\\n            O2.MoveAt(m, a, b, q);\\n            O2.MoveAt(K.Move(m, a, b), b, c, q);\\n            O2.MoveAt(m, a, c, q);\\n            assert left[q] == m[q];\\n            assert right[q] == m[q];\\n        }\\n    }\\n    A.Equal(left, right);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3307,
+      "outputTokens": 457,
+      "totalTokens": 3764,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6124
+    }
+  }
+}

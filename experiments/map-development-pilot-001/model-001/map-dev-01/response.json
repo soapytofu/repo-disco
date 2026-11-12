@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q0 :: q0 in m2 ==> q0 in m3 && m2[q0] == m3[q0];\\n    A.Equal(m2, m3);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q0 :: q0 in m2 ==> q0 in m3 && m2[q0] == m3[q0];\\n    A.Equal(m2, m3);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3287,
+    "outputTokens": 269,
+    "totalTokens": 3556,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "59334c11-2c04-42ff-89d3-6b6a069f884e",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "59334c11-2c04-42ff-89d3-6b6a069f884e",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 18:50:18 GMT",
+        "content-type": "application/json",
+        "content-length": "855",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "59334c11-2c04-42ff-89d3-6b6a069f884e"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q0 :: q0 in m2 ==> q0 in m3 && m2[q0] == m3[q0];\\n    A.Equal(m2, m3);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3287,
+      "outputTokens": 269,
+      "totalTokens": 3556,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4313
+    }
+  }
+}

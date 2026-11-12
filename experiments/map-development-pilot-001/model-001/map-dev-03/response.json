@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q :: q in m2 ==> q in m3 && m2[q] == m3[q];\\n    A.Equal(m2, m3);\", \"HelperB.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q :: q in m2 ==> q in m3 && m2[q] == m3[q];\\n    A.Equal(m2, m3);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q :: q in m2 ==> q in m3 && m2[q] == m3[q];\\n    A.Equal(m2, m3);\", \"HelperB.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q :: q in m2 ==> q in m3 && m2[q] == m3[q];\\n    A.Equal(m2, m3);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3404,
+    "outputTokens": 519,
+    "totalTokens": 3923,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "17a66dbc-9ff3-4fd0-82d2-201363f275c3",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "17a66dbc-9ff3-4fd0-82d2-201363f275c3",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 18:50:38 GMT",
+        "content-type": "application/json",
+        "content-length": "1382",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "17a66dbc-9ff3-4fd0-82d2-201363f275c3"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q :: q in m2 ==> q in m3 && m2[q] == m3[q];\\n    A.Equal(m2, m3);\", \"HelperB.dfy\": \"A.ObserveMove(m, a, b);\\n    var m1 := K.Move(m, a, b);\\n    assert m1.Keys == (m.Keys - {a}) + {b};\\n    assert b in m1;\\n    assert c !in m1;\\n    assert b != c;\\n    A.ObserveMove(m1, b, c);\\n    var m2 := K.Move(m1, b, c);\\n    assert m2.Keys == (m1.Keys - {b}) + {c};\\n    A.ObserveMove(m, a, c);\\n    var m3 := K.Move(m, a, c);\\n    assert m3.Keys == (m.Keys - {a}) + {c};\\n    assert m2.Keys == m3.Keys;\\n    assert forall q :: q in m2 ==> q in m3 && m2[q] == m3[q];\\n    A.Equal(m2, m3);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3404,
+      "outputTokens": 519,
+      "totalTokens": 3923,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6135
+    }
+  }
+}

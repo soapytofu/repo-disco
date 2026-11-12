@@ -10,6 +10,19 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 12: map development collection interrupted; mechanism evidence saved
+
+The subsequently approved [16-call follow-up](../experiments/map-development-pilot-001/RESULTS.md)
+stopped on a service-unavailable error at dispatch 10, with no retry. Nine unique
+responses returned: six strict passes, two precondition failures and one policy
+rejection. Six slots remain undispatched. Fresh move is 4/4 among returned cells;
+restriction/merge is 2/5, with deep proofs requesting a restricted-domain
+certificate before supplying its key-set facts. The incomplete cohort cannot
+supply a completed balanced rate or general causal comparison. All raw logs and
+fixed-contract audits are preserved. No partial editable-helper success was
+observed; supplied-client local verification is explicitly excluded from model
+credit. A separate verifier-only diagnostic will examine the ordering issue.
+
 ## November 12: two map collection tasks and target-level measurement verified
 
 [Fresh-key move composition](../experiments/development-moves-001/RESULTS.md)
@@ -41,11 +54,10 @@ The [prospective 16-call map plan](../experiments/map-development-plan-001/READM
 now freezes both instances × four structural cells × two fresh samples. Seven
 offline tests pass, including exact regeneration and target-scope checks. These
 would be the first 16 of the proposed 64 development-collection calls. None is
-authorized or dispatched. The [bounded runtime](../experiments/map-development-pilot-001/README.md)
+authorized or dispatched at the proposal freeze. The [bounded runtime](../experiments/map-development-pilot-001/README.md)
 now passes 19 fake-transport/verifier tests and Cannon's offline environment
-preflight, and is staged without authorization or a model job. New paid approval
-and a private key handoff remain execution gates. The original model results
-remain unchanged.
+preflight. Subsequent explicit approval and execution are recorded in the entry
+above; this historical proposal freeze and earlier model scores remain unchanged.
 
 ## November 10: varied calibration model pilot completed
 

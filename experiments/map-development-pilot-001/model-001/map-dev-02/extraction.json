@@ -1,0 +1,385 @@
+{
+  "accepted": true,
+  "envelope": {
+    "version": "single-json-envelope-v1",
+    "start_char": 0,
+    "end_char": 624,
+    "raw_sha256": "28f26f8b91b2160e8753b4c6039568a8ee617bfbb9c2f91c0792355f51955952",
+    "payload_sha256": "28f26f8b91b2160e8753b4c6039568a8ee617bfbb9c2f91c0792355f51955952"
+  },
+  "body_guard": {
+    "version": "merge-restriction-development-body-v1",
+    "wrapper": "plain JSON",
+    "parent_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+      "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+      "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+      "HelperA.dfy": "235f645da656fbb28213f08eeae7acc766d647831ef957bae64709b8385d34db",
+      "HelperB.dfy": "43fb113bb06dd398003142b12e88d299c24ccdddab72b07db3368e7ae2434a6b",
+      "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+      "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+      "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8"
+    },
+    "candidate_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+      "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+      "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+      "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+      "HelperB.dfy": "d942bb7114f94253aca7647876d08012441cc573bc6b0fdc69bed61c7cdbace3",
+      "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8",
+      "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+      "HelperA.dfy": "2b616eb3074befdae5cc3316faa31b164782451c00ded3d9948f0875c78afa73"
+    },
+    "bodies": {
+      "HelperA.dfy": {
+        "prefix_sha256": "dae012a4372dc5e3737d22e0456ab6854ef7a203d0fc7c8ed2ebffcc500b13c9",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "40e181cf3bd84a60ca5f383b48fadf580e27273a575c2d5ea23b5ab5915ac697",
+        "syntax": [
+          [
+            "call",
+            "A.ObserveMerge",
+            [
+              [
+                "variable",
+                "m"
+              ],
+              [
+                "variable",
+                "n"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveRestrict",
+            [
+              [
+                "pure",
+                "K.Merge",
+                [
+                  [
+                    "variable",
+                    "m"
+                  ],
+                  [
+                    "variable",
+                    "n"
+                  ]
+                ]
+              ],
+              [
+                "variable",
+                "keep"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveRestrict",
+            [
+              [
+                "variable",
+                "m"
+              ],
+              [
+                "variable",
+                "keep"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveRestrict",
+            [
+              [
+                "variable",
+                "n"
+              ],
+              [
+                "variable",
+                "keep"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveMerge",
+            [
+              [
+                "pure",
+                "K.Restrict",
+                [
+                  [
+                    "variable",
+                    "m"
+                  ],
+                  [
+                    "variable",
+                    "keep"
+                  ]
+                ]
+              ],
+              [
+                "pure",
+                "K.Restrict",
+                [
+                  [
+                    "variable",
+                    "n"
+                  ],
+                  [
+                    "variable",
+                    "keep"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.Equal",
+            [
+              [
+                "pure",
+                "K.Restrict",
+                [
+                  [
+                    "pure",
+                    "K.Merge",
+                    [
+                      [
+                        "variable",
+                        "m"
+                      ],
+                      [
+                        "variable",
+                        "n"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "keep"
+                  ]
+                ]
+              ],
+              [
+                "pure",
+                "K.Merge",
+                [
+                  [
+                    "pure",
+                    "K.Restrict",
+                    [
+                      [
+                        "variable",
+                        "m"
+                      ],
+                      [
+                        "variable",
+                        "keep"
+                      ]
+                    ]
+                  ],
+                  [
+                    "pure",
+                    "K.Restrict",
+                    [
+                      [
+                        "variable",
+                        "n"
+                      ],
+                      [
+                        "variable",
+                        "keep"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "tokens": 110,
+        "statements": 6
+      },
+      "HelperB.dfy": {
+        "prefix_sha256": "6a2b4ecbbd1c9f922b92fa9f73a5566e280182026625a90e599bf96fc5904a67",
+        "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+        "body_sha256": "40e181cf3bd84a60ca5f383b48fadf580e27273a575c2d5ea23b5ab5915ac697",
+        "syntax": [
+          [
+            "call",
+            "A.ObserveMerge",
+            [
+              [
+                "variable",
+                "m"
+              ],
+              [
+                "variable",
+                "n"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveRestrict",
+            [
+              [
+                "pure",
+                "K.Merge",
+                [
+                  [
+                    "variable",
+                    "m"
+                  ],
+                  [
+                    "variable",
+                    "n"
+                  ]
+                ]
+              ],
+              [
+                "variable",
+                "keep"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveRestrict",
+            [
+              [
+                "variable",
+                "m"
+              ],
+              [
+                "variable",
+                "keep"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveRestrict",
+            [
+              [
+                "variable",
+                "n"
+              ],
+              [
+                "variable",
+                "keep"
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.ObserveMerge",
+            [
+              [
+                "pure",
+                "K.Restrict",
+                [
+                  [
+                    "variable",
+                    "m"
+                  ],
+                  [
+                    "variable",
+                    "keep"
+                  ]
+                ]
+              ],
+              [
+                "pure",
+                "K.Restrict",
+                [
+                  [
+                    "variable",
+                    "n"
+                  ],
+                  [
+                    "variable",
+                    "keep"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "call",
+            "A.Equal",
+            [
+              [
+                "pure",
+                "K.Restrict",
+                [
+                  [
+                    "pure",
+                    "K.Merge",
+                    [
+                      [
+                        "variable",
+                        "m"
+                      ],
+                      [
+                        "variable",
+                        "n"
+                      ]
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "keep"
+                  ]
+                ]
+              ],
+              [
+                "pure",
+                "K.Merge",
+                [
+                  [
+                    "pure",
+                    "K.Restrict",
+                    [
+                      [
+                        "variable",
+                        "m"
+                      ],
+                      [
+                        "variable",
+                        "keep"
+                      ]
+                    ]
+                  ],
+                  [
+                    "pure",
+                    "K.Restrict",
+                    [
+                      [
+                        "variable",
+                        "n"
+                      ],
+                      [
+                        "variable",
+                        "keep"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "tokens": 110,
+        "statements": 6
+      }
+    },
+    "semantic_verification_performed": false
+  }
+}

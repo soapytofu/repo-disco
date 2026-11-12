@@ -1,0 +1,38 @@
+{
+  "task_id": "fresh_move-deep-separate",
+  "variant": "keep_intermediate",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+    "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+    "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+    "HelperA.dfy": "4144726f597b0a51ffc54161a22072f25bc563c9ee82ec4036e5d87d6d164f31",
+    "HelperB.dfy": "1c98481db596c545809b806f3269c168105f855d86f9f07ef2c2ea25946488de",
+    "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+    "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+    "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(29,4): Error: assertion might not hold\n   |\n29 |     assert b in left;\n   |     ^^^^^^\n\nHelperB.dfy(29,4): Error: assertion might not hold\n   |\n29 |     assert b in left;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 12 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.3046266969759017,
+  "model_calls": 0,
+  "attempts": 1
+}

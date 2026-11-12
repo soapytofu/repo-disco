@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    assert forall q :: q in left ==> q in right && left[q] == right[q];\\n    A.Equal(left, right);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    assert forall q :: q in left ==> q in right && left[q] == right[q];\\n    A.Equal(left, right);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 3608,
+    "outputTokens": 209,
+    "totalTokens": 3817,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "247618e1-ffea-48db-88c3-71e8f2efff4e",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "247618e1-ffea-48db-88c3-71e8f2efff4e",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Thu, 12 Nov 2026 18:51:13 GMT",
+        "content-type": "application/json",
+        "content-length": "801",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "247618e1-ffea-48db-88c3-71e8f2efff4e"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"A.ObserveMerge(m, n);\\n    A.ObserveRestrict(K.Merge(m, n), keep);\\n    A.ObserveRestrict(m, keep);\\n    A.ObserveRestrict(n, keep);\\n    A.ObserveMerge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));\\n    assert left.Keys == right.Keys;\\n    assert forall q :: q in left ==> q in right && left[q] == right[q];\\n    A.Equal(left, right);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 3608,
+      "outputTokens": 209,
+      "totalTokens": 3817,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4012
+    }
+  }
+}

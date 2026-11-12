@@ -1,5 +1,13 @@
 # Experiment log
 
+## Map collection stopped safely on provider error
+
+[map-development-pilot-001](map-development-pilot-001/RESULTS.md): ten of sixteen
+planned requests dispatched; nine returned, with six strict passes, two proof
+failures and one policy rejection. Request 10 raised ServiceUnavailableException;
+no retries or replacement calls. Full raw logs, target metrics and protected-source
+audits are saved. This is an incomplete development cohort, not a balanced result.
+
 ## Prospective two-operation map follow-up
 
 [map-development-plan-001](map-development-plan-001/README.md) freezes eight exact

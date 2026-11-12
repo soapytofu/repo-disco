@@ -1,0 +1,334 @@
+{
+  "complete_cohort": false,
+  "planned": 16,
+  "dispatches": 10,
+  "returned_unique": 9,
+  "ambiguous_or_unsaved": 1,
+  "undispatched": 6,
+  "no_retries": true,
+  "primary_strict_successes": 6,
+  "returned_proof_failures": 2,
+  "returned_policy_rejections": 1,
+  "protected_file_comparisons": 60,
+  "protected_body_boundaries": 12,
+  "archive_files": 653,
+  "supplied_provider_checks_passed": true,
+  "all_eight_supplied_client_pairs_local_pass": true,
+  "no_partial_editable_model_success_observed": true,
+  "token_usage_scope": "Only nine returned responses; failed request has no saved usage or request ID.",
+  "rows": [
+    {
+      "trial_id": "map-dev-01",
+      "task_id": "fresh_move-shallow-shared",
+      "outcome": "VERIFIED",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 14,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 1,
+          "total": 1
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 2,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": null
+    },
+    {
+      "trial_id": "map-dev-02",
+      "task_id": "merge_restrict-shallow-separate",
+      "outcome": "VERIFIED",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 20,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 2,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": true
+    },
+    {
+      "trial_id": "map-dev-03",
+      "task_id": "fresh_move-shallow-separate",
+      "outcome": "VERIFIED",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 14,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 2,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": true
+    },
+    {
+      "trial_id": "map-dev-04",
+      "task_id": "merge_restrict-deep-shared",
+      "outcome": "OUTPUT_REJECTED",
+      "rejection_token_index": 187,
+      "rejection_token": "ensures",
+      "body_sha256": "c1adff2c9e47d3f76a3ff59a0cb2de0d1a6f2012cc8237b6332fb917edaccb3f",
+      "manual_diagnosis": "Second ensures clause in a forall proof block; current bounded grammar permits one. Original is unverified and remains rejected."
+    },
+    {
+      "trial_id": "map-dev-05",
+      "task_id": "fresh_move-deep-separate",
+      "outcome": "VERIFIED",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 14,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 2,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": true,
+      "manual_diagnosis": "The assert-false branch is discharged under impossible domain conditions; signatures and providers are unchanged."
+    },
+    {
+      "trial_id": "map-dev-06",
+      "task_id": "merge_restrict-shallow-shared",
+      "outcome": "VERIFIED",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 20,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 1,
+          "total": 1
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 2,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": null
+    },
+    {
+      "trial_id": "map-dev-07",
+      "task_id": "fresh_move-deep-shared",
+      "outcome": "VERIFIED",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 14,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": true,
+          "HelperB.Prove": true
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 1,
+          "total": 1
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 2,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": null
+    },
+    {
+      "trial_id": "map-dev-08",
+      "task_id": "merge_restrict-deep-separate",
+      "outcome": "PROOF_FAILURE",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 20,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": false,
+          "HelperB.Prove": false
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": false,
+          "ClientB.Target": false,
+          "HelperA.Prove": false,
+          "HelperB.Prove": false
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 0,
+          "total": 2
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 0,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": true,
+      "manual_diagnosis": "Restricted-map Certify precedes both RestrictKeys facts; reported failures occur at that call, before its disjointness requirement is available."
+    },
+    {
+      "trial_id": "map-dev-09",
+      "task_id": "merge_restrict-deep-shared",
+      "outcome": "PROOF_FAILURE",
+      "source_contracts_preserved": true,
+      "target_metrics": {
+        "available": true,
+        "logger_rows": 20,
+        "local_targets": {
+          "ClientA.Target": true,
+          "ClientB.Target": true,
+          "HelperA.Prove": false,
+          "HelperB.Prove": true
+        },
+        "dependency_closed_targets": {
+          "ClientA.Target": false,
+          "ClientB.Target": false,
+          "HelperA.Prove": false,
+          "HelperB.Prove": false
+        },
+        "supplied_providers_verified": true,
+        "editable_local": {
+          "passed": 0,
+          "total": 1
+        },
+        "supplied_clients_local": {
+          "passed": 2,
+          "total": 2
+        },
+        "supplied_clients_closed": {
+          "passed": 0,
+          "total": 2
+        },
+        "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+      },
+      "separate_bodies_identical": null,
+      "manual_diagnosis": "Restricted-map Certify precedes both RestrictKeys facts; reported failures occur at that call, before its disjointness requirement is available."
+    },
+    {
+      "trial_id": "map-dev-10",
+      "task_id": "fresh_move-deep-separate",
+      "outcome": "REQUEST_STOP"
+    }
+  ]
+}

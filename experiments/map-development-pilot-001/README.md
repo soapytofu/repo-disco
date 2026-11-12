@@ -1,9 +1,12 @@
-# Bounded map-development pilot — submitted
+# Bounded map-development pilot — interrupted
 
 November 12, 2026. Prepared for the [frozen 16-call proposal](../map-development-plan-001/README.md).
 Sophie explicitly approved **16 new calls, no retries**, then reported the private
 key handoff ready. Job **60045391** was submitted once on live-confirmed
-nonpreemptible test at 18:48:58 UTC. Results are pending review.
+nonpreemptible test at 18:48:58 UTC. It stopped after 10 dispatches on a provider
+service error, with nine responses: six strict passes, two proof failures and
+one policy rejection. Six slots remain unused; no retries. Full reviewed
+evidence and limitations are in [RESULTS.md](RESULTS.md).
 All 19 offline runner tests pass. Cannon's real environment preflight also passes
 with fake transport and a fake verifier: zero API requests and zero Dafny runs.
 The existing authenticated socket 14 worked; no reconnection was needed.
