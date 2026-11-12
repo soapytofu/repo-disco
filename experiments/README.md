@@ -4,7 +4,9 @@
 
 [development-moves-001](development-moves-001/RESULTS.md): D4-M1 adds changing-domain/value-history reasoning in four matched workspaces. Jobs 60032605/60033595 matched all 38 expectations: four strict reference passes, 30 proof failures and four hidden-export failures, with no warnings or parse errors. Eight offline methods passed locally and on Cannon; full exact-source/runtime/scheduler logs are archived. No model calls or frozen model pilot; prior results are unchanged.
 
-[development-restriction-001](development-restriction-001/README.md) constructs D4-M2 restriction over disjoint merge. The first core job 60033315 failed all eight cases before proof checking because the map comprehension lacked a syntactically inferable finite domain. Its original inputs and complete failure evidence are preserved; this version is not validated. A separate explicit-domain correction is planned.
+[development-restriction-001](development-restriction-001/RESULTS.md): corrected D4-M2 restriction over disjoint merge matches all 38 expectations (four strict references, 30 proof failures, four hidden-export failures). Revision 002 only changes the equivalent finite domain expression; the original eight frontend failures remain archived. Nine offline tests pass locally and on Cannon. Zero model calls.
+
+[target-completion-diagnostic-001](target-completion-diagnostic-001/RESULTS.md): five analyst verifier checks validate named-helper and dependency-closed client metrics. Partial separate repairs score 1/2 editable helpers and 1/2 supported clients while whole completion fails; both clients pass locally against the declared contracts. Full raw CSV/source/log evidence is archived. This is measurement validation, not an LLM performance finding or rescoring.
 
 ## Separate map-swap/parser diagnostics — complete, zero model calls
 

@@ -1,26 +1,41 @@
 # Research progress and next milestone
 
-Status: November 11, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Four C1 instances across 16 workspaces passed 126 verifier controls and 16 alternative-proof checks. The approved 32-call varied calibration is complete: 27 strict passes, four map proof failures and one map body-policy rejection; zero retries. The 12-development/six-reserved-instance corpus proposal remains only partly implemented. Later 64/48-call stages are unapproved; difficulty, policy, collection and lineage gates remain. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. Development collection and reserved-family evaluation remain unapproved; matching, collection and lineage gates remain. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 11: fresh-key move collection task under construction
+## November 12: two map collection tasks and target-level measurement verified
 
-[development-moves-001](../experiments/development-moves-001/README.md) implements
-the planned D4-M1 move-composition obligation in four structural workspaces. Eight
-offline methods pass, including 288 finite map cases, exact fixture reconstruction,
-protected-source checks and the separate task registry. Thirty-eight verifier
-checks are prepared: four reference successes, 30 proof failures and four hidden
-export failures. **No Dafny job has been submitted; validation awaits Cannon
-reconnection.** References and empty bodies will run first, with the 30 remaining
-negatives gated on reviewed core evidence. No model calls, prompts or paid scope
-are added. The map instance is development data; reserved families remain untouched.
+[Fresh-key move composition](../experiments/development-moves-001/RESULTS.md)
+and [restriction over disjoint merge](../experiments/development-restriction-001/RESULTS.md)
+each match 38/38 expected controls: four strict reference passes, 30 proof
+failures and four hidden-export failures. All eight current references have zero
+warnings. The restriction fixture's initial finite-comprehension frontend failure
+is preserved; revision 002 changes only the equivalent explicit domain bound.
+No original model score changes and no new model calls were made.
+
+The [named-target diagnostic](../experiments/target-completion-diagnostic-001/RESULTS.md)
+also completes five compute checks. Analyst partial repairs demonstrate that a
+supplied client can verify locally against an unproved helper contract. It reports
+editable helper completion, dependency-closed client completion and strict whole
+completion separately. This validates a measurement method, not a model performance
+effect. Eight move design tests, nine restriction revision tests, four runtime
+tests per measurement collector and six interpretation tests passed.
+
+Both new operations stay in the map development ancestry group. Separate mode
+still permits copying two equivalent helper bodies, and interface factorization
+does not establish necessary proof depth. A future bounded follow-up can test
+whether missing value/domain facts recur across these operations, using the
+separately versioned quantified-assertion policy and target-level logging. It
+needs a frozen scope and new paid approval. The other six M1/M2 instances and
+both reserved families remain unimplemented; reserved test solutions were not
+developed during this work.
 
 ## November 10: varied calibration model pilot completed
 

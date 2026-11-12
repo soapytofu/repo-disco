@@ -1,12 +1,13 @@
 # Varied monorepo corpus and family split
 
-**Proposal originally prepared November 6, 2026 Eastern; execution update November 10.**
+**Proposal originally prepared November 6, 2026 Eastern; execution update November 12.**
 The first 32-call calibration stage is now complete; the subsequent 64/48-call
 stages remain unapproved. The original planning narrative below is retained.
 This is the active next-stage design, replacing the unexecuted 192-call main-corpus
 recommendation in the [earlier plan](weeks5-6-corpus-plan.md). Historical experiments,
 freezes and scores remain unchanged. The [machine-readable task list](../experiments/matched-corpus-002/plan.json)
-contains 18 proposed semantic instances, not implemented fixtures or frozen prompts.
+contains the original 18-instance proposal. Six development instances now have
+verified implementations; it is not itself a current execution manifest.
 
 ## November 10 calibration checkpoint
 
@@ -23,11 +24,17 @@ fields; current concrete contracts, lineage limits and two documented client/
 existential-proof implementation choices are described in the verified results.
 All M1/M2 and reserved-family tasks remained unimplemented by that calibration work.
 
-November 11: [D4-M1 fresh-key move composition](../experiments/development-moves-001/README.md)
-is now constructed across four cells and passes eight offline design methods.
-Its 38 planned Dafny checks are pending Cannon access; it is not yet a verified
-collection fixture. Other M1/M2 tasks and both reserved families remain unimplemented.
-No new model prompts or budget are frozen by this implementation work.
+November 12: [D4-M1 fresh-key move composition](../experiments/development-moves-001/RESULTS.md)
+and [D4-M2 restriction over disjoint merge](../experiments/development-restriction-001/RESULTS.md)
+are verified across their eight cells, with 76/76 expected control outcomes.
+The restriction's initial frontend failure is preserved separately from its
+corrected version. A [five-case measurement diagnostic](../experiments/target-completion-diagnostic-001/RESULTS.md)
+validates named editable-target and dependency-closed client reporting without
+changing the strict whole-workspace criterion. These are verifier/analyst results,
+not model scores. Six other M1/M2 tasks and both reserved families remain
+unimplemented. The next prospective map cohort would use 16 of the proposed
+64 collection slots, leaving 48 collection and 48 reserved-family calls separate;
+none of those requests is currently authorized.
 
 ## Recommendation
 
@@ -62,9 +69,9 @@ not counted among the 18 new proposals or charged again in this budget.
 
 ## Proposed development tasks
 
-C1 is the family's calibration instance; M1 and M2 are reserved for later
-within-family development collection. Their conceptual descriptions are visible
-now; their exact proofs, prompts and output distributions are not yet available.
+C1 is the family's calibration instance; M1 and M2 are intended for later
+within-family development collection. Current implementation status is stated
+above; inspected references remain development material, never held-out evidence.
 
 | Family | C1: calibration | M1: collection | M2: collection | New obligation / principal controls |
 | --- | --- | --- | --- | --- |

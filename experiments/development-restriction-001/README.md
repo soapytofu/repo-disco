@@ -10,6 +10,13 @@ accounting and [review](verification-001-review.json) are retained. No negative
 phase was submitted. A deliberate revision will use the equivalent explicit
 finite domain `q in m.Keys + n.Keys` without changing theorem/client contracts.
 
+**Current revision:** [revision-002](revision-002/README.md) implements that
+correction and passed all **38 expected outcomes** on jobs 60035065/60035790.
+Four references strictly verify 20 obligations with zero errors/warnings; the
+30 semantic negatives fail proofs and four hidden calls fail resolution. Full
+source/diagnostic reviews and logs are published. The original failure archive
+below remains unchanged. See [current results](RESULTS.md).
+
 This implements the second map collection instance in the existing
 [corpus plan](../../docs/corpus-family-split-plan.md). Four workspaces vary bundled
 versus decomposed contracts and shared versus separate helpers. They are four

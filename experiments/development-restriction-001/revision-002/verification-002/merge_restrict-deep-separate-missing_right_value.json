@@ -1,0 +1,38 @@
+{
+  "task_id": "merge_restrict-deep-separate",
+  "variant": "missing_right_value",
+  "expected": "proof_failure",
+  "diagnostic": "proof_failure",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "c4a98e3e5e128f7e3003432e5f1ebaf45873f2450e08aa99fe22f80771e3a81c",
+    "ClientA.dfy": "7ca3de68c5f14fe8937f0cce41c3e87be0710b2e9ac2c0cc622001971724ea3c",
+    "ClientB.dfy": "8bc4f356a4449f9917f4afd4b9dfa6c23eb386e2e089c80c1df996c9f8d1261e",
+    "HelperA.dfy": "8e7928edeebff660143aca459a7384339b04d1ace2db1d5c777cfa370805843a",
+    "HelperB.dfy": "41a68dc801732707842a932bec7501cd0a7d930a0bd22cd7c89f0f6f80bad4c4",
+    "Kernel.dfy": "350b388ed11653b71ef6ad999c636ce2a81c03ca16f85939d11956c3974ca885",
+    "Ops1.dfy": "fe71c8696cadfa8330bbf7ad8b3dfb43075df2f9d8a913079c9c6f7d11a039f8",
+    "Ops2.dfy": "683510a3eae6a36caf01f7336f1f496d3a2b65b6811382a4761176873eaf93e8"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "outcome": "goal_unproven",
+  "category": "proof_failure",
+  "stdout": "HelperA.dfy(24,55): Error: possible violation of postcondition of forall statement\n   |\n24 |     forall q | q in left ensures q in right && left[q] == right[q] {\n   |                                                        ^^\n\nHelperB.dfy(24,55): Error: possible violation of postcondition of forall statement\n   |\n24 |     forall q | q in left ensures q in right && left[q] == right[q] {\n   |                                                        ^^\n\n\nDafny program verifier finished with 18 verified, 2 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 2.54102562693879,
+  "model_calls": 0,
+  "attempts": 1
+}

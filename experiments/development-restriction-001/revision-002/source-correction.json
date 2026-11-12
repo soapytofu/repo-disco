@@ -1,0 +1,11 @@
+{
+  "parent_commit": "97128e48fd22241b2e0106aaff6ad0ff9d1d64d1",
+  "parent_job": "60033315",
+  "parent_manifest_sha256": "3bccc7c65a815f521b2cc92e8b8223320f83613d518a9ed74ff3d158d56a1326",
+  "before_kernel": "module Kernel {\n  export Public provides Separate, Merge, Restrict\n  export Internal reveals Separate, Merge, Restrict\n  opaque predicate Separate(m: map<int,int>,n: map<int,int>) {\n    forall q :: q in m ==> q !in n\n  }\n  opaque function Merge(m: map<int,int>,n: map<int,int>): map<int,int> {\n    if Separate(m,n) then\n      map q | q in m || q in n :: if q in m then m[q] else n[q]\n    else map[]\n  }\n  opaque function Restrict(m: map<int,int>,keep: set<int>): map<int,int> {\n    map q | q in m && q in keep :: m[q]\n  }\n}\n",
+  "after_kernel": "module Kernel {\n  export Public provides Separate, Merge, Restrict\n  export Internal reveals Separate, Merge, Restrict\n  opaque predicate Separate(m: map<int,int>,n: map<int,int>) {\n    forall q :: q in m ==> q !in n\n  }\n  opaque function Merge(m: map<int,int>,n: map<int,int>): map<int,int> {\n    if Separate(m,n) then\n      map q | q in m.Keys + n.Keys :: if q in m then m[q] else n[q]\n    else map[]\n  }\n  opaque function Restrict(m: map<int,int>,keep: set<int>): map<int,int> {\n    map q | q in m && q in keep :: m[q]\n  }\n}\n",
+  "reason": "Explicit finite set bound for map comprehension; same mathematical union domain",
+  "changed_source_file": "Kernel.dfy",
+  "reusable_prior_verifier_outcomes": 0,
+  "model_calls": 0
+}
