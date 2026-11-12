@@ -1,0 +1,38 @@
+{
+  "task_id": "fresh_move-deep-separate",
+  "variant": "reference",
+  "expected": "success",
+  "diagnostic": "success",
+  "matched": true,
+  "schema": "repository-verification-v1",
+  "entry": "All.dfy",
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "d8923c67566e03b8bddd28aff0b747516dc2a3c5de61abb457f5b074b4ca662e",
+    "ClientA.dfy": "8f4864e349803d91f3961960828ee7abf45b191d5478d984f74720502baf4076",
+    "ClientB.dfy": "48925f025360405b576b7ccdf8259681e6801bdbaba5ab4c64449acb72200e01",
+    "HelperA.dfy": "293148838c4e04d6e8d15c242a1d34d646b111967ed863670ae0a5f902b78cdf",
+    "HelperB.dfy": "b060ea1d1f2f8308b07408f627fb97bab87d62579ec51c2ebdba261467d42206",
+    "Kernel.dfy": "7bfd6d24e4b77afc8641f3e4a272a10b280dd6dcc16abff15734727a0b9958e1",
+    "Ops1.dfy": "d6cf228a588d4c06b6f4eb21d8e7c7923321e0c84f3c1d1d9d918728d8637e45",
+    "Ops2.dfy": "2eb204c22b05874f5165fbf369049aee7bb3670de7e1724c92d216f889fc76ce"
+  },
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "outcome": "success",
+  "category": "success",
+  "stdout": "\nDafny program verifier finished with 14 verified, 0 errors\n",
+  "stderr": "",
+  "elapsed_seconds": 3.0958289499394596,
+  "model_calls": 0,
+  "attempts": 1
+}

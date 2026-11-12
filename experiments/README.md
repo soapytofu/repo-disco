@@ -7,6 +7,11 @@ requests and 16 balanced slots for fresh move and restriction/merge, with 76
 reviewed controls and target-level measurement evidence. Seven offline tests pass.
 **No execution authorization or model calls.**
 
+[map-development-pilot-001](map-development-pilot-001/README.md) provides its
+bounded 16-request runner with 19 passing offline tests and a successful Cannon
+fake-transport environment preflight. Staged, awaiting new approval; no model job
+or credential access.
+
 ## Fresh-key move composition — all 38 verifier expectations matched
 
 [development-moves-001](development-moves-001/RESULTS.md): D4-M1 adds changing-domain/value-history reasoning in four matched workspaces. Jobs 60032605/60033595 matched all 38 expectations: four strict reference passes, 30 proof failures and four hidden-export failures, with no warnings or parse errors. Eight offline methods passed locally and on Cannon; full exact-source/runtime/scheduler logs are archived. No model calls or frozen model pilot; prior results are unchanged.

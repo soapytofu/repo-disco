@@ -41,8 +41,11 @@ The [prospective 16-call map plan](../experiments/map-development-plan-001/READM
 now freezes both instances × four structural cells × two fresh samples. Seven
 offline tests pass, including exact regeneration and target-scope checks. These
 would be the first 16 of the proposed 64 development-collection calls. None is
-authorized or dispatched; the runtime and new paid approval remain execution
-gates. The original model results remain unchanged.
+authorized or dispatched. The [bounded runtime](../experiments/map-development-pilot-001/README.md)
+now passes 19 fake-transport/verifier tests and Cannon's offline environment
+preflight, and is staged without authorization or a model job. New paid approval
+and a private key handoff remain execution gates. The original model results
+remain unchanged.
 
 ## November 10: varied calibration model pilot completed
 

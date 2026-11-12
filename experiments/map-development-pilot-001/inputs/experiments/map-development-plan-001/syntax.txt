@@ -1,0 +1,11 @@
+Return a JSON object with exactly the editable filenames as keys. Each value is the complete text inside the corresponding empty Prove body. Omit outer lemma braces. Escape line breaks as JSON newlines. Supply each key once. No explanation or full-file replacements.
+
+For proof steps, use a listed lemma call followed by a semicolon, an assertion such as `assert true;`, or an inferred local such as `var tmp := 0;`. Use braces for branching statements, for example `if true { assert true; } else { assert true; }`. The form `if c then a else b` is a value expression only. For a proof block the syntax is `forall key0 | key0 == 0 ensures key0 == 0 { assert key0 == 0; }`. Omit the trailing semicolon after a braced block. A quantified Boolean expression is also allowed, for example `assert forall key1 :: key1 in m ==> key1 in m;`.
+
+Use fresh names for locals and binders. Keep parameters, active locals and module aliases in scope without shadowing. Ordinary expressions can use the listed pure functions, integers, booleans, comparisons, +, -, !, &&, ||, ==>, in and !in. The grammar also admits ASCII primed identifiers, cardinality, sequence displays, indices and slices, .Keys, set displays, functional updates and single-binder map comprehensions where well typed. Self-recursion is admitted only when Prove is explicitly listed below; it refers to the same helper and must satisfy its unchanged decreases clause. No calls to another helper are admitted.
+
+Keep every signature, contract, import, provider and client intact. Use only the listed calls through the exported views. Comments, assume, reveal, expect, attributes, loops, mutable assignments, calc blocks, new declarations and calls to another helper are outside the accepted language.
+
+Supply exactly one complete JSON object. Duplicate keys, competing objects and nested answer wrappers are rejected. The host may extract a single object from surrounding prose or a fence, but does not repair malformed JSON, rewrite proof text or select among multiple candidates.
+
+Limits: at most 262144 UTF-8 response bytes; each body at most 65536 bytes, 8192 grammar tokens and 256 statements. Statement nesting is bounded by 24 and expression nesting by 32. Integer literals have at most 12 digits.
