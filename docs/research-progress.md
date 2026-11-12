@@ -37,6 +37,13 @@ needs a frozen scope and new paid approval. The other six M1/M2 instances and
 both reserved families remain unimplemented; reserved test solutions were not
 developed during this work.
 
+The [prospective 16-call map plan](../experiments/map-development-plan-001/README.md)
+now freezes both instances × four structural cells × two fresh samples. Seven
+offline tests pass, including exact regeneration and target-scope checks. These
+would be the first 16 of the proposed 64 development-collection calls. None is
+authorized or dispatched; the runtime and new paid approval remain execution
+gates. The original model results remain unchanged.
+
 ## November 10: varied calibration model pilot completed
 
 [varied-calibration-pilot-001](../experiments/varied-calibration-pilot-001/RESULTS.md) completed all 32 approved requests on job 59517240 in 6m14s: 32 unique provider IDs, zero SDK retries, 119,194 tokens. Allocation, clamp distance and prefix splitting each scored 8/8; map swap scored 3/8. Four deep map responses repeat a proof that lacks the other swapped-key instantiation and fail a quantified postcondition. One shallow map response uses a quantified assertion outside the frozen body grammar; it was not verified. All 32 JSON envelopes extracted, 31 bodies admitted. Exact-source audits preserve 233 protected files and 46 body boundaries; all 16 separate responses copy identical helper bodies. This is development calibration, not a causal sharing/depth or held-out result. No budget remains. Next: separately diagnose the policy mismatch and map instantiation issue offline, then build distinct M1/M2 collection instances and review family lineage before any new paid scope.
