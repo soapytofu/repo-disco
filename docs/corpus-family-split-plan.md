@@ -51,13 +51,23 @@ is **32 completed + 10 interrupted + 16 fresh completed + 48 development + 48
 reserved = 154**, if all remaining stages are later approved and dispatched.
 The original 144-call table below is retained as historical planning, not a
 current spending cap or an authorization.
-A separate [repair-feedback proposal](../experiments/map-feedback-repair-plan-001/README.md)
-adds eight unapproved one-call trials (four detailed-feedback and four
-failure-notice controls) on the saved failures. This is supplemental repair
-evaluation, not new matched-corpus instances; if retained, it raises the
-all-stages attempted-request forecast from 154 to 162. No new model calls were
-made for that freeze, and its selected failures remain development material. No before/after causal prompt effect
-is inferred from the separate incomplete and fresh cohorts.
+The separate [repair-feedback pilot](../experiments/map-feedback-repair-pilot-001/RESULTS.md)
+completed eight supplemental requests: diagnostics 4/4, failure notice 1/4.
+This raises the named program's all-stages attempted-request forecast from 154
+to 162 if the remaining collection stages are approved; it is not a current
+spending cap or total project usage. Original generation scores are unchanged.
+
+November 13: [three fresh semantic instances](../experiments/diverse-repair-tasks-001/RESULTS.md)
+(D1-M1, D3-M2, D2-M2) are implemented in **fixed-interface repair form**, with
+shared/separate conditions and constructed faults. Their 36 current controls
+are verified. They are not yet full shallow/deep generation-corpus additions;
+the outstanding 48 development and 48 reserved-family collection requests above
+remain proposals. A [24-call matched repair follow-up](../experiments/diverse-repair-plan-001/README.md)
+is now frozen but unapproved. It is supplemental to those collection budgets,
+would raise that conditional forecast to 186 if executed, and must be reported
+separately from the natural-failure map pilot. No new model calls were made in
+this task-building/planning work. Tree and transition-system reservations remain
+untouched; no before/after causal prompt effect is inferred across separate cohorts.
 
 ## Recommendation
 

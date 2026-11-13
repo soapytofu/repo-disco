@@ -1,5 +1,17 @@
 # Experiment log
 
+## Diverse repair proposal — verified tasks, 24 calls proposed
+
+[diverse-repair-plan-001](diverse-repair-plan-001/README.md) freezes 12 payloads
+and 24 one-call slots across soft-threshold composition, an excluded-value
+witness and weave/unweave reconstruction. Shared/separate and detailed feedback/
+failure notice are balanced with two responses per cell. These are constructed
+development faults, not natural model errors or held-out tests.
+[Task validation](diverse-repair-tasks-001/RESULTS.md) has 36/36 current expected
+controls, including 24 reused byte-identical observations; both failed witness
+provider versions are preserved. Six freeze tests pass. No new model calls or
+execution authorization.
+
 ## Feedback repair comparison — diagnostics 4/4 versus notice 1/4
 
 [map-feedback-repair-pilot-001](map-feedback-repair-pilot-001/RESULTS.md) completed

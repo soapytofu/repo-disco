@@ -10,6 +10,24 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 13: broader repair tasks verified and prompts frozen
+
+[Three fresh development instances](../experiments/diverse-repair-tasks-001/RESULTS.md)
+now cover wrong case selection, an invalid witness and missing induction across
+soft thresholds, interval exclusion and sequence weave/unweave. Six shared/
+separate workspaces have 36/36 expected controls (12 positives, 22 proof failures,
+two termination failures); earlier witness-provider defects and raw logs remain
+archived. The fixed-interface tasks are analyst-constructed repair inputs, not
+natural model failures or complete four-cell generation-corpus additions.
+
+[The frozen follow-up](../experiments/diverse-repair-plan-001/README.md) proposes
+24 new calls: three tasks × two sharing conditions × feedback/control × two
+responses. Twelve exact prompts and a reversed second-block trial order are
+frozen; only diagnostic context differs within a matched pair. Six offline freeze
+tests and 18 body/measurement replays pass. No new calls are authorized or made.
+This remains Weeks 5–6 corpus/evaluation development. Reserved families and
+historical model scores are unchanged.
+
 ## November 13: matched repair result — verifier feedback 4/4, notice 1/4
 
 [The eight-call repair comparison](../experiments/map-feedback-repair-pilot-001/RESULTS.md)

@@ -1,0 +1,39 @@
+{
+  "case_id": "excluded_witness-shared-faulty",
+  "expected_exit": 4,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(14,4): Error: assertion might not hold\n   |\n14 |     assert u != e;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-tffdfir4/TestResults/2026-11-13_00_34_48-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.0422311790753156,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+    "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+    "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+    "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+    "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+    "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+    "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_34_48-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0530871,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0335651,4712,0\nApi.Finish (correctness),Passed,00:00:00.0115720,6145,0\nHelperB.Prove (correctness),Passed,00:00:00.0097661,3742,0\nClientA.Target (correctness),Passed,00:00:00.0097392,3742,0\nClientB.Target (correctness),Passed,00:00:00.0084818,4285,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_34_48-0.csv": "6042ca15dc55cff9b5cd9087b2bf0503eb0bcc9e27d17e688d4ec86e990100f8"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}
