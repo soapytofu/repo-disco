@@ -1,0 +1,86 @@
+{
+  "study": "map-development-plan-002",
+  "execution_authorized": false,
+  "status": "FROZEN_PROPOSAL_NOT_AUTHORIZED",
+  "source_commit": "606ddaf34e793ba0ec912c06909738de072037c0",
+  "source_experiments": {
+    "fresh_move": "development-moves-001",
+    "merge_restrict": "development-restriction-001/revision-002"
+  },
+  "semantic_instances": [
+    "fresh_move",
+    "merge_restrict"
+  ],
+  "split": "fresh_development_calibration",
+  "proposed_calls": 16,
+  "samples_per_workspace": 2,
+  "replicates": [
+    [
+      "fresh_move-shallow-shared",
+      "merge_restrict-shallow-separate",
+      "fresh_move-shallow-separate",
+      "merge_restrict-deep-shared",
+      "fresh_move-deep-separate",
+      "merge_restrict-shallow-shared",
+      "fresh_move-deep-shared",
+      "merge_restrict-deep-separate"
+    ],
+    [
+      "merge_restrict-deep-shared",
+      "fresh_move-deep-separate",
+      "merge_restrict-deep-separate",
+      "fresh_move-shallow-shared",
+      "merge_restrict-shallow-separate",
+      "fresh_move-deep-shared",
+      "merge_restrict-shallow-shared",
+      "fresh_move-shallow-separate"
+    ]
+  ],
+  "cells": [
+    "shallow-shared",
+    "shallow-separate",
+    "deep-shared",
+    "deep-separate"
+  ],
+  "fresh_context_per_request": true,
+  "feedback": false,
+  "sdk_total_max_attempts": 1,
+  "automatic_retries": false,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "max_output_tokens_total": 65536,
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "inference_config": {
+    "temperature": 1.0,
+    "maxTokens": 4096
+  },
+  "verifier": {
+    "entry": "All.dfy",
+    "include_all_files": true,
+    "toolchain": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit",
+    "timeout_seconds": 60,
+    "success_exit_code": 0
+  },
+  "context": "Full empty workspace plus declared imports/includes; no reference proof or control diagnostics",
+  "primary_success": "Guarded whole-workspace verification, exit zero, no warnings",
+  "secondary_metrics": [
+    "Local completion of named editable helper contracts",
+    "Dependency-closed supplied-client status",
+    "Whole-workspace success",
+    "Envelope/body/frontend/proof/warning failure category",
+    "Tokens and body duplication"
+  ],
+  "interpretation": "Two map development instances, not independent families; shallow/deep means bundled/decomposed contracts, not proven minimum depth; separate bodies can be copied",
+  "order_note": "Each workspace appears once per replicate; task order alternates and reverses between replicates. Four relative cell-position rows use a Williams square. Physical adjacent-trial transitions are not claimed perfectly balanced.",
+  "budget_accounting": "16 NEW proposed requests for a separate complete balanced cohort. The old ten dispatches remain an interrupted development run; its six unused slots are not reused. These extra collection costs must not be hidden in the original 144-call forecast.",
+  "future_runtime_gate": "A new bounded runtime must bind this freeze and fresh trial IDs after explicit new approval; no old runner/ledger may be resumed or used as authorization.",
+  "prior_proposal_freeze_sha256": "84211b3fd2286cc0b6c8cb5b139c6856dc214270c09762c9dcc0f03f0fbe2097",
+  "prior_pilot": "map-development-pilot-001",
+  "prior_diagnostic": "map-order-diagnostic-001",
+  "change_scope": "Syntax instructions only: one ensures clause per forall proof block, conjunction for multiple postconditions, statement/expression distinction; unchanged task sources, output guards, metrics and model settings.",
+  "semantic_hints_added": false,
+  "prior_responses_reused": false,
+  "prior_unused_calls_reassigned": false
+}

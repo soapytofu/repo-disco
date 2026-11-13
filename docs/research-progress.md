@@ -20,9 +20,11 @@ settings and all other context match. The four parent records contain two unique
 workspaces, with two responses per sharing × feedback cell. The second half
 reverses the first condition order. Eight offline tests pass, including exact
 base/analyst-repair reconstruction and preservation of all 812 original model
-files. No model calls, new verifier checks or execution authorization. A tested
-bounded agent adapter and separate approval are needed before the proposed eight
-new requests. This is selected-failure repair feasibility, not held-out or general
+files. Sophie subsequently approved eight new calls with no retries. The
+[separate bounded runtime](../experiments/map-feedback-repair-pilot-001/README.md)
+passes 18 offline tests, including isolated revision promotion and complete audit
+replay. The unchanged frozen prompts/order passed Cannon environment preflight (18 fake
+transport tests); no requests have been dispatched at this update. This is selected-failure repair feasibility, not held-out or general
 causal evidence, and cannot change the original generation score of 12/16.
 
 ## November 12: prerequisite reorder confirmed on all four fresh failures

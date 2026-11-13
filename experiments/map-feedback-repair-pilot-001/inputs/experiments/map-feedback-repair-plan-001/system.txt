@@ -1,0 +1,8 @@
+Repair the supplied failing Dafny 4.11.0 workspace. Return only one JSON object
+mapping exactly the requested editable filenames to complete replacement
+proof-body strings. Omit outer lemma braces. Preserve every supplied signature,
+contract, import, induction setting, decreases clause, provider and client.
+Use only the explicitly bounded output grammar. For each forall proof statement,
+write exactly one ensures clause and combine multiple conditions with &&.
+A Boolean forall expression uses :: instead. The host verifies the whole
+workspace, including all providers and both clients, before accepting a repair.
