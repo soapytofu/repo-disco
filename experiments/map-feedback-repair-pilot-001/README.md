@@ -1,6 +1,6 @@
 # Matched verifier-feedback repair pilot
 
-Status: eight new requests approved by Sophie; runtime 002 passed Cannon preflight (18 tests), not yet dispatched. The immutable [proposal](../map-feedback-repair-plan-001/README.md) remains the prospective plan. Runtime approval is separate from its frozen `execution_authorized: false` planning field.
+Status: eight new requests approved by Sophie; runtime 002 passed Cannon preflight (18 tests); job **60215841** submitted once and started on nonpreemptible `test`. Results pending. The immutable [proposal](../map-feedback-repair-plan-001/README.md) remains the prospective plan. Runtime approval is separate from its frozen `execution_authorized: false` planning field.
 
 Four detailed-verifier-feedback requests and four failure-notice-only controls start from four archived failures (two unique workspaces). Shared/separate conditions each receive two responses per feedback arm in the exact frozen order. No retries, replacement slots, conversation history or additional repair rounds. Maximum output: 32,768 tokens; no price assumption. This is one inspected failure mode and a descriptive repair feasibility test, not held-out performance or a general causal claim.
 
