@@ -1,0 +1,39 @@
+{
+  "case_id": "excluded_witness-separate-alternative",
+  "expected_exit": 0,
+  "matched": false,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "stdout": "Kernel.dfy(7,4): Error: quantifiers in non-ghost contexts must be compilable, but Dafny's heuristics can't figure out how to produce or compile a bounded set of values for 'u'\n  |\n7 |     exists u: int :: Candidate(a,b,e,u)\n  |     ^^^^^^\n\n1 resolution/type errors detected in All.dfy\nResults File: /tmp/repodisco-targets-vr2ln92b/TestResults/2026-11-13_00_32_40-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 0.8203219170682132,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+    "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+    "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+    "Kernel.dfy": "7390f8d57946bebbcbf4779d1da6e9f42833bddb5c9f7719746e5999b310fb09",
+    "HelperB.dfy": "c22f4c12f3abca94905e175fcde01c5e5f7369efd58168998db1e74de9cc1692",
+    "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+    "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_32_40-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_32_40-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

@@ -1,0 +1,39 @@
+{
+  "case_id": "excluded_witness-shared-alternative",
+  "expected_exit": 0,
+  "matched": false,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-lx71dnfn/TestResults/2026-11-13_00_28_37-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.9502493450418115,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+    "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+    "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+    "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+    "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+    "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+    "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_28_37-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0545792,3353,0\nApi.Finish (correctness),Failed,00:00:00.0348910,5254,0\nHelperA.Prove (correctness),Passed,00:00:00.0112823,5620,0\nClientB.Target (correctness),Passed,00:00:00.0106417,4133,0\nClientA.Target (correctness),Passed,00:00:00.0082425,3590,0\nHelperB.Prove (correctness),Passed,00:00:00.0081881,3590,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_28_37-0.csv": "fcfc15b2e1d914146ddeb231ae831e8c9c4973c121ecbd9fc403a0d1dff96ec5"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

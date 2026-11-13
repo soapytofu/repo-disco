@@ -1,6 +1,6 @@
 # Diverse development repair tasks
 
-Status: built; verifier validation pending. No model calls or new paid approval.
+Status: **verified**: 36/36 current expected outcomes, using canonical revision 003. [Results and preserved failures](RESULTS.md). No model calls or new paid approval.
 
 Three fresh semantic instances from the existing development proposal: D1-M1 soft-threshold composition, D3-M2 interval witness avoiding an excluded integer, D2-M2 equal-length weave/unweave reconstruction. These are new instances, not renamings; their familiar family ancestry remains development. Tree and transition-system reservations are untouched.
 
@@ -10,4 +10,4 @@ The repair inputs contain analyst-constructed bugs: wrong intermediate saturatio
 
 36 planned verifier controls: six references, six alternative proofs, six primary faulty seeds, six empty proofs and twelve targeted negatives (including two nondecreasing-recursion checks). Six offline test methods pass. The bounded grammar is unchanged below its task-specific registry; old guards/freezes remain untouched. Exact responses must replace all requested helper bodies, preserving every provider, contract, import, decrease measure and client. Assumptions, reveals, declarations, attributes, alternate helper delegation and ambiguous JSON are rejected.
 
-If all controls pass, prepare a matched feedback pilot: three instances × two sharing conditions × two feedback conditions × two fresh responses = **24 proposed new calls**, none authorized. Both arms receive the same full failing workspace; diagnostics alone differ. Positive controls/analyst repairs are excluded from prompts. Verification occurs only on nonpreemptible Cannon compute nodes, once per case; preserve unexpected outcomes before any deliberate revision.
+The verified tasks support a matched feedback proposal: three instances × two sharing conditions × two feedback conditions × two fresh responses = **24 proposed new calls**, none authorized. Both arms receive the same full failing workspace; diagnostics alone differ. Positive controls/analyst repairs are excluded from prompts. Verification occurs only on nonpreemptible Cannon compute nodes, once per case; preserve unexpected outcomes before any deliberate revision.

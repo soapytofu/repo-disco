@@ -1,0 +1,415 @@
+{
+  "job_id": "60220144",
+  "model_calls": 0,
+  "all_expected": true,
+  "checks": [
+    {
+      "case_id": "excluded_witness-shared-reference",
+      "task_id": "excluded_witness-shared",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [],
+      "summary": [
+        [
+          "6",
+          "0"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 0,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550"
+      },
+      "evidence_sha256": "30129a29037bdb10c91a526dfb13d5baab0320bc8016bccf8e9ea2fa59d7628a"
+    },
+    {
+      "case_id": "excluded_witness-shared-faulty",
+      "task_id": "excluded_witness-shared",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "assertion might not hold"
+        ]
+      ],
+      "summary": [
+        [
+          "5",
+          "1"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e"
+      },
+      "evidence_sha256": "65c90a69441b47362410f73f82891946c2d0d5783622c819b96abab8d186aea9"
+    },
+    {
+      "case_id": "excluded_witness-shared-empty",
+      "task_id": "excluded_witness-shared",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "a postcondition could not be proved on this return path"
+        ]
+      ],
+      "summary": [
+        [
+          "5",
+          "1"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333"
+      },
+      "evidence_sha256": "0ab905b8ee530e23b0d5373d24e304a848828f5170224791167a2225b36029ca"
+    },
+    {
+      "case_id": "excluded_witness-shared-alternative",
+      "task_id": "excluded_witness-shared",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [],
+      "summary": [
+        [
+          "6",
+          "0"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 0,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf"
+      },
+      "evidence_sha256": "84e01b9da7dd563db6b8473bb767bf1a9e0d3a9ea432b52464e32db01d27b40d"
+    },
+    {
+      "case_id": "excluded_witness-shared-targeted_1",
+      "task_id": "excluded_witness-shared",
+      "variant": "targeted_1",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "a precondition for this call could not be proved"
+        ]
+      ],
+      "summary": [
+        [
+          "5",
+          "1"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "f2482d1430082019c677104adead7f4fd12e30f745c1b89c5cc71189febeb77b"
+      },
+      "evidence_sha256": "f2e848675a33b1d0615080d3d8029477d438118a48ac9e5cc8994bcbe61f42f0"
+    },
+    {
+      "case_id": "excluded_witness-shared-targeted_2",
+      "task_id": "excluded_witness-shared",
+      "variant": "targeted_2",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "a precondition for this call could not be proved"
+        ]
+      ],
+      "summary": [
+        [
+          "5",
+          "1"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b"
+      },
+      "evidence_sha256": "ae9595792279c33c051718671ef89a657bdaccb80707349a1df32c480760d5c4"
+    },
+    {
+      "case_id": "excluded_witness-separate-reference",
+      "task_id": "excluded_witness-separate",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [],
+      "summary": [
+        [
+          "6",
+          "0"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 0,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "ebc7bd15663dcb65312a1a3b58a2f037a2ef1e4207a566ac7a550e9bb4129837",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550"
+      },
+      "evidence_sha256": "34412d62c460a7c66aa8d4c894336bce7d902347e3bda37a1292a18af2a4280f"
+    },
+    {
+      "case_id": "excluded_witness-separate-faulty",
+      "task_id": "excluded_witness-separate",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "assertion might not hold"
+        ],
+        [
+          "HelperB.dfy",
+          "assertion might not hold"
+        ]
+      ],
+      "summary": [
+        [
+          "4",
+          "2"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "b7c4bbf0c66c0547e6161be604d05efae5dd5b61617376b3c24d962eeee2eb5c",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e"
+      },
+      "evidence_sha256": "8453119057aeff26fa949ad703d6eff44fa72893443198608900898ac8665276"
+    },
+    {
+      "case_id": "excluded_witness-separate-empty",
+      "task_id": "excluded_witness-separate",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "a postcondition could not be proved on this return path"
+        ],
+        [
+          "HelperB.dfy",
+          "a postcondition could not be proved on this return path"
+        ]
+      ],
+      "summary": [
+        [
+          "4",
+          "2"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "e90197b6fddc9936e19a81549d1ce511214ccec07ae000447584a0a52bb8b549",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333"
+      },
+      "evidence_sha256": "be6ef75c1e5c236289ee302ba44fafedf0feb2a8710e03212f773f3d0ff0fca2"
+    },
+    {
+      "case_id": "excluded_witness-separate-alternative",
+      "task_id": "excluded_witness-separate",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [],
+      "summary": [
+        [
+          "6",
+          "0"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 0,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "c22f4c12f3abca94905e175fcde01c5e5f7369efd58168998db1e74de9cc1692",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf"
+      },
+      "evidence_sha256": "2770bb0593a8f44c5ad7b893e46f2f65d15fe0b85fdf33943f3790c86815518c"
+    },
+    {
+      "case_id": "excluded_witness-separate-targeted_1",
+      "task_id": "excluded_witness-separate",
+      "variant": "targeted_1",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "a precondition for this call could not be proved"
+        ],
+        [
+          "HelperB.dfy",
+          "a precondition for this call could not be proved"
+        ]
+      ],
+      "summary": [
+        [
+          "4",
+          "2"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "bdda7d8f1a134c03eceed7854ebc0d214c82e1794aa4bee8f689dfed4767da05",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "f2482d1430082019c677104adead7f4fd12e30f745c1b89c5cc71189febeb77b"
+      },
+      "evidence_sha256": "18c543dad3675a0fa77e2e5ce3b786e3ed73867895c88d0d2921ad00a064de21"
+    },
+    {
+      "case_id": "excluded_witness-separate-targeted_2",
+      "task_id": "excluded_witness-separate",
+      "variant": "targeted_2",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "matched": true,
+      "primary_diagnostic_matched": true,
+      "errors": [
+        [
+          "HelperA.dfy",
+          "a precondition for this call could not be proved"
+        ],
+        [
+          "HelperB.dfy",
+          "a precondition for this call could not be proved"
+        ]
+      ],
+      "summary": [
+        [
+          "4",
+          "2"
+        ]
+      ],
+      "warnings": false,
+      "exit_code": 4,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+        "HelperB.dfy": "a458630cbac05f40335bc277a724be621ff961fbe99f45fcb29dad094f0d3ea1",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b"
+      },
+      "evidence_sha256": "acbf2662c0475ef9c0eb27b490c15e9239fe6f41433599a676ed47226cb4811f"
+    }
+  ],
+  "reference_passes": 2,
+  "alternative_passes": 2,
+  "primary_failures_validated": 2,
+  "reviewer_sha256": "3b3fa2ba90aca2fc140f90e411c0d6370042c42a028669375866e058617a92de"
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "threshold_compose-shared-alternative",
+  "expected_exit": 0,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-wkxhsy3e/TestResults/2026-11-13_00_28_14-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.7827839029487222,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+    "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+    "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+    "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+    "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+    "HelperA.dfy": "3990fa3fb88fbba90b1478c1fa751734262c530eb5db89541dd8fde373610b2a"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_28_14-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0565812,4034,0\nOps.Above (correctness),Passed,00:00:00.0130295,3327,0\nHelperA.Prove (correctness),Passed,00:00:00.0129039,10596,0\nClientA.Target (correctness),Passed,00:00:00.0109253,4264,0\nHelperB.Prove (correctness),Passed,00:00:00.0103202,4264,0\nClientB.Target (correctness),Passed,00:00:00.0102761,4264,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_28_14-0.csv": "8c8e704d7b20369b8994c4a2f264c1a21c98e9b705edaa178b598f4feb4ed31f"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

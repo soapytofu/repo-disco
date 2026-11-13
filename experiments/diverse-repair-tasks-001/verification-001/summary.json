@@ -1,0 +1,1402 @@
+{
+  "model_calls": 0,
+  "planned": 36,
+  "completed": 36,
+  "all_expected": false,
+  "phase": "core",
+  "results": [
+    {
+      "case_id": "threshold_compose-shared-reference",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-qgg3f3ce/TestResults/2026-11-13_00_28_07-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.6582469681743532,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "c5d636e0afce4eb9308dfa20b45d3876c42b2f6f78293da113a22306c4fea7a9"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_07-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.5102869,4034,0\nOps.Above (correctness),Passed,00:00:00.0340729,3327,0\nHelperA.Prove (correctness),Passed,00:00:00.0153926,9360,0\nClientB.Target (correctness),Passed,00:00:00.0087244,4264,0\nClientA.Target (correctness),Passed,00:00:00.0084603,4264,0\nHelperB.Prove (correctness),Passed,00:00:00.0083886,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_07-0.csv": "b58fb7baaa5328c873c142c7be934bfcbb12abe60d96c9549eb27e8317908aaf"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-shared-faulty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(13,27): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);\n   |                            ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-h2bobjop/TestResults/2026-11-13_00_28_10-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.874395536025986,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "0b3ec4a4ffb171fe690efb719c344896f1b20d3d631f60592fe8fcd47e5829dd"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_10-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0539912,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0344437,7909,0\nHelperB.Prove (correctness),Passed,00:00:00.0180197,4264,0\nOps.Above (correctness),Passed,00:00:00.0105140,3327,0\nClientB.Target (correctness),Passed,00:00:00.0084763,4264,0\nClientA.Target (correctness),Passed,00:00:00.0084722,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_10-0.csv": "f9752d13e2f43d52395a94398660ebe12a726c516323abe1bbec335343308b47"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-shared-empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelperA.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-wzjqxn79/TestResults/2026-11-13_00_28_12-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.861241745064035,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "ba8f7d714c16013cbbab556ba5aa8bdc74e58fee11f9327a5361c3bd889b55dc"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_12-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0562720,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0306456,4156,0\nOps.Above (correctness),Passed,00:00:00.0146099,3327,0\nClientB.Target (correctness),Passed,00:00:00.0086123,4264,0\nClientA.Target (correctness),Passed,00:00:00.0085161,4264,0\nHelperB.Prove (correctness),Passed,00:00:00.0082588,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_12-0.csv": "0d0262f00224f61dfd5c273aa15c585a435212a1d5c3e97e82af6b6b0845a44a"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-shared-alternative",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-wkxhsy3e/TestResults/2026-11-13_00_28_14-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.7827839029487222,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "3990fa3fb88fbba90b1478c1fa751734262c530eb5db89541dd8fde373610b2a"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_14-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0565812,4034,0\nOps.Above (correctness),Passed,00:00:00.0130295,3327,0\nHelperA.Prove (correctness),Passed,00:00:00.0129039,10596,0\nClientA.Target (correctness),Passed,00:00:00.0109253,4264,0\nHelperB.Prove (correctness),Passed,00:00:00.0103202,4264,0\nClientB.Target (correctness),Passed,00:00:00.0102761,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_14-0.csv": "8c8e704d7b20369b8994c4a2f264c1a21c98e9b705edaa178b598f4feb4ed31f"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-shared-targeted_1",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(13,13): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Below(s,x-t); O.Below(s+t,x);\n   |              ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-zo1tgbga/TestResults/2026-11-13_00_28_16-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.8269560059998184,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "b1ce3b3a05c51f0187672c71c826b44f9ee4ee6537050cf14715c19db65a4d61"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_16-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0549232,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0360903,9736,0\nOps.Above (correctness),Passed,00:00:00.0142081,3327,0\nClientA.Target (correctness),Passed,00:00:00.0115829,4264,0\nHelperB.Prove (correctness),Passed,00:00:00.0103757,4264,0\nClientB.Target (correctness),Passed,00:00:00.0083822,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_16-0.csv": "57c94526cc03ffd5732ba61dc3669d2b5dc408be2af308d18cfce26a7aa09ec0"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-shared-targeted_2",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(12,23): Error: a postcondition could not be proved on this return path\n   |\n12 |     } else if x <= s+t {\n   |                        ^\n\nHelperA.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-a3jr6skt/TestResults/2026-11-13_00_28_18-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.8453359990380704,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "4711c70e1484c137c09fd0f65b2d75631ba67173a976648c26ecaf2b7d031301"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_18-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0545926,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0324322,7907,0\nOps.Above (correctness),Passed,00:00:00.0103676,3327,0\nHelperB.Prove (correctness),Passed,00:00:00.0087232,4264,0\nClientB.Target (correctness),Passed,00:00:00.0082717,4264,0\nClientA.Target (correctness),Passed,00:00:00.0082386,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_18-0.csv": "d05060de8a9a65271546448a692464a10bd120308736a47c7d6ef8bef1ce85b3"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-separate-reference",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-uwee3iwz/TestResults/2026-11-13_00_28_19-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.7990689419675618,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "85dc208074ca84a18f4fda2c8013102ef1392289e7aa53241bbbe843bf64264f",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "c5d636e0afce4eb9308dfa20b45d3876c42b2f6f78293da113a22306c4fea7a9"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_19-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0544699,4034,0\nHelperB.Prove (correctness),Passed,00:00:00.0130436,9360,0\nHelperA.Prove (correctness),Passed,00:00:00.0129583,9360,0\nClientA.Target (correctness),Passed,00:00:00.0112351,4264,0\nOps.Above (correctness),Passed,00:00:00.0107150,3327,0\nClientB.Target (correctness),Passed,00:00:00.0104614,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_19-0.csv": "1c17c4e3ca8e61656ab51faf6f82f6d38ecb327d92c5ac92f21620ed1d995775"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-separate-faulty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(13,27): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);\n   |                            ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\nHelperB.dfy(13,27): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);\n   |                            ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-tf7st5_k/TestResults/2026-11-13_00_28_21-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.867098038084805,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "4fa2a9499b10ce0fe36abf0f0197d004a956dc7c58bf4df3dcceabe2f878585b",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "0b3ec4a4ffb171fe690efb719c344896f1b20d3d631f60592fe8fcd47e5829dd"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_21-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0548798,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0325640,7909,0\nOps.Above (correctness),Passed,00:00:00.0134348,3327,0\nHelperB.Prove (correctness),Failed,00:00:00.0129212,7909,0\nClientA.Target (correctness),Passed,00:00:00.0085630,4264,0\nClientB.Target (correctness),Passed,00:00:00.0084657,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_21-0.csv": "cbcbf9b91e2d3859c7ee318efbddda674ab7c5b0991965ad617c5ec4c57a6d47"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-separate-empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelperA.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\nHelperB.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelperB.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-o6vq8iez/TestResults/2026-11-13_00_28_23-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.8296423880383372,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "8f362a318fb314316c0f31b7de220eb4f21dbf53bf53793dcb8d70200e377476",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "ba8f7d714c16013cbbab556ba5aa8bdc74e58fee11f9327a5361c3bd889b55dc"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_23-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0550541,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0303284,4156,0\nHelperB.Prove (correctness),Failed,00:00:00.0117125,4156,0\nOps.Above (correctness),Passed,00:00:00.0095846,3327,0\nClientA.Target (correctness),Passed,00:00:00.0085072,4264,0\nClientB.Target (correctness),Passed,00:00:00.0084926,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_23-0.csv": "c6b07cfef4b156d95ace21e251604b36361b6f200ab8d1c1db83a87e4f1b79b3"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-separate-alternative",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-crdwnsc6/TestResults/2026-11-13_00_28_25-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.823630033992231,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "d8b59e7f755b9716bb269852693fcc21148366c87bbe560d1a6a86dd5ef2b088",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "3990fa3fb88fbba90b1478c1fa751734262c530eb5db89541dd8fde373610b2a"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_25-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0564501,4034,0\nHelperA.Prove (correctness),Passed,00:00:00.0130125,10596,0\nHelperB.Prove (correctness),Passed,00:00:00.0128758,10596,0\nClientB.Target (correctness),Passed,00:00:00.0106361,4264,0\nOps.Above (correctness),Passed,00:00:00.0095832,3327,0\nClientA.Target (correctness),Passed,00:00:00.0083465,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_25-0.csv": "f7be69adc791de9ac1f417ddc6e1c7358d04bf5dd28e3a0078efc2c52d74bf47"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-separate-targeted_1",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(13,13): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Below(s,x-t); O.Below(s+t,x);\n   |              ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\nHelperB.dfy(13,13): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Below(s,x-t); O.Below(s+t,x);\n   |              ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-5ez8xtno/TestResults/2026-11-13_00_28_27-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.85391108202748,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "d5fc5afbacea0db2b347936320141b4f39c258ec999822ecc338800885cd3abc",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "b1ce3b3a05c51f0187672c71c826b44f9ee4ee6537050cf14715c19db65a4d61"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_27-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0547760,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0319743,9736,0\nOps.Above (correctness),Passed,00:00:00.0132057,3327,0\nHelperB.Prove (correctness),Failed,00:00:00.0127942,9736,0\nClientB.Target (correctness),Passed,00:00:00.0104076,4264,0\nClientA.Target (correctness),Passed,00:00:00.0084413,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_27-0.csv": "dbe4057f4bd86c8182f51864f4c4fb08352455b2d8513dfa129324ead4d9ce63"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "threshold_compose-separate-targeted_2",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(12,23): Error: a postcondition could not be proved on this return path\n   |\n12 |     } else if x <= s+t {\n   |                        ^\n\nHelperA.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\nHelperB.dfy(12,23): Error: a postcondition could not be proved on this return path\n   |\n12 |     } else if x <= s+t {\n   |                        ^\n\nHelperB.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-74fmxhps/TestResults/2026-11-13_00_28_29-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.842243653954938,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "HelperB.dfy": "569c085b1c8311a1ff4408dd0ec6f646c941b233c3d8e099f0552b6096c5e518",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+        "HelperA.dfy": "4711c70e1484c137c09fd0f65b2d75631ba67173a976648c26ecaf2b7d031301"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_29-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0543587,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0352438,7907,0\nOps.Above (correctness),Passed,00:00:00.0143407,3327,0\nHelperB.Prove (correctness),Failed,00:00:00.0137228,7907,0\nClientA.Target (correctness),Passed,00:00:00.0087281,4264,0\nClientB.Target (correctness),Passed,00:00:00.0085584,4264,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_29-0.csv": "212327006c794a34f46d91b37d7babaca4e5fa8b3d3c1d7cddce80248182444f"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-shared-reference",
+      "expected_exit": 0,
+      "matched": false,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-4rbkhayy/TestResults/2026-11-13_00_28_31-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9042709390632808,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_31-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0537685,3353,0\nApi.Finish (correctness),Failed,00:00:00.0342654,5254,0\nHelperA.Prove (correctness),Passed,00:00:00.0111932,5153,0\nClientB.Target (correctness),Passed,00:00:00.0109951,4133,0\nHelperB.Prove (correctness),Passed,00:00:00.0082559,3590,0\nClientA.Target (correctness),Passed,00:00:00.0080259,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_31-0.csv": "f0b6393b99d3dab7362f031c148a4140ed6ef664de4276c0ba51c97e1af2ff99"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-shared-faulty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(14,4): Error: assertion might not hold\n   |\n14 |     assert u != e;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-5_fo_wlg/TestResults/2026-11-13_00_28_33-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9527230609674007,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_33-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0544922,3353,0\nApi.Finish (correctness),Failed,00:00:00.0345233,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0124289,4557,0\nClientB.Target (correctness),Passed,00:00:00.0104337,4133,0\nClientA.Target (correctness),Passed,00:00:00.0088512,3590,0\nHelperB.Prove (correctness),Passed,00:00:00.0083323,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_33-0.csv": "70659281e2190a930a639e89f72be239ab0bf9051827782bd0aa45e82e651e19"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-shared-empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(11,2): Error: a postcondition could not be proved on this return path\n   |\n11 |   {\n   |   ^\n\nHelperA.dfy(10,22): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Feasible(a,b,e)\n   |                       ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-1ii4eatv/TestResults/2026-11-13_00_28_35-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9476741938851774,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_35-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0547042,3353,0\nApi.Finish (correctness),Failed,00:00:00.0354173,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0118365,3532,0\nClientB.Target (correctness),Passed,00:00:00.0107308,4133,0\nHelperB.Prove (correctness),Passed,00:00:00.0099501,3590,0\nClientA.Target (correctness),Passed,00:00:00.0097585,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_35-0.csv": "b50398407f717071c401a321d9dea4dff3259aa714a3fed09ab864051ffcb916"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-shared-alternative",
+      "expected_exit": 0,
+      "matched": false,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-lx71dnfn/TestResults/2026-11-13_00_28_37-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9502493450418115,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_37-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0545792,3353,0\nApi.Finish (correctness),Failed,00:00:00.0348910,5254,0\nHelperA.Prove (correctness),Passed,00:00:00.0112823,5620,0\nClientB.Target (correctness),Passed,00:00:00.0106417,4133,0\nClientA.Target (correctness),Passed,00:00:00.0082425,3590,0\nHelperB.Prove (correctness),Passed,00:00:00.0081881,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_37-0.csv": "fcfc15b2e1d914146ddeb231ae831e8c9c4973c121ecbd9fc403a0d1dff96ec5"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-shared-targeted_1",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(13,12): Error: a precondition for this call could not be proved\n   |\n13 |     O.Bounds(a,b,u);\n   |             ^\n\nOps.dfy(6,20): Related location: this is the precondition that could not be proved\n  |\n6 |     requires a <= u <= b\n  |                     ^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-vy11pag1/TestResults/2026-11-13_00_28_39-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9353295371402055,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "f2482d1430082019c677104adead7f4fd12e30f745c1b89c5cc71189febeb77b"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_39-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0551916,3353,0\nApi.Finish (correctness),Failed,00:00:00.0342555,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0131016,4382,0\nClientB.Target (correctness),Passed,00:00:00.0088680,4133,0\nClientA.Target (correctness),Passed,00:00:00.0085455,3590,0\nHelperB.Prove (correctness),Passed,00:00:00.0083640,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_39-0.csv": "b5cae86784997e2809b8a24ec7bfcd7ca4678f521e6de4c34f0c2930cdf2f286"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-shared-targeted_2",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(14,12): Error: a precondition for this call could not be proved\n   |\n14 |     A.Finish(a,b,e,u);\n   |             ^\n\nApi.dfy(6,22): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.InRange(a,b,u) && u != e\n  |                       ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-k218hl5o/TestResults/2026-11-13_00_28_41-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9143101777881384,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_41-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0558461,3353,0\nApi.Finish (correctness),Failed,00:00:00.0342553,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0142535,4775,0\nClientB.Target (correctness),Passed,00:00:00.0108410,4133,0\nHelperB.Prove (correctness),Passed,00:00:00.0099858,3590,0\nClientA.Target (correctness),Passed,00:00:00.0098951,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_41-0.csv": "ec8ea4daef0701758cce611e61617c58e42b51feae1efc1dabd8b15323e411bd"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-separate-reference",
+      "expected_exit": 0,
+      "matched": false,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-4qs2o_1c/TestResults/2026-11-13_00_28_43-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.936163204954937,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "ebc7bd15663dcb65312a1a3b58a2f037a2ef1e4207a566ac7a550e9bb4129837",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_43-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0536641,3353,0\nApi.Finish (correctness),Failed,00:00:00.0343489,5254,0\nHelperA.Prove (correctness),Passed,00:00:00.0113694,5153,0\nHelperB.Prove (correctness),Passed,00:00:00.0090355,5153,0\nClientB.Target (correctness),Passed,00:00:00.0084856,4133,0\nClientA.Target (correctness),Passed,00:00:00.0081008,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_43-0.csv": "e0516f28e65d04241b236525197dd1131b8b61f4a6eec791cffa94e11715c79e"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-separate-faulty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(14,4): Error: assertion might not hold\n   |\n14 |     assert u != e;\n   |     ^^^^^^\n\nHelperB.dfy(14,4): Error: assertion might not hold\n   |\n14 |     assert u != e;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 3 verified, 3 errors\nResults File: /tmp/repodisco-targets-olmh4bze/TestResults/2026-11-13_00_28_45-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.946134456899017,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "b7c4bbf0c66c0547e6161be604d05efae5dd5b61617376b3c24d962eeee2eb5c",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_45-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0559947,3353,0\nApi.Finish (correctness),Failed,00:00:00.0343237,5254,0\nHelperB.Prove (correctness),Failed,00:00:00.0131992,4557,0\nHelperA.Prove (correctness),Failed,00:00:00.0123686,4557,0\nClientB.Target (correctness),Passed,00:00:00.0107719,4133,0\nClientA.Target (correctness),Passed,00:00:00.0099674,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_45-0.csv": "a6208f52fca241b6983d1088641b809702da6cb28ef36e8430f2a8db1b9010d8"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-separate-empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(11,2): Error: a postcondition could not be proved on this return path\n   |\n11 |   {\n   |   ^\n\nHelperA.dfy(10,22): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Feasible(a,b,e)\n   |                       ^\n\nHelperB.dfy(11,2): Error: a postcondition could not be proved on this return path\n   |\n11 |   {\n   |   ^\n\nHelperB.dfy(10,22): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Feasible(a,b,e)\n   |                       ^\n\n\nDafny program verifier finished with 3 verified, 3 errors\nResults File: /tmp/repodisco-targets-n7q_oosz/TestResults/2026-11-13_00_28_47-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.903507153969258,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "e90197b6fddc9936e19a81549d1ce511214ccec07ae000447584a0a52bb8b549",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_47-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0533312,3353,0\nApi.Finish (correctness),Failed,00:00:00.0333649,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0107882,3532,0\nClientB.Target (correctness),Passed,00:00:00.0104512,4133,0\nHelperB.Prove (correctness),Failed,00:00:00.0102704,3532,0\nClientA.Target (correctness),Passed,00:00:00.0098470,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_47-0.csv": "3f883277178d5b5df1948ce74278c017bfd76052ea8116425edfe8f904f9eb32"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-separate-alternative",
+      "expected_exit": 0,
+      "matched": false,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-2batzaut/TestResults/2026-11-13_00_28_49-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.012680973857641,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "c22f4c12f3abca94905e175fcde01c5e5f7369efd58168998db1e74de9cc1692",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_49-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0527253,3353,0\nApi.Finish (correctness),Failed,00:00:00.0376905,5254,0\nHelperB.Prove (correctness),Passed,00:00:00.0114706,5620,0\nHelperA.Prove (correctness),Passed,00:00:00.0111095,5620,0\nClientB.Target (correctness),Passed,00:00:00.0089168,4133,0\nClientA.Target (correctness),Passed,00:00:00.0082618,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_49-0.csv": "0636e5a0556944f12dba4ec18fef3aa476b2d7323744c9a9105822da8e77eb98"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-separate-targeted_1",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(13,12): Error: a precondition for this call could not be proved\n   |\n13 |     O.Bounds(a,b,u);\n   |             ^\n\nOps.dfy(6,20): Related location: this is the precondition that could not be proved\n  |\n6 |     requires a <= u <= b\n  |                     ^^\n\nHelperB.dfy(13,12): Error: a precondition for this call could not be proved\n   |\n13 |     O.Bounds(a,b,u);\n   |             ^\n\nOps.dfy(6,20): Related location: this is the precondition that could not be proved\n  |\n6 |     requires a <= u <= b\n  |                     ^^\n\n\nDafny program verifier finished with 3 verified, 3 errors\nResults File: /tmp/repodisco-targets-bdukx1d6/TestResults/2026-11-13_00_28_51-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.1322725659701973,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "bdda7d8f1a134c03eceed7854ebc0d214c82e1794aa4bee8f689dfed4767da05",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "f2482d1430082019c677104adead7f4fd12e30f745c1b89c5cc71189febeb77b"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_51-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0730349,3353,0\nApi.Finish (correctness),Failed,00:00:00.0332131,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0120314,4382,0\nHelperB.Prove (correctness),Failed,00:00:00.0113907,4382,0\nClientB.Target (correctness),Passed,00:00:00.0113463,4133,0\nClientA.Target (correctness),Passed,00:00:00.0099394,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_51-0.csv": "69f0867ba88be7a4182269888dd72134a2e2f1d0e4d83cd2aed7664cf8b0cdc7"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "excluded_witness-separate-targeted_2",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "Kernel.dfy(6,4): Warning: Could not find a trigger for this quantifier. Without a trigger, the quantifier may cause brittle verification. To silence this warning, add an explicit trigger using the {:trigger} attribute. For more information, see the section on quantifier instantiation rules in the reference manual.\n  |\n6 |     exists u: int :: a <= u <= b && u != e\n  |     ^^^^^^\n\nApi.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nApi.dfy(7,22): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures K.Feasible(a,b,e)\n  |                       ^\n\nHelperA.dfy(14,12): Error: a precondition for this call could not be proved\n   |\n14 |     A.Finish(a,b,e,u);\n   |             ^\n\nApi.dfy(6,22): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.InRange(a,b,u) && u != e\n  |                       ^\n\nHelperB.dfy(14,12): Error: a precondition for this call could not be proved\n   |\n14 |     A.Finish(a,b,e,u);\n   |             ^\n\nApi.dfy(6,22): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.InRange(a,b,u) && u != e\n  |                       ^\n\n\nDafny program verifier finished with 3 verified, 3 errors\nResults File: /tmp/repodisco-targets-m0om6e7m/TestResults/2026-11-13_00_28_53-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 1.9105309480801225,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+        "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+        "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+        "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+        "HelperB.dfy": "a458630cbac05f40335bc277a724be621ff961fbe99f45fcb29dad094f0d3ea1",
+        "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+        "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_53-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0539372,3353,0\nApi.Finish (correctness),Failed,00:00:00.0334198,5254,0\nHelperA.Prove (correctness),Failed,00:00:00.0141799,4775,0\nHelperB.Prove (correctness),Failed,00:00:00.0131435,4775,0\nClientB.Target (correctness),Passed,00:00:00.0084589,4133,0\nClientA.Target (correctness),Passed,00:00:00.0083378,3590,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_53-0.csv": "f1c2ea72e2ca77c4942cd4af24a17748b7c40b5bdcc8a754b529b128dba00ef9"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-shared-reference",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 11 verified, 0 errors\nResults File: /tmp/repodisco-targets-eijwckbj/TestResults/2026-11-13_00_28_55-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.1250697360374033,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "17355c1e44bc2d9ca3e21d0a597923134bd5a5f67718eb1f728392410e506dab"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_55-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0590810,14057,0\nOps.Unfold (correctness),Passed,00:00:00.0194074,17868,0\nKernel.Left (well-formedness),Passed,00:00:00.0177722,12489,0\nClientB.Target (correctness),Passed,00:00:00.0174799,15690,0\nHelperA.Prove (correctness),Passed,00:00:00.0172030,35127,0\nApi.Project (correctness),Passed,00:00:00.0140469,22730,0\nApi.Empty (correctness),Passed,00:00:00.0135754,21268,0\nOps.Unfold (well-formedness),Passed,00:00:00.0132732,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0125467,12495,0\nClientA.Target (correctness),Passed,00:00:00.0116208,15706,0\nHelperB.Prove (correctness),Passed,00:00:00.0115489,15706,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_55-0.csv": "baea1fb4f289ef951efad7f9ad78c7df28caef9497623c7cea8a99025769a8e5"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-shared-faulty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\n\nDafny program verifier finished with 10 verified, 2 errors\nResults File: /tmp/repodisco-targets-d3kq7uyw/TestResults/2026-11-13_00_28_58-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.285139183048159,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_28_58-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0559248,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0548643,40637,0\nApi.Project (correctness),Passed,00:00:00.0200059,22730,0\nClientA.Target (correctness),Passed,00:00:00.0191163,15706,0\nClientB.Target (correctness),Passed,00:00:00.0186481,15690,0\nKernel.Left (well-formedness),Passed,00:00:00.0175271,12489,0\nApi.Empty (correctness),Passed,00:00:00.0138241,21268,0\nOps.Unfold (well-formedness),Passed,00:00:00.0131714,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0124819,12495,0\nOps.Unfold (correctness),Passed,00:00:00.0123172,17868,0\nHelperB.Prove (correctness),Passed,00:00:00.0121935,15706,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_28_58-0.csv": "0a976afdf093e1f75811867b1c00b202a4dca6733f774efc7eab54ab32667079"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-shared-empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperA.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperA.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperA.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\n\nDafny program verifier finished with 10 verified, 2 errors\nResults File: /tmp/repodisco-targets-zvpsqd7j/TestResults/2026-11-13_00_29_00-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.168820367194712,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_00-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0593785,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0442761,18271,0\nKernel.Left (well-formedness),Passed,00:00:00.0187938,12489,0\nHelperB.Prove (correctness),Passed,00:00:00.0184201,15706,0\nOps.Unfold (correctness),Passed,00:00:00.0181198,17868,0\nClientA.Target (correctness),Passed,00:00:00.0172465,15706,0\nClientB.Target (correctness),Passed,00:00:00.0171197,15690,0\nOps.Unfold (well-formedness),Passed,00:00:00.0136430,14429,0\nApi.Project (correctness),Passed,00:00:00.0135234,22730,0\nApi.Empty (correctness),Passed,00:00:00.0132938,21268,0\nKernel.Right (well-formedness),Passed,00:00:00.0121706,12495,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_00-0.csv": "9fd0d4f27e8845ae4245ce58a8f57c90cb9170874b06577456ca7f1d899b6c5d"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-shared-alternative",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 11 verified, 0 errors\nResults File: /tmp/repodisco-targets-f2q35caj/TestResults/2026-11-13_00_29_02-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.2495082039386034,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "18dd33dfabb5f1fdf62c37e96031f312a7cd9061bef11919998b2aba221c4068"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_02-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0605252,14057,0\nHelperA.Prove (correctness),Passed,00:00:00.0161803,31714,0\nClientA.Target (correctness),Passed,00:00:00.0158906,15706,0\nOps.Unfold (well-formedness),Passed,00:00:00.0138203,14429,0\nApi.Project (correctness),Passed,00:00:00.0137853,22730,0\nKernel.Left (well-formedness),Passed,00:00:00.0135991,12489,0\nApi.Empty (correctness),Passed,00:00:00.0131216,21268,0\nOps.Unfold (correctness),Passed,00:00:00.0127557,17868,0\nKernel.Right (well-formedness),Passed,00:00:00.0122788,12495,0\nHelperB.Prove (correctness),Passed,00:00:00.0115027,15706,0\nClientB.Target (correctness),Passed,00:00:00.0113672,15690,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_02-0.csv": "efbeb650a0842b9028998b5feb26aefe166510151abe1d92c38c57c0ea4658f6"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-shared-targeted_1",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\n\nDafny program verifier finished with 10 verified, 2 errors\nResults File: /tmp/repodisco-targets-yp3kph8t/TestResults/2026-11-13_00_29_05-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.18123369384557,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "8c0e318a0e1e70c815516ac85c121c99684c4bcca04c6c88ee2a721b2cdac780"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_05-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0704861,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0632089,48514,0\nApi.Project (correctness),Passed,00:00:00.0190597,22730,0\nOps.Unfold (well-formedness),Passed,00:00:00.0188484,14429,0\nKernel.Left (well-formedness),Passed,00:00:00.0187165,12489,0\nKernel.Right (well-formedness),Passed,00:00:00.0168619,12495,0\nApi.Empty (correctness),Passed,00:00:00.0135240,21268,0\nOps.Unfold (correctness),Passed,00:00:00.0119120,17868,0\nHelperB.Prove (correctness),Passed,00:00:00.0117514,15706,0\nClientB.Target (correctness),Passed,00:00:00.0112374,15690,0\nClientA.Target (correctness),Passed,00:00:00.0111003,15706,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_05-0.csv": "719f5b0f3020f2829b309d80a8001ae23bb15440fcdce02721a8255ef3802942"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-shared-targeted_2",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(18,11): Error: decreases clause might not decrease\n   |\n18 |       Prove(s,t);\n   |            ^\n\n\nDafny program verifier finished with 10 verified, 1 error\nResults File: /tmp/repodisco-targets-zi7a208r/TestResults/2026-11-13_00_29_07-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.077634015819058,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "87fafb0b6bc51a6918aaa81f063e959ee71b37d9fcd0b026abbf554385e92414"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_07-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0592590,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0405914,24683,0\nHelperB.Prove (correctness),Passed,00:00:00.0181571,15706,0\nKernel.Left (well-formedness),Passed,00:00:00.0165216,12489,0\nClientB.Target (correctness),Passed,00:00:00.0143072,15690,0\nApi.Project (correctness),Passed,00:00:00.0135680,22730,0\nApi.Empty (correctness),Passed,00:00:00.0134340,21268,0\nOps.Unfold (well-formedness),Passed,00:00:00.0123329,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0118208,12495,0\nClientA.Target (correctness),Passed,00:00:00.0117084,15706,0\nOps.Unfold (correctness),Passed,00:00:00.0116075,17868,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_07-0.csv": "52ea3f52a46560965a882afdb51e28ee717df03a765f660661d6715669474332"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-separate-reference",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 11 verified, 0 errors\nResults File: /tmp/repodisco-targets-c42z472b/TestResults/2026-11-13_00_29_09-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.0959025779739022,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "83a8daa28d1d0652e203a281c9706699acd6af05e835a30728f8fb71f85983af",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "17355c1e44bc2d9ca3e21d0a597923134bd5a5f67718eb1f728392410e506dab"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_09-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0585481,14057,0\nApi.Project (correctness),Passed,00:00:00.0192886,22730,0\nOps.Unfold (correctness),Passed,00:00:00.0186407,17868,0\nClientA.Target (correctness),Passed,00:00:00.0173422,15706,0\nKernel.Left (well-formedness),Passed,00:00:00.0172842,12489,0\nKernel.Right (well-formedness),Passed,00:00:00.0171444,12495,0\nHelperA.Prove (correctness),Passed,00:00:00.0166774,35127,0\nHelperB.Prove (correctness),Passed,00:00:00.0166123,35127,0\nApi.Empty (correctness),Passed,00:00:00.0131335,21268,0\nOps.Unfold (well-formedness),Passed,00:00:00.0129547,14429,0\nClientB.Target (correctness),Passed,00:00:00.0112098,15690,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_09-0.csv": "ddd28575747ef36d43a1939a4ad8f0f2b0dd553dbc680da8717c194bcda164db"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-separate-faulty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\nHelperB.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperB.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperB.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperB.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\n\nDafny program verifier finished with 9 verified, 4 errors\nResults File: /tmp/repodisco-targets-okvhxkpb/TestResults/2026-11-13_00_29_11-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.2139976781327277,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_11-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0589865,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0528375,40637,0\nHelperB.Prove (correctness),Failed,00:00:00.0386055,40637,0\nKernel.Left (well-formedness),Passed,00:00:00.0220022,12489,0\nApi.Project (correctness),Passed,00:00:00.0136366,22730,0\nApi.Empty (correctness),Passed,00:00:00.0134369,21268,0\nOps.Unfold (well-formedness),Passed,00:00:00.0129181,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0122236,12495,0\nOps.Unfold (correctness),Passed,00:00:00.0119268,17868,0\nClientB.Target (correctness),Passed,00:00:00.0111331,15690,0\nClientA.Target (correctness),Passed,00:00:00.0110980,15706,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_11-0.csv": "841d556996f2795d119ac620bdee418516ed0b03b87cd621debebc59ca18d6a7"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-separate-empty",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperA.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperA.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperA.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\nHelperB.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperB.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperB.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperB.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\n\nDafny program verifier finished with 9 verified, 4 errors\nResults File: /tmp/repodisco-targets-bhb9wres/TestResults/2026-11-13_00_29_13-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.1456816180143505,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "1429893dd168d037ce0963f23ab2bc2a3696b116e40565b5ece13ba9b95257ca",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_13-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0589338,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0380234,18271,0\nHelperB.Prove (correctness),Failed,00:00:00.0228510,18271,0\nApi.Empty (correctness),Passed,00:00:00.0193549,21268,0\nOps.Unfold (correctness),Passed,00:00:00.0188183,17868,0\nClientB.Target (correctness),Passed,00:00:00.0182951,15690,0\nClientA.Target (correctness),Passed,00:00:00.0168385,15706,0\nOps.Unfold (well-formedness),Passed,00:00:00.0140174,14429,0\nApi.Project (correctness),Passed,00:00:00.0137305,22730,0\nKernel.Left (well-formedness),Passed,00:00:00.0122781,12489,0\nKernel.Right (well-formedness),Passed,00:00:00.0117940,12495,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_13-0.csv": "5cd2f6a0e6aeca796b0184fe0f4544a31a84cfdb230212661f201f3f9a75de02"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-separate-alternative",
+      "expected_exit": 0,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 0,
+      "stdout": "\nDafny program verifier finished with 11 verified, 0 errors\nResults File: /tmp/repodisco-targets-1de62vi4/TestResults/2026-11-13_00_29_16-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.0668600578792393,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "d431c9c1cca91b6e5f07a3f3c98a58ec869b46e213a6c589053b8c38d5866ef4",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "18dd33dfabb5f1fdf62c37e96031f312a7cd9061bef11919998b2aba221c4068"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_16-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0575096,14057,0\nHelperB.Prove (correctness),Passed,00:00:00.0242993,31714,0\nApi.Empty (correctness),Passed,00:00:00.0195642,21268,0\nClientB.Target (correctness),Passed,00:00:00.0181561,15690,0\nClientA.Target (correctness),Passed,00:00:00.0171798,15706,0\nHelperA.Prove (correctness),Passed,00:00:00.0169689,31714,0\nKernel.Left (well-formedness),Passed,00:00:00.0161637,12489,0\nApi.Project (correctness),Passed,00:00:00.0135425,22730,0\nOps.Unfold (well-formedness),Passed,00:00:00.0129689,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0121012,12495,0\nOps.Unfold (correctness),Passed,00:00:00.0117794,17868,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_16-0.csv": "803bfe3bf0837d72c1aeb9f015685b790e0a9576da94c14ef832c9280cdb94e5"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-separate-targeted_1",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperA.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperA.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\nHelperB.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperB.dfy(10,33): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                  ^^\n\nHelperB.dfy(15,11): Error: a postcondition could not be proved on this return path\n   |\n15 |     } else {\n   |            ^\n\nHelperB.dfy(10,63): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Left(K.Weave(s,t)) == s && K.Right(K.Weave(s,t)) == t\n   |                                                                ^^\n\n\nDafny program verifier finished with 9 verified, 4 errors\nResults File: /tmp/repodisco-targets-9dmht0pf/TestResults/2026-11-13_00_29_18-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.1291216798126698,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "79e0849e4532ee9a6a0268a3d8f6454d754439a14b1aad638c6e2a10000b95e8",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "8c0e318a0e1e70c815516ac85c121c99684c4bcca04c6c88ee2a721b2cdac780"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_18-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Failed,00:00:00.0546887,48514,0\nKernel.Weave (well-formedness),Passed,00:00:00.0544431,14057,0\nHelperB.Prove (correctness),Failed,00:00:00.0416432,48514,0\nApi.Project (correctness),Passed,00:00:00.0193395,22730,0\nOps.Unfold (well-formedness),Passed,00:00:00.0190188,14429,0\nOps.Unfold (correctness),Passed,00:00:00.0185535,17868,0\nClientB.Target (correctness),Passed,00:00:00.0182387,15690,0\nKernel.Left (well-formedness),Passed,00:00:00.0180911,12489,0\nKernel.Right (well-formedness),Passed,00:00:00.0171550,12495,0\nClientA.Target (correctness),Passed,00:00:00.0170497,15706,0\nApi.Empty (correctness),Passed,00:00:00.0131736,21268,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_18-0.csv": "b91d7cec33728495091f99b8c04e4512057fba3f976e7647ae3435f5402d32a7"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    },
+    {
+      "case_id": "weave_unweave-separate-targeted_2",
+      "expected_exit": 4,
+      "matched": true,
+      "command": [
+        "timeout",
+        "-k",
+        "5s",
+        "60s",
+        "dafny",
+        "verify",
+        "--verify-included-files",
+        "--log-format",
+        "csv",
+        "All.dfy"
+      ],
+      "exit_code": 4,
+      "stdout": "HelperA.dfy(18,11): Error: decreases clause might not decrease\n   |\n18 |       Prove(s,t);\n   |            ^\n\nHelperB.dfy(18,11): Error: decreases clause might not decrease\n   |\n18 |       Prove(s,t);\n   |            ^\n\n\nDafny program verifier finished with 9 verified, 2 errors\nResults File: /tmp/repodisco-targets-ngf0savx/TestResults/2026-11-13_00_29_20-0.csv\n",
+      "stderr": "",
+      "elapsed_seconds": 2.1706092189997435,
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "HelperB.dfy": "fcde3d7c73114230ec0e3f3bd56140c6034fafa1ee57492f33b28c6de84d18b0",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+        "HelperA.dfy": "87fafb0b6bc51a6918aaa81f063e959ee71b37d9fcd0b026abbf554385e92414"
+      },
+      "csv": {
+        "TestResults/2026-11-13_00_29_20-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0591064,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0407284,24683,0\nHelperB.Prove (correctness),Failed,00:00:00.0305609,24683,0\nOps.Unfold (correctness),Passed,00:00:00.0196248,17868,0\nKernel.Left (well-formedness),Passed,00:00:00.0174599,12489,0\nApi.Empty (correctness),Passed,00:00:00.0133003,21268,0\nApi.Project (correctness),Passed,00:00:00.0132452,22730,0\nOps.Unfold (well-formedness),Passed,00:00:00.0130895,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0117295,12495,0\nClientA.Target (correctness),Passed,00:00:00.0114598,15706,0\nClientB.Target (correctness),Passed,00:00:00.0114205,15690,0\n"
+      },
+      "csv_sha256": {
+        "TestResults/2026-11-13_00_29_20-0.csv": "255f516702bde42ebe2f42e89dcf8e8e546e0a0f7d8feb41cde82fd6ac059e08"
+      },
+      "model_calls": 0,
+      "attempts": 1
+    }
+  ],
+  "claim": "Exit/logger check only; named-target review follows offline"
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "threshold_compose-separate-targeted_2",
+  "expected_exit": 4,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(12,23): Error: a postcondition could not be proved on this return path\n   |\n12 |     } else if x <= s+t {\n   |                        ^\n\nHelperA.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\nHelperB.dfy(12,23): Error: a postcondition could not be proved on this return path\n   |\n12 |     } else if x <= s+t {\n   |                        ^\n\nHelperB.dfy(8,32): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)\n  |                                 ^^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-74fmxhps/TestResults/2026-11-13_00_28_29-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.842243653954938,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+    "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+    "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+    "HelperB.dfy": "569c085b1c8311a1ff4408dd0ec6f646c941b233c3d8e099f0552b6096c5e518",
+    "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+    "HelperA.dfy": "4711c70e1484c137c09fd0f65b2d75631ba67173a976648c26ecaf2b7d031301"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_28_29-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0543587,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0352438,7907,0\nOps.Above (correctness),Passed,00:00:00.0143407,3327,0\nHelperB.Prove (correctness),Failed,00:00:00.0137228,7907,0\nClientA.Target (correctness),Passed,00:00:00.0087281,4264,0\nClientB.Target (correctness),Passed,00:00:00.0085584,4264,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_28_29-0.csv": "212327006c794a34f46d91b37d7babaca4e5fa8b3d3c1d7cddce80248182444f"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}
