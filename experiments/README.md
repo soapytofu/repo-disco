@@ -1,5 +1,17 @@
 # Experiment log
 
+## Feedback repair comparison — diagnostics 4/4 versus notice 1/4
+
+[map-feedback-repair-pilot-001](map-feedback-repair-pilot-001/RESULTS.md) completed
+all eight fresh requests with no retries. Five whole-repository repairs verified
+and were atomically promoted in isolated stores; three controls retained the
+premature certificate call and failed the original precondition. All outputs
+passed extraction and guards. This is one selected failure mode, two unique
+workspaces, and descriptive evidence for feedback-assisted repair. Original
+12/16 generation results and every archived source remain unchanged. Full logs,
+request IDs, revisions, metrics and audit are published; the eight-call budget
+is exhausted.
+
 ## Verifier-feedback repair pilot — eight calls approved, runner prepared
 
 [map-feedback-repair-plan-001](map-feedback-repair-plan-001/README.md) freezes four
@@ -11,7 +23,7 @@ including exact repaired-source replay and feedback-only prompt differences. No
 model calls during planning; original score stays 12/16. The separately approved
 [bounded runtime](map-feedback-repair-pilot-001/README.md) now has 18 passing
 offline tests, real isolated revision promotion and exact frozen-payload dispatch.
-Execution and result status are recorded there.
+The completed results are recorded there.
 
 ## Fresh-pilot call-order diagnostic — four strict successes, zero model calls
 

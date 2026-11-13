@@ -1,6 +1,6 @@
 # Matched verifier-feedback repair pilot
 
-Status: eight new requests approved by Sophie; runtime 002 passed Cannon preflight (18 tests); job **60215841** submitted once and started on nonpreemptible `test`. Results pending. The immutable [proposal](../map-feedback-repair-plan-001/README.md) remains the prospective plan. Runtime approval is separate from its frozen `execution_authorized: false` planning field.
+Status: **complete and reviewed**. Job **60215841** used all eight approved calls without retries: **4/4 strict repairs with verifier diagnostics versus 1/4 with failure notice only**. [Results and limits](RESULTS.md) summarize the evidence. The immutable [proposal](../map-feedback-repair-plan-001/README.md) remains the prospective plan. Runtime approval is separate from its frozen `execution_authorized: false` planning field.
 
 Four detailed-verifier-feedback requests and four failure-notice-only controls start from four archived failures (two unique workspaces). Shared/separate conditions each receive two responses per feedback arm in the exact frozen order. No retries, replacement slots, conversation history or additional repair rounds. Maximum output: 32,768 tokens; no price assumption. This is one inspected failure mode and a descriptive repair feasibility test, not held-out performance or a general causal claim.
 
@@ -12,6 +12,6 @@ The runtime copies the existing agent/candidate/store implementation unchanged. 
 
 `runtime-freeze.json` binds code, copied agent implementation and tests; `authorization.json` binds this runtime, proposal and finite deadline before one Slurm submission. Compute uses the live-confirmed nonpreemptible `test` partition, no requeue. Keys are consumed/deleted only inside the compute process and excluded from all evidence. `ops.py` uses exclusive staging/submission markers and refuses existing output; no restart/resume command exists.
 
-Future result publication will include provider IDs, original/raw responses, extraction decisions, candidates, full verifier logs, declaration CSV, initial and accepted revisions, request ledger, accounting and a reproducible audit. The original generation score remains **12/16** regardless of repair outcomes.
+The result archive includes provider IDs, original/raw responses, extraction decisions, candidates, full verifier logs, declaration CSV, initial and accepted revisions, request ledger, accounting and a reproducible audit. The original generation score remains **12/16** regardless of repair outcomes.
 
 The first remote offline preflight exceeded its 75-second wrapper timeout, before any submission or API call. No orphan test process or model output remained. `preflight-attempt-001/` preserves that runtime and the observed failure. A direct import probe passed in 3.9 seconds. Versioned runtime 002 uses the existing repodisco interpreter directly and runs fsync-heavy fake revision tests in local scratch. The exact phase of the original timeout was not observed, so no specific root cause is claimed. Frozen prompts, proof policy, agent code and trial order are unchanged.

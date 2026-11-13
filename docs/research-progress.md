@@ -10,6 +10,26 @@ Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 13: matched repair result — verifier feedback 4/4, notice 1/4
+
+[The eight-call repair comparison](../experiments/map-feedback-repair-pilot-001/RESULTS.md)
+completed with zero retries, 45,430 tokens, all outputs admitted and five strict
+whole-workspace repairs. All four diagnostic-arm responses succeeded; one of
+four notice-only controls succeeded. Three controls left the original premature
+certificate call unchanged. Five complete verified revisions were promoted in
+isolated stores; failed attempts preserved their original revisions. Exact
+requests, response IDs, guarded sources, verifier CSV/logs and promotion evidence
+are published. The original generation score remains 12/16, and all 812 prior
+model archive files are unchanged.
+
+This is a useful task-specific signal for verifier-assisted cross-module repair,
+not a general causal sharing/depth result: four parent records contain just two
+unique workspaces from one inspected failure mode. Next needs diverse failure
+instances under the same frozen feedback/control design, before broad claims.
+Weeks 5–6 remains controlled-corpus/evaluation development; this pilot does not
+complete the larger corpus, held-out evaluation or training milestones. All
+eight approved calls are exhausted.
+
 ## November 12: feedback repair comparison frozen — eight calls proposed
 
 [map-feedback-repair-plan-001](../experiments/map-feedback-repair-plan-001/README.md)
@@ -24,7 +44,7 @@ files. Sophie subsequently approved eight new calls with no retries. The
 [separate bounded runtime](../experiments/map-feedback-repair-pilot-001/README.md)
 passes 18 offline tests, including isolated revision promotion and complete audit
 replay. The unchanged frozen prompts/order passed Cannon environment preflight (18 fake
-transport tests); no requests have been dispatched at this update. This is selected-failure repair feasibility, not held-out or general
+transport tests), and the subsequent eight-call result is recorded above. This is selected-failure repair feasibility, not held-out or general
 causal evidence, and cannot change the original generation score of 12/16.
 
 ## November 12: prerequisite reorder confirmed on all four fresh failures

@@ -1,0 +1,310 @@
+--- map-balanced-04/HelperA.dfy
++++ map-repair-01/HelperA.dfy
+@@ -11,27 +11,32 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
+-    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
++    var rm := K.Restrict(m, keep);
++    var rn := K.Restrict(n, keep);
++    assert forall q1 :: q1 in rm ==> q1 in m;
++    assert forall q2 :: q2 in rn ==> q2 in n;
++    assert forall q3 :: q3 in rm ==> q3 !in rn;
++    O1.Certify(rm, rn);
++    O2.MergeKeys(rm, rn);
+     var left := K.Restrict(K.Merge(m, n), keep);
+-    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
++    var right := K.Merge(rm, rn);
+     assert left.Keys == right.Keys;
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       if q0 in m {
+         O2.MergeAt(m, n, q0);
+         O2.RestrictAt(K.Merge(m, n), keep, q0);
+         O2.RestrictAt(m, keep, q0);
+-        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
++        O2.MergeAt(rm, rn, q0);
+         assert left[q0] == right[q0];
+       } else {
+         O2.MergeAt(m, n, q0);
+         O2.RestrictAt(K.Merge(m, n), keep, q0);
+         O2.RestrictAt(n, keep, q0);
+-        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
++        O2.MergeAt(rm, rn, q0);
+         assert left[q0] == right[q0];
+       }
+     }
+--- map-balanced-08/HelperA.dfy
++++ map-repair-02/HelperA.dfy
+@@ -19,7 +19,7 @@
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+       if q0 in m {
+@@ -30,7 +30,7 @@
+         O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
+       }
+     }
+-    forall q1 | q1 in right ensures q1 in left && right[q1] == left[q1] {
++    forall q1 | q1 in right ensures (q1 in left) && (right[q1] == left[q1]) {
+       O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q1);
+       if q1 in K.Restrict(m, keep) {
+         O2.RestrictAt(m, keep, q1);
+--- map-balanced-08/HelperB.dfy
++++ map-repair-02/HelperB.dfy
+@@ -19,7 +19,7 @@
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+       if q0 in m {
+@@ -30,7 +30,7 @@
+         O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
+       }
+     }
+-    forall q1 | q1 in right ensures q1 in left && right[q1] == left[q1] {
++    forall q1 | q1 in right ensures (q1 in left) && (right[q1] == left[q1]) {
+       O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q1);
+       if q1 in K.Restrict(m, keep) {
+         O2.RestrictAt(m, keep, q1);
+--- map-balanced-04/HelperA.dfy
++++ map-repair-03/HelperA.dfy
+@@ -20,7 +20,7 @@
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+     assert left.Keys == right.Keys;
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       if q0 in m {
+         O2.MergeAt(m, n, q0);
+         O2.RestrictAt(K.Merge(m, n), keep, q0);
+--- map-balanced-08/HelperA.dfy
++++ map-repair-04/HelperA.dfy
+@@ -11,14 +11,20 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
+-    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
++    forall q2 | q2 in K.Restrict(m, keep) ensures q2 !in K.Restrict(n, keep) {
++      O2.RestrictKeys(m, keep);
++      O2.RestrictKeys(n, keep);
++      assert q2 in m.Keys - (m.Keys - keep);
++      assert q2 in m;
++    }
++    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
++    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+--- map-balanced-08/HelperB.dfy
++++ map-repair-04/HelperB.dfy
+@@ -11,14 +11,20 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
+-    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
++    forall q2 | q2 in K.Restrict(m, keep) ensures q2 !in K.Restrict(n, keep) {
++      O2.RestrictKeys(m, keep);
++      O2.RestrictKeys(n, keep);
++      assert q2 in m.Keys - (m.Keys - keep);
++      assert q2 in m;
++    }
++    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
++    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+--- map-balanced-11/HelperA.dfy
++++ map-repair-05/HelperA.dfy
+@@ -11,15 +11,19 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
++    forall q2 | q2 in K.Restrict(m, keep) ensures q2 !in K.Restrict(n, keep) {
++      assert q2 in m;
++      assert q2 !in n;
++    }
++    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+       if q0 in m {
+@@ -30,7 +34,7 @@
+         O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
+       }
+     }
+-    forall q1 | q1 in right ensures q1 in left && right[q1] == left[q1] {
++    forall q1 | q1 in right ensures (q1 in left) && (right[q1] == left[q1]) {
+       O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q1);
+       if q1 in K.Restrict(m, keep) {
+         O2.RestrictAt(m, keep, q1);
+--- map-balanced-11/HelperB.dfy
++++ map-repair-05/HelperB.dfy
+@@ -11,15 +11,19 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
++    forall q2 | q2 in K.Restrict(m, keep) ensures q2 !in K.Restrict(n, keep) {
++      assert q2 in m;
++      assert q2 !in n;
++    }
++    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+       if q0 in m {
+@@ -30,7 +34,7 @@
+         O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
+       }
+     }
+-    forall q1 | q1 in right ensures q1 in left && right[q1] == left[q1] {
++    forall q1 | q1 in right ensures (q1 in left) && (right[q1] == left[q1]) {
+       O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q1);
+       if q1 in K.Restrict(m, keep) {
+         O2.RestrictAt(m, keep, q1);
+--- map-balanced-09/HelperA.dfy
++++ map-repair-06/HelperA.dfy
+@@ -11,16 +11,16 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
++    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+     assert left.Keys == right.Keys;
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       if q0 in m {
+         O2.MergeAt(m, n, q0);
+         O2.RestrictAt(K.Merge(m, n), keep, q0);
+--- map-balanced-11/HelperA.dfy
++++ map-repair-07/HelperA.dfy
+@@ -19,7 +19,7 @@
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+       if q0 in m {
+@@ -30,7 +30,7 @@
+         O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
+       }
+     }
+-    forall q1 | q1 in right ensures q1 in left && right[q1] == left[q1] {
++    forall q1 | q1 in right ensures (q1 in left) && (right[q1] == left[q1]) {
+       O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q1);
+       if q1 in K.Restrict(m, keep) {
+         O2.RestrictAt(m, keep, q1);
+--- map-balanced-11/HelperB.dfy
++++ map-repair-07/HelperB.dfy
+@@ -19,7 +19,7 @@
+     O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
+     var left := K.Restrict(K.Merge(m, n), keep);
+     var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       O2.RestrictAt(K.Merge(m, n), keep, q0);
+       O2.MergeAt(m, n, q0);
+       if q0 in m {
+@@ -30,7 +30,7 @@
+         O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
+       }
+     }
+-    forall q1 | q1 in right ensures q1 in left && right[q1] == left[q1] {
++    forall q1 | q1 in right ensures (q1 in left) && (right[q1] == left[q1]) {
+       O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q1);
+       if q1 in K.Restrict(m, keep) {
+         O2.RestrictAt(m, keep, q1);
+--- map-balanced-09/HelperA.dfy
++++ map-repair-08/HelperA.dfy
+@@ -11,27 +11,32 @@
+     requires forall q :: q in m ==> q !in n
+     ensures K.Restrict(K.Merge(m,n),keep) == K.Merge(K.Restrict(m,keep),K.Restrict(n,keep))
+   {O1.Certify(m, n);
+-    O1.Certify(K.Restrict(m, keep), K.Restrict(n, keep));
+     O2.RestrictKeys(m, keep);
+     O2.RestrictKeys(n, keep);
+     O2.MergeKeys(m, n);
+     O2.RestrictKeys(K.Merge(m, n), keep);
+-    O2.MergeKeys(K.Restrict(m, keep), K.Restrict(n, keep));
++    var rm := K.Restrict(m, keep);
++    var rn := K.Restrict(n, keep);
++    assert forall q1 :: q1 in rm ==> q1 in m;
++    assert forall q2 :: q2 in rn ==> q2 in n;
++    assert forall q3 :: q3 in rm ==> q3 !in rn;
++    O1.Certify(rm, rn);
++    O2.MergeKeys(rm, rn);
+     var left := K.Restrict(K.Merge(m, n), keep);
+-    var right := K.Merge(K.Restrict(m, keep), K.Restrict(n, keep));
++    var right := K.Merge(rm, rn);
+     assert left.Keys == right.Keys;
+-    forall q0 | q0 in left ensures q0 in right && left[q0] == right[q0] {
++    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {
+       if q0 in m {
+         O2.MergeAt(m, n, q0);
+         O2.RestrictAt(K.Merge(m, n), keep, q0);
+         O2.RestrictAt(m, keep, q0);
+-        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
++        O2.MergeAt(rm, rn, q0);
+         assert left[q0] == right[q0];
+       } else {
+         O2.MergeAt(m, n, q0);
+         O2.RestrictAt(K.Merge(m, n), keep, q0);
+         O2.RestrictAt(n, keep, q0);
+-        O2.MergeAt(K.Restrict(m, keep), K.Restrict(n, keep), q0);
++        O2.MergeAt(rm, rn, q0);
+         assert left[q0] == right[q0];
+       }
+     }

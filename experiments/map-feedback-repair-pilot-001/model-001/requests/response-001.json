@@ -1,0 +1,54 @@
+{
+  "text": "{\"HelperA.dfy\": \"O1.Certify(m, n);\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    var rm := K.Restrict(m, keep);\\n    var rn := K.Restrict(n, keep);\\n    assert forall q1 :: q1 in rm ==> q1 in m;\\n    assert forall q2 :: q2 in rn ==> q2 in n;\\n    assert forall q3 :: q3 in rm ==> q3 !in rn;\\n    O1.Certify(rm, rn);\\n    O2.MergeKeys(rm, rn);\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(rm, rn);\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {\\n      if q0 in m {\\n        O2.MergeAt(m, n, q0);\\n        O2.RestrictAt(K.Merge(m, n), keep, q0);\\n        O2.RestrictAt(m, keep, q0);\\n        O2.MergeAt(rm, rn, q0);\\n        assert left[q0] == right[q0];\\n      } else {\\n        O2.MergeAt(m, n, q0);\\n        O2.RestrictAt(K.Merge(m, n), keep, q0);\\n        O2.RestrictAt(n, keep, q0);\\n        O2.MergeAt(rm, rn, q0);\\n        assert left[q0] == right[q0];\\n      }\\n    }\\n    A.Equal(left, right);\"}",
+  "content": [
+    {
+      "text": "{\"HelperA.dfy\": \"O1.Certify(m, n);\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    var rm := K.Restrict(m, keep);\\n    var rn := K.Restrict(n, keep);\\n    assert forall q1 :: q1 in rm ==> q1 in m;\\n    assert forall q2 :: q2 in rn ==> q2 in n;\\n    assert forall q3 :: q3 in rm ==> q3 !in rn;\\n    O1.Certify(rm, rn);\\n    O2.MergeKeys(rm, rn);\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(rm, rn);\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {\\n      if q0 in m {\\n        O2.MergeAt(m, n, q0);\\n        O2.RestrictAt(K.Merge(m, n), keep, q0);\\n        O2.RestrictAt(m, keep, q0);\\n        O2.MergeAt(rm, rn, q0);\\n        assert left[q0] == right[q0];\\n      } else {\\n        O2.MergeAt(m, n, q0);\\n        O2.RestrictAt(K.Merge(m, n), keep, q0);\\n        O2.RestrictAt(n, keep, q0);\\n        O2.MergeAt(rm, rn, q0);\\n        assert left[q0] == right[q0];\\n      }\\n    }\\n    A.Equal(left, right);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 4403,
+    "outputTokens": 526,
+    "totalTokens": 4929,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "c054d18c-95f7-4dd3-bcbc-d79c382bba9a",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "c054d18c-95f7-4dd3-bcbc-d79c382bba9a",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Fri, 13 Nov 2026 05:14:07 GMT",
+        "content-type": "application/json",
+        "content-length": "1443",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "c054d18c-95f7-4dd3-bcbc-d79c382bba9a"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"HelperA.dfy\": \"O1.Certify(m, n);\\n    O2.RestrictKeys(m, keep);\\n    O2.RestrictKeys(n, keep);\\n    O2.MergeKeys(m, n);\\n    O2.RestrictKeys(K.Merge(m, n), keep);\\n    var rm := K.Restrict(m, keep);\\n    var rn := K.Restrict(n, keep);\\n    assert forall q1 :: q1 in rm ==> q1 in m;\\n    assert forall q2 :: q2 in rn ==> q2 in n;\\n    assert forall q3 :: q3 in rm ==> q3 !in rn;\\n    O1.Certify(rm, rn);\\n    O2.MergeKeys(rm, rn);\\n    var left := K.Restrict(K.Merge(m, n), keep);\\n    var right := K.Merge(rm, rn);\\n    assert left.Keys == right.Keys;\\n    forall q0 | q0 in left ensures (q0 in right) && (left[q0] == right[q0]) {\\n      if q0 in m {\\n        O2.MergeAt(m, n, q0);\\n        O2.RestrictAt(K.Merge(m, n), keep, q0);\\n        O2.RestrictAt(m, keep, q0);\\n        O2.MergeAt(rm, rn, q0);\\n        assert left[q0] == right[q0];\\n      } else {\\n        O2.MergeAt(m, n, q0);\\n        O2.RestrictAt(K.Merge(m, n), keep, q0);\\n        O2.RestrictAt(n, keep, q0);\\n        O2.MergeAt(rm, rn, q0);\\n        assert left[q0] == right[q0];\\n      }\\n    }\\n    A.Equal(left, right);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 4403,
+      "outputTokens": 526,
+      "totalTokens": 4929,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 5964
+    }
+  }
+}
