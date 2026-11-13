@@ -10,6 +10,20 @@ Status: November 13, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
+
+[The 24-call pilot](../experiments/diverse-repair-pilot-001/RESULTS.md) completed
+with zero retries and 64,098 tokens. Threshold composition and excluded-witness
+repair each achieved 8/8 strict successes; 16 complete revisions were promoted.
+All eight sequence responses failed envelope extraction before verification.
+Both diagnostic and notice-only arms scored 8/12; this collection provides no
+observed feedback advantage. A read-only audit finds valid fenced JSON in all
+eight rejected responses, with sequence notation in preceding prose confusing
+the frozen scanner. Their mathematical correctness remains unmeasured; the
+primary 16/24 score is unchanged. Next gate: a separately labeled offline
+extraction/verification diagnostic, followed by more informative fresh tasks.
+No additional calls are authorized. All raw evidence and prior scores are preserved.
+
 ## November 13: broader repair tasks verified and prompts frozen
 
 [Three fresh development instances](../experiments/diverse-repair-tasks-001/RESULTS.md)
@@ -27,6 +41,7 @@ frozen; only diagnostic context differs within a matched pair. Six offline freez
 tests and 18 body/measurement replays pass. The user has now approved 24 new
 requests, with no retries. The [separate runner](../experiments/diverse-repair-pilot-001/README.md)
 passed 20 offline tests locally and on Cannon; no model calls during setup.
+The subsequent completed run is summarized above.
 This remains Weeks 5–6 corpus/evaluation development. Reserved families and
 historical model scores are unchanged.
 

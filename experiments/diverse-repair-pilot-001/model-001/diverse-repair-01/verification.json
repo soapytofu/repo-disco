@@ -1,0 +1,35 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-ni7qls33/TestResults/2026-11-13_16_11_28-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.554593763081357,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+    "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+    "HelperA.dfy": "e372b23fb0cb28b7b49efbc398d76cf8938870502a123ba324da5ca247f65385",
+    "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+    "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+    "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+  },
+  "csv": {
+    "TestResults/2026-11-13_16_11_28-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0487005,4034,0\nHelperA.Prove (correctness),Passed,00:00:00.0121468,9360,0\nHelperB.Prove (correctness),Passed,00:00:00.0101029,4264,0\nOps.Above (correctness),Passed,00:00:00.0099659,3327,0\nClientB.Target (correctness),Passed,00:00:00.0079690,4264,0\nClientA.Target (correctness),Passed,00:00:00.0079314,4264,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_16_11_28-0.csv": "9dd8af4e579847fbce9d58fe2edb5b59227cac6a4c1529720fd9f4cb2d33346a"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

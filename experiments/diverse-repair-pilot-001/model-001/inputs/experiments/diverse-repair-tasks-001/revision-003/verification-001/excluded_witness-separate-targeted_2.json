@@ -1,0 +1,39 @@
+{
+  "case_id": "excluded_witness-separate-targeted_2",
+  "expected_exit": 4,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(14,12): Error: a precondition for this call could not be proved\n   |\n14 |     A.Finish(a,b,e,u);\n   |             ^\n\nApi.dfy(6,22): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.InRange(a,b,u) && u != e\n  |                       ^\n\nHelperB.dfy(14,12): Error: a precondition for this call could not be proved\n   |\n14 |     A.Finish(a,b,e,u);\n   |             ^\n\nApi.dfy(6,22): Related location: this is the precondition that could not be proved\n  |\n6 |     requires K.InRange(a,b,u) && u != e\n  |                       ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-2j6n_j3q/TestResults/2026-11-13_00_35_08-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.9943796060979366,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+    "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+    "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+    "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+    "HelperB.dfy": "a458630cbac05f40335bc277a724be621ff961fbe99f45fcb29dad094f0d3ea1",
+    "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+    "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_35_08-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0515838,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0337455,4932,0\nApi.Finish (correctness),Passed,00:00:00.0147380,6145,0\nHelperB.Prove (correctness),Failed,00:00:00.0132326,4932,0\nClientB.Target (correctness),Passed,00:00:00.0106807,4285,0\nClientA.Target (correctness),Passed,00:00:00.0082267,3742,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_35_08-0.csv": "d983f15646a1008b648f33df7fd7cdde23de20a30ab9eceba3b0fa63d406a032"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

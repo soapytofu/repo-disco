@@ -1,0 +1,445 @@
+{
+  "job_id": "60343569",
+  "model_calls_in_this_audit": 0,
+  "dafny_runs_in_this_audit": 0,
+  "original_score_unchanged": "16/24",
+  "unique_verified_candidate_workspaces": 15,
+  "verified_obligation_count_histogram": {
+    "6": 16
+  },
+  "rejected_envelope_reasons": {
+    "Multiple JSON containers": 5,
+    "Malformed or duplicate-key JSON container": 3
+  },
+  "valid_single_json_fences_in_rejected_responses": 8,
+  "rows": [
+    {
+      "trial_id": "diverse-repair-01",
+      "semantic_instance": "threshold_compose",
+      "sharing": "shared",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "ee6084a0a10ef504a70a54e17aa7cb1e3f72da02ba7559f53742160000d45ad6",
+      "body_sha256": {
+        "HelperA.dfy": "6a1091865c34199ec6a252ac0994dd6bc48b7498c52c7242a9fa6a6498cd82ca"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-02",
+      "semantic_instance": "weave_unweave",
+      "sharing": "separate",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "8b970b3e0745f82c6693f68f31636a5309387549a23e1d6ace700811cd1ad95a",
+      "primary_rejection": "Multiple JSON containers",
+      "scanner_rejection_in_prose": {
+        "reason": "Multiple JSON containers",
+        "start_char": 625,
+        "snippet": "[0]] + K.Weave(s[1..],t[1..])`\n   - `A.Project(s[0],t[0],K.W"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 1290,
+      "fence_end_char": 1826,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true,
+        "HelperB.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-03",
+      "semantic_instance": "excluded_witness",
+      "sharing": "shared",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "9b5dfcfa333a7ff456be2e4ccfd45bba44120b210a838bd31d84cdc7da63ac45",
+      "body_sha256": {
+        "HelperA.dfy": "ebc6c78fe455d4ba5c33b691cc86c2250faf199b638355bf2efffd1dbf93717f"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-04",
+      "semantic_instance": "threshold_compose",
+      "sharing": "separate",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "615ea76f576ebd717f9d62abfd50102f0c283063a2d47869ef2ebd117b0c1cba",
+      "body_sha256": {
+        "HelperA.dfy": "3186e7bc26a7605e86b7f5e01aacb5ab118c01d67fc97cb5c04c0e8b2427b57c",
+        "HelperB.dfy": "3186e7bc26a7605e86b7f5e01aacb5ab118c01d67fc97cb5c04c0e8b2427b57c"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-05",
+      "semantic_instance": "weave_unweave",
+      "sharing": "shared",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "00333d1bd2ff7f5bf53a41828a39cf38382795daff7345b082d9aa6d1d3f8d21",
+      "primary_rejection": "Malformed or duplicate-key JSON container",
+      "scanner_rejection_in_prose": {
+        "reason": "Malformed or duplicate-key JSON container",
+        "start_char": 422,
+        "snippet": "[1..], t[1..])`\n   - Use `A.Project` to connect the pieces\n\n"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 1033,
+      "fence_end_char": 1302,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-06",
+      "semantic_instance": "excluded_witness",
+      "sharing": "separate",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "03bd14c5f211c7ed20fcb2eb259052ba18ecfae47c04808653424f84c1c121b3",
+      "body_sha256": {
+        "HelperA.dfy": "6a8a87cb42a6817aa144164c3caec9ad3e368d943f1082185cb462fa8cab8260",
+        "HelperB.dfy": "6a8a87cb42a6817aa144164c3caec9ad3e368d943f1082185cb462fa8cab8260"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-07",
+      "semantic_instance": "threshold_compose",
+      "sharing": "shared",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "d3eaf0cf3d962ed889c13aecd82f0de145a5f5446a092fa41ea046e9def14175",
+      "body_sha256": {
+        "HelperA.dfy": "7d0d23e282bcec165bdb0d46511a48006b371d184e63bd596c1b1df567e2bf0b"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-08",
+      "semantic_instance": "weave_unweave",
+      "sharing": "separate",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "5cf7b8b257ccb8b4bc5a21117be41f6da76f1171dd846bf254a0bfc8299be186",
+      "primary_rejection": "Malformed or duplicate-key JSON container",
+      "scanner_rejection_in_prose": {
+        "reason": "Malformed or duplicate-key JSON container",
+        "start_char": 381,
+        "snippet": "[1..], t[1..])` which establishes the inductive hypothesis f"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 924,
+      "fence_end_char": 1462,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true,
+        "HelperB.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-09",
+      "semantic_instance": "excluded_witness",
+      "sharing": "shared",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "dfa64786c34adbc334e63b10f2fb536c938e3d80cc30e05e67c54b92bb78d13d",
+      "body_sha256": {
+        "HelperA.dfy": "6d9326d4b23cf65d6e16dcfe0ab14a90875ea0b5a94fe7100f98788a85838e41"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-10",
+      "semantic_instance": "threshold_compose",
+      "sharing": "separate",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "f2b5f523b6c7c5782e62bf3bee8e888aa0b524ed18bb23213f39a9cdd04959ac",
+      "body_sha256": {
+        "HelperA.dfy": "6239133853ce8f64d13ccf993d9b20a74ee876170a74094b42f29a6b278ac4a3",
+        "HelperB.dfy": "9622b09850148e456ab24cdaa47b8cea49f18a54cfd5fb74f956198838e009c8"
+      },
+      "separate_bodies_identical": false,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-11",
+      "semantic_instance": "weave_unweave",
+      "sharing": "shared",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "90a64e94374c078e5e501fe80fe14981439d25e964d4de47b43b59078d9f284e",
+      "primary_rejection": "Multiple JSON containers",
+      "scanner_rejection_in_prose": {
+        "reason": "Multiple JSON containers",
+        "start_char": 307,
+        "snippet": "[0]] + K.Weave(s[1..],t[1..])`\n\n2. `A.Project(s[0],t[0],K.We"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 967,
+      "fence_end_char": 1232,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-12",
+      "semantic_instance": "excluded_witness",
+      "sharing": "separate",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "3a4aa3b406afbcb9e2d9a9fb4db457bbc40163ef69406c37f25f8f3e36894fe4",
+      "body_sha256": {
+        "HelperA.dfy": "57860b0d76d75d20cb64090e5cdf0f15a307ddd5a1e8f2f58f4d61032cc229a8",
+        "HelperB.dfy": "57860b0d76d75d20cb64090e5cdf0f15a307ddd5a1e8f2f58f4d61032cc229a8"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-13",
+      "semantic_instance": "excluded_witness",
+      "sharing": "separate",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "589f96ad52af0553d13e1980b021c17ed7618c8bde90d3df8bbd0700f6f141d2",
+      "body_sha256": {
+        "HelperA.dfy": "2919ffc8c522e0edba3b5f3358d12420a8badcab70af089f39c740fdac1720ce",
+        "HelperB.dfy": "2919ffc8c522e0edba3b5f3358d12420a8badcab70af089f39c740fdac1720ce"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-14",
+      "semantic_instance": "weave_unweave",
+      "sharing": "shared",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "ef2adf61d7451b2be300bdc6f8863aba7557456a1465efc45a377b2f2900384e",
+      "primary_rejection": "Multiple JSON containers",
+      "scanner_rejection_in_prose": {
+        "reason": "Multiple JSON containers",
+        "start_char": 352,
+        "snippet": "[]) == []` and `Left([]) == []` and `Right([]) == []`. This "
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 1181,
+      "fence_end_char": 1447,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-15",
+      "semantic_instance": "threshold_compose",
+      "sharing": "separate",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "f0b81f3dac2fdb5c3ee9f78df885034b5ff2c9f575f5b9cd3907827fcdecc6df",
+      "body_sha256": {
+        "HelperA.dfy": "d0ebf46710706a07a33a25d07429c56571a06bbcb3a91689c57416b6cd2fd7e8",
+        "HelperB.dfy": "d0ebf46710706a07a33a25d07429c56571a06bbcb3a91689c57416b6cd2fd7e8"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-16",
+      "semantic_instance": "excluded_witness",
+      "sharing": "shared",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "b2f73897d7f5f1bf376d3ae87ff301822cc96b5e0cd450dc14aacf83454460e8",
+      "body_sha256": {
+        "HelperA.dfy": "137275b9b11a6ba643839d1c31181d7e771aedd672678cc3fc5d93d433341e52"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-17",
+      "semantic_instance": "weave_unweave",
+      "sharing": "separate",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "228d52ffee7af067cc9536243c8ff326a1698d89739d8beebfc13a0993bee51e",
+      "primary_rejection": "Multiple JSON containers",
+      "scanner_rejection_in_prose": {
+        "reason": "Multiple JSON containers",
+        "start_char": 392,
+        "snippet": "[0]] + K.Weave(s[1..],t[1..])`\n2. We use `A.Project` to rela"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 773,
+      "fence_end_char": 1311,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true,
+        "HelperB.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-18",
+      "semantic_instance": "threshold_compose",
+      "sharing": "shared",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "ca6f5022da2aa65b85cbd1d1ae8e706fafc4a2be8f18f85ad478be263d7a2829",
+      "body_sha256": {
+        "HelperA.dfy": "214e7f90fc6dcd006e900eee28d987cbd75059a4b023690bdb634b9f2b8d7483"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-19",
+      "semantic_instance": "excluded_witness",
+      "sharing": "separate",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "a367e9c83d76eb7c450b338d5e7925c26c50d951886336f869a50f56aa90993f",
+      "body_sha256": {
+        "HelperA.dfy": "57860b0d76d75d20cb64090e5cdf0f15a307ddd5a1e8f2f58f4d61032cc229a8",
+        "HelperB.dfy": "57860b0d76d75d20cb64090e5cdf0f15a307ddd5a1e8f2f58f4d61032cc229a8"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-20",
+      "semantic_instance": "weave_unweave",
+      "sharing": "shared",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "529e3e7fea2e256ffc3ee72214638ed7e01e231d9e1dcb4e25a534fd59a33a9e",
+      "primary_rejection": "Multiple JSON containers",
+      "scanner_rejection_in_prose": {
+        "reason": "Multiple JSON containers",
+        "start_char": 364,
+        "snippet": "[0]] + K.Weave(s[1..],t[1..])`\n2. We need to recursively pro"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 1141,
+      "fence_end_char": 1416,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-21",
+      "semantic_instance": "threshold_compose",
+      "sharing": "separate",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "3afc093b7ea85723d71cd8dbd702de7f5e8bf4162ecf4645f809f38f1ac56608",
+      "body_sha256": {
+        "HelperA.dfy": "9c259d98a3a6c13b2c3beedf3b626b71c57b2d467e943f9bc76cf8fa568f47d5",
+        "HelperB.dfy": "9c259d98a3a6c13b2c3beedf3b626b71c57b2d467e943f9bc76cf8fa568f47d5"
+      },
+      "separate_bodies_identical": true,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    },
+    {
+      "trial_id": "diverse-repair-22",
+      "semantic_instance": "excluded_witness",
+      "sharing": "shared",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "f379b2e3642f3ea08843051d5a44f09688541659712df8cbfc147b33ae5b397b",
+      "body_sha256": {
+        "HelperA.dfy": "61656d754c263b03196a69a7361536d904b1bcc12bd0cfcb96049a7740d002a7"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Chooses endpoint a when a differs from e, otherwise endpoint b; a<b proves the second endpoint differs. Calls Bounds then Finish with unchanged goal."
+    },
+    {
+      "trial_id": "diverse-repair-23",
+      "semantic_instance": "weave_unweave",
+      "sharing": "separate",
+      "feedback_condition": "failure_notice_only",
+      "primary_outcome": "OUTPUT_REJECTED",
+      "raw_response_sha256": "2825fecc06409f7b5de92f828040c327229f0d2a80b06a5b393a880e13e2ab1a",
+      "primary_rejection": "Malformed or duplicate-key JSON container",
+      "scanner_rejection_in_prose": {
+        "reason": "Malformed or duplicate-key JSON container",
+        "start_char": 519,
+        "snippet": "[1..],t[1..])` to get the inductive hypothesis\n   - Use `A.P"
+      },
+      "single_fenced_json_object_valid": true,
+      "fence_start_char": 890,
+      "fence_end_char": 1282,
+      "exact_expected_keys": true,
+      "recursive_tail_call_present": {
+        "HelperA.dfy": true,
+        "HelperB.dfy": true
+      },
+      "candidate_admitted_by_primary_protocol": false,
+      "proof_verified": false,
+      "note": "Format inspection only; no guarded candidate was created or verified and no score was changed."
+    },
+    {
+      "trial_id": "diverse-repair-24",
+      "semantic_instance": "threshold_compose",
+      "sharing": "shared",
+      "feedback_condition": "verifier_diagnostics",
+      "primary_outcome": "VERIFIED",
+      "raw_response_sha256": "16904ba5193a9eaaeaa1eebde69f03ba7bdcd310469af398d0c8542fe22c9097",
+      "body_sha256": {
+        "HelperA.dfy": "7fc8fc59d13dab9b2ec1535517c1d8248952f56d7556e185f5a4ab236e6240af"
+      },
+      "separate_bodies_identical": null,
+      "verified_obligations": 6,
+      "edit_interpretation": "Adds the intermediate saturation case; calls Below/Above under their matching preconditions."
+    }
+  ]
+}

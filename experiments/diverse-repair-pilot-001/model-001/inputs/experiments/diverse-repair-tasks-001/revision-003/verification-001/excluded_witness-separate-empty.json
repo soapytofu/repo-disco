@@ -1,0 +1,39 @@
+{
+  "case_id": "excluded_witness-separate-empty",
+  "expected_exit": 4,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(11,2): Error: a postcondition could not be proved on this return path\n   |\n11 |   {\n   |   ^\n\nHelperA.dfy(10,22): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Feasible(a,b,e)\n   |                       ^\n\nHelperB.dfy(11,2): Error: a postcondition could not be proved on this return path\n   |\n11 |   {\n   |   ^\n\nHelperB.dfy(10,22): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Feasible(a,b,e)\n   |                       ^\n\n\nDafny program verifier finished with 4 verified, 2 errors\nResults File: /tmp/repodisco-targets-1rpqn1ak/TestResults/2026-11-13_00_35_02-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.9914301009848714,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+    "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+    "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+    "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+    "HelperB.dfy": "e90197b6fddc9936e19a81549d1ce511214ccec07ae000447584a0a52bb8b549",
+    "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+    "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_35_02-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0686430,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0310744,3687,0\nApi.Finish (correctness),Passed,00:00:00.0151342,6145,0\nHelperB.Prove (correctness),Failed,00:00:00.0104046,3687,0\nClientB.Target (correctness),Passed,00:00:00.0084580,4285,0\nClientA.Target (correctness),Passed,00:00:00.0080777,3742,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_35_02-0.csv": "776fbc2040372b415b4f1ac5e1b5c9c253c5d87bbc6a11d6ec59ce53b7e2bbee"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

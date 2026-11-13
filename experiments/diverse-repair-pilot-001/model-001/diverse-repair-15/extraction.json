@@ -1,0 +1,497 @@
+{
+  "accepted": true,
+  "failing_base_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+    "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+    "HelperA.dfy": "0b3ec4a4ffb171fe690efb719c344896f1b20d3d631f60592fe8fcd47e5829dd",
+    "HelperB.dfy": "4fa2a9499b10ce0fe36abf0f0197d004a956dc7c58bf4df3dcceabe2f878585b",
+    "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+    "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+  },
+  "candidate_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+    "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+    "HelperA.dfy": "d5f66321142cc65c9298bd405a1c37b2d8256b27f721d26c2a2ad638fa9513cd",
+    "HelperB.dfy": "4bd46d5e41643e654723d1c70bb7b006c69c35dd33009a0e8353744ed297f61b",
+    "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+    "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+  },
+  "original_guard_decision": {
+    "envelope": {
+      "version": "single-json-envelope-v1",
+      "start_char": 1291,
+      "end_char": 1911,
+      "raw_sha256": "1cf337cbc79d608d62a817bcf5e23fe4136b37b28264efff77aa552a4c0beacc",
+      "payload_sha256": "b9dee46bc0d38c094f4789034bee8663a6469b377d20f0b1760c6fe3b9f1dfad"
+    },
+    "body_guard": {
+      "version": "diverse-repair-bodies-v1-development",
+      "wrapper": "plain JSON",
+      "parent_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "HelperA.dfy": "ba8f7d714c16013cbbab556ba5aa8bdc74e58fee11f9327a5361c3bd889b55dc",
+        "HelperB.dfy": "8f362a318fb314316c0f31b7de220eb4f21dbf53bf53793dcb8d70200e377476",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+        "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+        "HelperA.dfy": "d5f66321142cc65c9298bd405a1c37b2d8256b27f721d26c2a2ad638fa9513cd",
+        "HelperB.dfy": "4bd46d5e41643e654723d1c70bb7b006c69c35dd33009a0e8353744ed297f61b",
+        "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+        "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+      },
+      "bodies": {
+        "HelperA.dfy": {
+          "prefix_sha256": "0cf6a6934f3c57650e9c6153be3b2537430a9caf830d4cf0c1e5f58309318cbc",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "body_sha256": "d0ebf46710706a07a33a25d07429c56571a06bbcb3a91689c57416b6cd2fd7e8",
+          "syntax": [
+            [
+              "if_statement",
+              [
+                "infix_syntax",
+                "<=",
+                [
+                  "variable",
+                  "x"
+                ],
+                [
+                  "variable",
+                  "t"
+                ]
+              ],
+              [
+                [
+                  "call",
+                  "O.Below",
+                  [
+                    [
+                      "variable",
+                      "t"
+                    ],
+                    [
+                      "variable",
+                      "x"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Below",
+                  [
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Below",
+                  [
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "variable",
+                        "t"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "x"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "variable",
+                      "x"
+                    ],
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "variable",
+                        "t"
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Below",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "-",
+                          [
+                            "variable",
+                            "x"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Below",
+                      [
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "-",
+                          [
+                            "variable",
+                            "x"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "tokens": 109,
+          "statements": 11
+        },
+        "HelperB.dfy": {
+          "prefix_sha256": "7b21f846c4aac3de5474ce657abc184622fd8cd1672d0539e897db14815fe462",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "body_sha256": "d0ebf46710706a07a33a25d07429c56571a06bbcb3a91689c57416b6cd2fd7e8",
+          "syntax": [
+            [
+              "if_statement",
+              [
+                "infix_syntax",
+                "<=",
+                [
+                  "variable",
+                  "x"
+                ],
+                [
+                  "variable",
+                  "t"
+                ]
+              ],
+              [
+                [
+                  "call",
+                  "O.Below",
+                  [
+                    [
+                      "variable",
+                      "t"
+                    ],
+                    [
+                      "variable",
+                      "x"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Below",
+                  [
+                    [
+                      "variable",
+                      "s"
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Below",
+                  [
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "variable",
+                        "t"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "x"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "variable",
+                      "x"
+                    ],
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "s"
+                      ],
+                      [
+                        "variable",
+                        "t"
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Below",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "-",
+                          [
+                            "variable",
+                            "x"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Below",
+                      [
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "-",
+                          [
+                            "variable",
+                            "x"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.Above",
+                      [
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "variable",
+                            "t"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "tokens": 109,
+          "statements": 11
+        }
+      },
+      "semantic_verification_performed": false
+    }
+  }
+}

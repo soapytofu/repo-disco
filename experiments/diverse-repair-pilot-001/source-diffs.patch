@@ -1,0 +1,503 @@
+--- diverse-repair-01/original/HelperA.dfy
++++ diverse-repair-01/candidate/HelperA.dfy
+@@ -9,8 +9,10 @@
+   {
+     if x <= t {
+       O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++    } else if x <= s + t {
++      O.Above(t,x); O.Below(s,x-t); O.Below(s+t,x);
+     } else {
+       O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
+     }
+-  }
++    }
+ }
+--- diverse-repair-03/original/HelperA.dfy
++++ diverse-repair-03/candidate/HelperA.dfy
+@@ -9,9 +9,14 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a == e {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }
++    }
+ }
+--- diverse-repair-04/original/HelperA.dfy
++++ diverse-repair-04/candidate/HelperA.dfy
+@@ -10,7 +10,11 @@
+     if x <= t {
+       O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
+-    }
+-  }
++      O.Above(t,x);
++      if x-t <= s {
++        O.Below(s,x-t); O.Below(s+t,x);
++      } else {
++        O.Above(s,x-t); O.Above(s+t,x);
++      }
++    }  }
+ }
+--- diverse-repair-04/original/HelperB.dfy
++++ diverse-repair-04/candidate/HelperB.dfy
+@@ -10,7 +10,11 @@
+     if x <= t {
+       O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
+-    }
+-  }
++      O.Above(t,x);
++      if x-t <= s {
++        O.Below(s,x-t); O.Below(s+t,x);
++      } else {
++        O.Above(s,x-t); O.Above(s+t,x);
++      }
++    }  }
+ }
+--- diverse-repair-06/original/HelperA.dfy
++++ diverse-repair-06/candidate/HelperA.dfy
+@@ -9,9 +9,7 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    var u := if e == a then b else a;
++    O.Bounds(a, b, u);
++    A.Finish(a, b, e, u);  }
+ }
+--- diverse-repair-06/original/HelperB.dfy
++++ diverse-repair-06/candidate/HelperB.dfy
+@@ -9,9 +9,7 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    var u := if e == a then b else a;
++    O.Bounds(a, b, u);
++    A.Finish(a, b, e, u);  }
+ }
+--- diverse-repair-07/original/HelperA.dfy
++++ diverse-repair-07/candidate/HelperA.dfy
+@@ -6,11 +6,18 @@
+   lemma {:induction false} Prove(s: int, t: int, x: int)
+     requires 0 <= s && 0 <= t
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+-  {
+-    if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++  {if x <= t {
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
+-    }
+-  }
++      O.Above(t, x);
++      if x - t <= s {
++        O.Below(s, x - t);
++        O.Below(s + t, x);
++      } else {
++        O.Above(s, x - t);
++        O.Above(s + t, x);
++      }
++    }  }
+ }
+--- diverse-repair-09/original/HelperA.dfy
++++ diverse-repair-09/candidate/HelperA.dfy
+@@ -9,9 +9,7 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    var u := if a != e then a else b;
++    O.Bounds(a, b, u);
++    A.Finish(a, b, e, u);  }
+ }
+--- diverse-repair-10/original/HelperA.dfy
++++ diverse-repair-10/candidate/HelperA.dfy
+@@ -8,9 +8,17 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
++    } else if x - t <= s {
++      O.Above(t, x);
++      O.Below(s, x - t);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t, x);
++      O.Above(s, x - t);
++      O.Above(s + t, x);
+     }
+-  }
++    }
+ }
+--- diverse-repair-10/original/HelperB.dfy
++++ diverse-repair-10/candidate/HelperB.dfy
+@@ -8,9 +8,18 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
++    } else if x - t <= s {
++      O.Above(t, x);
++      O.Below(s, x - t);
++      O.Below(s, x - t);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t, x);
++      O.Above(s, x - t);
++      O.Above(s + t, x);
+     }
+-  }
++    }
+ }
+--- diverse-repair-12/original/HelperA.dfy
++++ diverse-repair-12/candidate/HelperA.dfy
+@@ -9,9 +9,13 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }  }
+ }
+--- diverse-repair-12/original/HelperB.dfy
++++ diverse-repair-12/candidate/HelperB.dfy
+@@ -9,9 +9,13 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }  }
+ }
+--- diverse-repair-13/original/HelperA.dfy
++++ diverse-repair-13/candidate/HelperA.dfy
+@@ -9,9 +9,14 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      assert u != e;
++      A.Finish(a, b, e, u);
++    }  }
+ }
+--- diverse-repair-13/original/HelperB.dfy
++++ diverse-repair-13/candidate/HelperB.dfy
+@@ -9,9 +9,14 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      assert u != e;
++      A.Finish(a, b, e, u);
++    }  }
+ }
+--- diverse-repair-15/original/HelperA.dfy
++++ diverse-repair-15/candidate/HelperA.dfy
+@@ -8,9 +8,17 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
++    } else if x <= s + t {
++      O.Above(t, x);
++      O.Below(s, x - t);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t, x);
++      O.Above(s, x - t);
++      O.Above(s + t, x);
+     }
+-  }
++    }
+ }
+--- diverse-repair-15/original/HelperB.dfy
++++ diverse-repair-15/candidate/HelperB.dfy
+@@ -8,9 +8,17 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
++    } else if x <= s + t {
++      O.Above(t, x);
++      O.Below(s, x - t);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t, x);
++      O.Above(s, x - t);
++      O.Above(s + t, x);
+     }
+-  }
++    }
+ }
+--- diverse-repair-16/original/HelperA.dfy
++++ diverse-repair-16/candidate/HelperA.dfy
+@@ -9,9 +9,14 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }
++    }
+ }
+--- diverse-repair-18/original/HelperA.dfy
++++ diverse-repair-18/candidate/HelperA.dfy
+@@ -8,9 +8,18 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t,x);
++      O.Below(s,0);
++      O.Below(s+t,x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t,x);
++      if x - t <= s {
++        O.Below(s, x-t);
++        O.Below(s+t, x);
++      } else {
++        O.Above(s, x-t);
++        O.Above(s+t, x);
++      }
+     }
+-  }
++    }
+ }
+--- diverse-repair-19/original/HelperA.dfy
++++ diverse-repair-19/candidate/HelperA.dfy
+@@ -9,9 +9,13 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }  }
+ }
+--- diverse-repair-19/original/HelperB.dfy
++++ diverse-repair-19/candidate/HelperB.dfy
+@@ -9,9 +9,13 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if a != e {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }  }
+ }
+--- diverse-repair-21/original/HelperA.dfy
++++ diverse-repair-21/candidate/HelperA.dfy
+@@ -8,9 +8,18 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t, x);
++      if x - t <= s {
++        O.Below(s, x - t);
++        O.Below(s + t, x);
++      } else {
++        O.Above(s, x - t);
++        O.Above(s + t, x);
++      }
+     }
+-  }
++    }
+ }
+--- diverse-repair-21/original/HelperB.dfy
++++ diverse-repair-21/candidate/HelperB.dfy
+@@ -8,9 +8,18 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
++      O.Above(t, x);
++      if x - t <= s {
++        O.Below(s, x - t);
++        O.Below(s + t, x);
++      } else {
++        O.Above(s, x - t);
++        O.Above(s + t, x);
++      }
+     }
+-  }
++    }
+ }
+--- diverse-repair-22/original/HelperA.dfy
++++ diverse-repair-22/candidate/HelperA.dfy
+@@ -9,9 +9,14 @@
+     requires a < b
+     ensures K.Feasible(a,b,e)
+   {
+-    var u := a;
+-    O.Bounds(a,b,u);
+-    assert u != e;
+-    A.Finish(a,b,e,u);
+-  }
++    if e == a {
++      var u := b;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    } else {
++      var u := a;
++      O.Bounds(a, b, u);
++      A.Finish(a, b, e, u);
++    }
++    }
+ }
+--- diverse-repair-24/original/HelperA.dfy
++++ diverse-repair-24/candidate/HelperA.dfy
+@@ -8,9 +8,17 @@
+     ensures K.Cut(s,K.Cut(t,x)) == K.Cut(s+t,x)
+   {
+     if x <= t {
+-      O.Below(t,x); O.Below(s,0); O.Below(s+t,x);
++      O.Below(t, x);
++      O.Below(s, 0);
++      O.Below(s + t, x);
+     } else {
+-      O.Above(t,x); O.Above(s,x-t); O.Above(s+t,x);
+-    }
+-  }
++      O.Above(t, x);
++      if x - t <= s {
++        O.Below(s, x - t);
++        O.Below(s + t, x);
++      } else {
++        O.Above(s, x - t);
++        O.Above(s + t, x);
++      }
++    }  }
+ }

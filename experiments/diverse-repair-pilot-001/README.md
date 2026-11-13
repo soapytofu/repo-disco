@@ -1,6 +1,6 @@
 # Diverse one-round repair pilot
 
-Status: **job 60343569 submitted once on nonpreemptible `test`**; 24 new requests authorized, no retries. Runtime/environment tests passed locally and on Cannon; results pending. The [prospective plan](../diverse-repair-plan-001/README.md) and its frozen prompts/order remain unchanged. Its historical `execution_authorized: false` field is superseded for this run only by a separate hash-bound runtime authorization.
+Status: **complete and reviewed**. Job **60343569** used all 24 authorized requests without retries: **16 strict repairs and 8 envelope rejections**. Arithmetic and witness repair each passed 8/8; the sequence responses were blocked by the frozen extractor. [Results and limits](RESULTS.md) distinguish the primary score from read-only format inspection. The [frozen proposal](../diverse-repair-plan-001/README.md) and all prior scores remain unchanged.
 
 Three development instances (threshold composition, excluded witness, weave/unweave) × shared/separate helpers × verifier diagnostics/failure notice × two fresh responses = 24 requests. There are six unique analyst-constructed failing workspaces and 12 unique payloads. This is a controlled repair feasibility comparison, not natural model-failure prevalence, a depth comparison or held-out evaluation. Report each family separately; do not pool with the earlier map repair pilot.
 
@@ -12,4 +12,4 @@ Each trial creates a fresh real `RevisionStore` from its populated failing base.
 
 `runtime-freeze.json` pins code, copied agent dependencies and test log. `authorization.json` binds the runtime and proposal, maximum 24 requests and finite dispatch expiry. `ops.py` stages once, checks the real environment with fake SDK/processes, then submits once on live-confirmed nonpreemptible `test`, without requeue. The private handoff is consumed/deleted only on the compute node and excluded from logs. All Dafny execution is compute-only.
 
-Results will include raw responses/request IDs, exact prompts, extraction decisions, guarded candidates, original and accepted revisions, full verifier output and CSV, request ledger, token usage, accounting, audit and per-family/cell summary. All prior experiments and scores remain unchanged.
+The published results include raw responses/request IDs, exact prompts, extraction decisions, guarded candidates, original and accepted revisions, full verifier output and CSV, request ledger, token usage, accounting, audit and per-family/cell summary. All prior experiments and scores remain unchanged.
