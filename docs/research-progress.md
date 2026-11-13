@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 12, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 13, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -24,7 +24,9 @@ natural model failures or complete four-cell generation-corpus additions.
 24 new calls: three tasks × two sharing conditions × feedback/control × two
 responses. Twelve exact prompts and a reversed second-block trial order are
 frozen; only diagnostic context differs within a matched pair. Six offline freeze
-tests and 18 body/measurement replays pass. No new calls are authorized or made.
+tests and 18 body/measurement replays pass. The user has now approved 24 new
+requests, with no retries. The [separate runner](../experiments/diverse-repair-pilot-001/README.md)
+passed 20 offline tests locally and on Cannon; no model calls during setup.
 This remains Weeks 5–6 corpus/evaluation development. Reserved families and
 historical model scores are unchanged.
 

@@ -1,0 +1,38 @@
+{
+  "case_id": "threshold_compose-shared-targeted_1",
+  "expected_exit": 4,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(13,13): Error: a precondition for this call could not be proved\n   |\n13 |       O.Above(t,x); O.Below(s,x-t); O.Below(s+t,x);\n   |              ^\n\nOps.dfy(10,15): Related location: this is the precondition that could not be proved\n   |\n10 |     requires t < x\n   |                ^\n\n\nDafny program verifier finished with 5 verified, 1 error\nResults File: /tmp/repodisco-targets-zo1tgbga/TestResults/2026-11-13_00_28_16-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.8269560059998184,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+    "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+    "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+    "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+    "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926",
+    "HelperA.dfy": "b1ce3b3a05c51f0187672c71c826b44f9ee4ee6537050cf14715c19db65a4d61"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_28_16-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Below (correctness),Passed,00:00:00.0549232,4034,0\nHelperA.Prove (correctness),Failed,00:00:00.0360903,9736,0\nOps.Above (correctness),Passed,00:00:00.0142081,3327,0\nClientA.Target (correctness),Passed,00:00:00.0115829,4264,0\nHelperB.Prove (correctness),Passed,00:00:00.0103757,4264,0\nClientB.Target (correctness),Passed,00:00:00.0083822,4264,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_28_16-0.csv": "57c94526cc03ffd5732ba61dc3669d2b5dc408be2af308d18cfce26a7aa09ec0"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

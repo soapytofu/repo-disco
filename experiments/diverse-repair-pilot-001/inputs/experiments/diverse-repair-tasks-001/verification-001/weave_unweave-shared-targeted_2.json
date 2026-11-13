@@ -1,0 +1,39 @@
+{
+  "case_id": "weave_unweave-shared-targeted_2",
+  "expected_exit": 4,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(18,11): Error: decreases clause might not decrease\n   |\n18 |       Prove(s,t);\n   |            ^\n\n\nDafny program verifier finished with 10 verified, 1 error\nResults File: /tmp/repodisco-targets-zi7a208r/TestResults/2026-11-13_00_29_07-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.077634015819058,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+    "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+    "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+    "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+    "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+    "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421",
+    "HelperA.dfy": "87fafb0b6bc51a6918aaa81f063e959ee71b37d9fcd0b026abbf554385e92414"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_29_07-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Weave (well-formedness),Passed,00:00:00.0592590,14057,0\nHelperA.Prove (correctness),Failed,00:00:00.0405914,24683,0\nHelperB.Prove (correctness),Passed,00:00:00.0181571,15706,0\nKernel.Left (well-formedness),Passed,00:00:00.0165216,12489,0\nClientB.Target (correctness),Passed,00:00:00.0143072,15690,0\nApi.Project (correctness),Passed,00:00:00.0135680,22730,0\nApi.Empty (correctness),Passed,00:00:00.0134340,21268,0\nOps.Unfold (well-formedness),Passed,00:00:00.0123329,14429,0\nKernel.Right (well-formedness),Passed,00:00:00.0118208,12495,0\nClientA.Target (correctness),Passed,00:00:00.0117084,15706,0\nOps.Unfold (correctness),Passed,00:00:00.0116075,17868,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_29_07-0.csv": "52ea3f52a46560965a882afdb51e28ee717df03a765f660661d6715669474332"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

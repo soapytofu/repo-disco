@@ -1,0 +1,178 @@
+{
+  "study": "diverse-repair-plan-001",
+  "status": "FROZEN_PROPOSAL_NOT_AUTHORIZED",
+  "execution_authorized": false,
+  "proposed_calls": 24,
+  "max_calls_per_trial": 1,
+  "replicates_per_cell": 2,
+  "unique_semantic_instances": 3,
+  "unique_failing_workspaces": 6,
+  "failure_origin": "analyst_constructed",
+  "family_split": "development",
+  "feedback_conditions": [
+    "verifier_diagnostics",
+    "failure_notice_only"
+  ],
+  "depth_factor": "None; fixed interface per family, no numeric depth comparison",
+  "sharing_conditions": [
+    "shared",
+    "separate"
+  ],
+  "order": [
+    [
+      "threshold_compose",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "weave_unweave",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "excluded_witness",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "threshold_compose",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "weave_unweave",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "excluded_witness",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "threshold_compose",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "weave_unweave",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "excluded_witness",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "threshold_compose",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "weave_unweave",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "excluded_witness",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "excluded_witness",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "weave_unweave",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "threshold_compose",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "excluded_witness",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "weave_unweave",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "threshold_compose",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "excluded_witness",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "weave_unweave",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "threshold_compose",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "excluded_witness",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "weave_unweave",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "threshold_compose",
+      "shared",
+      "verifier_diagnostics"
+    ]
+  ],
+  "automatic_retries": false,
+  "sdk_total_max_attempts": 1,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "feedback_after_repair": false,
+  "fresh_context_per_request": true,
+  "max_output_tokens_total": 98304,
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "inference_config": {
+    "temperature": 1.0,
+    "maxTokens": 4096
+  },
+  "verifier": {
+    "entry": "All.dfy",
+    "include_all_files": true,
+    "toolchain": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit",
+    "timeout_seconds": 60,
+    "success_exit_code": 0
+  },
+  "primary": "Per-family and sharing/feedback cell strict whole-workspace repair: exit zero, nonzero obligations, no errors or warnings; rejected/truncated/proof-failed outputs count as failures.",
+  "secondary": [
+    "Named editable-helper completion",
+    "Dependency-closed clients",
+    "Diagnostic category",
+    "Edit description and separate-body duplication",
+    "Tokens"
+  ],
+  "scope": "One repair request per trial from the frozen failed base. Fresh isolated store; atomically promote only a strict verified candidate. No multi-round loop.",
+  "feedback_policy": "Both arms see identical failing source, contracts, symbol registry, syntax and failure notice. Only the saved verifier diagnostic block differs; remove only the incidental CSV Results File line. No reference, counterexample, failure-type label or analyst repair advice in prompts.",
+  "interpretation": "Constructed development faults test controlled repair feasibility, not natural model-failure prevalence. Report each family separately; do not pool with the earlier 4/4-versus-1/4 pilot, infer general sharing effects, or claim held-out performance.",
+  "budget": "24 NEW requests proposed, zero authorized. Previous budgets exhausted. This is supplemental repair evaluation, not reassigned corpus collection slots.",
+  "future_execution_gate": "Explicit approval, tested bounded one-round runtime binding this freeze, tested per-task CSV scope, exact requests/order and no retries; no provider connectivity test calls.",
+  "source_commit": "8123804d24ccf8d513d27305804ca6031369a864"
+}

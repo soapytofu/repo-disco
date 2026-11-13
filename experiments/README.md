@@ -1,6 +1,6 @@
 # Experiment log
 
-## Diverse repair proposal — verified tasks, 24 calls proposed
+## Diverse repair pilot — 24 calls authorized, runner validated
 
 [diverse-repair-plan-001](diverse-repair-plan-001/README.md) freezes 12 payloads
 and 24 one-call slots across soft-threshold composition, an excluded-value
@@ -9,8 +9,9 @@ failure notice are balanced with two responses per cell. These are constructed
 development faults, not natural model errors or held-out tests.
 [Task validation](diverse-repair-tasks-001/RESULTS.md) has 36/36 current expected
 controls, including 24 reused byte-identical observations; both failed witness
-provider versions are preserved. Six freeze tests pass. No new model calls or
-execution authorization.
+provider versions are preserved. Six freeze tests pass. The separately approved
+[runner](diverse-repair-pilot-001/README.md) passed 20 offline tests locally and on
+Cannon; frozen requests and policies are unchanged. No model calls made during setup.
 
 ## Feedback repair comparison — diagnostics 4/4 versus notice 1/4
 

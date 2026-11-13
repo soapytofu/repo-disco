@@ -1,0 +1,39 @@
+{
+  "case_id": "excluded_witness-shared-reference",
+  "expected_exit": 0,
+  "matched": true,
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 6 verified, 0 errors\nResults File: /tmp/repodisco-targets-suhp5a5g/TestResults/2026-11-13_00_34_46-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.0801973410416394,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "2c659b83c156253953e34287fd1c30ce5e1e9cc9812a4222024ce288f50d116f",
+    "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+    "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+    "Kernel.dfy": "beeead6cde6bc9eb83c6caeeae92195d7b3834b4f13450dc7bee9a3cc10c741a",
+    "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+    "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9",
+    "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550"
+  },
+  "csv": {
+    "TestResults/2026-11-13_00_34_46-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Bounds (correctness),Passed,00:00:00.0523796,3353,0\nClientB.Target (correctness),Passed,00:00:00.0157233,4285,0\nHelperA.Prove (correctness),Passed,00:00:00.0118590,5305,0\nApi.Finish (correctness),Passed,00:00:00.0107567,6145,0\nHelperB.Prove (correctness),Passed,00:00:00.0079583,3742,0\nClientA.Target (correctness),Passed,00:00:00.0078136,3742,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-13_00_34_46-0.csv": "cbafc92928c1eca93ecfdcab5bae81c0c15a19fafa8e275eb6f0cb41dd817d65"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

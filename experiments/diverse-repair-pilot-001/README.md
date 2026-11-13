@@ -1,0 +1,15 @@
+# Diverse one-round repair pilot
+
+Status: runner prepared; **24 new requests authorized**, no retries. The [prospective plan](../diverse-repair-plan-001/README.md) and its frozen prompts/order remain unchanged. Its historical `execution_authorized: false` field is superseded for this run only by a separate hash-bound runtime authorization.
+
+Three development instances (threshold composition, excluded witness, weave/unweave) × shared/separate helpers × verifier diagnostics/failure notice × two fresh responses = 24 requests. There are six unique analyst-constructed failing workspaces and 12 unique payloads. This is a controlled repair feasibility comparison, not natural model-failure prevalence, a depth comparison or held-out evaluation. Report each family separately; do not pool with the earlier map repair pilot.
+
+The runner sends the exact frozen payload once per slot, with SDK total attempts set to one, durable reservations, exclusive output/submission markers, and no restart/resume, retry, reassignment or multi-round repair. Ambiguous transport or infrastructure failure stops the batch. Rejected output, warning-only exits and failed proofs consume their slots as evaluation outcomes.
+
+Each trial creates a fresh real `RevisionStore` from its populated failing base. The frozen adapter uses a separate empty-body template to protect declarations, contracts, decreases, imports, providers and clients. Only a strict whole-workspace success—exit zero, positive verified count, zero errors/warnings and complete declaration CSV evidence—can atomically promote a new revision. A no-op is verified once; failed candidates preserve their original HEAD. Self-recursion is checked within each lemma, not treated as a cross-target graph edge.
+
+20 offline tests cover dispatch/order/cap, immutable originals, genuine store promotion and stale-state rejection, no-op failures, malformed output, timeouts, persistence failures, deadlines, SDK retry disabling, review replay, all six workspace staging shapes and exact replay of 18 existing semantic control measurements. All transport/processes are fake; tests spend no calls and run no Dafny. Agent/store, request gate, metric interpreter and frozen proof policies are copied unchanged; the logged verifier now admits the seven/eight-file task shapes. Reference evidence is available for offline audit but never appended to any model request.
+
+`runtime-freeze.json` pins code, copied agent dependencies and test log. `authorization.json` binds the runtime and proposal, maximum 24 requests and finite dispatch expiry. `ops.py` stages once, checks the real environment with fake SDK/processes, then submits once on live-confirmed nonpreemptible `test`, without requeue. The private handoff is consumed/deleted only on the compute node and excluded from logs. All Dafny execution is compute-only.
+
+Results will include raw responses/request IDs, exact prompts, extraction decisions, guarded candidates, original and accepted revisions, full verifier output and CSV, request ledger, token usage, accounting, audit and per-family/cell summary. All prior experiments and scores remain unchanged.

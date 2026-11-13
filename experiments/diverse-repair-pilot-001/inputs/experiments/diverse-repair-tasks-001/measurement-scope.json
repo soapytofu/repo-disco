@@ -1,0 +1,798 @@
+{
+  "interpreter_sha256": "9d139aa959b4d5005fb67a0eab18f6c1bb35c5e67ce36a54973b0eb2dad8c323",
+  "tasks": {
+    "threshold_compose-shared": {
+      "expected_units": {
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Ops.Above": [
+          "correctness"
+        ],
+        "Ops.Below": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "recursion": "Self-recursion, where present, is checked within each named lemma; it is not a cross-target graph edge."
+    },
+    "threshold_compose-separate": {
+      "expected_units": {
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Ops.Above": [
+          "correctness"
+        ],
+        "Ops.Below": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "recursion": "Self-recursion, where present, is checked within each named lemma; it is not a cross-target graph edge."
+    },
+    "excluded_witness-shared": {
+      "expected_units": {
+        "Api.Finish": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Ops.Bounds": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "recursion": "Self-recursion, where present, is checked within each named lemma; it is not a cross-target graph edge."
+    },
+    "excluded_witness-separate": {
+      "expected_units": {
+        "Api.Finish": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Ops.Bounds": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "recursion": "Self-recursion, where present, is checked within each named lemma; it is not a cross-target graph edge."
+    },
+    "weave_unweave-shared": {
+      "expected_units": {
+        "Api.Empty": [
+          "correctness"
+        ],
+        "Api.Project": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Kernel.Left": [
+          "well-formedness"
+        ],
+        "Kernel.Right": [
+          "well-formedness"
+        ],
+        "Kernel.Weave": [
+          "well-formedness"
+        ],
+        "Ops.Unfold": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "recursion": "Self-recursion, where present, is checked within each named lemma; it is not a cross-target graph edge."
+    },
+    "weave_unweave-separate": {
+      "expected_units": {
+        "Api.Empty": [
+          "correctness"
+        ],
+        "Api.Project": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Kernel.Left": [
+          "well-formedness"
+        ],
+        "Kernel.Right": [
+          "well-formedness"
+        ],
+        "Kernel.Weave": [
+          "well-formedness"
+        ],
+        "Ops.Unfold": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [],
+        "ClientA.Target": [
+          "HelperA.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "recursion": "Self-recursion, where present, is checked within each named lemma; it is not a cross-target graph edge."
+    }
+  },
+  "control_measurements": [
+    {
+      "case_id": "threshold_compose-shared-reference",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "threshold_compose-shared-alternative",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "threshold_compose-shared-faulty",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "threshold_compose-separate-reference",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "threshold_compose-separate-alternative",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "threshold_compose-separate-faulty",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "excluded_witness-shared-reference",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "excluded_witness-shared-alternative",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "excluded_witness-shared-faulty",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "excluded_witness-separate-reference",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "excluded_witness-separate-alternative",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "excluded_witness-separate-faulty",
+      "logger_rows": 6,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "weave_unweave-shared-reference",
+      "logger_rows": 11,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "weave_unweave-shared-alternative",
+      "logger_rows": 11,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "weave_unweave-shared-faulty",
+      "logger_rows": 11,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 1
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "weave_unweave-separate-reference",
+      "logger_rows": 11,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "weave_unweave-separate-alternative",
+      "logger_rows": 11,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "case_id": "weave_unweave-separate-faulty",
+      "logger_rows": 11,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 0,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    }
+  ]
+}
