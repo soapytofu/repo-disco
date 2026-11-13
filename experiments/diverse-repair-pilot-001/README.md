@@ -1,6 +1,6 @@
 # Diverse one-round repair pilot
 
-Status: runner prepared; **24 new requests authorized**, no retries. The [prospective plan](../diverse-repair-plan-001/README.md) and its frozen prompts/order remain unchanged. Its historical `execution_authorized: false` field is superseded for this run only by a separate hash-bound runtime authorization.
+Status: **job 60343569 submitted once on nonpreemptible `test`**; 24 new requests authorized, no retries. Runtime/environment tests passed locally and on Cannon; results pending. The [prospective plan](../diverse-repair-plan-001/README.md) and its frozen prompts/order remain unchanged. Its historical `execution_authorized: false` field is superseded for this run only by a separate hash-bound runtime authorization.
 
 Three development instances (threshold composition, excluded witness, weave/unweave) × shared/separate helpers × verifier diagnostics/failure notice × two fresh responses = 24 requests. There are six unique analyst-constructed failing workspaces and 12 unique payloads. This is a controlled repair feasibility comparison, not natural model-failure prevalence, a depth comparison or held-out evaluation. Report each family separately; do not pool with the earlier map repair pilot.
 
