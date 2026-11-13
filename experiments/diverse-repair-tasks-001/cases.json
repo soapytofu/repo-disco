@@ -1,0 +1,674 @@
+[
+  {
+    "case_id": "threshold_compose-shared-reference",
+    "task_id": "threshold_compose-shared",
+    "variant": "reference",
+    "path": "fixtures/threshold_compose-shared/reference",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "c5d636e0afce4eb9308dfa20b45d3876c42b2f6f78293da113a22306c4fea7a9",
+      "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-shared-faulty",
+    "task_id": "threshold_compose-shared",
+    "variant": "faulty",
+    "path": "fixtures/threshold_compose-shared/faulty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "0b3ec4a4ffb171fe690efb719c344896f1b20d3d631f60592fe8fcd47e5829dd",
+      "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": "precondition"
+  },
+  {
+    "case_id": "threshold_compose-shared-empty",
+    "task_id": "threshold_compose-shared",
+    "variant": "empty",
+    "path": "fixtures/threshold_compose-shared/empty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "ba8f7d714c16013cbbab556ba5aa8bdc74e58fee11f9327a5361c3bd889b55dc",
+      "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-shared-alternative",
+    "task_id": "threshold_compose-shared",
+    "variant": "alternative",
+    "path": "fixtures/threshold_compose-shared/alternative",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "3990fa3fb88fbba90b1478c1fa751734262c530eb5db89541dd8fde373610b2a",
+      "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-shared-targeted_1",
+    "task_id": "threshold_compose-shared",
+    "variant": "targeted_1",
+    "path": "fixtures/threshold_compose-shared/targeted_1",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "b1ce3b3a05c51f0187672c71c826b44f9ee4ee6537050cf14715c19db65a4d61",
+      "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-shared-targeted_2",
+    "task_id": "threshold_compose-shared",
+    "variant": "targeted_2",
+    "path": "fixtures/threshold_compose-shared/targeted_2",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "4711c70e1484c137c09fd0f65b2d75631ba67173a976648c26ecaf2b7d031301",
+      "HelperB.dfy": "23e1272d9bb38a542d34da47f8b815bf8b2392e3e10a6e85e43787303cfe359a",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-separate-reference",
+    "task_id": "threshold_compose-separate",
+    "variant": "reference",
+    "path": "fixtures/threshold_compose-separate/reference",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "c5d636e0afce4eb9308dfa20b45d3876c42b2f6f78293da113a22306c4fea7a9",
+      "HelperB.dfy": "85dc208074ca84a18f4fda2c8013102ef1392289e7aa53241bbbe843bf64264f",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-separate-faulty",
+    "task_id": "threshold_compose-separate",
+    "variant": "faulty",
+    "path": "fixtures/threshold_compose-separate/faulty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "0b3ec4a4ffb171fe690efb719c344896f1b20d3d631f60592fe8fcd47e5829dd",
+      "HelperB.dfy": "4fa2a9499b10ce0fe36abf0f0197d004a956dc7c58bf4df3dcceabe2f878585b",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": "precondition"
+  },
+  {
+    "case_id": "threshold_compose-separate-empty",
+    "task_id": "threshold_compose-separate",
+    "variant": "empty",
+    "path": "fixtures/threshold_compose-separate/empty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "ba8f7d714c16013cbbab556ba5aa8bdc74e58fee11f9327a5361c3bd889b55dc",
+      "HelperB.dfy": "8f362a318fb314316c0f31b7de220eb4f21dbf53bf53793dcb8d70200e377476",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-separate-alternative",
+    "task_id": "threshold_compose-separate",
+    "variant": "alternative",
+    "path": "fixtures/threshold_compose-separate/alternative",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "3990fa3fb88fbba90b1478c1fa751734262c530eb5db89541dd8fde373610b2a",
+      "HelperB.dfy": "d8b59e7f755b9716bb269852693fcc21148366c87bbe560d1a6a86dd5ef2b088",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-separate-targeted_1",
+    "task_id": "threshold_compose-separate",
+    "variant": "targeted_1",
+    "path": "fixtures/threshold_compose-separate/targeted_1",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "b1ce3b3a05c51f0187672c71c826b44f9ee4ee6537050cf14715c19db65a4d61",
+      "HelperB.dfy": "d5fc5afbacea0db2b347936320141b4f39c258ec999822ecc338800885cd3abc",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "threshold_compose-separate-targeted_2",
+    "task_id": "threshold_compose-separate",
+    "variant": "targeted_2",
+    "path": "fixtures/threshold_compose-separate/targeted_2",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "183bbf3bc8b78214c7b617eb654eb59b316346b48231728fa23b5af5062ece7c",
+      "ClientB.dfy": "a412da9cc42e6a3566e412d5d710ec5027e979c6688e4103cd8b77dbc5097411",
+      "HelperA.dfy": "4711c70e1484c137c09fd0f65b2d75631ba67173a976648c26ecaf2b7d031301",
+      "HelperB.dfy": "569c085b1c8311a1ff4408dd0ec6f646c941b233c3d8e099f0552b6096c5e518",
+      "Kernel.dfy": "983f7fe58ab9ebad3308635fb46dbb5aab4c016742205799faf62b09927c7efc",
+      "Ops.dfy": "b5956cbabfd4c91cfc3773bec59f0276d85d7507502f5df9bd3a18ea113ed926"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-shared-reference",
+    "task_id": "excluded_witness-shared",
+    "variant": "reference",
+    "path": "fixtures/excluded_witness-shared/reference",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550",
+      "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-shared-faulty",
+    "task_id": "excluded_witness-shared",
+    "variant": "faulty",
+    "path": "fixtures/excluded_witness-shared/faulty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e",
+      "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": "assertion"
+  },
+  {
+    "case_id": "excluded_witness-shared-empty",
+    "task_id": "excluded_witness-shared",
+    "variant": "empty",
+    "path": "fixtures/excluded_witness-shared/empty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333",
+      "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-shared-alternative",
+    "task_id": "excluded_witness-shared",
+    "variant": "alternative",
+    "path": "fixtures/excluded_witness-shared/alternative",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf",
+      "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-shared-targeted_1",
+    "task_id": "excluded_witness-shared",
+    "variant": "targeted_1",
+    "path": "fixtures/excluded_witness-shared/targeted_1",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "f2482d1430082019c677104adead7f4fd12e30f745c1b89c5cc71189febeb77b",
+      "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-shared-targeted_2",
+    "task_id": "excluded_witness-shared",
+    "variant": "targeted_2",
+    "path": "fixtures/excluded_witness-shared/targeted_2",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b",
+      "HelperB.dfy": "36d5025c716d54bd5c0afc1505b309f77ca29d8c54444eb4d5425aaff880523a",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-separate-reference",
+    "task_id": "excluded_witness-separate",
+    "variant": "reference",
+    "path": "fixtures/excluded_witness-separate/reference",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "bd97e01d3e8ecda5490e3df8a660ecb3a6929ac761ee254f0a624e84ab179550",
+      "HelperB.dfy": "ebc7bd15663dcb65312a1a3b58a2f037a2ef1e4207a566ac7a550e9bb4129837",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-separate-faulty",
+    "task_id": "excluded_witness-separate",
+    "variant": "faulty",
+    "path": "fixtures/excluded_witness-separate/faulty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "57c9b6a33e04faaf08e56c2047df75c114b7616f01d93b43d920499a1339540e",
+      "HelperB.dfy": "b7c4bbf0c66c0547e6161be604d05efae5dd5b61617376b3c24d962eeee2eb5c",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": "assertion"
+  },
+  {
+    "case_id": "excluded_witness-separate-empty",
+    "task_id": "excluded_witness-separate",
+    "variant": "empty",
+    "path": "fixtures/excluded_witness-separate/empty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "ae90fca1e6774887a64562439ea68abd422418f71b099e2882e9f94808e81333",
+      "HelperB.dfy": "e90197b6fddc9936e19a81549d1ce511214ccec07ae000447584a0a52bb8b549",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-separate-alternative",
+    "task_id": "excluded_witness-separate",
+    "variant": "alternative",
+    "path": "fixtures/excluded_witness-separate/alternative",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "2c3b74508521304d0e89f99932d9bacdd8bf0f501aea37a1edc0c409976d5caf",
+      "HelperB.dfy": "c22f4c12f3abca94905e175fcde01c5e5f7369efd58168998db1e74de9cc1692",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-separate-targeted_1",
+    "task_id": "excluded_witness-separate",
+    "variant": "targeted_1",
+    "path": "fixtures/excluded_witness-separate/targeted_1",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "f2482d1430082019c677104adead7f4fd12e30f745c1b89c5cc71189febeb77b",
+      "HelperB.dfy": "bdda7d8f1a134c03eceed7854ebc0d214c82e1794aa4bee8f689dfed4767da05",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "excluded_witness-separate-targeted_2",
+    "task_id": "excluded_witness-separate",
+    "variant": "targeted_2",
+    "path": "fixtures/excluded_witness-separate/targeted_2",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "f61133bb4d4d078d013832990aee2aafcffe6152a0c580d6d9004025a5eb5ec2",
+      "ClientA.dfy": "612826b7f7580436df5357e61cbaa032bd1b4cf36cf2753f9734188b9f9b99d9",
+      "ClientB.dfy": "c84a7c9d690f96491e998309e1c6128b25d57dde195a2ca0958ab659f299d5cf",
+      "HelperA.dfy": "ca99d554b1ee5f1b71e6de79ae10f71b3b4d81701d95ea36d09b4af30b05013b",
+      "HelperB.dfy": "a458630cbac05f40335bc277a724be621ff961fbe99f45fcb29dad094f0d3ea1",
+      "Kernel.dfy": "e074be62e540fc79d628f6c68fd13dd02aedfb6dd884968d52e45d3fa881cbf2",
+      "Ops.dfy": "d205e683167e53cdcffcaa0d93374a52e0e9722cc86546fd00a6f1d7972bebf9"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-shared-reference",
+    "task_id": "weave_unweave-shared",
+    "variant": "reference",
+    "path": "fixtures/weave_unweave-shared/reference",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "17355c1e44bc2d9ca3e21d0a597923134bd5a5f67718eb1f728392410e506dab",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-shared-faulty",
+    "task_id": "weave_unweave-shared",
+    "variant": "faulty",
+    "path": "fixtures/weave_unweave-shared/faulty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": "postcondition"
+  },
+  {
+    "case_id": "weave_unweave-shared-empty",
+    "task_id": "weave_unweave-shared",
+    "variant": "empty",
+    "path": "fixtures/weave_unweave-shared/empty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-shared-alternative",
+    "task_id": "weave_unweave-shared",
+    "variant": "alternative",
+    "path": "fixtures/weave_unweave-shared/alternative",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "18dd33dfabb5f1fdf62c37e96031f312a7cd9061bef11919998b2aba221c4068",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-shared-targeted_1",
+    "task_id": "weave_unweave-shared",
+    "variant": "targeted_1",
+    "path": "fixtures/weave_unweave-shared/targeted_1",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "8c0e318a0e1e70c815516ac85c121c99684c4bcca04c6c88ee2a721b2cdac780",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-shared-targeted_2",
+    "task_id": "weave_unweave-shared",
+    "variant": "targeted_2",
+    "path": "fixtures/weave_unweave-shared/targeted_2",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "87fafb0b6bc51a6918aaa81f063e959ee71b37d9fcd0b026abbf554385e92414",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "termination",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-separate-reference",
+    "task_id": "weave_unweave-separate",
+    "variant": "reference",
+    "path": "fixtures/weave_unweave-separate/reference",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "17355c1e44bc2d9ca3e21d0a597923134bd5a5f67718eb1f728392410e506dab",
+      "HelperB.dfy": "83a8daa28d1d0652e203a281c9706699acd6af05e835a30728f8fb71f85983af",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-separate-faulty",
+    "task_id": "weave_unweave-separate",
+    "variant": "faulty",
+    "path": "fixtures/weave_unweave-separate/faulty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": "postcondition"
+  },
+  {
+    "case_id": "weave_unweave-separate-empty",
+    "task_id": "weave_unweave-separate",
+    "variant": "empty",
+    "path": "fixtures/weave_unweave-separate/empty",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+      "HelperB.dfy": "1429893dd168d037ce0963f23ab2bc2a3696b116e40565b5ece13ba9b95257ca",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-separate-alternative",
+    "task_id": "weave_unweave-separate",
+    "variant": "alternative",
+    "path": "fixtures/weave_unweave-separate/alternative",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "18dd33dfabb5f1fdf62c37e96031f312a7cd9061bef11919998b2aba221c4068",
+      "HelperB.dfy": "d431c9c1cca91b6e5f07a3f3c98a58ec869b46e213a6c589053b8c38d5866ef4",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "success",
+    "expected_exit": 0,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-separate-targeted_1",
+    "task_id": "weave_unweave-separate",
+    "variant": "targeted_1",
+    "path": "fixtures/weave_unweave-separate/targeted_1",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "8c0e318a0e1e70c815516ac85c121c99684c4bcca04c6c88ee2a721b2cdac780",
+      "HelperB.dfy": "79e0849e4532ee9a6a0268a3d8f6454d754439a14b1aad638c6e2a10000b95e8",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  },
+  {
+    "case_id": "weave_unweave-separate-targeted_2",
+    "task_id": "weave_unweave-separate",
+    "variant": "targeted_2",
+    "path": "fixtures/weave_unweave-separate/targeted_2",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "87fafb0b6bc51a6918aaa81f063e959ee71b37d9fcd0b026abbf554385e92414",
+      "HelperB.dfy": "fcde3d7c73114230ec0e3f3bd56140c6034fafa1ee57492f33b28c6de84d18b0",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "expected": "termination",
+    "expected_exit": 4,
+    "primary_diagnostic": null
+  }
+]
