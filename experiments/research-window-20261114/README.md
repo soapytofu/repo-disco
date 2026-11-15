@@ -1,0 +1,11 @@
+# Bounded 24-hour research window
+
+The user requested continued research for 24 hours and explicitly approved **up to 128 new Claude calls total, with no automatic retries**. [Scope](scope.json) records the authorization; [status](STATUS.md) is the coordination record. The budget is a ceiling, not a spending target. Prior budgets and frozen results remain separate.
+
+Priorities are (1) a separately reported verifier-only diagnostic for saved sequence outputs, (2) a separately versioned and tested extraction policy, and (3) more informative cross-module repair experiments with positive and negative controls, matched feedback conditions, frozen inputs, and per-family findings. Conditional arithmetic, witnesses, sequences and maps remain development material. Reserved families must not be tuned on. This small selected corpus does not establish general feedback or sharing effects.
+
+The main chat owns submissions, API dispatches and publication. Subagents work on disjoint local artifacts. A central durable ledger must charge every reservation, including ambiguous requests, across all batches before any paid batch can run. Each batch also retains its own frozen prompts, order and runtime. There are no automatic retries, duplicate jobs or reassigned old slots. New slots across unstarted batches may be planned within this window's 128-call cap; unused slots from an interrupted frozen batch cannot silently become replacement attempts.
+
+Credentials stay in the private handoff until a reviewed compute process consumes and deletes it. No key is logged or committed. Continuing credential use must remain solely in that active process's memory. Connection or process expiry may require user action; it does not authorize an authentication bypass or hidden persistent key file. The local app, awake computer and connectivity are prerequisites for follow-ups. Already submitted Slurm jobs survive the local connection closing.
+
+Publish reviewed code, concise measured findings and full non-secret evidence to GitHub along the way with Sophie's author and committer identity. Preserve prior raw data and failed attempts. Never rewrite history. The window ends **November 15, 2026 at 11:05:12 PM Eastern**; the automation then stops. This is research work, not a promise of a positive scientific outcome or uninterrupted 24-hour compute availability.
