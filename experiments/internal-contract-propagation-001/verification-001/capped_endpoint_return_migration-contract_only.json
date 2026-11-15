@@ -1,0 +1,66 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Helper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(7,14): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures 0 <= r <= length\n  |               ^^\n\nHelper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(7,19): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures 0 <= r <= length\n  |                    ^^\n\nHelper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(8,22): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures start + r == K.Endpoint(start,length,cap)\n  |                       ^^\n\n\nDafny program verifier finished with 1 verified, 3 errors\nResults File: /tmp/repodisco-repair-adapter-ye41wzbr/TestResults/2026-11-15_02_06_51-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyLmRmeSg5LDIpOiBFcnJvcjogYSBwb3N0Y29uZGl0aW9uIGNvdWxkIG5vdCBiZSBwcm92ZWQgb24gdGhpcyByZXR1cm4gcGF0aAogIHwKOSB8ICAgewogIHwgICBeCgpIZWxwZXIuZGZ5KDcsMTQpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKNyB8ICAgICBlbnN1cmVzIDAgPD0gciA8PSBsZW5ndGgKICB8ICAgICAgICAgICAgICAgXl4KCkhlbHBlci5kZnkoOSwyKTogRXJyb3I6IGEgcG9zdGNvbmRpdGlvbiBjb3VsZCBub3QgYmUgcHJvdmVkIG9uIHRoaXMgcmV0dXJuIHBhdGgKICB8CjkgfCAgIHsKICB8ICAgXgoKSGVscGVyLmRmeSg3LDE5KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICB8CjcgfCAgICAgZW5zdXJlcyAwIDw9IHIgPD0gbGVuZ3RoCiAgfCAgICAgICAgICAgICAgICAgICAgXl4KCkhlbHBlci5kZnkoOSwyKTogRXJyb3I6IGEgcG9zdGNvbmRpdGlvbiBjb3VsZCBub3QgYmUgcHJvdmVkIG9uIHRoaXMgcmV0dXJuIHBhdGgKICB8CjkgfCAgIHsKICB8ICAgXgoKSGVscGVyLmRmeSg4LDIyKTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICB8CjggfCAgICAgZW5zdXJlcyBzdGFydCArIHIgPT0gSy5FbmRwb2ludChzdGFydCxsZW5ndGgsY2FwKQogIHwgICAgICAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDEgdmVyaWZpZWQsIDMgZXJyb3JzClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXIteWU0MXd6YnIvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8wMl8wNl81MS0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "89a5025aea53b2c692c82fed8dc086f4277249840dbdb805048b566e8c3c82ac",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_02_06_51-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelper.Transfer (correctness),Failed,00:00:00.0802402,6338,0\nClient.Target (correctness),Passed,00:00:00.0141572,6089,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_02_06_51-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXIuVHJhbnNmZXIgKGNvcnJlY3RuZXNzKSxGYWlsZWQsMDA6MDA6MDAuMDgwMjQwMiw2MzM4LDAKQ2xpZW50LlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTQxNTcyLDYwODksMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_02_06_51-0.csv": "35f3cfde98069bc0d71e02d2474b9a13939a7489e6b2ce5b5975db8dd077bd24"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+    "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+    "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+  },
+  "elapsed_seconds": 1.4423076410312206,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "capped_endpoint_return_migration-contract_only",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        1,
+        3
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

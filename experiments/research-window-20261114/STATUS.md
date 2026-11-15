@@ -63,14 +63,26 @@ model scores remain intact. Completion receipts are not fabricated for stopped
 runs. Declared dependency closure is separate from observed helper calls and
 necessary mathematical proof dependence.
 
-## Remaining nonpaid work
+## Completed nonpaid extension and remaining research gates
 
-Build and validate two explicit internal API migration fixtures in arithmetic and
-maps, keeping public client specifications unchanged. Test whether a locally
-verified changed helper leaves a real caller obligation failing, then validate a
-coherent repair. These require a separate future edit protocol; the frozen
-body-only model handler is not reused for contract edits. A chosen local patch's
-failure does not prove both files are mathematically necessary to edit.
+[Internal API propagation](../internal-contract-propagation-001/RESULTS.md) now
+has 18/18 expected verifier outcomes from job 60723362: six strict passes and
+twelve ordinary proof failures, completed on nonpreemptible `test` in 43 seconds.
+Both arithmetic and map migrations have actual passing helper/failing caller
+units for the chosen one-sided changes. Coordinated changes verify under the
+same public contracts. All 72 sources and the 171-file transfer are saved.
+
+The first named reviewer required a logger entry for a total arithmetic function
+that emits none. That unsuccessful review is preserved; a separate correction
+binds the one unlogged definition to its exact source hash while retaining all
+method and map-provider requirements. No proof was rerun or rescored.
+
+These migrations require a separate future edit protocol; the frozen body-only
+model handler is not reused for contract edits. Their controls do not prove that
+both files are mathematically necessary to edit. Further model evaluation is
+blocked by the terminal paid session, not by an unverified fixture. No new client,
+key or ledger will be used to bypass it. Task selection, broader semantic coverage
+and a defensible family split remain research gates before general claims.
 
 Root owns SSH, submission and Git publication; agents have disjoint local scopes.
 Dafny runs only on compute nodes, with live nonpreemptible partition checks, no

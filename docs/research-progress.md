@@ -10,6 +10,24 @@ Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 15: actual caller failures under internal API changes
+
+The [internal API migration study](../experiments/internal-contract-propagation-001/RESULTS.md)
+has 18/18 expected verifier outcomes: six strict successes and twelve proof
+failures across arithmetic and map migrations. In each task, the helper-only and
+caller-only changes keep `Helper.Transfer` verified but make `Client.Target`
+fail. Coordinated changes restore verification with the public specification
+unchanged. The named CSV evidence distinguishes these failures from a declared
+dependency graph; passing callers under an unproved helper contract are never
+counted as whole-repository success.
+
+This adds a concrete repository-level test beyond body-only proof repair.
+It establishes insufficiency of the chosen one-sided changes, not necessary
+two-file edits or model performance. All 72 sources and full verifier evidence
+are saved. The initial reviewer's assumption that every function has a CSV unit
+is preserved and corrected separately for the exact total arithmetic definition.
+No model calls or changes to prior scores were made.
+
 ## November 15: pipeline pilot stopped at transport; nonpaid research continues
 
 The [pipeline preparation](../experiments/repository-repair-selection-001/RESULTS.md)
@@ -21,9 +39,8 @@ dispatched. This is not a 0/32 proof score.
 
 The paid session is terminal: **33 reserved slots, 32 completed responses**, with
 no retries or restart. All earlier results, including 27/32 below, remain
-unchanged. The remaining research window continues with verifier-only internal
-API migration tasks that test actual caller failures while public specifications
-stay fixed. Setup and published milestones below are historical; the current
+unchanged. The subsequent verifier-only internal API migration tasks are complete
+and summarized above. Setup and published milestones below are historical; the current
 paid-state description in this paragraph takes precedence.
 
 ## November 15: fresh matched repair results published
@@ -46,14 +63,13 @@ snapshot are published. The earlier saved-sequence diagnostic remains separate:
 8/8 exact proofs verified without new model calls; its original16/24 primary score
 is not retroactively changed.
 
-The active [24-hour research window](../experiments/research-window-20261114/README.md)
-has used **32/128 authorized new calls**, with no retries. The single compute
-process is idle between reviewed batches, with a fixed deadline and no persistent
-credential file. Remaining 96 calls are a ceiling, not a target. The analyst repairs and exhaustive
-interval certificate controls below are complete; the next study is frozen and
-is admitted through the same process (32 additional fixed slots, no retries). Reserved tree/transition families remain
-untouched. Weeks5–6 corpus diversity and controlled comparisons are progressing;
-this does not complete the reserved-family or training/evaluation milestones.
+The [24-hour research window](../experiments/research-window-20261114/STATUS.md)
+has **32 completed responses and one later ambiguous request**. The no-retry
+session is now terminal; unused capacity under its 128-call ceiling cannot be
+used to bypass that stop. The analyst repairs and exhaustive interval certificate
+controls below are complete. Reserved tree/transition families remain untouched.
+Weeks 5–6 corpus diversity and controlled comparisons are progressing; this does
+not complete the reserved-family or training/evaluation milestones.
 
 The [exhaustive interval certificate task](../experiments/development-intersection-certificate-001/RESULTS.md)
 now passes all20 verifier-control expectations: four strict correct/alternative
@@ -69,13 +85,14 @@ repairs, with no new lemma calls. These are post-hoc sufficiency checks; the
 primary model score remains27/32 and all1,845 original model files are unchanged.
 The first packaging omission and corrected runtime evidence are preserved.
 
-The next study fixes the architecture to two eligible proof modules in a
-dependency chain, with immutable clients. Four development instances compare
-detailed feedback versus failure notice, four responses per arm (32 proposed
-calls within the remaining 96). Its controls, per-file guard and prompt/order
-freeze are complete; the second batch is now running under the same global budget. This tests repair
+The subsequent pipeline study fixed the architecture to two eligible proof
+modules in a dependency chain, with immutable clients. Four development instances
+were prepared for detailed feedback versus failure notice, four responses per
+arm (32 planned calls). Its controls, per-file guard and prompt/order freeze are
+complete, but collection stopped on the first request without a response. It
+therefore has no measured repair score. The proposed comparison concerns repair
 choices within a declared eligible set, not unrestricted file discovery or a
-causal depth/sharing effect. The second batch was admitted once; no third batch is allocated.
+causal depth/sharing effect. No third batch is allocated.
 
 All [45 fresh pipeline controls](../experiments/repository-repair-selection-001/RESULTS.md)
 now match:10 positives,31 ordinary proof failures and four hidden-export failures.

@@ -1,5 +1,15 @@
 # Experiment log
 
+## Internal API changes — verified helper, failing caller
+
+[internal-contract-propagation-001](internal-contract-propagation-001/RESULTS.md)
+has 18/18 expected verifier outcomes: six strict passes and twelve ordinary proof
+failures. Both chosen helper-only and caller-only migrations leave the helper
+verified but break the actual client proof; coordinated implementations restore
+the unchanged public specification. Full 171-file transfer evidence and separately
+versioned named-target reviews are saved. These are two development migrations,
+not model results or proof that every solution must edit two files. Zero model calls.
+
 ## Four pipeline repair tasks — 45/45 controls before collection
 
 [repository-repair-selection-001](repository-repair-selection-001/RESULTS.md)
@@ -8,8 +18,10 @@ immutable clients. Ten positives,31 proof failures and four hidden-export failur
 match expectations. Faults are balanced between the two helper roles. Full logs,
 protected-source and named-scope reviews are saved; four identical map controls
 reuse explicit evidence without extra calls. The per-file policy passes18 tests
-plus three unchanged-runner checks. A32-call feedback/notice comparison is being
-frozen inside the existing budget; no new requests have been admitted yet.
+plus three unchanged-runner checks. The 32-call feedback/notice comparison was
+frozen and admitted once, but its first request timed out with an unknown provider
+outcome. No responses returned; the other 31 slots were never dispatched. Full
+stopped-run evidence and the independent audit are saved; there is no model score.
 
 ## Five saved failures — analyst fixes verified separately
 
@@ -39,7 +51,8 @@ Five notice-only proofs failed: three unguarded saturation calls and two invalid
 endpoint choices. Four semantic instances, eight parents and two responses per
 cell limit generalization; shared 14/16 versus separate 13/16 does not isolate a
 sharing effect. Full raw sources, request ledgers, CSV diagnostics, revisions and
-review are published. This uses 32 of the active research window's 128-call cap.
+review are published. A later request in a separate study stopped the shared
+research session; these 32 completed results remain unchanged.
 
 ## Four fresh repair instances — 78/78 verifier controls matched
 

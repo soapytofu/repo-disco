@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Client.dfy(13,6): Error: assertion might not hold\n   |\n13 |       assert removed == K.Entry(m,key);\n   |       ^^^^^^\n\n\nDafny program verifier finished with 4 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-zz88ua76/TestResults/2026-11-15_02_06_59-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "Q2xpZW50LmRmeSgxMyw2KTogRXJyb3I6IGFzc2VydGlvbiBtaWdodCBub3QgaG9sZAogICB8CjEzIHwgICAgICAgYXNzZXJ0IHJlbW92ZWQgPT0gSy5FbnRyeShtLGtleSk7CiAgIHwgICAgICAgXl5eXl5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDQgdmVyaWZpZWQsIDEgZXJyb3IKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci16ejg4dWE3Ni9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAyXzA2XzU5LTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "99b7a3bd469e838da0c374a5bb38e786e1a46773385a3fe74affd6651096bc3b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_02_06_59-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Erase (well-formedness),Passed,00:00:00.0556953,9731,0\nClient.Target (correctness),Failed,00:00:00.0496784,49617,0\nKernel.Entry (well-formedness),Passed,00:00:00.0143560,9713,0\nHelper.Transfer (correctness),Passed,00:00:00.0110493,13876,0\nKernel.Exclude (well-formedness),Passed,00:00:00.0085622,9724,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_02_06_59-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApLZXJuZWwuRXJhc2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1NTY5NTMsOTczMSwwCkNsaWVudC5UYXJnZXQgKGNvcnJlY3RuZXNzKSxGYWlsZWQsMDA6MDA6MDAuMDQ5Njc4NCw0OTYxNywwCktlcm5lbC5FbnRyeSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE0MzU2MCw5NzEzLDAKSGVscGVyLlRyYW5zZmVyIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTA0OTMsMTM4NzYsMApLZXJuZWwuRXhjbHVkZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA4NTYyMiw5NzI0LDAK"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_02_06_59-0.csv": "cc55ff04ef7b1a3ed31794158c9bf559d557ef1846ae4d3f6e26a317cf6f40f9"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+    "Helper.dfy": "bd530ec1c8eb42a4e1992676c3af54eb3b9bc6f9e30319e8b24f199a26acbaba",
+    "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+  },
+  "elapsed_seconds": 1.6329846980515867,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "extracted_entry_return_migration-caller_only",
+  "expected": "proof_failure",
+  "expected_diagnostic": "assertion",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        4,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "assertion might not hold"
+    ],
+    "diagnostic_categories": [
+      "assertion"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

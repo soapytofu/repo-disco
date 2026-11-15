@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Helper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(8,22): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures start + r == K.Endpoint(start,length,cap)\n  |                       ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-t3tkgxv9/TestResults/2026-11-15_02_06_55-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyLmRmeSg5LDIpOiBFcnJvcjogYSBwb3N0Y29uZGl0aW9uIGNvdWxkIG5vdCBiZSBwcm92ZWQgb24gdGhpcyByZXR1cm4gcGF0aAogIHwKOSB8ICAgewogIHwgICBeCgpIZWxwZXIuZGZ5KDgsMjIpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKOCB8ICAgICBlbnN1cmVzIHN0YXJ0ICsgciA9PSBLLkVuZHBvaW50KHN0YXJ0LGxlbmd0aCxjYXApCiAgfCAgICAgICAgICAgICAgICAgICAgICAgXl4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggMSB2ZXJpZmllZCwgMSBlcnJvcgpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLXQzdGtneHY5L1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTVfMDJfMDZfNTUtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "1291748738373b41b0e7b0a0d17aadb281e614fd9d2ab13a78a477ac8fd59f13",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_02_06_55-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelper.Transfer (correctness),Failed,00:00:00.0725608,4675,0\nClient.Target (correctness),Passed,00:00:00.0144823,6089,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_02_06_55-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXIuVHJhbnNmZXIgKGNvcnJlY3RuZXNzKSxGYWlsZWQsMDA6MDA6MDAuMDcyNTYwOCw0Njc1LDAKQ2xpZW50LlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTQ0ODIzLDYwODksMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_02_06_55-0.csv": "adef416ed923dc1a934f0ffd2b8301aea9cc0f1b47418ba544469bc59cda3acd"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+    "Helper.dfy": "cc6bbd56a268d43316df1948449bb065e886f2ca946f89d53eb41fd31653527b",
+    "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+  },
+  "elapsed_seconds": 1.4670450009871274,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "capped_endpoint_return_migration-wrong_helper_implementation",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        1,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

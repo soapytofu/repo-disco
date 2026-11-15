@@ -1,0 +1,58 @@
+[
+  {
+    "task_id": "capped_endpoint_return_migration",
+    "family": "conditional_arithmetic_development",
+    "development_only": true,
+    "held_out": false,
+    "entry": "All.dfy",
+    "named_targets": [
+      "Helper.Transfer",
+      "Client.Target"
+    ],
+    "public_target": "Client.Target",
+    "internal_target": "Helper.Transfer",
+    "public_contract_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+    "public_contract_prefix": "include \"Kernel.dfy\"\ninclude \"Helper.dfy\"\nmodule Client {\n  import K = Kernel\n  import H = Helper\n  method Target(start: int, length: int, cap: int) returns (result: int)\n    requires 0 <= length\n    ensures result == K.Endpoint(start,length,cap)\n  {\n",
+    "internal_api_versions": {
+      "old": {
+        "header": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(start: int, length: int, cap: int) returns (r: int)\n    requires 0 <= length\n    ensures r == K.Endpoint(start,length,cap)\n",
+        "sha256": "305e80b3f7e1cfff04313fdf949f959db244061ff5cc2db7a6be58e3b416dcfc"
+      },
+      "new": {
+        "header": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(start: int, length: int, cap: int) returns (r: int)\n    requires 0 <= length\n    requires start <= cap\n    ensures 0 <= r <= length\n    ensures start + r == K.Endpoint(start,length,cap)\n",
+        "sha256": "e2eab9c898e2a91ca81202bfbb414f5a4dc3eef42eee243d7384f1436a5cdc42"
+      }
+    },
+    "model_protocol_defined": false,
+    "verification_status": "not_run",
+    "interpretation": "Chosen one-sided API migration is insufficient; no mathematical necessity of multi-file repair."
+  },
+  {
+    "task_id": "extracted_entry_return_migration",
+    "family": "finite_maps_development",
+    "development_only": true,
+    "held_out": false,
+    "entry": "All.dfy",
+    "named_targets": [
+      "Helper.Transfer",
+      "Client.Target"
+    ],
+    "public_target": "Client.Target",
+    "internal_target": "Helper.Transfer",
+    "public_contract_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+    "public_contract_prefix": "include \"Kernel.dfy\"\ninclude \"Helper.dfy\"\nmodule Client {\n  import K = Kernel\n  import H = Helper\n  method Target(m: map<int,int>, key: int) returns (remaining: map<int,int>, removed: map<int,int>)\n    ensures remaining == K.Erase(m,key)\n    ensures removed == K.Entry(m,key)\n  {\n",
+    "internal_api_versions": {
+      "old": {
+        "header": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(m: map<int,int>, key: int) returns (r: map<int,int>)\n    ensures r == K.Erase(m,key)\n",
+        "sha256": "bd60a733c1eb8cfc7e99cc90f9067b0dece24450170011856144393902eb70ee"
+      },
+      "new": {
+        "header": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(m: map<int,int>, key: int) returns (r: map<int,int>)\n    requires key in m\n    ensures r == K.Entry(m,key)\n    ensures r.Keys == {key}\n",
+        "sha256": "e5f1b806b200d42bded0a6ab5efe86a7fa910d0ec36ec2f03289fe2a3456c15e"
+      }
+    },
+    "model_protocol_defined": false,
+    "verification_status": "not_run",
+    "interpretation": "Chosen one-sided API migration is insufficient; no mathematical necessity of multi-file repair."
+  }
+]

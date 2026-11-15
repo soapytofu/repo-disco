@@ -1,0 +1,23 @@
+Client.dfy(9,2): Error: a postcondition could not be proved on this return path
+  |
+9 |   {
+  |   ^
+
+Client.dfy(8,19): Related location: this is the postcondition that could not be proved
+  |
+8 |     ensures result == K.Endpoint(start,length,cap)
+  |                    ^^
+
+Client.dfy(10,24): Error: a precondition for this call could not be proved
+   |
+10 |     result := H.Transfer(start,length,cap);
+   |                         ^
+
+Helper.dfy(6,19): Related location: this is the precondition that could not be proved
+  |
+6 |     requires start <= cap
+  |                    ^^
+
+
+Dafny program verifier finished with 1 verified, 2 errors
+Results File: /tmp/repodisco-repair-adapter-jx4gb8lh/TestResults/2026-11-15_02_06_48-0.csv
