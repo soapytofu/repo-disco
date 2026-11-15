@@ -1,0 +1,381 @@
+{
+  "job_id": "60695852",
+  "model_calls": 0,
+  "planned": 18,
+  "reviewed": 18,
+  "all_expected": true,
+  "counts": {
+    "success": 4,
+    "proof_failure": 12,
+    "resolution_failure": 2
+  },
+  "protected_file_comparisons": 99,
+  "protected_body_boundaries": 27,
+  "scope_by_task": {
+    "saturating_assoc-shared": [
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Ops.High (correctness)",
+      "Ops.Low (correctness)",
+      "Ops.Range (correctness)"
+    ],
+    "saturating_assoc-separate": [
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Ops.High (correctness)",
+      "Ops.Low (correctness)",
+      "Ops.Range (correctness)"
+    ]
+  },
+  "checks": [
+    {
+      "case_id": "saturating_assoc-shared-reference",
+      "task_id": "saturating_assoc-shared",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 7,
+      "failed_units": [],
+      "evidence_sha256": "0dd1d2102020b78eb3e04fbac8fbdd9d01ffaaa99c5989bf7b1e3909c3fa8bdf"
+    },
+    {
+      "case_id": "saturating_assoc-shared-alternative",
+      "task_id": "saturating_assoc-shared",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 7,
+      "failed_units": [],
+      "evidence_sha256": "1b7fd53fa08d05a106f20196cc302a166acbba6d8fb81c99be29876705d1a417"
+    },
+    {
+      "case_id": "saturating_assoc-shared-empty",
+      "task_id": "saturating_assoc-shared",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "f42fd0a3b23bc3819f74ad95506e493d88281cef696634de15ccea252a148a1f"
+    },
+    {
+      "case_id": "saturating_assoc-shared-faulty",
+      "task_id": "saturating_assoc-shared",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "2f549a12c7608689d31838a61ca32230f622e4aae8edc3c389c910eddd61b59f"
+    },
+    {
+      "case_id": "saturating_assoc-shared-saturated_total_only",
+      "task_id": "saturating_assoc-shared",
+      "variant": "saturated_total_only",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "cbda92a9cd342b417a69bc0c17b29a344236e8e6e4490bdde59afe51bc6e12cb"
+    },
+    {
+      "case_id": "saturating_assoc-shared-missing_right",
+      "task_id": "saturating_assoc-shared",
+      "variant": "missing_right",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "87ac8801804c08fb433dbbe0a9ccc195f842a46adafea48786636144874cb8dc"
+    },
+    {
+      "case_id": "saturating_assoc-shared-missing_outer",
+      "task_id": "saturating_assoc-shared",
+      "variant": "missing_outer",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "a7db9c5a3892f99d562952b90040d3d6e19f48eb1fd870762e6d144097cb037b"
+    },
+    {
+      "case_id": "saturating_assoc-shared-wrong_boundary",
+      "task_id": "saturating_assoc-shared",
+      "variant": "wrong_boundary",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "ee7a111aed77de60428e0b3e82acc340f060c45b9484342e80646b321c9020c7"
+    },
+    {
+      "case_id": "saturating_assoc-shared-hidden_range",
+      "task_id": "saturating_assoc-shared",
+      "variant": "hidden_range",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "Range",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "405e13be046477710be022ed0a6797572ac6a401130adc8c4b187acb75dc3af8"
+    },
+    {
+      "case_id": "saturating_assoc-separate-reference",
+      "task_id": "saturating_assoc-separate",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 7,
+      "failed_units": [],
+      "evidence_sha256": "b309b459f7df5f6958fd66e3b540399490f4d25afcc47610be943f5439aaff01"
+    },
+    {
+      "case_id": "saturating_assoc-separate-alternative",
+      "task_id": "saturating_assoc-separate",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 7,
+      "failed_units": [],
+      "evidence_sha256": "4122205a7b69d9e408210cfe769c01948b514573a61cfa048a5c403c3abe9c04"
+    },
+    {
+      "case_id": "saturating_assoc-separate-empty",
+      "task_id": "saturating_assoc-separate",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "a1eb78488812043ceedeb4ab0b48575e15679a73489e65f28c9594eb69b15631"
+    },
+    {
+      "case_id": "saturating_assoc-separate-faulty",
+      "task_id": "saturating_assoc-separate",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "4ed4e110b472c94660e72b299e3b57e4cd50a16d67f32b4841acff30a682a263"
+    },
+    {
+      "case_id": "saturating_assoc-separate-saturated_total_only",
+      "task_id": "saturating_assoc-separate",
+      "variant": "saturated_total_only",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "499cf9a1415fd9e675910bb1659b985dfa1e1e816a4cad322ca36cc80f8788ed"
+    },
+    {
+      "case_id": "saturating_assoc-separate-missing_right",
+      "task_id": "saturating_assoc-separate",
+      "variant": "missing_right",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "86b81412f89c3fd149867215a2b020fb1ceddfb535a1d04e804967c7332843d4"
+    },
+    {
+      "case_id": "saturating_assoc-separate-missing_outer",
+      "task_id": "saturating_assoc-separate",
+      "variant": "missing_outer",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "d73b7c42e26ced02b62d1b44fc8039de327381271942df69d6053da28d13b389"
+    },
+    {
+      "case_id": "saturating_assoc-separate-wrong_boundary",
+      "task_id": "saturating_assoc-separate",
+      "variant": "wrong_boundary",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 7,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "8265dc38f02b9b16f0e671ad51c2ec5eb2d8fd85b6ee88add66582353f1f9f6e"
+    },
+    {
+      "case_id": "saturating_assoc-separate-hidden_range",
+      "task_id": "saturating_assoc-separate",
+      "variant": "hidden_range",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "Range",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "4d55ccf4ecc4ff0bea4df8670bb4948a6ad7a7ec1f44e1484d60af508d16fe15"
+    }
+  ],
+  "claim": "Verifier-only development controls; no model result, minimum-depth or causal sharing claim"
+}

@@ -1,0 +1,436 @@
+{
+  "job_id": "60696271",
+  "model_calls": 0,
+  "planned": 20,
+  "reviewed": 20,
+  "all_expected": true,
+  "counts": {
+    "success": 4,
+    "proof_failure": 14,
+    "resolution_failure": 2
+  },
+  "protected_file_comparisons": 150,
+  "protected_body_boundaries": 30,
+  "scope_by_task": {
+    "overlap_override_restrict-shared": [
+      "Api.Equal (correctness)",
+      "Api.Equal (well-formedness)",
+      "Api.ObserveOverride (correctness)",
+      "Api.ObserveOverride (well-formedness)",
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "Domains.OverrideKeys (correctness)",
+      "Domains.RestrictKeys (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Kernel.Override (well-formedness)",
+      "Kernel.Restrict (well-formedness)",
+      "Values.OverrideAt (correctness)",
+      "Values.OverrideAt (well-formedness)",
+      "Values.RestrictAt (correctness)",
+      "Values.RestrictAt (well-formedness)"
+    ],
+    "overlap_override_restrict-separate": [
+      "Api.Equal (correctness)",
+      "Api.Equal (well-formedness)",
+      "Api.ObserveOverride (correctness)",
+      "Api.ObserveOverride (well-formedness)",
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "Domains.OverrideKeys (correctness)",
+      "Domains.RestrictKeys (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Kernel.Override (well-formedness)",
+      "Kernel.Restrict (well-formedness)",
+      "Values.OverrideAt (correctness)",
+      "Values.OverrideAt (well-formedness)",
+      "Values.RestrictAt (correctness)",
+      "Values.RestrictAt (well-formedness)"
+    ]
+  },
+  "checks": [
+    {
+      "case_id": "overlap_override_restrict-shared-reference",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 16,
+      "failed_units": [],
+      "evidence_sha256": "052c1956a5b6cccee008c05627f623ba9096085c46d3c37a78bb1e133d2dc8b0"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-alternative",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 16,
+      "failed_units": [],
+      "evidence_sha256": "6e07eea4b3745c7e0af6997190b19810e9bfb56c87d85cbe16874feee7308a65"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-empty",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "a0c333a26de004cd4b52352a8df0e50d6709255b69d840c17afa004984716b83"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-faulty",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "997ab76fb2b6cc062c2577f9391aab0059dce0b1a343b3807c040ae0e13e645b"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-missing_inner_right",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "missing_inner_right",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "356fe35a883dbef1e3f2fda6580422d9354d492e5595263d170fd759959ae78c"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-missing_inner_left",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "missing_inner_left",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "3d872aa1d9ded96f668c0ef1897ea8eb4d06fd78c1e351418e971b1d32234972"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-missing_outer",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "missing_outer",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "22e275d047b54db6e2b2e087486373e10b1a4c1bc25ce2500adaaeb640764a64"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-collision_assumption",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "collision_assumption",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "d892c0b6d7f6ef287451db275a2d9f0b9b48fd08be152de33422fd8f2850300f"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-missing_keys",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "missing_keys",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "69fa6255915ffc69b88b91f6e87745b209a43d84851177d3b3e5619330caeb4d"
+    },
+    {
+      "case_id": "overlap_override_restrict-shared-hidden_shortcut",
+      "task_id": "overlap_override_restrict-shared",
+      "variant": "hidden_shortcut",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "missing export member",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "e78a447771edff4a6a3f1bd6ec4215fea0b490c1bd90bca1b7e280c9fc0af170"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-reference",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 16,
+      "failed_units": [],
+      "evidence_sha256": "5c999552920405638396f4357cea74e9e64d92101458fdcd9f8f3f5dbe842616"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-alternative",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 16,
+      "failed_units": [],
+      "evidence_sha256": "e0177fdac21a224e11e7a13c72b6f8a15c642d70e8874295b9548b414d2594ae"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-empty",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperB.Prove (correctness)",
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "680b6f52ecf0785667d2e85da15d0c923540dedc7d6c4d50da9e6b0ab5b98b94"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-faulty",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "76bbb90caf61a03f15de076622123fa045f1cf09e255508130e265ea665de55e"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-missing_inner_right",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "missing_inner_right",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "62fd4faf7a4849ea6187f06e31beeaf4c7599f486a16b5e4ca983175ff836219"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-missing_inner_left",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "missing_inner_left",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "412bce1355d501cfef3cddb0e7250ac5aef7c7ff219780ca4c51dfcbdcfeb8b4"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-missing_outer",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "missing_outer",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "fb5ca7b60b79d44ae99956ef43a29abb78d94b2df7a52f50de85cef55e4aa49f"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-collision_assumption",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "collision_assumption",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "15746b1cc404a6da48d6811980297ca54fb8ff67b391c5dfe035555fde6e9416"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-missing_keys",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "missing_keys",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 16,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "f62a81390fdf338db6e8fc40adf36c38c3ad3a1cc10d2e3a290f1c1d1699e478"
+    },
+    {
+      "case_id": "overlap_override_restrict-separate-hidden_shortcut",
+      "task_id": "overlap_override_restrict-separate",
+      "variant": "hidden_shortcut",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "missing export member",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "b743ceff145e1054d194007b3d7fa8b6cae95ea3100cb03e98db653643e91b3f"
+    }
+  ],
+  "claim": "Verifier-only development controls; no model result, minimum-depth or causal sharing claim"
+}
