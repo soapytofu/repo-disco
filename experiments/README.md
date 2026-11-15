@@ -10,7 +10,9 @@ confirms actual helper and caller correctness failures in both fresh seeds,
 with no warnings or frontend failures; full logs and source-bound review are saved.
 There are two new verifier observations and eight reused controls, zero model calls.
 The proposed 16-call comparison uses one response per trial with diagnostics
-or a failure notice. Prompts are being prepared; paid execution is not authorized.
+or a failure notice. Four exact prompts and their order are frozen with eight
+passing preparation tests; paid execution is not authorized and no live handler
+has been added.
 
 ## Internal API changes — verified helper, failing caller
 

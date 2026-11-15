@@ -1,0 +1,102 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Helper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(7,14): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures 0 <= r <= length\n  |               ^^\n\nHelper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(7,19): Related location: this is the postcondition that could not be proved\n  |\n7 |     ensures 0 <= r <= length\n  |                    ^^\n\nHelper.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nHelper.dfy(8,22): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures start + r == K.Endpoint(start,length,cap)\n  |                       ^^\n\nClient.dfy(9,2): Error: a postcondition could not be proved on this return path\n  |\n9 |   {\n  |   ^\n\nClient.dfy(8,19): Related location: this is the postcondition that could not be proved\n  |\n8 |     ensures result == K.Endpoint(start,length,cap)\n  |                    ^^\n\nClient.dfy(10,24): Error: a precondition for this call could not be proved\n   |\n10 |     result := H.Transfer(start,length,cap);\n   |                         ^\n\nHelper.dfy(6,19): Related location: this is the precondition that could not be proved\n  |\n6 |     requires start <= cap\n  |                    ^^\n\n\nDafny program verifier finished with 0 verified, 5 errors\nResults File: /tmp/repodisco-repair-adapter-gcun2xwx/TestResults/2026-11-15_14_38_35-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyLmRmeSg5LDIpOiBFcnJvcjogYSBwb3N0Y29uZGl0aW9uIGNvdWxkIG5vdCBiZSBwcm92ZWQgb24gdGhpcyByZXR1cm4gcGF0aAogIHwKOSB8ICAgewogIHwgICBeCgpIZWxwZXIuZGZ5KDcsMTQpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKNyB8ICAgICBlbnN1cmVzIDAgPD0gciA8PSBsZW5ndGgKICB8ICAgICAgICAgICAgICAgXl4KCkhlbHBlci5kZnkoOSwyKTogRXJyb3I6IGEgcG9zdGNvbmRpdGlvbiBjb3VsZCBub3QgYmUgcHJvdmVkIG9uIHRoaXMgcmV0dXJuIHBhdGgKICB8CjkgfCAgIHsKICB8ICAgXgoKSGVscGVyLmRmeSg3LDE5KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICB8CjcgfCAgICAgZW5zdXJlcyAwIDw9IHIgPD0gbGVuZ3RoCiAgfCAgICAgICAgICAgICAgICAgICAgXl4KCkhlbHBlci5kZnkoOSwyKTogRXJyb3I6IGEgcG9zdGNvbmRpdGlvbiBjb3VsZCBub3QgYmUgcHJvdmVkIG9uIHRoaXMgcmV0dXJuIHBhdGgKICB8CjkgfCAgIHsKICB8ICAgXgoKSGVscGVyLmRmeSg4LDIyKTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICB8CjggfCAgICAgZW5zdXJlcyBzdGFydCArIHIgPT0gSy5FbmRwb2ludChzdGFydCxsZW5ndGgsY2FwKQogIHwgICAgICAgICAgICAgICAgICAgICAgIF5eCgpDbGllbnQuZGZ5KDksMik6IEVycm9yOiBhIHBvc3Rjb25kaXRpb24gY291bGQgbm90IGJlIHByb3ZlZCBvbiB0aGlzIHJldHVybiBwYXRoCiAgfAo5IHwgICB7CiAgfCAgIF4KCkNsaWVudC5kZnkoOCwxOSk6IFJlbGF0ZWQgbG9jYXRpb246IHRoaXMgaXMgdGhlIHBvc3Rjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgfAo4IHwgICAgIGVuc3VyZXMgcmVzdWx0ID09IEsuRW5kcG9pbnQoc3RhcnQsbGVuZ3RoLGNhcCkKICB8ICAgICAgICAgICAgICAgICAgICBeXgoKQ2xpZW50LmRmeSgxMCwyNCk6IEVycm9yOiBhIHByZWNvbmRpdGlvbiBmb3IgdGhpcyBjYWxsIGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxMCB8ICAgICByZXN1bHQgOj0gSC5UcmFuc2ZlcihzdGFydCxsZW5ndGgsY2FwKTsKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICBeCgpIZWxwZXIuZGZ5KDYsMTkpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwcmVjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgfAo2IHwgICAgIHJlcXVpcmVzIHN0YXJ0IDw9IGNhcAogIHwgICAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDAgdmVyaWZpZWQsIDUgZXJyb3JzClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXItZ2N1bjJ4d3gvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8xNF8zOF8zNS0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "7b1b5dd42bdd267acde93ef58e0784005d0d380a417c201d706b93b4fa9f5213",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_14_38_35-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelper.Transfer (correctness),Failed,00:00:00.1223562,6338,0\nClient.Target (correctness),Failed,00:00:00.0291832,6184,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_14_38_35-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXIuVHJhbnNmZXIgKGNvcnJlY3RuZXNzKSxGYWlsZWQsMDA6MDA6MDAuMTIyMzU2Miw2MzM4LDAKQ2xpZW50LlRhcmdldCAoY29ycmVjdG5lc3MpLEZhaWxlZCwwMDowMDowMC4wMjkxODMyLDYxODQsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_14_38_35-0.csv": "181472884ff95597b437aff0431f71f2eb567efa03b31c770018b4503b5fa975"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+    "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+    "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+  },
+  "elapsed_seconds": 2.5065219041425735,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "capped_endpoint_return_migration-dual_fault-seed",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        0,
+        5
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path",
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition",
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  },
+  "named_evidence": {
+    "matched": true,
+    "units": {
+      "Helper.Transfer (correctness)": "Failed",
+      "Client.Target (correctness)": "Failed"
+    },
+    "local_targets": {
+      "Client.Target": false,
+      "Helper.Transfer": false
+    },
+    "target_diagnostics": {
+      "Helper.Transfer": [
+        "postcondition"
+      ],
+      "Client.Target": [
+        "precondition",
+        "postcondition"
+      ]
+    },
+    "unlogged_definitions": [
+      {
+        "symbol": "Kernel.Endpoint",
+        "source_file": "Kernel.dfy",
+        "source_sha256": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be",
+        "classification": "unlogged_definition_not_verified_provider_unit"
+      }
+    ],
+    "error": null
+  },
+  "expected_local_targets": {
+    "Helper.Transfer": false,
+    "Client.Target": false
+  }
+}

@@ -19,8 +19,9 @@ the public and required new internal contracts fixed. Job60865223 confirms actua
 helper and caller correctness failures in both fresh seeds, with no warnings or
 frontend failures. Its full raw evidence is saved; eight one-sided/paired controls
 reuse earlier observations. The 16-call design is a one-response feedback
-comparison. Four payloads are being prepared, with no paid authorization or
-new model results.
+comparison. Four exact payloads, settings and order are now frozen after eight
+passing preparation tests and review. There is no live handler, paid authorization
+or new model result; the earlier prospective plan remains unchanged as history.
 
 The [internal API migration study](../experiments/internal-contract-propagation-001/RESULTS.md)
 has 18/18 expected verifier outcomes: six strict successes and twelve proof

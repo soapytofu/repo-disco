@@ -44,7 +44,9 @@ insufficient. They do not prove every solution needs two edited files or calls
 to `H.Transfer`; direct implementations using transparent kernel functions
 remain eligible. All earlier experiment sources and model scores are unchanged.
 
-The next offline step is a four-payload prompt freeze for the proposed 16-response
-comparison: two development tasks, two feedback conditions, four fresh responses
-per cell. It has no model result, iterative agent loop or paid execution
-authorization. The previous paid session remains terminal.
+The [four-payload prompt freeze](pilot/README.md) is now complete for the proposed
+16-response comparison: two development tasks, two feedback conditions, four
+fresh responses per cell. Eight preparation tests pass; paired prompts differ
+only in feedback. This is a frozen proposal with no live handler, model result,
+iterative agent loop or paid execution authorization. The previous paid session
+remains terminal.

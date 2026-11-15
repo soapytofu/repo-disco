@@ -1,11 +1,18 @@
 # Fixed-target API migration repair: prospective calibration
 
-**Preparation only. No model calls, frozen prompts or execution authorization.**
-The proposed [16-slot design](plan.json) compares detailed whole-workspace
+**Prompts frozen; no model calls or execution authorization.**
+The [frozen 16-slot proposal](pilot/README.md) compares detailed whole-workspace
 verifier feedback with a failure notice over two development tasks. Each task
 has four fresh responses per condition. The earlier paid session remains closed;
 this plan does not retry its ambiguous request, reclaim its slots or authorize
 a replacement client or ledger.
+
+The original [prospective design](plan.json) is preserved unchanged. The current
+four exact payloads, settings and order are in [pilot/frozen-001](pilot/frozen-001/),
+with freeze SHA `a7bd38609aa10f8bdeb5d50fbbbabd531c7d9bec54788a41210dfc8458eab7bd`.
+Eight focused tests passed against the actual freeze. The payload pairs differ
+only in the feedback block, and all source/policy/scorer dependencies are pinned.
+There is no live method-capable handler or paid authorization.
 
 The [two seed workspaces](fixtures-and-controls/) are constructed and their
 isolated verifier bundle is frozen. Ten offline checks pass both locally and in
@@ -19,7 +26,8 @@ four old-header controls. The [named-unit scorer](measurement/README.md) passes
 15 tests, including isolated-bundle integration, and replays all 18 historical
 outcomes unchanged. [Parent review](offline-review-001.json) binds these exact
 bundles and logs. The [compute evidence gate](reviews/seed-review-001/stdout.json)
-also passes. The four model payloads are being prepared; no paid submission exists.
+also passes. The [prompt review](reviews/prompt-review-001/parent-review.json)
+checks all four payloads and 420 repository input pins; no paid submission exists.
 
 The host selects each task's required new internal API before generation. The
 new starting workspace keeps that contract but retains both old implementations.
@@ -47,8 +55,7 @@ counterbalanced: every four-slot block contains all four task/condition cells,
 and every cell has mean position 8.5. Responses use independent contexts, not
 paired random seeds. Each trial receives one initial feedback block and one
 response; there is no feedback after that repair or iterative agent loop.
-Exact prompts may be frozen only after the new source,
-policy and named-verification gates pass.
+The source, policy, named-verification and prompt-preparation gates have passed.
 
 Strict whole-workspace verification is primary. Local helper/client outcomes,
 changed bodies and observed `H.Transfer` calls are reported separately. A local

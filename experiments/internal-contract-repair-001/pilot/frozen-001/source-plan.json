@@ -1,0 +1,213 @@
+{
+  "schema": "internal-contract-repair-proposal-v1",
+  "study": "internal-contract-repair-001",
+  "status": "prospective_unfrozen",
+  "proposed_model_requests": 16,
+  "execution_authorized": false,
+  "model_calls_during_preparation": 0,
+  "new_context_per_request": true,
+  "max_requests_per_trial": 1,
+  "repair_mode": "single_response_to_seed_feedback",
+  "feedback_after_repair": false,
+  "automatic_retries": false,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "unique_semantic_instances": 2,
+  "unique_payloads": 4,
+  "responses_per_task_arm": 4,
+  "task_ids": [
+    "capped_endpoint_return_migration-dual_fault",
+    "extracted_entry_return_migration-dual_fault"
+  ],
+  "feedback_conditions": [
+    "verifier_diagnostics",
+    "failure_notice_only"
+  ],
+  "order": [
+    {
+      "position": 1,
+      "replicate_block": 1,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 2,
+      "replicate_block": 1,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 3,
+      "replicate_block": 1,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 4,
+      "replicate_block": 1,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 5,
+      "replicate_block": 2,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 6,
+      "replicate_block": 2,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 7,
+      "replicate_block": 2,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 8,
+      "replicate_block": 2,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 9,
+      "replicate_block": 3,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 10,
+      "replicate_block": 3,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 11,
+      "replicate_block": 3,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 12,
+      "replicate_block": 3,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 13,
+      "replicate_block": 4,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 14,
+      "replicate_block": 4,
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "capped_endpoint_return_migration"
+    },
+    {
+      "position": 15,
+      "replicate_block": 4,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "failure_notice_only",
+      "semantic_instance": "extracted_entry_return_migration"
+    },
+    {
+      "position": 16,
+      "replicate_block": 4,
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "feedback_condition": "verifier_diagnostics",
+      "semantic_instance": "extracted_entry_return_migration"
+    }
+  ],
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "inference_config": {
+    "temperature": 1.0,
+    "maxTokens": 4096
+  },
+  "fixed_target_internal_api": true,
+  "model_contract_editing": false,
+  "editable_files": [
+    "Helper.dfy",
+    "Client.dfy"
+  ],
+  "editable_targets": [
+    "Helper.Transfer",
+    "Client.Target"
+  ],
+  "immutable_files": [
+    "All.dfy",
+    "Kernel.dfy"
+  ],
+  "frozen_headers": [
+    "imports",
+    "signatures",
+    "requires",
+    "ensures",
+    "returns"
+  ],
+  "helper_call_required": false,
+  "primary_outcome": "strict_whole_workspace_verification_with_protected_source_and_all_required_named_units",
+  "secondary_descriptive_fields": [
+    "Helper.Transfer local outcome",
+    "Client.Target local outcome",
+    "actual changed body files",
+    "observed H.Transfer calls",
+    "policy/parse/proof/warning/timeout/transport categories",
+    "provider request IDs and reported token usage"
+  ],
+  "family_split": "development",
+  "failure_origin": "analyst_constructed_dual_fault_under_fixed_target_contract",
+  "source_study": "experiments/internal-contract-propagation-001",
+  "source_commit": "4163aed05bd1cc499b93f524caf8b20682e0e15b",
+  "reference_evidence_reuse": {
+    "prior_variants_per_task": [
+      "paired_repair",
+      "alternative",
+      "helper_only",
+      "contract_only"
+    ],
+    "prior_caller_only_excluded": true,
+    "reused_workspace_outcomes": 8,
+    "new_verifier_seed_checks": 2
+  },
+  "collection_gates": [
+    "both new seed correctness units fail on compute with exact source hashes",
+    "all eight reused control workspaces match reviewed evidence byte-for-byte",
+    "method-body policy and extraction adversarial tests pass",
+    "new two-method scoring integration passes fake-archive tests",
+    "all four prompts are reviewed and exact order/policy/sources are frozen",
+    "separate explicit execution decision preserves terminal old ledger and ambiguous request"
+  ],
+  "budget_note": "No request is allocated to or recovered from the terminal 128-call session. This is only a proposed future scope. The earlier 33 reservations, including one ambiguous outcome, remain counted against the original request cap and unchanged.",
+  "limits": [
+    "Two development instances are not sixteen independent tasks.",
+    "Public and target internal contracts are fixed before generation; this is not contract synthesis.",
+    "Transparent Kernel definitions permit direct client implementations without H.Transfer.",
+    "Helper call presence alone is not evidence of necessary reuse or reasoning.",
+    "No causal sharing/depth, unrestricted repository discovery, minimal repair or held-out claim.",
+    "The old implementations can preserve original end-to-end runtime behavior while failing the required new internal contract; this is an explicit migration target, not a discovered public runtime bug."
+  ],
+  "semantic_instances": [
+    "capped_endpoint_return_migration",
+    "extracted_entry_return_migration"
+  ]
+}

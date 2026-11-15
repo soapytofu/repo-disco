@@ -98,8 +98,11 @@ The policy reconstructs 16 eligible workspaces and rejects four old headers;
 the scorer replays all 18 historical observations without new verification or
 rescoring. Their exact bundles and logs have been reviewed. The proposed
 16-call, single-response design has no execution authorization. Four exact
-payloads are being prepared following the verified seed gate. No authentication
-blocker or active job remains; the closed paid ledger remains intact.
+payloads, settings and order are frozen after eight focused tests and review,
+SHA `a7bd38609aa10f8bdeb5d50fbbbabd531c7d9bec54788a41210dfc8458eab7bd`.
+There is no live method-capable handler. No authentication blocker or active job
+remains; the closed paid ledger remains intact. All scoped nonpaid preparation
+is complete; further execution requires a separate explicit decision.
 
 Root owns SSH, submission and Git publication; agents have disjoint local scopes.
 Dafny runs only on compute nodes, with live nonpreemptible partition checks, no

@@ -1,0 +1,34 @@
+{
+  "schema": "internal-contract-repair-independent-seed-review-v1",
+  "reviewer": "read-only research subagent",
+  "gate_sha256": "51c3281392be1f2850ed8752e48b166cacfc9b34e493c6ff149bda017897cd37",
+  "transfer_sha256": "0658171be99882dabee66cbfccbafab371fedb0b70c16f50e804ac6c294a8ff1",
+  "verdict": "ready_for_four_payload_prompt_preparation",
+  "transfer_files_checked": 126,
+  "raw_archive_files_checked": 120,
+  "seed_source_files_checked": 8,
+  "fresh_verifier_observations": 2,
+  "observed_local_targets_per_seed": {
+    "Helper.Transfer": false,
+    "Client.Target": false
+  },
+  "ordinary_proof_failures": 2,
+  "required_map_providers_passed": 3,
+  "arithmetic_Endpoint_logged": false,
+  "warnings": 0,
+  "frontend_failures": 0,
+  "timeouts": 0,
+  "new_model_calls": 0,
+  "verifier_runs_during_review": 0,
+  "limits": [
+    "Two development seeds only; no model performance or necessary-edit claim.",
+    "Proposed16requests are four responses per task-arm, not sixteen independent tasks."
+  ],
+  "operations_note": {
+    "read_only_inventory_initial_error": "TypeError: __init__() got an unexpected keyword argument 'text'",
+    "cause": "Login Python3.6 does not support text=True in subprocess.",
+    "correction": "Used universal_newlines=True in the ad hoc read-only queue check; frozen compute coordinator already uses compatible syntax.",
+    "mutations_before_error": 0,
+    "duplicate_verifier_attempts": 0
+  }
+}
