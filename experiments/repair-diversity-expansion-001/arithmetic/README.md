@@ -1,0 +1,11 @@
+# Saturating-addition associativity (D1-M2)
+
+Status: **constructed, not yet Dafny-verified**. Six offline construction/staging tests pass. No model calls. This is a development repair instance of the existing corpus plan, not a held-out family or a complete shallow/deep generation matrix.
+
+For nonnegative cap `c` and operands `a,b,d`, prove `Sat(c,Sat(c,a,b),d) == Sat(c,a,Sat(c,b,d))`, where `Sat(c,x,y)` clips `x+y` at `c`. The helper can see only opaque `Sat` and public `Low`/`High` contracts. The reference partitions by total saturation and then establishes the applicable facts for each intermediate sum; the alternative first partitions the two intermediate sums. Neither relies on an exported associativity theorem. `Range` is deliberately hidden from the public export view.
+
+Two immutable clients apply the same lemma to a direct operand triple and a triple whose first operand is itself a nonnegative sum. Shared mode edits one helper and keeps a protected forwarding helper; separate mode edits two equivalent bodies and permits copying. Client semantics, providers and contracts are identical across the treatment. Output body count and required work differ; no pure cognitive-sharing, depth or minimality claim is made.
+
+The primary analyst fault incorrectly assumes both intermediate additions are unsaturated. Other controls omit required outer/right facts, incorrectly infer partial saturation from total saturation, or branch on the wrong boundary. The 18 planned checks are four reference/alternative successes, twelve ordinary proof failures and two hidden-export name-resolution failures. There are no expected parse errors. Case-specific precondition/postcondition categories are recorded in `cases.json`.
+
+`generate.py` deterministically emits the source fixtures, task registry and exact source manifest. `verify.py` refuses execution outside a compute allocation, checks pinned Dafny 4.11.0, runs each source once, and preserves full stdout/stderr, byte-exact CSV, source hashes and a summary. `verify.sbatch` is a template for the parent coordinator after it reconfirms live `test` preemption settings and stages this complete directory. No job is submitted by generation or tests. The new registry's production output-guard integration and model prompts remain pending.
