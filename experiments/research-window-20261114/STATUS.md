@@ -79,10 +79,20 @@ method and map-provider requirements. No proof was rerun or rescored.
 
 These migrations require a separate future edit protocol; the frozen body-only
 model handler is not reused for contract edits. Their controls do not prove that
-both files are mathematically necessary to edit. Further model evaluation is
-blocked by the terminal paid session, not by an unverified fixture. No new client,
-key or ledger will be used to bypass it. Task selection, broader semantic coverage
+both files are mathematically necessary to edit. Further calls through the old
+session are blocked by its terminal state; the stopped pipeline's fixtures had
+already passed their verifier gate. No new client, key or ledger will bypass that
+stop. Task selection, broader semantic coverage
 and a defensible family split remain research gates before general claims.
+
+Following the next-steps discussion, [fixed-target migration repair preparation](../internal-contract-repair-001/README.md)
+is now underway. Two new seeds retain both old bodies under the required new
+helper contract. Ten offline checks pass locally and in an isolated package;
+eight controls reuse exact prior evidence. The two fresh seed checks await
+Cannon reconnection; no job has been submitted. A separate method-body policy
+and named-unit scorer are being validated. The proposed 16-call design is
+unfrozen and has no execution authorization. One reconnect question is pending
+for socket 18, with no Bedrock key needed; the closed paid ledger remains intact.
 
 Root owns SSH, submission and Git publication; agents have disjoint local scopes.
 Dafny runs only on compute nodes, with live nonpreemptible partition checks, no

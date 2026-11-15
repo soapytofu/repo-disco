@@ -1,0 +1,50 @@
+{
+  "schema": "repodisco-internal-contract-propagation-design-v1",
+  "status": "prospective_verifier_only_not_verified",
+  "model_calls": 0,
+  "new_model_protocol": false,
+  "prior_body_only_protocols_modified": false,
+  "reserved_families_used": false,
+  "tasks": [
+    {
+      "task_id": "capped_endpoint_return_migration",
+      "family": "conditional_arithmetic_development",
+      "old_internal_meaning": "Absolute min(cap,start+length), length>=0.",
+      "new_internal_meaning": "Relative nonnegative advance delta; additionally start<=cap; start+delta equals the same capped endpoint.",
+      "public_specification": "Client.Target returns min(cap,start+length) for every length>=0.",
+      "helper_only_counterexamples": [
+        {"start": 4, "length": 1, "cap": 3, "issue": "New start<=cap precondition is false."},
+        {"start": 1, "length": 1, "cap": 5, "actual": 1, "required": 2}
+      ],
+      "caller_only_counterexample": {"start": 1, "length": 1, "cap": 5, "actual": 3, "required": 2}
+    },
+    {
+      "task_id": "extracted_entry_return_migration",
+      "family": "finite_maps_development",
+      "diagnostic_overrides": {"caller_only": "assertion"},
+      "old_internal_meaning": "Return the map remainder after excluding key; no presence precondition.",
+      "new_internal_meaning": "Return the extracted one-key entry; requires key present.",
+      "public_specification": "Client.Target returns the exact remainder and extracted-entry maps, including absent-key behavior.",
+      "helper_only_counterexamples": [
+        {"map": {"1": 10, "2": 20}, "key": 1, "actual_remainder": {"1": 10}, "required_remainder": {"2": 20}},
+        {"map": {"1": 10}, "key": 2, "issue": "New key-present precondition is false."}
+      ],
+      "caller_only_counterexample": {"map": {"1": 10, "2": 20}, "key": 1, "actual_remainder": {"1": 10}, "actual_removed": {"2": 20}, "required_remainder": {"2": 20}, "required_removed": {"1": 10}}
+    }
+  ],
+  "required_controls": [
+    {"variant": "reference", "role": "Initial coherent old helper and caller", "expected": "success"},
+    {"variant": "paired_repair", "role": "New internal API plus adapted caller", "expected": "success"},
+    {"variant": "alternative", "role": "Alternative valid paired implementation", "expected": "success"},
+    {"variant": "helper_only", "role": "New locally sound API with old caller", "expected": "proof_failure", "failed_target": "Client.Target", "diagnostic": "precondition"},
+    {"variant": "caller_only", "role": "New caller against old API", "expected": "proof_failure", "failed_target": "Client.Target", "diagnostic": "postcondition"},
+    {"variant": "contract_only", "role": "New helper contract, old implementation, adapted caller", "expected": "proof_failure", "failed_target": "Helper.Transfer", "diagnostic": "postcondition"},
+    {"variant": "unguarded_call", "role": "Caller omits newly required domain guard", "expected": "proof_failure", "failed_target": "Client.Target", "diagnostic": "precondition"},
+    {"variant": "lost_result_transform", "role": "Caller handles domain but misuses changed result meaning", "expected": "proof_failure", "failed_target": "Client.Target", "diagnostic": "postcondition"},
+    {"variant": "wrong_helper_implementation", "role": "New API promises correct result but body is wrong", "expected": "proof_failure", "failed_target": "Helper.Transfer", "diagnostic": "postcondition"}
+  ],
+  "diagnostic_override_note": "The map caller-only adaptation explicitly asserts the new return meaning. With the old helper that assertion fails; later proof steps may assume it, so no postcondition-failure category is required for this case.",
+  "public_contract_tamper": "Offline exact-public-interface rejection; not a Dafny trial.",
+  "scoring": "Strict included-workspace verification plus actual named local target and immutable provider outcomes. No declared-closure substitute.",
+  "limits": ["Two adaptive development instances, not a held-out evaluation.", "A chosen one-sided patch fails; no claim that all solutions require multiple edited files.", "The old API was correct; this study deliberately introduces a changed internal API contract."]
+}

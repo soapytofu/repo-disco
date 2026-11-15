@@ -1,0 +1,117 @@
+[
+  {
+    "case_id": "capped_endpoint_return_migration-dual_fault-seed",
+    "task_id": "capped_endpoint_return_migration-dual_fault",
+    "variant": "seed",
+    "path": "fixtures/capped_endpoint_return_migration-dual_fault/seed",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "precondition",
+    "required_diagnostics": [
+      "postcondition",
+      "precondition"
+    ],
+    "expected_local_targets": {
+      "Helper.Transfer": false,
+      "Client.Target": false
+    },
+    "expected_failed_targets": [
+      "Helper.Transfer",
+      "Client.Target"
+    ],
+    "expected_target_diagnostics": {
+      "Helper.Transfer": [
+        "postcondition"
+      ],
+      "Client.Target": [
+        "precondition"
+      ]
+    },
+    "expected_logged_provider_units": [],
+    "unlogged_definitions": [
+      {
+        "symbol": "Kernel.Endpoint",
+        "source_file": "Kernel.dfy",
+        "source_sha256": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be",
+        "classification": "unlogged_definition_not_verified_provider_unit"
+      }
+    ],
+    "source_sha256": {
+      "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+      "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+      "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+      "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+    },
+    "body_boundaries": {
+      "Helper.dfy": {
+        "start": 265,
+        "end": 358,
+        "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c"
+      },
+      "Client.dfy": {
+        "start": 251,
+        "end": 295,
+        "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600"
+      }
+    },
+    "public_contract_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+    "new_verifier_observation": true
+  },
+  {
+    "case_id": "extracted_entry_return_migration-dual_fault-seed",
+    "task_id": "extracted_entry_return_migration-dual_fault",
+    "variant": "seed",
+    "path": "fixtures/extracted_entry_return_migration-dual_fault/seed",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "precondition",
+    "required_diagnostics": [
+      "postcondition",
+      "precondition"
+    ],
+    "expected_local_targets": {
+      "Helper.Transfer": false,
+      "Client.Target": false
+    },
+    "expected_failed_targets": [
+      "Helper.Transfer",
+      "Client.Target"
+    ],
+    "expected_target_diagnostics": {
+      "Helper.Transfer": [
+        "postcondition"
+      ],
+      "Client.Target": [
+        "precondition"
+      ]
+    },
+    "expected_logged_provider_units": [
+      "Kernel.Erase (well-formedness)",
+      "Kernel.Entry (well-formedness)",
+      "Kernel.Exclude (well-formedness)"
+    ],
+    "unlogged_definitions": [],
+    "source_sha256": {
+      "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+      "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+      "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+      "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+    },
+    "body_boundaries": {
+      "Helper.dfy": {
+        "start": 214,
+        "end": 239,
+        "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2"
+      },
+      "Client.dfy": {
+        "start": 280,
+        "end": 347,
+        "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5"
+      }
+    },
+    "public_contract_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+    "new_verifier_observation": true
+  }
+]
