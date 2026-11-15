@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "stdout": "HelperA.dfy(14,6): Error: unresolved identifier: HiddenBounds\n   |\n14 |     O.HiddenBounds(a,b,u);\n   |       ^^^^^^^^^^^^\n\nHelperA.dfy(14,18): Error: expected method call, found expression\n   |\n14 |     O.HiddenBounds(a,b,u);\n   |                   ^\n\n2 resolution/type errors detected in All.dfy\nResults File: /tmp/repodisco-repair-adapter-1srh7fnr/TestResults/2026-11-14_23_38_51-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTQsNik6IEVycm9yOiB1bnJlc29sdmVkIGlkZW50aWZpZXI6IEhpZGRlbkJvdW5kcwogICB8CjE0IHwgICAgIE8uSGlkZGVuQm91bmRzKGEsYix1KTsKICAgfCAgICAgICBeXl5eXl5eXl5eXl4KCkhlbHBlckEuZGZ5KDE0LDE4KTogRXJyb3I6IGV4cGVjdGVkIG1ldGhvZCBjYWxsLCBmb3VuZCBleHByZXNzaW9uCiAgIHwKMTQgfCAgICAgTy5IaWRkZW5Cb3VuZHMoYSxiLHUpOwogICB8ICAgICAgICAgICAgICAgICAgIF4KCjIgcmVzb2x1dGlvbi90eXBlIGVycm9ycyBkZXRlY3RlZCBpbiBBbGwuZGZ5ClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXItMXNyaDdmbnIvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNF8yM18zOF81MS0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "8fb32572188fc0b1e470b01aab142a155ae8ec16f3146a2e0fd4e87c3d36f57d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-14_23_38_51-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-14_23_38_51-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_38_51-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "a20743a626921e0336321a18e1e15394b80caf74a85dbbc3d386fd305cfbf4af",
+    "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "elapsed_seconds": 0.8124751409050077,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "exact_gap_pair-shared-hidden_shortcut",
+  "expected": "resolution_failure",
+  "expected_diagnostic": "missing export member",
+  "actual": "resolution_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [],
+    "warnings": 0,
+    "error_lines": [
+      "unresolved identifier: HiddenBounds",
+      "expected method call, found expression"
+    ],
+    "diagnostic_categories": [
+      "missing export member"
+    ],
+    "frontend": true,
+    "resolution": true,
+    "termination": false
+  }
+}

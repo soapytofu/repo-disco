@@ -1,0 +1,68 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |     O.Right(c,d,v);\n   |            ^\n\nOps.dfy(11,15): Related location: this is the precondition that could not be proved\n   |\n11 |     requires c <= v <= d\n   |                ^^\n\n\nDafny program verifier finished with 8 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-k2krgblo/TestResults/2026-11-14_23_38_39-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTUsMTEpOiBFcnJvcjogYSBwcmVjb25kaXRpb24gZm9yIHRoaXMgY2FsbCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTUgfCAgICAgTy5SaWdodChjLGQsdik7CiAgIHwgICAgICAgICAgICBeCgpPcHMuZGZ5KDExLDE1KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcHJlY29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjExIHwgICAgIHJlcXVpcmVzIGMgPD0gdiA8PSBkCiAgIHwgICAgICAgICAgICAgICAgXl4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggOCB2ZXJpZmllZCwgMSBlcnJvcgpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLWsya3JnYmxvL1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTRfMjNfMzhfMzktMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "2a5fe1d17e0b6c27e651a595ec3fd2920015e07f797bdbb5aee82e5e0a9d1b0b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-14_23_38_39-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0568933,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0328930,6780,0\nClientB.Target (correctness),Passed,00:00:00.0108932,6714,0\nHelperB.Prove (correctness),Passed,00:00:00.0102086,4308,0\nClientA.Target (correctness),Passed,00:00:00.0097252,4308,0\nOps.Right (correctness),Passed,00:00:00.0095776,3353,0\nApi.Finish (correctness),Passed,00:00:00.0095065,8407,0\nOps.Offset (correctness),Passed,00:00:00.0093369,3360,0\nOps.HiddenBounds (correctness),Passed,00:00:00.0069030,3408,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-14_23_38_39-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNTY4OTMzLDMzNTMsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjAzMjg5MzAsNjc4MCwwCkNsaWVudEIuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDg5MzIsNjcxNCwwCkhlbHBlckIuUHJvdmUgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMjA4Niw0MzA4LDAKQ2xpZW50QS5UYXJnZXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5NzI1Miw0MzA4LDAKT3BzLlJpZ2h0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTU3NzYsMzM1MywwCkFwaS5GaW5pc2ggKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5NTA2NSw4NDA3LDAKT3BzLk9mZnNldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDkzMzY5LDMzNjAsMApPcHMuSGlkZGVuQm91bmRzIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwNjkwMzAsMzQwOCwwCg=="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_38_39-0.csv": "4a542b3dc822ad5943886f8d00fe1d93438d80273443f2caed267ee39924fc35"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "d68f7191be1aa7a9ccf3a04ee292b9395c66b462ae69a81b2f31e1d6148a1771",
+    "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "elapsed_seconds": 2.025961047038436,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "exact_gap_pair-shared-faulty",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        8,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

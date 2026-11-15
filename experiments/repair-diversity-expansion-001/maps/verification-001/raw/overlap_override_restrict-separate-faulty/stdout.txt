@@ -1,0 +1,23 @@
+HelperA.dfy(24,55): Error: possible violation of postcondition of forall statement
+   |
+24 |     forall q | q in left ensures q in right && left[q] == right[q] {
+   |                                                        ^^
+
+HelperA.dfy(29,8): Error: assertion might not hold
+   |
+29 |         assert merged[q] == m[q];
+   |         ^^^^^^
+
+HelperB.dfy(24,55): Error: possible violation of postcondition of forall statement
+   |
+24 |     forall q | q in left ensures q in right && left[q] == right[q] {
+   |                                                        ^^
+
+HelperB.dfy(29,8): Error: assertion might not hold
+   |
+29 |         assert merged[q] == m[q];
+   |         ^^^^^^
+
+
+Dafny program verifier finished with 14 verified, 4 errors
+Results File: /tmp/repodisco-repair-adapter-i0_musai/TestResults/2026-11-14_23_39_05-0.csv

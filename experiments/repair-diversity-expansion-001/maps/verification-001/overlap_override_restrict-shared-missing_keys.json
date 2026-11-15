@@ -1,0 +1,69 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(22,4): Error: assertion might not hold\n   |\n22 |     assert left.Keys == right.Keys;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 15 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-nu7xpn4d/TestResults/2026-11-14_23_38_55-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMjIsNCk6IEVycm9yOiBhc3NlcnRpb24gbWlnaHQgbm90IGhvbGQKICAgfAoyMiB8ICAgICBhc3NlcnQgbGVmdC5LZXlzID09IHJpZ2h0LktleXM7CiAgIHwgICAgIF5eXl5eXgoKCkRhZm55IHByb2dyYW0gdmVyaWZpZXIgZmluaXNoZWQgd2l0aCAxNSB2ZXJpZmllZCwgMSBlcnJvcgpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLW51N3hwbjRkL1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTRfMjNfMzhfNTUtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "90bff89d8393fe54435f535717cf38302488183267d7ee42490077ea1dafd0f6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-14_23_38_55-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Failed,00:00:00.0588888,57829,0\nKernel.Override (well-formedness),Passed,00:00:00.0574276,12412,0\nHelperB.Prove (correctness),Passed,00:00:00.0177769,15560,0\nClientA.Target (correctness),Passed,00:00:00.0166216,15560,0\nApi.Equal (correctness),Passed,00:00:00.0159641,14713,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0154802,9696,0\nValues.RestrictAt (correctness),Passed,00:00:00.0152929,14947,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0147238,24427,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0146894,12133,0\nApi.Equal (well-formedness),Passed,00:00:00.0145852,11988,0\nApi.ObserveOverride (correctness),Passed,00:00:00.0136069,27211,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0115098,18526,0\nApi.ObserveOverride (well-formedness),Passed,00:00:00.0114898,16683,0\nValues.OverrideAt (correctness),Passed,00:00:00.0112847,17633,0\nClientB.Target (correctness),Passed,00:00:00.0111258,15560,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0111073,14897,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-14_23_38_55-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA1ODg4ODgsNTc4MjksMApLZXJuZWwuT3ZlcnJpZGUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1NzQyNzYsMTI0MTIsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNzc3NjksMTU1NjAsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTY2MjE2LDE1NTYwLDAKQXBpLkVxdWFsIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNTk2NDEsMTQ3MTMsMApLZXJuZWwuUmVzdHJpY3QgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNTQ4MDIsOTY5NiwwClZhbHVlcy5SZXN0cmljdEF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNTI5MjksMTQ5NDcsMApEb21haW5zLk92ZXJyaWRlS2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTQ3MjM4LDI0NDI3LDAKVmFsdWVzLlJlc3RyaWN0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNDY4OTQsMTIxMzMsMApBcGkuRXF1YWwgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNDU4NTIsMTE5ODgsMApBcGkuT2JzZXJ2ZU92ZXJyaWRlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMzYwNjksMjcyMTEsMApEb21haW5zLlJlc3RyaWN0S2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE1MDk4LDE4NTI2LDAKQXBpLk9ic2VydmVPdmVycmlkZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExNDg5OCwxNjY4MywwClZhbHVlcy5PdmVycmlkZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTI4NDcsMTc2MzMsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTExMjU4LDE1NTYwLDAKVmFsdWVzLk92ZXJyaWRlQXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTEwNzMsMTQ4OTcsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_38_55-0.csv": "2fc0ba8283515d8407cd26e5833adcf624ecad5134841d636d3f2952b36c9c64"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+    "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+    "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+    "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+    "HelperA.dfy": "3df4ba06d5c5feb1a28d6ddafd82f3cd017e0adc887008aa636a197885f4407d",
+    "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+    "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+    "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+  },
+  "elapsed_seconds": 2.294769834028557,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "overlap_override_restrict-shared-missing_keys",
+  "expected": "proof_failure",
+  "expected_diagnostic": "assertion",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        15,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "assertion might not hold"
+    ],
+    "diagnostic_categories": [
+      "assertion"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

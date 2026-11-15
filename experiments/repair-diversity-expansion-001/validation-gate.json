@@ -1,0 +1,1377 @@
+{
+  "schema": "repair-diversity-validation-gate-v1",
+  "model_calls": 0,
+  "all_expected": true,
+  "groups": {
+    "arithmetic": {
+      "path": "experiments/repair-diversity-expansion-001/arithmetic",
+      "review_sha256": "ded23e3cc098fe314fc947aebac3842eb20dc6c612abb65df79e3f62bc7f2a3c",
+      "runtime_manifest_sha256": "9781d9907a072e8d6d8007c98b3f3f51ccc403d45d4cccfa03bf368af24732b5",
+      "fixture_manifest_sha256": "1a1212e9b26d41f0f556bc80f94836e7418b5d7a2abef00fdc8163fdcff90dd8",
+      "job_id": "60695852",
+      "count": 18
+    },
+    "sequence": {
+      "path": "experiments/repair-diversity-expansion-001/sequence",
+      "review_sha256": "aba6cf5bf6ffa77b115f155fa83dc0d8a66049b1d464196bea5493ea2d38d13e",
+      "runtime_manifest_sha256": "6efea7fb1d1fcce7c0a41bc00f2e643f8ee7f059233e4c0672f29902c0fef759",
+      "fixture_manifest_sha256": "5072fcbe9f6a050c6bbad515cb5def562c3124e0d2ad9db54cffa86425e7022e",
+      "job_id": "60696022",
+      "count": 20
+    },
+    "witness": {
+      "path": "experiments/repair-diversity-expansion-001/witness",
+      "review_sha256": "aa1434f5109e8e3977f49d35c8309c1ba00847bca01c4bdae07dab83833eeefa",
+      "runtime_manifest_sha256": "6c476a919f70bd0128a91941c20595794e30f0fc8b64e9555d40c05a1b609c9e",
+      "fixture_manifest_sha256": "129e46be89a2be847d489acb14cea033b5ff4a9a0c8235e0b3a6a4c3349dfb7a",
+      "job_id": "60696260",
+      "count": 20
+    },
+    "maps": {
+      "path": "experiments/repair-diversity-expansion-001/maps",
+      "review_sha256": "bcc8ae3ad5b369c83e33b5d64917d46fa6fa358e159389284f50c7b1094c4e7c",
+      "runtime_manifest_sha256": "2fdc36f5314ec58de2b9d2d7887fe02d170931e24ffe4cd8c7be221d2a27624b",
+      "fixture_manifest_sha256": "cb02c322f4874b93628ad926634d8a8595d8cc081e06f34ad43ce62eda1ddafb",
+      "job_id": "60696271",
+      "count": 20
+    }
+  },
+  "checks": [
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "bd66dbc0236a39b1693d3ea0a00582ddea0a75a67a5949f57d42b0c03979a9de",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-reference.json",
+      "evidence_sha256": "0dd1d2102020b78eb3e04fbac8fbdd9d01ffaaa99c5989bf7b1e3909c3fa8bdf"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "a8df57c8cf8548ce855caa921762295c118d5a5e5591d72b689a261bf2960571",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-alternative.json",
+      "evidence_sha256": "1b7fd53fa08d05a106f20196cc302a166acbba6d8fb81c99be29876705d1a417"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "a1187cc7fea3884a52ebea0a59d8e04e74baca985c6940dfb7e80e9bef691732",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-empty.json",
+      "evidence_sha256": "f42fd0a3b23bc3819f74ad95506e493d88281cef696634de15ccea252a148a1f"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "f34a3e9da335d9a4c35c30ce50f3033ff1ad06d987c6893554d394c183c63db4",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-faulty.json",
+      "evidence_sha256": "2f549a12c7608689d31838a61ca32230f622e4aae8edc3c389c910eddd61b59f"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-saturated_total_only",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "8c171aab6f074b2c6085ee66b1b0731ce6d6c22a6f90677b254cfefe41c3276c",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-saturated_total_only.json",
+      "evidence_sha256": "cbda92a9cd342b417a69bc0c17b29a344236e8e6e4490bdde59afe51bc6e12cb"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-missing_right",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "d450364612f2f0b3cf664d3590d047f0f7ec74f63758b624650f90ff80224189",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-missing_right.json",
+      "evidence_sha256": "87ac8801804c08fb433dbbe0a9ccc195f842a46adafea48786636144874cb8dc"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-missing_outer",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "4e6718b1b8d26933c34891afaa1c644cac0cfe3ddfb0e1c359f5ec6aaf419490",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-missing_outer.json",
+      "evidence_sha256": "a7db9c5a3892f99d562952b90040d3d6e19f48eb1fd870762e6d144097cb037b"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-wrong_boundary",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "2f4ccbea99b738e8f106bb615c6c18b422d79d8a6c4d92fc29168e1fd3a3332f",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-wrong_boundary.json",
+      "evidence_sha256": "ee7a111aed77de60428e0b3e82acc340f060c45b9484342e80646b321c9020c7"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-shared-hidden_range",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "26843c3b0618fca330e95e40dcff09ce5cda2c346a3308e06edc38dc4eb8cecb",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-shared-hidden_range.json",
+      "evidence_sha256": "405e13be046477710be022ed0a6797572ac6a401130adc8c4b187acb75dc3af8"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "bd66dbc0236a39b1693d3ea0a00582ddea0a75a67a5949f57d42b0c03979a9de",
+        "HelperB.dfy": "69b0b401ce6feb9d889b612c78872458d751c28faf68575cc2446f95f6207824",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-reference.json",
+      "evidence_sha256": "b309b459f7df5f6958fd66e3b540399490f4d25afcc47610be943f5439aaff01"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "a8df57c8cf8548ce855caa921762295c118d5a5e5591d72b689a261bf2960571",
+        "HelperB.dfy": "c14db2bac74b4e02d840dbfa1e4c50da1e2a531b90f414fdb5daeaac94005214",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-alternative.json",
+      "evidence_sha256": "4122205a7b69d9e408210cfe769c01948b514573a61cfa048a5c403c3abe9c04"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "a1187cc7fea3884a52ebea0a59d8e04e74baca985c6940dfb7e80e9bef691732",
+        "HelperB.dfy": "bb1b61e6614baca564ef5b1a043bb09068a6aadedd2a0d8478cb3fe403e5de8f",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-empty.json",
+      "evidence_sha256": "a1eb78488812043ceedeb4ab0b48575e15679a73489e65f28c9594eb69b15631"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "f34a3e9da335d9a4c35c30ce50f3033ff1ad06d987c6893554d394c183c63db4",
+        "HelperB.dfy": "084330378b9cb9bed4b829c6768774fc66d10806cdf8c3f843dcc119a92700dd",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-faulty.json",
+      "evidence_sha256": "4ed4e110b472c94660e72b299e3b57e4cd50a16d67f32b4841acff30a682a263"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-saturated_total_only",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "8c171aab6f074b2c6085ee66b1b0731ce6d6c22a6f90677b254cfefe41c3276c",
+        "HelperB.dfy": "d8a234dfc153cb5083a96b1825cbca6c30792dfbb84afe03bf105fb5a489aaf1",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-saturated_total_only.json",
+      "evidence_sha256": "499cf9a1415fd9e675910bb1659b985dfa1e1e816a4cad322ca36cc80f8788ed"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-missing_right",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "d450364612f2f0b3cf664d3590d047f0f7ec74f63758b624650f90ff80224189",
+        "HelperB.dfy": "24f2a13b1e9c3da2dff630cdc4a6c7e4beb26511eeb2f8dfb91ae48f2f90c7c5",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-missing_right.json",
+      "evidence_sha256": "86b81412f89c3fd149867215a2b020fb1ceddfb535a1d04e804967c7332843d4"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-missing_outer",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "4e6718b1b8d26933c34891afaa1c644cac0cfe3ddfb0e1c359f5ec6aaf419490",
+        "HelperB.dfy": "b2473791db1bcd29373dfe8c9bc4a84206b65bd5d6d9a9696105b3670a714c37",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-missing_outer.json",
+      "evidence_sha256": "d73b7c42e26ced02b62d1b44fc8039de327381271942df69d6053da28d13b389"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-wrong_boundary",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "2f4ccbea99b738e8f106bb615c6c18b422d79d8a6c4d92fc29168e1fd3a3332f",
+        "HelperB.dfy": "e69a9df8b737bced04dc9c368770137b12cf91c21b4e4a0908fa81d345186b46",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-wrong_boundary.json",
+      "evidence_sha256": "8265dc38f02b9b16f0e671ad51c2ec5eb2d8fd85b6ee88add66582353f1f9f6e"
+    },
+    {
+      "family": "arithmetic",
+      "case_id": "saturating_assoc-separate-hidden_range",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "26843c3b0618fca330e95e40dcff09ce5cda2c346a3308e06edc38dc4eb8cecb",
+        "HelperB.dfy": "03bd4be0b69c5c98a186a7d447624da855f2e9ba2a3c9992d29bde4793159a18",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/arithmetic/verification-001/saturating_assoc-separate-hidden_range.json",
+      "evidence_sha256": "4d55ccf4ecc4ff0bea4df8670bb4948a6ad7a7ec1f44e1484d60af508d16fe15"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "45bf179f14d1457f80459c1aa75539f700ab2458124e92ca59c4af0bb681397e",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-reference.json",
+      "evidence_sha256": "4645a6ad2f6f95d235fa1c140bc68c7e12c1bbfc7270f7573c91af55214491d1"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "117e04ece716922244a0ad89f5187acc8e2e08df1effbe6b4153dd6261bf2123",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-alternative.json",
+      "evidence_sha256": "1c99396cf4b5e0747896305225d99c286e6b9c4cfd7ad7babceaa445e6dbc025"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "dbb1f0e73edfd1cc2789b3b1bae4d98b510903614e6ef5a91291da94e148067f",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-empty.json",
+      "evidence_sha256": "f589883e3ba430f807a38c025e33eed14c9d613fc2ba210bc88bfd118d692f52"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "4cc2a0f46e893c5a8439d05344dac3649ce4ac6ef9a8ace4eb8c3936d053f5f0",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-faulty.json",
+      "evidence_sha256": "25f2594a48b486dd4d794be6b6d9ea53f915623b2d842e68ddfbf1c36df2347a"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-missing_boundary",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "c7ee0bc32067793c045a301c6456a028c5d28b47a4533a5d30adde61e1a39beb",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-missing_boundary.json",
+      "evidence_sha256": "537c70c8b51c5fc6807058601bde78975ff489592960d60e89e67c711c25bc93"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-no_recursion",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "fd4ef33bbee58f898bdbde7a7b48f3ea76cb5e9f0905eea570bd2d55c32b0a9d",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-no_recursion.json",
+      "evidence_sha256": "daf3acf073c42df6b5634df436c4aefd93ea77e3bcfbd657964fa1817d286226"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-wrong_recursive_argument",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "17934f5ba5f9220b47c4fa554eab338d7ae2c438fd57c452e27f1afea4e06603",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-wrong_recursive_argument.json",
+      "evidence_sha256": "313ffb21ff171b900934f879668e9c895900f267e67b5041f5211dc03577166b"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-bad_base",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "f9e760d0e52edce5069bddfb92f4571e2dba47e5d4a1ad8a664943b993b9425b",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-bad_base.json",
+      "evidence_sha256": "ede61fdb3b30105fce3f46c40c8fc5f82849db67b92e9359d60920ad4ef922a0"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-nondecreasing",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "2dc82ca2d374a120b56a0fff0045ff288530302457b1acee42b678d50b36e1c8",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "termination_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-nondecreasing.json",
+      "evidence_sha256": "84a072602f489b07c5862edfdad84fdea0424f2976a71b27589c4dd4d3aeef94"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-shared-hidden_drop",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "5bd284f6de7682b02a3e87c92c501a5d66284cf9f143d6ce8dded25c01fa1f8c",
+        "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-shared-hidden_drop.json",
+      "evidence_sha256": "c680c0185a73ba837f6f95a7e71a52888cb1f49f515eb97b2d7a0339ac2cef41"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "45bf179f14d1457f80459c1aa75539f700ab2458124e92ca59c4af0bb681397e",
+        "HelperB.dfy": "4e8d3bd9bf409a2c10d2a86a818d6ed21a187b92bbd5f69ca61005b18ce7ce65",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-reference.json",
+      "evidence_sha256": "5b02ca90658b3a15c6f09a35435454299e2200b33a136e40d42755e95ca37b14"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "117e04ece716922244a0ad89f5187acc8e2e08df1effbe6b4153dd6261bf2123",
+        "HelperB.dfy": "ac134f4a8519339371dce8449eec95ab49fcf9afd0204a81ad93c90df964ad4c",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-alternative.json",
+      "evidence_sha256": "9342b2a55ec959648c0d49823aaa2a0e7b2913c8a3cf0f6b885227686ad0dad1"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "dbb1f0e73edfd1cc2789b3b1bae4d98b510903614e6ef5a91291da94e148067f",
+        "HelperB.dfy": "5c96f713db7d44021e63fb11be6dae4ed660cec7aefde13990b5932ccb51d1eb",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-empty.json",
+      "evidence_sha256": "68fbb24464b96f9f9405a97416d3ad033738cfc04662176ef8a11e1c09cf365e"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "4cc2a0f46e893c5a8439d05344dac3649ce4ac6ef9a8ace4eb8c3936d053f5f0",
+        "HelperB.dfy": "570fc07ceeaafcde96b7b0932b3eceec579807d1868b94a6854a3e7c829b72f3",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-faulty.json",
+      "evidence_sha256": "9061fbdbd2696021580824b1e22e66e73d89d74ae11acc4a433305daa4949b8a"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-missing_boundary",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "c7ee0bc32067793c045a301c6456a028c5d28b47a4533a5d30adde61e1a39beb",
+        "HelperB.dfy": "1fd7c077d192cb80fa4675c6db8c9ba3bd276d95decdd8b38a95bc6ef41dfda0",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-missing_boundary.json",
+      "evidence_sha256": "fafbec28bb620caa8cbce68adf3013f03102db9577d069308ad446b3f35cf369"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-no_recursion",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "fd4ef33bbee58f898bdbde7a7b48f3ea76cb5e9f0905eea570bd2d55c32b0a9d",
+        "HelperB.dfy": "88f5c58aa8095eca8bae12f659bb9c032587271ffbbc6c774850a2a9106e8e1f",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-no_recursion.json",
+      "evidence_sha256": "16ce67a0545736de6d5769a1e7f7e9f8ce85c795354993af2a17ee4a8154e5af"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-wrong_recursive_argument",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "17934f5ba5f9220b47c4fa554eab338d7ae2c438fd57c452e27f1afea4e06603",
+        "HelperB.dfy": "0c19d21f31faf1d1607e2498aaa77ee73758e1f4feeb404921dd0f043c7d9f8f",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-wrong_recursive_argument.json",
+      "evidence_sha256": "905acbb695bd1cad9d90377e9c0d628753ca6d30321a8f572eeb18a1740aea47"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-bad_base",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "f9e760d0e52edce5069bddfb92f4571e2dba47e5d4a1ad8a664943b993b9425b",
+        "HelperB.dfy": "ab38d8fff67657550dcff174c4c511466a8ac16f9e2813a7434474c431aa24b6",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-bad_base.json",
+      "evidence_sha256": "f8d26f9b20a5a36738eb8f14e003c1bbb165021e4c1d47057a1853e9b6761080"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-nondecreasing",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "2dc82ca2d374a120b56a0fff0045ff288530302457b1acee42b678d50b36e1c8",
+        "HelperB.dfy": "426c85acb2d4f08827a11d26e629dfbbbad1dbfb80b1d01881e21304fe4b52cb",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "termination_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-nondecreasing.json",
+      "evidence_sha256": "632b5d9f87b87d3845cd11dab483533d364295f7e9983cf2861169a5ea69e353"
+    },
+    {
+      "family": "sequence",
+      "case_id": "compression_fixed_point-separate-hidden_drop",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+        "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+        "HelperA.dfy": "5bd284f6de7682b02a3e87c92c501a5d66284cf9f143d6ce8dded25c01fa1f8c",
+        "HelperB.dfy": "6cd6f2307c498fe899dfad7ddf652bbed51125e9312db91db727727ba663c821",
+        "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+        "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+        "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/sequence/verification-001/compression_fixed_point-separate-hidden_drop.json",
+      "evidence_sha256": "515db9aad283ff060f9c7eea470e5c1117415575305a5408c1d47f349adf5777"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "114c1e667d0e1ccd2020e7b26bab15cb43fb4765a7b7a40dba04af378d402714",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-reference.json",
+      "evidence_sha256": "0367d201317f67cd983647eff02c2f10e6c46595bbee0e84e58211bb953c2048"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "4adef3729bc483ab9969c40cda1462071334cadc13ffa5787e79320d2c099713",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-alternative.json",
+      "evidence_sha256": "8e695aaf28ff38894530fc95a7c3c866259d2d0032ae2c49ef7d85b596b6cd1d"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "d00c239baf28b53b8f4ad28a8f2b0411b01c1146011113007d5a95e07ef26c57",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-empty.json",
+      "evidence_sha256": "e034e7d0fbb4423b970e64eec16711f35f4eb15c8215597e596b2f7eae8f3aa3"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "d68f7191be1aa7a9ccf3a04ee292b9395c66b462ae69a81b2f31e1d6148a1771",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-faulty.json",
+      "evidence_sha256": "c0e50de8327de1ac9fb6d936996e524a6e9ef6a3eb934d34c7fb4b3e35d665ab"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-upper_endpoint",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "f89ec86051109299f2d706dd2bfa2a1308901902a151a28ee5a33b8035d34c76",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-upper_endpoint.json",
+      "evidence_sha256": "d1d3192303a760cf8bafd465bb629f722bbe2865058fad11b20f1edaabf81e1c"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-short_gap",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "3f58c25061194dd8866d5d531642d8ce57432eeb00c091574a439adfa76d0030",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-short_gap.json",
+      "evidence_sha256": "8ecf112ddabdd5a71a54c0de41191fd9d2ffbaa3291cd10544b608a339f2125a"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-missing_left",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "318f14f9d59fd7603ee5e119e7f2e2d275c513d84badd9cbcc620711e74334c1",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-missing_left.json",
+      "evidence_sha256": "d7996cefe7d71c9f62163e86a91542d7f545550c385064fcd4bbed0f8a91517e"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-missing_right",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "5c1af733b07c9e624a62bce67a8345c63917d2078de1aadd40838e3480d6d6c2",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-missing_right.json",
+      "evidence_sha256": "2551c64e6b7d629a034aeefe4868b236a2eb3f5ea51413b524b18491361ebcfa"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-missing_offset",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "ed6bdf9ff6ea62c41496a99349d3be2fdae88425f4e932c0e24467ee8436e720",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-missing_offset.json",
+      "evidence_sha256": "77e72f3abf4a3daa4236a19a828cdd6b8ea6c53997934c07ad549f401380be54"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-shared-hidden_shortcut",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "a20743a626921e0336321a18e1e15394b80caf74a85dbbc3d386fd305cfbf4af",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-shared-hidden_shortcut.json",
+      "evidence_sha256": "0237dd7aabe0430af2099a30bd512d7b463bb2e2e232dcc7876cd023fee1e7a8"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "114c1e667d0e1ccd2020e7b26bab15cb43fb4765a7b7a40dba04af378d402714",
+        "HelperB.dfy": "929ff9fe2b8ad9a341c2658c9ae9c46838e58f1581c154c265d879603cdc06f7",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-reference.json",
+      "evidence_sha256": "669463ad86417aae8a493cba18edaf0e9ebc15699d6e9ae28e57e2ce827de853"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "4adef3729bc483ab9969c40cda1462071334cadc13ffa5787e79320d2c099713",
+        "HelperB.dfy": "53b313a864466dee290b63226aad31b7cafe79b5a946a206ee5e82f25dc217dc",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-alternative.json",
+      "evidence_sha256": "cfc643646ef222beb6deb7c59e861b1209161ba81f8784fabcff56ebdda6a75b"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "d00c239baf28b53b8f4ad28a8f2b0411b01c1146011113007d5a95e07ef26c57",
+        "HelperB.dfy": "1efeda1f9dcd3cafcff8b3a47f0a5d8d3a48cc4aeec3879f2f0878c733092f63",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-empty.json",
+      "evidence_sha256": "3e56eee1573d48148a6f6072337886534f74adfea4ea2fbb5f368aec4a64a079"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "d68f7191be1aa7a9ccf3a04ee292b9395c66b462ae69a81b2f31e1d6148a1771",
+        "HelperB.dfy": "2fadf6172918dc561e5a312ad81b14c09a7f683dbed0149fcc111d74d3057bd1",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-faulty.json",
+      "evidence_sha256": "c66a61c5b8da29f4f40ddb7b441e2f750db3133db109b4521797b1f3492e9e6f"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-upper_endpoint",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "f89ec86051109299f2d706dd2bfa2a1308901902a151a28ee5a33b8035d34c76",
+        "HelperB.dfy": "8ca80cf14d578882cc0c88c82a17c6ef5f1fe3a45f86a83d59033371945cf5ce",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-upper_endpoint.json",
+      "evidence_sha256": "0058578d0c2da3d97af64f51b2cb094a936e466826c6c5ee0562600c2eb259f7"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-short_gap",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "3f58c25061194dd8866d5d531642d8ce57432eeb00c091574a439adfa76d0030",
+        "HelperB.dfy": "fc408dfe47f074e4b9313f5b9bd9415ffdfea77bd95b8e845526588c88932a7a",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-short_gap.json",
+      "evidence_sha256": "101590456487cb84bb400f021e159228426075e3285db67e2d2304b2db59b6f9"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-missing_left",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "318f14f9d59fd7603ee5e119e7f2e2d275c513d84badd9cbcc620711e74334c1",
+        "HelperB.dfy": "bd10107dcf2d46c572cf59dc974e3c75d72da2bbc822bedc809f1adc100a26c5",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-missing_left.json",
+      "evidence_sha256": "eb086818dba939f8f50a6a080a7f0c3f2a901fd5de66e1bf5cb9a9e6825bfbe5"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-missing_right",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "5c1af733b07c9e624a62bce67a8345c63917d2078de1aadd40838e3480d6d6c2",
+        "HelperB.dfy": "d2c1789522eb6b181f27217dfa7b8c4695472572e666c5ce6dac2412b6f682b8",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-missing_right.json",
+      "evidence_sha256": "30c2aa526771ed0157c070032ec7e3fee81da07487a98c0e98db1c9be0c2ef57"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-missing_offset",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "ed6bdf9ff6ea62c41496a99349d3be2fdae88425f4e932c0e24467ee8436e720",
+        "HelperB.dfy": "865a3e810463d1293582efc78f1ac77b61560f8274c358036515b7799524027d",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-missing_offset.json",
+      "evidence_sha256": "c7a963f67580460049078a0a805152c35e0285734160f14d243d4ec8949fb896"
+    },
+    {
+      "family": "witness",
+      "case_id": "exact_gap_pair-separate-hidden_shortcut",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "a20743a626921e0336321a18e1e15394b80caf74a85dbbc3d386fd305cfbf4af",
+        "HelperB.dfy": "7ecc684753e8ec6070c2440dd827ede5e0e710cc07e656cbd2de621330d466ec",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/witness/verification-001/exact_gap_pair-separate-hidden_shortcut.json",
+      "evidence_sha256": "f7988c2b5ba0b8318f54a900357270c42c5c38a119afa65821f48d684e14f5f2"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "8466ae83717cf701f4f4d25df67dd3d7b1686db0ec1390564212ed620856d1dd",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-reference.json",
+      "evidence_sha256": "052c1956a5b6cccee008c05627f623ba9096085c46d3c37a78bb1e133d2dc8b0"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "3e864ad37bebb86381b40a3b163a3e5fb268220552d629d1b0c87152a564229c",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-alternative.json",
+      "evidence_sha256": "6e07eea4b3745c7e0af6997190b19810e9bfb56c87d85cbe16874feee7308a65"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "44c18ca3f6b2b8a62cf84e4216c093f097ac2777e77b1a4c712c8fc569b19e86",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-empty.json",
+      "evidence_sha256": "a0c333a26de004cd4b52352a8df0e50d6709255b69d840c17afa004984716b83"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "eb00a3860834d34bf0ed9693bb265fce45cbf49a865971751baf36506e3e8c23",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-faulty.json",
+      "evidence_sha256": "997ab76fb2b6cc062c2577f9391aab0059dce0b1a343b3807c040ae0e13e645b"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-missing_inner_right",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "72eac1b885c86dbeb5307837fa2bd6c73aa9723b4ebec0f5a18c30933c302e89",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-missing_inner_right.json",
+      "evidence_sha256": "356fe35a883dbef1e3f2fda6580422d9354d492e5595263d170fd759959ae78c"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-missing_inner_left",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "3df3358bc67a8f077e14f92a2a7331c8d64798c9472d60ce742117092a074346",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-missing_inner_left.json",
+      "evidence_sha256": "3d872aa1d9ded96f668c0ef1897ea8eb4d06fd78c1e351418e971b1d32234972"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-missing_outer",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "ee1b8677018a10b84d4a08eeb034e0e14c3222f6b3dd5fa8a96f10209b11a83e",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-missing_outer.json",
+      "evidence_sha256": "22e275d047b54db6e2b2e087486373e10b1a4c1bc25ce2500adaaeb640764a64"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-collision_assumption",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "186ee26d71c294851e6eebb42d75bc4625510889cf517450148eceba2174c7d0",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-collision_assumption.json",
+      "evidence_sha256": "d892c0b6d7f6ef287451db275a2d9f0b9b48fd08be152de33422fd8f2850300f"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-missing_keys",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "3df4ba06d5c5feb1a28d6ddafd82f3cd017e0adc887008aa636a197885f4407d",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-missing_keys.json",
+      "evidence_sha256": "69fa6255915ffc69b88b91f6e87745b209a43d84851177d3b3e5619330caeb4d"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-shared-hidden_shortcut",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "9857a0fce026dd3534521b4fd96368e0d0678f876458a70f01ca92bac90ffe79",
+        "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-shared-hidden_shortcut.json",
+      "evidence_sha256": "e78a447771edff4a6a3f1bd6ec4215fea0b490c1bd90bca1b7e280c9fc0af170"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "8466ae83717cf701f4f4d25df67dd3d7b1686db0ec1390564212ed620856d1dd",
+        "HelperB.dfy": "265395ddf5064521dcbcecafa8965d1bd323bfc32b30fccf3a5896ad42e1ae40",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-reference.json",
+      "evidence_sha256": "5c999552920405638396f4357cea74e9e64d92101458fdcd9f8f3f5dbe842616"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-alternative",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "3e864ad37bebb86381b40a3b163a3e5fb268220552d629d1b0c87152a564229c",
+        "HelperB.dfy": "b3ba103897a7371f90231077b2a6a5bab6d80c5570ca47c2e0efe270d56bd6cb",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "success",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-alternative.json",
+      "evidence_sha256": "e0177fdac21a224e11e7a13c72b6f8a15c642d70e8874295b9548b414d2594ae"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-empty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "44c18ca3f6b2b8a62cf84e4216c093f097ac2777e77b1a4c712c8fc569b19e86",
+        "HelperB.dfy": "1830878595805b0a0f3c39192d5cca94fc5082b5afb80e334ca0b6238fc02037",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-empty.json",
+      "evidence_sha256": "680b6f52ecf0785667d2e85da15d0c923540dedc7d6c4d50da9e6b0ab5b98b94"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-faulty",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "eb00a3860834d34bf0ed9693bb265fce45cbf49a865971751baf36506e3e8c23",
+        "HelperB.dfy": "ffc8020ce7a408f99f6ee804a48b628d876b16939d3bcf766aef0b71f4356f45",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-faulty.json",
+      "evidence_sha256": "76bbb90caf61a03f15de076622123fa045f1cf09e255508130e265ea665de55e"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-missing_inner_right",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "72eac1b885c86dbeb5307837fa2bd6c73aa9723b4ebec0f5a18c30933c302e89",
+        "HelperB.dfy": "7ab9af2313fe5398e83be0e0ece17a87e6fab32f83cbd6c570d791bc2cbbe247",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-missing_inner_right.json",
+      "evidence_sha256": "62fd4faf7a4849ea6187f06e31beeaf4c7599f486a16b5e4ca983175ff836219"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-missing_inner_left",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "3df3358bc67a8f077e14f92a2a7331c8d64798c9472d60ce742117092a074346",
+        "HelperB.dfy": "2797cb160a1504bc5e34feb4dd5b5b2063b50a86f1d21e7ff826764517019568",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-missing_inner_left.json",
+      "evidence_sha256": "412bce1355d501cfef3cddb0e7250ac5aef7c7ff219780ca4c51dfcbdcfeb8b4"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-missing_outer",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "ee1b8677018a10b84d4a08eeb034e0e14c3222f6b3dd5fa8a96f10209b11a83e",
+        "HelperB.dfy": "78c50bff5b3d5b8c95a0b79e6e2da63c8d043c2524aa83d6c062f31e8a222d56",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-missing_outer.json",
+      "evidence_sha256": "fb5ca7b60b79d44ae99956ef43a29abb78d94b2df7a52f50de85cef55e4aa49f"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-collision_assumption",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "186ee26d71c294851e6eebb42d75bc4625510889cf517450148eceba2174c7d0",
+        "HelperB.dfy": "3f67388d28a8089317c2dfeebb63947daadc0cc5ad073683c9a3969c30d87b1a",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-collision_assumption.json",
+      "evidence_sha256": "15746b1cc404a6da48d6811980297ca54fb8ff67b391c5dfe035555fde6e9416"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-missing_keys",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "3df4ba06d5c5feb1a28d6ddafd82f3cd017e0adc887008aa636a197885f4407d",
+        "HelperB.dfy": "9d8d684fa28e0de347801571a8e8ebbf7e676fef4af7071daea9724429095acb",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "proof_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-missing_keys.json",
+      "evidence_sha256": "f62a81390fdf338db6e8fc40adf36c38c3ad3a1cc10d2e3a290f1c1d1699e478"
+    },
+    {
+      "family": "maps",
+      "case_id": "overlap_override_restrict-separate-hidden_shortcut",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+        "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+        "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+        "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+        "HelperA.dfy": "9857a0fce026dd3534521b4fd96368e0d0678f876458a70f01ca92bac90ffe79",
+        "HelperB.dfy": "5a83d47af72ffcfe7ca8538e13e7fea6203042389abe3efc869fc3ead122d595",
+        "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+        "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+      },
+      "expected": "resolution_failure",
+      "evidence_path": "experiments/repair-diversity-expansion-001/maps/verification-001/overlap_override_restrict-separate-hidden_shortcut.json",
+      "evidence_sha256": "b743ceff145e1054d194007b3d7fa8b6cae95ea3100cb03e98db653643e91b3f"
+    }
+  ],
+  "planned_controls": 78,
+  "counts": {
+    "success": 16,
+    "proof_failure": 52,
+    "resolution_failure": 8,
+    "termination_failure": 2
+  },
+  "reviewer_sha256": "f4de7b39772026d86ce92cb825afa45b07a021519d963b234baf1f6e0d8daf2d"
+}

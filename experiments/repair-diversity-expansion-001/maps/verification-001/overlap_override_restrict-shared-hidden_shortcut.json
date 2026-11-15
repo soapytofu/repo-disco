@@ -1,0 +1,65 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "stdout": "HelperA.dfy(18,6): Error: unresolved identifier: ObserveOverride\n   |\n18 |     A.ObserveOverride(m,n);\n   |       ^^^^^^^^^^^^^^^\n\nHelperA.dfy(18,21): Error: expected method call, found expression\n   |\n18 |     A.ObserveOverride(m,n);\n   |                      ^\n\n2 resolution/type errors detected in All.dfy\nResults File: /tmp/repodisco-repair-adapter-2y1_dmsq/TestResults/2026-11-14_23_38_57-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTgsNik6IEVycm9yOiB1bnJlc29sdmVkIGlkZW50aWZpZXI6IE9ic2VydmVPdmVycmlkZQogICB8CjE4IHwgICAgIEEuT2JzZXJ2ZU92ZXJyaWRlKG0sbik7CiAgIHwgICAgICAgXl5eXl5eXl5eXl5eXl5eCgpIZWxwZXJBLmRmeSgxOCwyMSk6IEVycm9yOiBleHBlY3RlZCBtZXRob2QgY2FsbCwgZm91bmQgZXhwcmVzc2lvbgogICB8CjE4IHwgICAgIEEuT2JzZXJ2ZU92ZXJyaWRlKG0sbik7CiAgIHwgICAgICAgICAgICAgICAgICAgICAgXgoKMiByZXNvbHV0aW9uL3R5cGUgZXJyb3JzIGRldGVjdGVkIGluIEFsbC5kZnkKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci0yeTFfZG1zcS9UZXN0UmVzdWx0cy8yMDI2LTExLTE0XzIzXzM4XzU3LTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "777762afb12e498ecc774c589d5e1fbcf753312cbd134547f8a0e05781875a8e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-14_23_38_57-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-14_23_38_57-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_38_57-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+    "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+    "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+    "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+    "HelperA.dfy": "9857a0fce026dd3534521b4fd96368e0d0678f876458a70f01ca92bac90ffe79",
+    "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+    "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+    "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+  },
+  "elapsed_seconds": 0.8324156098533422,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "overlap_override_restrict-shared-hidden_shortcut",
+  "expected": "resolution_failure",
+  "expected_diagnostic": "missing export member",
+  "actual": "resolution_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [],
+    "warnings": 0,
+    "error_lines": [
+      "unresolved identifier: ObserveOverride",
+      "expected method call, found expression"
+    ],
+    "diagnostic_categories": [
+      "missing export member"
+    ],
+    "frontend": true,
+    "resolution": true,
+    "termination": false
+  }
+}

@@ -1,0 +1,632 @@
+[
+  {
+    "case_id": "overlap_override_restrict-shared-reference",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "reference",
+    "path": "fixtures/overlap_override_restrict-shared/reference",
+    "entry": "All.dfy",
+    "expected": "success",
+    "expected_exit": 0,
+    "expected_diagnostic": "none",
+    "expected_warnings": 0,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "8466ae83717cf701f4f4d25df67dd3d7b1686db0ec1390564212ed620856d1dd",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1043,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-alternative",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "alternative",
+    "path": "fixtures/overlap_override_restrict-shared/alternative",
+    "entry": "All.dfy",
+    "expected": "success",
+    "expected_exit": 0,
+    "expected_diagnostic": "none",
+    "expected_warnings": 0,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "3e864ad37bebb86381b40a3b163a3e5fb268220552d629d1b0c87152a564229c",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1044,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-empty",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "empty",
+    "path": "fixtures/overlap_override_restrict-shared/empty",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "44c18ca3f6b2b8a62cf84e4216c093f097ac2777e77b1a4c712c8fc569b19e86",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 390,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-faulty",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "faulty",
+    "path": "fixtures/overlap_override_restrict-shared/faulty",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "assertion",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "eb00a3860834d34bf0ed9693bb265fce45cbf49a865971751baf36506e3e8c23",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1077,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-missing_inner_right",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "missing_inner_right",
+    "path": "fixtures/overlap_override_restrict-shared/missing_inner_right",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "72eac1b885c86dbeb5307837fa2bd6c73aa9723b4ebec0f5a18c30933c302e89",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1011,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-missing_inner_left",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "missing_inner_left",
+    "path": "fixtures/overlap_override_restrict-shared/missing_inner_left",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "3df3358bc67a8f077e14f92a2a7331c8d64798c9472d60ce742117092a074346",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1011,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-missing_outer",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "missing_outer",
+    "path": "fixtures/overlap_override_restrict-shared/missing_outer",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "ee1b8677018a10b84d4a08eeb034e0e14c3222f6b3dd5fa8a96f10209b11a83e",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1008,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-collision_assumption",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "collision_assumption",
+    "path": "fixtures/overlap_override_restrict-shared/collision_assumption",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "assertion",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "186ee26d71c294851e6eebb42d75bc4625510889cf517450148eceba2174c7d0",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1086,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-missing_keys",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "missing_keys",
+    "path": "fixtures/overlap_override_restrict-shared/missing_keys",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "assertion",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "3df4ba06d5c5feb1a28d6ddafd82f3cd017e0adc887008aa636a197885f4407d",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1018,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-shared-hidden_shortcut",
+    "task_id": "overlap_override_restrict-shared",
+    "variant": "hidden_shortcut",
+    "path": "fixtures/overlap_override_restrict-shared/hidden_shortcut",
+    "entry": "All.dfy",
+    "expected": "resolution_failure",
+    "expected_exit": 2,
+    "expected_diagnostic": "missing export member",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "9857a0fce026dd3534521b4fd96368e0d0678f876458a70f01ca92bac90ffe79",
+      "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1046,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-reference",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "reference",
+    "path": "fixtures/overlap_override_restrict-separate/reference",
+    "entry": "All.dfy",
+    "expected": "success",
+    "expected_exit": 0,
+    "expected_diagnostic": "none",
+    "expected_warnings": 0,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "8466ae83717cf701f4f4d25df67dd3d7b1686db0ec1390564212ed620856d1dd",
+      "HelperB.dfy": "265395ddf5064521dcbcecafa8965d1bd323bfc32b30fccf3a5896ad42e1ae40",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1043,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1043,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-alternative",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "alternative",
+    "path": "fixtures/overlap_override_restrict-separate/alternative",
+    "entry": "All.dfy",
+    "expected": "success",
+    "expected_exit": 0,
+    "expected_diagnostic": "none",
+    "expected_warnings": 0,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "3e864ad37bebb86381b40a3b163a3e5fb268220552d629d1b0c87152a564229c",
+      "HelperB.dfy": "b3ba103897a7371f90231077b2a6a5bab6d80c5570ca47c2e0efe270d56bd6cb",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1044,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1044,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-empty",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "empty",
+    "path": "fixtures/overlap_override_restrict-separate/empty",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "44c18ca3f6b2b8a62cf84e4216c093f097ac2777e77b1a4c712c8fc569b19e86",
+      "HelperB.dfy": "1830878595805b0a0f3c39192d5cca94fc5082b5afb80e334ca0b6238fc02037",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 390,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 390,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-faulty",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "faulty",
+    "path": "fixtures/overlap_override_restrict-separate/faulty",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "assertion",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "eb00a3860834d34bf0ed9693bb265fce45cbf49a865971751baf36506e3e8c23",
+      "HelperB.dfy": "ffc8020ce7a408f99f6ee804a48b628d876b16939d3bcf766aef0b71f4356f45",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1077,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1077,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-missing_inner_right",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "missing_inner_right",
+    "path": "fixtures/overlap_override_restrict-separate/missing_inner_right",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "72eac1b885c86dbeb5307837fa2bd6c73aa9723b4ebec0f5a18c30933c302e89",
+      "HelperB.dfy": "7ab9af2313fe5398e83be0e0ece17a87e6fab32f83cbd6c570d791bc2cbbe247",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1011,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1011,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-missing_inner_left",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "missing_inner_left",
+    "path": "fixtures/overlap_override_restrict-separate/missing_inner_left",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "3df3358bc67a8f077e14f92a2a7331c8d64798c9472d60ce742117092a074346",
+      "HelperB.dfy": "2797cb160a1504bc5e34feb4dd5b5b2063b50a86f1d21e7ff826764517019568",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1011,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1011,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-missing_outer",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "missing_outer",
+    "path": "fixtures/overlap_override_restrict-separate/missing_outer",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "postcondition",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "ee1b8677018a10b84d4a08eeb034e0e14c3222f6b3dd5fa8a96f10209b11a83e",
+      "HelperB.dfy": "78c50bff5b3d5b8c95a0b79e6e2da63c8d043c2524aa83d6c062f31e8a222d56",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1008,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1008,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-collision_assumption",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "collision_assumption",
+    "path": "fixtures/overlap_override_restrict-separate/collision_assumption",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "assertion",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "186ee26d71c294851e6eebb42d75bc4625510889cf517450148eceba2174c7d0",
+      "HelperB.dfy": "3f67388d28a8089317c2dfeebb63947daadc0cc5ad073683c9a3969c30d87b1a",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1086,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1086,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-missing_keys",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "missing_keys",
+    "path": "fixtures/overlap_override_restrict-separate/missing_keys",
+    "entry": "All.dfy",
+    "expected": "proof_failure",
+    "expected_exit": 4,
+    "expected_diagnostic": "assertion",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "3df4ba06d5c5feb1a28d6ddafd82f3cd017e0adc887008aa636a197885f4407d",
+      "HelperB.dfy": "9d8d684fa28e0de347801571a8e8ebbf7e676fef4af7071daea9724429095acb",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1018,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1018,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  },
+  {
+    "case_id": "overlap_override_restrict-separate-hidden_shortcut",
+    "task_id": "overlap_override_restrict-separate",
+    "variant": "hidden_shortcut",
+    "path": "fixtures/overlap_override_restrict-separate/hidden_shortcut",
+    "entry": "All.dfy",
+    "expected": "resolution_failure",
+    "expected_exit": 2,
+    "expected_diagnostic": "missing export member",
+    "expected_warnings": null,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+      "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+      "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+      "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+      "HelperA.dfy": "9857a0fce026dd3534521b4fd96368e0d0678f876458a70f01ca92bac90ffe79",
+      "HelperB.dfy": "5a83d47af72ffcfe7ca8538e13e7fea6203042389abe3efc869fc3ead122d595",
+      "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+      "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 390,
+        "end": 1046,
+        "protected_sha256": "a4c7d0c4030e1552e595d7dd0365b2b43cdcf3f7cafec62e843716f6c31cb0c9"
+      },
+      "HelperB.dfy": {
+        "start": 390,
+        "end": 1046,
+        "protected_sha256": "174a658595dda7370eeadd7102fc4bb097d390b459999f76fb2d5170a9d21c01"
+      }
+    }
+  }
+]

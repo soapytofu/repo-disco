@@ -1,0 +1,69 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(12,2): Error: a postcondition could not be proved on this return path\n   |\n12 |   {\n   |   ^\n\nHelperA.dfy(11,45): Related location: this is the postcondition that could not be proved\n   |\n11 |     ensures K.Restrict(K.Override(m,n),keep) == K.Override(K.Restrict(m,keep),K.Restrict(n,keep))\n   |                                              ^^\n\n\nDafny program verifier finished with 15 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-83va2qv8/TestResults/2026-11-14_23_38_41-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTIsMik6IEVycm9yOiBhIHBvc3Rjb25kaXRpb24gY291bGQgbm90IGJlIHByb3ZlZCBvbiB0aGlzIHJldHVybiBwYXRoCiAgIHwKMTIgfCAgIHsKICAgfCAgIF4KCkhlbHBlckEuZGZ5KDExLDQ1KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxMSB8ICAgICBlbnN1cmVzIEsuUmVzdHJpY3QoSy5PdmVycmlkZShtLG4pLGtlZXApID09IEsuT3ZlcnJpZGUoSy5SZXN0cmljdChtLGtlZXApLEsuUmVzdHJpY3QobixrZWVwKSkKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXgoKCkRhZm55IHByb2dyYW0gdmVyaWZpZXIgZmluaXNoZWQgd2l0aCAxNSB2ZXJpZmllZCwgMSBlcnJvcgpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLTgzdmEycXY4L1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTRfMjNfMzhfNDEtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "8383b35d8af3fbf60673bc5406e15df853e55912310821771379e9188d78f377",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-14_23_38_41-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Override (well-formedness),Passed,00:00:00.0572545,12412,0\nHelperB.Prove (correctness),Passed,00:00:00.0437910,15560,0\nHelperA.Prove (correctness),Failed,00:00:00.0366831,22005,0\nClientB.Target (correctness),Passed,00:00:00.0171424,15560,0\nClientA.Target (correctness),Passed,00:00:00.0166488,15560,0\nValues.OverrideAt (correctness),Passed,00:00:00.0164732,17633,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0148915,24427,0\nApi.ObserveOverride (correctness),Passed,00:00:00.0137473,27211,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0114957,9696,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0111178,18526,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0108056,14897,0\nValues.RestrictAt (correctness),Passed,00:00:00.0107059,14947,0\nApi.Equal (correctness),Passed,00:00:00.0105972,14713,0\nApi.ObserveOverride (well-formedness),Passed,00:00:00.0103552,16683,0\nApi.Equal (well-formedness),Passed,00:00:00.0103533,11988,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0097113,12133,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-14_23_38_41-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApLZXJuZWwuT3ZlcnJpZGUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1NzI1NDUsMTI0MTIsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjA0Mzc5MTAsMTU1NjAsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjAzNjY4MzEsMjIwMDUsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTcxNDI0LDE1NTYwLDAKQ2xpZW50QS5UYXJnZXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE2NjQ4OCwxNTU2MCwwClZhbHVlcy5PdmVycmlkZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNjQ3MzIsMTc2MzMsMApEb21haW5zLk92ZXJyaWRlS2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTQ4OTE1LDI0NDI3LDAKQXBpLk9ic2VydmVPdmVycmlkZSAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTM3NDczLDI3MjExLDAKS2VybmVsLlJlc3RyaWN0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE0OTU3LDk2OTYsMApEb21haW5zLlJlc3RyaWN0S2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTExMTc4LDE4NTI2LDAKVmFsdWVzLk92ZXJyaWRlQXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDgwNTYsMTQ4OTcsMApWYWx1ZXMuUmVzdHJpY3RBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA3MDU5LDE0OTQ3LDAKQXBpLkVxdWFsIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDU5NzIsMTQ3MTMsMApBcGkuT2JzZXJ2ZU92ZXJyaWRlICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTAzNTUyLDE2NjgzLDAKQXBpLkVxdWFsICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTAzNTMzLDExOTg4LDAKVmFsdWVzLlJlc3RyaWN0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTcxMTMsMTIxMzMsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_38_41-0.csv": "9ec8a313a6828621257c57532139c01958ad008bf08041f74235154adcdfd21b"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+    "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+    "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+    "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+    "HelperA.dfy": "44c18ca3f6b2b8a62cf84e4216c093f097ac2777e77b1a4c712c8fc569b19e86",
+    "HelperB.dfy": "ed938854e692c108fee1736e850fa80c42f65fcf1e7c1fc8abc514dad669cd0f",
+    "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+    "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+  },
+  "elapsed_seconds": 2.2039709540549666,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "overlap_override_restrict-shared-empty",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        15,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

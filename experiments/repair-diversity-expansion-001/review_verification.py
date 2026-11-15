@@ -1,5 +1,5 @@
 """Offline source, protected-boundary, named-scope and diagnostic audit."""
-import csv,hashlib,io,json,re,sys
+import base64,csv,hashlib,io,json,re,sys
 from collections import Counter
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
@@ -34,7 +34,8 @@ def review(root):
  out=root/'verification-001';cases=load(root/'cases.json');tasks={t['task_id']:t for t in load(root/'tasks.json')};summary=load(out/'summary.json')
  assert summary['planned']==len(cases) and summary['completed']==len(cases)
  assert summary['model_calls']==0
- env=load(out/'environment.json');assert env['model_calls']==0 and env['dafny']==TOOLCHAIN and 'login' not in env['host']
+ env=load(out/'environment.json');version=env['dafny']['stdout'].strip() if isinstance(env['dafny'],dict) else env['dafny'];assert env['model_calls']==0 and version==TOOLCHAIN and 'login' not in env['host']
+ if isinstance(env.get('z3'),dict):assert env['z3']['exit_code']==0 and env['z3']['stdout'].strip()=='Z3 version 4.12.1 - 64 bit'
  submission=load(root/'submission-001.json');assert env['job_id']==submission['job_id']
  assert 'PreemptMode=OFF' in submission['live_partition'] and submission['no_requeue']
  assert sha((root/'runtime-manifest.json').read_bytes())==submission['runtime_manifest_sha256']
@@ -52,6 +53,13 @@ def review(root):
   assert ev['command']==COMMAND and ev['attempts']==1 and ev['model_calls']==0
   assert ev['source_sha256']==c['source_sha256']
   assert {n:sha(s.encode()) for n,s in ev['csv'].items()}==ev['csv_sha256']
+  if 'stdout_base64' in ev:
+   for stream in ['stdout','stderr']:
+    raw=base64.b64decode(ev[stream+'_base64']);assert sha(raw)==ev[stream+'_sha256'] and raw.decode()==ev[stream]
+    assert (out/'raw'/c['case_id']/(stream+'.txt')).read_bytes()==raw
+   for name,value in ev['csv_base64'].items():
+    raw=base64.b64decode(value);assert sha(raw)==ev['csv_sha256'][name] and raw.decode()==ev['csv'][name]
+    assert (out/'raw'/c['case_id']/'csv'/name).read_bytes()==raw
   actual=categorize(ev);text=ev['stdout']+'\n'+ev['stderr'];tid=c['task_id'];task=tasks[tid]
   template_path=root/'templates'/tid
   if not template_path.is_dir():template_path=root/'fixtures'/tid/'empty'
