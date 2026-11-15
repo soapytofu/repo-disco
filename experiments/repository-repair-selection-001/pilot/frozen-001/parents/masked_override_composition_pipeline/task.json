@@ -1,0 +1,231 @@
+{
+  "task_id": "masked_override_composition_pipeline",
+  "semantic_instance": "masked_override_composition_pipeline",
+  "family": "finite_map",
+  "sharing": "pipeline",
+  "depth": "two_editable_dependency_stages_not_a_minimality_claim",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy",
+    "HelperB.dfy"
+  ],
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "f2161095a372eed9d0702390e57c9edc17ad40d06f9ffa1da1a9759eab6a4620",
+    "HelperB.dfy": "5fbf95d4f6e5ffdc1a61073fa3485e574c82cdb874fdb845a7b0716149e2131e",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "body_boundaries": {
+    "HelperA.dfy": {
+      "start": 381,
+      "end": 381,
+      "protected_sha256": "d0f212517d8dfde3ea3478b8967b66fcec3e973b79b344e5e88167c69863b093"
+    },
+    "HelperB.dfy": {
+      "start": 456,
+      "end": 456,
+      "protected_sha256": "60e8015912d450482959198fc551c6e3ec6fccadc5212c4b710811fcdf5f8ffd"
+    }
+  },
+  "seed_source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "64f57fce94d05d516946d6383e9e00397bfd27186f7662a1a51c336ac564f35e",
+    "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "repair_seed": "faulty",
+  "faulty_file": "HelperA.dfy",
+  "reference_path": "fixtures/masked_override_composition_pipeline/reference",
+  "template_path": "templates/masked_override_composition_pipeline",
+  "file_rules": {
+    "HelperA.dfy": {
+      "variables": [
+        "f1",
+        "f2",
+        "g"
+      ],
+      "calls": {
+        "D.OverrideKeys": 2,
+        "D.RestrictKeys": 2,
+        "D.ComposeKeys": 2,
+        "V.OverrideAt": 3,
+        "V.RestrictAt": 3
+      },
+      "pure": {
+        "K.Override": 2,
+        "K.Restrict": 2,
+        "K.Compose": 2
+      },
+      "parameter_types": {
+        "f1": "map<int,int>",
+        "f2": "map<int,int>",
+        "g": "map<int,int>"
+      },
+      "call_types": {
+        "D.OverrideKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "D.RestrictKeys": [
+          "map<int,int>",
+          "set<int>"
+        ],
+        "D.ComposeKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "V.OverrideAt": [
+          "map<int,int>",
+          "map<int,int>",
+          "int"
+        ],
+        "V.RestrictAt": [
+          "map<int,int>",
+          "set<int>",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Override": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Restrict": {
+          "arguments": [
+            "map<int,int>",
+            "set<int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Compose": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        }
+      }
+    },
+    "HelperB.dfy": {
+      "variables": [
+        "f1",
+        "f2",
+        "g"
+      ],
+      "calls": {
+        "D.OverrideKeys": 2,
+        "D.RestrictKeys": 2,
+        "D.ComposeKeys": 2,
+        "V.OverrideAt": 3,
+        "V.RestrictAt": 3,
+        "H.Prove": 3,
+        "V.ComposeAt": 3,
+        "A.Equal": 2
+      },
+      "pure": {
+        "K.Override": 2,
+        "K.Restrict": 2,
+        "K.Compose": 2
+      },
+      "parameter_types": {
+        "f1": "map<int,int>",
+        "f2": "map<int,int>",
+        "g": "map<int,int>"
+      },
+      "call_types": {
+        "D.OverrideKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "D.RestrictKeys": [
+          "map<int,int>",
+          "set<int>"
+        ],
+        "D.ComposeKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "V.OverrideAt": [
+          "map<int,int>",
+          "map<int,int>",
+          "int"
+        ],
+        "V.RestrictAt": [
+          "map<int,int>",
+          "set<int>",
+          "int"
+        ],
+        "H.Prove": [
+          "map<int,int>",
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "V.ComposeAt": [
+          "map<int,int>",
+          "map<int,int>",
+          "int"
+        ],
+        "A.Equal": [
+          "map<int,int>",
+          "map<int,int>"
+        ]
+      },
+      "pure_types": {
+        "K.Override": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Restrict": {
+          "arguments": [
+            "map<int,int>",
+            "set<int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Compose": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        }
+      }
+    }
+  },
+  "development_only": true,
+  "held_out": false,
+  "ancestor_group": "finite_map_update_restriction_development",
+  "fixed_architecture": true,
+  "dependency_edges": [
+    [
+      "HelperB.Prove",
+      "HelperA.Prove"
+    ],
+    [
+      "ClientA.Target",
+      "HelperB.Prove"
+    ],
+    [
+      "ClientB.Target",
+      "HelperB.Prove"
+    ]
+  ],
+  "verification_status": "not_run",
+  "guard_registry_status": "pending separate per-file registration"
+}

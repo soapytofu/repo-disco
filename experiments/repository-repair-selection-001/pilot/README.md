@@ -1,10 +1,13 @@
-# Prospective repair-selection pilot preparation
+# Frozen repair-selection pilot
 
-This directory prepares the already proposed 32-call study without rendering or
-freezing its actual requests. The root-reviewed verifier evidence, protocol
-freeze, named measurement scope and explicit coordinator gate with a source
-commit are mandatory before `prepare.py freeze`. Nothing here dispatches a
-model, verifier or scheduler job, or writes a runtime authorization.
+The exact 32-trial study is frozen in [frozen-001](frozen-001/), with freeze SHA256
+`9a3ac2546edc6c79307826766af3517bdc8d9a8fe629a2ba0239660f4ead778a`.
+All 45 verifier controls, 11 pilot preparation tests and the independent audit
+of all eight requests passed. The freeze pins 109 files and 1,095 repository
+inputs to source commit `cfa51ee966b3f54cfcec3badb8c8f77fe310da94`.
+See [reviewed-prompts.json](reviewed-prompts.json) for the prompt audit.
+Dispatch remains a separate coordinator admission through the existing window
+ledger. Nothing in this directory dispatches a model or scheduler job.
 
 There are four constructed development workspaces, two feedback arms and four
 fresh responses per task/arm. Both eligible proof bodies are returned each time.
@@ -36,7 +39,7 @@ clients, and zero clients verified with their full declared dependency chain.
 A local client pass alone is insufficient. The declared graph is not a proof
 that every accepted candidate must call A; observed calls remain separate.
 
-After the compute reviews are complete, `prepare.py measurements` constructs
+After the compute reviews, `prepare.py measurements` constructs
 the exact reference-derived named scope and an unendorsed gate draft. It does
 not render prompts. Root must endorse those exact source, policy, measurement,
 syntax and design hashes and supply the published source commit. Only then can
