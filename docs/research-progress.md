@@ -33,9 +33,9 @@ is not retroactively changed.
 The active [24-hour research window](../experiments/research-window-20261114/README.md)
 has used **32/128 authorized new calls**, with no retries. The single compute
 process is idle between reviewed batches, with a fixed deadline and no persistent
-credential file. Remaining96 calls are a ceiling, not a target. Immediate nonpaid
-work tests sufficient analyst repairs separately and prepares exhaustive interval
-intersection/separation certificates. Reserved tree/transition families remain
+credential file. Remaining 96 calls are a ceiling, not a target. The analyst repairs and exhaustive
+interval certificate controls below are complete; the next study is frozen and
+awaits admission through the same process. Reserved tree/transition families remain
 untouched. Weeks5–6 corpus diversity and controlled comparisons are progressing;
 this does not complete the reserved-family or training/evaluation milestones.
 
@@ -53,11 +53,11 @@ repairs, with no new lemma calls. These are post-hoc sufficiency checks; the
 primary model score remains27/32 and all1,845 original model files are unchanged.
 The first packaging omission and corrected runtime evidence are preserved.
 
-The next prospective study fixes the architecture to two eligible proof modules
-in a dependency chain, with immutable clients. Four development instances will
-compare detailed feedback versus failure notice, four responses per arm (32
-proposed calls within the remaining96). It must pass fresh layout/control and
-per-file guard checks before any prompt freeze or admission. This tests repair
+The next study fixes the architecture to two eligible proof modules in a
+dependency chain, with immutable clients. Four development instances compare
+detailed feedback versus failure notice, four responses per arm (32 proposed
+calls within the remaining 96). Its controls, per-file guard and prompt/order
+freeze are complete; coordinator admission remains pending. This tests repair
 choices within a declared eligible set, not unrestricted file discovery or a
 causal depth/sharing effect. No second paid batch has been admitted.
 
@@ -65,8 +65,9 @@ All [45 fresh pipeline controls](../experiments/repository-repair-selection-001/
 now match:10 positives,31 ordinary proof failures and four hidden-export failures.
 Review confirms the intended failing module in each of the four seeds,269 protected
 file comparisons and90 body boundaries. The separate per-file guard and unchanged
-runner compatibility checks pass. Prompt/order freeze remains the next gate;
-these verifier-only results do not add model calls or complete the larger corpus.
+runner compatibility checks pass. The [32-trial prompt freeze](../experiments/repository-repair-selection-001/pilot/README.md)
+and independent eight-request audit are published in 9e3d3c7. These preparation
+results do not add model calls or complete the larger corpus.
 
 ## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
 

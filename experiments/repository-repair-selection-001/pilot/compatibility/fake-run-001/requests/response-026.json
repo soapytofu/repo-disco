@@ -1,0 +1,11 @@
+{
+  "text": "{\"HelperA.dfy\": \"    var inner := K.Put(m,p,m[q]);\\n    var swapped := K.Exchange(m,p,q);\\n    O.ExchangeShape(m,p,q);\\n    O.PutKeys(m,p,m[q]);\\n    assert inner.Keys == m.Keys;\\n    O.PutKeys(inner,q,m[p]);\\n    assert swapped.Keys == m.Keys;\\n    forall x | x in m ensures x in swapped &&\\n      swapped[x] == (if x == p then m[q] else if x == q then m[p] else m[x]) {\\n      O.PutAt(m,p,m[q],x);\\n      O.PutAt(inner,q,m[p],x);\\n    }\\n\", \"HelperB.dfy\": \"    var u := m[p];\\n    var v := m[q];\\n    assert u in n && v in n;\\n    assert n[u] == p && n[v] == q;\\n    assert u != v;\\n    H.Prove(m,p,q);\\n    H.Prove(n,u,v);\\n    var forward := K.Exchange(m,p,q);\\n    var backward := K.Exchange(n,u,v);\\n    forall x | x in forward ensures forward[x] in backward && backward[forward[x]] == x {\\n      assert x in m;\\n      assert n[m[x]] == x;\\n      if x == p {\\n        assert forward[x] == v;\\n        assert backward[v] == p;\\n      } else if x == q {\\n        assert forward[x] == u;\\n        assert backward[u] == q;\\n      } else {\\n        assert m[x] != u && m[x] != v;\\n        assert forward[x] == m[x];\\n        assert backward[m[x]] == n[m[x]];\\n      }\\n    }\\n    forall y | y in backward ensures backward[y] in forward && forward[backward[y]] == y {\\n      assert y in n;\\n      assert m[n[y]] == y;\\n      if y == u {\\n        assert backward[y] == q;\\n        assert forward[q] == u;\\n      } else if y == v {\\n        assert backward[y] == p;\\n        assert forward[p] == v;\\n      } else {\\n        assert n[y] != p && n[y] != q;\\n        assert backward[y] == n[y];\\n        assert forward[n[y]] == m[n[y]];\\n      }\\n    }\\n\"}",
+  "request_id": "FAKE-OFFLINE-26",
+  "retry_attempts": 0,
+  "stop_reason": "end_turn",
+  "usage": {
+    "inputTokens": 1,
+    "outputTokens": 1
+  },
+  "synthetic_compatibility_response": true
+}

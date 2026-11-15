@@ -1,0 +1,266 @@
+{
+  "task_id": "conserved_sum_gap-pipeline",
+  "semantic_instance": "conserved_sum_gap",
+  "family": "constraint_witness",
+  "lineage_id": "D3-new-conserved-sum-gap",
+  "sharing": "pipeline",
+  "depth": "two_helper_pipeline",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy",
+    "HelperB.dfy"
+  ],
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "6e12defffd7da21484f7a69424a9b73ec97af10fb4ae38aefc808999b7c684b1",
+    "ClientA.dfy": "e60a58db27c8825ae590d76cb79f19cb31c44b0171e92a87b73f2ecb38cfbe8e",
+    "ClientB.dfy": "ad01aa89425ff96a7c797b0a5efca4c7f2ba7ab590fb083629d396b7accd947d",
+    "HelperA.dfy": "0626d00da2107aae3cf5a580bbba800a6bf91a51879dd80ca386acdee0ad0686",
+    "HelperB.dfy": "73411514a4aa317fc55800c6c1c3f9d941b3d5dfcdee933a863443590f6a3a1e",
+    "Kernel.dfy": "70a746f12285cb973a832c13f1c2951c18642606fec4b584063b38fc031cac8b",
+    "Ops.dfy": "7f38c9a96bf1896ea1ee82c50164a662c9ee7af212312df5d72470a22f496ed5"
+  },
+  "body_boundaries": {
+    "HelperA.dfy": {
+      "start": 386,
+      "end": 386,
+      "protected_sha256": "dd2131d96ffd3e679fb2a9858b58744b553108fb37d0fb29176149840a1c1329"
+    },
+    "HelperB.dfy": {
+      "start": 425,
+      "end": 425,
+      "protected_sha256": "c90712fb900c774420a3b8626e2ce2aae30868ac215329c831dba078678bdee9"
+    }
+  },
+  "file_rules": {
+    "HelperA.dfy": {
+      "variables": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "s"
+      ],
+      "parameter_types": {
+        "a": "int",
+        "b": "int",
+        "c": "int",
+        "d": "int",
+        "s": "int"
+      },
+      "calls": {
+        "O.Left": 3,
+        "O.Right": 3,
+        "O.Sum": 3,
+        "A.Balance": 7
+      },
+      "pure": {
+        "K.LeftFact": 3,
+        "K.RightFact": 3,
+        "K.SumFact": 3,
+        "K.Balanced": 7
+      },
+      "call_types": {
+        "O.Left": [
+          "int",
+          "int",
+          "int"
+        ],
+        "O.Right": [
+          "int",
+          "int",
+          "int"
+        ],
+        "O.Sum": [
+          "int",
+          "int",
+          "int"
+        ],
+        "A.Balance": [
+          "int",
+          "int",
+          "int",
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.LeftFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.RightFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.SumFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.Balanced": {
+          "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        }
+      }
+    },
+    "HelperB.dfy": {
+      "variables": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "s",
+        "g"
+      ],
+      "parameter_types": {
+        "a": "int",
+        "b": "int",
+        "c": "int",
+        "d": "int",
+        "s": "int",
+        "g": "int"
+      },
+      "calls": {
+        "H.Prove": 5,
+        "O.Gap": 3,
+        "A.Finish": 8
+      },
+      "pure": {
+        "K.Balanced": 7,
+        "K.GapFact": 3,
+        "K.Valid": 8,
+        "K.Feasible": 6
+      },
+      "call_types": {
+        "H.Prove": [
+          "int",
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        "O.Gap": [
+          "int",
+          "int",
+          "int"
+        ],
+        "A.Finish": [
+          "int",
+          "int",
+          "int",
+          "int",
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Balanced": {
+          "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.GapFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.Valid": {
+          "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.Feasible": {
+          "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        }
+      }
+    }
+  },
+  "file_parameters": {
+    "HelperA.dfy": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "s"
+    ],
+    "HelperB.dfy": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "s",
+      "g"
+    ]
+  },
+  "target_dependencies": {
+    "HelperA.Prove": [],
+    "HelperB.Prove": [
+      "HelperA.Prove"
+    ],
+    "ClientA.Target": [
+      "HelperB.Prove"
+    ],
+    "ClientB.Target": [
+      "HelperB.Prove"
+    ]
+  },
+  "primary_case_id": "conserved_sum_gap-pipeline-faulty",
+  "development_only": true,
+  "adaptive_development": true,
+  "held_out": false,
+  "guard_registry_status": "pending separate per-file guard review",
+  "verification_status": "not_run",
+  "client_interface": "Immutable ghost lemma returns a certified witness through a protected choice rule; not executable search.",
+  "no_sharing_factor": true,
+  "minimum_proof_depth": null
+}

@@ -1,0 +1,805 @@
+{
+  "schema": "repository-repair-selection-per-file-registry-v1",
+  "policy_id": "repository-repair-selection-bodies-v1-development",
+  "adapter_abi": "repair-diversity-bodies-v1-development",
+  "development_only": true,
+  "semantically_verified": false,
+  "tasks": {
+    "intersection_or_separation-pipeline": {
+      "task_id": "intersection_or_separation-pipeline",
+      "semantic_instance": "intersection_or_separation",
+      "sharing": "pipeline",
+      "depth": "two_helper_pipeline",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+        "ClientA.dfy": "cfb3d2d7bdce82a09fc71681723dd700dcd43062215415a37d0baf5c7288e98d",
+        "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+        "HelperA.dfy": "06e81d7beca94e7a6daec4704c0aba1223aa579c31784f446481f00376405523",
+        "HelperB.dfy": "bc81d31d3070134dd469da5b1fac7cbaa4c79a67e902fbfa243d1ed424a4989b",
+        "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+        "Ops.dfy": "5d9430f15c467d5a354c0719bb4781964266a9314aa5745a71a5e4faf180cd6d"
+      },
+      "file_rules": {
+        "HelperA.dfy": {
+          "variables": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "parameter_types": {
+            "a": "int",
+            "b": "int",
+            "c": "int",
+            "d": "int"
+          },
+          "calls": {
+            "O.Left": 3,
+            "O.Right": 3
+          },
+          "pure": {
+            "K.LeftFact": 3,
+            "K.RightFact": 3
+          },
+          "call_types": {
+            "O.Left": [
+              "int",
+              "int",
+              "int"
+            ],
+            "O.Right": [
+              "int",
+              "int",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.LeftFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.RightFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            }
+          }
+        },
+        "HelperB.dfy": {
+          "variables": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "parameter_types": {
+            "a": "int",
+            "b": "int",
+            "c": "int",
+            "d": "int"
+          },
+          "calls": {
+            "H.Prove": 4,
+            "O.Before": 2,
+            "O.After": 2,
+            "A.Witness": 5,
+            "A.Gap": 5
+          },
+          "pure": {
+            "K.LeftFact": 3,
+            "K.RightFact": 3,
+            "K.LeftGap": 2,
+            "K.RightGap": 2,
+            "K.Valid": 6,
+            "K.Decided": 4
+          },
+          "call_types": {
+            "H.Prove": [
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "O.Before": [
+              "int",
+              "int"
+            ],
+            "O.After": [
+              "int",
+              "int"
+            ],
+            "A.Witness": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "A.Gap": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.LeftFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.RightFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.LeftGap": {
+              "arguments": [
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.RightGap": {
+              "arguments": [
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.Valid": {
+              "arguments": [
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.Decided": {
+              "arguments": [
+                "int",
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            }
+          }
+        }
+      },
+      "fixture_family": "witness",
+      "template_path": "templates/intersection_or_separation-pipeline",
+      "body_boundaries": {
+        "HelperA.dfy": {
+          "start_utf8_byte": 337,
+          "end_utf8_byte": 337,
+          "prefix_sha256": "cae4ec68c459b1e3bccf0d9d19fe76f50ff6522cf584b5d962a9a33dd3ccc7a7",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "87e95787cf096884ac4439d6911f3047f736e98d49dc1bb6e57455e0f5eb4177"
+        },
+        "HelperB.dfy": {
+          "start_utf8_byte": 319,
+          "end_utf8_byte": 319,
+          "prefix_sha256": "6c60972532fb08e1e23eae4a1ee475f5dd8f5f1b01e067a68e44cf4b65de0a29",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "d1f05fa5e061a3d9ee58c3a720ef13d37af89f3e566c9dd8b4b24eaaba9ce4a3"
+        }
+      }
+    },
+    "conserved_sum_gap-pipeline": {
+      "task_id": "conserved_sum_gap-pipeline",
+      "semantic_instance": "conserved_sum_gap",
+      "sharing": "pipeline",
+      "depth": "two_helper_pipeline",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "6e12defffd7da21484f7a69424a9b73ec97af10fb4ae38aefc808999b7c684b1",
+        "ClientA.dfy": "e60a58db27c8825ae590d76cb79f19cb31c44b0171e92a87b73f2ecb38cfbe8e",
+        "ClientB.dfy": "ad01aa89425ff96a7c797b0a5efca4c7f2ba7ab590fb083629d396b7accd947d",
+        "HelperA.dfy": "0626d00da2107aae3cf5a580bbba800a6bf91a51879dd80ca386acdee0ad0686",
+        "HelperB.dfy": "73411514a4aa317fc55800c6c1c3f9d941b3d5dfcdee933a863443590f6a3a1e",
+        "Kernel.dfy": "70a746f12285cb973a832c13f1c2951c18642606fec4b584063b38fc031cac8b",
+        "Ops.dfy": "7f38c9a96bf1896ea1ee82c50164a662c9ee7af212312df5d72470a22f496ed5"
+      },
+      "file_rules": {
+        "HelperA.dfy": {
+          "variables": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "s"
+          ],
+          "parameter_types": {
+            "a": "int",
+            "b": "int",
+            "c": "int",
+            "d": "int",
+            "s": "int"
+          },
+          "calls": {
+            "O.Left": 3,
+            "O.Right": 3,
+            "O.Sum": 3,
+            "A.Balance": 7
+          },
+          "pure": {
+            "K.LeftFact": 3,
+            "K.RightFact": 3,
+            "K.SumFact": 3,
+            "K.Balanced": 7
+          },
+          "call_types": {
+            "O.Left": [
+              "int",
+              "int",
+              "int"
+            ],
+            "O.Right": [
+              "int",
+              "int",
+              "int"
+            ],
+            "O.Sum": [
+              "int",
+              "int",
+              "int"
+            ],
+            "A.Balance": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.LeftFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.RightFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.SumFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.Balanced": {
+              "arguments": [
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            }
+          }
+        },
+        "HelperB.dfy": {
+          "variables": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "s",
+            "g"
+          ],
+          "parameter_types": {
+            "a": "int",
+            "b": "int",
+            "c": "int",
+            "d": "int",
+            "s": "int",
+            "g": "int"
+          },
+          "calls": {
+            "H.Prove": 5,
+            "O.Gap": 3,
+            "A.Finish": 8
+          },
+          "pure": {
+            "K.Balanced": 7,
+            "K.GapFact": 3,
+            "K.Valid": 8,
+            "K.Feasible": 6
+          },
+          "call_types": {
+            "H.Prove": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "O.Gap": [
+              "int",
+              "int",
+              "int"
+            ],
+            "A.Finish": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.Balanced": {
+              "arguments": [
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.GapFact": {
+              "arguments": [
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.Valid": {
+              "arguments": [
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            },
+            "K.Feasible": {
+              "arguments": [
+                "int",
+                "int",
+                "int",
+                "int",
+                "int",
+                "int"
+              ],
+              "result": "bool"
+            }
+          }
+        }
+      },
+      "fixture_family": "witness",
+      "template_path": "templates/conserved_sum_gap-pipeline",
+      "body_boundaries": {
+        "HelperA.dfy": {
+          "start_utf8_byte": 386,
+          "end_utf8_byte": 386,
+          "prefix_sha256": "0355ecec3243e7bc06f9d98d1e7ad9d67031ddb12584519936b57979e4fde767",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "dd2131d96ffd3e679fb2a9858b58744b553108fb37d0fb29176149840a1c1329"
+        },
+        "HelperB.dfy": {
+          "start_utf8_byte": 425,
+          "end_utf8_byte": 425,
+          "prefix_sha256": "09e2c544c06796c77313142093945294053ccf1b4808d040819d041fbd0470a9",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "c90712fb900c774420a3b8626e2ce2aae30868ac215329c831dba078678bdee9"
+        }
+      }
+    },
+    "inverse_exchange_pipeline": {
+      "task_id": "inverse_exchange_pipeline",
+      "semantic_instance": "inverse_exchange_pipeline",
+      "sharing": "pipeline",
+      "depth": "two_editable_dependency_stages_not_a_minimality_claim",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+        "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+        "HelperA.dfy": "cbd4ba1944cdac41ab6ab80b2d6fc60c64e3868087cad7d7d6f595890fb9212d",
+        "HelperB.dfy": "b4fc7140a251e12dbcdea8a80c46832f84730b837b3d9a33b59bf8ed225b5a72",
+        "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+        "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+      },
+      "file_rules": {
+        "HelperA.dfy": {
+          "variables": [
+            "m",
+            "p",
+            "q"
+          ],
+          "calls": {
+            "O.PutKeys": 3,
+            "O.PutAt": 4,
+            "O.ExchangeShape": 3
+          },
+          "pure": {
+            "K.Put": 3,
+            "K.Exchange": 3,
+            "K.Inverse": 2
+          },
+          "parameter_types": {
+            "m": "map<int,int>",
+            "p": "int",
+            "q": "int"
+          },
+          "call_types": {
+            "O.PutKeys": [
+              "map<int,int>",
+              "int",
+              "int"
+            ],
+            "O.PutAt": [
+              "map<int,int>",
+              "int",
+              "int",
+              "int"
+            ],
+            "O.ExchangeShape": [
+              "map<int,int>",
+              "int",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.Put": {
+              "arguments": [
+                "map<int,int>",
+                "int",
+                "int"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Exchange": {
+              "arguments": [
+                "map<int,int>",
+                "int",
+                "int"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Inverse": {
+              "arguments": [
+                "map<int,int>",
+                "map<int,int>"
+              ],
+              "result": "bool"
+            }
+          }
+        },
+        "HelperB.dfy": {
+          "variables": [
+            "m",
+            "n",
+            "p",
+            "q"
+          ],
+          "calls": {
+            "H.Prove": 3
+          },
+          "pure": {
+            "K.Put": 3,
+            "K.Exchange": 3,
+            "K.Inverse": 2
+          },
+          "parameter_types": {
+            "m": "map<int,int>",
+            "n": "map<int,int>",
+            "p": "int",
+            "q": "int"
+          },
+          "call_types": {
+            "H.Prove": [
+              "map<int,int>",
+              "int",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.Put": {
+              "arguments": [
+                "map<int,int>",
+                "int",
+                "int"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Exchange": {
+              "arguments": [
+                "map<int,int>",
+                "int",
+                "int"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Inverse": {
+              "arguments": [
+                "map<int,int>",
+                "map<int,int>"
+              ],
+              "result": "bool"
+            }
+          }
+        }
+      },
+      "fixture_family": "maps",
+      "template_path": "templates/inverse_exchange_pipeline",
+      "body_boundaries": {
+        "HelperA.dfy": {
+          "start_utf8_byte": 410,
+          "end_utf8_byte": 410,
+          "prefix_sha256": "3d012b96cb42cdc7461cec6aabd0f18fa281057a4b212470a792e76f76f2a3f9",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "f4cf2a7296af8ae2368100b502c875b34c8a344c263254d9d8edc51637b8acae"
+        },
+        "HelperB.dfy": {
+          "start_utf8_byte": 328,
+          "end_utf8_byte": 328,
+          "prefix_sha256": "63878ba87fb29575d958a722c8927627992ee6ce8435a54745b283c2dd021353",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "f53ef7054668e01a5128a955b7abbc3cd4bc86a2a6753aea423d3ff789c387dc"
+        }
+      }
+    },
+    "masked_override_composition_pipeline": {
+      "task_id": "masked_override_composition_pipeline",
+      "semantic_instance": "masked_override_composition_pipeline",
+      "sharing": "pipeline",
+      "depth": "two_editable_dependency_stages_not_a_minimality_claim",
+      "entry": "All.dfy",
+      "editable_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+        "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+        "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+        "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+        "HelperA.dfy": "f2161095a372eed9d0702390e57c9edc17ad40d06f9ffa1da1a9759eab6a4620",
+        "HelperB.dfy": "5fbf95d4f6e5ffdc1a61073fa3485e574c82cdb874fdb845a7b0716149e2131e",
+        "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+        "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+      },
+      "file_rules": {
+        "HelperA.dfy": {
+          "variables": [
+            "f1",
+            "f2",
+            "g"
+          ],
+          "calls": {
+            "D.OverrideKeys": 2,
+            "D.RestrictKeys": 2,
+            "D.ComposeKeys": 2,
+            "V.OverrideAt": 3,
+            "V.RestrictAt": 3
+          },
+          "pure": {
+            "K.Override": 2,
+            "K.Restrict": 2,
+            "K.Compose": 2
+          },
+          "parameter_types": {
+            "f1": "map<int,int>",
+            "f2": "map<int,int>",
+            "g": "map<int,int>"
+          },
+          "call_types": {
+            "D.OverrideKeys": [
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "D.RestrictKeys": [
+              "map<int,int>",
+              "set<int>"
+            ],
+            "D.ComposeKeys": [
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "V.OverrideAt": [
+              "map<int,int>",
+              "map<int,int>",
+              "int"
+            ],
+            "V.RestrictAt": [
+              "map<int,int>",
+              "set<int>",
+              "int"
+            ]
+          },
+          "pure_types": {
+            "K.Override": {
+              "arguments": [
+                "map<int,int>",
+                "map<int,int>"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Restrict": {
+              "arguments": [
+                "map<int,int>",
+                "set<int>"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Compose": {
+              "arguments": [
+                "map<int,int>",
+                "map<int,int>"
+              ],
+              "result": "map<int,int>"
+            }
+          }
+        },
+        "HelperB.dfy": {
+          "variables": [
+            "f1",
+            "f2",
+            "g"
+          ],
+          "calls": {
+            "D.OverrideKeys": 2,
+            "D.RestrictKeys": 2,
+            "D.ComposeKeys": 2,
+            "V.OverrideAt": 3,
+            "V.RestrictAt": 3,
+            "H.Prove": 3,
+            "V.ComposeAt": 3,
+            "A.Equal": 2
+          },
+          "pure": {
+            "K.Override": 2,
+            "K.Restrict": 2,
+            "K.Compose": 2
+          },
+          "parameter_types": {
+            "f1": "map<int,int>",
+            "f2": "map<int,int>",
+            "g": "map<int,int>"
+          },
+          "call_types": {
+            "D.OverrideKeys": [
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "D.RestrictKeys": [
+              "map<int,int>",
+              "set<int>"
+            ],
+            "D.ComposeKeys": [
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "V.OverrideAt": [
+              "map<int,int>",
+              "map<int,int>",
+              "int"
+            ],
+            "V.RestrictAt": [
+              "map<int,int>",
+              "set<int>",
+              "int"
+            ],
+            "H.Prove": [
+              "map<int,int>",
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "V.ComposeAt": [
+              "map<int,int>",
+              "map<int,int>",
+              "int"
+            ],
+            "A.Equal": [
+              "map<int,int>",
+              "map<int,int>"
+            ]
+          },
+          "pure_types": {
+            "K.Override": {
+              "arguments": [
+                "map<int,int>",
+                "map<int,int>"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Restrict": {
+              "arguments": [
+                "map<int,int>",
+                "set<int>"
+              ],
+              "result": "map<int,int>"
+            },
+            "K.Compose": {
+              "arguments": [
+                "map<int,int>",
+                "map<int,int>"
+              ],
+              "result": "map<int,int>"
+            }
+          }
+        }
+      },
+      "fixture_family": "maps",
+      "template_path": "templates/masked_override_composition_pipeline",
+      "body_boundaries": {
+        "HelperA.dfy": {
+          "start_utf8_byte": 381,
+          "end_utf8_byte": 381,
+          "prefix_sha256": "c1c7bb909e526babdc3afb9d3f4067a08c2357022eeb3852e7834d2ae36d6d14",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "d0f212517d8dfde3ea3478b8967b66fcec3e973b79b344e5e88167c69863b093"
+        },
+        "HelperB.dfy": {
+          "start_utf8_byte": 456,
+          "end_utf8_byte": 456,
+          "prefix_sha256": "fd14d2db050ca9fc3a7b2f0fd645030d71f8424ae76242348c8829c2b6cc5297",
+          "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+          "protected_sha256": "60e8015912d450482959198fc551c6e3ec6fccadc5212c4b710811fcdf5f8ffd"
+        }
+      }
+    }
+  }
+}

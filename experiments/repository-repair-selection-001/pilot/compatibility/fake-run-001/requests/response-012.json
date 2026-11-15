@@ -1,0 +1,11 @@
+{
+  "text": "{\"HelperA.dfy\": \"    var keep := f1.Keys-f2.Keys;\\n    var merged := K.Override(f1,f2);\\n    var trimmed := K.Restrict(f1,keep);\\n    var left := K.Compose(merged,g);\\n    var first := K.Compose(trimmed,g);\\n    var second := K.Compose(f2,g);\\n    var right := K.Override(first,second);\\n    D.OverrideKeys(f1,f2);\\n    D.RestrictKeys(f1,keep);\\n    D.ComposeKeys(merged,g);\\n    D.ComposeKeys(trimmed,g);\\n    D.ComposeKeys(f2,g);\\n    D.OverrideKeys(first,second);\\n    assert left.Keys <= merged.Keys;\\n    assert right.Keys <= merged.Keys;\\n    forall x | x in merged ensures (x in left) == (x in right) {\\n      V.OverrideAt(f1,f2,x);\\n      if x in f2 {\\n        assert x !in trimmed;\\n      } else {\\n        V.RestrictAt(f1,keep,x);\\n      }\\n    }\\n    assert left.Keys == right.Keys;\\n\", \"HelperB.dfy\": \"    H.Prove(f1,f2,g);\\n    var keep := f1.Keys-f2.Keys;\\n    var merged := K.Override(f1,f2);\\n    var trimmed := K.Restrict(f1,keep);\\n    var left := K.Compose(merged,g);\\n    var first := K.Compose(trimmed,g);\\n    var second := K.Compose(f2,g);\\n    var right := K.Override(first,second);\\n    D.OverrideKeys(f1,f2);\\n    D.RestrictKeys(f1,keep);\\n    D.ComposeKeys(merged,g);\\n    D.ComposeKeys(trimmed,g);\\n    D.ComposeKeys(f2,g);\\n    D.OverrideKeys(first,second);\\n    forall x | x in left ensures x in right && left[x] == right[x] {\\n      V.OverrideAt(f1,f2,x);\\n      V.ComposeAt(merged,g,x);\\n      if x in f2 {\\n        V.ComposeAt(f2,g,x);\\n      } else {\\n        V.RestrictAt(f1,keep,x);\\n        V.ComposeAt(trimmed,g,x);\\n      }\\n      V.OverrideAt(first,second,x);\\n    }\\n    A.Equal(left,right);\\n\"}",
+  "request_id": "FAKE-OFFLINE-12",
+  "retry_attempts": 0,
+  "stop_reason": "end_turn",
+  "usage": {
+    "inputTokens": 1,
+    "outputTokens": 1
+  },
+  "synthetic_compatibility_response": true
+}

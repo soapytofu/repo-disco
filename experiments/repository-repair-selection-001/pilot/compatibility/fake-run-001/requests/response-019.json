@@ -1,0 +1,11 @@
+{
+  "text": "{\"HelperA.dfy\": \"    var u := if a < s - d then s - d else a;\\n    var v := s - u;\\n    O.Left(a,b,u);\\n    O.Right(c,d,v);\\n    O.Sum(s,u,v);\\n    A.Balance(a,b,c,d,s,u,v);\\n\", \"HelperB.dfy\": \"    H.Prove(a,b,c,d,s);\\n    var u := if a < s - d then s - d else a;\\n    var v := s - u;\\n    if a < s - d {\\n      assert u == s - d;\\n      assert u + u + g <= s;\\n    } else {\\n      assert u == a;\\n      assert u + u + g <= s;\\n    }\\n    assert u + g <= v;\\n    O.Gap(g,u,v);\\n    A.Finish(a,b,c,d,s,g,u,v);\\n\"}",
+  "request_id": "FAKE-OFFLINE-19",
+  "retry_attempts": 0,
+  "stop_reason": "end_turn",
+  "usage": {
+    "inputTokens": 1,
+    "outputTokens": 1
+  },
+  "synthetic_compatibility_response": true
+}

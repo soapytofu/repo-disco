@@ -10,8 +10,10 @@ import session_ops as ops
 ROOT=Path(__file__).resolve().parent
 
 def fetch(batch_id,sequence):
-    assert batch_id=='repair-diversity-pilot-002' and sequence==1
-    dest=ROOT.parent/batch_id
+    reviewed={('repair-diversity-pilot-002',1):ROOT.parent/'repair-diversity-pilot-002',
+              ('repository-repair-selection-001',2):ROOT.parent/'repository-repair-selection-001/pilot'}
+    assert (batch_id,sequence) in reviewed,'Unreviewed batch archive request'
+    dest=reviewed[(batch_id,sequence)]
     assert not (dest/'transfer-001.json').exists(),'Completed transfer already recorded'
     code='BATCH='+repr(batch_id)+'\nSEQUENCE='+repr(sequence)+'\n'+'''import datetime,hashlib,io,json,subprocess,sys,tarfile
 session=ROOT/'session-001';batch=session/'runs'/f'{SEQUENCE:04}-{BATCH}'
@@ -32,6 +34,13 @@ for name in ['events','queue']:
 for path in sorted(session.iterdir()):
  assert not path.is_symlink()
  if path.is_file():files['window-evidence-001/session/'+path.name]=path.read_bytes()
+if SEQUENCE==2:
+ assert state['completed_batch_ids']==['repair-diversity-pilot-002',BATCH],state
+ addtree(ROOT/'admissions','window-evidence-001/admissions')
+ for seq,identifier in [(1,'repair-diversity-pilot-002'),(2,BATCH)]:
+  path=session/'runs'/f'{seq:04}-{identifier}'/'completion.json'
+  assert path.is_file() and not path.is_symlink()
+  files['window-evidence-001/completions/'+identifier+'.json']=path.read_bytes()
 submission=json.loads((ROOT/'submission-001.json').read_text());job=submission['job_id']
 for name in ['scope.json','launch-manifest.json','session.sbatch','session_ops.py','submission-001.json','submission-001.lock',
  'stage-002.json','execution-preflight-001.json',f'session-{job}.log',f'session-{job}.err']:
@@ -41,6 +50,10 @@ accounting=subprocess.check_output(['sacct','-j',job,'--format=JobID,State,Elaps
 files['window-evidence-001/accounting-snapshot.txt']=accounting
 assert before==(session/'status.json').read_bytes() and ledger_before==(ROOT/'budget/ledger.json').read_bytes(),'Window changed during snapshot; do not publish a mixed ledger'
 assert files['window-evidence-001/budget/ledger.json']==ledger_before
+if SEQUENCE==2:
+ for seq,identifier in [(1,'repair-diversity-pilot-002'),(2,BATCH)]:
+  assert files[f'window-evidence-001/admissions/{seq:06}.json']==(ROOT/'admissions'/f'{seq:06}.json').read_bytes()
+  assert files['window-evidence-001/completions/'+identifier+'.json']==(session/'runs'/f'{seq:04}-{identifier}'/'completion.json').read_bytes()
 record=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),batch_id=BATCH,
  session_still_running=state['phase'] not in ['error','closed'],credential_access=False,
  files={name:hashlib.sha256(data).hexdigest() for name,data in files.items()})
@@ -68,5 +81,7 @@ sys.stdout.buffer.write(b.getvalue())
     print(json.dumps(dict(files=len(inventory),compressed_bytes=len(raw),destination=str(dest))))
 
 if __name__=='__main__':
-    assert len(sys.argv)==1
-    fetch('repair-diversity-pilot-002',1)
+    if len(sys.argv)==1:fetch('repair-diversity-pilot-002',1)
+    else:
+        assert sys.argv[1:]==['repository-repair-selection-001','2']
+        fetch('repository-repair-selection-001',2)

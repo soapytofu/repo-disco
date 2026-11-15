@@ -1,0 +1,69 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperB.dfy(33,21): Error: assertion might not hold\n   |\n33 |         if x in f1 { assert merged[x] == f1[x]; }\n   |                      ^^^^^^\n\n\nDafny program verifier finished with 20 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-0mbxmb4d/TestResults/2026-11-15_01_05_21-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQi5kZnkoMzMsMjEpOiBFcnJvcjogYXNzZXJ0aW9uIG1pZ2h0IG5vdCBob2xkCiAgIHwKMzMgfCAgICAgICAgIGlmIHggaW4gZjEgeyBhc3NlcnQgbWVyZ2VkW3hdID09IGYxW3hdOyB9CiAgIHwgICAgICAgICAgICAgICAgICAgICAgXl5eXl5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDIwIHZlcmlmaWVkLCAxIGVycm9yClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXItMG1ieG1iNGQvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8wMV8wNV8yMS0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "27606669d5027d52c1f75936418037cae81f723e76e003a75e5f49ea9f53b88a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_05_21-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperB.Prove (correctness),Failed,00:00:00.0933274,94277,0\nApi.Equal (well-formedness),Passed,00:00:00.0586102,11988,0\nHelperA.Prove (correctness),Passed,00:00:00.0317184,90310,0\nDomains.ComposeKeys (correctness),Passed,00:00:00.0169659,20399,0\nKernel.Override (well-formedness),Passed,00:00:00.0168757,12412,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0135885,24427,0\nApi.Equal (correctness),Passed,00:00:00.0135826,14713,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0120664,18526,0\nValues.OverrideAt (correctness),Passed,00:00:00.0116196,17633,0\nClientB.Target (correctness),Passed,00:00:00.0114103,16441,0\nClientA.Target (correctness),Passed,00:00:00.0113485,16441,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0109625,14897,0\nValues.HiddenRestrictAt (correctness),Passed,00:00:00.0109323,14947,0\nValues.ComposeAt (correctness),Passed,00:00:00.0108462,15612,0\nValues.RestrictAt (correctness),Passed,00:00:00.0107003,14947,0\nDomains.ComposeKeys (well-formedness),Passed,00:00:00.0101883,12476,0\nValues.ComposeAt (well-formedness),Passed,00:00:00.0101671,13000,0\nValues.HiddenRestrictAt (well-formedness),Passed,00:00:00.0101109,12133,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0097816,12133,0\nKernel.Compose (well-formedness),Passed,00:00:00.0097590,10469,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0093112,9696,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_05_21-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA5MzMyNzQsOTQyNzcsMApBcGkuRXF1YWwgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1ODYxMDIsMTE5ODgsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAzMTcxODQsOTAzMTAsMApEb21haW5zLkNvbXBvc2VLZXlzIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNjk2NTksMjAzOTksMApLZXJuZWwuT3ZlcnJpZGUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNjg3NTcsMTI0MTIsMApEb21haW5zLk92ZXJyaWRlS2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTM1ODg1LDI0NDI3LDAKQXBpLkVxdWFsIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMzU4MjYsMTQ3MTMsMApEb21haW5zLlJlc3RyaWN0S2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTIwNjY0LDE4NTI2LDAKVmFsdWVzLk92ZXJyaWRlQXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExNjE5NiwxNzYzMywwCkNsaWVudEIuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTQxMDMsMTY0NDEsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTEzNDg1LDE2NDQxLDAKVmFsdWVzLk92ZXJyaWRlQXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDk2MjUsMTQ4OTcsMApWYWx1ZXMuSGlkZGVuUmVzdHJpY3RBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA5MzIzLDE0OTQ3LDAKVmFsdWVzLkNvbXBvc2VBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA4NDYyLDE1NjEyLDAKVmFsdWVzLlJlc3RyaWN0QXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwNzAwMywxNDk0NywwCkRvbWFpbnMuQ29tcG9zZUtleXMgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDE4ODMsMTI0NzYsMApWYWx1ZXMuQ29tcG9zZUF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTAxNjcxLDEzMDAwLDAKVmFsdWVzLkhpZGRlblJlc3RyaWN0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDExMDksMTIxMzMsMApWYWx1ZXMuUmVzdHJpY3RBdCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5NzgxNiwxMjEzMywwCktlcm5lbC5Db21wb3NlICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk3NTkwLDEwNDY5LDAKS2VybmVsLlJlc3RyaWN0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDkzMTEyLDk2OTYsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_05_21-0.csv": "6bb4f7f968f4a7e099bc0e693e6d09d64d87fa8e77542b143fab998db63a9e3d"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "748d0c853ad750a76979a3eaf3a55d348d879033f23887282aacca6c93cdae03",
+    "HelperB.dfy": "22da44eed8b074864dd6f2a19a69cf22cd82f4b9da1bc4766686fa1bdf6eb28f",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "elapsed_seconds": 2.494397379923612,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "masked_override_composition_pipeline-wrong_priority",
+  "expected": "proof_failure",
+  "expected_diagnostic": "assertion",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        20,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "assertion might not hold"
+    ],
+    "diagnostic_categories": [
+      "assertion"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

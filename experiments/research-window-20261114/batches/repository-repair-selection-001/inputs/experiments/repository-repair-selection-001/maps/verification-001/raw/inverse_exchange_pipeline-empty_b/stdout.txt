@@ -1,0 +1,33 @@
+HelperB.dfy(10,2): Error: a postcondition could not be proved on this return path
+   |
+10 |   {
+   |   ^
+
+HelperB.dfy(9,21): Related location: this is the postcondition that could not be proved
+  |
+9 |     ensures K.Inverse(K.Exchange(m,p,q),K.Exchange(n,m[p],m[q]))
+  |                      ^
+
+Kernel.dfy(13,5): Related location: this proposition could not be proved
+   |
+13 |     (forall x :: x in m ==> m[x] in n && n[m[x]] == x) &&
+   |      ^^^^^^
+
+HelperB.dfy(10,2): Error: a postcondition could not be proved on this return path
+   |
+10 |   {
+   |   ^
+
+HelperB.dfy(9,21): Related location: this is the postcondition that could not be proved
+  |
+9 |     ensures K.Inverse(K.Exchange(m,p,q),K.Exchange(n,m[p],m[q]))
+  |                      ^
+
+Kernel.dfy(14,5): Related location: this proposition could not be proved
+   |
+14 |     (forall y :: y in n ==> n[y] in m && m[n[y]] == y)
+   |      ^^^^^^
+
+
+Dafny program verifier finished with 16 verified, 2 errors
+Results File: /tmp/repodisco-repair-adapter-48hn5s0c/TestResults/2026-11-15_01_04_50-0.csv

@@ -19,6 +19,27 @@ After each actual batch, record its job, cumulative global ledger count, receipt
 
 First-batch completion is fully reviewed and published; do not refetch or repeat its requests. Use `session_ops.py status` before any future admission. The full `repair-diversity-pilot-002/model-001` and timed `window-evidence-001` snapshot are preserved. The process may remain idle for future reviewed admissions; a running Slurm job alone is not an unfinished model batch.
 
-Latest completed nonpaid work: D3-M1 job60702410 passed20/20 expectations (4strict passes14proof failures2resolution failures), full299-file transfer/protected-source review published5a09639. Five analyst diagnostic candidates then passed5/5 in job60703825 on test27seconds, zeroerrors/warnings/newlemma calls; all1845primaryarchivefiles and91parentcopies unchanged. The initial packaging failure (missing frozenpolicyREADME) is preserved; deliberate runtime002 passed manifest-only staging and6remote+3changed-path tests before its one submission. Full358-file diagnostic archive is reviewed. No other verifier jobs remain active.
+Latest completed nonpaid work: D3-M1 job 60702410 passed 20/20 expectations
+(4 strict passes, 14 proof failures, 2 resolution failures), published in 5a09639.
+Five analyst candidates then passed 5/5 in job 60703825; all 1,845 original model
+archive files and 91 parent copies are unchanged. Its initial packaging failure
+and corrected runtime are preserved with full evidence in 7fe61ee. No verifier
+jobs remain active.
 
-Next scoped work is freezing repository-repair-selection-001 after all45 controls passed: four fresh pipeline layouts, two eligible proof bodies A→B→two immutable clients, fixed architecture and feedback/notice comparison. Proposed32calls (4instances×2arms×4responses) remain UNFROZEN/UNADMITTED;96of128remain. Witness agent owns intersection/separation and conserved-sum+gap, maps agent owns inverse swap and masked override composition, protocol agent owns per-file guard. Fresh jobs60707245/60708384 completed21/24 checks respectively:10 strict positives31proof failures4hiddenresolution. Reviews check269protectedfiles90boundaries430archivedinputs622rawfiles; four mapaliases reuse exactevidence, no extracalls. Per-file policy21offline methods passed and freezeSHA076ae7cacb620e57ecbc137be0e4ddda4924106852dc8bd87700dcef82c2f7df is reviewed. All raw sources/logs are ready for publication; no inherited passes. Pilotbuilder has8preparation methods (including transitive auditor provenance), three actual-freeze tests remaingated. Root must record sourcecommit/reviewgate, freezeandreview exactprompts, validatefixedhandler andadmission beforecalls. Root alone freezes/admit/submits. Do not repeat prior32calls or submit another paidsession.
+The second study, repository-repair-selection-001, is verified and frozen but
+**not yet admitted**. Four fixed pipeline layouts have two distinct eligible
+proof bodies and two immutable clients. All 45 verifier controls passed: 10
+strict positives, 31 proof failures and 4 hidden-export resolution failures.
+Full code and evidence were published in cfa51ee. The per-file policy is frozen
+at `076ae7cacb620e57ecbc137be0e4ddda4924106852dc8bd87700dcef82c2f7df`.
+
+Commit 9e3d3c7 publishes the eight exact requests and 32-trial order, freeze
+`9a3ac2546edc6c79307826766af3517bdc8d9a8fe629a2ba0239660f4ead778a`.
+All 11 preparation tests and independent prompt/source/type/inventory checks
+passed. The study compares diagnostics versus failure notice, with four responses
+per task/arm; there is no sharing or depth factor. It will use the unchanged
+repair-v1 handler and existing process only. Root is preparing and testing a
+separate sequence-2 data admission helper and actual-data fake integration check.
+Before admission, review the live ledger, owner, first receipt, deadline and exact
+input/runtime hashes. Stage must not publish the admission. No second paid job,
+new credential/client or retry is allowed. Actual spending remains 32/128.

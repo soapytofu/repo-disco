@@ -1,0 +1,284 @@
+{
+  "inverse_exchange_pipeline": {
+    "HelperA.dfy": {
+      "variables": [
+        "m",
+        "p",
+        "q"
+      ],
+      "calls": {
+        "O.PutKeys": 3,
+        "O.PutAt": 4,
+        "O.ExchangeShape": 3
+      },
+      "pure": {
+        "K.Put": 3,
+        "K.Exchange": 3,
+        "K.Inverse": 2
+      },
+      "parameter_types": {
+        "m": "map<int,int>",
+        "p": "int",
+        "q": "int"
+      },
+      "call_types": {
+        "O.PutKeys": [
+          "map<int,int>",
+          "int",
+          "int"
+        ],
+        "O.PutAt": [
+          "map<int,int>",
+          "int",
+          "int",
+          "int"
+        ],
+        "O.ExchangeShape": [
+          "map<int,int>",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Put": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Exchange": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Inverse": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "bool"
+        }
+      }
+    },
+    "HelperB.dfy": {
+      "variables": [
+        "m",
+        "n",
+        "p",
+        "q"
+      ],
+      "calls": {
+        "H.Prove": 3
+      },
+      "pure": {
+        "K.Put": 3,
+        "K.Exchange": 3,
+        "K.Inverse": 2
+      },
+      "parameter_types": {
+        "m": "map<int,int>",
+        "n": "map<int,int>",
+        "p": "int",
+        "q": "int"
+      },
+      "call_types": {
+        "H.Prove": [
+          "map<int,int>",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Put": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Exchange": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Inverse": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "bool"
+        }
+      }
+    }
+  },
+  "masked_override_composition_pipeline": {
+    "HelperA.dfy": {
+      "variables": [
+        "f1",
+        "f2",
+        "g"
+      ],
+      "calls": {
+        "D.OverrideKeys": 2,
+        "D.RestrictKeys": 2,
+        "D.ComposeKeys": 2,
+        "V.OverrideAt": 3,
+        "V.RestrictAt": 3
+      },
+      "pure": {
+        "K.Override": 2,
+        "K.Restrict": 2,
+        "K.Compose": 2
+      },
+      "parameter_types": {
+        "f1": "map<int,int>",
+        "f2": "map<int,int>",
+        "g": "map<int,int>"
+      },
+      "call_types": {
+        "D.OverrideKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "D.RestrictKeys": [
+          "map<int,int>",
+          "set<int>"
+        ],
+        "D.ComposeKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "V.OverrideAt": [
+          "map<int,int>",
+          "map<int,int>",
+          "int"
+        ],
+        "V.RestrictAt": [
+          "map<int,int>",
+          "set<int>",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Override": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Restrict": {
+          "arguments": [
+            "map<int,int>",
+            "set<int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Compose": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        }
+      }
+    },
+    "HelperB.dfy": {
+      "variables": [
+        "f1",
+        "f2",
+        "g"
+      ],
+      "calls": {
+        "D.OverrideKeys": 2,
+        "D.RestrictKeys": 2,
+        "D.ComposeKeys": 2,
+        "V.OverrideAt": 3,
+        "V.RestrictAt": 3,
+        "H.Prove": 3,
+        "V.ComposeAt": 3,
+        "A.Equal": 2
+      },
+      "pure": {
+        "K.Override": 2,
+        "K.Restrict": 2,
+        "K.Compose": 2
+      },
+      "parameter_types": {
+        "f1": "map<int,int>",
+        "f2": "map<int,int>",
+        "g": "map<int,int>"
+      },
+      "call_types": {
+        "D.OverrideKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "D.RestrictKeys": [
+          "map<int,int>",
+          "set<int>"
+        ],
+        "D.ComposeKeys": [
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "V.OverrideAt": [
+          "map<int,int>",
+          "map<int,int>",
+          "int"
+        ],
+        "V.RestrictAt": [
+          "map<int,int>",
+          "set<int>",
+          "int"
+        ],
+        "H.Prove": [
+          "map<int,int>",
+          "map<int,int>",
+          "map<int,int>"
+        ],
+        "V.ComposeAt": [
+          "map<int,int>",
+          "map<int,int>",
+          "int"
+        ],
+        "A.Equal": [
+          "map<int,int>",
+          "map<int,int>"
+        ]
+      },
+      "pure_types": {
+        "K.Override": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Restrict": {
+          "arguments": [
+            "map<int,int>",
+            "set<int>"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Compose": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        }
+      }
+    }
+  }
+}

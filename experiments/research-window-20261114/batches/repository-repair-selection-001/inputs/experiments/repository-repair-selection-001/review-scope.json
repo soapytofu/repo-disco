@@ -1,0 +1,361 @@
+{
+  "schema": "repository-repair-selection-verifier-review-scope-v1",
+  "original_reviewer_sha256": "f4de7b39772026d86ce92cb825afa45b07a021519d963b234baf1f6e0d8daf2d",
+  "declared_target_dependencies": {
+    "HelperA.Prove": [],
+    "HelperB.Prove": [
+      "HelperA.Prove"
+    ],
+    "ClientA.Target": [
+      "HelperB.Prove"
+    ],
+    "ClientB.Target": [
+      "HelperB.Prove"
+    ]
+  },
+  "groups": {
+    "witness": {
+      "runtime_manifest_sha256": "73f9a6f1e738d25e381c5dc82f2a0335a06ff28838fec4b2a60afdb70444ed64",
+      "fixture_manifest_sha256": "8654288e6f7f07beb8a020cfd826ffb5104f6d283a71ee44ec383d47eec7ed1d",
+      "planned_checks": 24
+    },
+    "maps": {
+      "runtime_manifest_sha256": "2d54cb958b9ff2e0ed52f27eb5c6f67d8b061e75c07d2dc2f20c0b584f3cd44a",
+      "fixture_manifest_sha256": "0a0225c7d946e3e3f0f646c40839491dd1e4a7c76b8211c8d6389e969ab2ce57",
+      "planned_checks": 21
+    }
+  },
+  "maps_expected_target_statuses": {
+    "inverse_exchange_pipeline-reference": {
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      }
+    },
+    "inverse_exchange_pipeline-alternative": {
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      }
+    },
+    "inverse_exchange_pipeline-faulty": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-empty": {
+      "expected_failed_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-empty_a": {
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-empty_b": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-missing_outer_update": {
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-wrong_exchange_value": {
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-missing_inverse_prerequisite": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-wrong_inverse_direction": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "inverse_exchange_pipeline-hidden_call": {
+      "expected_failed_targets": null,
+      "expected_local_targets": null,
+      "expected_dependency_closed_targets": null
+    },
+    "masked_override_composition_pipeline-reference": {
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      }
+    },
+    "masked_override_composition_pipeline-alternative": {
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      }
+    },
+    "masked_override_composition_pipeline-faulty": {
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-empty": {
+      "expected_failed_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-empty_a": {
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-empty_b": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-missing_override_value": {
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-wrong_priority": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-missing_compose_value": {
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      }
+    },
+    "masked_override_composition_pipeline-hidden_call": {
+      "expected_failed_targets": null,
+      "expected_local_targets": null,
+      "expected_dependency_closed_targets": null
+    }
+  },
+  "expectation_basis": "Predictions from the frozen constructors and seeded helper location, written before this reviewer reads compute results; mismatches remain unexpected.",
+  "semantics": "Local statuses aggregate every named CSV unit of a target. Dependency closure uses the frozen declared target graph, not inferred necessary proof calls. Provider validation and strict whole-workspace exit remain separate required gates.",
+  "missing_evidence": "Unknown target status is null, never an invented local success or automatic failure score.",
+  "alias_policy": "Map control-aliases bind exact source hashes and the canonical evidence file. They add no verifier requests or independent observations."
+}

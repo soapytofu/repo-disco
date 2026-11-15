@@ -1,0 +1,11 @@
+{
+  "text": "{\"HelperA.dfy\": \"    var w := if a < c then c else a;\\n    O.Left(a,b,w);\\n    O.Right(c,d,w);\\n\", \"HelperB.dfy\": \"    if b < c {\\n      O.Before(b,c);\\n      A.Gap(a,b,c,d,-1);\\n    } else if d < a {\\n      O.After(d,a);\\n      A.Gap(a,b,c,d,1);\\n    } else {\\n      H.Prove(a,b,c,d);\\n      var w := if a < c then c else a;\\n      A.Witness(a,b,c,d,w);\\n    }\\n\"}",
+  "request_id": "FAKE-OFFLINE-1",
+  "retry_attempts": 0,
+  "stop_reason": "end_turn",
+  "usage": {
+    "inputTokens": 1,
+    "outputTokens": 1
+  },
+  "synthetic_compatibility_response": true
+}

@@ -1,0 +1,70 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |     O.Right(c,d,v);\n   |            ^\n\nOps.dfy(11,15): Related location: this is the precondition that could not be proved\n   |\n11 |     requires c <= v <= d\n   |                ^^\n\nHelperA.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |     O.Right(c,d,v);\n   |            ^\n\nOps.dfy(11,20): Related location: this is the precondition that could not be proved\n   |\n11 |     requires c <= v <= d\n   |                     ^^\n\nHelperA.dfy(16,9): Error: a precondition for this call could not be proved\n   |\n16 |     O.Sum(s,u,v);\n   |          ^\n\nOps.dfy(15,19): Related location: this is the precondition that could not be proved\n   |\n15 |     requires u + v == s\n   |                    ^^\n\n\nDafny program verifier finished with 11 verified, 3 errors\nResults File: /tmp/repodisco-repair-adapter-zmb9mniv/TestResults/2026-11-15_01_08_44-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTUsMTEpOiBFcnJvcjogYSBwcmVjb25kaXRpb24gZm9yIHRoaXMgY2FsbCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTUgfCAgICAgTy5SaWdodChjLGQsdik7CiAgIHwgICAgICAgICAgICBeCgpPcHMuZGZ5KDExLDE1KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcHJlY29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjExIHwgICAgIHJlcXVpcmVzIGMgPD0gdiA8PSBkCiAgIHwgICAgICAgICAgICAgICAgXl4KCkhlbHBlckEuZGZ5KDE1LDExKTogRXJyb3I6IGEgcHJlY29uZGl0aW9uIGZvciB0aGlzIGNhbGwgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjE1IHwgICAgIE8uUmlnaHQoYyxkLHYpOwogICB8ICAgICAgICAgICAgXgoKT3BzLmRmeSgxMSwyMCk6IFJlbGF0ZWQgbG9jYXRpb246IHRoaXMgaXMgdGhlIHByZWNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxMSB8ICAgICByZXF1aXJlcyBjIDw9IHYgPD0gZAogICB8ICAgICAgICAgICAgICAgICAgICAgXl4KCkhlbHBlckEuZGZ5KDE2LDkpOiBFcnJvcjogYSBwcmVjb25kaXRpb24gZm9yIHRoaXMgY2FsbCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTYgfCAgICAgTy5TdW0ocyx1LHYpOwogICB8ICAgICAgICAgIF4KCk9wcy5kZnkoMTUsMTkpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwcmVjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTUgfCAgICAgcmVxdWlyZXMgdSArIHYgPT0gcwogICB8ICAgICAgICAgICAgICAgICAgICBeXgoKCkRhZm55IHByb2dyYW0gdmVyaWZpZXIgZmluaXNoZWQgd2l0aCAxMSB2ZXJpZmllZCwgMyBlcnJvcnMKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci16bWI5bW5pdi9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAxXzA4XzQ0LTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "fb4ffc6345f404ef7a58a2f8be792bb9d1db3377cf2eaa7bd229d1dcd970af2c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_08_44-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0512127,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0405097,10302,0\nHelperB.Prove (correctness),Passed,00:00:00.0124389,9752,0\nClientA.Target (correctness),Passed,00:00:00.0117115,5963,0\nApi.Balance (correctness),Passed,00:00:00.0115866,4958,0\nClientB.Target (correctness),Passed,00:00:00.0104374,17103,0\nApi.Choose (correctness),Passed,00:00:00.0101105,14597,0\nOps.Right (correctness),Passed,00:00:00.0097504,3353,0\nApi.Finish (correctness),Passed,00:00:00.0093820,8793,0\nApi.DirectFinish (correctness),Passed,00:00:00.0090270,7587,0\nOps.Gap (correctness),Passed,00:00:00.0087914,3356,0\nOps.Sum (correctness),Passed,00:00:00.0076218,3207,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_08_44-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNTEyMTI3LDMzNTMsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA0MDUwOTcsMTAzMDIsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMjQzODksOTc1MiwwCkNsaWVudEEuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTcxMTUsNTk2MywwCkFwaS5CYWxhbmNlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTU4NjYsNDk1OCwwCkNsaWVudEIuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDQzNzQsMTcxMDMsMApBcGkuQ2hvb3NlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDExMDUsMTQ1OTcsMApPcHMuUmlnaHQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5NzUwNCwzMzUzLDAKQXBpLkZpbmlzaCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDkzODIwLDg3OTMsMApBcGkuRGlyZWN0RmluaXNoIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTAyNzAsNzU4NywwCk9wcy5HYXAgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA4NzkxNCwzMzU2LDAKT3BzLlN1bSAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDc2MjE4LDMyMDcsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_08_44-0.csv": "1b070a2aafb158f53d435bb1bb5111c0ff7b6ffbe81fd5a895211aad5169793b"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "6e12defffd7da21484f7a69424a9b73ec97af10fb4ae38aefc808999b7c684b1",
+    "ClientA.dfy": "e60a58db27c8825ae590d76cb79f19cb31c44b0171e92a87b73f2ecb38cfbe8e",
+    "ClientB.dfy": "ad01aa89425ff96a7c797b0a5efca4c7f2ba7ab590fb083629d396b7accd947d",
+    "HelperA.dfy": "56b91fcf127d17e833d9fbedcfac7ae3cacecdea21214436d6a360c643319c47",
+    "HelperB.dfy": "c2c5477f27b8615dd09acc5f241cf800569956551bb09054f01a57839dc9feca",
+    "Kernel.dfy": "70a746f12285cb973a832c13f1c2951c18642606fec4b584063b38fc031cac8b",
+    "Ops.dfy": "7f38c9a96bf1896ea1ee82c50164a662c9ee7af212312df5d72470a22f496ed5"
+  },
+  "elapsed_seconds": 2.25028212799225,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "conserved_sum_gap-pipeline-lost_sum_a",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        11,
+        3
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved",
+      "a precondition for this call could not be proved",
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

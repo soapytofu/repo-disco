@@ -1,0 +1,503 @@
+[
+  {
+    "task_id": "intersection_or_separation-pipeline",
+    "semantic_instance": "intersection_or_separation",
+    "family": "constraint_witness",
+    "lineage_id": "D3-M1",
+    "sharing": "pipeline",
+    "depth": "two_helper_pipeline",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+      "ClientA.dfy": "cfb3d2d7bdce82a09fc71681723dd700dcd43062215415a37d0baf5c7288e98d",
+      "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+      "HelperA.dfy": "06e81d7beca94e7a6daec4704c0aba1223aa579c31784f446481f00376405523",
+      "HelperB.dfy": "bc81d31d3070134dd469da5b1fac7cbaa4c79a67e902fbfa243d1ed424a4989b",
+      "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+      "Ops.dfy": "5d9430f15c467d5a354c0719bb4781964266a9314aa5745a71a5e4faf180cd6d"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 337,
+        "end": 337,
+        "protected_sha256": "87e95787cf096884ac4439d6911f3047f736e98d49dc1bb6e57455e0f5eb4177"
+      },
+      "HelperB.dfy": {
+        "start": 319,
+        "end": 319,
+        "protected_sha256": "d1f05fa5e061a3d9ee58c3a720ef13d37af89f3e566c9dd8b4b24eaaba9ce4a3"
+      }
+    },
+    "file_rules": {
+      "HelperA.dfy": {
+        "variables": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "parameter_types": {
+          "a": "int",
+          "b": "int",
+          "c": "int",
+          "d": "int"
+        },
+        "calls": {
+          "O.Left": 3,
+          "O.Right": 3
+        },
+        "pure": {
+          "K.LeftFact": 3,
+          "K.RightFact": 3
+        },
+        "call_types": {
+          "O.Left": [
+            "int",
+            "int",
+            "int"
+          ],
+          "O.Right": [
+            "int",
+            "int",
+            "int"
+          ]
+        },
+        "pure_types": {
+          "K.LeftFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.RightFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          }
+        }
+      },
+      "HelperB.dfy": {
+        "variables": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "parameter_types": {
+          "a": "int",
+          "b": "int",
+          "c": "int",
+          "d": "int"
+        },
+        "calls": {
+          "H.Prove": 4,
+          "O.Before": 2,
+          "O.After": 2,
+          "A.Witness": 5,
+          "A.Gap": 5
+        },
+        "pure": {
+          "K.LeftFact": 3,
+          "K.RightFact": 3,
+          "K.LeftGap": 2,
+          "K.RightGap": 2,
+          "K.Valid": 6,
+          "K.Decided": 4
+        },
+        "call_types": {
+          "H.Prove": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "O.Before": [
+            "int",
+            "int"
+          ],
+          "O.After": [
+            "int",
+            "int"
+          ],
+          "A.Witness": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "A.Gap": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ]
+        },
+        "pure_types": {
+          "K.LeftFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.RightFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.LeftGap": {
+            "arguments": [
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.RightGap": {
+            "arguments": [
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.Valid": {
+            "arguments": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.Decided": {
+            "arguments": [
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          }
+        }
+      }
+    },
+    "file_parameters": {
+      "HelperA.dfy": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "HelperB.dfy": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    },
+    "target_dependencies": {
+      "HelperA.Prove": [],
+      "HelperB.Prove": [
+        "HelperA.Prove"
+      ],
+      "ClientA.Target": [
+        "HelperB.Prove"
+      ],
+      "ClientB.Target": [
+        "HelperB.Prove"
+      ]
+    },
+    "primary_case_id": "intersection_or_separation-pipeline-faulty",
+    "development_only": true,
+    "adaptive_development": true,
+    "held_out": false,
+    "guard_registry_status": "pending separate per-file guard review",
+    "verification_status": "not_run",
+    "client_interface": "Immutable ghost lemma returns a certified witness through a protected choice rule; not executable search.",
+    "no_sharing_factor": true,
+    "minimum_proof_depth": null
+  },
+  {
+    "task_id": "conserved_sum_gap-pipeline",
+    "semantic_instance": "conserved_sum_gap",
+    "family": "constraint_witness",
+    "lineage_id": "D3-new-conserved-sum-gap",
+    "sharing": "pipeline",
+    "depth": "two_helper_pipeline",
+    "entry": "All.dfy",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "6e12defffd7da21484f7a69424a9b73ec97af10fb4ae38aefc808999b7c684b1",
+      "ClientA.dfy": "e60a58db27c8825ae590d76cb79f19cb31c44b0171e92a87b73f2ecb38cfbe8e",
+      "ClientB.dfy": "ad01aa89425ff96a7c797b0a5efca4c7f2ba7ab590fb083629d396b7accd947d",
+      "HelperA.dfy": "0626d00da2107aae3cf5a580bbba800a6bf91a51879dd80ca386acdee0ad0686",
+      "HelperB.dfy": "73411514a4aa317fc55800c6c1c3f9d941b3d5dfcdee933a863443590f6a3a1e",
+      "Kernel.dfy": "70a746f12285cb973a832c13f1c2951c18642606fec4b584063b38fc031cac8b",
+      "Ops.dfy": "7f38c9a96bf1896ea1ee82c50164a662c9ee7af212312df5d72470a22f496ed5"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 386,
+        "end": 386,
+        "protected_sha256": "dd2131d96ffd3e679fb2a9858b58744b553108fb37d0fb29176149840a1c1329"
+      },
+      "HelperB.dfy": {
+        "start": 425,
+        "end": 425,
+        "protected_sha256": "c90712fb900c774420a3b8626e2ce2aae30868ac215329c831dba078678bdee9"
+      }
+    },
+    "file_rules": {
+      "HelperA.dfy": {
+        "variables": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "s"
+        ],
+        "parameter_types": {
+          "a": "int",
+          "b": "int",
+          "c": "int",
+          "d": "int",
+          "s": "int"
+        },
+        "calls": {
+          "O.Left": 3,
+          "O.Right": 3,
+          "O.Sum": 3,
+          "A.Balance": 7
+        },
+        "pure": {
+          "K.LeftFact": 3,
+          "K.RightFact": 3,
+          "K.SumFact": 3,
+          "K.Balanced": 7
+        },
+        "call_types": {
+          "O.Left": [
+            "int",
+            "int",
+            "int"
+          ],
+          "O.Right": [
+            "int",
+            "int",
+            "int"
+          ],
+          "O.Sum": [
+            "int",
+            "int",
+            "int"
+          ],
+          "A.Balance": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ]
+        },
+        "pure_types": {
+          "K.LeftFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.RightFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.SumFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.Balanced": {
+            "arguments": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          }
+        }
+      },
+      "HelperB.dfy": {
+        "variables": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "s",
+          "g"
+        ],
+        "parameter_types": {
+          "a": "int",
+          "b": "int",
+          "c": "int",
+          "d": "int",
+          "s": "int",
+          "g": "int"
+        },
+        "calls": {
+          "H.Prove": 5,
+          "O.Gap": 3,
+          "A.Finish": 8
+        },
+        "pure": {
+          "K.Balanced": 7,
+          "K.GapFact": 3,
+          "K.Valid": 8,
+          "K.Feasible": 6
+        },
+        "call_types": {
+          "H.Prove": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "O.Gap": [
+            "int",
+            "int",
+            "int"
+          ],
+          "A.Finish": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ]
+        },
+        "pure_types": {
+          "K.Balanced": {
+            "arguments": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.GapFact": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.Valid": {
+            "arguments": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          },
+          "K.Feasible": {
+            "arguments": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "bool"
+          }
+        }
+      }
+    },
+    "file_parameters": {
+      "HelperA.dfy": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "s"
+      ],
+      "HelperB.dfy": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "s",
+        "g"
+      ]
+    },
+    "target_dependencies": {
+      "HelperA.Prove": [],
+      "HelperB.Prove": [
+        "HelperA.Prove"
+      ],
+      "ClientA.Target": [
+        "HelperB.Prove"
+      ],
+      "ClientB.Target": [
+        "HelperB.Prove"
+      ]
+    },
+    "primary_case_id": "conserved_sum_gap-pipeline-faulty",
+    "development_only": true,
+    "adaptive_development": true,
+    "held_out": false,
+    "guard_registry_status": "pending separate per-file guard review",
+    "verification_status": "not_run",
+    "client_interface": "Immutable ghost lemma returns a certified witness through a protected choice rule; not executable search.",
+    "no_sharing_factor": true,
+    "minimum_proof_depth": null
+  }
+]

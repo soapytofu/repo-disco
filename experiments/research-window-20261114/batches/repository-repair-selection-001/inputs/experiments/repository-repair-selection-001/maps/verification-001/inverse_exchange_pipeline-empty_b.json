@@ -1,0 +1,68 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperB.dfy(10,2): Error: a postcondition could not be proved on this return path\n   |\n10 |   {\n   |   ^\n\nHelperB.dfy(9,21): Related location: this is the postcondition that could not be proved\n  |\n9 |     ensures K.Inverse(K.Exchange(m,p,q),K.Exchange(n,m[p],m[q]))\n  |                      ^\n\nKernel.dfy(13,5): Related location: this proposition could not be proved\n   |\n13 |     (forall x :: x in m ==> m[x] in n && n[m[x]] == x) &&\n   |      ^^^^^^\n\nHelperB.dfy(10,2): Error: a postcondition could not be proved on this return path\n   |\n10 |   {\n   |   ^\n\nHelperB.dfy(9,21): Related location: this is the postcondition that could not be proved\n  |\n9 |     ensures K.Inverse(K.Exchange(m,p,q),K.Exchange(n,m[p],m[q]))\n  |                      ^\n\nKernel.dfy(14,5): Related location: this proposition could not be proved\n   |\n14 |     (forall y :: y in n ==> n[y] in m && m[n[y]] == y)\n   |      ^^^^^^\n\n\nDafny program verifier finished with 16 verified, 2 errors\nResults File: /tmp/repodisco-repair-adapter-48hn5s0c/TestResults/2026-11-15_01_04_50-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQi5kZnkoMTAsMik6IEVycm9yOiBhIHBvc3Rjb25kaXRpb24gY291bGQgbm90IGJlIHByb3ZlZCBvbiB0aGlzIHJldHVybiBwYXRoCiAgIHwKMTAgfCAgIHsKICAgfCAgIF4KCkhlbHBlckIuZGZ5KDksMjEpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKOSB8ICAgICBlbnN1cmVzIEsuSW52ZXJzZShLLkV4Y2hhbmdlKG0scCxxKSxLLkV4Y2hhbmdlKG4sbVtwXSxtW3FdKSkKICB8ICAgICAgICAgICAgICAgICAgICAgIF4KCktlcm5lbC5kZnkoMTMsNSk6IFJlbGF0ZWQgbG9jYXRpb246IHRoaXMgcHJvcG9zaXRpb24gY291bGQgbm90IGJlIHByb3ZlZAogICB8CjEzIHwgICAgIChmb3JhbGwgeCA6OiB4IGluIG0gPT0+IG1beF0gaW4gbiAmJiBuW21beF1dID09IHgpICYmCiAgIHwgICAgICBeXl5eXl4KCkhlbHBlckIuZGZ5KDEwLDIpOiBFcnJvcjogYSBwb3N0Y29uZGl0aW9uIGNvdWxkIG5vdCBiZSBwcm92ZWQgb24gdGhpcyByZXR1cm4gcGF0aAogICB8CjEwIHwgICB7CiAgIHwgICBeCgpIZWxwZXJCLmRmeSg5LDIxKTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICB8CjkgfCAgICAgZW5zdXJlcyBLLkludmVyc2UoSy5FeGNoYW5nZShtLHAscSksSy5FeGNoYW5nZShuLG1bcF0sbVtxXSkpCiAgfCAgICAgICAgICAgICAgICAgICAgICBeCgpLZXJuZWwuZGZ5KDE0LDUpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIHByb3Bvc2l0aW9uIGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxNCB8ICAgICAoZm9yYWxsIHkgOjogeSBpbiBuID09PiBuW3ldIGluIG0gJiYgbVtuW3ldXSA9PSB5KQogICB8ICAgICAgXl5eXl5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDE2IHZlcmlmaWVkLCAyIGVycm9ycwpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLTQ4aG41czBjL1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTVfMDFfMDRfNTAtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "a82dd728b0098515c44dfc92280d0c9422ce76965b35660a007ca7b757a7ea77",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_04_50-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperB.Prove (correctness),Failed,00:00:00.1032157,37837,0\nKernel.Exchange (well-formedness),Passed,00:00:00.0591761,12205,0\nOps.PutAt (correctness),Passed,00:00:00.0475357,16273,0\nHelperA.Prove (correctness),Passed,00:00:00.0310705,56251,0\nClientB.Target (correctness),Passed,00:00:00.0180952,26877,0\nKernel.Inverse (well-formedness),Passed,00:00:00.0132287,13502,0\nClientA.Target (correctness),Passed,00:00:00.0130424,16684,0\nOps.PutKeys (correctness),Passed,00:00:00.0121781,19573,0\nHelperB.Prove (well-formedness),Passed,00:00:00.0120928,17969,0\nClientA.Target (well-formedness),Passed,00:00:00.0118405,17969,0\nOps.ExchangeShape (correctness),Passed,00:00:00.0116302,17827,0\nClientB.Target (well-formedness),Passed,00:00:00.0116099,17313,0\nHelperA.Prove (well-formedness),Passed,00:00:00.0110343,13996,0\nOps.HiddenPutAt (correctness),Passed,00:00:00.0108569,16273,0\nOps.PutAt (well-formedness),Passed,00:00:00.0104279,12504,0\nOps.ExchangeShape (well-formedness),Passed,00:00:00.0104011,13202,0\nOps.HiddenPutAt (well-formedness),Passed,00:00:00.0097783,12504,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_04_50-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjEwMzIxNTcsMzc4MzcsMApLZXJuZWwuRXhjaGFuZ2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1OTE3NjEsMTIyMDUsMApPcHMuUHV0QXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDQ3NTM1NywxNjI3MywwCkhlbHBlckEuUHJvdmUgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDMxMDcwNSw1NjI1MSwwCkNsaWVudEIuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxODA5NTIsMjY4NzcsMApLZXJuZWwuSW52ZXJzZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEzMjI4NywxMzUwMiwwCkNsaWVudEEuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMzA0MjQsMTY2ODQsMApPcHMuUHV0S2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTIxNzgxLDE5NTczLDAKSGVscGVyQi5Qcm92ZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEyMDkyOCwxNzk2OSwwCkNsaWVudEEuVGFyZ2V0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE4NDA1LDE3OTY5LDAKT3BzLkV4Y2hhbmdlU2hhcGUgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExNjMwMiwxNzgyNywwCkNsaWVudEIuVGFyZ2V0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE2MDk5LDE3MzEzLDAKSGVscGVyQS5Qcm92ZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExMDM0MywxMzk5NiwwCk9wcy5IaWRkZW5QdXRBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA4NTY5LDE2MjczLDAKT3BzLlB1dEF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA0Mjc5LDEyNTA0LDAKT3BzLkV4Y2hhbmdlU2hhcGUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDQwMTEsMTMyMDIsMApPcHMuSGlkZGVuUHV0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTc3ODMsMTI1MDQsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_04_50-0.csv": "61cbf9cb3d0517f34df050c9004c914322e11f176fbac4fcf8999ebc23f249ef"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+    "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+    "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+    "HelperB.dfy": "b4fc7140a251e12dbcdea8a80c46832f84730b837b3d9a33b59bf8ed225b5a72",
+    "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+    "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+  },
+  "elapsed_seconds": 2.284076778916642,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "inverse_exchange_pipeline-empty_b",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        16,
+        2
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

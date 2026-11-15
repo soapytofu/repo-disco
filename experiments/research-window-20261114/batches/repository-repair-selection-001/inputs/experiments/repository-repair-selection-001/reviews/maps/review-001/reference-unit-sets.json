@@ -1,0 +1,152 @@
+{
+  "schema": "repair-selection-reference-scope-v1",
+  "group": "maps",
+  "complete": true,
+  "declared_target_dependencies": {
+    "HelperA.Prove": [],
+    "HelperB.Prove": [
+      "HelperA.Prove"
+    ],
+    "ClientA.Target": [
+      "HelperB.Prove"
+    ],
+    "ClientB.Target": [
+      "HelperB.Prove"
+    ]
+  },
+  "runtime_manifest_sha256": "2d54cb958b9ff2e0ed52f27eb5c6f67d8b061e75c07d2dc2f20c0b584f3cd44a",
+  "tasks": {
+    "inverse_exchange_pipeline": {
+      "case_id": "inverse_exchange_pipeline-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+        "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+        "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+        "HelperB.dfy": "03a7b19053f688ef213079bf056fd5203f08642eee446dcc2390b25a5a191262",
+        "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+        "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+      },
+      "evidence_sha256": "c508839ee8af503c86a11afe5644b856ca82705387dc4ba7f77812eaf53008ec",
+      "units": [
+        "ClientA.Target (correctness)",
+        "ClientA.Target (well-formedness)",
+        "ClientB.Target (correctness)",
+        "ClientB.Target (well-formedness)",
+        "HelperA.Prove (correctness)",
+        "HelperA.Prove (well-formedness)",
+        "HelperB.Prove (correctness)",
+        "HelperB.Prove (well-formedness)",
+        "Kernel.Exchange (well-formedness)",
+        "Kernel.Inverse (well-formedness)",
+        "Ops.ExchangeShape (correctness)",
+        "Ops.ExchangeShape (well-formedness)",
+        "Ops.HiddenPutAt (correctness)",
+        "Ops.HiddenPutAt (well-formedness)",
+        "Ops.PutAt (correctness)",
+        "Ops.PutAt (well-formedness)",
+        "Ops.PutKeys (correctness)"
+      ],
+      "target_units": {
+        "HelperA.Prove": [
+          "HelperA.Prove (correctness)",
+          "HelperA.Prove (well-formedness)"
+        ],
+        "HelperB.Prove": [
+          "HelperB.Prove (correctness)",
+          "HelperB.Prove (well-formedness)"
+        ],
+        "ClientA.Target": [
+          "ClientA.Target (correctness)",
+          "ClientA.Target (well-formedness)"
+        ],
+        "ClientB.Target": [
+          "ClientB.Target (correctness)",
+          "ClientB.Target (well-formedness)"
+        ]
+      },
+      "provider_units": [
+        "Kernel.Exchange (well-formedness)",
+        "Kernel.Inverse (well-formedness)",
+        "Ops.ExchangeShape (correctness)",
+        "Ops.ExchangeShape (well-formedness)",
+        "Ops.HiddenPutAt (correctness)",
+        "Ops.HiddenPutAt (well-formedness)",
+        "Ops.PutAt (correctness)",
+        "Ops.PutAt (well-formedness)",
+        "Ops.PutKeys (correctness)"
+      ]
+    },
+    "masked_override_composition_pipeline": {
+      "case_id": "masked_override_composition_pipeline-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+        "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+        "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+        "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+        "HelperA.dfy": "748d0c853ad750a76979a3eaf3a55d348d879033f23887282aacca6c93cdae03",
+        "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+        "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+        "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+      },
+      "evidence_sha256": "9db12b3c8a8dd509eb8006666f2f8616b666283a5656152539bf07434922f1aa",
+      "units": [
+        "Api.Equal (correctness)",
+        "Api.Equal (well-formedness)",
+        "ClientA.Target (correctness)",
+        "ClientB.Target (correctness)",
+        "Domains.ComposeKeys (correctness)",
+        "Domains.ComposeKeys (well-formedness)",
+        "Domains.OverrideKeys (correctness)",
+        "Domains.RestrictKeys (correctness)",
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)",
+        "Kernel.Compose (well-formedness)",
+        "Kernel.Override (well-formedness)",
+        "Kernel.Restrict (well-formedness)",
+        "Values.ComposeAt (correctness)",
+        "Values.ComposeAt (well-formedness)",
+        "Values.HiddenRestrictAt (correctness)",
+        "Values.HiddenRestrictAt (well-formedness)",
+        "Values.OverrideAt (correctness)",
+        "Values.OverrideAt (well-formedness)",
+        "Values.RestrictAt (correctness)",
+        "Values.RestrictAt (well-formedness)"
+      ],
+      "target_units": {
+        "HelperA.Prove": [
+          "HelperA.Prove (correctness)"
+        ],
+        "HelperB.Prove": [
+          "HelperB.Prove (correctness)"
+        ],
+        "ClientA.Target": [
+          "ClientA.Target (correctness)"
+        ],
+        "ClientB.Target": [
+          "ClientB.Target (correctness)"
+        ]
+      },
+      "provider_units": [
+        "Api.Equal (correctness)",
+        "Api.Equal (well-formedness)",
+        "Domains.ComposeKeys (correctness)",
+        "Domains.ComposeKeys (well-formedness)",
+        "Domains.OverrideKeys (correctness)",
+        "Domains.RestrictKeys (correctness)",
+        "Kernel.Compose (well-formedness)",
+        "Kernel.Override (well-formedness)",
+        "Kernel.Restrict (well-formedness)",
+        "Values.ComposeAt (correctness)",
+        "Values.ComposeAt (well-formedness)",
+        "Values.HiddenRestrictAt (correctness)",
+        "Values.HiddenRestrictAt (well-formedness)",
+        "Values.OverrideAt (correctness)",
+        "Values.OverrideAt (well-formedness)",
+        "Values.RestrictAt (correctness)",
+        "Values.RestrictAt (well-formedness)"
+      ]
+    }
+  }
+}

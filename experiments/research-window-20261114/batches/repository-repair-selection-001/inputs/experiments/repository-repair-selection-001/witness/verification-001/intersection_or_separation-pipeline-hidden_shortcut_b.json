@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "stdout": "HelperB.dfy(23,8): Error: unresolved identifier: DirectWitness\n   |\n23 |       A.DirectWitness(a,b,c,d,w);\n   |         ^^^^^^^^^^^^^\n\nHelperB.dfy(23,21): Error: expected method call, found expression\n   |\n23 |       A.DirectWitness(a,b,c,d,w);\n   |                      ^\n\n2 resolution/type errors detected in All.dfy\nResults File: /tmp/repodisco-repair-adapter-onn6deaq/TestResults/2026-11-15_01_08_36-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQi5kZnkoMjMsOCk6IEVycm9yOiB1bnJlc29sdmVkIGlkZW50aWZpZXI6IERpcmVjdFdpdG5lc3MKICAgfAoyMyB8ICAgICAgIEEuRGlyZWN0V2l0bmVzcyhhLGIsYyxkLHcpOwogICB8ICAgICAgICAgXl5eXl5eXl5eXl5eXgoKSGVscGVyQi5kZnkoMjMsMjEpOiBFcnJvcjogZXhwZWN0ZWQgbWV0aG9kIGNhbGwsIGZvdW5kIGV4cHJlc3Npb24KICAgfAoyMyB8ICAgICAgIEEuRGlyZWN0V2l0bmVzcyhhLGIsYyxkLHcpOwogICB8ICAgICAgICAgICAgICAgICAgICAgIF4KCjIgcmVzb2x1dGlvbi90eXBlIGVycm9ycyBkZXRlY3RlZCBpbiBBbGwuZGZ5ClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXItb25uNmRlYXEvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8wMV8wOF8zNi0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "5ca75f949e8b0b2c3a392d07c212163820053a13bb761c21bcdbb163b524b58e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_08_36-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_08_36-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_08_36-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+    "ClientA.dfy": "cfb3d2d7bdce82a09fc71681723dd700dcd43062215415a37d0baf5c7288e98d",
+    "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+    "HelperA.dfy": "62e4887c385d79ca6bb82fcf81b71254893bb377f8942bcca817d29e0ebe26ed",
+    "HelperB.dfy": "14ce77f442ca5a22f97aac937d862dedd88ca1ff0654d516c2a161e51ed2e321",
+    "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+    "Ops.dfy": "5d9430f15c467d5a354c0719bb4781964266a9314aa5745a71a5e4faf180cd6d"
+  },
+  "elapsed_seconds": 0.831594476941973,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "intersection_or_separation-pipeline-hidden_shortcut_b",
+  "expected": "resolution_failure",
+  "expected_diagnostic": "missing export member",
+  "actual": "resolution_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [],
+    "warnings": 0,
+    "error_lines": [
+      "unresolved identifier: DirectWitness",
+      "expected method call, found expression"
+    ],
+    "diagnostic_categories": [
+      "missing export member"
+    ],
+    "frontend": true,
+    "resolution": true,
+    "termination": false
+  }
+}
