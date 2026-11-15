@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 9 verified, 0 errors\nResults File: /tmp/repodisco-repair-adapter-ohitmhfw/TestResults/2026-11-14_23_38_34-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "CkRhZm55IHByb2dyYW0gdmVyaWZpZXIgZmluaXNoZWQgd2l0aCA5IHZlcmlmaWVkLCAwIGVycm9ycwpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLW9oaXRtaGZ3L1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTRfMjNfMzhfMzQtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "c04797a50bd37a96963c153e8307f089b1f90f1e0bb2dbd666ec0f85b1d95ffa",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-14_23_38_34-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0498928,3353,0\nOps.Right (correctness),Passed,00:00:00.0148614,3353,0\nHelperA.Prove (correctness),Passed,00:00:00.0123076,7946,0\nClientB.Target (correctness),Passed,00:00:00.0111083,6714,0\nHelperB.Prove (correctness),Passed,00:00:00.0103058,4308,0\nApi.Finish (correctness),Passed,00:00:00.0102330,8407,0\nClientA.Target (correctness),Passed,00:00:00.0100433,4308,0\nOps.Offset (correctness),Passed,00:00:00.0098964,3360,0\nOps.HiddenBounds (correctness),Passed,00:00:00.0077342,3408,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-14_23_38_34-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNDk4OTI4LDMzNTMsMApPcHMuUmlnaHQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE0ODYxNCwzMzUzLDAKSGVscGVyQS5Qcm92ZSAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTIzMDc2LDc5NDYsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTExMDgzLDY3MTQsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDMwNTgsNDMwOCwwCkFwaS5GaW5pc2ggKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMjMzMCw4NDA3LDAKQ2xpZW50QS5UYXJnZXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMDQzMyw0MzA4LDAKT3BzLk9mZnNldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk4OTY0LDMzNjAsMApPcHMuSGlkZGVuQm91bmRzIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwNzczNDIsMzQwOCwwCg=="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_38_34-0.csv": "897753e0b8b570408a314731b78082fd9474918c8bec6f98eb1e1e7c51f29b03"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "4adef3729bc483ab9969c40cda1462071334cadc13ffa5787e79320d2c099713",
+    "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "elapsed_seconds": 2.0097594920080155,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "exact_gap_pair-shared-alternative",
+  "expected": "success",
+  "expected_diagnostic": "none",
+  "actual": "success",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        9,
+        0
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [],
+    "diagnostic_categories": [],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

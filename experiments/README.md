@@ -1,5 +1,16 @@
 # Experiment log
 
+## Fresh repair comparison — diagnostics 16/16, notice only 11/16
+
+[repair-diversity-pilot-002](repair-diversity-pilot-002/RESULTS.md) completed 32 unique
+requests with zero retries and 113,505 tokens. All outputs passed the frozen
+prospective parser and edit policy; 27 whole workspaces verified and were promoted.
+Five notice-only proofs failed: three unguarded saturation calls and two invalid
+endpoint choices. Four semantic instances, eight parents and two responses per
+cell limit generalization; shared 14/16 versus separate 13/16 does not isolate a
+sharing effect. Full raw sources, request ledgers, CSV diagnostics, revisions and
+review are published. This uses 32 of the active research window's 128-call cap.
+
 ## Four fresh repair instances — 78/78 verifier controls matched
 
 [repair-diversity-expansion-001](repair-diversity-expansion-001/README.md) adds
@@ -9,8 +20,7 @@ and overlapping right-biased map override. All 16 correct/alternative proofs,
 their expected categories. Full source/CSV/log archives and protected-byte reviews
 are published. These are verifier-only development controls; no model results.
 The separate guard admits 70 non-hidden workspaces exactly and rejects eight
-hidden-helper controls. A new balanced 32-call repair study is being frozen within
-the user's aggregate 128-call research-window approval.
+hidden-helper controls. The resulting 32-call study is complete and reported above.
 
 ## Saved sequence extraction diagnostic — 8/8 exact proofs verified
 

@@ -1,0 +1,36 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |     O.Right(c,d,v);\n   |            ^\n\nOps.dfy(11,15): Related location: this is the precondition that could not be proved\n   |\n11 |     requires c <= v <= d\n   |                ^^\n\nHelperB.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |     O.Right(c,d,v);\n   |            ^\n\nOps.dfy(11,15): Related location: this is the precondition that could not be proved\n   |\n11 |     requires c <= v <= d\n   |                ^^\n\n\nDafny program verifier finished with 7 verified, 2 errors\nResults File: /tmp/repodisco-targets-f5p6eqzf/TestResults/2026-11-15_00_13_23-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.1271552899852395,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "6a8811b868379780be9aea99785647ffe746761b24f7e3a2cedc7c2298953f49",
+    "HelperB.dfy": "50de2b6ab3d317768f0ee4558137225fd72ce05f29dbacb1e3dbeebcc628b023",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "csv": {
+    "TestResults/2026-11-15_00_13_23-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0490025,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0311886,6780,0\nHelperB.Prove (correctness),Failed,00:00:00.0111657,6780,0\nOps.Offset (correctness),Passed,00:00:00.0107532,3360,0\nApi.Finish (correctness),Passed,00:00:00.0102606,8407,0\nOps.Right (correctness),Passed,00:00:00.0097850,3353,0\nClientB.Target (correctness),Passed,00:00:00.0091998,6714,0\nClientA.Target (correctness),Passed,00:00:00.0082400,4308,0\nOps.HiddenBounds (correctness),Passed,00:00:00.0080314,3408,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_00_13_23-0.csv": "3c5f4f3931ec10d7275decb005189531dac0d18830808ee29e8cc90be98965c9"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

@@ -1,5 +1,7 @@
 # Four-instance repair study
 
+**Completed:** [27/32 strict repairs](RESULTS.md), with verifier diagnostics 16/16 versus failure notice 11/16. All 32 outputs admitted; no retries. The frozen preparation record below is retained.
+
 **32 requests are planned within the user's existing aggregate approval of up to
 128 new calls for the research window ending November 16, 2026 at 04:05:12 UTC.**
 This is not another 128-call allowance and needs no new user approval. The

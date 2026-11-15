@@ -33,7 +33,7 @@ for path in sorted(session.iterdir()):
  assert not path.is_symlink()
  if path.is_file():files['window-evidence-001/session/'+path.name]=path.read_bytes()
 submission=json.loads((ROOT/'submission-001.json').read_text());job=submission['job_id']
-for name in ['scope.json','launch-manifest.json','session.sbatch','submission-001.json','submission-001.lock',
+for name in ['scope.json','launch-manifest.json','session.sbatch','session_ops.py','submission-001.json','submission-001.lock',
  'stage-002.json','execution-preflight-001.json',f'session-{job}.log',f'session-{job}.err']:
  path=ROOT/name;assert path.is_file() and not path.is_symlink()
  files['window-evidence-001/'+name]=path.read_bytes()

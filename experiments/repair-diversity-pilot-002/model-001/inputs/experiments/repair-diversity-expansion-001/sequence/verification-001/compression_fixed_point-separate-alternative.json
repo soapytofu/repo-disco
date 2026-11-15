@@ -1,0 +1,36 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 18 verified, 0 errors\nResults File: /tmp/repodisco-repair-5l15nx31/TestResults/2026-11-14_23_34_21-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.124033025931567,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+    "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+    "HelperA.dfy": "117e04ece716922244a0ad89f5187acc8e2e08df1effbe6b4153dd6261bf2123",
+    "HelperB.dfy": "ac134f4a8519339371dce8449eec95ab49fcf9afd0204a81ad93c90df964ad4c",
+    "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+    "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+    "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+  },
+  "csv": {
+    "TestResults/2026-11-14_23_34_21-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Compress (well-formedness),Passed,00:00:00.0572100,14740,0\nClientB.Target (correctness),Passed,00:00:00.0229285,17029,0\nOps.Drop (correctness),Passed,00:00:00.0155673,16794,0\nInvariant.OutputClean (correctness),Passed,00:00:00.0155355,29902,0\nInvariant.First (correctness),Passed,00:00:00.0154361,23091,0\nHelperB.Prove (correctness),Passed,00:00:00.0139728,23349,0\nHelperA.Prove (correctness),Passed,00:00:00.0138973,23349,0\nOps.TailInvariant (correctness),Passed,00:00:00.0131248,10998,0\nKernel.Clean (well-formedness),Passed,00:00:00.0129345,11289,0\nInvariant.First (well-formedness),Passed,00:00:00.0123775,12621,0\nClientA.Target (correctness),Passed,00:00:00.0117638,16237,0\nOps.Keep (correctness),Passed,00:00:00.0110288,17153,0\nOps.Base (correctness),Passed,00:00:00.0109687,14772,0\nOps.Keep (well-formedness),Passed,00:00:00.0103541,13589,0\nOps.Drop (well-formedness),Passed,00:00:00.0098918,13503,0\nOps.Boundary (correctness),Passed,00:00:00.0092927,10885,0\nOps.TailInvariant (well-formedness),Passed,00:00:00.0092481,9318,0\nOps.Boundary (well-formedness),Passed,00:00:00.0091292,9687,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_34_21-0.csv": "66344c6d54c9238093db6d7cea9934ae8d51cc16f02b59d00675aec8683b6351"
+  },
+  "attempts": 1,
+  "model_calls": 0
+}

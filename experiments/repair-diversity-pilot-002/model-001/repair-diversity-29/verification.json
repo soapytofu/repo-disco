@@ -1,0 +1,37 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 16 verified, 0 errors\nResults File: /tmp/repodisco-targets-7_ivljhe/TestResults/2026-11-15_00_19_34-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.2829279992729425,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "a48df4ccb4edc38b5944bb42e5dfb6e7734fd61826f7e3a91e80f753234b9994",
+    "ClientA.dfy": "52c6dd53120151f439d53526fb21d3a29534740e09461c351d39a26853db295a",
+    "ClientB.dfy": "02b0909392eefa54e0ad4f92201f489d9676dd58f6f3ca05212c3c00caa77879",
+    "Domains.dfy": "cb6d8cdab72346abcfdc81b871073beee32807c70616cebe2eaa147580ac2789",
+    "HelperA.dfy": "e3495ded52a4e57c282c7cf0e8cb521f62c9614918171676797febd6e3a55b21",
+    "HelperB.dfy": "dc90b7ce88d583a0a1619d7f1c3b290968aa1ca20a2aa3e8e2be868ebeebb9ae",
+    "Kernel.dfy": "f1517791bbb58adc4fd55b3ba53de83f0558f578ddb56de3c7517c9618581b09",
+    "Values.dfy": "dfb53ea1b483812b87860756fae997cfd9d15f861d31563ae97e4a32cf1b911c"
+  },
+  "csv": {
+    "TestResults/2026-11-15_00_19_34-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Override (well-formedness),Passed,00:00:00.0569152,12412,0\nHelperA.Prove (correctness),Passed,00:00:00.0332448,59851,0\nHelperB.Prove (correctness),Passed,00:00:00.0230434,59851,0\nValues.OverrideAt (correctness),Passed,00:00:00.0168066,17633,0\nClientB.Target (correctness),Passed,00:00:00.0167030,15560,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0160200,9696,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0147842,24427,0\nApi.ObserveOverride (correctness),Passed,00:00:00.0139468,27211,0\nApi.ObserveOverride (well-formedness),Passed,00:00:00.0113230,16683,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0111262,18526,0\nClientA.Target (correctness),Passed,00:00:00.0107841,15560,0\nApi.Equal (correctness),Passed,00:00:00.0104869,14713,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0104684,14897,0\nValues.RestrictAt (correctness),Passed,00:00:00.0104396,14947,0\nApi.Equal (well-formedness),Passed,00:00:00.0098891,11988,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0097808,12133,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_00_19_34-0.csv": "6a20bb16f45c16abef5a8a3bc0a6e61092dcfb998f40e4d2ee75eee66d20498b"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

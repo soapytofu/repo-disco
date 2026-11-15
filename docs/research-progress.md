@@ -1,38 +1,43 @@
 # Research progress and next milestone
 
-Status: November 14, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
 | Weeks 1–2 | Set up Formal Disco and Dafny; reproduce baseline generation/evaluation; finalize repository representation and variables | **Initial milestone complete:** setup, bounded 20-call baseline evaluation, and consolidated representation/variable protocol. Full paper reproduction remains a separate claim. |
 | Weeks 3–4 | Multi-module representation, repository-map/context infrastructure, whole-repository verification and repair; validate two-module repositories, begin scaling | **Initial milestone complete:** multi-module context/verification/repair validated; four live repository repairs and four verified new-client extensions across two seeds. Full-source context is fixed; broad/open-ended generation remains later work. |
-| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Remaining development and reserved-family evaluation are still unapproved. |
+| Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Additional fixed-interface repair instances and matched feedback evaluations are now validated (see latest checkpoint). Full generation-corpus completion, reserved-family evaluation and training remain open. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 14: sequence diagnosis complete; bounded research window started
+## November 15: fresh matched repair results published
 
-Four additional development repair instances now have [78/78 expected verifier
-controls](../experiments/repair-diversity-expansion-001/README.md): saturating
-arithmetic, compression fixed points, exact-gap witnesses, and overlapping map
-override. The common output guard and separately versioned extractor are tested.
-A balanced 32-call feedback/control batch is being frozen under the new aggregate
-approval. These controls establish fixture correctness and targeted failure
-mechanisms; they do not yet measure model repair performance or fill the reserved
-family evaluation gate.
+The [32-call repair study](../experiments/repair-diversity-pilot-002/RESULTS.md)
+completed with **27 strict successes: diagnostics 16/16, failure notice 11/16**.
+All outputs passed the prospective envelope/body guards. There were 32 unique
+requests, zero retries and 113,505 tokens. Arithmetic scored 5/8, exact-gap
+witnesses 6/8, compression and overlapping map override each 8/8. All five failures
+were mathematical proof failures in the notice-only arm; prior scores remain
+unchanged. Shared14/16 and separate13/16 are descriptive, with a forwarding/body
+count confound. Four constructed development instances do not establish a general
+feedback benefit, sharing effect or held-out performance.
 
-[The exact-fence diagnostic](../experiments/diverse-repair-extraction-diagnostic-001/RESULTS.md)
-verifies all eight saved sequence proofs unchanged (11 obligations each, no errors
-or warnings), using zero new model calls. The original primary score stays 16/24.
-This identifies an extraction bottleneck on these outputs, while the two admitted
-fault types remain ceiling cases in both feedback arms. A separately versioned
-prospective parser and more informative development instances are now being built.
+The new tasks had [78/78 expected controls](../experiments/repair-diversity-expansion-001/README.md)
+before dispatch. Review checked the exact request/response and code hashes,
+208 immutable files,48 protected body boundaries, named provider/helper/client
+verification and all27 accepted revisions. Full logs and the global-budget
+snapshot are published. The earlier saved-sequence diagnostic remains separate:
+8/8 exact proofs verified without new model calls; its original16/24 primary score
+is not retroactively changed.
 
-The user authorized a [24-hour research window](../experiments/research-window-20261114/README.md)
-with an aggregate ceiling of 128 new Claude requests and no retries. Zero new
-requests have been dispatched. The window-wide accounting library passed 20 fake
-transport tests locally and on Cannon; actual paid-runner integration and frozen
-batch review are still gates. Reserved families remain untouched.
+The active [24-hour research window](../experiments/research-window-20261114/README.md)
+has used **32/128 authorized new calls**, with no retries. The single compute
+process is idle between reviewed batches, with a fixed deadline and no persistent
+credential file. Remaining96 calls are a ceiling, not a target. Immediate nonpaid
+work tests sufficient analyst repairs separately and prepares exhaustive interval
+intersection/separation certificates. Reserved tree/transition families remain
+untouched. Weeks5–6 corpus diversity and controlled comparisons are progressing;
+this does not complete the reserved-family or training/evaluation milestones.
 
 ## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
 
