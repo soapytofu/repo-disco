@@ -11,8 +11,12 @@ The [two seed workspaces](fixtures-and-controls/) are constructed and their
 isolated verifier bundle is frozen. Ten offline checks pass both locally and in
 the manifest-only isolated package. Eight existing controls are linked by exact
 source and evidence hashes. The two fresh compute checks await Cannon
-reconnection. The method-output policy and scorer are still being validated;
-there is no model prompt freeze or scheduler submission yet.
+reconnection. The separate [method-output policy](protocol/README.md) passes
+15 offline tests, reconstructs 16 eligible workspaces byte-for-byte and rejects
+four old-header controls. The [named-unit scorer](measurement/README.md) passes
+15 tests, including isolated-bundle integration, and replays all 18 historical
+outcomes unchanged. [Parent review](offline-review-001.json) binds these exact
+bundles and logs. There is no model prompt freeze or scheduler submission yet.
 
 The host selects each task's required new internal API before generation. The
 new starting workspace keeps that contract but retains both old implementations.
@@ -38,7 +42,9 @@ verifier diagnostic block. Reference implementations, seeded-fault labels,
 counterexamples and analyst repair advice are excluded. The 16-slot order is
 counterbalanced: every four-slot block contains all four task/condition cells,
 and every cell has mean position 8.5. Responses use independent contexts, not
-paired random seeds. Exact prompts may be frozen only after the new source,
+paired random seeds. Each trial receives one initial feedback block and one
+response; there is no feedback after that repair or iterative agent loop.
+Exact prompts may be frozen only after the new source,
 policy and named-verification gates pass.
 
 Strict whole-workspace verification is primary. Local helper/client outcomes,

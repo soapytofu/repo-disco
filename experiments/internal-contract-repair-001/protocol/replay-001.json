@@ -1,0 +1,3487 @@
+{
+  "schema": "repodisco-method-policy-replays-v1",
+  "policy_id": "internal-contract-method-bodies-v1-development",
+  "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+  "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+  "admitted_workspace_count": 16,
+  "old_header_workspace_rejections": 4,
+  "model_requests": 0,
+  "new_dafny_runs": 0,
+  "checks": [
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "seed",
+      "source_path_from_experiments": "internal-contract-repair-001/fixtures-and-controls/fixtures/capped_endpoint_return_migration-dual_fault/seed",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+        "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "infix_syntax",
+                    "+",
+                    [
+                      "variable",
+                      "start"
+                    ],
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "start"
+                      ],
+                      [
+                        "variable",
+                        "length"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 21,
+            "statements": 3
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "assignment",
+                "result",
+                [
+                  "method_call",
+                  "H.Transfer",
+                  [
+                    [
+                      "variable",
+                      "start"
+                    ],
+                    [
+                      "variable",
+                      "length"
+                    ],
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 13,
+            "statements": 1
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "paired_repair",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/paired_repair",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+        "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+          "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "b8160163f4a32fd151dc53b3b078d0bdd7a05b652eb5b754d4d5cca5b7f4c7a5",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "length"
+                  ],
+                  [
+                    "infix_syntax",
+                    "-",
+                    [
+                      "variable",
+                      "cap"
+                    ],
+                    [
+                      "variable",
+                      "start"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "cap"
+                      ],
+                      [
+                        "variable",
+                        "start"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 21,
+            "statements": 3
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "9568316cae30a7ffcd0ab28175567451ca3953f5b7f9fa5daa6cff0b465fd051",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "start"
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ],
+                [
+                  [
+                    "local",
+                    "delta",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "start"
+                        ],
+                        [
+                          "variable",
+                          "length"
+                        ],
+                        [
+                          "variable",
+                          "cap"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "start"
+                      ],
+                      [
+                        "variable",
+                        "delta"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 33,
+            "statements": 4
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "alternative",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/alternative",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "189009590bf29883907229ca9b8cdeee23baf16613fc486e193f8e79569f3d63",
+        "Helper.dfy": "84f18795172a0e0163d65d17cd53bfe4a6f460b027dd76d90644b26d077b8baf",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "189009590bf29883907229ca9b8cdeee23baf16613fc486e193f8e79569f3d63",
+          "Helper.dfy": "84f18795172a0e0163d65d17cd53bfe4a6f460b027dd76d90644b26d077b8baf",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "084cb5e71d4fd4886e710f423c4b89700103bdafebf0c2cabd01a6bda52082a5",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "local",
+                "endpoint",
+                [
+                  "if_expression",
+                  [
+                    "infix_syntax",
+                    "<",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "start"
+                      ],
+                      [
+                        "variable",
+                        "length"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ],
+                  [
+                    "infix_syntax",
+                    "+",
+                    [
+                      "variable",
+                      "start"
+                    ],
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ]
+              ],
+              [
+                "assignment",
+                "r",
+                [
+                  "infix_syntax",
+                  "-",
+                  [
+                    "variable",
+                    "endpoint"
+                  ],
+                  [
+                    "variable",
+                    "start"
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 22,
+            "statements": 2
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "2beb063443b14945cc86140870771568eacd8d5f57652c2287590329f5697c30",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<",
+                  [
+                    "variable",
+                    "cap"
+                  ],
+                  [
+                    "variable",
+                    "start"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "local",
+                    "amount",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "start"
+                        ],
+                        [
+                          "variable",
+                          "length"
+                        ],
+                        [
+                          "variable",
+                          "cap"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "amount"
+                      ],
+                      [
+                        "variable",
+                        "start"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 33,
+            "statements": 4
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "helper_only",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/helper_only",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+        "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "b8160163f4a32fd151dc53b3b078d0bdd7a05b652eb5b754d4d5cca5b7f4c7a5",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "length"
+                  ],
+                  [
+                    "infix_syntax",
+                    "-",
+                    [
+                      "variable",
+                      "cap"
+                    ],
+                    [
+                      "variable",
+                      "start"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "cap"
+                      ],
+                      [
+                        "variable",
+                        "start"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 21,
+            "statements": 3
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "assignment",
+                "result",
+                [
+                  "method_call",
+                  "H.Transfer",
+                  [
+                    [
+                      "variable",
+                      "start"
+                    ],
+                    [
+                      "variable",
+                      "length"
+                    ],
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 13,
+            "statements": 1
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "contract_only",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/contract_only",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+        "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "infix_syntax",
+                    "+",
+                    [
+                      "variable",
+                      "start"
+                    ],
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "start"
+                      ],
+                      [
+                        "variable",
+                        "length"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 21,
+            "statements": 3
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "9568316cae30a7ffcd0ab28175567451ca3953f5b7f9fa5daa6cff0b465fd051",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "start"
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ],
+                [
+                  [
+                    "local",
+                    "delta",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "start"
+                        ],
+                        [
+                          "variable",
+                          "length"
+                        ],
+                        [
+                          "variable",
+                          "cap"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "start"
+                      ],
+                      [
+                        "variable",
+                        "delta"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 33,
+            "statements": 4
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "unguarded_call",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/unguarded_call",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "23ad3f0a5c0a7d1c16890437c99319672d70b96aaee9cb82f510f3c750e123ab",
+        "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "23ad3f0a5c0a7d1c16890437c99319672d70b96aaee9cb82f510f3c750e123ab",
+          "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "b8160163f4a32fd151dc53b3b078d0bdd7a05b652eb5b754d4d5cca5b7f4c7a5",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "length"
+                  ],
+                  [
+                    "infix_syntax",
+                    "-",
+                    [
+                      "variable",
+                      "cap"
+                    ],
+                    [
+                      "variable",
+                      "start"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "cap"
+                      ],
+                      [
+                        "variable",
+                        "start"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 21,
+            "statements": 3
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "7d627f314e275ae1563783d894e3b9e58af82c4e7995d1925d9d428987aacbe8",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "local",
+                "delta",
+                [
+                  "method_call",
+                  "H.Transfer",
+                  [
+                    [
+                      "variable",
+                      "start"
+                    ],
+                    [
+                      "variable",
+                      "length"
+                    ],
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assignment",
+                "result",
+                [
+                  "infix_syntax",
+                  "+",
+                  [
+                    "variable",
+                    "start"
+                  ],
+                  [
+                    "variable",
+                    "delta"
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 20,
+            "statements": 2
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "lost_result_transform",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/lost_result_transform",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "dee9524adb5d3502efcc3f785f8024ae0339a5e994590dd79144f6a630db75e6",
+        "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "dee9524adb5d3502efcc3f785f8024ae0339a5e994590dd79144f6a630db75e6",
+          "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "b8160163f4a32fd151dc53b3b078d0bdd7a05b652eb5b754d4d5cca5b7f4c7a5",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "length"
+                  ],
+                  [
+                    "infix_syntax",
+                    "-",
+                    [
+                      "variable",
+                      "cap"
+                    ],
+                    [
+                      "variable",
+                      "start"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "variable",
+                      "length"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "r",
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "cap"
+                      ],
+                      [
+                        "variable",
+                        "start"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 21,
+            "statements": 3
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "d76b76539fc90101011f4162e96155f10b02206ffb50d69549ec6e0b1e206b44",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "start"
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ],
+                [
+                  [
+                    "local",
+                    "delta",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "start"
+                        ],
+                        [
+                          "variable",
+                          "length"
+                        ],
+                        [
+                          "variable",
+                          "cap"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "variable",
+                      "delta"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 31,
+            "statements": 4
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "wrong_helper_implementation",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/wrong_helper_implementation",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+        "Helper.dfy": "cc6bbd56a268d43316df1948449bb065e886f2ca946f89d53eb41fd31653527b",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "capped_endpoint_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+          "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+          "Helper.dfy": "cc6bbd56a268d43316df1948449bb065e886f2ca946f89d53eb41fd31653527b",
+          "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 265,
+              "end": 358,
+              "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c",
+              "prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+              "body_sha256": "2ee1159efe6e9f46f316da32786bfdd2552f2f28ba116ceae583348cb3434f7a",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "1ace1389ff5a0e4b1a01f5baa3bfd438ff5abac369ee4b02d2eb98d809053da5",
+            "rules_sha256": "1fa519116974247d5c59852fe41975d75d38ec0b7408139a0d10e641c5429c44",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "variable",
+                  "length"
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 4,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 251,
+              "end": 295,
+              "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600",
+              "prefix_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+              "body_sha256": "8df7e226ac606b461a9164050ad05e081e37d7043ee18021d7e10396306e595d",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "9568316cae30a7ffcd0ab28175567451ca3953f5b7f9fa5daa6cff0b465fd051",
+            "rules_sha256": "42aa3adcbfe51bc3b9de68e8d21718c3c64c2d8b67d880dcb25f1d9833a68628",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "<=",
+                  [
+                    "variable",
+                    "start"
+                  ],
+                  [
+                    "variable",
+                    "cap"
+                  ]
+                ],
+                [
+                  [
+                    "local",
+                    "delta",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "start"
+                        ],
+                        [
+                          "variable",
+                          "length"
+                        ],
+                        [
+                          "variable",
+                          "cap"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "start"
+                      ],
+                      [
+                        "variable",
+                        "delta"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "result",
+                    [
+                      "variable",
+                      "cap"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 33,
+            "statements": 4
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "seed",
+      "source_path_from_experiments": "internal-contract-repair-001/fixtures-and-controls/fixtures/extracted_entry_return_migration-dual_fault/seed",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+        "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "pure",
+                  "K.Erase",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {
+                "K.Erase": 1
+              }
+            },
+            "tokens": 11,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "assignment",
+                "remaining",
+                [
+                  "method_call",
+                  "H.Transfer",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assignment",
+                "removed",
+                [
+                  "pure",
+                  "K.Entry",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Entry": 1
+              }
+            },
+            "tokens": 22,
+            "statements": 2
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "paired_repair",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/paired_repair",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+          "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "f7824334b67198113372e9e59506f27f11d39f6f04187cf8894d85e8f449d510",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "map_display",
+                  [
+                    [
+                      [
+                        "variable",
+                        "key"
+                      ],
+                      [
+                        "index",
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 12,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "38cd42446e5d9f16dc3b329a828ca0b2a5a8ef830549a62071c18b7e940629c0",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "in",
+                  [
+                    "variable",
+                    "key"
+                  ],
+                  [
+                    "variable",
+                    "m"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "pure",
+                      "K.Exclude",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "removed"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "removed"
+                      ],
+                      [
+                        "pure",
+                        "K.Entry",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "keys",
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "keys",
+                        [
+                          "pure",
+                          "K.Erase",
+                          [
+                            [
+                              "variable",
+                              "m"
+                            ],
+                            [
+                              "variable",
+                              "key"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "forall_expression",
+                      "x",
+                      [
+                        "infix_syntax",
+                        "in",
+                        [
+                          "variable",
+                          "x"
+                        ],
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "remaining"
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "pure",
+                            "K.Erase",
+                            [
+                              [
+                                "variable",
+                                "m"
+                              ],
+                              [
+                                "variable",
+                                "key"
+                              ]
+                            ]
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "remaining"
+                      ],
+                      [
+                        "pure",
+                        "K.Erase",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "variable",
+                      "m"
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "map_display",
+                      []
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Entry": 1,
+                "K.Erase": 3,
+                "K.Exclude": 1
+              }
+            },
+            "tokens": 106,
+            "statements": 9
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "alternative",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/alternative",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "022df9ca68293daf8bc8bccb60db7712e692a136cee11789939f652dbd6a3c36",
+        "Helper.dfy": "9c71c2bfd0b040dda863845b90c34cba009332236bb64ac7a6c4734fa24d5d89",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "022df9ca68293daf8bc8bccb60db7712e692a136cee11789939f652dbd6a3c36",
+          "Helper.dfy": "9c71c2bfd0b040dda863845b90c34cba009332236bb64ac7a6c4734fa24d5d89",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "320ea9aff17fcc1536960085d72df456567dad4d273dbde1dc550f42208a96e9",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "map_comprehension",
+                  "x",
+                  [
+                    "infix_syntax",
+                    "&&",
+                    [
+                      "infix_syntax",
+                      "in",
+                      [
+                        "variable",
+                        "x"
+                      ],
+                      [
+                        "variable",
+                        "m"
+                      ]
+                    ],
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "x"
+                      ],
+                      [
+                        "variable",
+                        "key"
+                      ]
+                    ]
+                  ],
+                  [
+                    "index",
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "x"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 18,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "108a66bf799cc964df0c0475310c5bb6a9a5fa0c7246482cfb9dbf2a8ddd22e6",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "!in",
+                  [
+                    "variable",
+                    "key"
+                  ],
+                  [
+                    "variable",
+                    "m"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "map_display",
+                      []
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "variable",
+                      "m"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "local",
+                    "patch",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "local",
+                    "keep",
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "keys",
+                        [
+                          "variable",
+                          "m"
+                        ]
+                      ],
+                      [
+                        "keys",
+                        [
+                          "variable",
+                          "patch"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "map_comprehension",
+                      "x",
+                      [
+                        "infix_syntax",
+                        "in",
+                        [
+                          "variable",
+                          "x"
+                        ],
+                        [
+                          "variable",
+                          "keep"
+                        ]
+                      ],
+                      [
+                        "index",
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "x"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "variable",
+                      "patch"
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "keys",
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "keys",
+                        [
+                          "pure",
+                          "K.Erase",
+                          [
+                            [
+                              "variable",
+                              "m"
+                            ],
+                            [
+                              "variable",
+                              "key"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "forall_expression",
+                      "x",
+                      [
+                        "infix_syntax",
+                        "in",
+                        [
+                          "variable",
+                          "x"
+                        ],
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "remaining"
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "pure",
+                            "K.Erase",
+                            [
+                              [
+                                "variable",
+                                "m"
+                              ],
+                              [
+                                "variable",
+                                "key"
+                              ]
+                            ]
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "remaining"
+                      ],
+                      [
+                        "pure",
+                        "K.Erase",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Erase": 3
+              }
+            },
+            "tokens": 113,
+            "statements": 10
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "helper_only",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/helper_only",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "f7824334b67198113372e9e59506f27f11d39f6f04187cf8894d85e8f449d510",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "map_display",
+                  [
+                    [
+                      [
+                        "variable",
+                        "key"
+                      ],
+                      [
+                        "index",
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 12,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "assignment",
+                "remaining",
+                [
+                  "method_call",
+                  "H.Transfer",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assignment",
+                "removed",
+                [
+                  "pure",
+                  "K.Entry",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Entry": 1
+              }
+            },
+            "tokens": 22,
+            "statements": 2
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "contract_only",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/contract_only",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "pure",
+                  "K.Erase",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {
+                "K.Erase": 1
+              }
+            },
+            "tokens": 11,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "38cd42446e5d9f16dc3b329a828ca0b2a5a8ef830549a62071c18b7e940629c0",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "in",
+                  [
+                    "variable",
+                    "key"
+                  ],
+                  [
+                    "variable",
+                    "m"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "pure",
+                      "K.Exclude",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "removed"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "removed"
+                      ],
+                      [
+                        "pure",
+                        "K.Entry",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "keys",
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "keys",
+                        [
+                          "pure",
+                          "K.Erase",
+                          [
+                            [
+                              "variable",
+                              "m"
+                            ],
+                            [
+                              "variable",
+                              "key"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "forall_expression",
+                      "x",
+                      [
+                        "infix_syntax",
+                        "in",
+                        [
+                          "variable",
+                          "x"
+                        ],
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "remaining"
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "pure",
+                            "K.Erase",
+                            [
+                              [
+                                "variable",
+                                "m"
+                              ],
+                              [
+                                "variable",
+                                "key"
+                              ]
+                            ]
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "remaining"
+                      ],
+                      [
+                        "pure",
+                        "K.Erase",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "variable",
+                      "m"
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "map_display",
+                      []
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Entry": 1,
+                "K.Erase": 3,
+                "K.Exclude": 1
+              }
+            },
+            "tokens": 106,
+            "statements": 9
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "unguarded_call",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/unguarded_call",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "b26323afa3523661b8e3a8cf6ae68f1f81e2ba826b276b47b43ba2457c1087e1",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "b26323afa3523661b8e3a8cf6ae68f1f81e2ba826b276b47b43ba2457c1087e1",
+          "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "f7824334b67198113372e9e59506f27f11d39f6f04187cf8894d85e8f449d510",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "map_display",
+                  [
+                    [
+                      [
+                        "variable",
+                        "key"
+                      ],
+                      [
+                        "index",
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 12,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "ae0808441fb9571cba74ee9c8b36542e182db2fff512729e2ce1854bd7e590c0",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "assignment",
+                "removed",
+                [
+                  "method_call",
+                  "H.Transfer",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "key"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assignment",
+                "remaining",
+                [
+                  "pure",
+                  "K.Exclude",
+                  [
+                    [
+                      "variable",
+                      "m"
+                    ],
+                    [
+                      "variable",
+                      "removed"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assert",
+                [
+                  "infix_syntax",
+                  "==",
+                  [
+                    "keys",
+                    [
+                      "variable",
+                      "remaining"
+                    ]
+                  ],
+                  [
+                    "keys",
+                    [
+                      "pure",
+                      "K.Erase",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assert",
+                [
+                  "forall_expression",
+                  "x",
+                  [
+                    "infix_syntax",
+                    "in",
+                    [
+                      "variable",
+                      "x"
+                    ],
+                    [
+                      "variable",
+                      "remaining"
+                    ]
+                  ],
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "index",
+                      [
+                        "variable",
+                        "remaining"
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ],
+                    [
+                      "index",
+                      [
+                        "pure",
+                        "K.Erase",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ],
+                      [
+                        "variable",
+                        "x"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "assert",
+                [
+                  "infix_syntax",
+                  "==",
+                  [
+                    "variable",
+                    "remaining"
+                  ],
+                  [
+                    "pure",
+                    "K.Erase",
+                    [
+                      [
+                        "variable",
+                        "m"
+                      ],
+                      [
+                        "variable",
+                        "key"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Erase": 3,
+                "K.Exclude": 1
+              }
+            },
+            "tokens": 75,
+            "statements": 5
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "lost_result_transform",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/lost_result_transform",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "9c41e9bf8b92adc66eddf6888d8d239fcc7ebb6f126e875f0a14f2395713198e",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "9c41e9bf8b92adc66eddf6888d8d239fcc7ebb6f126e875f0a14f2395713198e",
+          "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "f7824334b67198113372e9e59506f27f11d39f6f04187cf8894d85e8f449d510",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "map_display",
+                  [
+                    [
+                      [
+                        "variable",
+                        "key"
+                      ],
+                      [
+                        "index",
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 12,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "eb952a1f8997c0ab9a36d4d35d0ac512bd811a8fa5a278aa00e29c4cf1d2be56",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "in",
+                  [
+                    "variable",
+                    "key"
+                  ],
+                  [
+                    "variable",
+                    "m"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "variable",
+                      "removed"
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "variable",
+                      "m"
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "map_display",
+                      []
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {}
+            },
+            "tokens": 34,
+            "statements": 5
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "wrong_helper_implementation",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/wrong_helper_implementation",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "887e01cd59da110932c9f0df39aaced80f8eb52ec32d196082888444d09db4ba",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "exact_reconstruction": true,
+      "receipt": {
+        "version": "internal-contract-method-bodies-v1-development",
+        "policy_id": "internal-contract-method-bodies-v1-development",
+        "registry_sha256": "baab39cddd7b46ac4c641abd6c06475c221485ce4c5e88281eb3bab35fba8883",
+        "policy_code_sha256": "8a1a85f3150dbba141a6efe9035ad2f5f21a55db166b990407d909200e3b1889",
+        "typed_dependency_sha256": "c1a235b61fad50606a4cc0c54ac315cc7badb296b2a90a11ab7bddb185b73460",
+        "syntax_dependency_sha256": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+        "task_id": "extracted_entry_return_migration-dual_fault",
+        "parent_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+          "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "candidate_sha256": {
+          "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+          "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+          "Helper.dfy": "887e01cd59da110932c9f0df39aaced80f8eb52ec32d196082888444d09db4ba",
+          "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+        },
+        "bodies": {
+          "Helper.dfy": {
+            "template_boundary": {
+              "start": 214,
+              "end": 239,
+              "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+              "prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+              "body_sha256": "32c3eb333aba3cff1fc1c0c1a260306015124062969d4413d273472245363ca9",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "d9bac28f4ac1b7aad3733b2328f97560bdaa660321feec382d5be48e53d91513",
+            "rules_sha256": "7fb12d3e5ce9ad8f9f95c93fac4ea1c513df32d36cf8439def836694409ff151",
+            "syntax": [
+              [
+                "assignment",
+                "r",
+                [
+                  "map_display",
+                  [
+                    [
+                      [
+                        "variable",
+                        "key"
+                      ],
+                      [
+                        "integer",
+                        "0"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {},
+              "pure": {}
+            },
+            "tokens": 9,
+            "statements": 1
+          },
+          "Client.dfy": {
+            "template_boundary": {
+              "start": 280,
+              "end": 347,
+              "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+              "prefix_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+              "body_sha256": "33b1468c3e45cc1a9b20f5243c4ab849a4fc34ac4a31476d7077625546923510",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a"
+            },
+            "body_sha256": "38cd42446e5d9f16dc3b329a828ca0b2a5a8ef830549a62071c18b7e940629c0",
+            "rules_sha256": "d8a11bd43950f5a15f06a6aa32938ebad81f8d2d3d852e6b78362b631cceea76",
+            "syntax": [
+              [
+                "if_statement",
+                [
+                  "infix_syntax",
+                  "in",
+                  [
+                    "variable",
+                    "key"
+                  ],
+                  [
+                    "variable",
+                    "m"
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "method_call",
+                      "H.Transfer",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "key"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "pure",
+                      "K.Exclude",
+                      [
+                        [
+                          "variable",
+                          "m"
+                        ],
+                        [
+                          "variable",
+                          "removed"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "removed"
+                      ],
+                      [
+                        "pure",
+                        "K.Entry",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "keys",
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "keys",
+                        [
+                          "pure",
+                          "K.Erase",
+                          [
+                            [
+                              "variable",
+                              "m"
+                            ],
+                            [
+                              "variable",
+                              "key"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "forall_expression",
+                      "x",
+                      [
+                        "infix_syntax",
+                        "in",
+                        [
+                          "variable",
+                          "x"
+                        ],
+                        [
+                          "variable",
+                          "remaining"
+                        ]
+                      ],
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "remaining"
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "pure",
+                            "K.Erase",
+                            [
+                              [
+                                "variable",
+                                "m"
+                              ],
+                              [
+                                "variable",
+                                "key"
+                              ]
+                            ]
+                          ],
+                          [
+                            "variable",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "assert",
+                    [
+                      "infix_syntax",
+                      "==",
+                      [
+                        "variable",
+                        "remaining"
+                      ],
+                      [
+                        "pure",
+                        "K.Erase",
+                        [
+                          [
+                            "variable",
+                            "m"
+                          ],
+                          [
+                            "variable",
+                            "key"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    "assignment",
+                    "remaining",
+                    [
+                      "variable",
+                      "m"
+                    ]
+                  ],
+                  [
+                    "assignment",
+                    "removed",
+                    [
+                      "map_display",
+                      []
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            "call_inventory": {
+              "method": {
+                "H.Transfer": 1
+              },
+              "pure": {
+                "K.Entry": 1,
+                "K.Erase": 3,
+                "K.Exclude": 1
+              }
+            },
+            "tokens": 106,
+            "statements": 9
+          }
+        },
+        "call_inventory_is_syntactic": true,
+        "helper_call_required": false,
+        "semantic_verification_performed": false
+      },
+      "new_verifier_observation": false
+    }
+  ],
+  "scope_rejections": [
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "reference",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/reference",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+        "Helper.dfy": "773a420dd9d4b530f11246005bf46f48af969ecbb3ef450a33fedb381af189a2",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "rejected_reason": "Source is not eligible for the fixed new method header"
+    },
+    {
+      "task_id": "capped_endpoint_return_migration-dual_fault",
+      "variant": "caller_only",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/capped_endpoint_return_migration/caller_only",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "0c215522bb4de6514e360305f444a0653c4b540f5b93ebd901b4be639f8959b6",
+        "Helper.dfy": "773a420dd9d4b530f11246005bf46f48af969ecbb3ef450a33fedb381af189a2",
+        "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+      },
+      "rejected_reason": "Source is not eligible for the fixed new method header"
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "reference",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/reference",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+        "Helper.dfy": "bd530ec1c8eb42a4e1992676c3af54eb3b9bc6f9e30319e8b24f199a26acbaba",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "rejected_reason": "Source is not eligible for the fixed new method header"
+    },
+    {
+      "task_id": "extracted_entry_return_migration-dual_fault",
+      "variant": "caller_only",
+      "source_path_from_experiments": "internal-contract-propagation-001/fixtures/extracted_entry_return_migration/caller_only",
+      "source_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "bd530ec1c8eb42a4e1992676c3af54eb3b9bc6f9e30319e8b24f199a26acbaba",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "rejected_reason": "Source is not eligible for the fixed new method header"
+    }
+  ]
+}

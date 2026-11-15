@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Client.dfy(10,25): Error: a precondition for this call could not be proved\n   |\n10 |     removed := H.Transfer(m,key);\n   |                          ^\n\nHelper.dfy(5,17): Related location: this is the precondition that could not be proved\n  |\n5 |     requires key in m\n  |                  ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-hvsjvyiz/TestResults/2026-11-15_02_07_02-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "Q2xpZW50LmRmeSgxMCwyNSk6IEVycm9yOiBhIHByZWNvbmRpdGlvbiBmb3IgdGhpcyBjYWxsIGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxMCB8ICAgICByZW1vdmVkIDo9IEguVHJhbnNmZXIobSxrZXkpOwogICB8ICAgICAgICAgICAgICAgICAgICAgICAgICBeCgpIZWxwZXIuZGZ5KDUsMTcpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwcmVjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgfAo1IHwgICAgIHJlcXVpcmVzIGtleSBpbiBtCiAgfCAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDQgdmVyaWZpZWQsIDEgZXJyb3IKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci1odnNqdnlpei9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAyXzA3XzAyLTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "f1f013787f367e2522ceee775de513e6ee388926e07b67ad686150c59345ca0d",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_02_07_02-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Erase (well-formedness),Passed,00:00:00.0559746,9731,0\nClient.Target (correctness),Failed,00:00:00.0416570,47929,0\nHelper.Transfer (correctness),Passed,00:00:00.0196189,26218,0\nKernel.Entry (well-formedness),Passed,00:00:00.0146866,9713,0\nKernel.Exclude (well-formedness),Passed,00:00:00.0087550,9724,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_02_07_02-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApLZXJuZWwuRXJhc2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1NTk3NDYsOTczMSwwCkNsaWVudC5UYXJnZXQgKGNvcnJlY3RuZXNzKSxGYWlsZWQsMDA6MDA6MDAuMDQxNjU3MCw0NzkyOSwwCkhlbHBlci5UcmFuc2ZlciAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTk2MTg5LDI2MjE4LDAKS2VybmVsLkVudHJ5ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTQ2ODY2LDk3MTMsMApLZXJuZWwuRXhjbHVkZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA4NzU1MCw5NzI0LDAK"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_02_07_02-0.csv": "3af93abad822da332e9cefa31f57abadbf0368e87198cbbc6cb2c648ce6ced98"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "b26323afa3523661b8e3a8cf6ae68f1f81e2ba826b276b47b43ba2457c1087e1",
+    "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+    "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+  },
+  "elapsed_seconds": 1.6033464139327407,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "extracted_entry_return_migration-unguarded_call",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        4,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Helper.dfy(8,2): Error: a postcondition could not be proved on this return path\n  |\n8 |   {\n  |   ^\n\nHelper.dfy(6,14): Related location: this is the postcondition that could not be proved\n  |\n6 |     ensures r == K.Entry(m,key)\n  |               ^^\n\n\nDafny program verifier finished with 4 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-3uiofqkk/TestResults/2026-11-15_02_07_06-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyLmRmeSg4LDIpOiBFcnJvcjogYSBwb3N0Y29uZGl0aW9uIGNvdWxkIG5vdCBiZSBwcm92ZWQgb24gdGhpcyByZXR1cm4gcGF0aAogIHwKOCB8ICAgewogIHwgICBeCgpIZWxwZXIuZGZ5KDYsMTQpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKNiB8ICAgICBlbnN1cmVzIHIgPT0gSy5FbnRyeShtLGtleSkKICB8ICAgICAgICAgICAgICAgXl4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggNCB2ZXJpZmllZCwgMSBlcnJvcgpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLTN1aW9mcWtrL1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTVfMDJfMDdfMDYtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "57225d7e39078899b85e8c32366af84ffc8ac084d5a31d546705a051da05f3ba",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_02_07_06-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Erase (well-formedness),Passed,00:00:00.0555478,9731,0\nHelper.Transfer (correctness),Failed,00:00:00.0399835,25984,0\nClient.Target (correctness),Passed,00:00:00.0199415,47065,0\nKernel.Entry (well-formedness),Passed,00:00:00.0110569,9713,0\nKernel.Exclude (well-formedness),Passed,00:00:00.0088004,9724,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_02_07_06-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApLZXJuZWwuRXJhc2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1NTU0NzgsOTczMSwwCkhlbHBlci5UcmFuc2ZlciAoY29ycmVjdG5lc3MpLEZhaWxlZCwwMDowMDowMC4wMzk5ODM1LDI1OTg0LDAKQ2xpZW50LlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTk5NDE1LDQ3MDY1LDAKS2VybmVsLkVudHJ5ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTEwNTY5LDk3MTMsMApLZXJuZWwuRXhjbHVkZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA4ODAwNCw5NzI0LDAK"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_02_07_06-0.csv": "e70afeafd0acea0a5de1f3c44de74b2331b2a0cdc9bdd3ea8990a023422affdf"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+    "Helper.dfy": "887e01cd59da110932c9f0df39aaced80f8eb52ec32d196082888444d09db4ba",
+    "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+  },
+  "elapsed_seconds": 1.6005797889083624,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "extracted_entry_return_migration-wrong_helper_implementation",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        4,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

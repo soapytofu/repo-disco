@@ -12,6 +12,14 @@ Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 15: actual caller failures under internal API changes
 
+The prospective [fixed-target repair study](../experiments/internal-contract-repair-001/README.md)
+now has two constructed starting workspaces, ten construction tests and separate
+method-body policy/scorer bundles with 15 passing tests each. These keep both
+the public and required new internal contracts fixed. The two fresh seed checks
+await Cannon reconnection; 18 historical observations were replayed offline,
+not rerun or rescored. The 16-call design is a one-response feedback comparison,
+with no exact prompts frozen, execution authorization or new model results.
+
 The [internal API migration study](../experiments/internal-contract-propagation-001/RESULTS.md)
 has 18/18 expected verifier outcomes: six strict successes and twelve proof
 failures across arithmetic and map migrations. In each task, the helper-only and

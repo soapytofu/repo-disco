@@ -1,0 +1,64 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "Client.dfy(10,27): Error: a precondition for this call could not be proved\n   |\n10 |     var delta := H.Transfer(start,length,cap);\n   |                            ^\n\nHelper.dfy(6,19): Related location: this is the precondition that could not be proved\n  |\n6 |     requires start <= cap\n  |                    ^^\n\n\nDafny program verifier finished with 1 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-vaucgiho/TestResults/2026-11-15_02_06_52-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "Q2xpZW50LmRmeSgxMCwyNyk6IEVycm9yOiBhIHByZWNvbmRpdGlvbiBmb3IgdGhpcyBjYWxsIGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxMCB8ICAgICB2YXIgZGVsdGEgOj0gSC5UcmFuc2ZlcihzdGFydCxsZW5ndGgsY2FwKTsKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICBeCgpIZWxwZXIuZGZ5KDYsMTkpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwcmVjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgfAo2IHwgICAgIHJlcXVpcmVzIHN0YXJ0IDw9IGNhcAogIHwgICAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDEgdmVyaWZpZWQsIDEgZXJyb3IKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci12YXVjZ2loby9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAyXzA2XzUyLTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "753f0c01b1df4a6d7efc76e7cf1670d2b5e168d6c630a7c26fc5eca86640d186",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_02_06_52-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelper.Transfer (correctness),Passed,00:00:00.0532633,5399,0\nClient.Target (correctness),Failed,00:00:00.0314826,5881,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_02_06_52-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXIuVHJhbnNmZXIgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDUzMjYzMyw1Mzk5LDAKQ2xpZW50LlRhcmdldCAoY29ycmVjdG5lc3MpLEZhaWxlZCwwMDowMDowMC4wMzE0ODI2LDU4ODEsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_02_06_52-0.csv": "3202cc6ee51f69548820b6f48a0b563cf0163b8368b9b7aa70f0a4624d98289f"
+  },
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "23ad3f0a5c0a7d1c16890437c99319672d70b96aaee9cb82f510f3c750e123ab",
+    "Helper.dfy": "dd5b8cd832ee76e2ecb9910e42786f4c29703d01caa52035e45347e55d9f1041",
+    "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+  },
+  "elapsed_seconds": 1.4292165921069682,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "capped_endpoint_return_migration-unguarded_call",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        1,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

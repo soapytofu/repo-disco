@@ -1,5 +1,15 @@
 # Experiment log
 
+## Fixed-target migration repair — offline preparation complete
+
+[internal-contract-repair-001](internal-contract-repair-001/README.md) prepares
+two seeds with old helper/caller bodies under a required new helper API. Ten
+construction tests and 15 tests each for the separate body policy and scorer
+pass. Exact saved-control replays preserve earlier outcomes. Two fresh compute
+checks await Cannon reconnection; no job or model calls have been submitted.
+The proposed 16-call comparison uses one response per trial with diagnostics
+or a failure notice. Prompts and paid scope are not frozen or authorized.
+
 ## Internal API changes — verified helper, failing caller
 
 [internal-contract-propagation-001](internal-contract-propagation-001/RESULTS.md)

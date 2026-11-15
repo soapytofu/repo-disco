@@ -90,8 +90,12 @@ is now underway. Two new seeds retain both old bodies under the required new
 helper contract. Ten offline checks pass locally and in an isolated package;
 eight controls reuse exact prior evidence. The two fresh seed checks await
 Cannon reconnection; no job has been submitted. A separate method-body policy
-and named-unit scorer are being validated. The proposed 16-call design is
-unfrozen and has no execution authorization. One reconnect question is pending
+and named-unit scorer each pass 15 offline tests, including isolated integration.
+The policy reconstructs 16 eligible workspaces and rejects four old headers;
+the scorer replays all 18 historical observations without new verification or
+rescoring. Their exact bundles and logs have been reviewed. The proposed
+16-call, single-response design is unfrozen and has no execution authorization.
+One reconnect question is pending
 for socket 18, with no Bedrock key needed; the closed paid ledger remains intact.
 
 Root owns SSH, submission and Git publication; agents have disjoint local scopes.
