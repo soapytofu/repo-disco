@@ -88,15 +88,18 @@ and a defensible family split remain research gates before general claims.
 Following the next-steps discussion, [fixed-target migration repair preparation](../internal-contract-repair-001/README.md)
 is now underway. Two new seeds retain both old bodies under the required new
 helper contract. Ten offline checks pass locally and in an isolated package;
-eight controls reuse exact prior evidence. The two fresh seed checks await
-Cannon reconnection; no job has been submitted. A separate method-body policy
+eight controls reuse exact prior evidence. The user reconnected socket18 and
+verifier-only job60865223 completed in30 seconds on nonpreemptible test. Both
+fresh seeds have actual helper and caller correctness failures; all required
+map providers pass, with zero warnings or frontend errors. Full126-file transfer
+and source-bound review are saved. A separate method-body policy
 and named-unit scorer each pass 15 offline tests, including isolated integration.
 The policy reconstructs 16 eligible workspaces and rejects four old headers;
 the scorer replays all 18 historical observations without new verification or
 rescoring. Their exact bundles and logs have been reviewed. The proposed
-16-call, single-response design is unfrozen and has no execution authorization.
-One reconnect question is pending
-for socket 18, with no Bedrock key needed; the closed paid ledger remains intact.
+16-call, single-response design has no execution authorization. Four exact
+payloads are being prepared following the verified seed gate. No authentication
+blocker or active job remains; the closed paid ledger remains intact.
 
 Root owns SSH, submission and Git publication; agents have disjoint local scopes.
 Dafny runs only on compute nodes, with live nonpreemptible partition checks, no

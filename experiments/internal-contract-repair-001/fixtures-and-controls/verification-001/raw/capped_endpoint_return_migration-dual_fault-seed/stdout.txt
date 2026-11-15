@@ -1,0 +1,53 @@
+Helper.dfy(9,2): Error: a postcondition could not be proved on this return path
+  |
+9 |   {
+  |   ^
+
+Helper.dfy(7,14): Related location: this is the postcondition that could not be proved
+  |
+7 |     ensures 0 <= r <= length
+  |               ^^
+
+Helper.dfy(9,2): Error: a postcondition could not be proved on this return path
+  |
+9 |   {
+  |   ^
+
+Helper.dfy(7,19): Related location: this is the postcondition that could not be proved
+  |
+7 |     ensures 0 <= r <= length
+  |                    ^^
+
+Helper.dfy(9,2): Error: a postcondition could not be proved on this return path
+  |
+9 |   {
+  |   ^
+
+Helper.dfy(8,22): Related location: this is the postcondition that could not be proved
+  |
+8 |     ensures start + r == K.Endpoint(start,length,cap)
+  |                       ^^
+
+Client.dfy(9,2): Error: a postcondition could not be proved on this return path
+  |
+9 |   {
+  |   ^
+
+Client.dfy(8,19): Related location: this is the postcondition that could not be proved
+  |
+8 |     ensures result == K.Endpoint(start,length,cap)
+  |                    ^^
+
+Client.dfy(10,24): Error: a precondition for this call could not be proved
+   |
+10 |     result := H.Transfer(start,length,cap);
+   |                         ^
+
+Helper.dfy(6,19): Related location: this is the precondition that could not be proved
+  |
+6 |     requires start <= cap
+  |                    ^^
+
+
+Dafny program verifier finished with 0 verified, 5 errors
+Results File: /tmp/repodisco-repair-adapter-gcun2xwx/TestResults/2026-11-15_14_38_35-0.csv

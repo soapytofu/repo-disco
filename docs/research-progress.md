@@ -15,10 +15,12 @@ Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 The prospective [fixed-target repair study](../experiments/internal-contract-repair-001/README.md)
 now has two constructed starting workspaces, ten construction tests and separate
 method-body policy/scorer bundles with 15 passing tests each. These keep both
-the public and required new internal contracts fixed. The two fresh seed checks
-await Cannon reconnection; 18 historical observations were replayed offline,
-not rerun or rescored. The 16-call design is a one-response feedback comparison,
-with no exact prompts frozen, execution authorization or new model results.
+the public and required new internal contracts fixed. Job60865223 confirms actual
+helper and caller correctness failures in both fresh seeds, with no warnings or
+frontend failures. Its full raw evidence is saved; eight one-sided/paired controls
+reuse earlier observations. The 16-call design is a one-response feedback
+comparison. Four payloads are being prepared, with no paid authorization or
+new model results.
 
 The [internal API migration study](../experiments/internal-contract-propagation-001/RESULTS.md)
 has 18/18 expected verifier outcomes: six strict successes and twelve proof

@@ -1,0 +1,425 @@
+[
+  {
+    "task_id": "capped_endpoint_return_migration-dual_fault",
+    "semantic_instance": "capped_endpoint_return_migration",
+    "family": "conditional_arithmetic_development",
+    "development_only": true,
+    "held_out": false,
+    "reserved_families_used": false,
+    "parent_task_id": "capped_endpoint_return_migration",
+    "parent_study": "experiments/internal-contract-propagation-001",
+    "path": "fixtures/capped_endpoint_return_migration-dual_fault/seed",
+    "template_path": "fixtures/capped_endpoint_return_migration-dual_fault/seed",
+    "entry": "All.dfy",
+    "files": [
+      "All.dfy",
+      "Client.dfy",
+      "Helper.dfy",
+      "Kernel.dfy"
+    ],
+    "editable_files": [
+      "Helper.dfy",
+      "Client.dfy"
+    ],
+    "internal_api_version": "new_fixed_before_repair",
+    "source_sha256": {
+      "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+      "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+      "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+      "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+    },
+    "template_sha256": {
+      "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+      "Client.dfy": "5298bb22a75f41717ab3fbebe078d0924ee1e3c92aa023ae8e9f99166f04e079",
+      "Helper.dfy": "ce5da73f29f32512fcf38655e73e5ac0f75bb5320e8b09722185a558fc454505",
+      "Kernel.dfy": "4508c49460dcd0b728d9438545a35e3f772bf0409622b34154d06af940f0c4be"
+    },
+    "body_boundaries": {
+      "Helper.dfy": {
+        "start": 265,
+        "end": 358,
+        "protected_sha256": "0beb468b24853b2de6773080b8003e2c0b64f632dcbaac3e0485c3678f8a794c"
+      },
+      "Client.dfy": {
+        "start": 251,
+        "end": 295,
+        "protected_sha256": "52463bab4b59a1c6c468703fc6d7e9510e35f86e359f7bd16e270a64b9217600"
+      }
+    },
+    "public_contract_sha256": "d0ff2e833d0101b707d04df040b79c4672c31667e47da3060a44e9c9f096613c",
+    "public_contract_prefix": "include \"Kernel.dfy\"\ninclude \"Helper.dfy\"\nmodule Client {\n  import K = Kernel\n  import H = Helper\n  method Target(start: int, length: int, cap: int) returns (result: int)\n    requires 0 <= length\n    ensures result == K.Endpoint(start,length,cap)\n  {\n",
+    "fixed_helper_prefix": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(start: int, length: int, cap: int) returns (r: int)\n    requires 0 <= length\n    requires start <= cap\n    ensures 0 <= r <= length\n    ensures start + r == K.Endpoint(start,length,cap)\n  {\n",
+    "fixed_helper_prefix_sha256": "4032af1a827d34257b09ea3d836c0d266a4847cda7e95e0ee587bcc938f83d13",
+    "named_targets": [
+      "Helper.Transfer",
+      "Client.Target"
+    ],
+    "expected_seed_local_targets": {
+      "Helper.Transfer": false,
+      "Client.Target": false
+    },
+    "file_rules": {
+      "Helper.dfy": {
+        "variables": [
+          "start",
+          "length",
+          "cap"
+        ],
+        "parameter_types": {
+          "start": "int",
+          "length": "int",
+          "cap": "int"
+        },
+        "output_types": {
+          "r": "int"
+        },
+        "pure": {
+          "K.Endpoint": 3
+        },
+        "pure_types": {
+          "K.Endpoint": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "int"
+          }
+        },
+        "calls": {},
+        "call_types": {},
+        "call_returns": {}
+      },
+      "Client.dfy": {
+        "variables": [
+          "start",
+          "length",
+          "cap"
+        ],
+        "parameter_types": {
+          "start": "int",
+          "length": "int",
+          "cap": "int"
+        },
+        "output_types": {
+          "result": "int"
+        },
+        "pure": {
+          "K.Endpoint": 3
+        },
+        "pure_types": {
+          "K.Endpoint": {
+            "arguments": [
+              "int",
+              "int",
+              "int"
+            ],
+            "result": "int"
+          }
+        },
+        "calls": {
+          "H.Transfer": 3
+        },
+        "call_types": {
+          "H.Transfer": [
+            "int",
+            "int",
+            "int"
+          ]
+        },
+        "call_returns": {
+          "H.Transfer": "int"
+        }
+      }
+    },
+    "counterexamples": [
+      {
+        "target": "Helper.Transfer",
+        "input": {
+          "start": 1,
+          "length": 1,
+          "cap": 5
+        },
+        "new_preconditions_hold": true,
+        "old_body_result": 2,
+        "new_expected_result": 1,
+        "violations": [
+          "r <= length",
+          "start + r == K.Endpoint(start,length,cap)"
+        ]
+      },
+      {
+        "target": "Client.Target",
+        "input": {
+          "start": 4,
+          "length": 1,
+          "cap": 3
+        },
+        "public_preconditions_hold": true,
+        "violated_call_precondition": "start <= cap"
+      },
+      {
+        "target": "Client.Target",
+        "input": {
+          "start": 1,
+          "length": 1,
+          "cap": 5
+        },
+        "callee_assumed_new_return": 1,
+        "old_caller_public_result": 1,
+        "public_expected_result": 2,
+        "interpretation": "Modular caller counterexample under the selected new contract; not execution of the invalid helper."
+      }
+    ],
+    "model_protocol_defined": false,
+    "new_seed_verification_status": "not_run",
+    "metadata_visibility": "Host-only; future prompts must whitelist source and permitted syntax."
+  },
+  {
+    "task_id": "extracted_entry_return_migration-dual_fault",
+    "semantic_instance": "extracted_entry_return_migration",
+    "family": "finite_maps_development",
+    "development_only": true,
+    "held_out": false,
+    "reserved_families_used": false,
+    "parent_task_id": "extracted_entry_return_migration",
+    "parent_study": "experiments/internal-contract-propagation-001",
+    "path": "fixtures/extracted_entry_return_migration-dual_fault/seed",
+    "template_path": "fixtures/extracted_entry_return_migration-dual_fault/seed",
+    "entry": "All.dfy",
+    "files": [
+      "All.dfy",
+      "Client.dfy",
+      "Helper.dfy",
+      "Kernel.dfy"
+    ],
+    "editable_files": [
+      "Helper.dfy",
+      "Client.dfy"
+    ],
+    "internal_api_version": "new_fixed_before_repair",
+    "source_sha256": {
+      "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+      "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+      "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+      "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+    },
+    "template_sha256": {
+      "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+      "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+      "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+      "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+    },
+    "body_boundaries": {
+      "Helper.dfy": {
+        "start": 214,
+        "end": 239,
+        "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2"
+      },
+      "Client.dfy": {
+        "start": 280,
+        "end": 347,
+        "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5"
+      }
+    },
+    "public_contract_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+    "public_contract_prefix": "include \"Kernel.dfy\"\ninclude \"Helper.dfy\"\nmodule Client {\n  import K = Kernel\n  import H = Helper\n  method Target(m: map<int,int>, key: int) returns (remaining: map<int,int>, removed: map<int,int>)\n    ensures remaining == K.Erase(m,key)\n    ensures removed == K.Entry(m,key)\n  {\n",
+    "fixed_helper_prefix": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(m: map<int,int>, key: int) returns (r: map<int,int>)\n    requires key in m\n    ensures r == K.Entry(m,key)\n    ensures r.Keys == {key}\n  {\n",
+    "fixed_helper_prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+    "named_targets": [
+      "Helper.Transfer",
+      "Client.Target"
+    ],
+    "expected_seed_local_targets": {
+      "Helper.Transfer": false,
+      "Client.Target": false
+    },
+    "file_rules": {
+      "Helper.dfy": {
+        "variables": [
+          "m",
+          "key"
+        ],
+        "parameter_types": {
+          "m": "map<int,int>",
+          "key": "int"
+        },
+        "output_types": {
+          "r": "map<int,int>"
+        },
+        "pure": {
+          "K.Erase": 2,
+          "K.Entry": 2,
+          "K.Exclude": 2
+        },
+        "pure_types": {
+          "K.Erase": {
+            "arguments": [
+              "map<int,int>",
+              "int"
+            ],
+            "result": "map<int,int>"
+          },
+          "K.Entry": {
+            "arguments": [
+              "map<int,int>",
+              "int"
+            ],
+            "result": "map<int,int>"
+          },
+          "K.Exclude": {
+            "arguments": [
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "result": "map<int,int>"
+          }
+        },
+        "calls": {},
+        "call_types": {},
+        "call_returns": {}
+      },
+      "Client.dfy": {
+        "variables": [
+          "m",
+          "key"
+        ],
+        "parameter_types": {
+          "m": "map<int,int>",
+          "key": "int"
+        },
+        "output_types": {
+          "remaining": "map<int,int>",
+          "removed": "map<int,int>"
+        },
+        "pure": {
+          "K.Erase": 2,
+          "K.Entry": 2,
+          "K.Exclude": 2
+        },
+        "pure_types": {
+          "K.Erase": {
+            "arguments": [
+              "map<int,int>",
+              "int"
+            ],
+            "result": "map<int,int>"
+          },
+          "K.Entry": {
+            "arguments": [
+              "map<int,int>",
+              "int"
+            ],
+            "result": "map<int,int>"
+          },
+          "K.Exclude": {
+            "arguments": [
+              "map<int,int>",
+              "map<int,int>"
+            ],
+            "result": "map<int,int>"
+          }
+        },
+        "calls": {
+          "H.Transfer": 2
+        },
+        "call_types": {
+          "H.Transfer": [
+            "map<int,int>",
+            "int"
+          ]
+        },
+        "call_returns": {
+          "H.Transfer": "map<int,int>"
+        }
+      }
+    },
+    "counterexamples": [
+      {
+        "target": "Helper.Transfer",
+        "input": {
+          "m": [
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              20
+            ]
+          ],
+          "key": 1
+        },
+        "new_preconditions_hold": true,
+        "old_body_result": [
+          [
+            2,
+            20
+          ]
+        ],
+        "new_expected_result": [
+          [
+            1,
+            10
+          ]
+        ],
+        "violations": [
+          "r == K.Entry(m,key)",
+          "r.Keys == {key}"
+        ]
+      },
+      {
+        "target": "Client.Target",
+        "input": {
+          "m": [
+            [
+              1,
+              10
+            ]
+          ],
+          "key": 2
+        },
+        "public_preconditions_hold": true,
+        "violated_call_precondition": "key in m"
+      },
+      {
+        "target": "Client.Target",
+        "input": {
+          "m": [
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              20
+            ]
+          ],
+          "key": 1
+        },
+        "callee_assumed_new_return": [
+          [
+            1,
+            10
+          ]
+        ],
+        "old_caller_remaining": [
+          [
+            1,
+            10
+          ]
+        ],
+        "public_expected_remaining": [
+          [
+            2,
+            20
+          ]
+        ],
+        "interpretation": "Modular caller counterexample under the selected new contract; not execution of the invalid helper."
+      }
+    ],
+    "model_protocol_defined": false,
+    "new_seed_verification_status": "not_run",
+    "metadata_visibility": "Host-only; future prompts must whitelist source and permitted syntax."
+  }
+]

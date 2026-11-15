@@ -1,14 +1,16 @@
 # Experiment log
 
-## Fixed-target migration repair — offline preparation complete
+## Fixed-target migration repair — two fresh seeds validated
 
 [internal-contract-repair-001](internal-contract-repair-001/README.md) prepares
 two seeds with old helper/caller bodies under a required new helper API. Ten
 construction tests and 15 tests each for the separate body policy and scorer
-pass. Exact saved-control replays preserve earlier outcomes. Two fresh compute
-checks await Cannon reconnection; no job or model calls have been submitted.
+pass. Exact saved-control replays preserve earlier outcomes. Job60865223 now
+confirms actual helper and caller correctness failures in both fresh seeds,
+with no warnings or frontend failures; full logs and source-bound review are saved.
+There are two new verifier observations and eight reused controls, zero model calls.
 The proposed 16-call comparison uses one response per trial with diagnostics
-or a failure notice. Prompts and paid scope are not frozen or authorized.
+or a failure notice. Prompts are being prepared; paid execution is not authorized.
 
 ## Internal API changes — verified helper, failing caller
 

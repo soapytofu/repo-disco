@@ -10,13 +10,16 @@ a replacement client or ledger.
 The [two seed workspaces](fixtures-and-controls/) are constructed and their
 isolated verifier bundle is frozen. Ten offline checks pass both locally and in
 the manifest-only isolated package. Eight existing controls are linked by exact
-source and evidence hashes. The two fresh compute checks await Cannon
-reconnection. The separate [method-output policy](protocol/README.md) passes
+source and evidence hashes. The [two fresh compute checks](RESULTS.md) now match
+their expected helper and caller proof failures; job 60865223 completed in
+30 seconds with no warnings or frontend errors. The separate
+[method-output policy](protocol/README.md) passes
 15 offline tests, reconstructs 16 eligible workspaces byte-for-byte and rejects
 four old-header controls. The [named-unit scorer](measurement/README.md) passes
 15 tests, including isolated-bundle integration, and replays all 18 historical
 outcomes unchanged. [Parent review](offline-review-001.json) binds these exact
-bundles and logs. There is no model prompt freeze or scheduler submission yet.
+bundles and logs. The [compute evidence gate](reviews/seed-review-001/stdout.json)
+also passes. The four model payloads are being prepared; no paid submission exists.
 
 The host selects each task's required new internal API before generation. The
 new starting workspace keeps that contract but retains both old implementations.
