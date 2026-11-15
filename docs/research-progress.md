@@ -35,7 +35,7 @@ has used **32/128 authorized new calls**, with no retries. The single compute
 process is idle between reviewed batches, with a fixed deadline and no persistent
 credential file. Remaining 96 calls are a ceiling, not a target. The analyst repairs and exhaustive
 interval certificate controls below are complete; the next study is frozen and
-awaits admission through the same process. Reserved tree/transition families remain
+is admitted through the same process (32 additional fixed slots, no retries). Reserved tree/transition families remain
 untouched. Weeks5–6 corpus diversity and controlled comparisons are progressing;
 this does not complete the reserved-family or training/evaluation milestones.
 
@@ -57,9 +57,9 @@ The next study fixes the architecture to two eligible proof modules in a
 dependency chain, with immutable clients. Four development instances compare
 detailed feedback versus failure notice, four responses per arm (32 proposed
 calls within the remaining 96). Its controls, per-file guard and prompt/order
-freeze are complete; coordinator admission remains pending. This tests repair
+freeze are complete; the second batch is now running under the same global budget. This tests repair
 choices within a declared eligible set, not unrestricted file discovery or a
-causal depth/sharing effect. No second paid batch has been admitted.
+causal depth/sharing effect. The second batch was admitted once; no third batch is allocated.
 
 All [45 fresh pipeline controls](../experiments/repository-repair-selection-001/RESULTS.md)
 now match:10 positives,31 ordinary proof failures and four hidden-export failures.
