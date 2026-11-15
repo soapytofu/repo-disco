@@ -1,0 +1,294 @@
+{
+  "schema": "repodisco-repair-selection-design-v1",
+  "status": "prospective_construction_plan_not_frozen_or_admitted",
+  "created_utc": "2026-11-15T05:55:06.283320+00:00",
+  "window_id": "repodisco-research-20261114",
+  "proposed_calls": 32,
+  "existing_window_cap": 128,
+  "window_calls_completed_at_design": 32,
+  "prior_budgets_reused": false,
+  "automatic_retries": false,
+  "responses_per_task_arm": 4,
+  "feedback_conditions": [
+    "diagnostics",
+    "notice"
+  ],
+  "tasks": [
+    {
+      "task_id": "intersection_or_separation-pipeline",
+      "semantic_instance": "intersection_or_separation",
+      "family": "relational_witness",
+      "source_group": "witness",
+      "seeded_fault_module": "HelperB.dfy",
+      "obligation": "A certificate for overlap or correctly oriented strict separation, including touching endpoints."
+    },
+    {
+      "task_id": "conserved_sum_gap-pipeline",
+      "semantic_instance": "conserved_sum_gap",
+      "family": "relational_witness",
+      "source_group": "witness",
+      "seeded_fault_module": "HelperA.dfy",
+      "obligation": "Bounded witnesses with both a fixed sum and a positive separation."
+    },
+    {
+      "task_id": "inverse_exchange_pipeline",
+      "semantic_instance": "inverse_exchange",
+      "family": "finite_maps",
+      "source_group": "maps",
+      "seeded_fault_module": "HelperB.dfy",
+      "obligation": "Mutual inverse consistency after exchanging two values and corresponding inverse keys."
+    },
+    {
+      "task_id": "masked_override_composition_pipeline",
+      "semantic_instance": "masked_override_composition",
+      "family": "finite_maps",
+      "source_group": "maps",
+      "seeded_fault_module": "HelperA.dfy",
+      "obligation": "Composition through a right-biased override whose right values may leave the final map domain."
+    }
+  ],
+  "architecture": {
+    "condition": "pipeline",
+    "eligible_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "target_dependencies": {
+      "HelperA.Prove": [],
+      "HelperB.Prove": [
+        "HelperA.Prove"
+      ],
+      "ClientA.Target": [
+        "HelperB.Prove"
+      ],
+      "ClientB.Target": [
+        "HelperB.Prove"
+      ]
+    },
+    "immutable": [
+      "all imports, exports, signatures, pre/postconditions and attributes",
+      "all supplied provider/function bodies",
+      "both client modules"
+    ],
+    "response": "Both complete replacement bodies; retaining a sound body is allowed."
+  },
+  "order": [
+    {
+      "position": 1,
+      "replicate_block": 1,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 2,
+      "replicate_block": 1,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 3,
+      "replicate_block": 1,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 4,
+      "replicate_block": 1,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 5,
+      "replicate_block": 1,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 6,
+      "replicate_block": 1,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 7,
+      "replicate_block": 1,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 8,
+      "replicate_block": 1,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 9,
+      "replicate_block": 2,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 10,
+      "replicate_block": 2,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 11,
+      "replicate_block": 2,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 12,
+      "replicate_block": 2,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 13,
+      "replicate_block": 2,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 14,
+      "replicate_block": 2,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 15,
+      "replicate_block": 2,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 16,
+      "replicate_block": 2,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 17,
+      "replicate_block": 3,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 18,
+      "replicate_block": 3,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 19,
+      "replicate_block": 3,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 20,
+      "replicate_block": 3,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 21,
+      "replicate_block": 3,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 22,
+      "replicate_block": 3,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 23,
+      "replicate_block": 3,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 24,
+      "replicate_block": 3,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 25,
+      "replicate_block": 4,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 26,
+      "replicate_block": 4,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 27,
+      "replicate_block": 4,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 28,
+      "replicate_block": 4,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 29,
+      "replicate_block": 4,
+      "task_id": "intersection_or_separation-pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 30,
+      "replicate_block": 4,
+      "task_id": "conserved_sum_gap-pipeline",
+      "feedback_condition": "diagnostics"
+    },
+    {
+      "position": 31,
+      "replicate_block": 4,
+      "task_id": "inverse_exchange_pipeline",
+      "feedback_condition": "notice"
+    },
+    {
+      "position": 32,
+      "replicate_block": 4,
+      "task_id": "masked_override_composition_pipeline",
+      "feedback_condition": "diagnostics"
+    }
+  ],
+  "order_status": "Designed before controls; exact requests and order must be bound by a later reviewed freeze.",
+  "model_settings": "Same pinned model/settings and fixed repair-v1 session handler as first window batch.",
+  "treatment": "Only detailed verifier evidence versus a failure notice differs within each task.",
+  "required_gates": [
+    "Fresh compute-only verification of every new pipeline layout and target scope.",
+    "Correct/alternative and targeted-negative controls, including only-A/only-B repairs.",
+    "Exact per-file guard reconstruction and adversarial protection tests.",
+    "Reference-derived CSV scope and dependency-closed client checks.",
+    "Reviewed immutable prompts/order/settings/source and runtime-bound freeze.",
+    "Canonical global ledger and session-state review before the sole next admission."
+  ],
+  "primary_metric": "Strict whole-workspace verification with all protected bytes intact.",
+  "secondary_metrics": [
+    "Per-helper local verification and dependency-closed client verification.",
+    "Exact body-byte and normalized-token change sets, explicitly not semantic minimality.",
+    "Parser/policy/proof/warning/frontend/execution outcomes and token usage."
+  ],
+  "analysis_unit": "Four constructed workspaces in two known development families;32responses are not32independent tasks.",
+  "limitations": [
+    "Adaptive design informed by earlier development results.",
+    "Fault location balanced two in A/two in B, with both roles visible in source.",
+    "Repair choice within a declared eligible set; not unrestricted or blind file discovery.",
+    "No sharing/depth treatment and no causal sharing/depth or minimality claim.",
+    "No unseen-family or pretraining holdout claim; tree and transition reservations untouched."
+  ]
+}
