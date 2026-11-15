@@ -1,0 +1,3502 @@
+[
+  {
+    "case_id": "diverse-repair-02-exact-fence",
+    "parent_trial": "diverse-repair-02",
+    "task_id": "weave_unweave-separate",
+    "sharing": "separate",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Multiple JSON containers",
+    "response_sha256": "8b970b3e0745f82c6693f68f31636a5309387549a23e1d6ace700811cd1ad95a",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-02.json",
+    "selection": {
+      "fence_start_char": 1290,
+      "fence_end_char": 1826,
+      "payload_start_char": 1298,
+      "payload_end_char": 1823,
+      "raw_text_sha256": "29892798fdc3b900ee057040db9347595792f948168f3d7c13e4533ad6b9bc45",
+      "payload_sha256": "0a4b9c7bd44c2706af1f24d2913d7398d28105e59cb88d1cfd22b18523d83043",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-02-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "093e536561501ccd1d809e9c768b90de5fe27601a8748e5c59ba1466a52e224c",
+      "HelperB.dfy": "d78588024bbf51185cac7e8e8f83883dff0c92336548f90631f27df1f2266222",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "acacb8a6c91f41ea24cc5dfad84e3b39afdb02a973c19a6978e1cf9a7e884215",
+      "HelperB.dfy": "acacb8a6c91f41ea24cc5dfad84e3b39afdb02a973c19a6978e1cf9a7e884215"
+    },
+    "protected_files": 6,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "093e536561501ccd1d809e9c768b90de5fe27601a8748e5c59ba1466a52e224c",
+        "HelperB.dfy": "d78588024bbf51185cac7e8e8f83883dff0c92336548f90631f27df1f2266222",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 524,
+          "raw_sha256": "0a4b9c7bd44c2706af1f24d2913d7398d28105e59cb88d1cfd22b18523d83043",
+          "payload_sha256": "0648b2bfbf7fd7f858e5c341695a580609c7ec75d64cc915c5c4c3e5048e12c0"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1429893dd168d037ce0963f23ab2bc2a3696b116e40565b5ece13ba9b95257ca",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "093e536561501ccd1d809e9c768b90de5fe27601a8748e5c59ba1466a52e224c",
+            "HelperB.dfy": "d78588024bbf51185cac7e8e8f83883dff0c92336548f90631f27df1f2266222",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "acacb8a6c91f41ea24cc5dfad84e3b39afdb02a973c19a6978e1cf9a7e884215",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            },
+            "HelperB.dfy": {
+              "prefix_sha256": "48c2b57d09619916aadc19384d68030d6452d36fa13dc44543a019d5f86f8bbe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "acacb8a6c91f41ea24cc5dfad84e3b39afdb02a973c19a6978e1cf9a7e884215",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-05-exact-fence",
+    "parent_trial": "diverse-repair-05",
+    "task_id": "weave_unweave-shared",
+    "sharing": "shared",
+    "feedback_condition": "verifier_diagnostics",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Malformed or duplicate-key JSON container",
+    "response_sha256": "00333d1bd2ff7f5bf53a41828a39cf38382795daff7345b082d9aa6d1d3f8d21",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-05.json",
+    "selection": {
+      "fence_start_char": 1033,
+      "fence_end_char": 1302,
+      "payload_start_char": 1041,
+      "payload_end_char": 1299,
+      "raw_text_sha256": "9f82dcb7790e3ffd8628dbfe60dd4828f41648800f33264c91be01f38cd23b36",
+      "payload_sha256": "8fd03ed2916bcb187dcd7ca8d53d9816a40dbe3377c01da73931f3121e16dca6",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-05-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "575f0b499cd951fb3a813fd0ebf1e9a932b0cb38715ac23235f7cbf47eb3aa59",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "b6ba9b8ec0c1520152832feb5c26823f9dffb99ecd6332a2c2acf0d751b232de"
+    },
+    "protected_files": 7,
+    "protected_body_boundaries": 1,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "575f0b499cd951fb3a813fd0ebf1e9a932b0cb38715ac23235f7cbf47eb3aa59",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 257,
+          "raw_sha256": "8fd03ed2916bcb187dcd7ca8d53d9816a40dbe3377c01da73931f3121e16dca6",
+          "payload_sha256": "0e74e78a136cafbb4abebd89aa0d473f8f60a7e635712bf2b43c5540d1f916a0"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "575f0b499cd951fb3a813fd0ebf1e9a932b0cb38715ac23235f7cbf47eb3aa59",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "b6ba9b8ec0c1520152832feb5c26823f9dffb99ecd6332a2c2acf0d751b232de",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-08-exact-fence",
+    "parent_trial": "diverse-repair-08",
+    "task_id": "weave_unweave-separate",
+    "sharing": "separate",
+    "feedback_condition": "verifier_diagnostics",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Malformed or duplicate-key JSON container",
+    "response_sha256": "5cf7b8b257ccb8b4bc5a21117be41f6da76f1171dd846bf254a0bfc8299be186",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-08.json",
+    "selection": {
+      "fence_start_char": 924,
+      "fence_end_char": 1462,
+      "payload_start_char": 932,
+      "payload_end_char": 1459,
+      "raw_text_sha256": "526dd2590ff7ec6cd88de7e4c70f7df6d509f258d27832d39a2fb8d9df6a8de9",
+      "payload_sha256": "9c96989e642691c05a15177ee54d3c0aba62f45962cf332672b96640818d338b",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-08-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "a11236ffda59e650aac9a42ccb7f418b670139c72ea3d24d762ac3b52d6d9d0c",
+      "HelperB.dfy": "c75bc721bed81141a96ad55296a081730f7733610d1a4d00ea390190c99a2eac",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd",
+      "HelperB.dfy": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd"
+    },
+    "protected_files": 6,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "a11236ffda59e650aac9a42ccb7f418b670139c72ea3d24d762ac3b52d6d9d0c",
+        "HelperB.dfy": "c75bc721bed81141a96ad55296a081730f7733610d1a4d00ea390190c99a2eac",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 526,
+          "raw_sha256": "9c96989e642691c05a15177ee54d3c0aba62f45962cf332672b96640818d338b",
+          "payload_sha256": "fcc1f155f302d01bcaf509d4966544bfd646337a27ae0d091d390d4cc0cd39cc"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1429893dd168d037ce0963f23ab2bc2a3696b116e40565b5ece13ba9b95257ca",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "a11236ffda59e650aac9a42ccb7f418b670139c72ea3d24d762ac3b52d6d9d0c",
+            "HelperB.dfy": "c75bc721bed81141a96ad55296a081730f7733610d1a4d00ea390190c99a2eac",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            },
+            "HelperB.dfy": {
+              "prefix_sha256": "48c2b57d09619916aadc19384d68030d6452d36fa13dc44543a019d5f86f8bbe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-11-exact-fence",
+    "parent_trial": "diverse-repair-11",
+    "task_id": "weave_unweave-shared",
+    "sharing": "shared",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Multiple JSON containers",
+    "response_sha256": "90a64e94374c078e5e501fe80fe14981439d25e964d4de47b43b59078d9f284e",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-11.json",
+    "selection": {
+      "fence_start_char": 967,
+      "fence_end_char": 1232,
+      "payload_start_char": 975,
+      "payload_end_char": 1229,
+      "raw_text_sha256": "abfcab86d3e870209f246afcf961b10fbead3f9ab263ad51a91bc5050154ec28",
+      "payload_sha256": "4f366c1563ef52e04fad48b387216b268876b3cf517d136becd6cb55de3218f2",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-11-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "e04e0fa081b605da241950be3493ea29064ed3724a2c73bd5de39b09c680763f",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "d37278eceda7f9a1ec497ad21a88b6634d6fbcf20e6be84832f28a05c4bdb1de"
+    },
+    "protected_files": 7,
+    "protected_body_boundaries": 1,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "e04e0fa081b605da241950be3493ea29064ed3724a2c73bd5de39b09c680763f",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 253,
+          "raw_sha256": "4f366c1563ef52e04fad48b387216b268876b3cf517d136becd6cb55de3218f2",
+          "payload_sha256": "5bc2df6b60c9f7cecd1416454a84cece6a1eb69655872cdd19dce686f8ea823d"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "e04e0fa081b605da241950be3493ea29064ed3724a2c73bd5de39b09c680763f",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "d37278eceda7f9a1ec497ad21a88b6634d6fbcf20e6be84832f28a05c4bdb1de",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-14-exact-fence",
+    "parent_trial": "diverse-repair-14",
+    "task_id": "weave_unweave-shared",
+    "sharing": "shared",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Multiple JSON containers",
+    "response_sha256": "ef2adf61d7451b2be300bdc6f8863aba7557456a1465efc45a377b2f2900384e",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-14.json",
+    "selection": {
+      "fence_start_char": 1181,
+      "fence_end_char": 1447,
+      "payload_start_char": 1189,
+      "payload_end_char": 1444,
+      "raw_text_sha256": "68ddd5a17d85323a0cf48fbb6621444a38e41a2e64a68742e6fa57b1cefce196",
+      "payload_sha256": "dc03df2a745cd8831ad4c758afe2bd8daaa41e232c5d10cf2864eae8f4ce4149",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-14-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "9ef9115090efabf6f890ab2fc1e537fd81c576c4bd2d20a5c5365e53441efcdd",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "ef36a71854cf62814fa5c22acd11755aa802ebbd98a2e66a13c00b27f6d48944"
+    },
+    "protected_files": 7,
+    "protected_body_boundaries": 1,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "9ef9115090efabf6f890ab2fc1e537fd81c576c4bd2d20a5c5365e53441efcdd",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 254,
+          "raw_sha256": "dc03df2a745cd8831ad4c758afe2bd8daaa41e232c5d10cf2864eae8f4ce4149",
+          "payload_sha256": "3b65b8af313f5e7a010e92fb277af6a112243f9c7b5b4ddfb476527cd58b1108"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "9ef9115090efabf6f890ab2fc1e537fd81c576c4bd2d20a5c5365e53441efcdd",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "ef36a71854cf62814fa5c22acd11755aa802ebbd98a2e66a13c00b27f6d48944",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-17-exact-fence",
+    "parent_trial": "diverse-repair-17",
+    "task_id": "weave_unweave-separate",
+    "sharing": "separate",
+    "feedback_condition": "verifier_diagnostics",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Multiple JSON containers",
+    "response_sha256": "228d52ffee7af067cc9536243c8ff326a1698d89739d8beebfc13a0993bee51e",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-17.json",
+    "selection": {
+      "fence_start_char": 773,
+      "fence_end_char": 1311,
+      "payload_start_char": 781,
+      "payload_end_char": 1308,
+      "raw_text_sha256": "64a46374ab3f47c2b53916472f57a04aa45f496a421522c9c580f3f026c93459",
+      "payload_sha256": "9c96989e642691c05a15177ee54d3c0aba62f45962cf332672b96640818d338b",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-17-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "a11236ffda59e650aac9a42ccb7f418b670139c72ea3d24d762ac3b52d6d9d0c",
+      "HelperB.dfy": "c75bc721bed81141a96ad55296a081730f7733610d1a4d00ea390190c99a2eac",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd",
+      "HelperB.dfy": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd"
+    },
+    "protected_files": 6,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "a11236ffda59e650aac9a42ccb7f418b670139c72ea3d24d762ac3b52d6d9d0c",
+        "HelperB.dfy": "c75bc721bed81141a96ad55296a081730f7733610d1a4d00ea390190c99a2eac",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 526,
+          "raw_sha256": "9c96989e642691c05a15177ee54d3c0aba62f45962cf332672b96640818d338b",
+          "payload_sha256": "fcc1f155f302d01bcaf509d4966544bfd646337a27ae0d091d390d4cc0cd39cc"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1429893dd168d037ce0963f23ab2bc2a3696b116e40565b5ece13ba9b95257ca",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "a11236ffda59e650aac9a42ccb7f418b670139c72ea3d24d762ac3b52d6d9d0c",
+            "HelperB.dfy": "c75bc721bed81141a96ad55296a081730f7733610d1a4d00ea390190c99a2eac",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            },
+            "HelperB.dfy": {
+              "prefix_sha256": "48c2b57d09619916aadc19384d68030d6452d36fa13dc44543a019d5f86f8bbe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "344b250bf93907f16346432cb32511e04632175bde477a361d16ff385bac38cd",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-20-exact-fence",
+    "parent_trial": "diverse-repair-20",
+    "task_id": "weave_unweave-shared",
+    "sharing": "shared",
+    "feedback_condition": "verifier_diagnostics",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Multiple JSON containers",
+    "response_sha256": "529e3e7fea2e256ffc3ee72214638ed7e01e231d9e1dcb4e25a534fd59a33a9e",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-20.json",
+    "selection": {
+      "fence_start_char": 1141,
+      "fence_end_char": 1416,
+      "payload_start_char": 1149,
+      "payload_end_char": 1413,
+      "raw_text_sha256": "b08841a33906206a6b1504e3f721da10f13de9d26e8e56a613f03a7b323f6b5b",
+      "payload_sha256": "cbeba790587cf7a135c75d4cdd977743dfd502626639a7139ec15166a5a0fd77",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-20-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "093e536561501ccd1d809e9c768b90de5fe27601a8748e5c59ba1466a52e224c",
+      "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "acacb8a6c91f41ea24cc5dfad84e3b39afdb02a973c19a6978e1cf9a7e884215"
+    },
+    "protected_files": 7,
+    "protected_body_boundaries": 1,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "093e536561501ccd1d809e9c768b90de5fe27601a8748e5c59ba1466a52e224c",
+        "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 263,
+          "raw_sha256": "cbeba790587cf7a135c75d4cdd977743dfd502626639a7139ec15166a5a0fd77",
+          "payload_sha256": "ff314382522d4172d67ba922941b1c85159a1a9ba20f2da49069fd91db0fa9f6"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "093e536561501ccd1d809e9c768b90de5fe27601a8748e5c59ba1466a52e224c",
+            "HelperB.dfy": "1df7334ec4efc1370b2e60e126328285fdaeeac5045de9ba6c5d6d5bbe7a5c42",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "acacb8a6c91f41ea24cc5dfad84e3b39afdb02a973c19a6978e1cf9a7e884215",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "s"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "s"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "assert",
+                      [
+                        "infix_syntax",
+                        "==",
+                        [
+                          "variable",
+                          "t"
+                        ],
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "sequence_literal",
+                            [
+                              [
+                                "index",
+                                [
+                                  "variable",
+                                  "t"
+                                ],
+                                [
+                                  "integer",
+                                  "0"
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            "slice",
+                            [
+                              "variable",
+                              "t"
+                            ],
+                            [
+                              "integer",
+                              "1"
+                            ],
+                            null
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 108,
+              "statements": 7
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  },
+  {
+    "case_id": "diverse-repair-23-exact-fence",
+    "parent_trial": "diverse-repair-23",
+    "task_id": "weave_unweave-separate",
+    "sharing": "separate",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "OUTPUT_REJECTED",
+    "original_rejection": "Malformed or duplicate-key JSON container",
+    "response_sha256": "2825fecc06409f7b5de92f828040c327229f0d2a80b06a5b393a880e13e2ab1a",
+    "original_body_policy_sha256": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "source_base_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+      "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "payload_path": "payloads/diverse-repair-23.json",
+    "selection": {
+      "fence_start_char": 890,
+      "fence_end_char": 1282,
+      "payload_start_char": 898,
+      "payload_end_char": 1279,
+      "raw_text_sha256": "64f7ec9dc88dcbc8943ee71c8a9f4da0d45d5d93b9dc916689b33962c901a8d3",
+      "payload_sha256": "29a9c25aea59a610f96842c2edfe6f86545e26e2ee45b9c167825b3718e6172a",
+      "selection": "sole explicit json fence; exact substring; no body rewriting"
+    },
+    "body_rewriting": false,
+    "model_calls": 0,
+    "expected_diagnostic": "strict_success_hypothesis",
+    "admitted": true,
+    "path": "fixtures/diverse-repair-23-exact-fence",
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+      "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+      "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+      "HelperA.dfy": "5c8b718bd5f8fdec41d58485fffcda4d03a182113ae3f2d140eb7cb9bf57df89",
+      "HelperB.dfy": "15f5c05ecbf857980e2c09ce6abe6cb2cb311ce162e3764711faba43b4bb0c79",
+      "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+      "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+    },
+    "body_sha256": {
+      "HelperA.dfy": "e7b4a8229f307d6c586057682d91c8e54594e70ea4ab0e600936b9a101a6ee63",
+      "HelperB.dfy": "e7b4a8229f307d6c586057682d91c8e54594e70ea4ab0e600936b9a101a6ee63"
+    },
+    "protected_files": 6,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "1545dc95b8207c360d19778cf75001d77462875ca55cb0d6ff0c3385fb98e597",
+        "HelperB.dfy": "338a161022268d7b687f67fa4652699cbb01bee6e275f91e26d071894e173d8f",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+        "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+        "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+        "HelperA.dfy": "5c8b718bd5f8fdec41d58485fffcda4d03a182113ae3f2d140eb7cb9bf57df89",
+        "HelperB.dfy": "15f5c05ecbf857980e2c09ce6abe6cb2cb311ce162e3764711faba43b4bb0c79",
+        "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+        "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "single-json-envelope-v1",
+          "start_char": 0,
+          "end_char": 380,
+          "raw_sha256": "29a9c25aea59a610f96842c2edfe6f86545e26e2ee45b9c167825b3718e6172a",
+          "payload_sha256": "f9f2223882c926ea9cdaf6bc788e4672694f4337493b3de2212bb315f3177104"
+        },
+        "body_guard": {
+          "version": "diverse-repair-bodies-v1-development",
+          "wrapper": "plain JSON",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "996cdbaae5975f95ac655958072b226caee3c60433702fd8955ac68911313337",
+            "HelperB.dfy": "1429893dd168d037ce0963f23ab2bc2a3696b116e40565b5ece13ba9b95257ca",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "88b923345fdf0375443301d359ccfd3e8fbc00c2a24312dfbdc7e53a2243d95e",
+            "ClientA.dfy": "6b9b304ed9cdd0317e6d53838a1bd9e29089300d78d5c3e200ce82b2719ad3ba",
+            "ClientB.dfy": "03c50baf2de141f75e0e7d37adf107a1e2a410947fbab7063c8177e9059157d5",
+            "HelperA.dfy": "5c8b718bd5f8fdec41d58485fffcda4d03a182113ae3f2d140eb7cb9bf57df89",
+            "HelperB.dfy": "15f5c05ecbf857980e2c09ce6abe6cb2cb311ce162e3764711faba43b4bb0c79",
+            "Kernel.dfy": "25a4b68fd134458383945ad5a31c9dae99cb2933d87df4c75aee825f9beedaf9",
+            "Ops.dfy": "411832b0250b959457d49aad9733a9c4b860322bc4bf0e35ef3080ee2740e421"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "prefix_sha256": "95ad06d7e468d4a7300095c5205848c9685a87d7bfec850d8071d99126efb1fe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "e7b4a8229f307d6c586057682d91c8e54594e70ea4ab0e600936b9a101a6ee63",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 76,
+              "statements": 5
+            },
+            "HelperB.dfy": {
+              "prefix_sha256": "48c2b57d09619916aadc19384d68030d6452d36fa13dc44543a019d5f86f8bbe",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "body_sha256": "e7b4a8229f307d6c586057682d91c8e54594e70ea4ab0e600936b9a101a6ee63",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "==",
+                    [
+                      "cardinality",
+                      [
+                        "variable",
+                        "s"
+                      ]
+                    ],
+                    [
+                      "integer",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "A.Empty",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Unfold",
+                      [
+                        [
+                          "variable",
+                          "s"
+                        ],
+                        [
+                          "variable",
+                          "t"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "Prove",
+                      [
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ],
+                        [
+                          "slice",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "1"
+                          ],
+                          null
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "A.Project",
+                      [
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "s"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "index",
+                          [
+                            "variable",
+                            "t"
+                          ],
+                          [
+                            "integer",
+                            "0"
+                          ]
+                        ],
+                        [
+                          "pure",
+                          "K.Weave",
+                          [
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "s"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ],
+                            [
+                              "slice",
+                              [
+                                "variable",
+                                "t"
+                              ],
+                              [
+                                "integer",
+                                "1"
+                              ],
+                              null
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 76,
+              "statements": 5
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      }
+    }
+  }
+]
