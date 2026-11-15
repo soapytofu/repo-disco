@@ -1,0 +1,36 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "stdout": "HelperA.dfy(11,20): Error: unresolved identifier: Drop\n   |\n11 |     if 2 <= |s| { O.Drop(s); }\n   |                     ^^^^\n\nHelperA.dfy(11,24): Error: expected method call, found expression\n   |\n11 |     if 2 <= |s| { O.Drop(s); }\n   |                         ^\n\n2 resolution/type errors detected in All.dfy\nResults File: /tmp/repodisco-repair-ha1gzq5a/TestResults/2026-11-14_23_34_18-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 0.8280889298766851,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+    "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+    "HelperA.dfy": "5bd284f6de7682b02a3e87c92c501a5d66284cf9f143d6ce8dded25c01fa1f8c",
+    "HelperB.dfy": "30cc931e88ac6a5888fefef51092cd0d8e5742ef0baeb3b7d2b56c6abd3c8197",
+    "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+    "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+    "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+  },
+  "csv": {
+    "TestResults/2026-11-14_23_34_18-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_34_18-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499"
+  },
+  "attempts": 1,
+  "model_calls": 0
+}

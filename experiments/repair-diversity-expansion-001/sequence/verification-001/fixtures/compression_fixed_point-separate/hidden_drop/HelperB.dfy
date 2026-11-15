@@ -1,0 +1,13 @@
+include "Kernel.dfy"
+include "Ops.dfy"
+module HelperB {
+  import K = Kernel`Public
+  import O = Ops`Public
+  lemma {:induction false} Prove(s: seq<int>)
+    requires K.Clean(s)
+    ensures K.Compress(s) == s
+    decreases |s|
+  {
+    if 2 <= |s| { O.Drop(s); }
+  }
+}
