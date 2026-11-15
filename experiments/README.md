@@ -1,5 +1,15 @@
 # Experiment log
 
+## Saved sequence extraction diagnostic — 8/8 exact proofs verified
+
+[diverse-repair-extraction-diagnostic-001](diverse-repair-extraction-diagnostic-001/RESULTS.md)
+verified all eight previously rejected sequence outputs after selecting their sole
+JSON fence. Every proof body was unchanged and passed the original guard; each
+workspace verified 11 obligations with zero errors/warnings. Zero new model calls.
+The original 16/24 primary score remains unchanged. Full sources, CSV, logs and
+preservation review are published. This is a retrospective extraction diagnostic,
+not a fresh model score or a general parser validation.
+
 ## Diverse repair pilot — 16/24 strict repairs, sequence extraction limitation
 
 [diverse-repair-pilot-001](diverse-repair-pilot-001/RESULTS.md) completed all 24

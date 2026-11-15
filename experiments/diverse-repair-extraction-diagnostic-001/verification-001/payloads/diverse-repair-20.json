@@ -1,0 +1,3 @@
+{
+  "HelperA.dfy": "\n    if |s| == 0 {\n      A.Empty(s,t);\n    } else {\n      O.Unfold(s,t);\n      Prove(s[1..],t[1..]);\n      A.Project(s[0],t[0],K.Weave(s[1..],t[1..]));\n      assert s == [s[0]] + s[1..];\n      assert t == [t[0]] + t[1..];\n    }\n  "
+}

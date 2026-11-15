@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 13, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 14, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,21 @@ Status: November 13, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Remaining development and reserved-family evaluation are still unapproved. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 14: sequence diagnosis complete; bounded research window started
+
+[The exact-fence diagnostic](../experiments/diverse-repair-extraction-diagnostic-001/RESULTS.md)
+verifies all eight saved sequence proofs unchanged (11 obligations each, no errors
+or warnings), using zero new model calls. The original primary score stays 16/24.
+This identifies an extraction bottleneck on these outputs, while the two admitted
+fault types remain ceiling cases in both feedback arms. A separately versioned
+prospective parser and more informative development instances are now being built.
+
+The user authorized a [24-hour research window](../experiments/research-window-20261114/README.md)
+with an aggregate ceiling of 128 new Claude requests and no retries. Zero new
+requests have been dispatched. The window-wide accounting library passed 20 fake
+transport tests locally and on Cannon; actual paid-runner integration and frozen
+batch review are still gates. Reserved families remain untouched.
 
 ## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
 
