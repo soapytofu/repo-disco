@@ -1,0 +1,70 @@
+{
+  "case_id": "repair-diversity-15-analyst",
+  "parent_trial": "repair-diversity-15",
+  "category": "strict_success",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 9 verified, 0 errors\nResults File: /tmp/repodisco-targets-tivvjpeq/TestResults/2026-11-15_00_48_19-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 1.9673044139053673,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "c7e38873268cd94b9e4c7ba69c575a737da0739eda8b1b581df1140ddbaa821e",
+    "HelperB.dfy": "c5e8d1e0948beb3636ed8abbf055904ce98f9f74556b718d8024abd0d4acfaa9",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "csv": {
+    "TestResults/2026-11-15_00_48_19-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0506514,3353,0\nClientB.Target (correctness),Passed,00:00:00.0107734,6714,0\nOps.Right (correctness),Passed,00:00:00.0104130,3353,0\nApi.Finish (correctness),Passed,00:00:00.0098683,8407,0\nOps.Offset (correctness),Passed,00:00:00.0094867,3360,0\nHelperA.Prove (correctness),Passed,00:00:00.0094430,8150,0\nHelperB.Prove (correctness),Passed,00:00:00.0090812,8150,0\nOps.HiddenBounds (correctness),Passed,00:00:00.0086352,3408,0\nClientA.Target (correctness),Passed,00:00:00.0079733,4308,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_00_48_19-0.csv": "ed892591546de6919b44cf312d3609badbf4ec24e651b54e50828965c3a89a16"
+  },
+  "model_calls": 0,
+  "attempts": 1,
+  "target_metrics": {
+    "available": true,
+    "logger_rows": 9,
+    "local_targets": {
+      "ClientA.Target": true,
+      "ClientB.Target": true,
+      "HelperA.Prove": true,
+      "HelperB.Prove": true
+    },
+    "dependency_closed_targets": {
+      "ClientA.Target": true,
+      "ClientB.Target": true,
+      "HelperA.Prove": true,
+      "HelperB.Prove": true
+    },
+    "supplied_providers_verified": true,
+    "editable_local": {
+      "passed": 2,
+      "total": 2
+    },
+    "supplied_clients_local": {
+      "passed": 2,
+      "total": 2
+    },
+    "supplied_clients_closed": {
+      "passed": 2,
+      "total": 2
+    },
+    "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+  },
+  "matched": true
+}

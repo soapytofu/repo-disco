@@ -1,5 +1,14 @@
 # Experiment log
 
+## Five saved failures — analyst fixes verified separately
+
+[repair-diversity-diagnostic-002](repair-diversity-diagnostic-002/RESULTS.md)
+confirms five sufficient analyst repairs with zero new model calls: correct two
+witness endpoint choices and guard premature calls in three arithmetic proofs.
+All existing lemma calls/arguments/order and protected contracts remain unchanged.
+The original model score stays27/32, with all1,845 original archive files intact.
+Full corrected sources, CSV/raw logs and the earlier packaging failure are saved.
+
 ## Exhaustive interval certificates — 20/20 verifier controls
 
 [development-intersection-certificate-001](development-intersection-certificate-001/RESULTS.md)

@@ -47,6 +47,20 @@ assumption, within the known witness lineage. This is a fixed-interface repair
 form of D3-M1, not a completed four-cell generation-corpus addition. No new model
 calls were used.
 
+All [five analyst diagnostics](../experiments/repair-diversity-diagnostic-002/RESULTS.md)
+also strictly verify: two endpoint declaration changes and three guarded-call
+repairs, with no new lemma calls. These are post-hoc sufficiency checks; the
+primary model score remains27/32 and all1,845 original model files are unchanged.
+The first packaging omission and corrected runtime evidence are preserved.
+
+The next prospective study fixes the architecture to two eligible proof modules
+in a dependency chain, with immutable clients. Four development instances will
+compare detailed feedback versus failure notice, four responses per arm (32
+proposed calls within the remaining96). It must pass fresh layout/control and
+per-file guard checks before any prompt freeze or admission. This tests repair
+choices within a declared eligible set, not unrestricted file discovery or a
+causal depth/sharing effect. No second paid batch has been admitted.
+
 ## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
 
 [The 24-call pilot](../experiments/diverse-repair-pilot-001/RESULTS.md) completed

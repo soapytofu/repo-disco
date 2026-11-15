@@ -1,0 +1,89 @@
+{
+  "task_id": "exact_gap_pair-separate",
+  "semantic_instance": "exact_gap_pair",
+  "family": "constraint_witness",
+  "plan_id": "D3-new-exact-gap",
+  "development_only": true,
+  "held_out": false,
+  "ancestor_group": "integer_interval_witness_development",
+  "sharing": "separate",
+  "depth": "fixed_interface",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy",
+    "HelperB.dfy"
+  ],
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "d00c239baf28b53b8f4ad28a8f2b0411b01c1146011113007d5a95e07ef26c57",
+    "HelperB.dfy": "1efeda1f9dcd3cafcff8b3a47f0a5d8d3a48cc4aeec3879f2f0878c733092f63",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "body_boundaries": {
+    "HelperA.dfy": {
+      "start": 337,
+      "end": 337,
+      "protected_sha256": "3d72c3cd6ed88461342bd7a72037c82407eb994d818eca34caa3e1c2e9082dab"
+    },
+    "HelperB.dfy": {
+      "start": 337,
+      "end": 337,
+      "protected_sha256": "ca90d34844f2178e604b1ea396f641facf8fe6027fb943b7f09e9415515191ff"
+    }
+  },
+  "requires": "0 < gap && a <= b && c <= d && a + gap <= d && c <= b + gap",
+  "goal": "K.Feasible(a,b,c,d,gap)",
+  "repair_seed": "faulty",
+  "failure_type": "always choosing the first lower endpoint violates second lower bound",
+  "feasibility_derivation": {
+    "equivalent_intersection": "[a,b] intersect [c-gap,d-gap] is nonempty and gap>0",
+    "necessary": [
+      "u<=b and c<=u+gap imply c<=b+gap",
+      "a<=u and u+gap<=d imply a+gap<=d",
+      "interval membership implies a<=b and c<=d"
+    ],
+    "sufficient": "u=max(a,c-gap), v=u+gap; the four bounds imply u<=min(b,d-gap)",
+    "alternative": "u=min(b,d-gap), v=u+gap; equivalently v=min(b+gap,d)"
+  },
+  "counterexamples": {
+    "faulty": {
+      "a": 0,
+      "b": 5,
+      "c": 4,
+      "d": 8,
+      "gap": 2,
+      "u": 0,
+      "v": 2,
+      "violation": "v<c"
+    },
+    "upper_endpoint": {
+      "a": 0,
+      "b": 5,
+      "c": 1,
+      "d": 4,
+      "gap": 2,
+      "u": 5,
+      "v": 7,
+      "violation": "v>d"
+    },
+    "short_gap": {
+      "a": 0,
+      "b": 5,
+      "c": 1,
+      "d": 4,
+      "gap": 2,
+      "u": 0,
+      "v": 1,
+      "violation": "v!=u+gap"
+    }
+  },
+  "reference_path": "arithmetic choice -> three independent opaque certificates -> existential packaging",
+  "reference_depth_not_minimal": true,
+  "guard_registry_status": "pending integration",
+  "verification_status": "not_run",
+  "failure_origin": "analyst_constructed"
+}

@@ -1,0 +1,36 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(14,11): Error: a precondition for this call could not be proved\n   |\n14 |       Prove(s[1..]);\n   |            ^\n\nHelperA.dfy(7,20): Related location: this is the precondition that could not be proved\n  |\n7 |     requires K.Clean(s)\n  |                     ^\n\nHelperB.dfy(14,11): Error: a precondition for this call could not be proved\n   |\n14 |       Prove(s[1..]);\n   |            ^\n\nHelperB.dfy(7,20): Related location: this is the precondition that could not be proved\n  |\n7 |     requires K.Clean(s)\n  |                     ^\n\n\nDafny program verifier finished with 16 verified, 2 errors\nResults File: /tmp/repodisco-repair-do520ir_/TestResults/2026-11-14_23_34_25-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.2155574071221054,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "50ac97b65cd66d2a0d63ba4601ef94ee2a7946b0cc99d08be7e9e67ad7bd29bf",
+    "ClientB.dfy": "bad976bb73fb6df0ae397bcf40a1362bc6c95fe7c4626ab2465783a01b9008d8",
+    "HelperA.dfy": "4cc2a0f46e893c5a8439d05344dac3649ce4ac6ef9a8ace4eb8c3936d053f5f0",
+    "HelperB.dfy": "570fc07ceeaafcde96b7b0932b3eceec579807d1868b94a6854a3e7c829b72f3",
+    "Invariant.dfy": "21a5d45a24f13a7630fa1d00fcf57927fed1c4aa680f35a68db370090a47d394",
+    "Kernel.dfy": "8d870204dd02242448e0ff0dcfb3b4d66e641cb2b218fd1b8d33515ac3e0890c",
+    "Ops.dfy": "6c03c945b3201fca4d655b9cbb922b3586195afc1d28c1e082a37e85531e87f4"
+  },
+  "csv": {
+    "TestResults/2026-11-14_23_34_25-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Compress (well-formedness),Passed,00:00:00.0653046,14740,0\nHelperA.Prove (correctness),Failed,00:00:00.0459767,22728,0\nInvariant.First (correctness),Passed,00:00:00.0222405,23091,0\nClientA.Target (correctness),Passed,00:00:00.0197433,16237,0\nHelperB.Prove (correctness),Failed,00:00:00.0187053,22728,0\nOps.Drop (correctness),Passed,00:00:00.0186892,16794,0\nOps.Base (correctness),Passed,00:00:00.0161344,14772,0\nInvariant.OutputClean (correctness),Passed,00:00:00.0155074,29902,0\nKernel.Clean (well-formedness),Passed,00:00:00.0150208,11289,0\nClientB.Target (correctness),Passed,00:00:00.0121035,17029,0\nInvariant.First (well-formedness),Passed,00:00:00.0119821,12621,0\nOps.Keep (correctness),Passed,00:00:00.0116004,17153,0\nOps.TailInvariant (correctness),Passed,00:00:00.0096121,10998,0\nOps.Drop (well-formedness),Passed,00:00:00.0096090,13503,0\nOps.Keep (well-formedness),Passed,00:00:00.0093590,13589,0\nOps.TailInvariant (well-formedness),Passed,00:00:00.0090896,9318,0\nOps.Boundary (correctness),Passed,00:00:00.0086175,10885,0\nOps.Boundary (well-formedness),Passed,00:00:00.0085610,9687,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-14_23_34_25-0.csv": "9626ceacad40c4725d1121b8051e846175992d5deba6ff177d4e884013aa9662"
+  },
+  "attempts": 1,
+  "model_calls": 0
+}

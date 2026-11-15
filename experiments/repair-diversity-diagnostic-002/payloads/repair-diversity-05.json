@@ -1,0 +1,4 @@
+{
+  "HelperA.dfy": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }\nif a+b <= c {\n  if b+d <= c {\n    if a+b+d <= c { O.Low(c,a+b,d); O.Low(c,a,b+d); }\n    else { O.High(c,a+b,d); O.High(c,a,b+d); }\n  } else {\n    O.High(c,b,d);\n    O.High(c,a+b,d);\n    O.High(c,a,c);\n  }\n} else {\n  O.High(c,a,b);\n  O.High(c,c,d);\n  if b+d <= c {\n    O.High(c,a,b+d);\n  } else {\n    O.High(c,b,d);\n    O.High(c,a,c);\n  }\n}",
+  "HelperB.dfy": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }\nif a+b <= c {\n  if b+d <= c {\n    if a+b+d <= c { O.Low(c,a+b,d); O.Low(c,a,b+d); }\n    else { O.High(c,a+b,d); O.High(c,a,b+d); }\n  } else {\n    O.High(c,b,d);\n    O.High(c,a+b,d);\n    O.High(c,a,c);\n  }\n} else {\n  O.High(c,a,b);\n  O.High(c,c,d);\n  if b+d <= c {\n    O.High(c,a,b+d);\n  } else {\n    O.High(c,b,d);\n    O.High(c,a,c);\n  }\n}"
+}

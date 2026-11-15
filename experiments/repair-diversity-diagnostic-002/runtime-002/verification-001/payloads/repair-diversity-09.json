@@ -1,0 +1,3 @@
+{
+  "HelperA.dfy": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }\n    if a+b <= c {\n      if b+d <= c {\n        if a+b+d <= c {\n          O.Low(c,a+b,d); O.Low(c,a,b+d);\n        } else {\n          O.High(c,a+b,d); O.High(c,a,b+d);\n        }\n      } else {\n        O.High(c,b,d);\n        O.High(c,a+b,d); O.High(c,a,c);\n      }\n    } else {\n      O.High(c,a,b);\n      if b+d <= c {\n        O.High(c,c,d); O.High(c,a,b+d);\n      } else {\n        O.High(c,b,d);\n        O.High(c,c,d); O.High(c,a,c);\n      }\n    }"
+}

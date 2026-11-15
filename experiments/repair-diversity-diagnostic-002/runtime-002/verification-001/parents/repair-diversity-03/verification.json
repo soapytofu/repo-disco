@@ -1,0 +1,36 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(16,4): Error: assertion might not hold\n   |\n16 |     assert c <= v;\n   |     ^^^^^^\n\n\nDafny program verifier finished with 8 verified, 1 error\nResults File: /tmp/repodisco-targets-g4cpdsi_/TestResults/2026-11-15_00_08_14-0.csv\n",
+  "stderr": "",
+  "elapsed_seconds": 2.324505993165076,
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+    "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+    "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+    "HelperA.dfy": "53a835c81ab12a492d175b8eef1fcd7a4d4fc7afe6901ac0ec6620a1d47c64b4",
+    "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+    "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+    "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+  },
+  "csv": {
+    "TestResults/2026-11-15_00_08_14-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0501683,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0309636,7010,0\nOps.Right (correctness),Passed,00:00:00.0145663,3353,0\nApi.Finish (correctness),Passed,00:00:00.0144833,8407,0\nClientB.Target (correctness),Passed,00:00:00.0109971,6714,0\nClientA.Target (correctness),Passed,00:00:00.0099988,4308,0\nOps.Offset (correctness),Passed,00:00:00.0097307,3360,0\nHelperB.Prove (correctness),Passed,00:00:00.0082682,4308,0\nOps.HiddenBounds (correctness),Passed,00:00:00.0071246,3408,0\n"
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_00_08_14-0.csv": "c2f811be62d9dd44c40f0d580ac0aefbfa4795f7e8251541303c272f1c78b85e"
+  },
+  "model_calls": 0,
+  "attempts": 1
+}

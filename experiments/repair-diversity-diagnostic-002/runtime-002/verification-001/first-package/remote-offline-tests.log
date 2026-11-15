@@ -1,0 +1,56 @@
+test_exact_rebuild_and_original_frozen_guard_replay (test_design.DiagnosticTests.test_exact_rebuild_and_original_frozen_guard_replay) ... FAIL
+test_edits_touch_only_exact_initial_statements_and_keep_call_order (test_design.DiagnosticTests.test_edits_touch_only_exact_initial_statements_and_keep_call_order) ... FAIL
+test_separate_candidates_apply_same_edit_to_both_existing_bodies (test_design.DiagnosticTests.test_separate_candidates_apply_same_edit_to_both_existing_bodies) ... FAIL
+test_unexpected_edit_location_is_rejected (test_design.DiagnosticTests.test_unexpected_edit_location_is_rejected) ... ok
+test_guard_rejects_bypasses_and_protected_parent_edits (test_design.DiagnosticTests.test_guard_rejects_bypasses_and_protected_parent_edits) ... ok
+test_diagnostic_categories_require_coherent_strict_evidence (test_design.DiagnosticTests.test_diagnostic_categories_require_coherent_strict_evidence) ... ok
+
+======================================================================
+FAIL: test_exact_rebuild_and_original_frozen_guard_replay (test_design.DiagnosticTests.test_exact_rebuild_and_original_frozen_guard_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/test_design.py", line 12, in test_exact_rebuild_and_original_frozen_guard_replay
+    generated=p.candidates(ROOT)
+              ^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/prepare.py", line 50, in candidates
+    prov=validate_inputs(root);guard,envelope,adapter=policy(root)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/prepare.py", line 26, in validate_inputs
+    assert actual==load(frozen/'freeze.json')['files']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_edits_touch_only_exact_initial_statements_and_keep_call_order (test_design.DiagnosticTests.test_edits_touch_only_exact_initial_statements_and_keep_call_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/test_design.py", line 29, in test_edits_touch_only_exact_initial_statements_and_keep_call_order
+    for case,source,payload in p.candidates(ROOT):
+                               ^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/prepare.py", line 50, in candidates
+    prov=validate_inputs(root);guard,envelope,adapter=policy(root)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/prepare.py", line 26, in validate_inputs
+    assert actual==load(frozen/'freeze.json')['files']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_separate_candidates_apply_same_edit_to_both_existing_bodies (test_design.DiagnosticTests.test_separate_candidates_apply_same_edit_to_both_existing_bodies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/test_design.py", line 41, in test_separate_candidates_apply_same_edit_to_both_existing_bodies
+    for case,_,payload in p.candidates(ROOT):
+                          ^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/prepare.py", line 50, in candidates
+    prov=validate_inputs(root);guard,envelope,adapter=policy(root)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/repair-diversity-diagnostic-002/prepare.py", line 26, in validate_inputs
+    assert actual==load(frozen/'freeze.json')['files']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.276s
+
+FAILED (failures=3)

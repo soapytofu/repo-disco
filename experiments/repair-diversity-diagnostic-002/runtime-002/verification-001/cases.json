@@ -1,0 +1,3656 @@
+[
+  {
+    "case_id": "repair-diversity-03-analyst",
+    "parent_trial": "repair-diversity-03",
+    "task_id": "exact_gap_pair-shared",
+    "semantic_instance": "exact_gap_pair",
+    "sharing": "shared",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "PROOF_FAILURE",
+    "original_response_sha256": "9024fbbbcb2278d4f024396ca14c14d0c040b2a5bf96ef9f8bc3bae03a87c9b0",
+    "original_verification_sha256": "dc2cc98bbb7d65bb06914bbf1a48166bc3a227862d2b7cdc5700a0d74d3d4448",
+    "original_source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+      "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+      "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+      "HelperA.dfy": "53a835c81ab12a492d175b8eef1fcd7a4d4fc7afe6901ac0ec6620a1d47c64b4",
+      "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+      "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+      "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+    },
+    "original_envelope_span": {
+      "version": "repair-envelope-v2-explicit-json-001",
+      "mode": "whole_response",
+      "start_char": 0,
+      "end_char": 242,
+      "start_utf8_byte": 0,
+      "end_utf8_byte": 242,
+      "raw_sha256": "1468734496ceab868928ab44167aea47f732b80cd69ebc638ee0be50adf977d3",
+      "payload_sha256": "1468734496ceab868928ab44167aea47f732b80cd69ebc638ee0be50adf977d3"
+    },
+    "edits": {
+      "HelperA.dfy": {
+        "start_char": 0,
+        "end_char": 11,
+        "before": "var u := a;",
+        "after": "var u := if a < c-gap then c-gap else a;",
+        "preserved_suffix_sha256": "92dc46621eddc3dccbf0664d0107d6a599c082cc97eb8bba1f527e07f4de6631",
+        "lemma_call_sequence_unchanged": true
+      }
+    },
+    "analyst_authored": true,
+    "model_calls": 0,
+    "original_primary_score": "27/32 unchanged",
+    "expected_category": "strict_success",
+    "expected_verified_obligations": 9,
+    "payload_path": "payloads/repair-diversity-03.json",
+    "path": "fixtures/repair-diversity-03-analyst",
+    "new_lemma_calls": 0,
+    "admitted": true,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+      "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+      "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+      "HelperA.dfy": "39d5d5678574618c3681ff7b6a29ab1b6d56e518dae2f34257e65e2257555537",
+      "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+      "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+      "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+    },
+    "protected_file_comparisons": 7,
+    "protected_body_boundaries": 1,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "53a835c81ab12a492d175b8eef1fcd7a4d4fc7afe6901ac0ec6620a1d47c64b4",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "39d5d5678574618c3681ff7b6a29ab1b6d56e518dae2f34257e65e2257555537",
+        "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "repair-envelope-v2-explicit-json-001",
+          "mode": "whole_response",
+          "start_char": 0,
+          "end_char": 275,
+          "start_utf8_byte": 0,
+          "end_utf8_byte": 275,
+          "raw_sha256": "075e6c9da7127460a540ed8edbee3a3a15a09bb5326ee3d4f0cc9e19396ded3a",
+          "payload_sha256": "bf9b98576a186f7c324b7ea05c550dae14c640c8bc370059a2f84a1a46876518"
+        },
+        "body_guard": {
+          "version": "repair-diversity-bodies-v1-development",
+          "registry_sha256": "46813ad53fd75dd69e121cc7171adb85e6a05cee39035ca1685ea5af1c138f7b",
+          "task_id": "exact_gap_pair-shared",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+            "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+            "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+            "HelperA.dfy": "d00c239baf28b53b8f4ad28a8f2b0411b01c1146011113007d5a95e07ef26c57",
+            "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+            "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+            "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+            "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+            "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+            "HelperA.dfy": "39d5d5678574618c3681ff7b6a29ab1b6d56e518dae2f34257e65e2257555537",
+            "HelperB.dfy": "4bac6f5c9fb67975caab42d3440db0fc0949cebdefe55021524d4c40cdcf3d84",
+            "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+            "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "start_utf8_byte": 337,
+              "end_utf8_byte": 337,
+              "prefix_sha256": "82a48474656141a18dcf5aea07c6422ce887c43e741d8ec131286cc54ad640d3",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "3d72c3cd6ed88461342bd7a72037c82407eb994d818eca34caa3e1c2e9082dab",
+              "body_sha256": "cbf51918e123a549275edc913e4c0564c238b1939a610f06e45d35d3c87448e1",
+              "syntax": [
+                [
+                  "local",
+                  "u",
+                  [
+                    "if_expression",
+                    [
+                      "infix_syntax",
+                      "<",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "infix_syntax",
+                        "-",
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "gap"
+                        ]
+                      ]
+                    ],
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "c"
+                      ],
+                      [
+                        "variable",
+                        "gap"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "a"
+                    ]
+                  ]
+                ],
+                [
+                  "local",
+                  "v",
+                  [
+                    "infix_syntax",
+                    "+",
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "gap"
+                    ]
+                  ]
+                ],
+                [
+                  "assert",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ]
+                  ]
+                ],
+                [
+                  "assert",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ]
+                  ]
+                ],
+                [
+                  "assert",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "assert",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "variable",
+                      "v"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Left",
+                  [
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Right",
+                  [
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Offset",
+                  [
+                    [
+                      "variable",
+                      "gap"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "A.Finish",
+                  [
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ],
+                    [
+                      "variable",
+                      "gap"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 95,
+              "statements": 10
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      },
+      "model_calls": 0,
+      "semantic_verification_performed": false
+    },
+    "edited_body_sha256": {
+      "HelperA.dfy": "cbf51918e123a549275edc913e4c0564c238b1939a610f06e45d35d3c87448e1"
+    }
+  },
+  {
+    "case_id": "repair-diversity-05-analyst",
+    "parent_trial": "repair-diversity-05",
+    "task_id": "saturating_assoc-separate",
+    "semantic_instance": "saturating_assoc",
+    "sharing": "separate",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "PROOF_FAILURE",
+    "original_response_sha256": "d58b767eb3860cdae1c803fb071dc090fde1db92015137ee0b1ffda9792fa8f8",
+    "original_verification_sha256": "5b780ca35b5cb9c97b6c5fd93d10156529d277cd1c1b22a274d9c90b9b75b4bf",
+    "original_source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+      "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+      "HelperA.dfy": "a581eaaef1250b59d11cc0c6c5568f6cb5f37d3af56d465d3c821184a40c9fe9",
+      "HelperB.dfy": "13f5b67c1898f1dea86c5e2b63d67c5433be48f3f39563d2979aa57cbfc3c5ff",
+      "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+      "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+    },
+    "original_envelope_span": {
+      "version": "repair-envelope-v2-explicit-json-001",
+      "mode": "explicit_json_fence",
+      "start_char": 1759,
+      "end_char": 2575,
+      "start_utf8_byte": 1759,
+      "end_utf8_byte": 2575,
+      "raw_sha256": "3a6a0e89edaccc2088525cfff764a71f7892d4d0a6c43509833312e5e6bf553f",
+      "payload_sha256": "11df148ca8c8545c663f31aff38b1c4bb79bd55033368d4c92a7555cefe3b8f8",
+      "fence_start_char": 1751,
+      "fence_end_char": 2579,
+      "surrounding_non_json_fences": 0
+    },
+    "edits": {
+      "HelperA.dfy": {
+        "start_char": 0,
+        "end_char": 27,
+        "before": "O.Low(c,a,b); O.Low(c,b,d);",
+        "after": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }",
+        "preserved_suffix_sha256": "8f2af618d016f775d78faf8cd1678f00ed58d80c5450e5d70b6f1c99b93f1ea3",
+        "lemma_call_sequence_unchanged": true
+      },
+      "HelperB.dfy": {
+        "start_char": 0,
+        "end_char": 27,
+        "before": "O.Low(c,a,b); O.Low(c,b,d);",
+        "after": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }",
+        "preserved_suffix_sha256": "8f2af618d016f775d78faf8cd1678f00ed58d80c5450e5d70b6f1c99b93f1ea3",
+        "lemma_call_sequence_unchanged": true
+      }
+    },
+    "analyst_authored": true,
+    "model_calls": 0,
+    "original_primary_score": "27/32 unchanged",
+    "expected_category": "strict_success",
+    "expected_verified_obligations": 7,
+    "payload_path": "payloads/repair-diversity-05.json",
+    "path": "fixtures/repair-diversity-05-analyst",
+    "new_lemma_calls": 0,
+    "admitted": true,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+      "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+      "HelperA.dfy": "67ec044e9f0819f0d3105e5463ceaf4ae2eaf77fbb7c6668da4cf1e00f75ada4",
+      "HelperB.dfy": "6821fdbdb0c45bc3cf51aecb5b8fec594331b61e56678fdc306a76d6dc5fb764",
+      "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+      "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+    },
+    "protected_file_comparisons": 5,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "a581eaaef1250b59d11cc0c6c5568f6cb5f37d3af56d465d3c821184a40c9fe9",
+        "HelperB.dfy": "13f5b67c1898f1dea86c5e2b63d67c5433be48f3f39563d2979aa57cbfc3c5ff",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "67ec044e9f0819f0d3105e5463ceaf4ae2eaf77fbb7c6668da4cf1e00f75ada4",
+        "HelperB.dfy": "6821fdbdb0c45bc3cf51aecb5b8fec594331b61e56678fdc306a76d6dc5fb764",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "repair-envelope-v2-explicit-json-001",
+          "mode": "whole_response",
+          "start_char": 0,
+          "end_char": 880,
+          "start_utf8_byte": 0,
+          "end_utf8_byte": 880,
+          "raw_sha256": "ba433a3f2969ce8947e2cd91c576be516ccc255be67d6332747fff35a822bd6c",
+          "payload_sha256": "a6bb1f60f264daae94f5cf92f7c58223aab5658be30a2b989ac2f9427fb6003d"
+        },
+        "body_guard": {
+          "version": "repair-diversity-bodies-v1-development",
+          "registry_sha256": "46813ad53fd75dd69e121cc7171adb85e6a05cee39035ca1685ea5af1c138f7b",
+          "task_id": "saturating_assoc-separate",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+            "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+            "HelperA.dfy": "a1187cc7fea3884a52ebea0a59d8e04e74baca985c6940dfb7e80e9bef691732",
+            "HelperB.dfy": "bb1b61e6614baca564ef5b1a043bb09068a6aadedd2a0d8478cb3fe403e5de8f",
+            "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+            "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+            "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+            "HelperA.dfy": "67ec044e9f0819f0d3105e5463ceaf4ae2eaf77fbb7c6668da4cf1e00f75ada4",
+            "HelperB.dfy": "6821fdbdb0c45bc3cf51aecb5b8fec594331b61e56678fdc306a76d6dc5fb764",
+            "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+            "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "start_utf8_byte": 289,
+              "end_utf8_byte": 289,
+              "prefix_sha256": "492c8a3bde4c3fe8686668017907eb47efb68aac011079c60df2f1ffd088c557",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "734a678e40b416b56ccec7a932c982d8c462a170a8e439e3cce5a54512e4f0a3",
+              "body_sha256": "46cc1d486d4099ee2573a06f10bee26f3e859a90a207d5bccf88e565b5099eb4",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "b"
+                      ],
+                      [
+                        "variable",
+                        "d"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "if_statement",
+                          [
+                            "infix_syntax",
+                            "<=",
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "infix_syntax",
+                                "+",
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "variable",
+                                  "b"
+                                ]
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "a"
+                              ],
+                              [
+                                "variable",
+                                "b"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ],
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "b"
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 228,
+              "statements": 20
+            },
+            "HelperB.dfy": {
+              "start_utf8_byte": 289,
+              "end_utf8_byte": 289,
+              "prefix_sha256": "18e43104db9a32002d57e24e1aca248e50bdfb61a0de100faeca6635e9913b99",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "ea746cf7ab12c45715420a1c18d547a6eab3eb324d4c9da54741c632f76ff3d5",
+              "body_sha256": "46cc1d486d4099ee2573a06f10bee26f3e859a90a207d5bccf88e565b5099eb4",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "b"
+                      ],
+                      [
+                        "variable",
+                        "d"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "if_statement",
+                          [
+                            "infix_syntax",
+                            "<=",
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "infix_syntax",
+                                "+",
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "variable",
+                                  "b"
+                                ]
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "a"
+                              ],
+                              [
+                                "variable",
+                                "b"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ],
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ],
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "b"
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 228,
+              "statements": 20
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      },
+      "model_calls": 0,
+      "semantic_verification_performed": false
+    },
+    "edited_body_sha256": {
+      "HelperA.dfy": "46cc1d486d4099ee2573a06f10bee26f3e859a90a207d5bccf88e565b5099eb4",
+      "HelperB.dfy": "46cc1d486d4099ee2573a06f10bee26f3e859a90a207d5bccf88e565b5099eb4"
+    }
+  },
+  {
+    "case_id": "repair-diversity-09-analyst",
+    "parent_trial": "repair-diversity-09",
+    "task_id": "saturating_assoc-shared",
+    "semantic_instance": "saturating_assoc",
+    "sharing": "shared",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "PROOF_FAILURE",
+    "original_response_sha256": "2574870a8e9335c01c37b584e302038b110fba8ec6b1ee2d3b34b639d8cb5d35",
+    "original_verification_sha256": "f673143903e714e185d68d69db75765840f8b1dd75e357cf934b72bb31a5b017",
+    "original_source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+      "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+      "HelperA.dfy": "126c8ce48f5d3aca6fc352283d1cbf4aff3e5a39f5b41edae3c87bf57db20321",
+      "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+      "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+      "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+    },
+    "original_envelope_span": {
+      "version": "repair-envelope-v2-explicit-json-001",
+      "mode": "explicit_json_fence",
+      "start_char": 1046,
+      "end_char": 1557,
+      "start_utf8_byte": 1046,
+      "end_utf8_byte": 1557,
+      "raw_sha256": "d731ece7d01dc9d28f294e726fdeebeb38b16fea30e314bd524574a0d60e0d68",
+      "payload_sha256": "621748050441f805fd5b59d62bb8ced1712f6c04f1e8cf4fea06fe8e41767ee9",
+      "fence_start_char": 1038,
+      "fence_end_char": 1561,
+      "surrounding_non_json_fences": 1
+    },
+    "edits": {
+      "HelperA.dfy": {
+        "start_char": 0,
+        "end_char": 27,
+        "before": "O.Low(c,a,b); O.Low(c,b,d);",
+        "after": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }",
+        "preserved_suffix_sha256": "0e83dd2a09f52ffa1866e4826dc73ac0a0973301d653f56b995338e306d93a85",
+        "lemma_call_sequence_unchanged": true
+      }
+    },
+    "analyst_authored": true,
+    "model_calls": 0,
+    "original_primary_score": "27/32 unchanged",
+    "expected_category": "strict_success",
+    "expected_verified_obligations": 7,
+    "payload_path": "payloads/repair-diversity-09.json",
+    "path": "fixtures/repair-diversity-09-analyst",
+    "new_lemma_calls": 0,
+    "admitted": true,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+      "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+      "HelperA.dfy": "25a69fa9481ed5ac9011cee4978c879d5e27300b3fd36a1fb801b7aef8c7d339",
+      "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+      "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+      "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+    },
+    "protected_file_comparisons": 6,
+    "protected_body_boundaries": 1,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "126c8ce48f5d3aca6fc352283d1cbf4aff3e5a39f5b41edae3c87bf57db20321",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "25a69fa9481ed5ac9011cee4978c879d5e27300b3fd36a1fb801b7aef8c7d339",
+        "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "repair-envelope-v2-explicit-json-001",
+          "mode": "whole_response",
+          "start_char": 0,
+          "end_char": 547,
+          "start_utf8_byte": 0,
+          "end_utf8_byte": 547,
+          "raw_sha256": "c5b5e8492defccec905fba798984e9b8109cd756b30c5d7e6494ec411f27f2fd",
+          "payload_sha256": "161222a2b7ea89660b4dbc4076864d73ea0a393848ccaa02c4ec8198e13f7435"
+        },
+        "body_guard": {
+          "version": "repair-diversity-bodies-v1-development",
+          "registry_sha256": "46813ad53fd75dd69e121cc7171adb85e6a05cee39035ca1685ea5af1c138f7b",
+          "task_id": "saturating_assoc-shared",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+            "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+            "HelperA.dfy": "a1187cc7fea3884a52ebea0a59d8e04e74baca985c6940dfb7e80e9bef691732",
+            "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+            "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+            "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+            "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+            "HelperA.dfy": "25a69fa9481ed5ac9011cee4978c879d5e27300b3fd36a1fb801b7aef8c7d339",
+            "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+            "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+            "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "start_utf8_byte": 289,
+              "end_utf8_byte": 289,
+              "prefix_sha256": "492c8a3bde4c3fe8686668017907eb47efb68aac011079c60df2f1ffd088c557",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "734a678e40b416b56ccec7a932c982d8c462a170a8e439e3cce5a54512e4f0a3",
+              "body_sha256": "088b71b14cad0ec0a6ef70322fc6835d461a8708e994f52457f7037fe013ee3d",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "b"
+                      ],
+                      [
+                        "variable",
+                        "d"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "if_statement",
+                          [
+                            "infix_syntax",
+                            "<=",
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "infix_syntax",
+                                "+",
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "variable",
+                                  "b"
+                                ]
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "a"
+                              ],
+                              [
+                                "variable",
+                                "b"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ],
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "b"
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 239,
+              "statements": 21
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      },
+      "model_calls": 0,
+      "semantic_verification_performed": false
+    },
+    "edited_body_sha256": {
+      "HelperA.dfy": "088b71b14cad0ec0a6ef70322fc6835d461a8708e994f52457f7037fe013ee3d"
+    }
+  },
+  {
+    "case_id": "repair-diversity-15-analyst",
+    "parent_trial": "repair-diversity-15",
+    "task_id": "exact_gap_pair-separate",
+    "semantic_instance": "exact_gap_pair",
+    "sharing": "separate",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "PROOF_FAILURE",
+    "original_response_sha256": "0b5175edcf5f581a17d52881ac211e6ebbb063fa07131a0fb72e5c6e5b4941a4",
+    "original_verification_sha256": "e3cffa9711a2751f4042f4ab0c840b3bd7493b4137a46da20038d0bc7f03a99e",
+    "original_source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+      "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+      "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+      "HelperA.dfy": "6a8811b868379780be9aea99785647ffe746761b24f7e3a2cedc7c2298953f49",
+      "HelperB.dfy": "50de2b6ab3d317768f0ee4558137225fd72ce05f29dbacb1e3dbeebcc628b023",
+      "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+      "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+    },
+    "original_envelope_span": {
+      "version": "repair-envelope-v2-explicit-json-001",
+      "mode": "whole_response",
+      "start_char": 0,
+      "end_char": 297,
+      "start_utf8_byte": 0,
+      "end_utf8_byte": 297,
+      "raw_sha256": "218d370845d3b160e2682ee0af1f0d0c57751200e29795ac37e3c08fa65c4c58",
+      "payload_sha256": "218d370845d3b160e2682ee0af1f0d0c57751200e29795ac37e3c08fa65c4c58"
+    },
+    "edits": {
+      "HelperA.dfy": {
+        "start_char": 0,
+        "end_char": 11,
+        "before": "var u := a;",
+        "after": "var u := if a < c-gap then c-gap else a;",
+        "preserved_suffix_sha256": "76353b0e056f4245e7bbff8359732bb8382076d0f5cd1c39f334b8618d54798a",
+        "lemma_call_sequence_unchanged": true
+      },
+      "HelperB.dfy": {
+        "start_char": 0,
+        "end_char": 11,
+        "before": "var u := a;",
+        "after": "var u := if a < c-gap then c-gap else a;",
+        "preserved_suffix_sha256": "76353b0e056f4245e7bbff8359732bb8382076d0f5cd1c39f334b8618d54798a",
+        "lemma_call_sequence_unchanged": true
+      }
+    },
+    "analyst_authored": true,
+    "model_calls": 0,
+    "original_primary_score": "27/32 unchanged",
+    "expected_category": "strict_success",
+    "expected_verified_obligations": 9,
+    "payload_path": "payloads/repair-diversity-15.json",
+    "path": "fixtures/repair-diversity-15-analyst",
+    "new_lemma_calls": 0,
+    "admitted": true,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+      "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+      "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+      "HelperA.dfy": "c7e38873268cd94b9e4c7ba69c575a737da0739eda8b1b581df1140ddbaa821e",
+      "HelperB.dfy": "c5e8d1e0948beb3636ed8abbf055904ce98f9f74556b718d8024abd0d4acfaa9",
+      "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+      "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+    },
+    "protected_file_comparisons": 6,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "6a8811b868379780be9aea99785647ffe746761b24f7e3a2cedc7c2298953f49",
+        "HelperB.dfy": "50de2b6ab3d317768f0ee4558137225fd72ce05f29dbacb1e3dbeebcc628b023",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+        "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+        "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+        "HelperA.dfy": "c7e38873268cd94b9e4c7ba69c575a737da0739eda8b1b581df1140ddbaa821e",
+        "HelperB.dfy": "c5e8d1e0948beb3636ed8abbf055904ce98f9f74556b718d8024abd0d4acfaa9",
+        "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+        "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "repair-envelope-v2-explicit-json-001",
+          "mode": "whole_response",
+          "start_char": 0,
+          "end_char": 364,
+          "start_utf8_byte": 0,
+          "end_utf8_byte": 364,
+          "raw_sha256": "1b8672420f20dd8bc5ed9ea2283e9afac550d35dcba641bb7b2d56e00da787fa",
+          "payload_sha256": "597202a9a70217b4e5f06241733c6671cb82dd24f827a99595f51c5671e251ca"
+        },
+        "body_guard": {
+          "version": "repair-diversity-bodies-v1-development",
+          "registry_sha256": "46813ad53fd75dd69e121cc7171adb85e6a05cee39035ca1685ea5af1c138f7b",
+          "task_id": "exact_gap_pair-separate",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+            "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+            "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+            "HelperA.dfy": "d00c239baf28b53b8f4ad28a8f2b0411b01c1146011113007d5a95e07ef26c57",
+            "HelperB.dfy": "1efeda1f9dcd3cafcff8b3a47f0a5d8d3a48cc4aeec3879f2f0878c733092f63",
+            "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+            "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "Api.dfy": "9045a1ccd44909805f27a7c9bb6664ac5cc742c4e72bd5d361859c587f4e6d57",
+            "ClientA.dfy": "63220dc01c7409ca658628dccf05a6c3b157ff71a82dae3dc93837acc803758c",
+            "ClientB.dfy": "260606a6c1d29a957708d1a60445c6a7d72cb41ca14a4e97822be0970af1f460",
+            "HelperA.dfy": "c7e38873268cd94b9e4c7ba69c575a737da0739eda8b1b581df1140ddbaa821e",
+            "HelperB.dfy": "c5e8d1e0948beb3636ed8abbf055904ce98f9f74556b718d8024abd0d4acfaa9",
+            "Kernel.dfy": "671359e875cfc88a8207ef4df33549471073d75dce454b2314c8e3ed00d87dd8",
+            "Ops.dfy": "eaac50daa8e0fded1762ea9d3366bdcf6ad6dd63fcfbf654280af3e602a04dcc"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "start_utf8_byte": 337,
+              "end_utf8_byte": 337,
+              "prefix_sha256": "82a48474656141a18dcf5aea07c6422ce887c43e741d8ec131286cc54ad640d3",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "3d72c3cd6ed88461342bd7a72037c82407eb994d818eca34caa3e1c2e9082dab",
+              "body_sha256": "2da26b56595bb1e213fe2340376313603059bbeec4cfd6b427d90639e94505d3",
+              "syntax": [
+                [
+                  "local",
+                  "u",
+                  [
+                    "if_expression",
+                    [
+                      "infix_syntax",
+                      "<",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "infix_syntax",
+                        "-",
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "gap"
+                        ]
+                      ]
+                    ],
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "c"
+                      ],
+                      [
+                        "variable",
+                        "gap"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "a"
+                    ]
+                  ]
+                ],
+                [
+                  "local",
+                  "v",
+                  [
+                    "infix_syntax",
+                    "+",
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "gap"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Left",
+                  [
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Right",
+                  [
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Offset",
+                  [
+                    [
+                      "variable",
+                      "gap"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "A.Finish",
+                  [
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ],
+                    [
+                      "variable",
+                      "gap"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 75,
+              "statements": 6
+            },
+            "HelperB.dfy": {
+              "start_utf8_byte": 337,
+              "end_utf8_byte": 337,
+              "prefix_sha256": "47335d81704bf9eba6bb748fe26d8fe918271b0f22385a1a883f373377a3ed95",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "ca90d34844f2178e604b1ea396f641facf8fe6027fb943b7f09e9415515191ff",
+              "body_sha256": "2da26b56595bb1e213fe2340376313603059bbeec4cfd6b427d90639e94505d3",
+              "syntax": [
+                [
+                  "local",
+                  "u",
+                  [
+                    "if_expression",
+                    [
+                      "infix_syntax",
+                      "<",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "infix_syntax",
+                        "-",
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "gap"
+                        ]
+                      ]
+                    ],
+                    [
+                      "infix_syntax",
+                      "-",
+                      [
+                        "variable",
+                        "c"
+                      ],
+                      [
+                        "variable",
+                        "gap"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "a"
+                    ]
+                  ]
+                ],
+                [
+                  "local",
+                  "v",
+                  [
+                    "infix_syntax",
+                    "+",
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "gap"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Left",
+                  [
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Right",
+                  [
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "O.Offset",
+                  [
+                    [
+                      "variable",
+                      "gap"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ],
+                [
+                  "call",
+                  "A.Finish",
+                  [
+                    [
+                      "variable",
+                      "a"
+                    ],
+                    [
+                      "variable",
+                      "b"
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ],
+                    [
+                      "variable",
+                      "d"
+                    ],
+                    [
+                      "variable",
+                      "gap"
+                    ],
+                    [
+                      "variable",
+                      "u"
+                    ],
+                    [
+                      "variable",
+                      "v"
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 75,
+              "statements": 6
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      },
+      "model_calls": 0,
+      "semantic_verification_performed": false
+    },
+    "edited_body_sha256": {
+      "HelperA.dfy": "2da26b56595bb1e213fe2340376313603059bbeec4cfd6b427d90639e94505d3",
+      "HelperB.dfy": "2da26b56595bb1e213fe2340376313603059bbeec4cfd6b427d90639e94505d3"
+    }
+  },
+  {
+    "case_id": "repair-diversity-28-analyst",
+    "parent_trial": "repair-diversity-28",
+    "task_id": "saturating_assoc-separate",
+    "semantic_instance": "saturating_assoc",
+    "sharing": "separate",
+    "feedback_condition": "failure_notice_only",
+    "original_outcome": "PROOF_FAILURE",
+    "original_response_sha256": "b80fd7b8da3faa59d6e5073fcb2748ac59deea01c7bc75dc5dd7f91986784562",
+    "original_verification_sha256": "bf54f1ad17ebacbad58edbc2f9817e218d1da002c1bc1e51eeab85b809a5fef0",
+    "original_source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+      "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+      "HelperA.dfy": "45684d1a8cc0e38396e2adc3afa0f1fa65d74b680e936d7a676608d4ae90991b",
+      "HelperB.dfy": "aad56450dbcf7c0a02cde3b09bd96770ddac8058199059d0d59b6f8c3cff80bf",
+      "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+      "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+    },
+    "original_envelope_span": {
+      "version": "repair-envelope-v2-explicit-json-001",
+      "mode": "explicit_json_fence",
+      "start_char": 1036,
+      "end_char": 1966,
+      "start_utf8_byte": 1036,
+      "end_utf8_byte": 1966,
+      "raw_sha256": "c7421fa84b8e3ef45826ebf483cd07ae2d654e91ebf6f225df2128a9ee97aced",
+      "payload_sha256": "a6e8e5232494c6f904dd96f445355e331494235c4c8e52cb79aac4115f6cc4a8",
+      "fence_start_char": 1028,
+      "fence_end_char": 1970,
+      "surrounding_non_json_fences": 0
+    },
+    "edits": {
+      "HelperA.dfy": {
+        "start_char": 0,
+        "end_char": 27,
+        "before": "O.Low(c,a,b); O.Low(c,b,d);",
+        "after": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }",
+        "preserved_suffix_sha256": "7a18b6700a932997c3cc19cee52f55622aeab4560d9858138d201de999535f83",
+        "lemma_call_sequence_unchanged": true
+      },
+      "HelperB.dfy": {
+        "start_char": 0,
+        "end_char": 27,
+        "before": "O.Low(c,a,b); O.Low(c,b,d);",
+        "after": "if a+b <= c { O.Low(c,a,b); } if b+d <= c { O.Low(c,b,d); }",
+        "preserved_suffix_sha256": "7a18b6700a932997c3cc19cee52f55622aeab4560d9858138d201de999535f83",
+        "lemma_call_sequence_unchanged": true
+      }
+    },
+    "analyst_authored": true,
+    "model_calls": 0,
+    "original_primary_score": "27/32 unchanged",
+    "expected_category": "strict_success",
+    "expected_verified_obligations": 7,
+    "payload_path": "payloads/repair-diversity-28.json",
+    "path": "fixtures/repair-diversity-28-analyst",
+    "new_lemma_calls": 0,
+    "admitted": true,
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+      "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+      "HelperA.dfy": "30e115cebf8709163c8effffbb3ba0f7ecff9d52d6267f8a8329d530803079e1",
+      "HelperB.dfy": "1590ecafe491765dba77c790ab96fd0c32982ada83f938fba942183c3d11cd20",
+      "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+      "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+    },
+    "protected_file_comparisons": 5,
+    "protected_body_boundaries": 2,
+    "guard_decision": {
+      "failing_base_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "45684d1a8cc0e38396e2adc3afa0f1fa65d74b680e936d7a676608d4ae90991b",
+        "HelperB.dfy": "aad56450dbcf7c0a02cde3b09bd96770ddac8058199059d0d59b6f8c3cff80bf",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "candidate_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+        "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+        "HelperA.dfy": "30e115cebf8709163c8effffbb3ba0f7ecff9d52d6267f8a8329d530803079e1",
+        "HelperB.dfy": "1590ecafe491765dba77c790ab96fd0c32982ada83f938fba942183c3d11cd20",
+        "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+        "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+      },
+      "original_guard_decision": {
+        "envelope": {
+          "version": "repair-envelope-v2-explicit-json-001",
+          "mode": "whole_response",
+          "start_char": 0,
+          "end_char": 994,
+          "start_utf8_byte": 0,
+          "end_utf8_byte": 994,
+          "raw_sha256": "955f11bb43e7fdc9c71ea645c6916e1b43eac65fc54a80d5fba256b467ff2b95",
+          "payload_sha256": "62f9b960b8fe3197d62184b013d4f941656ba8cc93b206182e257e884164a8bf"
+        },
+        "body_guard": {
+          "version": "repair-diversity-bodies-v1-development",
+          "registry_sha256": "46813ad53fd75dd69e121cc7171adb85e6a05cee39035ca1685ea5af1c138f7b",
+          "task_id": "saturating_assoc-separate",
+          "parent_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+            "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+            "HelperA.dfy": "a1187cc7fea3884a52ebea0a59d8e04e74baca985c6940dfb7e80e9bef691732",
+            "HelperB.dfy": "bb1b61e6614baca564ef5b1a043bb09068a6aadedd2a0d8478cb3fe403e5de8f",
+            "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+            "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+          },
+          "candidate_sha256": {
+            "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+            "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+            "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+            "HelperA.dfy": "30e115cebf8709163c8effffbb3ba0f7ecff9d52d6267f8a8329d530803079e1",
+            "HelperB.dfy": "1590ecafe491765dba77c790ab96fd0c32982ada83f938fba942183c3d11cd20",
+            "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+            "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+          },
+          "bodies": {
+            "HelperA.dfy": {
+              "start_utf8_byte": 289,
+              "end_utf8_byte": 289,
+              "prefix_sha256": "492c8a3bde4c3fe8686668017907eb47efb68aac011079c60df2f1ffd088c557",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "734a678e40b416b56ccec7a932c982d8c462a170a8e439e3cce5a54512e4f0a3",
+              "body_sha256": "ddc94452249afa645da075a55cf3e61d67353f49ee66a7c158420d086159591f",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "b"
+                      ],
+                      [
+                        "variable",
+                        "d"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "if_statement",
+                          [
+                            "infix_syntax",
+                            "<=",
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "infix_syntax",
+                                "+",
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "variable",
+                                  "b"
+                                ]
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "a"
+                              ],
+                              [
+                                "variable",
+                                "b"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ],
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "b"
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 239,
+              "statements": 21
+            },
+            "HelperB.dfy": {
+              "start_utf8_byte": 289,
+              "end_utf8_byte": 289,
+              "prefix_sha256": "18e43104db9a32002d57e24e1aca248e50bdfb61a0de100faeca6635e9913b99",
+              "suffix_sha256": "df739a06c1cbb1244e3363d38bcf9fa50ce84fed399c2193a3c7f08d59918b2a",
+              "protected_sha256": "ea746cf7ab12c45715420a1c18d547a6eab3eb324d4c9da54741c632f76ff3d5",
+              "body_sha256": "ddc94452249afa645da075a55cf3e61d67353f49ee66a7c158420d086159591f",
+              "syntax": [
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "b"
+                      ],
+                      [
+                        "variable",
+                        "d"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.Low",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ],
+                        [
+                          "variable",
+                          "d"
+                        ]
+                      ]
+                    ]
+                  ],
+                  []
+                ],
+                [
+                  "if_statement",
+                  [
+                    "infix_syntax",
+                    "<=",
+                    [
+                      "infix_syntax",
+                      "+",
+                      [
+                        "variable",
+                        "a"
+                      ],
+                      [
+                        "variable",
+                        "b"
+                      ]
+                    ],
+                    [
+                      "variable",
+                      "c"
+                    ]
+                  ],
+                  [
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "if_statement",
+                          [
+                            "infix_syntax",
+                            "<=",
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "infix_syntax",
+                                "+",
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "variable",
+                                  "b"
+                                ]
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.Low",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ],
+                          [
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "a"
+                                  ],
+                                  [
+                                    "variable",
+                                    "b"
+                                  ]
+                                ],
+                                [
+                                  "variable",
+                                  "d"
+                                ]
+                              ]
+                            ],
+                            [
+                              "call",
+                              "O.High",
+                              [
+                                [
+                                  "variable",
+                                  "c"
+                                ],
+                                [
+                                  "variable",
+                                  "a"
+                                ],
+                                [
+                                  "infix_syntax",
+                                  "+",
+                                  [
+                                    "variable",
+                                    "b"
+                                  ],
+                                  [
+                                    "variable",
+                                    "d"
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "a"
+                              ],
+                              [
+                                "variable",
+                                "b"
+                              ]
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      "call",
+                      "O.High",
+                      [
+                        [
+                          "variable",
+                          "c"
+                        ],
+                        [
+                          "variable",
+                          "a"
+                        ],
+                        [
+                          "variable",
+                          "b"
+                        ]
+                      ]
+                    ],
+                    [
+                      "if_statement",
+                      [
+                        "infix_syntax",
+                        "<=",
+                        [
+                          "infix_syntax",
+                          "+",
+                          [
+                            "variable",
+                            "b"
+                          ],
+                          [
+                            "variable",
+                            "d"
+                          ]
+                        ],
+                        [
+                          "variable",
+                          "c"
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "infix_syntax",
+                              "+",
+                              [
+                                "variable",
+                                "b"
+                              ],
+                              [
+                                "variable",
+                                "d"
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      [
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "b"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "d"
+                            ]
+                          ]
+                        ],
+                        [
+                          "call",
+                          "O.High",
+                          [
+                            [
+                              "variable",
+                              "c"
+                            ],
+                            [
+                              "variable",
+                              "a"
+                            ],
+                            [
+                              "variable",
+                              "c"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              "tokens": 239,
+              "statements": 21
+            }
+          },
+          "semantic_verification_performed": false
+        }
+      },
+      "model_calls": 0,
+      "semantic_verification_performed": false
+    },
+    "edited_body_sha256": {
+      "HelperA.dfy": "ddc94452249afa645da075a55cf3e61d67353f49ee66a7c158420d086159591f",
+      "HelperB.dfy": "ddc94452249afa645da075a55cf3e61d67353f49ee66a7c158420d086159591f"
+    }
+  }
+]
