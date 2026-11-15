@@ -1,5 +1,16 @@
 # Experiment log
 
+## Four pipeline repair tasks — 45/45 controls before collection
+
+[repository-repair-selection-001](repository-repair-selection-001/RESULTS.md)
+validates four fresh development layouts with two eligible proof modules and two
+immutable clients. Ten positives,31 proof failures and four hidden-export failures
+match expectations. Faults are balanced between the two helper roles. Full logs,
+protected-source and named-scope reviews are saved; four identical map controls
+reuse explicit evidence without extra calls. The per-file policy passes18 tests
+plus three unchanged-runner checks. A32-call feedback/notice comparison is being
+frozen inside the existing budget; no new requests have been admitted yet.
+
 ## Five saved failures — analyst fixes verified separately
 
 [repair-diversity-diagnostic-002](repair-diversity-diagnostic-002/RESULTS.md)

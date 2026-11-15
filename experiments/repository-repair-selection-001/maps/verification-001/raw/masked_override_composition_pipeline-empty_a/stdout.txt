@@ -1,0 +1,13 @@
+HelperA.dfy(10,2): Error: a postcondition could not be proved on this return path
+   |
+10 |   {
+   |   ^
+
+HelperA.dfy(9,48): Related location: this is the postcondition that could not be proved
+  |
+9 |     ensures K.Compose(K.Override(f1,f2),g).Keys == K.Override(K.Compose(K.Restrict(f1,f1.Keys-f2.Keys),g),K.Compose(f2,g)).Keys
+  |                                                 ^^
+
+
+Dafny program verifier finished with 20 verified, 1 error
+Results File: /tmp/repodisco-repair-adapter-_ylm9ofi/TestResults/2026-11-15_01_05_14-0.csv

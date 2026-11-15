@@ -1,0 +1,28 @@
+HelperB.dfy(19,47): Error: possible violation of postcondition of forall statement
+   |
+19 |     forall x | x in forward ensures forward[x] in backward && backward[forward[x]] == x {
+   |                                                ^^
+
+HelperB.dfy(24,8): Error: assertion might not hold
+   |
+24 |         assert backward[v] == p;
+   |         ^^^^^^
+
+HelperB.dfy(24,23): Error: element might not be in domain
+   |
+24 |         assert backward[v] == p;
+   |                        ^
+
+HelperB.dfy(27,8): Error: assertion might not hold
+   |
+27 |         assert backward[u] == q;
+   |         ^^^^^^
+
+HelperB.dfy(27,23): Error: element might not be in domain
+   |
+27 |         assert backward[u] == q;
+   |                        ^
+
+
+Dafny program verifier finished with 16 verified, 5 errors
+Results File: /tmp/repodisco-repair-adapter-xxv3tz5d/TestResults/2026-11-15_01_04_58-0.csv

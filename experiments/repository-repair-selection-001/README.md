@@ -1,7 +1,7 @@
 # Repository repair choices: prospective development study
 
-**Under construction. No prompts are frozen, no model requests are admitted, and
-no new layout has inherited a verification pass.** The proposed study uses 32
+**All45 fresh layout/control expectations passed; see [the full results](RESULTS.md).
+No prompts are frozen or model requests admitted yet.** The proposed study uses 32
 calls within the already authorized 128-call research window; 32 earlier calls
 are complete and 96 remain. This is a ceiling, not a commitment to spend without
 the validation gates.
@@ -30,18 +30,19 @@ later reviewed freeze. The single existing session, model/settings and global
 ledger will be reused. There will be no extra client, connectivity request,
 automatic retry or reassignment.
 
-Before dispatch, each new layout needs fresh positive/alternative and targeted
-negative controls, including repairs confined to A or B. A per-file bounded
-output policy must admit exact references and reject contract edits, bypasses,
-hidden calls and A-to-B cycles. CSV evidence will bind every provider, helper and
-client obligation; local client passes conditional on unproved helper contracts
-will not count as dependency-closed success. Empty reconstruction templates and
+Each new layout passed fresh positive/alternative and targeted negative controls,
+including repairs confined to A or B. The per-file bounded output policy admits
+exact references and rejects contract edits, bypasses, hidden calls and A-to-B
+cycles. CSV evidence binds every provider, helper and client obligation; local
+client passes conditional on unproved helper contracts do not count as certified
+under the declared dependency closure. Empty reconstruction templates and
 the known seeded-fault labels remain host metadata and will not appear in the
 prompts.
 
 The primary result is strict whole-workspace repair. Secondary reporting covers
-local versus dependency-closed verification, changed-body sets, failure category
-and tokens. Text or token changes do not establish semantic necessity or minimum
+local verification, closure under the frozen declared module graph, changed-body
+sets, failure category and tokens. Observed helper-call use is reported separately;
+the declared graph is not a claim of necessary proof dependence. Text or token changes do not establish semantic necessity or minimum
 patch size. The controlled source already gives role information; this is repair
 choice within a declared eligible set, not blind or unrestricted fault discovery.
 

@@ -1,0 +1,68 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperB.dfy(15,14): Error: a precondition for this call could not be proved\n   |\n15 |       O.Before(b,c);\n   |               ^\n\nOps.dfy(15,15): Related location: this is the precondition that could not be proved\n   |\n15 |     requires b < c\n   |                ^\n\n\nDafny program verifier finished with 11 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-qtcuscv_/TestResults/2026-11-15_01_08_22-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQi5kZnkoMTUsMTQpOiBFcnJvcjogYSBwcmVjb25kaXRpb24gZm9yIHRoaXMgY2FsbCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTUgfCAgICAgICBPLkJlZm9yZShiLGMpOwogICB8ICAgICAgICAgICAgICAgXgoKT3BzLmRmeSgxNSwxNSk6IFJlbGF0ZWQgbG9jYXRpb246IHRoaXMgaXMgdGhlIHByZWNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxNSB8ICAgICByZXF1aXJlcyBiIDwgYwogICB8ICAgICAgICAgICAgICAgIF4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggMTEgdmVyaWZpZWQsIDEgZXJyb3IKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci1xdGN1c2N2Xy9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAxXzA4XzIyLTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "8d321f2ac9627c73108a7933d483ab334147e5cece1a9e3953eab9d495ed23c0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_08_22-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0496369,3353,0\nHelperB.Prove (correctness),Failed,00:00:00.0369181,11836,0\nClientB.Target (correctness),Passed,00:00:00.0139907,15684,0\nOps.Right (correctness),Passed,00:00:00.0122347,3353,0\nApi.Witness (correctness),Passed,00:00:00.0104441,10534,0\nApi.Choose (correctness),Passed,00:00:00.0101225,13172,0\nApi.Gap (correctness),Passed,00:00:00.0099643,10864,0\nClientA.Target (correctness),Passed,00:00:00.0090943,8189,0\nApi.DirectWitness (correctness),Passed,00:00:00.0090449,9032,0\nHelperA.Prove (correctness),Passed,00:00:00.0084890,5387,0\nOps.After (correctness),Passed,00:00:00.0073641,3239,0\nOps.Before (correctness),Passed,00:00:00.0073143,3239,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_08_22-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNDk2MzY5LDMzNTMsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjAzNjkxODEsMTE4MzYsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTM5OTA3LDE1Njg0LDAKT3BzLlJpZ2h0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMjIzNDcsMzM1MywwCkFwaS5XaXRuZXNzIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDQ0NDEsMTA1MzQsMApBcGkuQ2hvb3NlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDEyMjUsMTMxNzIsMApBcGkuR2FwIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTk2NDMsMTA4NjQsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDkwOTQzLDgxODksMApBcGkuRGlyZWN0V2l0bmVzcyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDkwNDQ5LDkwMzIsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwODQ4OTAsNTM4NywwCk9wcy5BZnRlciAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDczNjQxLDMyMzksMApPcHMuQmVmb3JlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwNzMxNDMsMzIzOSwwCg=="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_08_22-0.csv": "efcbb2426c5516a15451c099393dc086403510dae9fa078db505924901d82b1a"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+    "ClientA.dfy": "cfb3d2d7bdce82a09fc71681723dd700dcd43062215415a37d0baf5c7288e98d",
+    "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+    "HelperA.dfy": "47a0060962ea152bf9b42b7fbc879e4457421e1a159508689264db50562a9474",
+    "HelperB.dfy": "a154d842f55f8f14c87a016f5e7e86b48d367dd6bb70f90b0b2eb74124666b9e",
+    "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+    "Ops.dfy": "5d9430f15c467d5a354c0719bb4781964266a9314aa5745a71a5e4faf180cd6d"
+  },
+  "elapsed_seconds": 2.1523677629884332,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "intersection_or_separation-pipeline-only_a_repair",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        11,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

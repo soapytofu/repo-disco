@@ -1,0 +1,72 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperB.dfy(19,47): Error: possible violation of postcondition of forall statement\n   |\n19 |     forall x | x in forward ensures forward[x] in backward && backward[forward[x]] == x {\n   |                                                ^^\n\nHelperB.dfy(24,8): Error: assertion might not hold\n   |\n24 |         assert backward[v] == p;\n   |         ^^^^^^\n\nHelperB.dfy(24,23): Error: element might not be in domain\n   |\n24 |         assert backward[v] == p;\n   |                        ^\n\nHelperB.dfy(27,8): Error: assertion might not hold\n   |\n27 |         assert backward[u] == q;\n   |         ^^^^^^\n\nHelperB.dfy(27,23): Error: element might not be in domain\n   |\n27 |         assert backward[u] == q;\n   |                        ^\n\n\nDafny program verifier finished with 16 verified, 5 errors\nResults File: /tmp/repodisco-repair-adapter-xxv3tz5d/TestResults/2026-11-15_01_04_58-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQi5kZnkoMTksNDcpOiBFcnJvcjogcG9zc2libGUgdmlvbGF0aW9uIG9mIHBvc3Rjb25kaXRpb24gb2YgZm9yYWxsIHN0YXRlbWVudAogICB8CjE5IHwgICAgIGZvcmFsbCB4IHwgeCBpbiBmb3J3YXJkIGVuc3VyZXMgZm9yd2FyZFt4XSBpbiBiYWNrd2FyZCAmJiBiYWNrd2FyZFtmb3J3YXJkW3hdXSA9PSB4IHsKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eCgpIZWxwZXJCLmRmeSgyNCw4KTogRXJyb3I6IGFzc2VydGlvbiBtaWdodCBub3QgaG9sZAogICB8CjI0IHwgICAgICAgICBhc3NlcnQgYmFja3dhcmRbdl0gPT0gcDsKICAgfCAgICAgICAgIF5eXl5eXgoKSGVscGVyQi5kZnkoMjQsMjMpOiBFcnJvcjogZWxlbWVudCBtaWdodCBub3QgYmUgaW4gZG9tYWluCiAgIHwKMjQgfCAgICAgICAgIGFzc2VydCBiYWNrd2FyZFt2XSA9PSBwOwogICB8ICAgICAgICAgICAgICAgICAgICAgICAgXgoKSGVscGVyQi5kZnkoMjcsOCk6IEVycm9yOiBhc3NlcnRpb24gbWlnaHQgbm90IGhvbGQKICAgfAoyNyB8ICAgICAgICAgYXNzZXJ0IGJhY2t3YXJkW3VdID09IHE7CiAgIHwgICAgICAgICBeXl5eXl4KCkhlbHBlckIuZGZ5KDI3LDIzKTogRXJyb3I6IGVsZW1lbnQgbWlnaHQgbm90IGJlIGluIGRvbWFpbgogICB8CjI3IHwgICAgICAgICBhc3NlcnQgYmFja3dhcmRbdV0gPT0gcTsKICAgfCAgICAgICAgICAgICAgICAgICAgICAgIF4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggMTYgdmVyaWZpZWQsIDUgZXJyb3JzClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXIteHh2M3R6NWQvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8wMV8wNF81OC0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "7a9b516db3d9541a04e855abe8edadec528c7a5d19b9330468b30f267d32c14b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_04_58-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperB.Prove (correctness),Failed,00:00:00.1184912,70996,0\nKernel.Exchange (well-formedness),Passed,00:00:00.0583313,12205,0\nOps.PutAt (well-formedness),Passed,00:00:00.0473516,12504,0\nHelperA.Prove (correctness),Passed,00:00:00.0315086,56251,0\nClientB.Target (correctness),Passed,00:00:00.0283583,26877,0\nKernel.Inverse (well-formedness),Passed,00:00:00.0199260,13502,0\nOps.PutKeys (correctness),Passed,00:00:00.0184513,19573,0\nHelperB.Prove (well-formedness),Passed,00:00:00.0184338,17969,0\nClientA.Target (correctness),Passed,00:00:00.0134889,16684,0\nClientA.Target (well-formedness),Passed,00:00:00.0120779,17969,0\nClientB.Target (well-formedness),Passed,00:00:00.0118674,17313,0\nOps.PutAt (correctness),Passed,00:00:00.0111842,16273,0\nOps.ExchangeShape (correctness),Passed,00:00:00.0111281,17827,0\nHelperA.Prove (well-formedness),Passed,00:00:00.0110981,13996,0\nOps.HiddenPutAt (correctness),Passed,00:00:00.0106523,16273,0\nOps.ExchangeShape (well-formedness),Passed,00:00:00.0100260,13202,0\nOps.HiddenPutAt (well-formedness),Passed,00:00:00.0095813,12504,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_04_58-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjExODQ5MTIsNzA5OTYsMApLZXJuZWwuRXhjaGFuZ2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1ODMzMTMsMTIyMDUsMApPcHMuUHV0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA0NzM1MTYsMTI1MDQsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAzMTUwODYsNTYyNTEsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMjgzNTgzLDI2ODc3LDAKS2VybmVsLkludmVyc2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxOTkyNjAsMTM1MDIsMApPcHMuUHV0S2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTg0NTEzLDE5NTczLDAKSGVscGVyQi5Qcm92ZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE4NDMzOCwxNzk2OSwwCkNsaWVudEEuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMzQ4ODksMTY2ODQsMApDbGllbnRBLlRhcmdldCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEyMDc3OSwxNzk2OSwwCkNsaWVudEIuVGFyZ2V0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE4Njc0LDE3MzEzLDAKT3BzLlB1dEF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTE4NDIsMTYyNzMsMApPcHMuRXhjaGFuZ2VTaGFwZSAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTExMjgxLDE3ODI3LDAKSGVscGVyQS5Qcm92ZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExMDk4MSwxMzk5NiwwCk9wcy5IaWRkZW5QdXRBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA2NTIzLDE2MjczLDAKT3BzLkV4Y2hhbmdlU2hhcGUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDAyNjAsMTMyMDIsMApPcHMuSGlkZGVuUHV0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTU4MTMsMTI1MDQsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_04_58-0.csv": "0512bf9c483f2c8d01bd075c737191f0f0b8b2bab334e15241d6dee3002da726"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+    "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+    "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+    "HelperB.dfy": "c57119a07285acd2bd0aec62abe082bdeea22dd0b3d5ba0ab39259c3aa2802f9",
+    "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+    "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+  },
+  "elapsed_seconds": 2.376612761989236,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "inverse_exchange_pipeline-missing_inverse_prerequisite",
+  "expected": "proof_failure",
+  "expected_diagnostic": "assertion",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        16,
+        5
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "possible violation of postcondition of forall statement",
+      "assertion might not hold",
+      "element might not be in domain",
+      "assertion might not hold",
+      "element might not be in domain"
+    ],
+    "diagnostic_categories": [
+      "postcondition",
+      "assertion"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

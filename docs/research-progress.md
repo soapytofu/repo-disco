@@ -61,6 +61,13 @@ per-file guard checks before any prompt freeze or admission. This tests repair
 choices within a declared eligible set, not unrestricted file discovery or a
 causal depth/sharing effect. No second paid batch has been admitted.
 
+All [45 fresh pipeline controls](../experiments/repository-repair-selection-001/RESULTS.md)
+now match:10 positives,31 ordinary proof failures and four hidden-export failures.
+Review confirms the intended failing module in each of the four seeds,269 protected
+file comparisons and90 body boundaries. The separate per-file guard and unchanged
+runner compatibility checks pass. Prompt/order freeze remains the next gate;
+these verifier-only results do not add model calls or complete the larger corpus.
+
 ## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
 
 [The 24-call pilot](../experiments/diverse-repair-pilot-001/RESULTS.md) completed

@@ -1,0 +1,51 @@
+{
+  "inverse_exchange_pipeline": {
+    "m": {
+      "0": 10,
+      "1": 20
+    },
+    "n": {
+      "10": 0,
+      "20": 1
+    },
+    "p": 0,
+    "q": 1,
+    "wrong_inverse_call_keys": [
+      0,
+      1
+    ],
+    "valid_inverse_call_keys": [
+      10,
+      20
+    ],
+    "exchanged_m": {
+      "0": 20,
+      "1": 10
+    },
+    "exchanged_n": {
+      "10": 1,
+      "20": 0
+    }
+  },
+  "masked_override_composition_pipeline": {
+    "f1": {
+      "0": 10
+    },
+    "f2": {
+      "0": 20
+    },
+    "g": {
+      "10": 1
+    },
+    "correct_composition": {},
+    "correct_masked_right_side": {},
+    "incorrect_unmasked_right_side": {
+      "0": 1
+    }
+  },
+  "finite_checks": {
+    "inverse_exchange_cases": 72,
+    "composition_triples": 6912
+  },
+  "limitation": "Finite arithmetic checks support construction only; Dafny control verification remains pending."
+}

@@ -1,0 +1,65 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 2,
+  "stdout": "HelperA.dfy(31,10): Error: unresolved identifier: HiddenRestrictAt\n   |\n31 |         V.HiddenRestrictAt(f1,keep,x);\n   |           ^^^^^^^^^^^^^^^^\n\nHelperA.dfy(31,26): Error: expected method call, found expression\n   |\n31 |         V.HiddenRestrictAt(f1,keep,x);\n   |                           ^\n\n2 resolution/type errors detected in All.dfy\nResults File: /tmp/repodisco-repair-adapter-q1fkpcca/TestResults/2026-11-15_01_05_27-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMzEsMTApOiBFcnJvcjogdW5yZXNvbHZlZCBpZGVudGlmaWVyOiBIaWRkZW5SZXN0cmljdEF0CiAgIHwKMzEgfCAgICAgICAgIFYuSGlkZGVuUmVzdHJpY3RBdChmMSxrZWVwLHgpOwogICB8ICAgICAgICAgICBeXl5eXl5eXl5eXl5eXl5eCgpIZWxwZXJBLmRmeSgzMSwyNik6IEVycm9yOiBleHBlY3RlZCBtZXRob2QgY2FsbCwgZm91bmQgZXhwcmVzc2lvbgogICB8CjMxIHwgICAgICAgICBWLkhpZGRlblJlc3RyaWN0QXQoZjEsa2VlcCx4KTsKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgIF4KCjIgcmVzb2x1dGlvbi90eXBlIGVycm9ycyBkZXRlY3RlZCBpbiBBbGwuZGZ5ClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXItcTFma3BjY2EvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8wMV8wNV8yNy0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "65ceb39632d2e1be1790a1eb1e4bdffbe4492dc6ff70dc23e2adbc4e436eb14e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_05_27-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_05_27-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_05_27-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "8b3e5e30d106f0b5b6344beebc8f5bea06ba0bf9033d787e7436f5d4788404d6",
+    "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "elapsed_seconds": 0.8397712970618159,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "masked_override_composition_pipeline-hidden_call",
+  "expected": "resolution_failure",
+  "expected_diagnostic": "missing export member",
+  "actual": "resolution_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [],
+    "warnings": 0,
+    "error_lines": [
+      "unresolved identifier: HiddenRestrictAt",
+      "expected method call, found expression"
+    ],
+    "diagnostic_categories": [
+      "missing export member"
+    ],
+    "frontend": true,
+    "resolution": true,
+    "termination": false
+  }
+}
