@@ -12,6 +12,15 @@ Status: November 14, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 14: sequence diagnosis complete; bounded research window started
 
+Four additional development repair instances now have [78/78 expected verifier
+controls](../experiments/repair-diversity-expansion-001/README.md): saturating
+arithmetic, compression fixed points, exact-gap witnesses, and overlapping map
+override. The common output guard and separately versioned extractor are tested.
+A balanced 32-call feedback/control batch is being frozen under the new aggregate
+approval. These controls establish fixture correctness and targeted failure
+mechanisms; they do not yet measure model repair performance or fill the reserved
+family evaluation gate.
+
 [The exact-fence diagnostic](../experiments/diverse-repair-extraction-diagnostic-001/RESULTS.md)
 verifies all eight saved sequence proofs unchanged (11 obligations each, no errors
 or warnings), using zero new model calls. The original primary score stays 16/24.

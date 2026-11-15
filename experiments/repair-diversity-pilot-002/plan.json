@@ -1,0 +1,249 @@
+{
+  "study": "repair-diversity-pilot-002",
+  "status": "COORDINATOR_REVIEWED_READY_TO_FREEZE",
+  "execution_authorized": false,
+  "proposed_calls": 32,
+  "max_calls_per_trial": 1,
+  "replicates_per_cell": 2,
+  "unique_semantic_instances": 4,
+  "unique_failing_workspaces": 8,
+  "unique_payloads": 16,
+  "failure_origin": "analyst_constructed",
+  "family_split": "development",
+  "feedback_conditions": [
+    "verifier_diagnostics",
+    "failure_notice_only"
+  ],
+  "sharing_conditions": [
+    "shared",
+    "separate"
+  ],
+  "semantic_instances": [
+    "saturating_assoc",
+    "compression_fixed_point",
+    "exact_gap_pair",
+    "overlap_override_restrict"
+  ],
+  "order": [
+    [
+      "saturating_assoc",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "compression_fixed_point",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "exact_gap_pair",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "overlap_override_restrict",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "saturating_assoc",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "compression_fixed_point",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "exact_gap_pair",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "overlap_override_restrict",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "saturating_assoc",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "compression_fixed_point",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "exact_gap_pair",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "overlap_override_restrict",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "saturating_assoc",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "compression_fixed_point",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "exact_gap_pair",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "overlap_override_restrict",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "overlap_override_restrict",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "exact_gap_pair",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "compression_fixed_point",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "saturating_assoc",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "overlap_override_restrict",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "exact_gap_pair",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "compression_fixed_point",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "saturating_assoc",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "overlap_override_restrict",
+      "shared",
+      "verifier_diagnostics"
+    ],
+    [
+      "exact_gap_pair",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "compression_fixed_point",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "saturating_assoc",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "overlap_override_restrict",
+      "separate",
+      "verifier_diagnostics"
+    ],
+    [
+      "exact_gap_pair",
+      "shared",
+      "failure_notice_only"
+    ],
+    [
+      "compression_fixed_point",
+      "separate",
+      "failure_notice_only"
+    ],
+    [
+      "saturating_assoc",
+      "shared",
+      "verifier_diagnostics"
+    ]
+  ],
+  "source_roots": {
+    "arithmetic": "experiments/repair-diversity-expansion-001/arithmetic",
+    "sequence": "experiments/repair-diversity-expansion-001/sequence",
+    "witness": "experiments/repair-diversity-expansion-001/witness",
+    "maps": "experiments/repair-diversity-expansion-001/maps"
+  },
+  "source_instances": {
+    "arithmetic": "saturating_assoc",
+    "sequence": "compression_fixed_point",
+    "witness": "exact_gap_pair",
+    "maps": "overlap_override_restrict"
+  },
+  "protocol_root": "experiments/repair-diversity-expansion-001/protocol",
+  "protocol_freeze_file": "policy-freeze.json",
+  "envelope_root": "experiments/repair-envelope-v2-001",
+  "measurement_interpreter": "experiments/diverse-repair-tasks-001/target_metrics.py",
+  "automatic_retries": false,
+  "sdk_total_max_attempts": 1,
+  "reassign_unused": false,
+  "slurm_requeue": false,
+  "feedback_after_repair": false,
+  "fresh_context_per_request": true,
+  "max_output_tokens_total": 131072,
+  "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "region": "us-east-1",
+  "inference_config": {
+    "temperature": 1.0,
+    "maxTokens": 4096
+  },
+  "verifier": {
+    "entry": "All.dfy",
+    "include_all_files": true,
+    "toolchain": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit",
+    "timeout_seconds": 60,
+    "success_exit_code": 0
+  },
+  "primary": "Per-instance sharing/feedback cell strict whole-workspace repair: guard admitted, exit zero, nonzero obligations, zero errors and warnings. Rejected, truncated and proof-failing outputs are unsuccessful repairs.",
+  "secondary": [
+    "Named editable-helper completion",
+    "Dependency-closed supplied clients",
+    "Distinct provider verification",
+    "Diagnostic category",
+    "Edit description and separate-body duplication",
+    "Input/output tokens"
+  ],
+  "depth_factor": "None: fixed interface per instance; reference dependency paths are not necessary-depth bounds.",
+  "scope": "One independent repair request from each frozen failing base. No repair-after-feedback loop; no retry, replacement or reassignment. Only a strictly verified candidate may be promoted in its isolated trial store.",
+  "feedback_policy": "Full failing sources, contracts, grammar, symbol registry and failure notice are identical across arms. Only original verifier stdout/stderr/exit differs; remove only the incidental Results File line. No positive proof, counterexample, failure-label annotation or analyst advice in model context.",
+  "aggregate_approval": {
+    "window": "research-window-20261114",
+    "approved_new_requests_total": 128,
+    "proposed_allocation": 32,
+    "deadline_utc": "2026-11-16T04:05:12Z",
+    "budget_basis": "Explicit user approval for up to128 new calls across the24-hour window; this allocation is not a new128-call grant. Coordinator aggregate ledger controls remaining balance.",
+    "separate_user_approval_required": false
+  },
+  "future_execution_gate": "Reviewed fixture evidence and exact source/runtime pins, complete frozen body/envelope protocol, named measurement scope reviewed by coordinator, exact prompt/order freeze, and tested runner bound to the aggregate budget ledger before dispatch.",
+  "interpretation": "Four constructed development repair instances, not32 independent tasks or a natural-failure prevalence sample. Shared uses one editable proof plus a protected forwarding helper; separate has two editable bodies and copying is allowed. A dependency edge, source length and output work change together. No depth factor or general causal sharing/depth or held-out performance claim. Historical results remain unchanged and separate.",
+  "source_commit": "b7760712027c4fee16b217592d4d20d400581265"
+}

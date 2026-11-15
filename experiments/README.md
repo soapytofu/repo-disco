@@ -1,5 +1,17 @@
 # Experiment log
 
+## Four fresh repair instances — 78/78 verifier controls matched
+
+[repair-diversity-expansion-001](repair-diversity-expansion-001/README.md) adds
+saturating-addition case composition, inductive compression, exact-gap witnesses,
+and overlapping right-biased map override. All 16 correct/alternative proofs,
+52 ordinary failures, 2 termination failures and 8 hidden-export failures matched
+their expected categories. Full source/CSV/log archives and protected-byte reviews
+are published. These are verifier-only development controls; no model results.
+The separate guard admits 70 non-hidden workspaces exactly and rejects eight
+hidden-helper controls. A new balanced 32-call repair study is being frozen within
+the user's aggregate 128-call research-window approval.
+
 ## Saved sequence extraction diagnostic — 8/8 exact proofs verified
 
 [diverse-repair-extraction-diagnostic-001](diverse-repair-extraction-diagnostic-001/RESULTS.md)

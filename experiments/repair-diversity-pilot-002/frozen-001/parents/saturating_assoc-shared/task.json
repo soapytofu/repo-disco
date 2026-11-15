@@ -1,0 +1,40 @@
+{
+  "task_id": "saturating_assoc-shared",
+  "semantic_instance": "saturating_assoc",
+  "proposal_id": "D1-M2",
+  "family": "conditional_arithmetic",
+  "split": "development",
+  "depth": "fixed_interface",
+  "sharing": "shared",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy"
+  ],
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "d7c9e404759b7cf8382ad6f3c232a8bdcc057f4e9e59ef5a66fca1c98bab4209",
+    "ClientB.dfy": "29c43941a638648f4d08ce4f9800873b48d72d50d7ee3db2392af74a9bbbee83",
+    "HelperA.dfy": "a1187cc7fea3884a52ebea0a59d8e04e74baca985c6940dfb7e80e9bef691732",
+    "HelperB.dfy": "ed9e8f2d7d2ec1d0bd82d1d049223cd5b1be493158de1a61bdc5ee904c75f31e",
+    "Kernel.dfy": "70b460f11d49723454d2f9488ff09d18618111821e03336d293e68394c7ba5a6",
+    "Ops.dfy": "59ca1d1137078b47d0a7f17a8dea9ea7704c30a2d9e68b0658042e2762e69061"
+  },
+  "primary_fault": "faulty",
+  "params": [
+    "c",
+    "a",
+    "b",
+    "d"
+  ],
+  "calls": {
+    "O.Low": 3,
+    "O.High": 3
+  },
+  "pure": {
+    "K.Sat": 3
+  },
+  "self_recursion": false,
+  "development_only": true,
+  "held_out": false,
+  "failure_origin": "analyst_constructed"
+}
