@@ -1,0 +1,132 @@
+{
+  "valid_inputs": [
+    {
+      "name": "proper_overlap",
+      "intervals": [
+        0,
+        4,
+        2,
+        6
+      ],
+      "kind": 0
+    },
+    {
+      "name": "containment",
+      "intervals": [
+        0,
+        10,
+        2,
+        3
+      ],
+      "kind": 0
+    },
+    {
+      "name": "left_touching",
+      "intervals": [
+        0,
+        2,
+        2,
+        5
+      ],
+      "kind": 0
+    },
+    {
+      "name": "right_touching",
+      "intervals": [
+        2,
+        5,
+        0,
+        2
+      ],
+      "kind": 0
+    },
+    {
+      "name": "singleton_touch",
+      "intervals": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "kind": 0
+    },
+    {
+      "name": "left_separation",
+      "intervals": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "kind": -1
+    },
+    {
+      "name": "right_separation",
+      "intervals": [
+        3,
+        4,
+        0,
+        1
+      ],
+      "kind": 1
+    },
+    {
+      "name": "negative_coordinates",
+      "intervals": [
+        -4,
+        -2,
+        -1,
+        2
+      ],
+      "kind": -1
+    }
+  ],
+  "mathematical_counterexamples": [
+    {
+      "variant": "faulty_touching",
+      "intervals": [
+        0,
+        2,
+        2,
+        5
+      ],
+      "faulty_result": [
+        -1,
+        0
+      ]
+    },
+    {
+      "variant": "wrong_witness",
+      "intervals": [
+        0,
+        4,
+        2,
+        6
+      ],
+      "faulty_result": [
+        0,
+        0
+      ]
+    },
+    {
+      "variant": "wrong_orientation",
+      "intervals": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "faulty_result": [
+        1,
+        0
+      ]
+    }
+  ],
+  "proof_dependency_controls": [
+    "empty",
+    "missing_gap_evidence",
+    "missing_right_evidence",
+    "no_negative_certificate"
+  ],
+  "note": "Finite examples check arithmetic outcome meaning only; missing opaque proof facts need Dafny validation, not a mathematical counterexample."
+}

@@ -1,0 +1,491 @@
+{
+  "schema": "corpus-family-split-proposal-v1",
+  "status": "PROPOSED_NO_EXECUTION_AUTHORIZATION",
+  "date_eastern": "2026-11-06",
+  "source_commit": "e041bf210f681d54c8202d09480e65e78825d014",
+  "supersedes_future_counts_in": "experiments/matched-corpus-001/plan.json",
+  "scope": "Cross-module helper-proof synthesis inside one monorepo snapshot",
+  "current_action": {
+    "new_model_calls": 0,
+    "new_verifier_runs": 0
+  },
+  "families": [
+    {
+      "id": "D1",
+      "name": "Conditional arithmetic contracts",
+      "split": "development",
+      "ancestry_group": "conditional_arithmetic",
+      "prior_ancestry": [
+        "experiments/sharing-branching-001",
+        "experiments/conditional-monotonicity-001",
+        "experiments/monorepo-reasoning-expansion-001"
+      ],
+      "tasks": [
+        {
+          "id": "D1-C1",
+          "split": "calibration",
+          "title": "Clamp is nonexpansive",
+          "obligation": "For l <= h, prove |Clamp(x,l,h)-Clamp(y,l,h)| <= |x-y|. Immutable clients consume the distance bound and its ordered-input corollary.",
+          "targeted_negative_controls": [
+            "Wrong region at equality",
+            "Omit one endpoint case",
+            "Apply ordered-case fact without establishing order"
+          ],
+          "diversity_rationale": "Two-input distance bound, rather than only monotonicity or nested clamp equality.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D1-M1",
+          "split": "development_collection",
+          "title": "Soft-threshold composition",
+          "obligation": "For s,t >= 0 and Shrink(t,x)=x-t when x>t, x+t when x< -t, and 0 otherwise, prove Shrink(s,Shrink(t,x))=Shrink(s+t,x).",
+          "targeted_negative_controls": [
+            "Wrong sign in negative branch",
+            "Incorrect threshold equality case",
+            "Use positive-branch contract on a negative intermediate"
+          ],
+          "diversity_rationale": "Piecewise intermediate values change the applicable second-stage region.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D1-M2",
+          "split": "development_collection",
+          "title": "Saturating accumulation associativity",
+          "obligation": "For c,x,y,z >= 0 and Sat(c,v)=min(c,v), prove Sat(c,Sat(c,x+y)+z)=Sat(c,x+Sat(c,y+z)).",
+          "targeted_negative_controls": [
+            "Use unsaturated addition across cap",
+            "Omit already-saturated case",
+            "Substitute x+y for Sat(c,x+y) without proving x+y<=c"
+          ],
+          "diversity_rationale": "Saturation and nonnegativity govern algebraic reassociation; reference length alone is not diversity.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "name": "Sequence structure and induction",
+      "split": "development",
+      "ancestry_group": "sequence_induction",
+      "prior_ancestry": [
+        "experiments/inductive-sharing-001",
+        "experiments/monorepo-reasoning-expansion-001"
+      ],
+      "tasks": [
+        {
+          "id": "D2-C1",
+          "split": "calibration",
+          "title": "Prefix aggregate split",
+          "obligation": "For 0 <= i <= |s| and 0 <= j <= |s|-i, prove PrefixSum(s,i+j)=PrefixSum(s,i)+PrefixSum(s[i..],j).",
+          "targeted_negative_controls": [
+            "Off-by-one split",
+            "Missing empty-prefix case",
+            "Recursive call without decreasing the selected prefix"
+          ],
+          "diversity_rationale": "Parameter-dependent slices and two bounds; descended from existing sum/append reasoning, never a new held-out family.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D2-M1",
+          "split": "development_collection",
+          "title": "Adjacent-run compression idempotence",
+          "obligation": "For Squash that retains one item per maximal equal run, prove Squash(Squash(s))=Squash(s), using a no-adjacent-equals invariant available through protected contracts.",
+          "targeted_negative_controls": [
+            "Lose the new output-boundary case",
+            "Induct without establishing invariant",
+            "Use a nondecreasing recursive argument"
+          ],
+          "diversity_rationale": "Interaction between output shape and the inductive invariant, not filter fusion.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D2-M2",
+          "split": "development_collection",
+          "title": "Interleave and unweave round trip",
+          "obligation": "For |xs|=|ys|, prove Left(Weave(xs,ys))=xs and Right(Weave(xs,ys))=ys. Two immutable clients check the respective projections.",
+          "targeted_negative_controls": [
+            "Recurse on only one input tail",
+            "Swap the projections",
+            "Omit the paired recursive step"
+          ],
+          "diversity_rationale": "Paired sequences and mutually relevant projections replace a single append identity.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "name": "Constraint witnesses and certificates",
+      "split": "development",
+      "ancestry_group": "relational_witnesses",
+      "prior_ancestry": [
+        "experiments/monorepo-calibration-v2-001",
+        "experiments/witness-map-strengthening-001"
+      ],
+      "tasks": [
+        {
+          "id": "D3-C1",
+          "split": "calibration",
+          "title": "Bounded allocation with conservation",
+          "obligation": "Given a<=b, c<=d and a+c<=T<=b+d, construct integers u in [a,b], v in [c,d] with u+v=T. Immutable clients check bounds and conservation.",
+          "targeted_negative_controls": [
+            "Choose u=a unconditionally",
+            "Satisfy bounds but break conservation",
+            "Treat a closed boundary as strict"
+          ],
+          "diversity_rationale": "Coupled choice and conservation; algebraically related to interval feasibility and explicitly in that development ancestry.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D3-M1",
+          "split": "development_collection",
+          "title": "Feasible intersection or separation certificate",
+          "obligation": "For nonempty closed integer intervals, return either a common witness or a valid certificate b<c or d<a, with exhaustive and mutually sound outcomes.",
+          "targeted_negative_controls": [
+            "Treat touching intervals as disjoint",
+            "Return a witness in only one interval",
+            "Return failure without a separation certificate"
+          ],
+          "diversity_rationale": "Constructive positive result plus a negative certificate; not just additional separated witnesses.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D3-M2",
+          "split": "development_collection",
+          "title": "Witness avoiding an excluded point",
+          "obligation": "For integer a<b and excluded point e, construct u with a<=u<=b and u!=e. Clients check containment and exclusion.",
+          "targeted_negative_controls": [
+            "Return a when e=a",
+            "Use b+1 as the fallback witness",
+            "Return e+1 when e lies above b"
+          ],
+          "diversity_rationale": "Disequality changes the target and boundary branch. Deliberately simple contrast; no harder-task claim.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "name": "Finite-map state and frame laws",
+      "split": "development",
+      "ancestry_group": "finite_map_updates",
+      "prior_ancestry": [
+        "experiments/monorepo-reasoning-expansion-001",
+        "experiments/witness-map-strengthening-001"
+      ],
+      "tasks": [
+        {
+          "id": "D4-C1",
+          "split": "calibration",
+          "title": "Key-swap involution",
+          "obligation": "For k,j in m.Keys, prove Swap(Swap(m,k,j),k,j)=m, including k=j; clients check round trip and preservation of other keys.",
+          "targeted_negative_controls": [
+            "Read an absent key",
+            "Overwrite before preserving the old value",
+            "Omit the alias branch"
+          ],
+          "diversity_rationale": "Two-way value dependence and round trip, rather than commuting writes of independent constants.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D4-M1",
+          "split": "development_collection",
+          "title": "Fresh-key move composition",
+          "obligation": "For distinct a,b,c with a in m.Keys and b,c absent, prove Move(Move(m,a,b),b,c)=Move(m,a,c), where Move copies the source value to a fresh destination then deletes the source.",
+          "targeted_negative_controls": [
+            "Skip destination freshness",
+            "Lose the source value after deletion",
+            "Fail to remove the intermediate key"
+          ],
+          "diversity_rationale": "Intermediate domain changes must justify a second operation and an observational equivalence.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "D4-M2",
+          "split": "development_collection",
+          "title": "Restriction distributes over disjoint merge",
+          "obligation": "For disjoint domains of m and n, prove Restrict(Merge(m,n),S)=Merge(Restrict(m,S),Restrict(n,S)); preserve domains and pointwise values.",
+          "targeted_negative_controls": [
+            "Confuse union and intersection in domain",
+            "Use the wrong source branch for a value",
+            "Omit a key membership prerequisite"
+          ],
+          "diversity_rationale": "Set-domain algebra plus pointwise frame reasoning; any finite-set witness variants remain development.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        }
+      ]
+    },
+    {
+      "id": "H1",
+      "name": "Recursive-tree reconstruction",
+      "split": "reserved_test",
+      "ancestry_group": "tree_reconstruction_new_generator",
+      "prior_ancestry": [],
+      "reservation_status": "CANDIDATE_FAMILY_PENDING_LINEAGE_AND_PROTOCOL_AUDIT",
+      "tasks": [
+        {
+          "id": "H1-T1",
+          "split": "reserved_test",
+          "title": "Mirror reconstruction",
+          "obligation": "Prove Mirror(Mirror(t))=t for an immutable binary-tree datatype; clients consume structural equality and preserved size.",
+          "targeted_negative_controls": [
+            "Miss one recursive child",
+            "Swap only one level",
+            "Use a nondecreasing child call"
+          ],
+          "diversity_rationale": "Branching structural induction. Generic induction overlaps development; the generator and task solutions must remain disjoint.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "H1-T2",
+          "split": "reserved_test",
+          "title": "Tree zipper reconstruction",
+          "obligation": "For a valid root-to-subtree path, prove plugging the focused subtree into its extracted context reconstructs the original tree.",
+          "targeted_negative_controls": [
+            "Reverse a context frame",
+            "Lose a sibling",
+            "Traverse an invalid path"
+          ],
+          "diversity_rationale": "Context reconstruction and path validity, not sequence append under a renamed type.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "H1-T3",
+          "split": "reserved_test",
+          "title": "Leaf frontier under mirror",
+          "obligation": "Prove Leaves(Mirror(t))=Reverse(Leaves(t)), with immutable definitions and a fixed sequence API.",
+          "targeted_negative_controls": [
+            "Reverse each subtree without exchanging order",
+            "Omit a leaf base case",
+            "Use concatenation in the wrong order"
+          ],
+          "diversity_rationale": "Combines tree and sequence interfaces. Reverse-concat lemma knowledge may transfer; no claim of conceptually unseen mathematics.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        }
+      ]
+    },
+    {
+      "id": "H2",
+      "name": "Finite-state transition invariants",
+      "split": "reserved_test",
+      "ancestry_group": "transition_invariants_new_generator",
+      "prior_ancestry": [],
+      "reservation_status": "CANDIDATE_FAMILY_PENDING_LINEAGE_AND_PROTOCOL_AUDIT",
+      "tasks": [
+        {
+          "id": "H2-T1",
+          "split": "reserved_test",
+          "title": "Capacity-respecting reservations",
+          "obligation": "Prove an explicitly guarded Reserve/Release transition relation preserves 0<=used<=capacity over every valid trace. Clients consume safety and nonnegative remaining capacity.",
+          "targeted_negative_controls": [
+            "Reserve above capacity",
+            "Release more than used",
+            "Assume a transition guard in the wrong action case"
+          ],
+          "diversity_rationale": "State validity and guarded action induction; arithmetic knowledge is shared with development but not task ancestry.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "H2-T2",
+          "split": "reserved_test",
+          "title": "Token lifecycle safety",
+          "obligation": "For a fixed Available/Reserved/Consumed state machine and valid labeled transitions, prove a token is consumed at most once before an explicit reset action.",
+          "targeted_negative_controls": [
+            "Permit consume from the wrong state",
+            "Forget reset scope",
+            "Treat all actions as state-preserving"
+          ],
+          "diversity_rationale": "History-dependent safety requiring an explicit protected invariant, rather than a map-update identity.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        },
+        {
+          "id": "H2-T3",
+          "split": "reserved_test",
+          "title": "One-slot producer-consumer refinement",
+          "obligation": "Show each valid concrete trace of an Empty/Full(value) buffer maps to a valid abstract Send/Receive history with preserved value order.",
+          "targeted_negative_controls": [
+            "Receive from Empty",
+            "Overwrite Full before receiving",
+            "Lose the connection between stored and received value"
+          ],
+          "diversity_rationale": "Simulation across two module contracts. Bounded syntax and reference feasibility remain open gates.",
+          "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+          "verified": false,
+          "prompt_frozen": false,
+          "minimum_proof_depth": null
+        }
+      ]
+    }
+  ],
+  "cells": [
+    "shallow_shared",
+    "shallow_separate",
+    "deep_shared",
+    "deep_separate"
+  ],
+  "stages": [
+    {
+      "id": "calibration",
+      "instance_ids": [
+        "D1-C1",
+        "D2-C1",
+        "D3-C1",
+        "D4-C1"
+      ],
+      "instances": 4,
+      "variants_per_instance": 4,
+      "samples_per_variant": 2,
+      "workspace_variants": 16,
+      "proposed_calls": 32,
+      "authorized_calls": 0
+    },
+    {
+      "id": "development_collection",
+      "instance_ids": [
+        "D1-M1",
+        "D1-M2",
+        "D2-M1",
+        "D2-M2",
+        "D3-M1",
+        "D3-M2",
+        "D4-M1",
+        "D4-M2"
+      ],
+      "instances": 8,
+      "variants_per_instance": 4,
+      "samples_per_variant": 2,
+      "workspace_variants": 32,
+      "proposed_calls": 64,
+      "authorized_calls": 0
+    },
+    {
+      "id": "reserved_test",
+      "instance_ids": [
+        "H1-T1",
+        "H1-T2",
+        "H1-T3",
+        "H2-T1",
+        "H2-T2",
+        "H2-T3"
+      ],
+      "instances": 6,
+      "variants_per_instance": 4,
+      "samples_per_variant": 2,
+      "workspace_variants": 24,
+      "proposed_calls": 48,
+      "authorized_calls": 0
+    }
+  ],
+  "total_semantic_instances": 18,
+  "total_workspace_variants": 72,
+  "proposed_total_calls": 144,
+  "authorized_calls": 0,
+  "exact_prompts_frozen": false,
+  "runner_prepared": false,
+  "automatic_retries": false,
+  "reassign_unused": false,
+  "reference_graph_is_minimum_depth": false,
+  "all_prior_experiments_default_split": "development",
+  "held_out_claim": "Reserved author-visible family test, not yet implemented or certified independent; no model-pretraining novelty claim",
+  "holdout_retirement_rule": "Any use of held-out reference solutions or model results to tune prompts, grammar, inference, task selection, training or hyperparameters retires that family from the primary test; retain and report the exposure.",
+  "ordering": {
+    "strategy": "Four Williams rows; assign row r to sample one and r+2 modulo four to sample two; balance rows across each stage; interleave families",
+    "rows": [
+      [
+        "shallow_shared",
+        "shallow_separate",
+        "deep_separate",
+        "deep_shared"
+      ],
+      [
+        "shallow_separate",
+        "deep_shared",
+        "shallow_shared",
+        "deep_separate"
+      ],
+      [
+        "deep_shared",
+        "deep_separate",
+        "shallow_separate",
+        "shallow_shared"
+      ],
+      [
+        "deep_separate",
+        "shallow_shared",
+        "deep_shared",
+        "shallow_separate"
+      ]
+    ],
+    "seed": 20261106,
+    "exact_order_frozen": false,
+    "within_family_holdout_balance": "Six sample rows per held-out family cannot divide evenly among four orders; publish remaining imbalance rather than claiming perfect balance"
+  },
+  "metrics": [
+    "strict whole-workspace completion",
+    "extraction and guard admission",
+    "warning-only versus proof failures",
+    "per-instance paired contrasts",
+    "input/output tokens and verification time",
+    "distinct-client helper reuse",
+    "reference-relative contract-application graph",
+    "observed call graph and targeted ablation dependence"
+  ],
+  "deferred": [
+    "map-presentation ablation",
+    "feedback repair study",
+    "additional models",
+    "fine-tuning",
+    "large open-ended generation"
+  ]
+}

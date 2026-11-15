@@ -1,5 +1,15 @@
 # Experiment log
 
+## Exhaustive interval certificates — 20/20 verifier controls
+
+[development-intersection-certificate-001](development-intersection-certificate-001/RESULTS.md)
+adds the obligation to prove overlap or correctly oriented separation for every
+pair of nonempty closed intervals. Four reference/alternative workspaces strictly
+verify; fourteen proof failures and two hidden-export failures match their
+expected categories. All protected sources, named obligations and raw logs were
+reviewed and saved. This is a known-family development repair task, not a new
+model result or held-out instance. Zero model calls.
+
 ## Fresh repair comparison — diagnostics 16/16, notice only 11/16
 
 [repair-diversity-pilot-002](repair-diversity-pilot-002/RESULTS.md) completed 32 unique

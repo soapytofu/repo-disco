@@ -1,0 +1,68 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(14,11): Error: a precondition for this call could not be proved\n   |\n14 |       A.Gap(a,b,c,d,1);\n   |            ^\n\nApi.dfy(17,44): Related location: this is the precondition that could not be proved\n   |\n17 |     requires (kind == -1 && K.LeftGap(b,c)) || (kind == 1 && K.RightGap(d,a))\n   |                                             ^^\n\n\nDafny program verifier finished with 11 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-o6hfbyzc/TestResults/2026-11-15_00_39_47-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTQsMTEpOiBFcnJvcjogYSBwcmVjb25kaXRpb24gZm9yIHRoaXMgY2FsbCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTQgfCAgICAgICBBLkdhcChhLGIsYyxkLDEpOwogICB8ICAgICAgICAgICAgXgoKQXBpLmRmeSgxNyw0NCk6IFJlbGF0ZWQgbG9jYXRpb246IHRoaXMgaXMgdGhlIHByZWNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxNyB8ICAgICByZXF1aXJlcyAoa2luZCA9PSAtMSAmJiBLLkxlZnRHYXAoYixjKSkgfHwgKGtpbmQgPT0gMSAmJiBLLlJpZ2h0R2FwKGQsYSkpCiAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXgoKCkRhZm55IHByb2dyYW0gdmVyaWZpZXIgZmluaXNoZWQgd2l0aCAxMSB2ZXJpZmllZCwgMSBlcnJvcgpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLW82aGZieXpjL1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTVfMDBfMzlfNDctMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "4d8724d35636bd00eac07bb8059c7c9878505cd281b75cd6e1c45476025898d1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_00_39_47-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0510899,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0316185,12561,0\nApi.Choose (correctness),Passed,00:00:00.0141763,13172,0\nOps.Right (correctness),Passed,00:00:00.0118545,3353,0\nHelperB.Prove (correctness),Passed,00:00:00.0110504,6212,0\nClientB.Target (correctness),Passed,00:00:00.0105260,15684,0\nApi.Witness (correctness),Passed,00:00:00.0103861,10534,0\nApi.Gap (correctness),Passed,00:00:00.0102352,10864,0\nClientA.Target (correctness),Passed,00:00:00.0096430,8189,0\nApi.DirectWitness (correctness),Passed,00:00:00.0093464,9032,0\nOps.Before (correctness),Passed,00:00:00.0075639,3239,0\nOps.After (correctness),Passed,00:00:00.0073608,3239,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_00_39_47-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNTEwODk5LDMzNTMsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjAzMTYxODUsMTI1NjEsMApBcGkuQ2hvb3NlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNDE3NjMsMTMxNzIsMApPcHMuUmlnaHQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExODU0NSwzMzUzLDAKSGVscGVyQi5Qcm92ZSAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTEwNTA0LDYyMTIsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA1MjYwLDE1Njg0LDAKQXBpLldpdG5lc3MgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMzg2MSwxMDUzNCwwCkFwaS5HYXAgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMjM1MiwxMDg2NCwwCkNsaWVudEEuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTY0MzAsODE4OSwwCkFwaS5EaXJlY3RXaXRuZXNzIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTM0NjQsOTAzMiwwCk9wcy5CZWZvcmUgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA3NTYzOSwzMjM5LDAKT3BzLkFmdGVyIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwNzM2MDgsMzIzOSwwCg=="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_00_39_47-0.csv": "d00f7a722830c2965d39ecfe0b06231e520b2d69041901bc41208b88ceac559e"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+    "ClientA.dfy": "90034bf5db81d22fc94f79bdf3364b49f4642d9b1bf1c9503efc95958e00c006",
+    "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+    "HelperA.dfy": "8a4d0afd781da492e81890ed7884d3659c7474799185a274d646b773e4a21c81",
+    "HelperB.dfy": "fd95ca80bedaeffd89908afa9e7589a2d4a14fd8ffeb7dbe322216d31c857574",
+    "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+    "Ops.dfy": "7a90e99a315bdbde93bbf0ae3035af338f518d62b43af4138f2ace42e30481fb"
+  },
+  "elapsed_seconds": 2.158686588983983,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "intersection_or_separation-shared-wrong_orientation",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        11,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

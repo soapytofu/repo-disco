@@ -1,0 +1,35 @@
+{
+  "proposal": {
+    "id": "D3-M1",
+    "split": "development_collection",
+    "title": "Feasible intersection or separation certificate",
+    "obligation": "For nonempty closed integer intervals, return either a common witness or a valid certificate b<c or d<a, with exhaustive and mutually sound outcomes.",
+    "targeted_negative_controls": [
+      "Treat touching intervals as disjoint",
+      "Return a witness in only one interval",
+      "Return failure without a separation certificate"
+    ],
+    "diversity_rationale": "Constructive positive result plus a negative certificate; not just additional separated witnesses.",
+    "implementation_status": "PROPOSED_NOT_IMPLEMENTED",
+    "verified": false,
+    "prompt_frozen": false,
+    "minimum_proof_depth": null
+  },
+  "development_only": true,
+  "held_out": false,
+  "new_independent_family_claim": false,
+  "ancestor_group": "relational_witnesses",
+  "logical_delta": "The earlier intersection task assumes overlap, and exact-gap pair assumes feasible translated intervals. This instance requires exhaustive positive and negative certificate branches from only nonempty input intervals; touching remains a positive witness case.",
+  "overlap_with_ancestors": "The overlap branch still uses max lower/min upper endpoints and opaque membership packaging from the known witness lineage. Providers and arithmetic case splits are related, so this is a new obligation within an inspected development family.",
+  "output_scope": "Ghost proof certificates are returned by immutable client lemmas. No executable decision/search procedure, causal sharing effect, model difficulty or minimal proof-depth claim.",
+  "input_sha256": {
+    "docs/corpus-family-split-plan.md": "4a094ae5265f560df54a0f89f711f4134ec2de5231396edffbff12d429da44b2",
+    "experiments/matched-corpus-002/plan.json": "76a460908332e6594c441a063c1f312e9e844b021df263e0ab60a7f537fbcb97",
+    "experiments/monorepo-calibration-v2-001/remaining-families-001/build.py": "41b2aee9eea9f00889230ba4a9976b127f46f298256e85205937cf00930640de",
+    "experiments/witness-map-strengthening-001/build.py": "696f5c6b207c50ea4d0afa7063e4d4290b8b16984098f6008c61a9dc9902621d",
+    "experiments/repair-diversity-expansion-001/witness/build.py": "1f5297d1e5b5c9e0323d12c045b181b59f430550a9b75ec7807bd8e7761e0799",
+    "experiments/diverse-repair-pilot-001/frozen-001/policy/body_guard.py": "c749c53fd11742937adc3cdefa1fa5444ee0232443fa6d1cb7d2b83bea8a6c6b",
+    "experiments/repair-diversity-expansion-001/witness/verify.py": "4f29cefb7bba9b44287e4cb028cc55b9ebf1b11a6be37cae86c9405ae68935f9"
+  },
+  "provenance_snapshot_directory": "inputs"
+}

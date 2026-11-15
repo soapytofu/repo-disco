@@ -1,0 +1,524 @@
+{
+  "job_id": "60702410",
+  "model_calls": 0,
+  "planned": 20,
+  "reviewed": 20,
+  "all_expected": true,
+  "counts": {
+    "success": 4,
+    "proof_failure": 14,
+    "resolution_failure": 2
+  },
+  "protected_file_comparisons": 130,
+  "protected_body_boundaries": 30,
+  "scope_by_task": {
+    "intersection_or_separation-shared": [
+      "Api.Choose (correctness)",
+      "Api.DirectWitness (correctness)",
+      "Api.Gap (correctness)",
+      "Api.Witness (correctness)",
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Ops.After (correctness)",
+      "Ops.Before (correctness)",
+      "Ops.Left (correctness)",
+      "Ops.Right (correctness)"
+    ],
+    "intersection_or_separation-separate": [
+      "Api.Choose (correctness)",
+      "Api.DirectWitness (correctness)",
+      "Api.Gap (correctness)",
+      "Api.Witness (correctness)",
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Ops.After (correctness)",
+      "Ops.Before (correctness)",
+      "Ops.Left (correctness)",
+      "Ops.Right (correctness)"
+    ]
+  },
+  "checks": [
+    {
+      "case_id": "intersection_or_separation-shared-reference",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 12,
+      "failed_units": [],
+      "evidence_sha256": "c39a98d60044df8c8b19dabf2cae0546080cb89bb64d7360750a22bd345fc2b2",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_expected_exit": 0,
+      "actual_exit": 0
+    },
+    {
+      "case_id": "intersection_or_separation-shared-alternative",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 12,
+      "failed_units": [],
+      "evidence_sha256": "22528a2358f1f50ec975e554df2deab7e4af656494310d04781027468887053f",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_expected_exit": 0,
+      "actual_exit": 0
+    },
+    {
+      "case_id": "intersection_or_separation-shared-empty",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "e7ee7b0e79cac9c14385b8b1daa512f9aa9cde802c49549a82d7e11483b053f8",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-faulty_touching",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "faulty_touching",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "d0b0bcbea85b207cd1a6f251ed07fa3c291f471a40ba25f43fb55f2c0c33d97f",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-wrong_witness",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "wrong_witness",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "3130b299f0287e54b64c27ab39f3123e6035015318064f4443e06408b1158a0d",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-wrong_orientation",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "wrong_orientation",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "960dc2b737025dff614ec7fb8cd66f082544faea79ea55e40d3d19e32530a158",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-missing_gap_evidence",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "missing_gap_evidence",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "c49830efd212b69ca9db5e116b48d3823a674f8b00a4e2c2cf10f2aeb04cdd88",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-missing_right_evidence",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "missing_right_evidence",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "f7306b6a7d9b91536cfa378d7ce1c3b932d06f36de19f8611de27f6fd41f1ede",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-no_negative_certificate",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "no_negative_certificate",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "1e1fb7e9626ab0cf956054865c72fae2d8514cb1af7d501ecb79e909765feb1c",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-shared-hidden_shortcut",
+      "task_id": "intersection_or_separation-shared",
+      "variant": "hidden_shortcut",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "DirectWitness",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "83c5fa0e82bc457b1fb935a698a226e8bdf4a674d8c2747c1ac2d59bf5097b42",
+      "strict_actual": "resolution_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 2,
+      "actual_exit": 2
+    },
+    {
+      "case_id": "intersection_or_separation-separate-reference",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 12,
+      "failed_units": [],
+      "evidence_sha256": "f5e01d5ab8265c567db5db3b2983c2d1f9c3110bf99e09ae77f31ce0b6ca0d93",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_expected_exit": 0,
+      "actual_exit": 0
+    },
+    {
+      "case_id": "intersection_or_separation-separate-alternative",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": null,
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 12,
+      "failed_units": [],
+      "evidence_sha256": "50115f89921120def8d26e954c3ff5cc505aac6d024f30800265cc7f3af0bed5",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_expected_exit": 0,
+      "actual_exit": 0
+    },
+    {
+      "case_id": "intersection_or_separation-separate-empty",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "81d42a1b3742f454d6da1f81ee3af2bf027afb41d8bab31cbb20f4ab83cb7486",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-faulty_touching",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "faulty_touching",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "e9106141f76abdf6e62c07218109263ff71168ae9d0a4f45508404b88a6793e7",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-wrong_witness",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "wrong_witness",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "30a8201ca1f7663cf02a4504caef6172edef589864690656d28a19fa4d926aec",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-wrong_orientation",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "wrong_orientation",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "636cb2ef68226e7fccb142292f2214ff2de3b698ead168e3a351526300f75c7f",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-missing_gap_evidence",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "missing_gap_evidence",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "bc4a2b45b88425869138fa741c72dc435c4a1a92476ce3ae7c79cec8b64cbf87",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-missing_right_evidence",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "missing_right_evidence",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "252dc9bcbd28498d754de3db8d418a80a47c5433e1eaf2db1eb307abacbd8e64",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-no_negative_certificate",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "no_negative_certificate",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 12,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "095613ed9ce8e15e78ce2d04b03cb90f5a3711911340d7b4821d6a488d7ea498",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 4,
+      "actual_exit": 4
+    },
+    {
+      "case_id": "intersection_or_separation-separate-hidden_shortcut",
+      "task_id": "intersection_or_separation-separate",
+      "variant": "hidden_shortcut",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "DirectWitness",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "be766d85e9682182469debdb7e59cf3f093d249a277e1ebcdf6e14615c53f639",
+      "strict_actual": "resolution_failure",
+      "strict_expected_match": true,
+      "strict_expected_exit": 2,
+      "actual_exit": 2
+    }
+  ],
+  "claim": "Verifier-only development controls for ghost interval certificates; no model, executable-search, held-out, minimum-depth or causal-sharing claim",
+  "strict_counts": {
+    "success": 4,
+    "proof_failure": 14,
+    "resolution_failure": 2
+  },
+  "expected_counts": {
+    "success": 4,
+    "proof_failure": 14,
+    "resolution_failure": 2
+  },
+  "runtime_manifest_sha256": "068033e40fc3d8e024481fddec55602ad6c03b41aa783e60d49ad9dc3bd8aad6",
+  "fixture_manifest_sha256": "8ed7e233c28579fb40e7fbd50eb5cace9ec8d49936b048115028c2f0c29a0dac",
+  "original_reviewer_sha256": "f4de7b39772026d86ce92cb825afa45b07a021519d963b234baf1f6e0d8daf2d",
+  "archived_input_files_checked": 206,
+  "raw_inventory_files_checked": 292,
+  "path_adaptation": "templates/fixtures resolve under inputs/candidate; reports are outside runtime"
+}

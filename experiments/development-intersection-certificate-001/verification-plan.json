@@ -1,0 +1,48 @@
+{
+  "status": "candidate; no verification submitted by constructor",
+  "model_calls": 0,
+  "duplicate_submission_allowed": false,
+  "automatic_retries": false,
+  "planned_checks": 20,
+  "expected_counts": {
+    "success": 4,
+    "proof_failure": 14,
+    "resolution_failure": 2
+  },
+  "source_manifest": "fixture-manifest.json",
+  "cases": "cases.json",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "toolchain": {
+    "dafny": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "z3": "Z3 version 4.12.1 - 64 bit"
+  },
+  "existing_wrapper": {
+    "path": "experiments/repair-diversity-expansion-001/witness/verify.py",
+    "sha256": "4f29cefb7bba9b44287e4cb028cc55b9ebf1b11a6be37cae86c9405ae68935f9",
+    "reuse_functions": [
+      "verify(files)",
+      "diagnostic_details(record)",
+      "classify(record)",
+      "matches(case, record)"
+    ],
+    "integration_note": "Use the existing verify/matches functions in the parent-owned compute runner; do not invoke that wrapper CLI against this new directory because its run()/pin schema is specific to its original family."
+  },
+  "gate": "Parent reviews source and stages once on a live-confirmed nonpreemptible compute partition. Preserve all source bytes, raw stdout/stderr/CSV and accounting; failures remain evidence. No verification on login/Mac.",
+  "semantic_review": [
+    "Confirm all four reference/alternative cases pass strictly, including the protected ghost choice rule and both clients.",
+    "Require ordinary negatives to fail proofs with their specific diagnostic, not parse/type/termination errors.",
+    "Require hidden shortcut cases to fail name resolution for DirectWitness.",
+    "The ghost output interface is a proof artifact and does not establish executable witness search."
+  ]
+}

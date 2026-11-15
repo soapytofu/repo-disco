@@ -1,0 +1,12 @@
+{
+  "kind": "offline packaging/test setup failure, no real verifier run",
+  "model_calls": 0,
+  "verifier_calls": 0,
+  "tests_run": 7,
+  "failures": 4,
+  "causes": [
+    "Manifest-generation command used a repo-relative path while its working directory was already runtime-001, so runtime-manifest.json was not created. Three tests then failed pin validation.",
+    "Isolated-import test compared resolved /private/var path against macOS /var alias instead of root.resolve()."
+  ],
+  "changes": "Corrected manifest-generation working directory and normalized the isolated-import assertion; no candidate/upstream source changes."
+}

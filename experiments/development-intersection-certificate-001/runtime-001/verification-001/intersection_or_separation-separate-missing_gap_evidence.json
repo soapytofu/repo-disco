@@ -1,0 +1,71 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(13,11): Error: a precondition for this call could not be proved\n   |\n13 |       A.Gap(a,b,c,d,-1);\n   |            ^\n\nApi.dfy(17,44): Related location: this is the precondition that could not be proved\n   |\n17 |     requires (kind == -1 && K.LeftGap(b,c)) || (kind == 1 && K.RightGap(d,a))\n   |                                             ^^\n\nHelperA.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |       A.Gap(a,b,c,d,1);\n   |            ^\n\nApi.dfy(17,44): Related location: this is the precondition that could not be proved\n   |\n17 |     requires (kind == -1 && K.LeftGap(b,c)) || (kind == 1 && K.RightGap(d,a))\n   |                                             ^^\n\nHelperB.dfy(13,11): Error: a precondition for this call could not be proved\n   |\n13 |       A.Gap(a,b,c,d,-1);\n   |            ^\n\nApi.dfy(17,44): Related location: this is the precondition that could not be proved\n   |\n17 |     requires (kind == -1 && K.LeftGap(b,c)) || (kind == 1 && K.RightGap(d,a))\n   |                                             ^^\n\nHelperB.dfy(15,11): Error: a precondition for this call could not be proved\n   |\n15 |       A.Gap(a,b,c,d,1);\n   |            ^\n\nApi.dfy(17,44): Related location: this is the precondition that could not be proved\n   |\n17 |     requires (kind == -1 && K.LeftGap(b,c)) || (kind == 1 && K.RightGap(d,a))\n   |                                             ^^\n\n\nDafny program verifier finished with 10 verified, 4 errors\nResults File: /tmp/repodisco-repair-adapter-na3x9_2c/TestResults/2026-11-15_00_40_10-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTMsMTEpOiBFcnJvcjogYSBwcmVjb25kaXRpb24gZm9yIHRoaXMgY2FsbCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTMgfCAgICAgICBBLkdhcChhLGIsYyxkLC0xKTsKICAgfCAgICAgICAgICAgIF4KCkFwaS5kZnkoMTcsNDQpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwcmVjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTcgfCAgICAgcmVxdWlyZXMgKGtpbmQgPT0gLTEgJiYgSy5MZWZ0R2FwKGIsYykpIHx8IChraW5kID09IDEgJiYgSy5SaWdodEdhcChkLGEpKQogICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXl4KCkhlbHBlckEuZGZ5KDE1LDExKTogRXJyb3I6IGEgcHJlY29uZGl0aW9uIGZvciB0aGlzIGNhbGwgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjE1IHwgICAgICAgQS5HYXAoYSxiLGMsZCwxKTsKICAgfCAgICAgICAgICAgIF4KCkFwaS5kZnkoMTcsNDQpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwcmVjb25kaXRpb24gdGhhdCBjb3VsZCBub3QgYmUgcHJvdmVkCiAgIHwKMTcgfCAgICAgcmVxdWlyZXMgKGtpbmQgPT0gLTEgJiYgSy5MZWZ0R2FwKGIsYykpIHx8IChraW5kID09IDEgJiYgSy5SaWdodEdhcChkLGEpKQogICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXl4KCkhlbHBlckIuZGZ5KDEzLDExKTogRXJyb3I6IGEgcHJlY29uZGl0aW9uIGZvciB0aGlzIGNhbGwgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjEzIHwgICAgICAgQS5HYXAoYSxiLGMsZCwtMSk7CiAgIHwgICAgICAgICAgICBeCgpBcGkuZGZ5KDE3LDQ0KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcHJlY29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjE3IHwgICAgIHJlcXVpcmVzIChraW5kID09IC0xICYmIEsuTGVmdEdhcChiLGMpKSB8fCAoa2luZCA9PSAxICYmIEsuUmlnaHRHYXAoZCxhKSkKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eCgpIZWxwZXJCLmRmeSgxNSwxMSk6IEVycm9yOiBhIHByZWNvbmRpdGlvbiBmb3IgdGhpcyBjYWxsIGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxNSB8ICAgICAgIEEuR2FwKGEsYixjLGQsMSk7CiAgIHwgICAgICAgICAgICBeCgpBcGkuZGZ5KDE3LDQ0KTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcHJlY29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjE3IHwgICAgIHJlcXVpcmVzIChraW5kID09IC0xICYmIEsuTGVmdEdhcChiLGMpKSB8fCAoa2luZCA9PSAxICYmIEsuUmlnaHRHYXAoZCxhKSkKICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDEwIHZlcmlmaWVkLCA0IGVycm9ycwpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLW5hM3g5XzJjL1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTVfMDBfNDBfMTAtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "be19c51483c19cc945115caf1ef8ef2291b6739db9f69174ee1be62334ac9054",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_00_40_10-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0475410,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0453822,12591,0\nHelperB.Prove (correctness),Failed,00:00:00.0173317,12591,0\nApi.Gap (correctness),Passed,00:00:00.0134388,10864,0\nOps.Right (correctness),Passed,00:00:00.0111902,3353,0\nApi.Witness (correctness),Passed,00:00:00.0106772,10534,0\nClientB.Target (correctness),Passed,00:00:00.0103651,15684,0\nApi.Choose (correctness),Passed,00:00:00.0103236,13172,0\nClientA.Target (correctness),Passed,00:00:00.0094387,8189,0\nApi.DirectWitness (correctness),Passed,00:00:00.0094018,9032,0\nOps.Before (correctness),Passed,00:00:00.0071530,3239,0\nOps.After (correctness),Passed,00:00:00.0067310,3239,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_00_40_10-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNDc1NDEwLDMzNTMsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA0NTM4MjIsMTI1OTEsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjAxNzMzMTcsMTI1OTEsMApBcGkuR2FwIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMzQzODgsMTA4NjQsMApPcHMuUmlnaHQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExMTkwMiwzMzUzLDAKQXBpLldpdG5lc3MgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwNjc3MiwxMDUzNCwwCkNsaWVudEIuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDM2NTEsMTU2ODQsMApBcGkuQ2hvb3NlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDMyMzYsMTMxNzIsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk0Mzg3LDgxODksMApBcGkuRGlyZWN0V2l0bmVzcyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk0MDE4LDkwMzIsMApPcHMuQmVmb3JlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwNzE1MzAsMzIzOSwwCk9wcy5BZnRlciAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDY3MzEwLDMyMzksMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_00_40_10-0.csv": "7ec340a58cdde606bc318cc3bfc8ef068605eb1d1682b7d49f6c3c8d9dd01d2d"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+    "ClientA.dfy": "90034bf5db81d22fc94f79bdf3364b49f4642d9b1bf1c9503efc95958e00c006",
+    "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+    "HelperA.dfy": "264e9015eef116db502de1a4103abd7f1d93175337af87c20d8cf63a42279dd1",
+    "HelperB.dfy": "e934c5c13a1c4697fb909eab0f5bad79ec6ca2e96906e806204c12cac0fe1bdf",
+    "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+    "Ops.dfy": "7a90e99a315bdbde93bbf0ae3035af338f518d62b43af4138f2ace42e30481fb"
+  },
+  "elapsed_seconds": 2.1882499889470637,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "intersection_or_separation-separate-missing_gap_evidence",
+  "expected": "proof_failure",
+  "expected_diagnostic": "precondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        10,
+        4
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a precondition for this call could not be proved",
+      "a precondition for this call could not be proved",
+      "a precondition for this call could not be proved",
+      "a precondition for this call could not be proved"
+    ],
+    "diagnostic_categories": [
+      "precondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

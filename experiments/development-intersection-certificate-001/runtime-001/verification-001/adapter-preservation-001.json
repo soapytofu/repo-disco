@@ -1,0 +1,37 @@
+{
+  "schema": "intersection-certificate-verifier-adapter-v1",
+  "candidate_manifest_sha256": "b7399a81a95de0471811c3808360a3c3ff5f109e2bc63fa38468db1d61d4ed91",
+  "candidate_snapshot": "inputs/candidate",
+  "candidate_file_count": 194,
+  "candidate_preserved": true,
+  "case_change": "Only path is prefixed with inputs/candidate/; all other case fields, source hashes and case order are unchanged.",
+  "upstream_wrapper": "inputs/candidate/inputs/experiments/repair-diversity-expansion-001/witness/verify.py",
+  "upstream_wrapper_sha256": "4f29cefb7bba9b44287e4cb028cc55b9ebf1b11a6be37cae86c9405ae68935f9",
+  "unchanged_upstream_functions": [
+    "run",
+    "verify",
+    "matches",
+    "classify",
+    "diagnostic_details"
+  ],
+  "overrides": [
+    "ROOT",
+    "validate_pins"
+  ],
+  "expected_counts": {
+    "success": 4,
+    "proof_failure": 14,
+    "resolution_failure": 2
+  },
+  "planned_checks": 20,
+  "model_calls": 0,
+  "verification_run": false,
+  "scheduler_policy": {
+    "partition": "test",
+    "require_live_nonpreemptible_review": true,
+    "cpus": 2,
+    "memory": "8G",
+    "time": "00:25:00",
+    "no_requeue": true
+  }
+}

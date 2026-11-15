@@ -1,0 +1,142 @@
+[
+  {
+    "task_id": "intersection_or_separation-shared",
+    "semantic_instance": "intersection_or_separation",
+    "proposal_id": "D3-M1",
+    "family": "constraint_witness",
+    "split": "development",
+    "ancestor_group": "relational_witnesses",
+    "held_out": false,
+    "depth": "fixed_interface",
+    "entry": "All.dfy",
+    "sharing": "shared",
+    "editable_files": [
+      "HelperA.dfy"
+    ],
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+      "ClientA.dfy": "90034bf5db81d22fc94f79bdf3364b49f4642d9b1bf1c9503efc95958e00c006",
+      "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+      "HelperA.dfy": "2d8ef03e98a4e0e6b3f294c5ae6f498900f218f506a5a285fc5abfc24f70ce91",
+      "HelperB.dfy": "fd95ca80bedaeffd89908afa9e7589a2d4a14fd8ffeb7dbe322216d31c857574",
+      "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+      "Ops.dfy": "7a90e99a315bdbde93bbf0ae3035af338f518d62b43af4138f2ace42e30481fb"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 278,
+        "end": 278,
+        "protected_sha256": "cf8b82b8a98518d126beaef3736de1119a113c03ff4983eb47d3733e16f2fb70"
+      }
+    },
+    "params": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "calls": {
+      "O.Left": 3,
+      "O.Right": 3,
+      "O.Before": 2,
+      "O.After": 2,
+      "A.Witness": 5,
+      "A.Gap": 5
+    },
+    "pure": {
+      "K.LeftFact": 3,
+      "K.RightFact": 3,
+      "K.LeftGap": 2,
+      "K.RightGap": 2,
+      "K.Valid": 6,
+      "K.Decided": 4
+    },
+    "self_recursion": false,
+    "primary_fault": "faulty_touching",
+    "precondition": "a <= b && c <= d",
+    "goal": "K.Decided(a,b,c,d)",
+    "outcome_tags": {
+      "-1": "b<c; left interval strictly before right",
+      "0": "w belongs to both intervals",
+      "1": "d<a; right interval strictly before left"
+    },
+    "client_interface": "Ghost lemma returns kind and witness using a protected choice rule; no executable search implementation is claimed.",
+    "guard_registry_status": "pending; proposed environment only",
+    "verification_status": "not_run",
+    "minimum_proof_depth": null
+  },
+  {
+    "task_id": "intersection_or_separation-separate",
+    "semantic_instance": "intersection_or_separation",
+    "proposal_id": "D3-M1",
+    "family": "constraint_witness",
+    "split": "development",
+    "ancestor_group": "relational_witnesses",
+    "held_out": false,
+    "depth": "fixed_interface",
+    "entry": "All.dfy",
+    "sharing": "separate",
+    "editable_files": [
+      "HelperA.dfy",
+      "HelperB.dfy"
+    ],
+    "source_sha256": {
+      "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+      "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+      "ClientA.dfy": "90034bf5db81d22fc94f79bdf3364b49f4642d9b1bf1c9503efc95958e00c006",
+      "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+      "HelperA.dfy": "2d8ef03e98a4e0e6b3f294c5ae6f498900f218f506a5a285fc5abfc24f70ce91",
+      "HelperB.dfy": "ce375248faae48c14d5a7cd7af1996a344ec4226bc3bcc4b01c3650fe43c95c7",
+      "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+      "Ops.dfy": "7a90e99a315bdbde93bbf0ae3035af338f518d62b43af4138f2ace42e30481fb"
+    },
+    "body_boundaries": {
+      "HelperA.dfy": {
+        "start": 278,
+        "end": 278,
+        "protected_sha256": "cf8b82b8a98518d126beaef3736de1119a113c03ff4983eb47d3733e16f2fb70"
+      },
+      "HelperB.dfy": {
+        "start": 278,
+        "end": 278,
+        "protected_sha256": "a73f4066808f8a9137d9d163571011b107b97606864fd53fa75411ba2e8bc9ab"
+      }
+    },
+    "params": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "calls": {
+      "O.Left": 3,
+      "O.Right": 3,
+      "O.Before": 2,
+      "O.After": 2,
+      "A.Witness": 5,
+      "A.Gap": 5
+    },
+    "pure": {
+      "K.LeftFact": 3,
+      "K.RightFact": 3,
+      "K.LeftGap": 2,
+      "K.RightGap": 2,
+      "K.Valid": 6,
+      "K.Decided": 4
+    },
+    "self_recursion": false,
+    "primary_fault": "faulty_touching",
+    "precondition": "a <= b && c <= d",
+    "goal": "K.Decided(a,b,c,d)",
+    "outcome_tags": {
+      "-1": "b<c; left interval strictly before right",
+      "0": "w belongs to both intervals",
+      "1": "d<a; right interval strictly before left"
+    },
+    "client_interface": "Ghost lemma returns kind and witness using a protected choice rule; no executable search implementation is claimed.",
+    "guard_registry_status": "pending; proposed environment only",
+    "verification_status": "not_run",
+    "minimum_proof_depth": null
+  }
+]

@@ -39,6 +39,14 @@ intersection/separation certificates. Reserved tree/transition families remain
 untouched. Weeks5–6 corpus diversity and controlled comparisons are progressing;
 this does not complete the reserved-family or training/evaluation milestones.
 
+The [exhaustive interval certificate task](../experiments/development-intersection-certificate-001/RESULTS.md)
+now passes all20 verifier-control expectations: four strict correct/alternative
+proofs, fourteen ordinary proof failures and two hidden-export resolution failures.
+It adds positive and negative certificate obligations without an input overlap
+assumption, within the known witness lineage. This is a fixed-interface repair
+form of D3-M1, not a completed four-cell generation-corpus addition. No new model
+calls were used.
+
 ## November 13: diverse repair run complete — two task types repaired, sequence extraction blocked
 
 [The 24-call pilot](../experiments/diverse-repair-pilot-001/RESULTS.md) completed
