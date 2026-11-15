@@ -1,0 +1,15 @@
+{
+  "phase": "offline design review before any Dafny submission",
+  "case_id": "extracted_entry_return_migration-caller_only",
+  "initial_expected_diagnostic": "postcondition",
+  "corrected_expected_diagnostic": "assertion",
+  "expected_category_unchanged": "proof_failure",
+  "expected_failed_target_unchanged": "Client.Target",
+  "reason": "The adapted caller explicitly asserts that the helper return equals the extracted entry. The old helper instead returns the remainder, so this assertion is false. Dafny may assume it afterward and discharge later postconditions; do not require a postcondition diagnostic or count those later steps as successful repair.",
+  "source_files_changed": 0,
+  "model_calls": 0,
+  "verifier_invocations": 0,
+  "original_design_sha256": "56203fcf1338eb4f53d73fea3cb460f632d2be420ffdf5920fe8fa0bd0268914",
+  "original_cases_sha256": "e6a9324b2465a905a0b0269bd010566a6029314333ffc4cf854c1c2e7fef6d9d",
+  "original_offline_log": "offline-tests-002.log"
+}
