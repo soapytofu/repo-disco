@@ -1,4 +1,4 @@
-# Frozen repair-selection pilot
+# Frozen repair-selection pilot — stopped collection
 
 The exact 32-trial study is frozen in [frozen-001](frozen-001/), with freeze SHA256
 `9a3ac2546edc6c79307826766af3517bdc8d9a8fe629a2ba0239660f4ead778a`.
@@ -6,8 +6,12 @@ All 45 verifier controls, 11 pilot preparation tests and the independent audit
 of all eight requests passed. The freeze pins 109 files and 1,095 repository
 inputs to source commit `cfa51ee966b3f54cfcec3badb8c8f77fe310da94`.
 See [reviewed-prompts.json](reviewed-prompts.json) for the prompt audit.
-Dispatch remains a separate coordinator admission through the existing window
-ledger. Nothing in this directory dispatches a model or scheduler job.
+The batch was admitted once through the existing window ledger. Its first
+request timed out without a returned response; the session closed and the other
+31 slots were not dispatched. The [main result record](../RESULTS.md) and separate
+[stopped-run audit](stopped-review-001.json) distinguish this infrastructure event
+from model proof outcomes. Frozen inputs and the earlier results are unchanged.
+Nothing in this directory dispatches a model or scheduler job.
 
 There are four constructed development workspaces, two feedback arms and four
 fresh responses per task/arm. Both eligible proof bodies are returned each time.

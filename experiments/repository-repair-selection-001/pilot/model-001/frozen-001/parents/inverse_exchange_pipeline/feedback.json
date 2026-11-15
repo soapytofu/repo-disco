@@ -1,0 +1,5 @@
+{
+  "exit_code": 4,
+  "stdout": "HelperB.dfy(17,11): Error: a precondition for this call could not be proved\n   |\n17 |     H.Prove(n,p,q);\n   |            ^\n\nHelperA.dfy(7,15): Related location: this is the precondition that could not be proved\n  |\n7 |     requires p in m && q in m && p != q\n  |                ^^\n\nHelperB.dfy(17,11): Error: a precondition for this call could not be proved\n   |\n17 |     H.Prove(n,p,q);\n   |            ^\n\nHelperA.dfy(7,25): Related location: this is the precondition that could not be proved\n  |\n7 |     requires p in m && q in m && p != q\n  |                          ^^\n\nHelperB.dfy(25,8): Error: assertion might not hold\n   |\n25 |         assert backward[v] == p;\n   |         ^^^^^^\n\nHelperB.dfy(25,23): Error: element might not be in domain\n   |\n25 |         assert backward[v] == p;\n   |                        ^\n\nHelperB.dfy(28,23): Error: element might not be in domain\n   |\n28 |         assert backward[u] == q;\n   |                        ^\n\n\nDafny program verifier finished with 16 verified, 5 errors\n",
+  "stderr": ""
+}

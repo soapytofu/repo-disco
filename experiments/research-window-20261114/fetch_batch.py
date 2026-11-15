@@ -9,18 +9,25 @@ import session_ops as ops
 
 ROOT=Path(__file__).resolve().parent
 
-def fetch(batch_id,sequence):
+def fetch(batch_id,sequence,stopped=False):
     reviewed={('repair-diversity-pilot-002',1):ROOT.parent/'repair-diversity-pilot-002',
               ('repository-repair-selection-001',2):ROOT.parent/'repository-repair-selection-001/pilot'}
     assert (batch_id,sequence) in reviewed,'Unreviewed batch archive request'
     dest=reviewed[(batch_id,sequence)]
     assert not (dest/'transfer-001.json').exists(),'Completed transfer already recorded'
-    code='BATCH='+repr(batch_id)+'\nSEQUENCE='+repr(sequence)+'\n'+'''import datetime,hashlib,io,json,subprocess,sys,tarfile
+    assert not stopped or (batch_id,sequence)==('repository-repair-selection-001',2)
+    code='BATCH='+repr(batch_id)+'\nSEQUENCE='+repr(sequence)+'\nSTOPPED='+repr(stopped)+'\n'+'''import datetime,hashlib,io,json,subprocess,sys,tarfile
 session=ROOT/'session-001';batch=session/'runs'/f'{SEQUENCE:04}-{BATCH}'
-assert (batch/'completion.json').is_file(),'No durable completion receipt yet'
 before=(session/'status.json').read_bytes();state=json.loads(before)
-assert BATCH in state['completed_batch_ids'] and state['active_batch_id'] is None,state
 ledger_before=(ROOT/'budget/ledger.json').read_bytes()
+ledger=json.loads(ledger_before)
+if STOPPED:
+ assert state['phase']=='error' and state['reason']=='terminal_execution_error' and state['active_batch_id']==BATCH,state
+ assert state['completed_batch_ids']==['repair-diversity-pilot-002'] and ledger['terminal_reason'] is not None
+ assert not (batch/'completion.json').exists(),'Stopped archive cannot reinterpret a completed run'
+else:
+ assert (batch/'completion.json').is_file(),'No durable completion receipt yet'
+ assert BATCH in state['completed_batch_ids'] and state['active_batch_id'] is None,state
 files={}
 def addtree(source,prefix):
  assert source.is_dir() and not source.is_symlink()
@@ -35,9 +42,10 @@ for path in sorted(session.iterdir()):
  assert not path.is_symlink()
  if path.is_file():files['window-evidence-001/session/'+path.name]=path.read_bytes()
 if SEQUENCE==2:
- assert state['completed_batch_ids']==['repair-diversity-pilot-002',BATCH],state
+ assert state['completed_batch_ids']==(['repair-diversity-pilot-002'] if STOPPED else ['repair-diversity-pilot-002',BATCH]),state
  addtree(ROOT/'admissions','window-evidence-001/admissions')
- for seq,identifier in [(1,'repair-diversity-pilot-002'),(2,BATCH)]:
+ completed=[(1,'repair-diversity-pilot-002')]+([] if STOPPED else [(2,BATCH)])
+ for seq,identifier in completed:
   path=session/'runs'/f'{seq:04}-{identifier}'/'completion.json'
   assert path.is_file() and not path.is_symlink()
   files['window-evidence-001/completions/'+identifier+'.json']=path.read_bytes()
@@ -51,12 +59,14 @@ files['window-evidence-001/accounting-snapshot.txt']=accounting
 assert before==(session/'status.json').read_bytes() and ledger_before==(ROOT/'budget/ledger.json').read_bytes(),'Window changed during snapshot; do not publish a mixed ledger'
 assert files['window-evidence-001/budget/ledger.json']==ledger_before
 if SEQUENCE==2:
- for seq,identifier in [(1,'repair-diversity-pilot-002'),(2,BATCH)]:
+ for seq in [1,2]:
   assert files[f'window-evidence-001/admissions/{seq:06}.json']==(ROOT/'admissions'/f'{seq:06}.json').read_bytes()
+ for seq,identifier in completed:
   assert files['window-evidence-001/completions/'+identifier+'.json']==(session/'runs'/f'{seq:04}-{identifier}'/'completion.json').read_bytes()
 record=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),batch_id=BATCH,
  session_still_running=state['phase'] not in ['error','closed'],credential_access=False,
  files={name:hashlib.sha256(data).hexdigest() for name,data in files.items()})
+if STOPPED:record['archive_kind']='terminal-incomplete-no-score'
 files['window-evidence-001/snapshot-manifest.json']=(json.dumps(record,indent=2,sort_keys=True)+'\\n').encode()
 b=io.BytesIO()
 with tarfile.open(fileobj=b,mode='w:gz') as tar:
@@ -83,5 +93,5 @@ sys.stdout.buffer.write(b.getvalue())
 if __name__=='__main__':
     if len(sys.argv)==1:fetch('repair-diversity-pilot-002',1)
     else:
-        assert sys.argv[1:]==['repository-repair-selection-001','2']
-        fetch('repository-repair-selection-001',2)
+        assert sys.argv[1:] in [['repository-repair-selection-001','2'],['repository-repair-selection-001','2','stopped']]
+        fetch('repository-repair-selection-001',2,stopped=len(sys.argv)==4)

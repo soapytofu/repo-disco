@@ -1,0 +1,235 @@
+{
+  "task_id": "intersection_or_separation-pipeline",
+  "semantic_instance": "intersection_or_separation",
+  "family": "constraint_witness",
+  "lineage_id": "D3-M1",
+  "sharing": "pipeline",
+  "depth": "two_helper_pipeline",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy",
+    "HelperB.dfy"
+  ],
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "1fa20abeb343c39a361f6ce1dc5b4540efc21ba0c69498a65e8365b2cd98331a",
+    "ClientA.dfy": "cfb3d2d7bdce82a09fc71681723dd700dcd43062215415a37d0baf5c7288e98d",
+    "ClientB.dfy": "2f3703b175f8ab3410365465084715b9b7b2df5f9715489895cdbda0cc7f333e",
+    "HelperA.dfy": "06e81d7beca94e7a6daec4704c0aba1223aa579c31784f446481f00376405523",
+    "HelperB.dfy": "bc81d31d3070134dd469da5b1fac7cbaa4c79a67e902fbfa243d1ed424a4989b",
+    "Kernel.dfy": "e902776a3f428bf7894fb31a437eaa8d557b9058e57170ae72af0de75ced3255",
+    "Ops.dfy": "5d9430f15c467d5a354c0719bb4781964266a9314aa5745a71a5e4faf180cd6d"
+  },
+  "body_boundaries": {
+    "HelperA.dfy": {
+      "start": 337,
+      "end": 337,
+      "protected_sha256": "87e95787cf096884ac4439d6911f3047f736e98d49dc1bb6e57455e0f5eb4177"
+    },
+    "HelperB.dfy": {
+      "start": 319,
+      "end": 319,
+      "protected_sha256": "d1f05fa5e061a3d9ee58c3a720ef13d37af89f3e566c9dd8b4b24eaaba9ce4a3"
+    }
+  },
+  "file_rules": {
+    "HelperA.dfy": {
+      "variables": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "parameter_types": {
+        "a": "int",
+        "b": "int",
+        "c": "int",
+        "d": "int"
+      },
+      "calls": {
+        "O.Left": 3,
+        "O.Right": 3
+      },
+      "pure": {
+        "K.LeftFact": 3,
+        "K.RightFact": 3
+      },
+      "call_types": {
+        "O.Left": [
+          "int",
+          "int",
+          "int"
+        ],
+        "O.Right": [
+          "int",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.LeftFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.RightFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        }
+      }
+    },
+    "HelperB.dfy": {
+      "variables": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "parameter_types": {
+        "a": "int",
+        "b": "int",
+        "c": "int",
+        "d": "int"
+      },
+      "calls": {
+        "H.Prove": 4,
+        "O.Before": 2,
+        "O.After": 2,
+        "A.Witness": 5,
+        "A.Gap": 5
+      },
+      "pure": {
+        "K.LeftFact": 3,
+        "K.RightFact": 3,
+        "K.LeftGap": 2,
+        "K.RightGap": 2,
+        "K.Valid": 6,
+        "K.Decided": 4
+      },
+      "call_types": {
+        "H.Prove": [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        "O.Before": [
+          "int",
+          "int"
+        ],
+        "O.After": [
+          "int",
+          "int"
+        ],
+        "A.Witness": [
+          "int",
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        "A.Gap": [
+          "int",
+          "int",
+          "int",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.LeftFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.RightFact": {
+          "arguments": [
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.LeftGap": {
+          "arguments": [
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.RightGap": {
+          "arguments": [
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.Valid": {
+          "arguments": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        },
+        "K.Decided": {
+          "arguments": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "result": "bool"
+        }
+      }
+    }
+  },
+  "file_parameters": {
+    "HelperA.dfy": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "HelperB.dfy": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "target_dependencies": {
+    "HelperA.Prove": [],
+    "HelperB.Prove": [
+      "HelperA.Prove"
+    ],
+    "ClientA.Target": [
+      "HelperB.Prove"
+    ],
+    "ClientB.Target": [
+      "HelperB.Prove"
+    ]
+  },
+  "primary_case_id": "intersection_or_separation-pipeline-faulty",
+  "development_only": true,
+  "adaptive_development": true,
+  "held_out": false,
+  "guard_registry_status": "pending separate per-file guard review",
+  "verification_status": "not_run",
+  "client_interface": "Immutable ghost lemma returns a certified witness through a protected choice rule; not executable search.",
+  "no_sharing_factor": true,
+  "minimum_proof_depth": null
+}

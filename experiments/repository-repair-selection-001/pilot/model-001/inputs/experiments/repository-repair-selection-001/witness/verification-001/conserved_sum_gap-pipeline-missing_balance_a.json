@@ -1,0 +1,68 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(11,2): Error: a postcondition could not be proved on this return path\n   |\n11 |   {\n   |   ^\n\nHelperA.dfy(10,22): Related location: this is the postcondition that could not be proved\n   |\n10 |     ensures K.Balanced(a,b,c,d,s,(if a < s - d then s - d else a),s-(if a < s - d then s - d else a))\n   |                       ^\n\n\nDafny program verifier finished with 11 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-m4rn5cbv/TestResults/2026-11-15_01_08_46-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTEsMik6IEVycm9yOiBhIHBvc3Rjb25kaXRpb24gY291bGQgbm90IGJlIHByb3ZlZCBvbiB0aGlzIHJldHVybiBwYXRoCiAgIHwKMTEgfCAgIHsKICAgfCAgIF4KCkhlbHBlckEuZGZ5KDEwLDIyKTogUmVsYXRlZCBsb2NhdGlvbjogdGhpcyBpcyB0aGUgcG9zdGNvbmRpdGlvbiB0aGF0IGNvdWxkIG5vdCBiZSBwcm92ZWQKICAgfAoxMCB8ICAgICBlbnN1cmVzIEsuQmFsYW5jZWQoYSxiLGMsZCxzLChpZiBhIDwgcyAtIGQgdGhlbiBzIC0gZCBlbHNlIGEpLHMtKGlmIGEgPCBzIC0gZCB0aGVuIHMgLSBkIGVsc2UgYSkpCiAgIHwgICAgICAgICAgICAgICAgICAgICAgIF4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggMTEgdmVyaWZpZWQsIDEgZXJyb3IKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci1tNHJuNWNidi9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAxXzA4XzQ2LTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "d0a7e19722af01c4baff74be771a3827e1003bac03024ca59cf764f1e4b0d461",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_08_46-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nOps.Left (correctness),Passed,00:00:00.0515834,3353,0\nHelperA.Prove (correctness),Failed,00:00:00.0407160,7988,0\nOps.Right (correctness),Passed,00:00:00.0401669,3353,0\nClientB.Target (correctness),Passed,00:00:00.0107257,17103,0\nOps.Sum (correctness),Passed,00:00:00.0100720,3207,0\nApi.Choose (correctness),Passed,00:00:00.0100131,14597,0\nHelperB.Prove (correctness),Passed,00:00:00.0099462,9752,0\nApi.Balance (correctness),Passed,00:00:00.0096669,4958,0\nApi.Finish (correctness),Passed,00:00:00.0093907,8793,0\nClientA.Target (correctness),Passed,00:00:00.0086977,5963,0\nApi.DirectFinish (correctness),Passed,00:00:00.0085916,7587,0\nOps.Gap (correctness),Passed,00:00:00.0076056,3356,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_08_46-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApPcHMuTGVmdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNTE1ODM0LDMzNTMsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA0MDcxNjAsNzk4OCwwCk9wcy5SaWdodCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wNDAxNjY5LDMzNTMsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA3MjU3LDE3MTAzLDAKT3BzLlN1bSAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTAwNzIwLDMyMDcsMApBcGkuQ2hvb3NlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDAxMzEsMTQ1OTcsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTk0NjIsOTc1MiwwCkFwaS5CYWxhbmNlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTY2NjksNDk1OCwwCkFwaS5GaW5pc2ggKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5MzkwNyw4NzkzLDAKQ2xpZW50QS5UYXJnZXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA4Njk3Nyw1OTYzLDAKQXBpLkRpcmVjdEZpbmlzaCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDg1OTE2LDc1ODcsMApPcHMuR2FwIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwNzYwNTYsMzM1NiwwCg=="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_08_46-0.csv": "815193febdd1ae2b585f0bcdf2b2c56c4f35220bac9bee658b2387255dc86686"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "6e12defffd7da21484f7a69424a9b73ec97af10fb4ae38aefc808999b7c684b1",
+    "ClientA.dfy": "e60a58db27c8825ae590d76cb79f19cb31c44b0171e92a87b73f2ecb38cfbe8e",
+    "ClientB.dfy": "ad01aa89425ff96a7c797b0a5efca4c7f2ba7ab590fb083629d396b7accd947d",
+    "HelperA.dfy": "23219c0738ab15ca57b947f0fa31f9a39b18dac9287c2916c1ca502f02ec3c06",
+    "HelperB.dfy": "c2c5477f27b8615dd09acc5f241cf800569956551bb09054f01a57839dc9feca",
+    "Kernel.dfy": "70a746f12285cb973a832c13f1c2951c18642606fec4b584063b38fc031cac8b",
+    "Ops.dfy": "7f38c9a96bf1896ea1ee82c50164a662c9ee7af212312df5d72470a22f496ed5"
+  },
+  "elapsed_seconds": 2.2350454630795866,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "conserved_sum_gap-pipeline-missing_balance_a",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        11,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

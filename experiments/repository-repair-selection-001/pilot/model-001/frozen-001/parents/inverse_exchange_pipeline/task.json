@@ -1,0 +1,187 @@
+{
+  "task_id": "inverse_exchange_pipeline",
+  "semantic_instance": "inverse_exchange_pipeline",
+  "family": "finite_map",
+  "sharing": "pipeline",
+  "depth": "two_editable_dependency_stages_not_a_minimality_claim",
+  "entry": "All.dfy",
+  "editable_files": [
+    "HelperA.dfy",
+    "HelperB.dfy"
+  ],
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+    "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+    "HelperA.dfy": "cbd4ba1944cdac41ab6ab80b2d6fc60c64e3868087cad7d7d6f595890fb9212d",
+    "HelperB.dfy": "b4fc7140a251e12dbcdea8a80c46832f84730b837b3d9a33b59bf8ed225b5a72",
+    "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+    "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+  },
+  "body_boundaries": {
+    "HelperA.dfy": {
+      "start": 410,
+      "end": 410,
+      "protected_sha256": "f4cf2a7296af8ae2368100b502c875b34c8a344c263254d9d8edc51637b8acae"
+    },
+    "HelperB.dfy": {
+      "start": 328,
+      "end": 328,
+      "protected_sha256": "f53ef7054668e01a5128a955b7abbc3cd4bc86a2a6753aea423d3ff789c387dc"
+    }
+  },
+  "seed_source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+    "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+    "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+    "HelperB.dfy": "2039fca73adeaa61ac2fd371ba4aef8fdb54be56db542afb4e41a73d4bf5d108",
+    "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+    "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+  },
+  "repair_seed": "faulty",
+  "faulty_file": "HelperB.dfy",
+  "reference_path": "fixtures/inverse_exchange_pipeline/reference",
+  "template_path": "templates/inverse_exchange_pipeline",
+  "file_rules": {
+    "HelperA.dfy": {
+      "variables": [
+        "m",
+        "p",
+        "q"
+      ],
+      "calls": {
+        "O.PutKeys": 3,
+        "O.PutAt": 4,
+        "O.ExchangeShape": 3
+      },
+      "pure": {
+        "K.Put": 3,
+        "K.Exchange": 3,
+        "K.Inverse": 2
+      },
+      "parameter_types": {
+        "m": "map<int,int>",
+        "p": "int",
+        "q": "int"
+      },
+      "call_types": {
+        "O.PutKeys": [
+          "map<int,int>",
+          "int",
+          "int"
+        ],
+        "O.PutAt": [
+          "map<int,int>",
+          "int",
+          "int",
+          "int"
+        ],
+        "O.ExchangeShape": [
+          "map<int,int>",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Put": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Exchange": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Inverse": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "bool"
+        }
+      }
+    },
+    "HelperB.dfy": {
+      "variables": [
+        "m",
+        "n",
+        "p",
+        "q"
+      ],
+      "calls": {
+        "H.Prove": 3
+      },
+      "pure": {
+        "K.Put": 3,
+        "K.Exchange": 3,
+        "K.Inverse": 2
+      },
+      "parameter_types": {
+        "m": "map<int,int>",
+        "n": "map<int,int>",
+        "p": "int",
+        "q": "int"
+      },
+      "call_types": {
+        "H.Prove": [
+          "map<int,int>",
+          "int",
+          "int"
+        ]
+      },
+      "pure_types": {
+        "K.Put": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Exchange": {
+          "arguments": [
+            "map<int,int>",
+            "int",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Inverse": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "bool"
+        }
+      }
+    }
+  },
+  "development_only": true,
+  "held_out": false,
+  "ancestor_group": "finite_map_update_restriction_development",
+  "fixed_architecture": true,
+  "dependency_edges": [
+    [
+      "HelperB.Prove",
+      "HelperA.Prove"
+    ],
+    [
+      "ClientA.Target",
+      "HelperB.Prove"
+    ],
+    [
+      "ClientB.Target",
+      "HelperB.Prove"
+    ]
+  ],
+  "verification_status": "not_run",
+  "guard_registry_status": "pending separate per-file registration"
+}

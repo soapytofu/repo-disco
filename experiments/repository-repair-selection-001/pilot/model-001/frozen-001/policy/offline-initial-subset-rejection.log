@@ -1,0 +1,13 @@
+Initial prospective type-policy replay rejected a required set <= comparison. No fixture, old policy, or model result changed.
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/repository-repair-selection-001/protocol/body_guard.py", line 337, in parse_response
+    Types(rules).statements(tree)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/repository-repair-selection-001/protocol/body_guard.py", line 278, in statements
+    self.require(self.expression(node[1], env), 'bool')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/repository-repair-selection-001/protocol/body_guard.py", line 243, in expression
+    self.require(types[i], 'int')
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/repository-repair-selection-001/protocol/body_guard.py", line 183, in require
+    raise ValueError('Expression type differs from pinned signature')
+ValueError: Expression type differs from pinned signature

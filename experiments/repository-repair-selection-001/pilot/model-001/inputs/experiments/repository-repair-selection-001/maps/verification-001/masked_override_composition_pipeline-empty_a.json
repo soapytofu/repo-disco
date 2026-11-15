@@ -1,0 +1,69 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(10,2): Error: a postcondition could not be proved on this return path\n   |\n10 |   {\n   |   ^\n\nHelperA.dfy(9,48): Related location: this is the postcondition that could not be proved\n  |\n9 |     ensures K.Compose(K.Override(f1,f2),g).Keys == K.Override(K.Compose(K.Restrict(f1,f1.Keys-f2.Keys),g),K.Compose(f2,g)).Keys\n  |                                                 ^^\n\n\nDafny program verifier finished with 20 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-_ylm9ofi/TestResults/2026-11-15_01_05_14-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTAsMik6IEVycm9yOiBhIHBvc3Rjb25kaXRpb24gY291bGQgbm90IGJlIHByb3ZlZCBvbiB0aGlzIHJldHVybiBwYXRoCiAgIHwKMTAgfCAgIHsKICAgfCAgIF4KCkhlbHBlckEuZGZ5KDksNDgpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKOSB8ICAgICBlbnN1cmVzIEsuQ29tcG9zZShLLk92ZXJyaWRlKGYxLGYyKSxnKS5LZXlzID09IEsuT3ZlcnJpZGUoSy5Db21wb3NlKEsuUmVzdHJpY3QoZjEsZjEuS2V5cy1mMi5LZXlzKSxnKSxLLkNvbXBvc2UoZjIsZykpLktleXMKICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDIwIHZlcmlmaWVkLCAxIGVycm9yClJlc3VsdHMgRmlsZTogL3RtcC9yZXBvZGlzY28tcmVwYWlyLWFkYXB0ZXItX3lsbTlvZmkvVGVzdFJlc3VsdHMvMjAyNi0xMS0xNV8wMV8wNV8xNC0wLmNzdgo=",
+  "stderr_base64": "",
+  "stdout_sha256": "8475b8bdb91693cf0485ed5d83761669b0639aff786d7a22cbac6cbaffd9f05f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_05_14-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Failed,00:00:00.0933827,23990,0\nApi.Equal (well-formedness),Passed,00:00:00.0580521,11988,0\nValues.HiddenRestrictAt (well-formedness),Passed,00:00:00.0372723,12133,0\nHelperB.Prove (correctness),Passed,00:00:00.0239966,38756,0\nApi.Equal (correctness),Passed,00:00:00.0233895,14713,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0189312,24427,0\nValues.HiddenRestrictAt (correctness),Passed,00:00:00.0159114,14947,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0119069,18526,0\nDomains.ComposeKeys (correctness),Passed,00:00:00.0118792,20399,0\nClientB.Target (correctness),Passed,00:00:00.0118340,16441,0\nValues.OverrideAt (correctness),Passed,00:00:00.0117252,17633,0\nClientA.Target (correctness),Passed,00:00:00.0114911,16441,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0112027,14897,0\nValues.ComposeAt (correctness),Passed,00:00:00.0110913,15612,0\nValues.RestrictAt (correctness),Passed,00:00:00.0109987,14947,0\nKernel.Override (well-formedness),Passed,00:00:00.0108583,12412,0\nValues.ComposeAt (well-formedness),Passed,00:00:00.0104060,13000,0\nDomains.ComposeKeys (well-formedness),Passed,00:00:00.0101929,12476,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0101574,12133,0\nKernel.Compose (well-formedness),Passed,00:00:00.0096102,10469,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0095089,9696,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_05_14-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA5MzM4MjcsMjM5OTAsMApBcGkuRXF1YWwgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1ODA1MjEsMTE5ODgsMApWYWx1ZXMuSGlkZGVuUmVzdHJpY3RBdCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDM3MjcyMywxMjEzMywwCkhlbHBlckIuUHJvdmUgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDIzOTk2NiwzODc1NiwwCkFwaS5FcXVhbCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMjMzODk1LDE0NzEzLDAKRG9tYWlucy5PdmVycmlkZUtleXMgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE4OTMxMiwyNDQyNywwClZhbHVlcy5IaWRkZW5SZXN0cmljdEF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNTkxMTQsMTQ5NDcsMApEb21haW5zLlJlc3RyaWN0S2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE5MDY5LDE4NTI2LDAKRG9tYWlucy5Db21wb3NlS2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE4NzkyLDIwMzk5LDAKQ2xpZW50Qi5UYXJnZXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExODM0MCwxNjQ0MSwwClZhbHVlcy5PdmVycmlkZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTcyNTIsMTc2MzMsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE0OTExLDE2NDQxLDAKVmFsdWVzLk92ZXJyaWRlQXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTIwMjcsMTQ4OTcsMApWYWx1ZXMuQ29tcG9zZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTA5MTMsMTU2MTIsMApWYWx1ZXMuUmVzdHJpY3RBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA5OTg3LDE0OTQ3LDAKS2VybmVsLk92ZXJyaWRlICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA4NTgzLDEyNDEyLDAKVmFsdWVzLkNvbXBvc2VBdCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwNDA2MCwxMzAwMCwwCkRvbWFpbnMuQ29tcG9zZUtleXMgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDE5MjksMTI0NzYsMApWYWx1ZXMuUmVzdHJpY3RBdCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMTU3NCwxMjEzMywwCktlcm5lbC5Db21wb3NlICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk2MTAyLDEwNDY5LDAKS2VybmVsLlJlc3RyaWN0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk1MDg5LDk2OTYsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_05_14-0.csv": "9783e4bcab3caf67c545a01c1985d3e57d72bc00b79af6a1901aa7d843b2c8d2"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "f2161095a372eed9d0702390e57c9edc17ad40d06f9ffa1da1a9759eab6a4620",
+    "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "elapsed_seconds": 2.4496136049274355,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "masked_override_composition_pipeline-empty_a",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        20,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

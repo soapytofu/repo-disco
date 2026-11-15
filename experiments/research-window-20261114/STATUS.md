@@ -1,51 +1,84 @@
 # Research window status
 
-Window: November 14, 2026 11:05:12 PM to November 15, 2026 11:05:12 PM Eastern.
+Window: November 14, 2026 11:05:12 PM to November 15, 2026 11:05:12 PM Eastern
+(2026-11-15 04:05:12 to 2026-11-16 04:05:12 UTC).
 
-- Main chat owns submissions, spending and publication. Approved ceiling: **128 NEW Claude requests total, no retries**; it is not a spending target. Earlier budgets remain exhausted.
-- **First batch COMPLETE:32/128 requests reserved and returned,32 unique IDs,zero retries.** Job60698074 remains running on sapphire/holy8a24107 as the sole in-memory session. Canonical authority `/n/home13/sophiezeng/formal-disco/outputs/research-window-20261114/budget` and `session-001` belong exclusively to that process. The second 32-call admission is now active; see its details below. Never create a fallback ledger or clear a lock. Latest authoritative snapshot is in repair-diversity-pilot-002/window-evidence-001; inspect live ledger before new admissions.
-- Reviewed first-batch result: **27/32 strict successes**, diagnostics16/16 versus notice11/16, all32 admitted. Arithmetic5/8,sequence8/8,witness6/8,maps8/8.113,505 tokens.208 protected files/48 body boundaries/27 promoted HEADs checked. Full1931-file transfer and reproducible review are published in eb0ed7b. Original results unchanged.
-- The exact saved-response sequence diagnostic is complete and published: job60694583,8/8 strict passes with11 verified obligations each. It preserves the original16/24 primary result and all1,204 original files. No polling/repetition needed.
-- Four new development tasks are verified: saturating associativity, compression fixed point, exact-gap witnesses and overlapping map override/restriction. Jobs60695852/60696022/60696260/60696271 completed **78/78 expected controls**:16 strict positives,52 ordinary proof failures,2 termination failures and8 resolution failures. Full evidence is published; no active verifier jobs.
-- Prospective envelope-v2 and the separate four-task body policy are frozen. The first **32-call repair-diversity-pilot-002** is frozen/published in2230a1d: four instances × two sharing conditions × two feedback arms × two responses. Freeze SHA `ef318bdd394b11cc981c15165bcc8cbf1ffdc06945582bc025afe7b27cd317e8`. All32 calls fall within this window's existing128 approval.
-- The actual execution runtime is frozen at `ca24194ab90c932e0c514c1b390a80dd999645ccf07a9c937ea176f82b701b44`. **22 real-stack offline integration tests passed**, including all32 fake trials through both ledgers and real guard/promotion logic. Independent review found no further blocking issue. No real model/verifier calls occurred in these tests.
-- `session-runtime-002` deliberately fixes two reproduced offline v1 findings: complete post-validator input inventory and durable output syncing before completion. Both versions and their evidence are preserved. Revision002 has38 fake tests; the unchanged aggregate gate has20 fake tests.
-- Cannon isolated staging and fake-only SDK/import/integration preflight passed: all22 tests, boto3/botocore1.43.115, zero credentials/API/Dafny access. Runner/evidence published in0004838. `session.sbatch` submitted ONCE after live-confirming PreemptMode=OFF for shared/sapphire and absence of existing authority/jobs. `submission-001.json` records job60698074. Do not also launch a standalone runner.
-- The process consumes/deletes the existing private handoff once and retains one client only in memory while awaiting later reviewed, frozen admissions. The started compute process owns the one-time handoff consumption; do not inspect/read the credential. No provider connectivity tests. Failure/ambiguity is terminal; no resume/retry/reassignment.
-- The one process may remain idle between reviewed batches until the deadline. Every dispatch independently enforces deadline and aggregate128. A timeout, disconnect or expired credential can block progress; none authorizes bypass. The local app/awake Mac/network are needed for follow-ups; submitted Slurm work survives local disconnection.
-- Future work must be useful and within the remaining cap, with frozen prompts, exact task controls and per-family evidence. No causal sharing/depth, held-out, necessary-depth or guaranteed positive-result claim. Reserved tree/transition families remain untouched.
+## Current state: paid session terminal
 
-After each actual batch, record its job, cumulative global ledger count, receipt, reviewed results and publication here. At the deadline begin no new work/dispatches, summarize progress/blockers and delete `repodisco-24-hour-research`. Do not cancel a submitted job solely because the window expires.
+Job **60698074** failed at about 06:45 UTC on November 15 after a read timeout
+on the second study's first request. The canonical ledger records **33 reserved
+requests: 32 completed and one ambiguous**, with 64 declared slots. The other
+31 slots in the second batch were never dispatched. The approved 128-call ceiling
+has not been exhausted, but this session cannot continue or reassign those slots.
+Do not retry the request, restart the process, clear locks, create another client
+or ledger, or request a new key as an automatic recovery.
 
-First-batch completion is fully reviewed and published; do not refetch or repeat its requests. Use `session_ops.py status` before any future admission. The full `repair-diversity-pilot-002/model-001` and timed `window-evidence-001` snapshot are preserved. The process may remain idle for future reviewed admissions; a running Slurm job alone is not an unfinished model batch.
+Authority remains `/n/home13/sophiezeng/formal-disco/outputs/research-window-20261114/budget`
+and `session-001`. The budget terminal reason is `transport_or_persistence_failure`;
+session event 7 records `ReadTimeoutError`. The provider outcome, request ID and
+token use for request 33 are unknown. No candidate or verifier run exists for it.
+The raw summary's `fatal_error_type: null` does not mean success: it separately
+records `REQUEST_STOP`, zero returned responses and `all_trials_processed: false`.
+The completed batch remains unchanged; there is no second-study model score.
 
-Latest completed nonpaid work: D3-M1 job 60702410 passed 20/20 expectations
-(4 strict passes, 14 proof failures, 2 resolution failures), published in 5a09639.
-Five analyst candidates then passed 5/5 in job 60703825; all 1,845 original model
-archive files and 91 parent copies are unchanged. Its initial packaging failure
-and corrected runtime are preserved with full evidence in 7fe61ee. No verifier
-jobs remain active.
+Full stopped evidence is at
+[repository-repair-selection-001/pilot](../repository-repair-selection-001/pilot/).
+Its 1,354 transferred files match their hashes. No job polling or paid submission
+is needed. The research window continues with useful nonpaid work only.
 
-The second study, repository-repair-selection-001, is verified, frozen and
-**admitted once to the existing process**. Four fixed pipeline layouts have two distinct eligible
-proof bodies and two immutable clients. All 45 verifier controls passed: 10
-strict positives, 31 proof failures and 4 hidden-export resolution failures.
-Full code and evidence were published in cfa51ee. The per-file policy is frozen
-at `076ae7cacb620e57ecbc137be0e4ddda4924106852dc8bd87700dcef82c2f7df`.
+## Published results and preparation
 
-Commit 9e3d3c7 publishes the eight exact requests and 32-trial order, freeze
-`9a3ac2546edc6c79307826766af3517bdc8d9a8fe629a2ba0239660f4ead778a`.
-All 11 preparation tests and independent prompt/source/type/inventory checks
-passed. The study compares diagnostics versus failure notice, with four responses
-per task/arm; there is no sharing or depth factor. It will use the unchanged
-repair-v1 handler and existing process only. The actual-data fake handler exercised all 32 slots and the 13-test admission
-helper passed, including the actual predecessor audit. Code, bundle and evidence
-were published in 2c756dc before remote mutation. Staging and read-only live audit
-passed; the exclusive admission was published at about 06:39 UTC, SHA256
-`031903e63cf2d03c9b8a3bc340339832e1976c224b8e6c4e0128d433a440c975`.
-The same process has accepted it and entered the running phase. The ledger has
-64 declared slots across both batches; the latest snapshot still has 32 actual
-completed requests while the second batch archives its inputs. Consult the live
-ledger for subsequent usage. No third admission, second paid job, new client/key
-or retry is allowed. Follow this batch to completion and review before any next
-admission. Receipt files are in `admission-002/prepared-001`.
+- First model batch, [repair-diversity-pilot-002](../repair-diversity-pilot-002/RESULTS.md):
+  **27/32 strict successes**, diagnostics 16/16 versus notice 11/16. All 32 outputs
+  admitted; 32 unique IDs, zero SDK retries, 113,505 tokens. Arithmetic 5/8,
+  sequence 8/8, witness 6/8, maps 8/8. Published in `eb0ed7b`; 208 protected files,
+  48 body boundaries and 27 promoted revisions reviewed. Four development
+  instances do not establish a general feedback or sharing effect.
+- Saved sequence extraction diagnostic: 8/8 unchanged proofs verify; the earlier
+  16/24 primary score and 1,204 original files remain unchanged.
+- Initial fresh repair fixtures: 78/78 expected controls. Their frozen body and
+  envelope policies preceded the first collection.
+- D3-M1 exhaustive interval certificate: 20/20 expected controls, published in
+  `5a09639`. It remains development material within the witness lineage.
+- Five separate analyst repairs: 5/5 strictly verify with no new lemma calls;
+  published in `7fe61ee`. All 1,845 original model files and 91 parent inputs are
+  unchanged. This does not rescore the model. The earlier packaging failure and
+  deliberate corrected runtime are preserved.
+- [Pipeline repair-selection tasks](../repository-repair-selection-001/RESULTS.md):
+  45/45 expected controls (10 positives, 31 proof failures, 4 resolution failures),
+  269 protected-file and 90 body-boundary checks. Published in `cfa51ee`.
+  The four tasks have two distinct eligible bodies and immutable clients; this
+  is a fixed architecture comparison, not a depth/sharing treatment.
+- Eight exact prompts and 32 slots were frozen before collection in `9e3d3c7`,
+  SHA `9a3ac2546edc6c79307826766af3517bdc8d9a8fe629a2ba0239660f4ead778a`.
+  Eleven preparation tests, independent prompt audit, actual-data fake handler
+  checks and 13 admission tests passed. Bundle/helper published `2c756dc`;
+  exclusive admission receipts published `f684b18`. The single sequence-2
+  admission SHA is `031903e63cf2d03c9b8a3bc340339832e1976c224b8e6c4e0128d433a440c975`.
+
+The execution runtime remains frozen at
+`ca24194ab90c932e0c514c1b390a80dd999645ccf07a9c937ea176f82b701b44`.
+The old coordinator and its deliberate revision, all failed evidence and prior
+model scores remain intact. Completion receipts are not fabricated for stopped
+runs. Declared dependency closure is separate from observed helper calls and
+necessary mathematical proof dependence.
+
+## Remaining nonpaid work
+
+Build and validate two explicit internal API migration fixtures in arithmetic and
+maps, keeping public client specifications unchanged. Test whether a locally
+verified changed helper leaves a real caller obligation failing, then validate a
+coherent repair. These require a separate future edit protocol; the frozen
+body-only model handler is not reused for contract edits. A chosen local patch's
+failure does not prove both files are mathematically necessary to edit.
+
+Root owns SSH, submission and Git publication; agents have disjoint local scopes.
+Dafny runs only on compute nodes, with live nonpreemptible partition checks, no
+requeue, duplicate jobs or automatic retries. Reserved tree/transition families
+remain untouched. Publish useful reviewed code and full non-secret evidence as
+Sophie Zeng for both author and committer, preserving history.
+
+At the deadline begin no new work, summarize progress and blockers, and delete
+`repodisco-24-hour-research`. Do not cancel an already submitted verifier job
+solely because the window ends. App, awake Mac and network are required for local
+follow-ups; Slurm jobs survive local disconnection.

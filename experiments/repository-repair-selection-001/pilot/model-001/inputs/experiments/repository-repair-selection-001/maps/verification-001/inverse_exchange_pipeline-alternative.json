@@ -1,0 +1,63 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 0,
+  "stdout": "\nDafny program verifier finished with 17 verified, 0 errors\nResults File: /tmp/repodisco-repair-adapter-63_nyroa/TestResults/2026-11-15_01_04_41-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "CkRhZm55IHByb2dyYW0gdmVyaWZpZXIgZmluaXNoZWQgd2l0aCAxNyB2ZXJpZmllZCwgMCBlcnJvcnMKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci02M19ueXJvYS9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAxXzA0XzQxLTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "56f94bd6aa26f82c1799305b01063bdfabef322d674e43a2d6d4fdfaf5899318",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_04_41-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nKernel.Exchange (well-formedness),Passed,00:00:00.0679329,12205,0\nOps.PutAt (well-formedness),Passed,00:00:00.0392034,12504,0\nHelperA.Prove (correctness),Passed,00:00:00.0331665,55380,0\nHelperB.Prove (correctness),Passed,00:00:00.0323281,68992,0\nClientB.Target (correctness),Passed,00:00:00.0182338,26877,0\nOps.PutAt (correctness),Passed,00:00:00.0169506,16273,0\nOps.ExchangeShape (well-formedness),Passed,00:00:00.0157972,13202,0\nOps.PutKeys (correctness),Passed,00:00:00.0146115,19573,0\nKernel.Inverse (well-formedness),Passed,00:00:00.0136641,13502,0\nClientA.Target (correctness),Passed,00:00:00.0133672,16684,0\nClientA.Target (well-formedness),Passed,00:00:00.0125708,17969,0\nHelperB.Prove (well-formedness),Passed,00:00:00.0122019,17969,0\nClientB.Target (well-formedness),Passed,00:00:00.0121074,17313,0\nOps.ExchangeShape (correctness),Passed,00:00:00.0117039,17827,0\nHelperA.Prove (well-formedness),Passed,00:00:00.0113756,13996,0\nOps.HiddenPutAt (correctness),Passed,00:00:00.0112440,16273,0\nOps.HiddenPutAt (well-formedness),Passed,00:00:00.0101785,12504,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_04_41-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApLZXJuZWwuRXhjaGFuZ2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA2NzkzMjksMTIyMDUsMApPcHMuUHV0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAzOTIwMzQsMTI1MDQsMApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAzMzE2NjUsNTUzODAsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAzMjMyODEsNjg5OTIsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTgyMzM4LDI2ODc3LDAKT3BzLlB1dEF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNjk1MDYsMTYyNzMsMApPcHMuRXhjaGFuZ2VTaGFwZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE1Nzk3MiwxMzIwMiwwCk9wcy5QdXRLZXlzIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNDYxMTUsMTk1NzMsMApLZXJuZWwuSW52ZXJzZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEzNjY0MSwxMzUwMiwwCkNsaWVudEEuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMzM2NzIsMTY2ODQsMApDbGllbnRBLlRhcmdldCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEyNTcwOCwxNzk2OSwwCkhlbHBlckIuUHJvdmUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMjIwMTksMTc5NjksMApDbGllbnRCLlRhcmdldCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEyMTA3NCwxNzMxMywwCk9wcy5FeGNoYW5nZVNoYXBlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTcwMzksMTc4MjcsMApIZWxwZXJBLlByb3ZlICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTEzNzU2LDEzOTk2LDAKT3BzLkhpZGRlblB1dEF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTI0NDAsMTYyNzMsMApPcHMuSGlkZGVuUHV0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDE3ODUsMTI1MDQsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_04_41-0.csv": "b7a88072f49b966942f974fb27d5564dcfccf84ad9dbd8da05f5482ff9af3b7d"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+    "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+    "HelperA.dfy": "10c83ad3b62765b30515bdf0770469c1d4e218d03dff159037adb286a0ba7367",
+    "HelperB.dfy": "6fa3c254bff08950a0f7ab4ac60e8b3fa43e1175a2ee1ac1730e56481bef04d4",
+    "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+    "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+  },
+  "elapsed_seconds": 2.3041902401018888,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "inverse_exchange_pipeline-alternative",
+  "expected": "success",
+  "expected_diagnostic": "none",
+  "actual": "success",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        17,
+        0
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [],
+    "diagnostic_categories": [],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

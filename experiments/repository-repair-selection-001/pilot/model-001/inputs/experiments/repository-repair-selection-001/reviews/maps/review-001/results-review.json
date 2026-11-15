@@ -1,0 +1,1560 @@
+{
+  "job_id": "60707245",
+  "model_calls": 0,
+  "planned": 21,
+  "reviewed": 21,
+  "all_expected": true,
+  "counts": {
+    "success": 4,
+    "proof_failure": 15,
+    "resolution_failure": 2
+  },
+  "protected_file_comparisons": 125,
+  "protected_body_boundaries": 42,
+  "scope_by_task": {
+    "inverse_exchange_pipeline": [
+      "ClientA.Target (correctness)",
+      "ClientA.Target (well-formedness)",
+      "ClientB.Target (correctness)",
+      "ClientB.Target (well-formedness)",
+      "HelperA.Prove (correctness)",
+      "HelperA.Prove (well-formedness)",
+      "HelperB.Prove (correctness)",
+      "HelperB.Prove (well-formedness)",
+      "Kernel.Exchange (well-formedness)",
+      "Kernel.Inverse (well-formedness)",
+      "Ops.ExchangeShape (correctness)",
+      "Ops.ExchangeShape (well-formedness)",
+      "Ops.HiddenPutAt (correctness)",
+      "Ops.HiddenPutAt (well-formedness)",
+      "Ops.PutAt (correctness)",
+      "Ops.PutAt (well-formedness)",
+      "Ops.PutKeys (correctness)"
+    ],
+    "masked_override_composition_pipeline": [
+      "Api.Equal (correctness)",
+      "Api.Equal (well-formedness)",
+      "ClientA.Target (correctness)",
+      "ClientB.Target (correctness)",
+      "Domains.ComposeKeys (correctness)",
+      "Domains.ComposeKeys (well-formedness)",
+      "Domains.OverrideKeys (correctness)",
+      "Domains.RestrictKeys (correctness)",
+      "HelperA.Prove (correctness)",
+      "HelperB.Prove (correctness)",
+      "Kernel.Compose (well-formedness)",
+      "Kernel.Override (well-formedness)",
+      "Kernel.Restrict (well-formedness)",
+      "Values.ComposeAt (correctness)",
+      "Values.ComposeAt (well-formedness)",
+      "Values.HiddenRestrictAt (correctness)",
+      "Values.HiddenRestrictAt (well-formedness)",
+      "Values.OverrideAt (correctness)",
+      "Values.OverrideAt (well-formedness)",
+      "Values.RestrictAt (correctness)",
+      "Values.RestrictAt (well-formedness)"
+    ]
+  },
+  "checks": [
+    {
+      "case_id": "inverse_exchange_pipeline-reference",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 17,
+      "failed_units": [],
+      "evidence_sha256": "c508839ee8af503c86a11afe5644b856ca82705387dc4ba7f77812eaf53008ec",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_workspace_verified": true,
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "actual_failed_targets": [],
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-alternative",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 17,
+      "failed_units": [],
+      "evidence_sha256": "db0d08b70cbdf058f8bed5dcc5155009fef53057bd36b10387b3212ed62b7421",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_workspace_verified": true,
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "actual_failed_targets": [],
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-faulty",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "precondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "4ba72975457578d81878ac2c30df34b0615bae4ce274bf64d60f82e9a2629005",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-empty",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperB.Prove (correctness)",
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "331c75fd72a3acdfefa6d7197448b3b7537ca16e40d5d2d4f380931bd98f9d93",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-empty_a",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "empty_a",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "a36cad1cbf1c6578e7bbf27022725725529d24bde3dda593b27d85fc019b8df6",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-empty_b",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "empty_b",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "cf80f76a2fe7857a39a905f6758348ec12ba9bb40d9db608a47e7f8024614fa9",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-missing_outer_update",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "missing_outer_update",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "4e20442e416a7af1b19aaf55a73a1a5ec551cf563d46c9f95587a0ba39444d6d",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-wrong_exchange_value",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "wrong_exchange_value",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "949251d93748c693dd3a8df8e571b2fb2811e0787e92c0b5decfb5060bf965f1",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-missing_inverse_prerequisite",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "missing_inverse_prerequisite",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "0f5597b5d4502364d1ddf18b1217c2a1c1895e499f451c3f3d1adc851c30dddd",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-wrong_inverse_direction",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "wrong_inverse_direction",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy"
+      ],
+      "named_units": 17,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "31729ab1608a9a5f4ce7f6ea7dff59337003cf85e3f7e103a366d8109d7866ff",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "inverse_exchange_pipeline-hidden_call",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "hidden_call",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "missing export member",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "4f4ec611772dbb75dd0e74b18df140d2042f81a41a851b342a1a13013c9f3ef5",
+      "strict_actual": "resolution_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 2,
+      "expected_exit": 2,
+      "local_targets": {
+        "HelperA.Prove": null,
+        "HelperB.Prove": null,
+        "ClientA.Target": null,
+        "ClientB.Target": null
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": null,
+        "HelperB.Prove": null,
+        "ClientA.Target": null,
+        "ClientB.Target": null
+      },
+      "actual_failed_targets": [],
+      "expected_failed_targets": null,
+      "expected_local_targets": null,
+      "expected_dependency_closed_targets": null,
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": null,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": null
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-reference",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "reference",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 21,
+      "failed_units": [],
+      "evidence_sha256": "9db12b3c8a8dd509eb8006666f2f8616b666283a5656152539bf07434922f1aa",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_workspace_verified": true,
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "actual_failed_targets": [],
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-alternative",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "alternative",
+      "expected": "success",
+      "actual": "success",
+      "expected_diagnostic": "none",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [],
+      "named_units": 21,
+      "failed_units": [],
+      "evidence_sha256": "28a12cd61b04706baf27ba497074aa6973de40a45b9b99cdf331a3f9d57e0ea3",
+      "strict_actual": "success",
+      "strict_expected_match": true,
+      "strict_workspace_verified": true,
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "actual_failed_targets": [],
+      "expected_failed_targets": [],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-faulty",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "faulty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "f1bd295db414de87997a53874d48515715cdc0878c4a9c60dfbdcc4e8735cdf3",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-empty",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "empty",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperB.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "26b8b40316870bc29e75ecdae59a41b04acf58226e957e76650dcf52534ff109",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-empty_a",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "empty_a",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "a86eddda939bb8f0dbc2afdcd54c13abc32886aef4a251c39160e1da9481f590",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-empty_b",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "empty_b",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "02c4241ee2dc865e76f9c0845291c82aaabb47a65472e065a72654b1b9bfa6fc",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-missing_override_value",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "missing_override_value",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperA.Prove (correctness)"
+      ],
+      "evidence_sha256": "c50615ae07f7d7817bad40e74a127e78572b1a965efbd2b9b0aad027a63524dc",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperA.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-wrong_priority",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "wrong_priority",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "assertion",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "a7ce84474dddb4a0313ace94d5c29f2417f860533bcd696473a70a7b10efe994",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-missing_compose_value",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "missing_compose_value",
+      "expected": "proof_failure",
+      "actual": "proof_failure",
+      "expected_diagnostic": "postcondition",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperB.dfy"
+      ],
+      "named_units": 21,
+      "failed_units": [
+        "HelperB.Prove (correctness)"
+      ],
+      "evidence_sha256": "2012bd495b85f08a671478a3ac920016afba43f6e0e419c95acaa7ff1c3bbafd",
+      "strict_actual": "proof_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 4,
+      "expected_exit": 4,
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "actual_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_failed_targets": [
+        "HelperB.Prove"
+      ],
+      "expected_local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "expected_dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": true,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": true
+    },
+    {
+      "case_id": "masked_override_composition_pipeline-hidden_call",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "hidden_call",
+      "expected": "resolution_failure",
+      "actual": "resolution_failure",
+      "expected_diagnostic": "missing export member",
+      "diagnostic_match": true,
+      "matched": true,
+      "unverified_providers": [],
+      "primary_error_files": [
+        "HelperA.dfy",
+        "HelperA.dfy"
+      ],
+      "named_units": 0,
+      "failed_units": [],
+      "evidence_sha256": "1f8ca1ec06c4d32d4e9e7738adb45d22f6758e8f4502574a6ddcbd5fca852946",
+      "strict_actual": "resolution_failure",
+      "strict_expected_match": true,
+      "strict_workspace_verified": false,
+      "actual_exit": 2,
+      "expected_exit": 2,
+      "local_targets": {
+        "HelperA.Prove": null,
+        "HelperB.Prove": null,
+        "ClientA.Target": null,
+        "ClientB.Target": null
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": null,
+        "HelperB.Prove": null,
+        "ClientA.Target": null,
+        "ClientB.Target": null
+      },
+      "actual_failed_targets": [],
+      "expected_failed_targets": null,
+      "expected_local_targets": null,
+      "expected_dependency_closed_targets": null,
+      "local_expectations_match": true,
+      "dependency_closed_expectations_match": true,
+      "reference_scope_match": null,
+      "reference_scope_gate_match": true,
+      "provider_units_passed": null
+    }
+  ],
+  "claim": "Verifier-only fixed-architecture development controls. Local and declared-graph-closed target statuses are secondary; strict whole-workspace verification remains primary. No model, necessary-dependency, sharing-effect, minimality or held-out claim.",
+  "strict_counts": {
+    "success": 4,
+    "proof_failure": 15,
+    "resolution_failure": 2
+  },
+  "primary_strict_workspace_successes": 4,
+  "reference_gate_complete": true,
+  "declared_target_dependencies": {
+    "HelperA.Prove": [],
+    "HelperB.Prove": [
+      "HelperA.Prove"
+    ],
+    "ClientA.Target": [
+      "HelperB.Prove"
+    ],
+    "ClientB.Target": [
+      "HelperB.Prove"
+    ]
+  },
+  "reference_unit_sets": {
+    "inverse_exchange_pipeline": {
+      "case_id": "inverse_exchange_pipeline-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+        "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+        "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+        "HelperB.dfy": "03a7b19053f688ef213079bf056fd5203f08642eee446dcc2390b25a5a191262",
+        "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+        "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+      },
+      "evidence_sha256": "c508839ee8af503c86a11afe5644b856ca82705387dc4ba7f77812eaf53008ec",
+      "units": [
+        "ClientA.Target (correctness)",
+        "ClientA.Target (well-formedness)",
+        "ClientB.Target (correctness)",
+        "ClientB.Target (well-formedness)",
+        "HelperA.Prove (correctness)",
+        "HelperA.Prove (well-formedness)",
+        "HelperB.Prove (correctness)",
+        "HelperB.Prove (well-formedness)",
+        "Kernel.Exchange (well-formedness)",
+        "Kernel.Inverse (well-formedness)",
+        "Ops.ExchangeShape (correctness)",
+        "Ops.ExchangeShape (well-formedness)",
+        "Ops.HiddenPutAt (correctness)",
+        "Ops.HiddenPutAt (well-formedness)",
+        "Ops.PutAt (correctness)",
+        "Ops.PutAt (well-formedness)",
+        "Ops.PutKeys (correctness)"
+      ],
+      "target_units": {
+        "HelperA.Prove": [
+          "HelperA.Prove (correctness)",
+          "HelperA.Prove (well-formedness)"
+        ],
+        "HelperB.Prove": [
+          "HelperB.Prove (correctness)",
+          "HelperB.Prove (well-formedness)"
+        ],
+        "ClientA.Target": [
+          "ClientA.Target (correctness)",
+          "ClientA.Target (well-formedness)"
+        ],
+        "ClientB.Target": [
+          "ClientB.Target (correctness)",
+          "ClientB.Target (well-formedness)"
+        ]
+      },
+      "provider_units": [
+        "Kernel.Exchange (well-formedness)",
+        "Kernel.Inverse (well-formedness)",
+        "Ops.ExchangeShape (correctness)",
+        "Ops.ExchangeShape (well-formedness)",
+        "Ops.HiddenPutAt (correctness)",
+        "Ops.HiddenPutAt (well-formedness)",
+        "Ops.PutAt (correctness)",
+        "Ops.PutAt (well-formedness)",
+        "Ops.PutKeys (correctness)"
+      ]
+    },
+    "masked_override_composition_pipeline": {
+      "case_id": "masked_override_composition_pipeline-reference",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+        "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+        "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+        "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+        "HelperA.dfy": "748d0c853ad750a76979a3eaf3a55d348d879033f23887282aacca6c93cdae03",
+        "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+        "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+        "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+      },
+      "evidence_sha256": "9db12b3c8a8dd509eb8006666f2f8616b666283a5656152539bf07434922f1aa",
+      "units": [
+        "Api.Equal (correctness)",
+        "Api.Equal (well-formedness)",
+        "ClientA.Target (correctness)",
+        "ClientB.Target (correctness)",
+        "Domains.ComposeKeys (correctness)",
+        "Domains.ComposeKeys (well-formedness)",
+        "Domains.OverrideKeys (correctness)",
+        "Domains.RestrictKeys (correctness)",
+        "HelperA.Prove (correctness)",
+        "HelperB.Prove (correctness)",
+        "Kernel.Compose (well-formedness)",
+        "Kernel.Override (well-formedness)",
+        "Kernel.Restrict (well-formedness)",
+        "Values.ComposeAt (correctness)",
+        "Values.ComposeAt (well-formedness)",
+        "Values.HiddenRestrictAt (correctness)",
+        "Values.HiddenRestrictAt (well-formedness)",
+        "Values.OverrideAt (correctness)",
+        "Values.OverrideAt (well-formedness)",
+        "Values.RestrictAt (correctness)",
+        "Values.RestrictAt (well-formedness)"
+      ],
+      "target_units": {
+        "HelperA.Prove": [
+          "HelperA.Prove (correctness)"
+        ],
+        "HelperB.Prove": [
+          "HelperB.Prove (correctness)"
+        ],
+        "ClientA.Target": [
+          "ClientA.Target (correctness)"
+        ],
+        "ClientB.Target": [
+          "ClientB.Target (correctness)"
+        ]
+      },
+      "provider_units": [
+        "Api.Equal (correctness)",
+        "Api.Equal (well-formedness)",
+        "Domains.ComposeKeys (correctness)",
+        "Domains.ComposeKeys (well-formedness)",
+        "Domains.OverrideKeys (correctness)",
+        "Domains.RestrictKeys (correctness)",
+        "Kernel.Compose (well-formedness)",
+        "Kernel.Override (well-formedness)",
+        "Kernel.Restrict (well-formedness)",
+        "Values.ComposeAt (correctness)",
+        "Values.ComposeAt (well-formedness)",
+        "Values.HiddenRestrictAt (correctness)",
+        "Values.HiddenRestrictAt (well-formedness)",
+        "Values.OverrideAt (correctness)",
+        "Values.OverrideAt (well-formedness)",
+        "Values.RestrictAt (correctness)",
+        "Values.RestrictAt (well-formedness)"
+      ]
+    }
+  },
+  "scope_sha256": "179cec720d26dd3635240965d0fcba1abbe96fe50814f4675385fa7f77030044",
+  "original_reviewer_sha256": "f4de7b39772026d86ce92cb825afa45b07a021519d963b234baf1f6e0d8daf2d",
+  "runtime_manifest_sha256": "2d54cb958b9ff2e0ed52f27eb5c6f67d8b061e75c07d2dc2f20c0b584f3cd44a",
+  "fixture_manifest_sha256": "0a0225c7d946e3e3f0f646c40839491dd1e4a7c76b8211c8d6389e969ab2ce57",
+  "archived_input_files_checked": 203,
+  "raw_inventory_files_checked": 293,
+  "evidence_aliases": [
+    {
+      "logical_case_id": "inverse_exchange_pipeline-only_a_repair",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "only_a_repair",
+      "evidence_alias_of": "inverse_exchange_pipeline-faulty",
+      "source_path": "fixtures/inverse_exchange_pipeline/faulty",
+      "expected": "proof_failure",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+        "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+        "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+        "HelperB.dfy": "2039fca73adeaa61ac2fd371ba4aef8fdb54be56db542afb4e41a73d4bf5d108",
+        "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+        "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+      },
+      "new_verifier_call": false,
+      "independent_observation": false,
+      "canonical_evidence_sha256": "4ba72975457578d81878ac2c30df34b0615bae4ce274bf64d60f82e9a2629005",
+      "strict_actual": "proof_failure",
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "canonical_control_matched": true
+    },
+    {
+      "logical_case_id": "inverse_exchange_pipeline-only_b_repair",
+      "task_id": "inverse_exchange_pipeline",
+      "variant": "only_b_repair",
+      "evidence_alias_of": "inverse_exchange_pipeline-reference",
+      "source_path": "fixtures/inverse_exchange_pipeline/reference",
+      "expected": "success",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "ClientA.dfy": "1dec5dc68d126a6b7e81b21a5f7fdbd90564dec4abb4cec01597e8e113b41925",
+        "ClientB.dfy": "4fa125bf928abb4aa891372fd7154d0d531268acf517b25b9e289a53c2b2c096",
+        "HelperA.dfy": "ee84a2aa1c47e98cb265286dd6ec605dc3dfe82cde43620d4cc262887d1bac68",
+        "HelperB.dfy": "03a7b19053f688ef213079bf056fd5203f08642eee446dcc2390b25a5a191262",
+        "Kernel.dfy": "080e53e8e406a64ac24189a544020fae1dd27a2ebc0f285f1016bc38decdc0ac",
+        "Ops.dfy": "422f028006eae02fe805b2661d5ac846f24a49f58182108a64c06ffaed1d76c5"
+      },
+      "new_verifier_call": false,
+      "independent_observation": false,
+      "canonical_evidence_sha256": "c508839ee8af503c86a11afe5644b856ca82705387dc4ba7f77812eaf53008ec",
+      "strict_actual": "success",
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "canonical_control_matched": true
+    },
+    {
+      "logical_case_id": "masked_override_composition_pipeline-only_a_repair",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "only_a_repair",
+      "evidence_alias_of": "masked_override_composition_pipeline-reference",
+      "source_path": "fixtures/masked_override_composition_pipeline/reference",
+      "expected": "success",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+        "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+        "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+        "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+        "HelperA.dfy": "748d0c853ad750a76979a3eaf3a55d348d879033f23887282aacca6c93cdae03",
+        "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+        "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+        "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+      },
+      "new_verifier_call": false,
+      "independent_observation": false,
+      "canonical_evidence_sha256": "9db12b3c8a8dd509eb8006666f2f8616b666283a5656152539bf07434922f1aa",
+      "strict_actual": "success",
+      "local_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": true,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "canonical_control_matched": true
+    },
+    {
+      "logical_case_id": "masked_override_composition_pipeline-only_b_repair",
+      "task_id": "masked_override_composition_pipeline",
+      "variant": "only_b_repair",
+      "evidence_alias_of": "masked_override_composition_pipeline-faulty",
+      "source_path": "fixtures/masked_override_composition_pipeline/faulty",
+      "expected": "proof_failure",
+      "source_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+        "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+        "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+        "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+        "HelperA.dfy": "64f57fce94d05d516946d6383e9e00397bfd27186f7662a1a51c336ac564f35e",
+        "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+        "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+        "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+      },
+      "new_verifier_call": false,
+      "independent_observation": false,
+      "canonical_evidence_sha256": "f1bd295db414de87997a53874d48515715cdc0878c4a9c60dfbdcc4e8735cdf3",
+      "strict_actual": "proof_failure",
+      "local_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": true,
+        "ClientA.Target": true,
+        "ClientB.Target": true
+      },
+      "dependency_closed_targets": {
+        "HelperA.Prove": false,
+        "HelperB.Prove": false,
+        "ClientA.Target": false,
+        "ClientB.Target": false
+      },
+      "canonical_control_matched": true
+    }
+  ]
+}

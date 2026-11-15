@@ -10,6 +10,22 @@ Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 15: pipeline pilot stopped at transport; nonpaid research continues
+
+The [pipeline preparation](../experiments/repository-repair-selection-001/RESULTS.md)
+passed all 45 verifier controls, per-file guard checks and exact prompt audits.
+Its model collection stopped on the first new request after a 180-second read
+timeout. No response, model proof, request ID or token usage was returned for that
+request; its provider outcome remains unknown. The other 31 slots were never
+dispatched. This is not a 0/32 proof score.
+
+The paid session is terminal: **33 reserved slots, 32 completed responses**, with
+no retries or restart. All earlier results, including 27/32 below, remain
+unchanged. The remaining research window continues with verifier-only internal
+API migration tasks that test actual caller failures while public specifications
+stay fixed. Setup and published milestones below are historical; the current
+paid-state description in this paragraph takes precedence.
+
 ## November 15: fresh matched repair results published
 
 The [32-call repair study](../experiments/repair-diversity-pilot-002/RESULTS.md)

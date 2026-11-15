@@ -1,0 +1,39 @@
+{
+  "status": "development candidates; author-adapted; not held out",
+  "ancestor_group": "finite_map_update_restriction_development",
+  "consulted_inputs": {
+    "docs/corpus-family-split-plan.md": "4a094ae5265f560df54a0f89f711f4134ec2de5231396edffbff12d429da44b2",
+    "experiments/repair-diversity-expansion-001/maps/build.py": "4c2a66a3c416deff347e511a6407de24ed35c29adf7063de62aae61e21e9c12d",
+    "experiments/repair-diversity-expansion-001/protocol/body_guard.py": "877f898f695ac88b0af1c377d5a1859de544dbb7cc7a1585e6b09d2eecd02fe9",
+    "experiments/repair-diversity-expansion-001/witness/verify.py": "4f29cefb7bba9b44287e4cb028cc55b9ebf1b11a6be37cae86c9405ae68935f9"
+  },
+  "instances": {
+    "inverse_exchange_pipeline": {
+      "new_obligation": "Maintain both inverse directions after exchanging distinct forward keys and the corresponding inverse value keys.",
+      "known_ancestry": "Opaque finite-map pointwise/update contracts and prior map-swap tasks.",
+      "roles": {
+        "HelperA.Prove": "generic two-update exchange domain and pointwise facts",
+        "HelperB.Prove": "mutual inverse composition using two HelperA instantiations"
+      },
+      "seed_fault_file": "HelperB.dfy"
+    },
+    "masked_override_composition_pipeline": {
+      "new_obligation": "Mask overwritten left-domain keys before partial composition, then prove domain and pointwise equality under right-biased override.",
+      "known_ancestry": "Prior finite-map override/restriction and prerequisite-order tasks.",
+      "roles": {
+        "HelperA.Prove": "domain equality including overwritten keys that fail the g-domain test",
+        "HelperB.Prove": "pointwise value equality and generic map extensionality"
+      },
+      "seed_fault_file": "HelperA.dfy"
+    }
+  },
+  "claims_excluded": [
+    "held-out or pretraining-unseen family",
+    "causal sharing comparison",
+    "necessary/minimal proof depth",
+    "model success before evaluation",
+    "client-unit success proves dependency-closed acceptance"
+  ],
+  "fixed_architecture": "ClientA/ClientB -> HelperB -> HelperA; exactly two eligible helper bodies; each seed has one known faulty helper.",
+  "selection_confound": "Verifier line locations may identify the defective helper; this is part of the feedback treatment, to compare with the matched failure-notice condition."
+}

@@ -1,0 +1,37 @@
+{
+  "status": "not submitted; not verified",
+  "model_calls": 0,
+  "planned_distinct_verifier_checks": 21,
+  "expected_counts": {
+    "success": 4,
+    "proof_failure": 15,
+    "resolution_failure": 2
+  },
+  "logical_evidence_aliases": 4,
+  "aliases_have_new_calls": false,
+  "reference_gate_case_ids": [
+    "inverse_exchange_pipeline-reference",
+    "inverse_exchange_pipeline-alternative",
+    "masked_override_composition_pipeline-reference",
+    "masked_override_composition_pipeline-alternative"
+  ],
+  "strict_reference_gate": "All reference/alternative helper, provider and client units pass with exit 0 and no warnings.",
+  "negative_gate": "Ordinary failures have the predicted proof category; hidden calls fail name resolution; retain unexpected outcomes without relabeling.",
+  "only_file_repair_controls": "Resolve control-aliases.json only after the canonical source-matched evidence is reviewed; no independent-trial claim.",
+  "wrapper": "verify.py delegates unchanged run/verify/matches to inputs/experiments/repair-diversity-expansion-001/witness/verify.py",
+  "upstream_sha256": "4f29cefb7bba9b44287e4cb028cc55b9ebf1b11a6be37cae86c9405ae68935f9",
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "execution_policy": "Root may stage once on a live-confirmed nonpreemptible compute partition; no requeue/automatic retries, no verifier on login/Mac.",
+  "raw_evidence": "Exact submitted sources, stdout/stderr/CSV bytes and base64, source/stream hashes, tool-version outputs, one-attempt status, Slurm accounting."
+}

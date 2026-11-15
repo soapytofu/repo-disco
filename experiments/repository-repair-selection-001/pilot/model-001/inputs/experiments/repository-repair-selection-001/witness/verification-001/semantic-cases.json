@@ -1,0 +1,74 @@
+{
+  "intersection_or_separation": {
+    "touching_is_overlap": {
+      "a": 0,
+      "b": 2,
+      "c": 2,
+      "d": 5,
+      "correct_kind": 0,
+      "correct_w": 2,
+      "invalid_claim": "b<c"
+    },
+    "bad_left_endpoint": {
+      "a": 0,
+      "b": 4,
+      "c": 2,
+      "d": 5,
+      "bad_w": 0,
+      "invalid_claim": "c<=w"
+    },
+    "reversed_orientation": {
+      "a": 0,
+      "b": 1,
+      "c": 3,
+      "d": 4,
+      "correct_kind": -1,
+      "bad_kind": 1,
+      "invalid_claim": "d<a"
+    }
+  },
+  "conserved_sum_gap": {
+    "bad_endpoint": {
+      "a": 0,
+      "b": 4,
+      "c": 0,
+      "d": 3,
+      "s": 5,
+      "g": 1,
+      "correct_u": 2,
+      "correct_v": 3,
+      "bad_u": 0,
+      "bad_v": 5,
+      "invalid_claim": "v<=d"
+    },
+    "lost_sum": {
+      "a": 0,
+      "b": 4,
+      "c": 0,
+      "d": 3,
+      "s": 5,
+      "g": 1,
+      "bad_u": 2,
+      "bad_v": 7,
+      "invalid_claim": "u+v==s"
+    },
+    "reversed_gap": {
+      "a": 0,
+      "b": 4,
+      "c": 0,
+      "d": 3,
+      "s": 5,
+      "g": 1,
+      "u": 2,
+      "v": 3,
+      "invalid_claim": "v+g<=u"
+    },
+    "feasibility": {
+      "construction": "L=max(a,s-d); u=L; v=s-L",
+      "balanced_bounds": "L<=b from a<=b and s-d<=b; L<=s-c from a<=s-c and c<=d. The lower bound L>=s-d gives v<=d.",
+      "gap": "a+a+g<=s and (s-d)+(s-d)+g<=s imply L+L+g<=s; hence L+g<=s-L.",
+      "necessity": "Any valid u is at least both a and s-d, at most b and s-c, and satisfies u+u+g<=s; therefore every stated inequality is necessary as well as sufficient.",
+      "translation": "Translate both intervals and returned witnesses by shift; replace s with s+shift+shift and retain g."
+    }
+  }
+}

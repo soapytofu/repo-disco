@@ -1,0 +1,69 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(26,47): Error: possible violation of postcondition of forall statement\n   |\n26 |     forall x | x in merged ensures (x in left) == (x in right) {\n   |                                                ^^\n\n\nDafny program verifier finished with 20 verified, 1 error\nResults File: /tmp/repodisco-repair-adapter-bc101_n4/TestResults/2026-11-15_01_05_19-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMjYsNDcpOiBFcnJvcjogcG9zc2libGUgdmlvbGF0aW9uIG9mIHBvc3Rjb25kaXRpb24gb2YgZm9yYWxsIHN0YXRlbWVudAogICB8CjI2IHwgICAgIGZvcmFsbCB4IHwgeCBpbiBtZXJnZWQgZW5zdXJlcyAoeCBpbiBsZWZ0KSA9PSAoeCBpbiByaWdodCkgewogICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXl4KCgpEYWZueSBwcm9ncmFtIHZlcmlmaWVyIGZpbmlzaGVkIHdpdGggMjAgdmVyaWZpZWQsIDEgZXJyb3IKUmVzdWx0cyBGaWxlOiAvdG1wL3JlcG9kaXNjby1yZXBhaXItYWRhcHRlci1iYzEwMV9uNC9UZXN0UmVzdWx0cy8yMDI2LTExLTE1XzAxXzA1XzE5LTAuY3N2Cg==",
+  "stderr_base64": "",
+  "stdout_sha256": "a24217d41598afc2f65a96c39cbe97e8e92842e72541a51f51eb00087aea5a08",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_05_19-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Failed,00:00:00.0722013,93135,0\nApi.Equal (well-formedness),Passed,00:00:00.0590508,11988,0\nHelperB.Prove (correctness),Passed,00:00:00.0292911,38756,0\nValues.ComposeAt (correctness),Passed,00:00:00.0169369,15612,0\nValues.OverrideAt (correctness),Passed,00:00:00.0168557,17633,0\nValues.RestrictAt (correctness),Passed,00:00:00.0157289,14947,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0143971,9696,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0137929,24427,0\nApi.Equal (correctness),Passed,00:00:00.0134833,14713,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0116783,18526,0\nDomains.ComposeKeys (correctness),Passed,00:00:00.0116153,20399,0\nClientB.Target (correctness),Passed,00:00:00.0113137,16441,0\nClientA.Target (correctness),Passed,00:00:00.0111619,16441,0\nValues.HiddenRestrictAt (correctness),Passed,00:00:00.0111087,14947,0\nKernel.Override (well-formedness),Passed,00:00:00.0107887,12412,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0107881,14897,0\nValues.HiddenRestrictAt (well-formedness),Passed,00:00:00.0103746,12133,0\nValues.ComposeAt (well-formedness),Passed,00:00:00.0102554,13000,0\nDomains.ComposeKeys (well-formedness),Passed,00:00:00.0099344,12476,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0098672,12133,0\nKernel.Compose (well-formedness),Passed,00:00:00.0095980,10469,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_05_19-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA3MjIwMTMsOTMxMzUsMApBcGkuRXF1YWwgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1OTA1MDgsMTE5ODgsMApIZWxwZXJCLlByb3ZlIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAyOTI5MTEsMzg3NTYsMApWYWx1ZXMuQ29tcG9zZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxNjkzNjksMTU2MTIsMApWYWx1ZXMuT3ZlcnJpZGVBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTY4NTU3LDE3NjMzLDAKVmFsdWVzLlJlc3RyaWN0QXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE1NzI4OSwxNDk0NywwCktlcm5lbC5SZXN0cmljdCAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDE0Mzk3MSw5Njk2LDAKRG9tYWlucy5PdmVycmlkZUtleXMgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEzNzkyOSwyNDQyNywwCkFwaS5FcXVhbCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTM0ODMzLDE0NzEzLDAKRG9tYWlucy5SZXN0cmljdEtleXMgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExNjc4MywxODUyNiwwCkRvbWFpbnMuQ29tcG9zZUtleXMgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExNjE1MywyMDM5OSwwCkNsaWVudEIuVGFyZ2V0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTMxMzcsMTY0NDEsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTExNjE5LDE2NDQxLDAKVmFsdWVzLkhpZGRlblJlc3RyaWN0QXQgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExMTA4NywxNDk0NywwCktlcm5lbC5PdmVycmlkZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwNzg4NywxMjQxMiwwClZhbHVlcy5PdmVycmlkZUF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA3ODgxLDE0ODk3LDAKVmFsdWVzLkhpZGRlblJlc3RyaWN0QXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDM3NDYsMTIxMzMsMApWYWx1ZXMuQ29tcG9zZUF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTAyNTU0LDEzMDAwLDAKRG9tYWlucy5Db21wb3NlS2V5cyAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5OTM0NCwxMjQ3NiwwClZhbHVlcy5SZXN0cmljdEF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk4NjcyLDEyMTMzLDAKS2VybmVsLkNvbXBvc2UgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAwOTU5ODAsMTA0NjksMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_05_19-0.csv": "d331ee1184a95c074eed87005045eae652397f522d09b289ff89e53c4eac3192"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "13149493984233f900f56296da1f0765f7dd3bdc1f85a6378584ceff98557e62",
+    "HelperB.dfy": "762d57a50c71c7fcac3ff3364dc1ff8aabcefa5baddfd498825f6a673a75f409",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "elapsed_seconds": 2.41380812600255,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "masked_override_composition_pipeline-missing_override_value",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        20,
+        1
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "possible violation of postcondition of forall statement"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}

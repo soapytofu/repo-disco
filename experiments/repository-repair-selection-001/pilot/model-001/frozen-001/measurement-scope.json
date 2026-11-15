@@ -1,0 +1,647 @@
+{
+  "interpreter_path": "experiments/research-window-20261114/execution-runtime/target_metrics.py",
+  "interpreter_sha256": "9d139aa959b4d5005fb67a0eab18f6c1bb35c5e67ce36a54973b0eb2dad8c323",
+  "tasks": {
+    "intersection_or_separation-pipeline": {
+      "expected_units": {
+        "Api.Choose": [
+          "correctness"
+        ],
+        "Api.DirectWitness": [
+          "correctness"
+        ],
+        "Api.Gap": [
+          "correctness"
+        ],
+        "Api.Witness": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Ops.After": [
+          "correctness"
+        ],
+        "Ops.Before": [
+          "correctness"
+        ],
+        "Ops.Left": [
+          "correctness"
+        ],
+        "Ops.Right": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperB.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "interpretation": "Declared module graph; actual helper-call use is reported separately. Not a necessary-depth or minimal-proof claim.",
+      "reference_evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/intersection_or_separation-pipeline-reference.json",
+      "reference_evidence_sha256": "1c55d3f0a62c0c2736f975cd463b298925235464581642d881919245bee60077"
+    },
+    "conserved_sum_gap-pipeline": {
+      "expected_units": {
+        "Api.Balance": [
+          "correctness"
+        ],
+        "Api.Choose": [
+          "correctness"
+        ],
+        "Api.DirectFinish": [
+          "correctness"
+        ],
+        "Api.Finish": [
+          "correctness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Ops.Gap": [
+          "correctness"
+        ],
+        "Ops.Left": [
+          "correctness"
+        ],
+        "Ops.Right": [
+          "correctness"
+        ],
+        "Ops.Sum": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperB.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "interpretation": "Declared module graph; actual helper-call use is reported separately. Not a necessary-depth or minimal-proof claim.",
+      "reference_evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/conserved_sum_gap-pipeline-reference.json",
+      "reference_evidence_sha256": "24ed36c09028c4ccaba667b32de71fe636f768459f227c8cb83b638e5418f0a9"
+    },
+    "inverse_exchange_pipeline": {
+      "expected_units": {
+        "ClientA.Target": [
+          "correctness",
+          "well-formedness"
+        ],
+        "ClientB.Target": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperA.Prove": [
+          "correctness",
+          "well-formedness"
+        ],
+        "HelperB.Prove": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Kernel.Exchange": [
+          "well-formedness"
+        ],
+        "Kernel.Inverse": [
+          "well-formedness"
+        ],
+        "Ops.ExchangeShape": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops.HiddenPutAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops.PutAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Ops.PutKeys": [
+          "correctness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperB.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "interpretation": "Declared module graph; actual helper-call use is reported separately. Not a necessary-depth or minimal-proof claim.",
+      "reference_evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/inverse_exchange_pipeline-reference.json",
+      "reference_evidence_sha256": "c508839ee8af503c86a11afe5644b856ca82705387dc4ba7f77812eaf53008ec"
+    },
+    "masked_override_composition_pipeline": {
+      "expected_units": {
+        "Api.Equal": [
+          "correctness",
+          "well-formedness"
+        ],
+        "ClientA.Target": [
+          "correctness"
+        ],
+        "ClientB.Target": [
+          "correctness"
+        ],
+        "Domains.ComposeKeys": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Domains.OverrideKeys": [
+          "correctness"
+        ],
+        "Domains.RestrictKeys": [
+          "correctness"
+        ],
+        "HelperA.Prove": [
+          "correctness"
+        ],
+        "HelperB.Prove": [
+          "correctness"
+        ],
+        "Kernel.Compose": [
+          "well-formedness"
+        ],
+        "Kernel.Override": [
+          "well-formedness"
+        ],
+        "Kernel.Restrict": [
+          "well-formedness"
+        ],
+        "Values.ComposeAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Values.HiddenRestrictAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Values.OverrideAt": [
+          "correctness",
+          "well-formedness"
+        ],
+        "Values.RestrictAt": [
+          "correctness",
+          "well-formedness"
+        ]
+      },
+      "editable_targets": [
+        "HelperA.Prove",
+        "HelperB.Prove"
+      ],
+      "target_dependencies": {
+        "HelperA.Prove": [],
+        "HelperB.Prove": [
+          "HelperA.Prove"
+        ],
+        "ClientA.Target": [
+          "HelperB.Prove"
+        ],
+        "ClientB.Target": [
+          "HelperB.Prove"
+        ]
+      },
+      "interpretation": "Declared module graph; actual helper-call use is reported separately. Not a necessary-depth or minimal-proof claim.",
+      "reference_evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/masked_override_composition_pipeline-reference.json",
+      "reference_evidence_sha256": "9db12b3c8a8dd509eb8006666f2f8616b666283a5656152539bf07434922f1aa"
+    }
+  },
+  "control_measurements": [
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/intersection_or_separation-pipeline-reference.json",
+      "evidence_sha256": "1c55d3f0a62c0c2736f975cd463b298925235464581642d881919245bee60077",
+      "case_id": "intersection_or_separation-pipeline-reference",
+      "logger_rows": 12,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/intersection_or_separation-pipeline-alternative.json",
+      "evidence_sha256": "f29d9612fa8bf06b9bab76914f1132198b696e632eeea4d0729367c06e42791f",
+      "case_id": "intersection_or_separation-pipeline-alternative",
+      "logger_rows": 12,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/intersection_or_separation-pipeline-faulty.json",
+      "evidence_sha256": "99d427eb1888abfea592ee1728dfe589d89a84f212af6927bb05217249b92a60",
+      "case_id": "intersection_or_separation-pipeline-faulty",
+      "logger_rows": 12,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": false
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": true,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/conserved_sum_gap-pipeline-reference.json",
+      "evidence_sha256": "24ed36c09028c4ccaba667b32de71fe636f768459f227c8cb83b638e5418f0a9",
+      "case_id": "conserved_sum_gap-pipeline-reference",
+      "logger_rows": 12,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/conserved_sum_gap-pipeline-alternative.json",
+      "evidence_sha256": "7178eac730626f8cb2bb20055ef28e569c993f6f6ed935d5bcc56170f5b81702",
+      "case_id": "conserved_sum_gap-pipeline-alternative",
+      "logger_rows": 12,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/witness/verification-001/conserved_sum_gap-pipeline-faulty.json",
+      "evidence_sha256": "fc0daa1c99f49224ebcaf793bcfe8ce8840414a157bec75488df530800198b48",
+      "case_id": "conserved_sum_gap-pipeline-faulty",
+      "logger_rows": 12,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/inverse_exchange_pipeline-reference.json",
+      "evidence_sha256": "c508839ee8af503c86a11afe5644b856ca82705387dc4ba7f77812eaf53008ec",
+      "case_id": "inverse_exchange_pipeline-reference",
+      "logger_rows": 17,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/inverse_exchange_pipeline-alternative.json",
+      "evidence_sha256": "db0d08b70cbdf058f8bed5dcc5155009fef53057bd36b10387b3212ed62b7421",
+      "case_id": "inverse_exchange_pipeline-alternative",
+      "logger_rows": 17,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/inverse_exchange_pipeline-faulty.json",
+      "evidence_sha256": "4ba72975457578d81878ac2c30df34b0615bae4ce274bf64d60f82e9a2629005",
+      "case_id": "inverse_exchange_pipeline-faulty",
+      "logger_rows": 17,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": false
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": true,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/masked_override_composition_pipeline-reference.json",
+      "evidence_sha256": "9db12b3c8a8dd509eb8006666f2f8616b666283a5656152539bf07434922f1aa",
+      "case_id": "masked_override_composition_pipeline-reference",
+      "logger_rows": 21,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/masked_override_composition_pipeline-alternative.json",
+      "evidence_sha256": "28a12cd61b04706baf27ba497074aa6973de40a45b9b99cdf331a3f9d57e0ea3",
+      "case_id": "masked_override_composition_pipeline-alternative",
+      "logger_rows": 21,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": true,
+        "HelperB.Prove": true
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 2,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    },
+    {
+      "evidence_path": "experiments/repository-repair-selection-001/maps/verification-001/masked_override_composition_pipeline-faulty.json",
+      "evidence_sha256": "f1bd295db414de87997a53874d48515715cdc0878c4a9c60dfbdcc4e8735cdf3",
+      "case_id": "masked_override_composition_pipeline-faulty",
+      "logger_rows": 21,
+      "local_targets": {
+        "ClientA.Target": true,
+        "ClientB.Target": true,
+        "HelperA.Prove": false,
+        "HelperB.Prove": true
+      },
+      "dependency_closed_targets": {
+        "ClientA.Target": false,
+        "ClientB.Target": false,
+        "HelperA.Prove": false,
+        "HelperB.Prove": false
+      },
+      "supplied_providers_verified": true,
+      "editable_local": {
+        "passed": 1,
+        "total": 2
+      },
+      "supplied_clients_local": {
+        "passed": 2,
+        "total": 2
+      },
+      "supplied_clients_closed": {
+        "passed": 0,
+        "total": 2
+      },
+      "unit": "One named lemma contract, all its logged obligations; not one CSV row or ensures clause"
+    }
+  ],
+  "model_calls": 0,
+  "new_verifier_invocations": 0,
+  "unit": "Four constructed failing workspaces; 32 responses are not 32 independent tasks."
+}

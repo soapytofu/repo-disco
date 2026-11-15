@@ -1,0 +1,70 @@
+{
+  "command": [
+    "timeout",
+    "-k",
+    "5s",
+    "60s",
+    "dafny",
+    "verify",
+    "--verify-included-files",
+    "--log-format",
+    "csv",
+    "All.dfy"
+  ],
+  "exit_code": 4,
+  "stdout": "HelperA.dfy(10,2): Error: a postcondition could not be proved on this return path\n   |\n10 |   {\n   |   ^\n\nHelperA.dfy(9,48): Related location: this is the postcondition that could not be proved\n  |\n9 |     ensures K.Compose(K.Override(f1,f2),g).Keys == K.Override(K.Compose(K.Restrict(f1,f1.Keys-f2.Keys),g),K.Compose(f2,g)).Keys\n  |                                                 ^^\n\nHelperB.dfy(14,2): Error: a postcondition could not be proved on this return path\n   |\n14 |   {\n   |   ^\n\nHelperB.dfy(13,43): Related location: this is the postcondition that could not be proved\n   |\n13 |     ensures K.Compose(K.Override(f1,f2),g) == K.Override(K.Compose(K.Restrict(f1,f1.Keys-f2.Keys),g),K.Compose(f2,g))\n   |                                            ^^\n\n\nDafny program verifier finished with 19 verified, 2 errors\nResults File: /tmp/repodisco-repair-adapter-8sh_dm_5/TestResults/2026-11-15_01_05_11-0.csv\n",
+  "stderr": "",
+  "stdout_base64": "SGVscGVyQS5kZnkoMTAsMik6IEVycm9yOiBhIHBvc3Rjb25kaXRpb24gY291bGQgbm90IGJlIHByb3ZlZCBvbiB0aGlzIHJldHVybiBwYXRoCiAgIHwKMTAgfCAgIHsKICAgfCAgIF4KCkhlbHBlckEuZGZ5KDksNDgpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogIHwKOSB8ICAgICBlbnN1cmVzIEsuQ29tcG9zZShLLk92ZXJyaWRlKGYxLGYyKSxnKS5LZXlzID09IEsuT3ZlcnJpZGUoSy5Db21wb3NlKEsuUmVzdHJpY3QoZjEsZjEuS2V5cy1mMi5LZXlzKSxnKSxLLkNvbXBvc2UoZjIsZykpLktleXMKICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eCgpIZWxwZXJCLmRmeSgxNCwyKTogRXJyb3I6IGEgcG9zdGNvbmRpdGlvbiBjb3VsZCBub3QgYmUgcHJvdmVkIG9uIHRoaXMgcmV0dXJuIHBhdGgKICAgfAoxNCB8ICAgewogICB8ICAgXgoKSGVscGVyQi5kZnkoMTMsNDMpOiBSZWxhdGVkIGxvY2F0aW9uOiB0aGlzIGlzIHRoZSBwb3N0Y29uZGl0aW9uIHRoYXQgY291bGQgbm90IGJlIHByb3ZlZAogICB8CjEzIHwgICAgIGVuc3VyZXMgSy5Db21wb3NlKEsuT3ZlcnJpZGUoZjEsZjIpLGcpID09IEsuT3ZlcnJpZGUoSy5Db21wb3NlKEsuUmVzdHJpY3QoZjEsZjEuS2V5cy1mMi5LZXlzKSxnKSxLLkNvbXBvc2UoZjIsZykpCiAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eCgoKRGFmbnkgcHJvZ3JhbSB2ZXJpZmllciBmaW5pc2hlZCB3aXRoIDE5IHZlcmlmaWVkLCAyIGVycm9ycwpSZXN1bHRzIEZpbGU6IC90bXAvcmVwb2Rpc2NvLXJlcGFpci1hZGFwdGVyLThzaF9kbV81L1Rlc3RSZXN1bHRzLzIwMjYtMTEtMTVfMDFfMDVfMTEtMC5jc3YK",
+  "stderr_base64": "",
+  "stdout_sha256": "b0631d2c26591ff94b78b800ef53d58576c119bca97632bf4a6a5019fa8eb4f5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "csv": {
+    "TestResults/2026-11-15_01_05_11-0.csv": "TestResult.DisplayName,TestResult.Outcome,TestResult.Duration,TestResult.ResourceCount,RandomSeed\nHelperA.Prove (correctness),Failed,00:00:00.0828929,23990,0\nApi.Equal (well-formedness),Passed,00:00:00.0587187,11988,0\nValues.HiddenRestrictAt (correctness),Passed,00:00:00.0382410,14947,0\nHelperB.Prove (correctness),Failed,00:00:00.0259565,24884,0\nApi.Equal (correctness),Passed,00:00:00.0236520,14713,0\nClientB.Target (correctness),Passed,00:00:00.0181957,16441,0\nDomains.OverrideKeys (correctness),Passed,00:00:00.0138720,24427,0\nValues.RestrictAt (well-formedness),Passed,00:00:00.0124389,12133,0\nDomains.ComposeKeys (correctness),Passed,00:00:00.0118722,20399,0\nDomains.RestrictKeys (correctness),Passed,00:00:00.0118264,18526,0\nValues.OverrideAt (correctness),Passed,00:00:00.0115877,17633,0\nClientA.Target (correctness),Passed,00:00:00.0113489,16441,0\nValues.OverrideAt (well-formedness),Passed,00:00:00.0110856,14897,0\nValues.ComposeAt (correctness),Passed,00:00:00.0109712,15612,0\nKernel.Override (well-formedness),Passed,00:00:00.0109454,12412,0\nValues.RestrictAt (correctness),Passed,00:00:00.0108632,14947,0\nDomains.ComposeKeys (well-formedness),Passed,00:00:00.0101785,12476,0\nValues.ComposeAt (well-formedness),Passed,00:00:00.0101458,13000,0\nKernel.Compose (well-formedness),Passed,00:00:00.0099904,10469,0\nValues.HiddenRestrictAt (well-formedness),Passed,00:00:00.0099439,12133,0\nKernel.Restrict (well-formedness),Passed,00:00:00.0097760,9696,0\n"
+  },
+  "csv_base64": {
+    "TestResults/2026-11-15_01_05_11-0.csv": "VGVzdFJlc3VsdC5EaXNwbGF5TmFtZSxUZXN0UmVzdWx0Lk91dGNvbWUsVGVzdFJlc3VsdC5EdXJhdGlvbixUZXN0UmVzdWx0LlJlc291cmNlQ291bnQsUmFuZG9tU2VlZApIZWxwZXJBLlByb3ZlIChjb3JyZWN0bmVzcyksRmFpbGVkLDAwOjAwOjAwLjA4Mjg5MjksMjM5OTAsMApBcGkuRXF1YWwgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjA1ODcxODcsMTE5ODgsMApWYWx1ZXMuSGlkZGVuUmVzdHJpY3RBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMzgyNDEwLDE0OTQ3LDAKSGVscGVyQi5Qcm92ZSAoY29ycmVjdG5lc3MpLEZhaWxlZCwwMDowMDowMC4wMjU5NTY1LDI0ODg0LDAKQXBpLkVxdWFsIChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAyMzY1MjAsMTQ3MTMsMApDbGllbnRCLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTgxOTU3LDE2NDQxLDAKRG9tYWlucy5PdmVycmlkZUtleXMgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEzODcyMCwyNDQyNywwClZhbHVlcy5SZXN0cmljdEF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTI0Mzg5LDEyMTMzLDAKRG9tYWlucy5Db21wb3NlS2V5cyAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTE4NzIyLDIwMzk5LDAKRG9tYWlucy5SZXN0cmljdEtleXMgKGNvcnJlY3RuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDExODI2NCwxODUyNiwwClZhbHVlcy5PdmVycmlkZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTU4NzcsMTc2MzMsMApDbGllbnRBLlRhcmdldCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTEzNDg5LDE2NDQxLDAKVmFsdWVzLk92ZXJyaWRlQXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMTA4NTYsMTQ4OTcsMApWYWx1ZXMuQ29tcG9zZUF0IChjb3JyZWN0bmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDk3MTIsMTU2MTIsMApLZXJuZWwuT3ZlcnJpZGUgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDk0NTQsMTI0MTIsMApWYWx1ZXMuUmVzdHJpY3RBdCAoY29ycmVjdG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMTA4NjMyLDE0OTQ3LDAKRG9tYWlucy5Db21wb3NlS2V5cyAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDEwMTc4NSwxMjQ3NiwwClZhbHVlcy5Db21wb3NlQXQgKHdlbGwtZm9ybWVkbmVzcyksUGFzc2VkLDAwOjAwOjAwLjAxMDE0NTgsMTMwMDAsMApLZXJuZWwuQ29tcG9zZSAod2VsbC1mb3JtZWRuZXNzKSxQYXNzZWQsMDA6MDA6MDAuMDA5OTkwNCwxMDQ2OSwwClZhbHVlcy5IaWRkZW5SZXN0cmljdEF0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk5NDM5LDEyMTMzLDAKS2VybmVsLlJlc3RyaWN0ICh3ZWxsLWZvcm1lZG5lc3MpLFBhc3NlZCwwMDowMDowMC4wMDk3NzYwLDk2OTYsMAo="
+  },
+  "csv_sha256": {
+    "TestResults/2026-11-15_01_05_11-0.csv": "cee95db65133a8dfb4ec76903c5860af3041734964be1e9e5a95b3b1220543ef"
+  },
+  "source_sha256": {
+    "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+    "Api.dfy": "81d4e369b25b949e948fa0742ac29f94c51a99abe1212dd4d6002ec3384bbc6d",
+    "ClientA.dfy": "70e152f2794fcaa3ddf550a880717295b81a8b8819a33c8c21b04db996d567f9",
+    "ClientB.dfy": "6a33765ed425b8512d9ce5cd91f2195ed18ffe9420229cc4259ee6dbf1ffbf48",
+    "Domains.dfy": "fcebabb3586a7f423a1fad4abc2136aa9ebff395af2b6bd17ed6c2cf9c9e2e89",
+    "HelperA.dfy": "f2161095a372eed9d0702390e57c9edc17ad40d06f9ffa1da1a9759eab6a4620",
+    "HelperB.dfy": "5fbf95d4f6e5ffdc1a61073fa3485e574c82cdb874fdb845a7b0716149e2131e",
+    "Kernel.dfy": "5f92f754f8e36f3b3a289dd4ec17acc02cff17ac45f61da9d082324c6deca8d6",
+    "Values.dfy": "429acd0f52ea5b2fb8a7f32b55347dba56239ecb9b71cc6d01f31390952d2f3a"
+  },
+  "elapsed_seconds": 2.4472431018948555,
+  "attempts": 1,
+  "model_calls": 0,
+  "timed_out": false,
+  "execution_error": null,
+  "case_id": "masked_override_composition_pipeline-empty",
+  "expected": "proof_failure",
+  "expected_diagnostic": "postcondition",
+  "actual": "proof_failure",
+  "matched": true,
+  "diagnostics": {
+    "summaries": [
+      [
+        19,
+        2
+      ]
+    ],
+    "warnings": 0,
+    "error_lines": [
+      "a postcondition could not be proved on this return path",
+      "a postcondition could not be proved on this return path"
+    ],
+    "diagnostic_categories": [
+      "postcondition"
+    ],
+    "frontend": false,
+    "resolution": false,
+    "termination": false
+  }
+}
