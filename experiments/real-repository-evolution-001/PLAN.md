@@ -73,6 +73,17 @@ disagreements or false acceptances on the control set and measure actual runtime
 resource use and timeout rates. Detailed controls and evidence requirements are
 in the linked review. No proof-engine soundness or universal error-rate claim follows.
 
+The versioned [source-coverage gate](harness-001/README.md) now enforces explicit
+all-file verification inputs, pinned named obligations and separate warning/error
+categories for its supported Dafny 4.11.0 controls. It preserves the historical
+wrapper and scores. Its controlled native/adapter comparison is separate from
+upstream qualification. No shortlisted repository is eligible for model collection
+until its own toolchain, native baseline, coverage controls, edit policy and
+source-bound scorer pass the linked checklist with full published evidence.
+Unknown versions/scopes and Verus remain blocked by this adapter. The verifier-only
+baseline and qualification runs on real sources are part of establishing this
+gate; they do not require or authorize model calls.
+
 ## Lane A: repair real source with a matched feedback comparison
 
 Target two distinct task sites per eligible repository (eight if all four pass).

@@ -1,0 +1,165 @@
+{
+  "cases": [
+    {
+      "deliberate_mutation": null,
+      "expected": "VERIFIED",
+      "id": "correct",
+      "parent": "experiments/internal-contract-propagation-001/fixtures/extracted_entry_return_migration/paired_repair",
+      "parent_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "path": "controls/correct",
+      "required_units": {
+        "Client.Target (correctness)": "Client.dfy",
+        "Helper.Transfer (correctness)": "Helper.dfy",
+        "Kernel.Entry (well-formedness)": "Kernel.dfy",
+        "Kernel.Erase (well-formedness)": "Kernel.dfy",
+        "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+      }
+    },
+    {
+      "deliberate_mutation": null,
+      "expected": "PROOF_FAILURE",
+      "id": "helper_unproved",
+      "parent": "experiments/internal-contract-propagation-001/fixtures/extracted_entry_return_migration/wrong_helper_implementation",
+      "parent_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "887e01cd59da110932c9f0df39aaced80f8eb52ec32d196082888444d09db4ba",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "path": "controls/helper_unproved",
+      "required_units": {
+        "Client.Target (correctness)": "Client.dfy",
+        "Helper.Transfer (correctness)": "Helper.dfy",
+        "Kernel.Entry (well-formedness)": "Kernel.dfy",
+        "Kernel.Erase (well-formedness)": "Kernel.dfy",
+        "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+      }
+    },
+    {
+      "deliberate_mutation": null,
+      "expected": "PROOF_FAILURE",
+      "id": "client_unproved",
+      "parent": "experiments/internal-contract-propagation-001/fixtures/extracted_entry_return_migration/helper_only",
+      "parent_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "path": "controls/client_unproved",
+      "required_units": {
+        "Client.Target (correctness)": "Client.dfy",
+        "Helper.Transfer (correctness)": "Helper.dfy",
+        "Kernel.Entry (well-formedness)": "Kernel.dfy",
+        "Kernel.Erase (well-formedness)": "Kernel.dfy",
+        "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+      }
+    },
+    {
+      "deliberate_mutation": "Added failing Detached.Broken with no include from All or its dependency closure.",
+      "expected": "PROOF_FAILURE",
+      "id": "omitted_failure",
+      "parent": "experiments/internal-contract-propagation-001/fixtures/extracted_entry_return_migration/paired_repair",
+      "parent_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "path": "controls/omitted_failure",
+      "required_units": {
+        "Client.Target (correctness)": "Client.dfy",
+        "Detached.Broken (correctness)": "Detached.dfy",
+        "Helper.Transfer (correctness)": "Helper.dfy",
+        "Kernel.Entry (well-formedness)": "Kernel.dfy",
+        "Kernel.Erase (well-formedness)": "Kernel.dfy",
+        "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+      }
+    },
+    {
+      "deliberate_mutation": "Appended an invalid top-level token to Client.dfy.",
+      "expected": "PARSE_FAILURE",
+      "id": "parse_failure",
+      "parent": "experiments/internal-contract-propagation-001/fixtures/extracted_entry_return_migration/paired_repair",
+      "parent_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "path": "controls/parse_failure",
+      "required_units": {
+        "Client.Target (correctness)": "Client.dfy",
+        "Helper.Transfer (correctness)": "Helper.dfy",
+        "Kernel.Entry (well-formedness)": "Kernel.dfy",
+        "Kernel.Erase (well-formedness)": "Kernel.dfy",
+        "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+      }
+    },
+    {
+      "deliberate_mutation": "Replaced the single H.Transfer call by undefined H.Unknown.",
+      "expected": "RESOLUTION_OR_TYPE_FAILURE",
+      "id": "resolution_failure",
+      "parent": "experiments/internal-contract-propagation-001/fixtures/extracted_entry_return_migration/paired_repair",
+      "parent_sha256": {
+        "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+        "Client.dfy": "841f98333020132cacd4c96f37a492932d0a8898ecf9c316cb9837cc3d3e3b2a",
+        "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+        "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+      },
+      "path": "controls/resolution_failure",
+      "required_units": {
+        "Client.Target (correctness)": "Client.dfy",
+        "Helper.Transfer (correctness)": "Helper.dfy",
+        "Kernel.Entry (well-formedness)": "Kernel.dfy",
+        "Kernel.Erase (well-formedness)": "Kernel.dfy",
+        "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+      }
+    },
+    {
+      "deliberate_mutation": null,
+      "expected": "WARNING_ONLY",
+      "id": "warning_only",
+      "parent": "experiments/witness-map-diagnostic-001/parents/alias_comprehension/candidate",
+      "parent_sha256": {
+        "All.dfy": "fc845e4e4c816c83ec24b96b52c5047343b70d50f8244206626f27856b635201",
+        "Api.dfy": "8b9822c2663eff629282eb9d8a019e615e43d515a1c5d0eb1c09ce5e44c6ab09",
+        "ClientA.dfy": "c9607c8f1adab022a00a30471cd900b2e425d744698e590ac75c3d35cdcbeb58",
+        "ClientB.dfy": "05fc173780d2de887d9e7b4dd4ca370b0d146a81dfabadd8b671470587296ee2",
+        "HelperA.dfy": "3c2e2780b4bd9a307515e03b45e0fe80bd8fc1cafcddcf57f4868012bca99e6e",
+        "HelperB.dfy": "3d056271bc556d0519529e034c150e94d33d2219f740bf9a5d632271a205554f",
+        "Kernel.dfy": "575656773bcafe72edb50608636c48ecb4a7c5bfea5eb4f46329b6d39fa3b1c4",
+        "Ops1.dfy": "4f68cb06153cfb5bee914857ee8ef45934162d446633508523411272224fa63a",
+        "Ops2.dfy": "2266e5c76ab439a4783fc6cadb558f96e780cac926208ec972fc20ac9cc3f9e7"
+      },
+      "path": "controls/warning_only",
+      "required_units": {
+        "Api.Equal (correctness)": "Api.dfy",
+        "Api.Equal (well-formedness)": "Api.dfy",
+        "Api.ObserveDrop (correctness)": "Api.dfy",
+        "Api.ObserveDrop (well-formedness)": "Api.dfy",
+        "Api.ObservePut (correctness)": "Api.dfy",
+        "ClientA.Target (correctness)": "ClientA.dfy",
+        "ClientB.Target (correctness)": "ClientB.dfy",
+        "HelperA.Prove (correctness)": "HelperA.dfy",
+        "HelperB.Prove (correctness)": "HelperB.dfy",
+        "Kernel.Drop (well-formedness)": "Kernel.dfy",
+        "Ops1.DropKeys (correctness)": "Ops1.dfy",
+        "Ops1.PutKeys (correctness)": "Ops1.dfy",
+        "Ops2.DropAt (correctness)": "Ops2.dfy",
+        "Ops2.DropAt (well-formedness)": "Ops2.dfy",
+        "Ops2.PutAt (correctness)": "Ops2.dfy",
+        "Ops2.PutAt (well-formedness)": "Ops2.dfy"
+      }
+    }
+  ],
+  "entry_only_control": "omitted_failure is staged twice with explicit all-file inputs plus once with entry-only inputs.",
+  "model_calls": 0,
+  "native_verifications": 15,
+  "purpose": "Gate validation on development controls, not real-repository qualification."
+}

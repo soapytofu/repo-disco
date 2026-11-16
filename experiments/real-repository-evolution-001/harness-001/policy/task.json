@@ -1,0 +1,247 @@
+{
+  "body_boundaries": {
+    "Client.dfy": {
+      "end": 347,
+      "protected_sha256": "b850aa4f7d855672d2690020851c77fe1dafa383d9f0b3b7ba6ff344557c18d5",
+      "start": 280
+    },
+    "Helper.dfy": {
+      "end": 239,
+      "protected_sha256": "d0a201f2317042df51fa049572a2c4b7ba7f4d78e110721737a66b2ba8a251a2",
+      "start": 214
+    }
+  },
+  "counterexamples": [
+    {
+      "input": {
+        "key": 1,
+        "m": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            20
+          ]
+        ]
+      },
+      "new_expected_result": [
+        [
+          1,
+          10
+        ]
+      ],
+      "new_preconditions_hold": true,
+      "old_body_result": [
+        [
+          2,
+          20
+        ]
+      ],
+      "target": "Helper.Transfer",
+      "violations": [
+        "r == K.Entry(m,key)",
+        "r.Keys == {key}"
+      ]
+    },
+    {
+      "input": {
+        "key": 2,
+        "m": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      "public_preconditions_hold": true,
+      "target": "Client.Target",
+      "violated_call_precondition": "key in m"
+    },
+    {
+      "callee_assumed_new_return": [
+        [
+          1,
+          10
+        ]
+      ],
+      "input": {
+        "key": 1,
+        "m": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            20
+          ]
+        ]
+      },
+      "interpretation": "Modular caller counterexample under the selected new contract; not execution of the invalid helper.",
+      "old_caller_remaining": [
+        [
+          1,
+          10
+        ]
+      ],
+      "public_expected_remaining": [
+        [
+          2,
+          20
+        ]
+      ],
+      "target": "Client.Target"
+    }
+  ],
+  "development_only": true,
+  "editable_files": [
+    "Helper.dfy",
+    "Client.dfy"
+  ],
+  "entry": "All.dfy",
+  "expected_seed_local_targets": {
+    "Client.Target": false,
+    "Helper.Transfer": false
+  },
+  "family": "finite_maps_development",
+  "file_rules": {
+    "Client.dfy": {
+      "call_returns": {
+        "H.Transfer": "map<int,int>"
+      },
+      "call_types": {
+        "H.Transfer": [
+          "map<int,int>",
+          "int"
+        ]
+      },
+      "calls": {
+        "H.Transfer": 2
+      },
+      "output_types": {
+        "remaining": "map<int,int>",
+        "removed": "map<int,int>"
+      },
+      "parameter_types": {
+        "key": "int",
+        "m": "map<int,int>"
+      },
+      "pure": {
+        "K.Entry": 2,
+        "K.Erase": 2,
+        "K.Exclude": 2
+      },
+      "pure_types": {
+        "K.Entry": {
+          "arguments": [
+            "map<int,int>",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Erase": {
+          "arguments": [
+            "map<int,int>",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Exclude": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        }
+      },
+      "variables": [
+        "m",
+        "key"
+      ]
+    },
+    "Helper.dfy": {
+      "call_returns": {},
+      "call_types": {},
+      "calls": {},
+      "output_types": {
+        "r": "map<int,int>"
+      },
+      "parameter_types": {
+        "key": "int",
+        "m": "map<int,int>"
+      },
+      "pure": {
+        "K.Entry": 2,
+        "K.Erase": 2,
+        "K.Exclude": 2
+      },
+      "pure_types": {
+        "K.Entry": {
+          "arguments": [
+            "map<int,int>",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Erase": {
+          "arguments": [
+            "map<int,int>",
+            "int"
+          ],
+          "result": "map<int,int>"
+        },
+        "K.Exclude": {
+          "arguments": [
+            "map<int,int>",
+            "map<int,int>"
+          ],
+          "result": "map<int,int>"
+        }
+      },
+      "variables": [
+        "m",
+        "key"
+      ]
+    }
+  },
+  "files": [
+    "All.dfy",
+    "Client.dfy",
+    "Helper.dfy",
+    "Kernel.dfy"
+  ],
+  "fixed_helper_prefix": "include \"Kernel.dfy\"\nmodule Helper {\n  import K = Kernel\n  method Transfer(m: map<int,int>, key: int) returns (r: map<int,int>)\n    requires key in m\n    ensures r == K.Entry(m,key)\n    ensures r.Keys == {key}\n  {\n",
+  "fixed_helper_prefix_sha256": "1f783f51031219eae2e82f777a84e3c04409d0dd3424a4c94893bb8095d5b350",
+  "held_out": false,
+  "internal_api_version": "new_fixed_before_repair",
+  "metadata_visibility": "Host-only; future prompts must whitelist source and permitted syntax.",
+  "model_protocol_defined": false,
+  "named_targets": [
+    "Helper.Transfer",
+    "Client.Target"
+  ],
+  "new_seed_verification_status": "not_run",
+  "parent_study": "experiments/internal-contract-propagation-001",
+  "parent_task_id": "extracted_entry_return_migration",
+  "path": "fixtures/extracted_entry_return_migration-dual_fault/seed",
+  "public_contract_prefix": "include \"Kernel.dfy\"\ninclude \"Helper.dfy\"\nmodule Client {\n  import K = Kernel\n  import H = Helper\n  method Target(m: map<int,int>, key: int) returns (remaining: map<int,int>, removed: map<int,int>)\n    ensures remaining == K.Erase(m,key)\n    ensures removed == K.Entry(m,key)\n  {\n",
+  "public_contract_sha256": "56912f93c766c5f99d57099bbf8f9deab7e88e485a8a7a6d33b6448c33cef73d",
+  "reserved_families_used": false,
+  "semantic_instance": "extracted_entry_return_migration",
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+    "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+    "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+  },
+  "task_id": "extracted_entry_return_migration-dual_fault",
+  "template_path": "fixtures/extracted_entry_return_migration-dual_fault/seed",
+  "template_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "6cd46f25927da5437ea403ba6ef9fa5e5ee65720821689d8b41cc1c822293df0",
+    "Helper.dfy": "b2068bc18d584ee388744fac9004abc92b66806f497c63db8b28c01ad673e6ad",
+    "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+  }
+}

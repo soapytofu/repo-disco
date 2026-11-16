@@ -24,6 +24,15 @@ the proposed ceiling is 32 repair plus at most eight extension calls; zero are
 authorized. Prior frozen studies, scores and the terminal paid ledger remain
 unchanged. This is source review and planning, not new model or verifier evidence.
 
+The separate [verification-harness gate](../experiments/real-repository-evolution-001/harness-001/RESULTS.md)
+now matches direct Dafny on seven controlled cases, with 15 native invocations and
+13 offline tests. An entry-only command passes despite an omitted failing module;
+the new gate rejects that incomplete command, and explicit all-file verification
+finds the failure. A passing client with a failed helper is also rejected. Warning-only,
+parse and resolution outcomes are distinct, and raw timing/memory/CSV evidence is
+published. Zero model calls. This qualifies the narrow Dafny 4.11 control adapter,
+not any shortlisted upstream repository or Verus; each still needs its own gate.
+
 ## November 15: actual caller failures under internal API changes
 
 The prospective [fixed-target repair study](../experiments/internal-contract-repair-001/README.md)

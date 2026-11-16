@@ -1,0 +1,45 @@
+{
+  "dafny_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+  "edit_policy": "No edits during this control run. Exact trusted source pins required. Model editing disabled.",
+  "entry": "All.dfy",
+  "include_edges": {
+    "All.dfy": [
+      "Client.dfy"
+    ],
+    "Client.dfy": [
+      "Helper.dfy",
+      "Kernel.dfy"
+    ],
+    "Helper.dfy": [
+      "Kernel.dfy"
+    ],
+    "Kernel.dfy": []
+  },
+  "language": "dafny",
+  "required_units": {
+    "Client.Target (correctness)": "Client.dfy",
+    "Helper.Transfer (correctness)": "Helper.dfy",
+    "Kernel.Entry (well-formedness)": "Kernel.dfy",
+    "Kernel.Erase (well-formedness)": "Kernel.dfy",
+    "Kernel.Exclude (well-formedness)": "Kernel.dfy"
+  },
+  "schema": "repodisco-dafny-source-gate-v1",
+  "scope_review": "Seven declared control scopes in controls.json; not an upstream project qualification.",
+  "source_sha256": {
+    "All.dfy": "19faf0cf50a0805ac1740b241985e850b94606471d13f4d3ef3736228523de80",
+    "Client.dfy": "6d72f3f1175e522c52ce19bab764bd3c67b7c06464c92647f3c6fe9a0ca6a5ae",
+    "Helper.dfy": "bb4dfd7dc4df0c999a8a4201ab0173c49aabfe30fe59e5eace97284569e5a2c1",
+    "Kernel.dfy": "149d31b910f44df86c3fb944a1039281277130111a58a994279c0819b5e94a18"
+  },
+  "task_id": "resolution_failure",
+  "unitless_files": {
+    "All.dfy": "Host-owned include-only file; exact bytes pinned."
+  },
+  "verification_inputs": [
+    "All.dfy",
+    "Client.dfy",
+    "Helper.dfy",
+    "Kernel.dfy"
+  ],
+  "z3_version": "Z3 version 4.12.1 - 64 bit"
+}

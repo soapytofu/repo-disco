@@ -9,6 +9,12 @@ from sequential accepted extensions. No baseline or model run has occurred.
 The provisional maximum is 40 new calls if all four repositories qualify;
 execution is not authorized, and the old terminal ledger remains closed.
 
+Its [separate harness controls](real-repository-evolution-001/harness-001/RESULTS.md)
+now show seven native/adapter agreements, correct rejection of omitted failing
+files and unproved helpers, distinct warning/frontend categories, and preserved
+source/CSV/runtime evidence. Thirteen offline tests and 15 native invocations;
+zero model calls. Actual upstream qualification remains pending.
+
 ## Fixed-target migration repair — two fresh seeds validated
 
 [internal-contract-repair-001](internal-contract-repair-001/README.md) prepares
