@@ -1,0 +1,76 @@
+Verify the current crate with 'cargo build'
+
+Usage: cargo verus verify [OPTIONS] [CARGO_OPTIONS]... [-- [ARGS]...]
+
+Arguments:
+  [CARGO_OPTIONS]...
+          Options forwarded to 'cargo build' or 'cargo check'
+
+  [ARGS]...
+          Arguments passed to 'verus' after `--`
+
+Options:
+      --manifest-path <PATH>
+          Path to Cargo.toml
+
+  -p, --package <SPEC>
+          Package to process (see `cargo help pkgid`)
+
+      --workspace
+          Process all packages in the workspace
+
+      --exclude <SPEC>
+          Exclude packages from being processed
+
+      --all-features
+          Activate all available features
+
+      --no-default-features
+          Do not activate the `default` feature
+
+  -F, --features <FEATURES>
+          Space-separated list of features to activate
+
+      --frozen
+          
+
+      --locked
+          
+
+      --offline
+          
+
+      --release
+          
+
+      --target-dir <TARGET_DIR>
+          
+
+      --config <CONFIG>
+          
+
+  -Z <FLAG>
+          
+
+  -v, --verbosity...
+          Increase verbosity (use -vv for more output)
+
+      --verify-trusted
+          Force verification of `trusted_crates`
+
+      --override-verus-version <OVERRIDE_VERUS_VERSION>
+          Override the version reported by `verus --version`
+
+      --check-toolchain
+          Check toolchain components, e.g. version compatibility of verus and vstd
+
+      --fwd-verus-args-to <SELECTOR>
+          Crates to receive forwarded Verus args.
+          
+          Defaults to `all`, except in `focus` mode where it defaults to `roots`.
+          Use `deps` to pass args ONLY to dependencies and NOT to roots.
+          
+          [possible values: all, roots, deps]
+
+  -h, --help
+          Print help (see a summary with '-h')

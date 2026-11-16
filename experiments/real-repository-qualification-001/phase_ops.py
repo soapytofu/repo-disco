@@ -4,7 +4,7 @@ from pathlib import Path,PurePosixPath
 from ops import remote,save,sha
 BASE=Path(__file__).resolve().parent
 def call(phase,code,data=None,seconds=45):
-    assert phase in {'container-002','container-003','coverage-001','vest-container-002'}
+    assert phase in {'container-002','container-003','coverage-001','vest-container-002','vest-container-003','vest-coverage-001'}
     return remote('root=root/'+repr(phase)+'\n'+code,data,seconds)
 CHECK='''import hashlib,json
 for n,h in json.loads((root/'manifest.json').read_text()).items():assert hashlib.sha256((root/n).read_bytes()).hexdigest()==h,n

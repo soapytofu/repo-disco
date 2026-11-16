@@ -62,7 +62,16 @@ preparation checks.
   It uses the successful phase-003 container and HTTP/1 for the single resumed
   archive transfer. Rustup 1.28.2 and Rust 1.99.1 install into task-owned homes. Existing user
   installations and shell startup files are untouched. Its setup must finish
-  before any Vest baseline can be scored. Job 61259311 is now running that phase.
+  before any Vest baseline can be scored. Job 61259311 completed setup and
+  validated all three pinned version identities, but both native commands exited
+  101 because the runtime image lacked `cc` for Rust dependency build scripts.
+  No verification report was produced. All 60 transferred files are retained.
+- **Vest container phase 003:** a deliberate build-environment correction uses
+  immutable official `rust:1.99.1-slim-bookworm` image metadata, which supplies GCC
+  and libc development files. The exact previously installed Verus and Rust are
+  reused and version-compared; source and Cargo.lock remain unchanged. Cached
+  dependencies are used offline, with distinct fresh target directories. This
+  phase must pass before Vest coverage controls can run.
 
 All executions use compute nodes, live-checked nonpreemptible shared partition,
 exclusive submission/output locks, fixed time/resource bounds and no requeue.
