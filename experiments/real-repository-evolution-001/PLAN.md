@@ -58,6 +58,21 @@ Target four repositories; if fewer pass before the collection freeze, report
 every exclusion and reduce the scope/budget. Do not substitute convenient tasks
 after model outcomes have been inspected.
 
+## Verification-harness acceptance before model collection
+
+The [November 16 harness review](verifier-review-001/README.md) reran 37 offline
+checks successfully with Python 3.12 and documents the initial Python 3.9 import
+failure. These tests do not run a verifier or establish new repository coverage.
+The generic wrapper trusts the entry-point scope and uses coarse exit categories;
+the newer named scorer is task-specific. Before collection, compare direct native
+verification and the adapter on original/correct/broken sources, missing-module
+and client-pass/helper-fail controls, guard bypass attempts and diagnostic/error
+categories. Bind required proof targets and dependency coverage to exact sources;
+record legitimate unlogged definitions explicitly. Require zero unexplained
+disagreements or false acceptances on the control set and measure actual runtime,
+resource use and timeout rates. Detailed controls and evidence requirements are
+in the linked review. No proof-engine soundness or universal error-rate claim follows.
+
 ## Lane A: repair real source with a matched feedback comparison
 
 Target two distinct task sites per eligible repository (eight if all four pass).

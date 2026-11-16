@@ -1,0 +1,62 @@
+test_repository_verification (unittest.loader._FailedTest) ... ERROR
+test_repository_candidate (unittest.loader._FailedTest) ... ERROR
+test_repository_agent (unittest.loader._FailedTest) ... ERROR
+
+======================================================================
+ERROR: test_repository_verification (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_repository_verification
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/tests/test_repository_verification.py", line 9, in <module>
+    from language import VerificationOutcome, Program, Language
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/language/__init__.py", line 47, in <module>
+    class PromptBuilder:
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/language/__init__.py", line 98, in PromptBuilder
+    def generate(self, *, repo: str | None = None, readme: str | None = None) -> list[ChatMessage]:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+
+
+======================================================================
+ERROR: test_repository_candidate (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_repository_candidate
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/tests/test_repository_candidate.py", line 9, in <module>
+    from language.dafny.candidate import prepare_candidate, verify_candidate, hashes
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/language/__init__.py", line 47, in <module>
+    class PromptBuilder:
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/language/__init__.py", line 98, in PromptBuilder
+    def generate(self, *, repo: str | None = None, readme: str | None = None) -> list[ChatMessage]:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+
+
+======================================================================
+ERROR: test_repository_agent (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_repository_agent
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/tests/test_repository_agent.py", line 7, in <module>
+    from language import VerificationOutput,VerificationOutcome
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/language/__init__.py", line 47, in <module>
+    class PromptBuilder:
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/language/__init__.py", line 98, in PromptBuilder
+    def generate(self, *, repo: str | None = None, readme: str | None = None) -> list[ChatMessage]:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (errors=3)
