@@ -1,0 +1,35 @@
+{
+  "artifacts": {
+    "resources.txt": "09111e09aa20d7580cb324e2abe50b16c4c2e316b61331b10ff28ae201da4ec9",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "5e047495f24235984cfeb03c41cab071626d24ca4e3a5434f44d1a8463a3060f"
+  },
+  "attempts": 1,
+  "command": [
+    "singularity",
+    "exec",
+    "--cleanenv",
+    "--bind",
+    "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001:/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001",
+    "--pwd",
+    "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/coverage-001/work/vmc_detached-native-omitted",
+    "--env",
+    "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1",
+    "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/container-003/runtime.sif",
+    "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/toolchains/dafny-vmc/unpacked/dafny/dafny",
+    "verify",
+    "dfyconfig.toml",
+    "docs/dafny/ExamplesRandom.dfy",
+    "tests/Tests.dfy",
+    "tests/TestsRandom.dfy",
+    "--resource-limit",
+    "20000",
+    "--log-format",
+    "csv"
+  ],
+  "cwd": "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/coverage-001",
+  "elapsed_seconds": 25.422089106868953,
+  "exit_code": 0,
+  "model_calls": 0,
+  "timeout": false
+}

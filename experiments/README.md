@@ -5,7 +5,7 @@
 [real-repository-evolution-001](real-repository-evolution-001/PLAN.md) records
 candidate Dafny-VMC, Dafny standard-library, Vest and Verified Storage revisions
 and their verification requirements. It separates a real-source repair comparison
-from sequential accepted extensions. No baseline or model run has occurred.
+from sequential accepted extensions. No real-repository model run has occurred.
 The provisional maximum is 40 new calls if all four repositories qualify;
 execution is not authorized, and the old terminal ledger remains closed.
 
@@ -13,7 +13,11 @@ Its [separate harness controls](real-repository-evolution-001/harness-001/RESULT
 now show seven native/adapter agreements, correct rejection of omitted failing
 files and unproved helpers, distinct warning/frontend categories, and preserved
 source/CSV/runtime evidence. Thirteen offline tests and 15 native invocations;
-zero model calls. Actual upstream qualification remains pending.
+zero model calls. The separate [upstream qualification](real-repository-qualification-001/RESULTS.md)
+now passes Dafny-VMC's declared pinned scope: 267 baseline obligations, zero errors,
+three existing warnings, native/adapter agreement and actual omitted-module and
+failing-helper controls. Eight offline tests and all raw evidence are saved.
+Vest remains in pinned setup/baseline qualification; no model calls.
 
 ## Fixed-target migration repair — two fresh seeds validated
 

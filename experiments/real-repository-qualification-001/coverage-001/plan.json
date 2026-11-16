@@ -1,0 +1,104 @@
+{
+  "model_calls": 0,
+  "scope": "Pinned native scopes and explicit proof-inventory controls; no model edit acceptance",
+  "native_vmc_inputs": [
+    "dfyconfig.toml",
+    "docs/dafny/ExamplesRandom.dfy",
+    "tests/Tests.dfy",
+    "tests/TestsRandom.dfy"
+  ],
+  "vmc_explicit_sources": [
+    "docs/dafny/ExamplesRandom.dfy",
+    "src/DafnyVMC.dfy",
+    "src/DafnyVMCTrait.dfy",
+    "src/Distributions/Bitstream/Interface.dfy",
+    "src/Distributions/Uniform/Correctness.dfy",
+    "src/Distributions/Uniform/Interface.dfy",
+    "src/Distributions/Uniform/Model.dfy",
+    "src/Distributions/UniformPowerOfTwo/Interface.dfy",
+    "src/Math/Analysis/Limits.dfy",
+    "src/Math/Analysis/Reals.dfy",
+    "src/Math/Analysis/Sequences.dfy",
+    "src/Math/Analysis/Series.dfy",
+    "src/Math/Helper.dfy",
+    "src/Math/Measures.dfy",
+    "src/Math/NatArith.dfy",
+    "src/Math/Rationals.dfy",
+    "src/Math/RealArith.dfy",
+    "src/ProbabilisticProgramming/Independence.dfy",
+    "src/ProbabilisticProgramming/Monad.dfy",
+    "src/ProbabilisticProgramming/RandomSource.dfy",
+    "src/Util/FisherYates/Correctness.dfy",
+    "src/Util/FisherYates/Equivalence.dfy",
+    "src/Util/FisherYates/Implementation.dfy",
+    "src/Util/FisherYates/Interface.dfy",
+    "src/Util/FisherYates/Model.dfy",
+    "src/Util/Pos.dfy",
+    "tests/Tests.dfy",
+    "tests/TestsRandom.dfy"
+  ],
+  "cases": [
+    {
+      "id": "vmc_baseline",
+      "runs": [
+        "adapter"
+      ],
+      "native_reference": "container-003/results/native-baseline"
+    },
+    {
+      "id": "vmc_broken_swap",
+      "runs": [
+        "native",
+        "adapter"
+      ],
+      "expectation": "Swap fails despite clients using its specification"
+    },
+    {
+      "id": "vmc_detached",
+      "runs": [
+        "native-omitted",
+        "adapter"
+      ],
+      "expectation": "Original scope omits sentinel; required explicit scope must fail"
+    },
+    {
+      "id": "vest_baseline",
+      "runs": [
+        "adapter"
+      ],
+      "native_reference": "vest-container-002/results"
+    },
+    {
+      "id": "vest_broken_provider",
+      "runs": [
+        "native",
+        "adapter",
+        "client-focus-diagnostic"
+      ],
+      "expectation": "Full provider+client gate fails; focus cannot establish full scope"
+    },
+    {
+      "id": "vest_detached",
+      "runs": [
+        "native-omitted"
+      ],
+      "expectation": "Unregistered Rust module lacks required proof result; reject full-scope claim"
+    },
+    {
+      "id": "vest_registered",
+      "runs": [
+        "native",
+        "adapter"
+      ],
+      "expectation": "Registered sentinel fails"
+    }
+  ],
+  "invariants": [
+    "All originals retained byte-for-byte",
+    "Only exact host-authored control patches permitted",
+    "No new trust bypass accepted",
+    "Fresh target/output directories",
+    "Source, command, tool and named-obligation binding",
+    "Native and adapter share a verifier, not independent proof engines"
+  ]
+}

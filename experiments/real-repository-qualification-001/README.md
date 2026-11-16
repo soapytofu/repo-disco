@@ -55,13 +55,14 @@ preparation checks.
   and binaries, with `GODEBUG=http2client=0` selecting HTTP/1 download transport.
   [Go documents this setting](https://pkg.go.dev/net/http#hdr-HTTP_2). It is a
   deliberate transport correction, not an automatic verifier retry. The native
-  Dafny baseline is pending. This supplies compatible OS libraries, not a substituted verifier.
+  Dafny baseline completed: 267 verified obligations, zero errors and three
+  upstream trigger warnings, exit 0, 26.70 seconds. This supplies compatible OS libraries, not a substituted verifier.
 - **Vest container phase 002:** prepared to copy and resume the pinned public
   partial download once, then require the exact upstream SHA-256 before unpacking.
   It uses the successful phase-003 container and HTTP/1 for the single resumed
   archive transfer. Rustup 1.28.2 and Rust 1.99.1 install into task-owned homes. Existing user
   installations and shell startup files are untouched. Its setup must finish
-  before any Vest baseline can be scored.
+  before any Vest baseline can be scored. Job 61259311 is now running that phase.
 
 All executions use compute nodes, live-checked nonpreemptible shared partition,
 exclusive submission/output locks, fixed time/resource bounds and no requeue.
@@ -93,3 +94,19 @@ failure rate or success. Runtime observations are not a performance benchmark.
 
 See the versioned result folders and submission receipts for actual state. Neither
 repository is qualified for model collection merely by this preparation.
+
+## Reviewed Dafny-VMC result
+
+[RESULTS.md](RESULTS.md) and [coverage review](coverage-001/review-001.json)
+qualify the declared pinned VMC scope. Five fresh coverage invocations plus one
+reused native baseline show exact agreement on 267 baseline units and a deliberately
+broken `Swap`. Its `Shuffle` client still passes while `Swap` fails; full scope
+therefore fails. A new failing file outside the upstream command's scope leaves
+that command at exit zero, but is rejected for its missing required unit. Explicit
+all-file invocation detects it. Eight offline tests passed locally and on Cannon.
+
+This is a proof-scope qualification under the recorded upstream trust assumptions,
+with three unchanged trigger warnings. It is not a zero-warning baseline, proof of
+all upstream runtime code, or approval for arbitrary model edits. Future model
+collection must bind a reviewed edit policy and this exact scope/toolchain; no
+model runner or paid authorization has been introduced. Vest remains pending.

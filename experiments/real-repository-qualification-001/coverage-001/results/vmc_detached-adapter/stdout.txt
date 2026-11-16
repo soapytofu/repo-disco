@@ -1,0 +1,23 @@
+src/Math/Measures.dfy(40,4): Warning: /!\ No terms found to trigger on.
+   |
+40 |     iset _: iset<A>
+   |     ^^^^
+
+src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\ No terms found to trigger on.
+   |
+23 |     ensures forall i | 0 <= i < n ::
+   |             ^^^^^^
+
+src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\ No terms found to trigger on.
+    |
+381 |           forall j | 0 <= j < |xs| - (i+1) ensures Model.Shuffle(ys, i+1)(s').value[i+1..][j] == p[i+1..][j] {
+    |           ^^^^^^
+
+tests/QualificationDetached.dfy(2,39): Error: assertion might not hold
+  |
+2 |   lemma Fails() ensures false { assert false; }
+  |                                        ^^^^^
+
+
+Dafny program verifier finished with 267 verified, 1 error
+Results File: /n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/coverage-001/work/vmc_detached-adapter/TestResults/2026-11-16_22_31_49-0.csv

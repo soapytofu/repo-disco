@@ -15,14 +15,16 @@ Status: November 16, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 Following Nada's feedback, the next milestone targets online Dafny and Verus
 codebases for the November 24 meeting. The [source-reviewed plan](../experiments/real-repository-evolution-001/PLAN.md)
 records four candidate upstream commits: Dafny-VMC, Dafny standard libraries,
-Vest and Verified Storage. Baseline verification has not run; the first gate
-is reproducing pinned toolchains and declaring actual proof/trust boundaries.
+Vest and Verified Storage. The pinned Dafny-VMC qualification now passes for its
+declared scope (below); Vest qualification is running. Pinned toolchains and actual
+proof/trust boundaries are required before model collection.
 The existing four client extensions were independent additions, not a repeated
 growth chain. The new plan separates matched repair evaluation from two-stage
 extensions that use an accepted parent revision. At four eligible repositories,
 the proposed ceiling is 32 repair plus at most eight extension calls; zero are
 authorized. Prior frozen studies, scores and the terminal paid ledger remain
-unchanged. This is source review and planning, not new model or verifier evidence.
+unchanged. The original plan is source review; the new qualification evidence below is
+verifier-only, with no real-repository model results yet.
 
 The separate [verification-harness gate](../experiments/real-repository-evolution-001/harness-001/RESULTS.md)
 now matches direct Dafny on seven controlled cases, with 15 native invocations and
@@ -31,7 +33,15 @@ the new gate rejects that incomplete command, and explicit all-file verification
 finds the failure. A passing client with a failed helper is also rejected. Warning-only,
 parse and resolution outcomes are distinct, and raw timing/memory/CSV evidence is
 published. Zero model calls. This qualifies the narrow Dafny 4.11 control adapter,
-not any shortlisted upstream repository or Verus; each still needs its own gate.
+not by itself any upstream repository or Verus. The new
+[pinned real-repository qualification](../experiments/real-repository-qualification-001/RESULTS.md)
+now verifies Dafny-VMC at its native Dafny 4.4.0 toolchain: 267 obligations, zero
+errors, three existing trigger warnings. Five fresh controls plus the native
+baseline establish native/adapter agreement and rejection of an omitted failing
+module and an unproved real `Swap` helper despite a passing `Shuffle` caller.
+All source/CSV/runtime logs and eight offline checks are saved. This qualifies
+the declared proof scope under existing trust exemptions, not all runtime code
+or arbitrary model edits. Vest remains in pinned setup/baseline qualification.
 
 ## November 15: actual caller failures under internal API changes
 
