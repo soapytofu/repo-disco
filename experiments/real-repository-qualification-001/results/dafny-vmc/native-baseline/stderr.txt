@@ -1,0 +1,46 @@
+Unhandled exception: System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at Microsoft.Dafny.DafnyConsolePrinter.DistillVerificationResult(VerificationResult verificationResult)
+   at Microsoft.Dafny.DafnyConsolePrinter.ReportEndVerifyImplementation(Implementation implementation, VerificationResult result)
+   at Microsoft.Boogie.ExecutionEngine.<>c__DisplayClass48_0.<VerifyImplementation>b__0(IVerificationStatus status)
+   at System.Reactive.Linq.ObservableImpl.Do`1.OnNext._.OnNext(TSource value) in /_/Rx.NET/Source/src/System.Reactive/Linq/Observable/Do.cs:line 38
+--- End of stack trace from previous location ---
+   at Microsoft.Boogie.ExecutionEngine.<>c__DisplayClass41_0.<<VerifyEachImplementation>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.Boogie.ExecutionEngine.<>c__DisplayClass41_0.<<VerifyEachImplementation>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.Boogie.ExecutionEngine.VerifyEachImplementation(TextWriter output, ProcessedProgram processedProgram, PipelineStatistics stats, String programId, ErrorReporterDelegate er, String requestId, Implementation[] stablePrioritizedImpls)
+   at Microsoft.Boogie.ExecutionEngine.InferAndVerify(TextWriter output, Program program, PipelineStatistics stats, String programId, ErrorReporterDelegate er, String requestId)
+   at Microsoft.Dafny.DafnyMain.BoogiePipelineWithRerun(DafnyOptions options, TextWriter output, ExecutionEngine engine, Program program, String bplFileName, String programId)
+   at Microsoft.Dafny.DafnyMain.BoogieOnce(DafnyOptions options, TextWriter output, ExecutionEngine engine, String baseFile, String moduleName, Program boogieProgram, String programId)
+   at Microsoft.Dafny.CompilerDriver.BoogieOnceWithTimerAsync(TextWriter output, DafnyOptions options, String baseName, String programId, String moduleName, Program program)
+   at Microsoft.Dafny.CompilerDriver.<>c__DisplayClass8_0.<<BoogieAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.Dafny.CompilerDriver.<>c__DisplayClass8_0.<<BoogieAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.Dafny.CompilerDriver.BoogieAsync(DafnyOptions options, String baseName, IEnumerable`1 boogiePrograms, String programId)
+   at Microsoft.Dafny.CompilerDriver.ProcessFilesAsync(IReadOnlyList`1 dafnyFiles, ReadOnlyCollection`1 otherFileNames, DafnyOptions options, ProofDependencyManager depManager, Boolean lookForSnapshots, String programId)
+   at Microsoft.Dafny.CompilerDriver.RunCompiler(DafnyOptions options)
+   at Microsoft.Dafny.DafnyCli.<>c__DisplayClass9_0.<<SetHandlerUsingDafnyOptionsContinuation>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Invocation.AnonymousCommandHandler.InvokeAsync(InvocationContext context)
+   at System.CommandLine.Invocation.InvocationPipeline.<>c__DisplayClass4_0.<<BuildInvocationChain>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c__DisplayClass17_0.<<UseParseErrorReporting>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c__DisplayClass12_0.<<UseHelp>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.Dafny.DafnyCli.<>c__DisplayClass20_0.<<AddDeveloperHelp>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c__DisplayClass22_0.<<UseVersionOption>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c__DisplayClass19_0.<<UseTypoCorrections>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c.<<UseSuggestDirective>b__18_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c__DisplayClass16_0.<<UseParseDirective>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c.<<RegisterWithDotnetSuggest>b__5_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.CommandLine.Builder.CommandLineBuilderExtensions.<>c__DisplayClass8_0.<<UseExceptionHandler>b__0>d.MoveNext()

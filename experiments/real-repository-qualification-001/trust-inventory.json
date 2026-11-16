@@ -1,0 +1,712 @@
+{
+  "dafny-vmc": {
+    "lexical_review_candidates": [
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 6,
+        "text": "module {:extern} DafnyVMCPartMaterial {"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 9,
+        "text": "  class {:extern} Random {"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 11,
+        "text": "    static method {:extern \"UniformPowerOfTwoSample\"} ExternUniformPowerOfTwoSample(n: nat) returns (u: nat)"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 13,
+        "text": "    static method {:extern \"UniformSample32\"} ExternUniformSample32(n: pos32) returns (u: nat32)"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 17,
+        "text": "module {:extern \"DafnyVMCPart\"} DafnyVMC {"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 26,
+        "text": "    constructor {:extern} ()"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 35,
+        "text": "    method {:verify false} UniformSample32(n: pos32) returns (u: nat32)"
+      },
+      {
+        "file": "src/DafnyVMC.dfy",
+        "line": 37,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 12,
+        "text": "  trait {:termination false} RandomTrait extends  UniformPowerOfTwo.Interface.Trait, FisherYates.Implementation.Trait, Uniform.Interface.Trait {"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 14,
+        "text": "    method {:verify false} UniformSample (n: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 17,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 21,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 29,
+        "text": "    method {:verify false} BernoulliSample (num: nat, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 33,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 39,
+        "text": "    method {:verify false} BernoulliExpNegSampleUnitLoop (num: nat, den: pos, state: (bool,pos))"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 43,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 49,
+        "text": "    method {:verify false} BernoulliExpNegSampleUnitAux (num: nat, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 53,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 57,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 65,
+        "text": "    method {:verify false} BernoulliExpNegSampleUnit (num: nat, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 69,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 79,
+        "text": "    method {:verify false} BernoulliExpNegSampleGenLoop (iter: nat)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 82,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 97,
+        "text": "    method {:verify false} BernoulliExpNegSample (num: nat, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 100,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 117,
+        "text": "    method {:verify false} DiscreteLaplaceSampleLoopIn1Aux (t: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 120,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 127,
+        "text": "    method {:verify false} DiscreteLaplaceSampleLoopIn1 (t: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 130,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 134,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 142,
+        "text": "    method {:verify false} DiscreteLaplaceSampleLoopIn2Aux (num: nat, den: pos, K: (bool,nat))"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 145,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 151,
+        "text": "    method {:verify false} DiscreteLaplaceSampleLoopIn2 (num: nat, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 154,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 158,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 166,
+        "text": "    method {:verify false} DiscreteLaplaceSampleLoop (num: pos, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 169,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 177,
+        "text": "    method {:verify false} DiscreteLaplaceSampleLoop' (num: pos, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 180,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 191,
+        "text": "    method {:verify false} DiscreteLaplaceSample (num: pos, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 194,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 198,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 207,
+        "text": "    method {:verify false} DiscreteLaplaceSampleOptimized (num: pos, den: pos)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 210,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 214,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 223,
+        "text": "    method {:verify false} DiscreteLaplaceSampleMixed (num: pos, den: pos, mix: nat)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 226,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 237,
+        "text": "    method {:verify false} DiscreteGaussianSampleLoop (num: pos, den: pos, t: pos, mix: nat)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 240,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 250,
+        "text": "    method {:verify false} DiscreteGaussianSample (num: pos, den: pos, mix: nat)"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 253,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/DafnyVMCTrait.dfy",
+        "line": 261,
+        "text": "        decreases *"
+      },
+      {
+        "file": "src/Distributions/Bitstream/Interface.dfy",
+        "line": 9,
+        "text": "  trait {:termination false} Trait {"
+      },
+      {
+        "file": "src/Distributions/Uniform/Interface.dfy",
+        "line": 12,
+        "text": "  trait {:termination false} Trait extends Bitstream.Interface.Trait {"
+      },
+      {
+        "file": "src/Distributions/Uniform/Interface.dfy",
+        "line": 16,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/Distributions/Uniform/Interface.dfy",
+        "line": 22,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/Distributions/Uniform/Interface.dfy",
+        "line": 35,
+        "text": "  trait {:termination false} Trait32 extends Bitstream.Interface.Trait {"
+      },
+      {
+        "file": "src/Distributions/Uniform/Interface.dfy",
+        "line": 39,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/Distributions/Uniform/Interface.dfy",
+        "line": 45,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/Distributions/Uniform/Model.dfy",
+        "line": 18,
+        "text": "  ghost function {:axiom} Sample(n: nat): (h: Monad.Hurd<nat>)"
+      },
+      {
+        "file": "src/Distributions/UniformPowerOfTwo/Interface.dfy",
+        "line": 9,
+        "text": "  trait {:termination false} Trait extends Bitstream.Interface.Trait {"
+      },
+      {
+        "file": "src/ProbabilisticProgramming/RandomSource.dfy",
+        "line": 50,
+        "text": "  lemma {:axiom} ProbIsProbabilityMeasure()"
+      },
+      {
+        "file": "src/Util/FisherYates/Implementation.dfy",
+        "line": 14,
+        "text": "  trait {:termination false} Trait extends Interface.Trait {"
+      },
+      {
+        "file": "src/Util/FisherYates/Implementation.dfy",
+        "line": 17,
+        "text": "      decreases *"
+      },
+      {
+        "file": "src/Util/FisherYates/Interface.dfy",
+        "line": 11,
+        "text": "  trait {:termination false} Trait extends Uniform.Interface.Trait32 {"
+      },
+      {
+        "file": "src/Util/FisherYates/Interface.dfy",
+        "line": 14,
+        "text": "      decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 48,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 70,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 87,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 108,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 124,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 146,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 162,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 177,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 192,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 223,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/Tests.dfy",
+        "line": 254,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 13,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 20,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 28,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 35,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 42,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 50,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 57,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 64,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 71,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 78,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 85,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 92,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 99,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 106,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 114,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 121,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 128,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 135,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 142,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 149,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 157,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 165,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 173,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 181,
+        "text": "    decreases *"
+      },
+      {
+        "file": "tests/TestsRandom.dfy",
+        "line": 189,
+        "text": "    decreases *"
+      },
+      {
+        "file": "docs/dafny/ExamplesRandom.dfy",
+        "line": 11,
+        "text": "    decreases *"
+      }
+    ],
+    "scope": "Pinned native baseline files; lexical matches require context review, not a soundness certificate."
+  },
+  "vest": {
+    "lexical_review_candidates": [
+      {
+        "file": "vest_lib/src/asn1/utf8string.rs",
+        "line": 53,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/bytes/exec.rs",
+        "line": 17,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/marker/exec.rs",
+        "line": 16,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 17,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 26,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 35,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 44,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 53,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 62,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 71,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 80,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 89,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 98,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 107,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/sints/exec.rs",
+        "line": 116,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/star/exec.rs",
+        "line": 207,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/star/exec.rs",
+        "line": 216,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 17,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 26,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 35,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 44,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 85,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 94,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 103,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 112,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 121,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 130,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 139,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_lib/src/combinators/uints/exec.rs",
+        "line": 148,
+        "text": "#[verifier::external_body]"
+      },
+      {
+        "file": "vest_dev/src/formats/mutual_fix_template.rs",
+        "line": 3153,
+        "text": "            assume(repeat_expr.exec_inv());"
+      },
+      {
+        "file": "vest_dev/src/formats/mutual_fix_template.rs",
+        "line": 3154,
+        "text": "            assume(repeat_expr.safe_inv());"
+      },
+      {
+        "file": "vest_dev/src/formats/mutual_fix_template.rs",
+        "line": 3164,
+        "text": "    #[verifier::external_body]"
+      },
+      {
+        "file": "vest_dev/src/formats/mutual_fix_template.rs",
+        "line": 3266,
+        "text": "    #[verifier::external_body]"
+      },
+      {
+        "file": "vest_dev/src/formats/overhead_study.rs",
+        "line": 122,
+        "text": "    #[verifier::external_body]"
+      },
+      {
+        "file": "vest_dev/src/formats/overhead_study.rs",
+        "line": 136,
+        "text": "    #[verifier::external_body]"
+      },
+      {
+        "file": "vest_dev/src/formats/overhead_study.rs",
+        "line": 194,
+        "text": "    #[verifier::external_body]"
+      },
+      {
+        "file": "vest_dev/src/formats/overhead_study.rs",
+        "line": 231,
+        "text": "    #[verifier::external_body]"
+      }
+    ],
+    "scope": "Pinned native baseline files; lexical matches require context review, not a soundness certificate."
+  }
+}

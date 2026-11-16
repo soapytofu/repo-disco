@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/baseline.py", line 112, in <module>
+    if __name__=='__main__':main(sys.argv[1])
+                            ^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/baseline.py", line 82, in main
+    archive=tools/'verus.zip';download('download-verus',url,archive,out,env,metadata['artifacts']['x86-linux']['sha256']);unpack(archive,tools/'unpacked')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/baseline.py", line 41, in download
+    checked(label,['curl','--proto','=https','--tlsv1.2','--fail','--location','--silent','--show-error','--retry','0','--max-time','240',url,'-o',path],ROOT,out,env,250)
+  File "/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/baseline.py", line 37, in checked
+    if record['exit_code']!=0:raise RuntimeError(label+' failed; see preserved logs')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: download-verus failed; see preserved logs
