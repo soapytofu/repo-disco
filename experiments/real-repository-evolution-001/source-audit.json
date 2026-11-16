@@ -1,0 +1,199 @@
+{
+  "schema": "real-repository-evolution-source-audit-v1",
+  "date": "2026-11-16",
+  "target_meeting": "2026-11-24",
+  "status": "source_review_only",
+  "new_model_calls": 0,
+  "verifier_runs": 0,
+  "paid_execution_authorized": false,
+  "candidates": [
+    {
+      "id": "dafny-vmc",
+      "repository": "dafny-lang/Dafny-VMC",
+      "language": "Dafny",
+      "source_commit": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "component": "src/Util/FisherYates and its Uniform/Monad/Model dependencies",
+      "toolchain": "Dafny 4.4.0, from scripts/prep.sh",
+      "verification_entry": "scripts/verify.sh: dafny verify dfyconfig.toml docs/dafny/ExamplesRandom.dfy tests/Tests.dfy tests/TestsRandom.dfy --resource-limit 20000",
+      "observations": [
+        "README build/test examples use --no-verify; the separate verification script is the baseline starting point.",
+        "FisherYates.Interface imports Uniform, Model and Monad; its trait disables termination checking and Shuffle has decreases *. Record this existing trust/termination boundary.",
+        "Two task sites and all trusted/extern/axiom boundaries still require source review and actual baseline verification."
+      ],
+      "url": "https://github.com/dafny-lang/Dafny-VMC",
+      "baseline_status": "not_run",
+      "task_status": "candidate_only"
+    },
+    {
+      "id": "dafny-stdlib",
+      "repository": "dafny-lang/dafny",
+      "language": "Dafny",
+      "source_commit": "8c137ba351c60a521cfb122011770fdbea9a0453",
+      "component": "Source/DafnyStandardLibraries; inspect Collections/Parsers/JSON for two small connected task sites",
+      "toolchain": "Exact same-revision Dafny build or a subsequently reviewed compatible release; not established",
+      "verification_entry": "Source/DafnyStandardLibraries/Makefile verify target; source verification plus declared target-specific checks",
+      "observations": [
+        "dafny-lang/libraries is deprecated; this is its maintained successor.",
+        "--standard-libraries consumes a preverified binary and does not freshly verify changed library sources.",
+        "This library subtree is one upstream repository, not one repository per module; it is not an application benchmark."
+      ],
+      "url": "https://github.com/dafny-lang/dafny",
+      "baseline_status": "not_run",
+      "task_status": "candidate_only"
+    },
+    {
+      "id": "vest",
+      "repository": "secure-foundations/vest",
+      "language": "Verus",
+      "source_commit": "333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc",
+      "component": "vest_dev handwritten formats and the imported vest_lib combinators/properties",
+      "toolchain": "verus.json: 0.2026.10.26.d17fbd0; Verus d17fbd0c58abf0d5e86825ea64b96aba72b1b31f; Rust 1.99.1",
+      "verification_entry": "CONTRIBUTING.md: cargo verus verify -p vest_lib --locked --check-toolchain -- --expand-errors; also verify the selected consumer crate",
+      "observations": [
+        "vest_dev/src/formats/dependent.rs composes Bind/Mapped/Choice and invokes serialize/parse roundtrip properties.",
+        "A focused check explicitly excludes dependency proofs; final acceptance must include the declared provider and consumer scopes.",
+        "Vest already generates Rust from a DSL/ASN.1. Compiler-generated code is not counted as new LLM work. Prefer handwritten client/proof tasks initially."
+      ],
+      "url": "https://github.com/secure-foundations/vest",
+      "baseline_status": "not_run",
+      "task_status": "candidate_only"
+    },
+    {
+      "id": "verified-storage",
+      "repository": "microsoft/verified-storage",
+      "language": "Verus",
+      "source_commit": "4d9ac568c91fe6fe5136c7624d2b4b4f49752932",
+      "component": "pmemlog; math_v.rs plus real callers in logimpl_v.rs and fixed trusted specifications",
+      "toolchain": "pmemlog/README.md records last-verified Verus commit 9ab45f5745cea3f82b89bb53ff6fd91c14ae6eda; compatibility with selected source pin not yet reproduced",
+      "verification_entry": "pmemlog/README.md: cd pmemlog; cargo verus verify",
+      "observations": [
+        "Persistent append-only log with crash-consistency/corruption-detection specifications.",
+        "The first 150 lines of math_v.rs use vstd arithmetic lemmas; source inspection is partial.",
+        "Need caller/dependency coverage, trusted *_t.rs inventory, and baseline runtime before deciding eligibility; capybaraNS is a Dafny component in the same repo, not an independent fifth repository."
+      ],
+      "url": "https://github.com/microsoft/verified-storage",
+      "baseline_status": "not_run",
+      "task_status": "candidate_only"
+    }
+  ],
+  "source_reads": [
+    {
+      "repository": "dafny-lang/Dafny-VMC",
+      "path": "README.md",
+      "ref": null,
+      "read_scope": "full_file",
+      "reported_blob_sha": "bc078656447750ef8aa7b7ef3347b8348f3ac484",
+      "url": "https://github.com/dafny-lang/Dafny-VMC/blob/main/README.md"
+    },
+    {
+      "repository": "dafny-lang/Dafny-VMC",
+      "path": "scripts/prep.sh",
+      "ref": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "read_scope": "full_file",
+      "reported_blob_sha": "cf6e48f2c4e1c99b5fb3cc39c36f89bd7a8bbb63",
+      "url": "https://github.com/dafny-lang/Dafny-VMC/blob/e3631f8d335bf7ec3648b13976fa2a96a2a5406e/scripts/prep.sh"
+    },
+    {
+      "repository": "dafny-lang/Dafny-VMC",
+      "path": "scripts/verify.sh",
+      "ref": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "read_scope": "full_file",
+      "reported_blob_sha": "36de59604d0cd94b2babbdc690b1310ecdcedc5d",
+      "url": "https://github.com/dafny-lang/Dafny-VMC/blob/e3631f8d335bf7ec3648b13976fa2a96a2a5406e/scripts/verify.sh"
+    },
+    {
+      "repository": "dafny-lang/Dafny-VMC",
+      "path": ".github/workflows/verify.yml",
+      "ref": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "read_scope": "full_file",
+      "reported_blob_sha": "5ae83d1debbf8c3acaf1bd53c256788b197815da",
+      "url": "https://github.com/dafny-lang/Dafny-VMC/blob/e3631f8d335bf7ec3648b13976fa2a96a2a5406e/.github/workflows/verify.yml"
+    },
+    {
+      "repository": "dafny-lang/Dafny-VMC",
+      "path": "dfyconfig.toml",
+      "ref": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "read_scope": "full_file",
+      "reported_blob_sha": "d38af7bdc50363ab4bdaf3791bbdc5af2fafc882",
+      "url": "https://github.com/dafny-lang/Dafny-VMC/blob/e3631f8d335bf7ec3648b13976fa2a96a2a5406e/dfyconfig.toml"
+    },
+    {
+      "repository": "dafny-lang/Dafny-VMC",
+      "path": "src/Util/FisherYates/Interface.dfy",
+      "ref": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "read_scope": "full_file",
+      "reported_blob_sha": "ad3f75ee230084768574390ec6f00e193d4fe417",
+      "url": "https://github.com/dafny-lang/Dafny-VMC/blob/e3631f8d335bf7ec3648b13976fa2a96a2a5406e/src/Util/FisherYates/Interface.dfy"
+    },
+    {
+      "repository": "dafny-lang/libraries",
+      "path": "README.md",
+      "ref": null,
+      "read_scope": "full_file",
+      "reported_blob_sha": "96fcbca0ffaf9415cb31562d47e25d3b5ac09227",
+      "url": "https://github.com/dafny-lang/libraries/blob/master/README.md"
+    },
+    {
+      "repository": "dafny-lang/dafny",
+      "path": "Source/DafnyStandardLibraries/README.md",
+      "ref": "8c137ba351c60a521cfb122011770fdbea9a0453",
+      "read_scope": "full_file",
+      "reported_blob_sha": "437281f1aca0fcaa2c6e948100fdb7a76c8815fc",
+      "url": "https://github.com/dafny-lang/dafny/blob/8c137ba351c60a521cfb122011770fdbea9a0453/Source/DafnyStandardLibraries/README.md"
+    },
+    {
+      "repository": "dafny-lang/dafny",
+      "path": "Source/DafnyStandardLibraries/Makefile",
+      "ref": "8c137ba351c60a521cfb122011770fdbea9a0453",
+      "read_scope": "full_file",
+      "reported_blob_sha": "2f9db66705834639d8075d07345aab7f5c1b3e85",
+      "url": "https://github.com/dafny-lang/dafny/blob/8c137ba351c60a521cfb122011770fdbea9a0453/Source/DafnyStandardLibraries/Makefile"
+    },
+    {
+      "repository": "secure-foundations/vest",
+      "path": "verus.json",
+      "ref": "333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc",
+      "read_scope": "full_file",
+      "reported_blob_sha": "fe38facb5cf6acfd548e50898b54882bd121103a",
+      "url": "https://github.com/secure-foundations/vest/blob/333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc/verus.json"
+    },
+    {
+      "repository": "secure-foundations/vest",
+      "path": "CONTRIBUTING.md",
+      "ref": "333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc",
+      "read_scope": "full_file",
+      "reported_blob_sha": "388fcd7ba003a0853db08310084246a7251ef26c",
+      "url": "https://github.com/secure-foundations/vest/blob/333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc/CONTRIBUTING.md"
+    },
+    {
+      "repository": "secure-foundations/vest",
+      "path": "vest_dev/src/formats/dependent.rs",
+      "ref": "333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc",
+      "read_scope": "requested_lines_1_160",
+      "reported_blob_sha": "9767b0e524980c0858a534a15cc688d04387a26e",
+      "url": "https://github.com/secure-foundations/vest/blob/333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc/vest_dev/src/formats/dependent.rs"
+    },
+    {
+      "repository": "microsoft/verified-storage",
+      "path": "pmemlog/README.md",
+      "ref": "4d9ac568c91fe6fe5136c7624d2b4b4f49752932",
+      "read_scope": "full_file",
+      "reported_blob_sha": "82b510b139b00158b4a7fbbca53415769a66b8fb",
+      "url": "https://github.com/microsoft/verified-storage/blob/4d9ac568c91fe6fe5136c7624d2b4b4f49752932/pmemlog/README.md"
+    },
+    {
+      "repository": "microsoft/verified-storage",
+      "path": "pmemlog/src/math_v.rs",
+      "ref": "4d9ac568c91fe6fe5136c7624d2b4b4f49752932",
+      "read_scope": "lines_1_150",
+      "reported_blob_sha": "57ea6911058af51f09013bf6876eca1551160f84",
+      "url": "https://github.com/microsoft/verified-storage/blob/4d9ac568c91fe6fe5136c7624d2b4b4f49752932/pmemlog/src/math_v.rs"
+    }
+  ],
+  "limitations": [
+    "Candidate source commits are recorded; complete runtime/source bundles and executable task scopes are not frozen.",
+    "No baseline, repair control, new extension or model outcome has been run for these repositories.",
+    "Public upstream proofs may appear in model pretraining; no blind or pretraining-held-out claim.",
+    "This source audit does not establish absence of axioms, admissions, external bodies or verification exclusions."
+  ]
+}

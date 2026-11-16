@@ -1,5 +1,14 @@
 # Experiment log
 
+## Real repositories — source-reviewed plan for November 24
+
+[real-repository-evolution-001](real-repository-evolution-001/PLAN.md) records
+candidate Dafny-VMC, Dafny standard-library, Vest and Verified Storage revisions
+and their verification requirements. It separates a real-source repair comparison
+from sequential accepted extensions. No baseline or model run has occurred.
+The provisional maximum is 40 new calls if all four repositories qualify;
+execution is not authorized, and the old terminal ledger remains closed.
+
 ## Fixed-target migration repair — two fresh seeds validated
 
 [internal-contract-repair-001](internal-contract-repair-001/README.md) prepares

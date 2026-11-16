@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 16, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,20 @@ Status: November 15, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Additional fixed-interface repair instances and matched feedback evaluations are now validated (see latest checkpoint). Full generation-corpus completion, reserved-family evaluation and training remain open. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 16: real-repository evaluation and progressive extension
+
+Following Nada's feedback, the next milestone targets online Dafny and Verus
+codebases for the November 24 meeting. The [source-reviewed plan](../experiments/real-repository-evolution-001/PLAN.md)
+records four candidate upstream commits: Dafny-VMC, Dafny standard libraries,
+Vest and Verified Storage. Baseline verification has not run; the first gate
+is reproducing pinned toolchains and declaring actual proof/trust boundaries.
+The existing four client extensions were independent additions, not a repeated
+growth chain. The new plan separates matched repair evaluation from two-stage
+extensions that use an accepted parent revision. At four eligible repositories,
+the proposed ceiling is 32 repair plus at most eight extension calls; zero are
+authorized. Prior frozen studies, scores and the terminal paid ledger remain
+unchanged. This is source review and planning, not new model or verifier evidence.
 
 ## November 15: actual caller failures under internal API changes
 
