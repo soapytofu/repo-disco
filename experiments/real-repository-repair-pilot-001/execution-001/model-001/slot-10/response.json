@@ -1,0 +1,54 @@
+{
+  "text": "{\"replacement\": \"\\n        let serialized1 = self.1.spec_serialize_dps(v.1, obuf);\\n        let serialized0 = self.0.spec_serialize_dps(v.0, serialized1);\\n        self.1.theorem_serialize_dps_parse_roundtrip(v.1, obuf);\\n        self.0.theorem_serialize_dps_parse_roundtrip(v.0, serialized1);\\n        self.0.lemma_serialize_dps_prepend(v.0, serialized1);\\n        self.0.lemma_serialize_dps_len(v.0, serialized1);\\n        if let Some((n0, v0)) = self.0.spec_parse(serialized0) {\\n            assert(n0 == self.0.byte_len(v.0));\\n            assert(serialized0.len() == serialized1.len() + self.0.byte_len(v.0));\\n            assert(n0 == serialized0.len() - serialized1.len());\\n            assert(serialized0[n0..] =~= serialized1);\\n        }\\n    \"}",
+  "content": [
+    {
+      "text": "{\"replacement\": \"\\n        let serialized1 = self.1.spec_serialize_dps(v.1, obuf);\\n        let serialized0 = self.0.spec_serialize_dps(v.0, serialized1);\\n        self.1.theorem_serialize_dps_parse_roundtrip(v.1, obuf);\\n        self.0.theorem_serialize_dps_parse_roundtrip(v.0, serialized1);\\n        self.0.lemma_serialize_dps_prepend(v.0, serialized1);\\n        self.0.lemma_serialize_dps_len(v.0, serialized1);\\n        if let Some((n0, v0)) = self.0.spec_parse(serialized0) {\\n            assert(n0 == self.0.byte_len(v.0));\\n            assert(serialized0.len() == serialized1.len() + self.0.byte_len(v.0));\\n            assert(n0 == serialized0.len() - serialized1.len());\\n            assert(serialized0[n0..] =~= serialized1);\\n        }\\n    \"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 18301,
+    "outputTokens": 297,
+    "totalTokens": 18598,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "94587057-6c76-413d-a5e6-473b7a22196b",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "94587057-6c76-413d-a5e6-473b7a22196b",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 17 Nov 2026 18:32:39 GMT",
+        "content-type": "application/json",
+        "content-length": "1092",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "94587057-6c76-413d-a5e6-473b7a22196b"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"replacement\": \"\\n        let serialized1 = self.1.spec_serialize_dps(v.1, obuf);\\n        let serialized0 = self.0.spec_serialize_dps(v.0, serialized1);\\n        self.1.theorem_serialize_dps_parse_roundtrip(v.1, obuf);\\n        self.0.theorem_serialize_dps_parse_roundtrip(v.0, serialized1);\\n        self.0.lemma_serialize_dps_prepend(v.0, serialized1);\\n        self.0.lemma_serialize_dps_len(v.0, serialized1);\\n        if let Some((n0, v0)) = self.0.spec_parse(serialized0) {\\n            assert(n0 == self.0.byte_len(v.0));\\n            assert(serialized0.len() == serialized1.len() + self.0.byte_len(v.0));\\n            assert(n0 == serialized0.len() - serialized1.len());\\n            assert(serialized0[n0..] =~= serialized1);\\n        }\\n    \"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 18301,
+      "outputTokens": 297,
+      "totalTokens": 18598,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4273
+    }
+  }
+}

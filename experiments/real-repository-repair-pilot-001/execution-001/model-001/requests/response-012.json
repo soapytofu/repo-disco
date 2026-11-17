@@ -1,0 +1,54 @@
+{
+  "text": "{\"replacement\":\"\\n    reveal aLength;\\n    reveal aInvariant;\\n    reveal sInvariant;\\n    assert a.Length <= 1;\\n    assert oldASeq == a[..];\\n    assert oldS == s;\\n    if |oldASeq| == 0 {\\n      assert Model.Shuffle(oldASeq)(oldS) == Monad.Return(oldASeq)(oldS);\\n      assert Monad.Return(oldASeq)(oldS) == Monad.Result(oldASeq, oldS);\\n      assert oldASeq == a[..];\\n      assert oldS == s;\\n    } else {\\n      assert |oldASeq| == 1;\\n      assert Model.Shuffle(oldASeq)(oldS) == Model.ShuffleCurried(oldASeq, oldS, 0);\\n      assert |oldASeq| - 0 == 1;\\n      assert !(|oldASeq| - 0 > 1);\\n      assert Model.ShuffleCurried(oldASeq, oldS, 0) == Monad.Return(oldASeq)(oldS);\\n      assert Monad.Return(oldASeq)(oldS) == Monad.Result(oldASeq, oldS);\\n      assert oldASeq == a[..];\\n      assert oldS == s;\\n    }\\n  \"}",
+  "content": [
+    {
+      "text": "{\"replacement\":\"\\n    reveal aLength;\\n    reveal aInvariant;\\n    reveal sInvariant;\\n    assert a.Length <= 1;\\n    assert oldASeq == a[..];\\n    assert oldS == s;\\n    if |oldASeq| == 0 {\\n      assert Model.Shuffle(oldASeq)(oldS) == Monad.Return(oldASeq)(oldS);\\n      assert Monad.Return(oldASeq)(oldS) == Monad.Result(oldASeq, oldS);\\n      assert oldASeq == a[..];\\n      assert oldS == s;\\n    } else {\\n      assert |oldASeq| == 1;\\n      assert Model.Shuffle(oldASeq)(oldS) == Model.ShuffleCurried(oldASeq, oldS, 0);\\n      assert |oldASeq| - 0 == 1;\\n      assert !(|oldASeq| - 0 > 1);\\n      assert Model.ShuffleCurried(oldASeq, oldS, 0) == Monad.Return(oldASeq)(oldS);\\n      assert Monad.Return(oldASeq)(oldS) == Monad.Result(oldASeq, oldS);\\n      assert oldASeq == a[..];\\n      assert oldS == s;\\n    }\\n  \"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 45737,
+    "outputTokens": 356,
+    "totalTokens": 46093,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "2b992229-3301-4f6f-a8cf-eefeb50ac735",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "2b992229-3301-4f6f-a8cf-eefeb50ac735",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 17 Nov 2026 18:32:54 GMT",
+        "content-type": "application/json",
+        "content-length": "1171",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "2b992229-3301-4f6f-a8cf-eefeb50ac735"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"replacement\":\"\\n    reveal aLength;\\n    reveal aInvariant;\\n    reveal sInvariant;\\n    assert a.Length <= 1;\\n    assert oldASeq == a[..];\\n    assert oldS == s;\\n    if |oldASeq| == 0 {\\n      assert Model.Shuffle(oldASeq)(oldS) == Monad.Return(oldASeq)(oldS);\\n      assert Monad.Return(oldASeq)(oldS) == Monad.Result(oldASeq, oldS);\\n      assert oldASeq == a[..];\\n      assert oldS == s;\\n    } else {\\n      assert |oldASeq| == 1;\\n      assert Model.Shuffle(oldASeq)(oldS) == Model.ShuffleCurried(oldASeq, oldS, 0);\\n      assert |oldASeq| - 0 == 1;\\n      assert !(|oldASeq| - 0 > 1);\\n      assert Model.ShuffleCurried(oldASeq, oldS, 0) == Monad.Return(oldASeq)(oldS);\\n      assert Monad.Return(oldASeq)(oldS) == Monad.Result(oldASeq, oldS);\\n      assert oldASeq == a[..];\\n      assert oldS == s;\\n    }\\n  \"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 45737,
+      "outputTokens": 356,
+      "totalTokens": 46093,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6364
+    }
+  }
+}

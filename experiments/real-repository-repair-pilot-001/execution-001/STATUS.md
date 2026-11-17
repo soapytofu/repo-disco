@@ -1,12 +1,15 @@
 # Execution status
 
-The approved collection was submitted once as **61582770** on November 17, 2026
-at 18:31:06 UTC. The live partition check confirmed `test`, `PreemptMode=OFF`.
-It uses one CPU, 2 GB and a 60-minute limit, with no requeue. The first status
-observation showed RUNNING; no completion or proof score is inferred.
+Collection **61582770** completed in 2m09s on November 17: **16 reserved,
+16 completed, 16 unique response IDs, zero SDK retries**. Token use was
+479,940 input + 3,447 output = 483,387 total. This new budget is exhausted.
+The complete 113-file transfer, canonical ledger, raw responses and review are
+saved here. All JSON envelopes were valid; the frozen body guard admitted nine
+and rejected seven. `syntax-audit-001.json` records the exclusions without
+reclassifying them as mathematical failures or changing the frozen policy.
 
-The separate fresh authorization allows at most sixteen requests from the exact
-frozen order, with no retries or reassignment. The older terminal sessions remain
-closed. Runtime preparation is published in `61b5ed2`; 17 offline tests passed
-locally and on Cannon. Full collection evidence will be reviewed before either
-1-CPU Dafny or 4-CPU Vest verification job is submitted.
+After review, verifier-only jobs were submitted once on live-confirmed
+nonpreemptible `test`: **61583898** checks three Dafny candidates with one CPU;
+**61584032** checks six Vest candidates with four CPUs, sequentially per job.
+These jobs were observed running. No verification score is claimed yet.
+The complete source/response binding is `verification-gate.json`.
