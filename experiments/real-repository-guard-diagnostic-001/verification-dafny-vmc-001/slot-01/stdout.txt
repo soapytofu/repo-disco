@@ -1,0 +1,28 @@
+src/Math/Measures.dfy(40,4): Warning: /!\ No terms found to trigger on.
+   |
+40 |     iset _: iset<A>
+   |     ^^^^
+
+src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\ No terms found to trigger on.
+   |
+23 |     ensures forall i | 0 <= i < n ::
+   |             ^^^^^^
+
+src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\ No terms found to trigger on.
+    |
+381 |           forall j | 0 <= j < |xs| - (i+1) ensures Model.Shuffle(ys, i+1)(s').value[i+1..][j] == p[i+1..][j] {
+    |           ^^^^^^
+
+src/Util/FisherYates/Correctness.dfy(475,2): Verification out of resource (FisherYates.Correctness.InductionHypothesisPrecondition1 (correctness))
+    |
+475 |   lemma InductionHypothesisPrecondition1<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat)
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src/Util/FisherYates/Correctness.dfy(595,2): Verification out of resource (FisherYates.Correctness.ProbabilityOfE (correctness))
+    |
+595 |   lemma ProbabilityOfE<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 265 verified, 0 errors, 2 out of resource
+Results File: /n/home13/sophiezeng/formal-disco/outputs/real-repository-guard-diagnostic-001/work/dafny-vmc/slot-01/TestResults/2026-11-17_23_44_51-0.csv

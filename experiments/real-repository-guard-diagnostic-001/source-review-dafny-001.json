@@ -1,0 +1,110 @@
+{
+  "interpretation": "Swap has 265 passing units and two downstream resource-limit failures. These are not counterexamples or completed mathematical proof failures; no retry or budget increase. Small-shuffle has all 267 units passing with only the three exact upstream warnings.",
+  "job_id": "61653288",
+  "model_calls": 0,
+  "native_observations": 2,
+  "original_score_unchanged": true,
+  "rows": [
+    {
+      "candidate_sha256": "f30c6a0f04ee2d65d8610fab475e19e8241dc5213a6345405070556317a415da",
+      "category": "VERIFIER_RESOURCE_FAILURE",
+      "exit_code": 4,
+      "logged_units": 267,
+      "nonpassing_units": {
+        "FisherYates.Correctness.InductionHypothesisPrecondition1 (correctness)": "Failed",
+        "FisherYates.Correctness.ProbabilityOfE (correctness)": "Failed"
+      },
+      "passed_units": 265,
+      "protected_body_receipt": {
+        "body_sha256": "5eb5bed5a5d8947e83065888d5294e20504f0b09bd5d37101a0f4a9ba150cac6",
+        "calls": [],
+        "candidate_sha256": "f30c6a0f04ee2d65d8610fab475e19e8241dc5213a6345405070556317a415da",
+        "envelope": {
+          "end_char": 52,
+          "payload_sha256": "68ff2e68a5db36bdc38a87cbcdd02a2ace46ea1ba5e668779bfdc95287bc66fa",
+          "raw_sha256": "68ff2e68a5db36bdc38a87cbcdd02a2ace46ea1ba5e668779bfdc95287bc66fa",
+          "start_char": 0,
+          "version": "single-json-envelope-v1"
+        },
+        "file": "src/Util/FisherYates/Model.dfy",
+        "locals": [],
+        "policy": "real-repository-four-regions-v2-syntax",
+        "prefix_sha256": "01c8599eb81dd345f6e0bb8e97f13c6f275cc1b76bed299e0255c2c5d0e4a5e3",
+        "seed_sha256": "76678c0c29fcbd1353edb2b7fe37bdebbcda698f7f4151cb9001ded30b669080",
+        "semantics_checked": false,
+        "suffix_sha256": "7cbefcd0a23ff8bd294a938a6a8fab95de422afc87c6447d44ff2fa5c5697ed0",
+        "task": "vmc-swap",
+        "tokens": 17
+      },
+      "qualified_scope_pass": false,
+      "representative_slot": 1,
+      "saved_slots": [
+        1,
+        2,
+        15,
+        16
+      ],
+      "seconds": 30.830645207002817,
+      "source_files": 91,
+      "swap_unit": {
+        "FisherYates.Model.Swap (well-formedness)": "Passed"
+      },
+      "task": "vmc-swap",
+      "warnings": 3
+    },
+    {
+      "candidate_sha256": "12beef036ba675156eb28dbc17075ef0da137b35651339d50621e7e74f3e6f33",
+      "category": "PROVED_WITH_WARNINGS",
+      "exit_code": 0,
+      "logged_units": 267,
+      "nonpassing_units": {},
+      "passed_units": 267,
+      "protected_body_receipt": {
+        "body_sha256": "a69de2347b2a0d363776b40c23ad7ebfc6ddcb84a897906768019bcc4f80334f",
+        "calls": [
+          "Model.Shuffle",
+          "Monad.Return",
+          "Monad.Return",
+          "Monad.Result",
+          "Model.Shuffle",
+          "Model.ShuffleCurried",
+          "Model.ShuffleCurried",
+          "Monad.Return",
+          "Monad.Return",
+          "Monad.Result"
+        ],
+        "candidate_sha256": "12beef036ba675156eb28dbc17075ef0da137b35651339d50621e7e74f3e6f33",
+        "envelope": {
+          "end_char": 825,
+          "payload_sha256": "6440888b1048fae4ed75aed10c0a1165e3a4f177272b4568fd86be22add5a798",
+          "raw_sha256": "6440888b1048fae4ed75aed10c0a1165e3a4f177272b4568fd86be22add5a798",
+          "start_char": 0,
+          "version": "single-json-envelope-v1"
+        },
+        "file": "src/Util/FisherYates/Equivalence.dfy",
+        "locals": [],
+        "policy": "real-repository-four-regions-v2-syntax",
+        "prefix_sha256": "57fdb36e89a5b87bdee710537ccac90d18c9f9b5cf0616b8350bf9cfd75ae8b2",
+        "seed_sha256": "18c59b505cda05ef1a4422c3b1b87d439e81d0968dfbc38bee49c5e02a60eddb",
+        "semantics_checked": false,
+        "suffix_sha256": "dc805d1d3aa2d8731b95a9b35e3ea28c31a94a58e5b39050870fc7439672e75e",
+        "task": "vmc-small-shuffle",
+        "tokens": 199
+      },
+      "qualified_scope_pass": true,
+      "representative_slot": 12,
+      "saved_slots": [
+        12
+      ],
+      "seconds": 32.4756036300023,
+      "source_files": 91,
+      "swap_unit": {
+        "FisherYates.Model.Swap (well-formedness)": "Passed"
+      },
+      "task": "vmc-small-shuffle",
+      "warnings": 3
+    }
+  ],
+  "saved_outputs_covered": 5,
+  "status": "DAFNY_SOURCE_AND_DIAGNOSTIC_REVIEW_PASSED"
+}

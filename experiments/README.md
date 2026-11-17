@@ -2,15 +2,17 @@
 
 ## Saved real-source outputs — separate syntax diagnostic
 
-[Guard revision and frozen diagnostic](real-repository-guard-diagnostic-001/README.md)
-admit Dafny functional updates, assertion negation and Verus extensional equality.
+[Guard revision and separate results](real-repository-guard-diagnostic-001/RESULTS.md)
+cover Dafny functional updates, assertion negation and Verus extensional equality.
 All 25 offline tests pass locally and on Cannon. Exact replay preserves all nine
 previously admitted candidates; the seven excluded responses yield three distinct
 candidate files. Verifier-only jobs 61653288 (one CPU, Dafny) and 61653437 (four
 CPUs, Vest) were submitted once on live-confirmed nonpreemptible test. Their
 three native observations will cover seven outputs by explicit identical-source
-reuse, not seven independent trials. Original score **7/16** and all 653 parent
-archive files remain unchanged; zero new model calls.
+reuse, not seven independent trials. Dafny is complete: small-shuffle passes all
+267 units; swap passes 265 units and exhausts the fixed resource limit in two
+downstream lemmas. Its own logged unit passes. Vest remains running. Original score
+**7/16** and all 653 parent archive files remain unchanged; zero new model calls.
 
 ## Real-repository repair — completed sixteen-call pilot
 

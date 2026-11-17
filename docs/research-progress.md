@@ -13,15 +13,18 @@ Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 ## November 16: real-repository evaluation and progressive extension
 
 November 17 follow-up: the separate
-[saved-output syntax diagnostic](../experiments/real-repository-guard-diagnostic-001/README.md)
+[saved-output syntax diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md)
 fixes the three observed guard exclusions without changing model response bytes.
 Twenty-five offline tests pass locally and on Cannon; all nine previously admitted
 candidates replay identically. The seven excluded responses reduce to three distinct
-full candidate files. Two verifier-only jobs, 61653288 and 61653437, are now running
-with the original qualified toolchains and coverage/warning policies. One CPU is
-allocated to Dafny and four to the unchanged three-thread Verus/four-worker Cargo
-command. Original 7/16 acceptance and all 653 parent files remain unchanged.
-No new model requests are authorized or made; native diagnostic outcomes are pending.
+full candidate files. Dafny job 61653288 is complete: small-shuffle passes all 267
+units with the three exact upstream warnings; Swap's own logged unit passes, but
+two downstream units exhaust the fixed resource limit (265/267 pass). These are
+resource failures, not counterexamples. Vest job 61653437 remains running with
+the original qualified toolchain and coverage/warning policy. One CPU was allocated
+to Dafny and four to the unchanged three-thread Verus/four-worker Cargo command.
+Original 7/16 acceptance and all 653 parent files remain unchanged. Zero new model
+calls, no retry or increased verifier budget.
 
 The user's November 17 JDS notice requires workload-specific
 CPU allocations. The [repair pilot scheduling note](../experiments/real-repository-repair-pilot-001/README.md#november-17-resource-sizing-for-future-execution)
