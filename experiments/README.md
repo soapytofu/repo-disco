@@ -1,5 +1,17 @@
 # Experiment log
 
+## Saved real-source outputs — separate syntax diagnostic
+
+[Guard revision and frozen diagnostic](real-repository-guard-diagnostic-001/README.md)
+admit Dafny functional updates, assertion negation and Verus extensional equality.
+All 25 offline tests pass locally and on Cannon. Exact replay preserves all nine
+previously admitted candidates; the seven excluded responses yield three distinct
+candidate files. Verifier-only jobs 61653288 (one CPU, Dafny) and 61653437 (four
+CPUs, Vest) were submitted once on live-confirmed nonpreemptible test. Their
+three native observations will cover seven outputs by explicit identical-source
+reuse, not seven independent trials. Original score **7/16** and all 653 parent
+archive files remain unchanged; zero new model calls.
+
 ## Real-repository repair — completed sixteen-call pilot
 
 [Results and full logs](real-repository-repair-pilot-001/execution-001/RESULTS.md):

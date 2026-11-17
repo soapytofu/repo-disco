@@ -12,6 +12,17 @@ Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 16: real-repository evaluation and progressive extension
 
+November 17 follow-up: the separate
+[saved-output syntax diagnostic](../experiments/real-repository-guard-diagnostic-001/README.md)
+fixes the three observed guard exclusions without changing model response bytes.
+Twenty-five offline tests pass locally and on Cannon; all nine previously admitted
+candidates replay identically. The seven excluded responses reduce to three distinct
+full candidate files. Two verifier-only jobs, 61653288 and 61653437, are now running
+with the original qualified toolchains and coverage/warning policies. One CPU is
+allocated to Dafny and four to the unchanged three-thread Verus/four-worker Cargo
+command. Original 7/16 acceptance and all 653 parent files remain unchanged.
+No new model requests are authorized or made; native diagnostic outcomes are pending.
+
 The user's November 17 JDS notice requires workload-specific
 CPU allocations. The [repair pilot scheduling note](../experiments/real-repository-repair-pilot-001/README.md#november-17-resource-sizing-for-future-execution)
 records serial one-core defaults and measured command CPU usage before building
