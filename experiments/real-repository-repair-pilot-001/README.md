@@ -144,3 +144,27 @@ bounded live handler bound to this freeze. No paid runner, authorization file or
 credential handoff is created here. The older terminal paid session remains
 closed; this proposal cannot reuse or recover its unused slots. No reconnection
 or Bedrock key is needed to inspect the saved plan.
+
+## November 17: resource sizing for future execution
+
+Following the user's JDS efficiency notice, future scheduling must use the
+workload's actual parallelism. Serial stages and independently scheduled serial
+Dafny checks default to one node, one task and one CPU per task. Request more
+cores only for explicit concurrent workers or verifier/build threads, and inspect
+`jobstats`/Slurm CPU accounting after execution. Slurm allocation alone does not
+parallelize a program ([FASRC guidance](https://docs.rc.fas.harvard.edu/kb/job-efficiency-and-optimization-best-practices/#Cores)).
+
+The six existing `runtime-002/verification-001/*/resources.txt` logs show roughly
+0.99–1.02 active CPU cores per Dafny command and 1.70–1.98 per Vest command, computed
+as `(user_seconds + system_seconds) / elapsed_seconds`. These are command-level
+averages, not whole-job Slurm efficiency or peak concurrency measurements. They
+do not justify eight cores for a single invocation. Separate serial staging/API
+waiting from parallel verification when implementing the future runner, and
+avoid concurrent writes to a shared Cargo cache.
+
+The frozen Vest command still uses three verifier threads and four Cargo build
+workers; it must not simply be assigned one core as if it were serial. Choose an
+allocation consistent with those limits and measured usage, or explicitly version
+and qualify any thread/command change. The published historical scripts, source
+evidence, prompt freeze and proposed 16-call budget remain unchanged. This note
+adds no job submission or model authorization.

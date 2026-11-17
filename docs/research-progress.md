@@ -12,6 +12,16 @@ Status: November 16, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 16: real-repository evaluation and progressive extension
 
+November 17 operational update: the user's JDS notice requires workload-specific
+CPU allocations. The [repair pilot scheduling note](../experiments/real-repository-repair-pilot-001/README.md#november-17-resource-sizing-for-future-execution)
+records serial one-core defaults and measured command CPU usage before building
+a live runner. Saved queue receipts identify flagged jobs `61253676` and
+`61334047` as dynamic-activations/VLA workloads, not RepoDisco; the other six
+email entries have not been attributed here. This is an allocation issue, not
+evidence that the recorded proof outcomes are wrong. No jobs were changed or
+submitted, no new tests or model calls ran, and all frozen experiments remain
+unchanged.
+
 The next concrete collection is now the [frozen real-source repair proposal](../experiments/real-repository-repair-pilot-001/README.md):
 **16 proposed calls, zero authorized or made**, on two Dafny-VMC and two Vest
 sites. It compares saved diagnostics with a failure notice, two independent
