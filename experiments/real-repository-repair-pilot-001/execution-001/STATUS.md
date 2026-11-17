@@ -11,5 +11,8 @@ reclassifying them as mathematical failures or changing the frozen policy.
 After review, verifier-only jobs were submitted once on live-confirmed
 nonpreemptible `test`: **61583898** checks three Dafny candidates with one CPU;
 **61584032** checks six Vest candidates with four CPUs, sequentially per job.
-These jobs were observed running. No verification score is claimed yet.
+Dafny job 61583898 has completed in 2m14s: all three admitted repairs pass all
+267 required named obligations with only the same three upstream warnings.
+The source/raw-evidence replay and manual body-intent review pass. Vest remains
+in progress; no Vest score is claimed yet.
 The complete source/response binding is `verification-gate.json`.
