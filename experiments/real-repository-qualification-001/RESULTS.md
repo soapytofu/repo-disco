@@ -1,6 +1,6 @@
 # Pinned real-repository qualification results
 
-Verifier-only. No model calls. Dafny-VMC is qualified for the declared scope; Vest has successful native baselines; its coverage controls are submitted.
+Verifier-only. No model calls. Dafny-VMC and Vest are qualified for their declared pinned scopes. All native baseline and coverage jobs are complete, with full raw evidence retained. This does not authorize model collection or qualify arbitrary edits.
 
 | Dafny-VMC observation | Native result | Coverage decision |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ Earlier host-library and HTTP/2 image-pull failures are preserved separately and
 
 See [coverage-001/review-001.json](coverage-001/review-001.json), [profile.json](coverage-001/profile.json), [full raw results](coverage-001/results/) and [native baseline](container-003/results/native-baseline/).
 
-## Vest native baseline and pending coverage gate
+## Vest native baseline and completed coverage gate
 
 Job **61304625** completed in 13m56s. The native commands use the exact upstream-pinned Verus `0.2026.10.26.d17fbd0`, Rust 1.99.1 and Z3 4.16.0, under the immutable Trixie environment. Both exit zero with unchanged source and lockfile. No model calls.
 
@@ -37,4 +37,22 @@ The library command takes 242.23 seconds, with no warnings. The development-root
 
 All **41 transferred files**, raw JSON/stdout/stderr, GNU time resource logs, versions, tool-archive closure and source checks are saved in [vest-container-004](vest-container-004/). [The native review](vest-container-004/baseline-review-001.json) records the actual observations. Earlier download, missing-linker and Z3-library setup failures remain preserved and are not proof scores.
 
-The frozen [Vest coverage phase](vest-coverage-001/README.md) passed eleven offline tests both locally and on Cannon, including exact native replay, repeated-label multiplicities, missing provider/module evidence, stale run IDs, changed source/commands/tools and corrupted or missing output. The rejected initial uniqueness assumption is retained separately. Job **61311690** is submitted once on nonpreemptible shared, with seven fresh controls and at most two concurrent commands. Each has its own source copy and fresh target directory; Verus uses three threads per invocation, matching the native baseline. **Coverage qualification remains pending its actual results.**
+The frozen [Vest coverage phase](vest-coverage-001/README.md) passed eleven offline tests both locally and on Cannon, including exact native replay, repeated-label multiplicities, missing provider/module evidence, stale run IDs, changed source/commands/tools and corrupted or missing output. The rejected initial uniqueness assumption is retained separately. Job **61311690** completed on nonpreemptible shared in **27m29s**. All seven fresh controls matched their expected outcomes. Each used its own source copy and fresh target directory; at most two commands ran concurrently with three Verus threads each, matching the effective native baseline setting. There was one submission, no requeue and no automatic retries.
+
+| Coverage invocation | Native exit / proof result | Harness decision |
+| --- | --- | --- |
+| Unchanged adapter baseline | 0; all three crate reports pass | Accept declared scope; exact native inventory agreement |
+| Broken provider, native and adapter (two invocations) | 101; `theorem_serialize_parse_roundtrip` assertion fails | Reject; `vest_lib` fails and Cargo never reaches `vest_dev` verification |
+| Client-only `focus` with the same broken provider | 0; all 340 root verified counts pass | Reject full scope: dependency proof reports are absent |
+| Unregistered failing file | 0; original three crate reports pass | Reject: required `omitted_failure` result absent |
+| Registered failing file, native and adapter (two invocations) | 101; `omitted_failure` assertion fails | Reject; complete intended inventory includes the failing unit |
+
+Native and adapter results agree on the unchanged scope, the broken provider and the registered failing module. The `focus` output includes passing results for the four concrete dependent-format roundtrip clients, but no verified provider; this cannot count as workspace success. The registered case has 340 root passes plus one actual failure. The omitted case has the same existing passes but lacks that required result. These are deliberately injected coverage controls, not natural repository bugs or model repair results.
+
+The scorer preserves five upstream root warnings and rejects any unexpected warning set for an otherwise positive scope result. One rejected native provider-control run additionally reports a Cargo cache last-use **database locked** warning; it still emits the expected named assertion failure. The complete warning and its cause remain in raw stderr. The corresponding adapter run has the same proof outcomes without that cache warning. No result was rerun or rescored to remove it.
+
+The [frozen offline review](vest-coverage-001/review-001.json) reconstructs all seven source/command/tool/run-ID/raw-result bindings and compares actual unit labels, multiplicities, summaries and diagnostics. All 56 transferred files are retained in [the coverage archive](vest-coverage-001/); the installed Verus archive closure is identical to the reviewed baseline. Eleven offline tests pass locally and on Cannon. Changed source or contracts, command bypasses, stale IDs, missing/altered raw evidence and incomplete inventories are rejected. This host-authored exact-candidate policy is not a general model patch guard.
+
+Observed command wall times range from 135.01 to 341.49 seconds, with no timeouts or frontend failures. Per-command GNU time peak RSS ranges from 1,143,576 to 2,292,556 KiB; Slurm reports 4,752,428K for the concurrent batch. Native sequential baselines record 2,283,824 KiB (`vest_lib`) and 2,267,032 KiB (`vest_dev`). Compilation is included; source staging and post-run hashing are outside command time. These are resource observations, not a speedup or cross-language performance comparison.
+
+Qualification covers the pinned default-feature `vest_dev` module tree and its verified `vest_lib`/`vstd` dependencies, under the recorded upstream external/trusted definitions and warnings. It does not cover every staged file, every workspace crate, alternate features, arbitrary new edits, verifier soundness or all runtime behavior. Future real-repository model tasks still need a frozen edit policy and declared required proof inventory; no such model run or paid authorization was added.

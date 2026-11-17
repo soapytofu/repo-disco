@@ -1,0 +1,68 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling verus_prettyplease v0.0.0-2026-09-06-0133
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.17.1
+   Compiling vstd v0.0.0-2026-10-25-0158
+   Compiling convert_case v0.4.0
+   Compiling indexmap v2.14.1
+    Checking verus_builtin v0.0.0-2026-10-11-0230
+   Compiling verus_syn v0.0.0-2026-09-06-0133
+   Compiling syn v2.0.119
+   Compiling synstructure v0.13.2
+   Compiling verus_state_machines_macros v0.0.0-2026-10-25-0158
+   Compiling verus_builtin_macros v0.0.0-2026-10-25-0158
+    Checking vest_lib v0.2.3 (/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/vest-coverage-001/work/registered-adapter/vest_lib)
+    Checking vest_dev v0.1.0 (/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/vest-coverage-001/work/registered-adapter/vest_dev)
+warning: verus-related attribute has no effect because item is already marked external
+   --> vest_dev/src/formats/overhead_study.rs:147:9
+    |
+147 |         broadcast use crate::core::spec::SafeParser::lemma_parse_safe;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: autoderive Clone impl does not take the form Verus expects; continuing, but without adding a specification for the derived Clone impl
+   --> vest_dev/src/formats/bits.rs:158:32
+    |
+158 | #[derive(Debug, PartialEq, Eq, Clone)]
+    |                                ^^^^^
+    |
+    = help: to suppress this warning, use `#[verifier::allow(autoderive_clone_without_spec)]` on the surrounding function, datatype, or module or `#![verifier::allow(autoderive_clone_without_spec)]` in the module or crate
+
+warning: Verus does not currently support autoderive Clone impl when the clone is not a copy; continuing, but without adding a specification for the derived Clone impl
+   --> vest_dev/src/formats/bits.rs:189:32
+    |
+189 | #[derive(Debug, PartialEq, Eq, Clone)]
+    |                                ^^^^^
+    |
+    = help: to suppress this warning, use `#[verifier::allow(autoderive_clone_without_spec)]` on the surrounding function, datatype, or module or `#![verifier::allow(autoderive_clone_without_spec)]` in the module or crate
+
+warning: autoderive Clone impl does not take the form Verus expects; continuing, but without adding a specification for the derived Clone impl
+   --> vest_dev/src/formats/bits.rs:249:32
+    |
+249 | #[derive(Debug, PartialEq, Eq, Clone)]
+    |                                ^^^^^
+    |
+    = help: to suppress this warning, use `#[verifier::allow(autoderive_clone_without_spec)]` on the surrounding function, datatype, or module or `#![verifier::allow(autoderive_clone_without_spec)]` in the module or crate
+
+warning: Verus does not currently support autoderive Clone impl when the clone is not a copy; continuing, but without adding a specification for the derived Clone impl
+   --> vest_dev/src/formats/bits.rs:277:32
+    |
+277 | #[derive(Debug, PartialEq, Eq, Clone)]
+    |                                ^^^^^
+    |
+    = help: to suppress this warning, use `#[verifier::allow(autoderive_clone_without_spec)]` on the surrounding function, datatype, or module or `#![verifier::allow(autoderive_clone_without_spec)]` in the module or crate
+
+error: assertion failed
+ --> vest_dev/src/qualification_detached.rs:2:50
+  |
+2 | verus! { pub proof fn omitted_failure() { assert(false); } }
+  |                                                  ^^^^^ assertion failed
+
+note: diagnostics via expansion
+      
+      false 
+      
+
+warning: `vest_dev` (lib) generated 5 warnings
+error: could not compile `vest_dev` (lib) due to 1 previous error; 5 warnings emitted

@@ -131,8 +131,8 @@ with three unchanged trigger warnings. It is not a zero-warning baseline, proof 
 all upstream runtime code, or approval for arbitrary model edits. Future model
 collection must bind a reviewed edit policy and this exact scope/toolchain; no
 model runner or paid authorization has been introduced. Vest native baselines now
-pass; its seven-command coverage phase is submitted as job 61311690 after eleven
-offline checks passed locally and on Cannon. See [results](RESULTS.md) and
+pass, and all seven coverage controls in job 61311690 matched their expected
+outcomes. Eleven offline checks passed locally and on Cannon. See [results](RESULTS.md) and
 [the frozen control plan](vest-coverage-001/README.md).
 
 ## Connection and continuation
@@ -140,9 +140,8 @@ offline checks passed locally and on Cannon. See [results](RESULTS.md) and
 Socket 18 disappeared during the completed phase-003 job. The user reconnected
 on socket 19; `phase_ops.py` now changes only the coordinator's transport. The
 pinned original `ops.py` and all compute bundles remain unchanged. Never resubmit
-an existing phase. The current job is the frozen Vest coverage phase, 61311690. Fetch once terminal
-and review all seven controls; the successful native baseline has already been
-retrieved and must not be polled or fetched again. `continuation-state.json`
+an existing phase. All jobs are now complete. Vest coverage job 61311690 and its successful native
+baseline have been retrieved and reviewed. Do not poll, refetch or resubmit them. `continuation-state.json`
 records this handoff. No Bedrock key or model calls are needed.
 
 For a fresh checkout, `source-manifest.json` records pinned public archive URLs,

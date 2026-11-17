@@ -19,8 +19,11 @@ three existing warnings, native/adapter agreement and actual omitted-module and
 failing-helper controls. Eight offline tests and all raw evidence are saved.
 Vest native baselines now pass: 3,279 library and 340 development-root verified
 counts, zero errors, plus 2,102 dependency verified counts. Five upstream warnings
-remain in the root. Eleven scorer/integrity tests passed locally and on Cannon;
-seven verifier-only coverage controls are submitted. No model calls.
+remain in the root. All seven verifier-only coverage controls matched: native
+agreement, rejected unproved dependencies despite passing clients, rejected
+omitted failing modules, and actual failure after module registration. Eleven
+scorer/integrity tests pass locally and on Cannon; all full logs are saved.
+Both projects qualify only for their declared pinned scopes. No model calls.
 
 ## Fixed-target migration repair — two fresh seeds validated
 

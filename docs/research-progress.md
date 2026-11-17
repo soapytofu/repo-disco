@@ -16,7 +16,7 @@ Following Nada's feedback, the next milestone targets online Dafny and Verus
 codebases for the November 24 meeting. The [source-reviewed plan](../experiments/real-repository-evolution-001/PLAN.md)
 records four candidate upstream commits: Dafny-VMC, Dafny standard libraries,
 Vest and Verified Storage. The pinned Dafny-VMC qualification now passes for its
-declared scope (below); Vest qualification is running. Pinned toolchains and actual
+declared scope (below), as does Vest with its recorded upstream warnings. Pinned toolchains and actual
 proof/trust boundaries are required before model collection.
 The existing four client extensions were independent additions, not a repeated
 growth chain. The new plan separates matched repair evaluation from two-stage
@@ -43,8 +43,13 @@ All source/CSV/runtime logs and eight offline checks are saved. This qualifies
 the declared proof scope under existing trust exemptions, not all runtime code
 or arbitrary model edits. Vest native baselines now pass with pinned Verus/Rust/Z3: 3,279 library and
 340 development-root verified counts, plus 2,102 dependency counts, zero errors.
-Five upstream warnings remain. Eleven offline scorer checks pass locally and on
-Cannon; the seven verifier-only coverage controls are submitted as job 61311690.
+Five upstream warnings remain. All seven coverage controls in job 61311690 match:
+correct native/adapter agreement, rejection of an unproved provider despite
+passing focused clients, and rejection of an omitted failing module before
+explicit registration exposes its failure. Eleven offline checks pass locally
+and on Cannon. Full raw evidence, timing/memory and frozen reviews are saved.
+These qualify the declared default-feature proof scopes under upstream trust
+assumptions; arbitrary model edits and other crates/features remain unqualified.
 
 ## November 15: actual caller failures under internal API changes
 
