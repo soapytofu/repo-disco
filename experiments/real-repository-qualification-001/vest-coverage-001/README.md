@@ -1,23 +1,13 @@
-# Vest coverage adapter: preparation awaiting native baseline
+# Vest coverage qualification
 
-This is an incomplete, unsubmitted adapter draft. No profile, runtime manifest,
-submission or paid authorization exists. It cannot run without an actual reviewed
-native obligation inventory. The compute guard also prohibits login/Mac execution.
+This verifier-only phase follows the successful native baseline in `../vest-container-004`. It freezes seven fresh commands over the pinned Vest snapshot: native/adapter baseline agreement, an invalid provider proof, client-only focus under that invalid provider, an unregistered failing module, and explicit module registration. No model calls or model-edit API are involved.
 
-Eight synthetic parser/coverage checks pass; they are not mathematical evidence.
-Two exact saved missing-linker outcomes are classified as environment/build errors,
-with zero verification reports and no proof score. Raw hashes are bound in
-`saved-build-failure-replay.json`. Real Vest coverage checks remain pending.
+`profile.json` binds the exact source, container, Verus archive, native evidence and required timed function-label inventory. The dependency-aware command verifies `vstd`, `vest_lib` and `vest_dev` with upstream default features. Other workspace crates/features and trusted or external definitions remain outside this claim. Hashing all snapshot files does not claim that every file has proof obligations.
 
-The intended controls preserve the upstream API while breaking the real
-serialize/parse roundtrip provider body, and contrast an unregistered failing Rust
-module with the same module registered in the crate. A focused client-only pass
-must never establish dependency proof coverage. Exact expected names and command
-profiles must be reviewed against the successful pinned baseline before freezing.
+`protocol.py` and `native-replay-draft-failure.json` preserve the rejected initial uniqueness assumption. The versioned `protocol_v2.py` retains repeated friendly labels as exact `(report crate, module, friendly label, mode)` multiplicities and requires every observed occurrence to pass. These labels are not unique proof IDs; aggregate native verified counts remain separate. Two actual saved baseline commands and preserved compiler failures are replayed in the offline tests. The root baseline has five upstream warnings, so it cannot be called a strict zero-warning success.
 
-The current native baseline job is 61304625 (phase 004). Its prior phase's missing-cc failure
-is preserved separately; the new phase supplies a pinned compiler-equipped image
-without changing the installed Verus/Rust or source. Phase 003 additionally exposed Z3's newer glibc/C++ runtime requirements; all logs
-are preserved. Socket 18 disappeared; the user restored the connection on socket
-19. No model
-calls or Bedrock key are needed.
+The host controls may insert only the exact frozen assertion or module-registration patches. All other source bytes, signatures, contracts, Cargo configuration and lockfile remain fixed. The scope scorer rejects missing results, stale run IDs, changed commands/toolchain/source, incomplete dependency inventories and changed raw evidence. This exact-candidate guard is not a general Rust model patch validator.
+
+Two commands run concurrently at most, with separate source and fresh target directories, four Cargo build jobs each and exactly three Verus threads each—the effective native baseline setting. Verification results cannot be reused from previous Cargo targets. A 900-second timeout bounds each command. Raw stdout/stderr, JSON reports, GNU time resource measurements and exit codes are retained independently of proof classification. The parallel adapter's wall time is descriptive, not a controlled performance comparison with the earlier sequential baseline.
+
+`manifest.json` freezes compute inputs before a single exclusive, no-requeue submission on a live-confirmed nonpreemptible compute partition. `review.py` independently reconstructs the records after retrieval. Results remain pending until that review succeeds.

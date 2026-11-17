@@ -81,7 +81,9 @@ preparation checks.
   compute-local `/tmp`; final images and all logs stay in the versioned output.
   [Debian records glibc 2.41](https://packages.debian.org/trixie/libc6) and
   [GCC 14 C++ libraries](https://packages.debian.org/trixie/libstdc%2B%2B6).
-  This phase is submitted once, not yet a baseline pass.
+  Both native commands now pass: `vstd` 2,102 verified, `vest_lib` 3,279 and
+  `vest_dev` 340, all with zero errors. Five upstream warnings remain in `vest_dev`.
+  Full 41-file evidence and the native review are saved.
 
 All executions use compute nodes, live-checked nonpreemptible shared partition,
 exclusive submission/output locks, fixed time/resource bounds and no requeue.
@@ -128,15 +130,19 @@ This is a proof-scope qualification under the recorded upstream trust assumption
 with three unchanged trigger warnings. It is not a zero-warning baseline, proof of
 all upstream runtime code, or approval for arbitrary model edits. Future model
 collection must bind a reviewed edit policy and this exact scope/toolchain; no
-model runner or paid authorization has been introduced. Vest remains pending.
+model runner or paid authorization has been introduced. Vest native baselines now
+pass; its seven-command coverage phase is submitted as job 61311690 after eleven
+offline checks passed locally and on Cannon. See [results](RESULTS.md) and
+[the frozen control plan](vest-coverage-001/README.md).
 
 ## Connection and continuation
 
 Socket 18 disappeared during the completed phase-003 job. The user reconnected
 on socket 19; `phase_ops.py` now changes only the coordinator's transport. The
 pinned original `ops.py` and all compute bundles remain unchanged. Never resubmit
-an existing phase. Check the single current job, fetch its evidence once terminal,
-and review it before freezing a Vest coverage inventory. `continuation-state.json`
+an existing phase. The current job is the frozen Vest coverage phase, 61311690. Fetch once terminal
+and review all seven controls; the successful native baseline has already been
+retrieved and must not be polled or fetched again. `continuation-state.json`
 records this handoff. No Bedrock key or model calls are needed.
 
 For a fresh checkout, `source-manifest.json` records pinned public archive URLs,

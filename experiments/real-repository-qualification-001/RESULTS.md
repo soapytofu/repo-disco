@@ -1,6 +1,6 @@
 # Pinned real-repository qualification results
 
-Verifier-only. No model calls. Dafny-VMC is qualified for the declared scope; Vest is still in its pinned setup/baseline phase.
+Verifier-only. No model calls. Dafny-VMC is qualified for the declared scope; Vest has successful native baselines; its coverage controls are submitted.
 
 | Dafny-VMC observation | Native result | Coverage decision |
 | --- | --- | --- |
@@ -21,11 +21,20 @@ Earlier host-library and HTTP/2 image-pull failures are preserved separately and
 
 See [coverage-001/review-001.json](coverage-001/review-001.json), [profile.json](coverage-001/profile.json), [full raw results](coverage-001/results/) and [native baseline](container-003/results/native-baseline/).
 
-Vest: job 61259311 validates the pinned Verus archive, Verus commit, Rust 1.99.1 and Z3 versions. Both native commands then fail with exit 101 while compiling Rust dependencies because `cc` is missing; no verification report exists. Full 60-file evidence is retained. A separately versioned official Rust slim build environment is prepared to supply the linker without changing those pinned tools or sources. No Vest qualification claim yet; both the partial-download and linker failures remain saved.
+## Vest native baseline and pending coverage gate
 
-The compiler-equipped phase-003 environment then exposed the pinned Z3 binary's
-exact runtime requirements: glibc 2.38 and GCC C++ symbols through 3.4.32. Its
-28-file evidence is retained; it stopped before repository verification. Phase
-004 uses a pinned Trixie image satisfying those identified requirements. Job
-61304625 is submitted once through the restored socket-19 connection. Vest's
-qualification remains pending; these environment failures are not proof scores.
+Job **61304625** completed in 13m56s. The native commands use the exact upstream-pinned Verus `0.2026.10.26.d17fbd0`, Rust 1.99.1 and Z3 4.16.0, under the immutable Trixie environment. Both exit zero with unchanged source and lockfile. No model calls.
+
+| Native report | Verified | Errors | Timed entries | Distinct friendly labels |
+| --- | ---: | ---: | ---: | ---: |
+| `vstd` dependency | 2,102 | 0 | 1,888 | 1,888 |
+| `vest_lib` | 3,279 | 0 | 3,182 | 3,070 |
+| `vest_dev` | 340 | 0 | 340 | 339 |
+
+The library command reports `vstd` and `vest_lib`; the development-root command independently reports all three. Do not add the repeated dependency baselines as independent tasks. Verus's verified counts and timed entries measure different things. Friendly labels can repeat; the versioned scorer retains their multiplicities instead of discarding duplicates or calling each label a unique proof obligation.
+
+The library command takes 242.23 seconds, with no warnings. The development-root command takes 249.79 seconds and retains **five upstream warnings**: one attribute on an already external item and four derived Clone implementations without Verus specifications. This is not a zero-warning root baseline. Cargo's “generated 5 warnings” line is a summary, not a sixth warning.
+
+All **41 transferred files**, raw JSON/stdout/stderr, GNU time resource logs, versions, tool-archive closure and source checks are saved in [vest-container-004](vest-container-004/). [The native review](vest-container-004/baseline-review-001.json) records the actual observations. Earlier download, missing-linker and Z3-library setup failures remain preserved and are not proof scores.
+
+The frozen [Vest coverage phase](vest-coverage-001/README.md) passed eleven offline tests both locally and on Cannon, including exact native replay, repeated-label multiplicities, missing provider/module evidence, stale run IDs, changed source/commands/tools and corrupted or missing output. The rejected initial uniqueness assumption is retained separately. Job **61311690** is submitted once on nonpreemptible shared, with seven fresh controls and at most two concurrent commands. Each has its own source copy and fresh target directory; Verus uses three threads per invocation, matching the native baseline. **Coverage qualification remains pending its actual results.**

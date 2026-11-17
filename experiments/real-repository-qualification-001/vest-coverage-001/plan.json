@@ -1,0 +1,71 @@
+{
+  "model_calls": 0,
+  "status": "FROZEN_VERIFIER_ONLY_CONTROLS",
+  "scope": {
+    "root_crate": "vest_dev",
+    "features": "upstream defaults (std)",
+    "excluded": "other workspace crates, alternate feature configurations, upstream trusted/external definitions",
+    "required_dependency_crates": [
+      "vstd",
+      "vest_lib"
+    ]
+  },
+  "expected_invocations": [
+    {
+      "id": "baseline-adapter",
+      "case": "vest_baseline",
+      "mode": "adapter",
+      "package": "vest_dev"
+    },
+    {
+      "id": "broken-provider-native",
+      "case": "vest_broken_provider",
+      "mode": "native",
+      "package": "vest_dev"
+    },
+    {
+      "id": "broken-provider-adapter",
+      "case": "vest_broken_provider",
+      "mode": "adapter",
+      "package": "vest_dev"
+    },
+    {
+      "id": "broken-provider-client-focus",
+      "case": "vest_broken_provider",
+      "mode": "client-focus-diagnostic",
+      "package": "vest_dev"
+    },
+    {
+      "id": "detached-native-omitted",
+      "case": "vest_detached",
+      "mode": "native-omitted",
+      "package": "vest_dev"
+    },
+    {
+      "id": "registered-native",
+      "case": "vest_registered",
+      "mode": "native",
+      "package": "vest_dev"
+    },
+    {
+      "id": "registered-adapter",
+      "case": "vest_registered",
+      "mode": "adapter",
+      "package": "vest_dev"
+    }
+  ],
+  "qualification_notes": [
+    "Native baseline verify -p vest_dev must actually emit both provider and client proof evidence; command text is insufficient",
+    "A provider proof failure may prevent Cargo from reaching the root crate: absent client proof is not a fabricated failure or pass",
+    "Focus is an intentional diagnostic with unverified dependencies and is ineligible for full-scope success",
+    "Native omitted module can return success; its explicitly required missing unit must reject the full claim",
+    "Source and public contracts are unchanged except exact host-authored control edits",
+    "Fresh target directories prevent proof-cache reuse; dependency source downloads may be reused offline"
+  ],
+  "execution": {
+    "parallel_commands": 2,
+    "verifier_threads": 3,
+    "cargo_build_jobs": 4,
+    "reason": "Separate source and fresh target directories; effective verifier thread count equals the native baseline. No model calls."
+  }
+}

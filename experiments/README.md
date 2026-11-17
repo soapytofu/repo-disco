@@ -17,7 +17,10 @@ zero model calls. The separate [upstream qualification](real-repository-qualific
 now passes Dafny-VMC's declared pinned scope: 267 baseline obligations, zero errors,
 three existing warnings, native/adapter agreement and actual omitted-module and
 failing-helper controls. Eight offline tests and all raw evidence are saved.
-Vest remains in pinned setup/baseline qualification; no model calls.
+Vest native baselines now pass: 3,279 library and 340 development-root verified
+counts, zero errors, plus 2,102 dependency verified counts. Five upstream warnings
+remain in the root. Eleven scorer/integrity tests passed locally and on Cannon;
+seven verifier-only coverage controls are submitted. No model calls.
 
 ## Fixed-target migration repair — two fresh seeds validated
 

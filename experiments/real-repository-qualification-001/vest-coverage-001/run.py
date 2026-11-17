@@ -1,14 +1,15 @@
 """Compute-only Vest native/adapter and module/provider coverage controls.
 
-This draft cannot execute until an actual reviewed native baseline profile and
-all pinned inputs are frozen in manifest.json. No model/client SDK is imported.
+Two independent commands at most, each with its own source and fresh Cargo target.
+No model/client SDK is imported; all inputs are frozen in manifest.json.
 """
 import json,os,shutil,socket,sys,zipfile
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;BASE=ROOT.parent
 sys.path.insert(0,str(BASE))
 from baseline import capture,digest,write,pins
-import protocol as gate
+import protocol_v2 as gate
 
 def candidate(work,case,base,patches):
     shutil.copytree(BASE/'upstream/vest',work)
@@ -38,19 +39,20 @@ def main():
     write(out/'environment.json',dict(job_id=os.environ['SLURM_JOB_ID'],host=socket.gethostname(),model_calls=0,manifest_sha256=digest((ROOT/'manifest.json').read_bytes())))
     observations=[]
     try:
-        for item in base['invocations']:
+        def one(item):
             label=item['id'];case=item['case'];mode=item['mode'];package=item['package']
             work=ROOT/'work'/label;expected=candidate(work,case,base,patches)
             target=ROOT/'targets'/label;assert not target.exists()
             prefix=list(native);prefix[prefix.index('--pwd')+1]=str(work)
+            prefix[-1:-1]=['--env','CARGO_BUILD_JOBS=4']
             action='focus' if mode=='client-focus-diagnostic' else 'verify'
             # Adapter command is selected from its trusted frozen profile, not supplied by a candidate.
             if mode=='adapter':logical=list(base['adapter_commands'][package])
-            else:logical=['cargo','verus',action,'-p',package,'--locked','--offline','--check-toolchain','--target-dir','<FRESH_TARGET>','--','--expand-errors','--output-json','--time-expanded']
+            else:logical=['cargo','verus',action,'-p',package,'--locked','--offline','--check-toolchain','--target-dir','<FRESH_TARGET>','--','--expand-errors','--output-json','--time-expanded','--num-threads','3']
             require_args=['--locked','--offline','--check-toolchain','--output-json','--time-expanded']
             assert all(a in logical for a in require_args)
             args=[str(target) if a=='<FRESH_TARGET>' else a for a in logical]
-            profile={**base,'case':case,'mode':mode,'package':package,'logical_command':logical,'source_sha256':expected,'required_functions':item['required_functions']}
+            profile={**base,'case':case,'mode':mode,'package':package,'logical_command':logical,'source_sha256':expected,'required':item['required']}
             result=capture(label,prefix+args,ROOT,out,env,900)
             folder=out/label;raw={n:(folder/n).read_bytes() for n in ['stdout.txt','stderr.txt','resources.txt']}
             after={p.relative_to(work).as_posix():digest(p.read_bytes()) for p in work.rglob('*') if p.is_file()}
@@ -60,11 +62,14 @@ def main():
                 logical_command=logical,toolchain=base['toolchain'],raw_sha256={n:gate.sha(b) for n,b in sorted(raw.items())},model_calls=0,attempts=1,exit_code=result['exit_code'],elapsed_seconds=result['elapsed_seconds'])
             write(folder/'profile.json',profile);write(folder/'bound-record.json',bound)
             gate.check_record(bound,profile,run_id,raw)
-            o=gate.verus_observation(result['exit_code'],raw['stdout.txt'],raw['stderr.txt'],profile['required_functions'])
+            o=gate.verus_observation(result['exit_code'],raw['stdout.txt'],raw['stderr.txt'],profile['required'])
             o['full_dependency_command']=action=='verify'
-            o['qualified_scope_pass']=o['proof_pass'] and action=='verify'
+            o['warnings_match_upstream']=sorted(o['warnings'])==sorted(base['upstream_warnings'])
+            o['qualified_scope_pass']=o['proof_pass'] and action=='verify' and o['warnings_match_upstream']
             write(folder/'observation.json',o)
-            observations.append(dict(id=label,category=o['category'],coverage_complete=o['coverage_complete'],qualified_scope_pass=o['qualified_scope_pass']))
+            return dict(id=label,category=o['category'],coverage_complete=o['coverage_complete'],qualified_scope_pass=o['qualified_scope_pass'])
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            observations=list(pool.map(one,base['invocations']))
         write(out/'complete.json',dict(model_calls=0,invocations=len(observations),observations=observations))
     except Exception as e:
         write(out/'failure.json',dict(type=type(e).__name__,message=str(e),model_calls=0));raise

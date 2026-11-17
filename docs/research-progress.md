@@ -41,7 +41,10 @@ baseline establish native/adapter agreement and rejection of an omitted failing
 module and an unproved real `Swap` helper despite a passing `Shuffle` caller.
 All source/CSV/runtime logs and eight offline checks are saved. This qualifies
 the declared proof scope under existing trust exemptions, not all runtime code
-or arbitrary model edits. Vest remains in pinned setup/baseline qualification.
+or arbitrary model edits. Vest native baselines now pass with pinned Verus/Rust/Z3: 3,279 library and
+340 development-root verified counts, plus 2,102 dependency counts, zero errors.
+Five upstream warnings remain. Eleven offline scorer checks pass locally and on
+Cannon; the seven verifier-only coverage controls are submitted as job 61311690.
 
 ## November 15: actual caller failures under internal API changes
 
