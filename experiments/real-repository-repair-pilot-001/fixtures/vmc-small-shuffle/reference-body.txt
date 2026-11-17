@@ -1,0 +1,11 @@
+
+    calc {
+      Model.Shuffle(oldASeq)(oldS);
+      { reveal aInvariant; reveal sInvariant; }
+      Model.Shuffle(a[..])(s);
+      Model.ShuffleCurried(a[..], s);
+      { reveal aLength; assert |a[..]| == a.Length; }
+      Monad.Return(a[..])(s);
+      Monad.Result(a[..], s);
+    }
+  

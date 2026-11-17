@@ -12,6 +12,22 @@ Status: November 16, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 16: real-repository evaluation and progressive extension
 
+The next concrete collection is now the [frozen real-source repair proposal](../experiments/real-repository-repair-pilot-001/README.md):
+**16 proposed calls, zero authorized or made**, on two Dafny-VMC and two Vest
+sites. It compares saved diagnostics with a failure notice, two independent
+responses per task-arm, under one protected body per trial. All six new negative
+controls fail their intended proof targets; four original reference sites reuse
+two qualified positive runs. Eleven edit-policy tests and eight prompt-preparation
+tests pass. Eight exact payloads, order, source/context/feedback hashes and full
+verifier evidence are saved, including the separate initial staging failure.
+VMC callers can pass under their failed helpers' contracts; Vest stops before
+the downstream crate when a dependency fails. Neither situation counts as a
+complete-workspace repair. These are induced development failures, and Vest uses
+curated context with full qualified dependency verification. This small repair
+proposal narrows the earlier roadmap below; it does not include repository growth,
+new language comparisons or held-out evaluation. A bounded live handler and a
+separate explicit paid decision remain prerequisites for execution.
+
 Following Nada's feedback, the next milestone targets online Dafny and Verus
 codebases for the November 24 meeting. The [source-reviewed plan](../experiments/real-repository-evolution-001/PLAN.md)
 records four candidate upstream commits: Dafny-VMC, Dafny standard libraries,

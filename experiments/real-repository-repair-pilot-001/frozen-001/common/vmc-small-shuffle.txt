@@ -1,0 +1,3484 @@
+Repair task
+Restore the proof connecting the small-array shuffle case to the monadic model.
+Toolchain: Dafny 4.4.0 with Z3 4.12.1.
+All 28 declared Dafny input files are supplied below and verified together. Existing upstream trust exemptions remain.
+
+Only the body of FisherYates.Equivalence.ShuffleElseClause in src/Util/FisherYates/Equivalence.dfy may change. The host replaces that one byte-delimited region; it does not apply arbitrary patches. Keep signatures, type parameters, contracts, imports, other bodies, project configuration and dependencies unchanged. Existing trusted declarations elsewhere remain read-only.
+Body syntax: ASCII only; at most 16384 UTF-8 bytes, 4096 lexical tokens and nesting depth 32. Balanced braces/parentheses/brackets; no source comments, string/character literals, attributes, macros, new declarations, imports, closures, loops, return statements, assumptions, admits, axioms or trust bypasses. Value locals, expressions, conditionals and assertions are allowed within this bounded syntax; Dafny also permits calc blocks. The following callable names are a vocabulary, not a required sequence. Do not call unlisted functions, introduce function aliases, or call the target recursively.
+Allowed callable names: Model.Shuffle, Model.ShuffleCurried, Monad.Result, Monad.Return.
+Length observations on permitted values/locals are allowed. Do not shadow inputs or module/type/call roots: Model, Monad, a, oldASeq, oldS, s.
+The only permitted reveal statements are: reveal aInvariant;, reveal sInvariant;, reveal aLength;.
+
+Editable region: original candidate file bytes [1064, 1067); the surrounding braces belong to the immutable file.
+Current body, for locating the region:
+```dafny
+
+  
+```
+Module relationships (context, not repair advice):
+FisherYates.Implementation.Trait.Shuffle calls FisherYates.Equivalence.ShuffleElseClause in its small-array branch. Equivalence refers to Model.Shuffle, while Model uses Monad and Rand.
+
+Repository source context:
+FILE docs/dafny/ExamplesRandom.dfy [whole_file; bytes 0:4629]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Examples {
+  import DafnyVMC
+  import Helper
+
+  method Main()
+    decreases *
+  {
+    var n := 100000;
+    var r: DafnyVMC.Random := new DafnyVMC.Random();
+
+    var t := 0;
+
+    var a := 0;
+    var b := 0;
+    var c := 0;
+    for i := 0 to n {
+      var k := r.UniformSample(10);
+      if k == 0 {
+        a := a + 1;
+      } else if k == 5 {
+        b := b + 1;
+      } else if k == 9 {
+        c := c + 1;
+      }
+    }
+    print "Estimated probabilities for UniformSample(10): ", (a as real) / (n as real), "; " , (b as real) / (n as real), "; " , (c as real) / (n as real), " (each should be around 0.1)\n";
+
+    a := 0;
+    b := 0;
+    c := 0;
+    for i := 0 to n {
+      var k := r.UniformIntervalSample(7,10);
+      if k == 7 {
+        a := a + 1;
+      } else if k == 8 {
+        b := b + 1;
+      } else {
+        c := c + 1;
+      }
+    }
+    print "Estimated probabilities for UniformIntervalSample(7,10): ", (a as real) / (n as real), "; ", (b as real) / (n as real), "; " , (c as real) / (n as real), " (each should be around 0.33)\n";
+
+    t := 0;
+    for i := 0 to n {
+      var b := r.BernoulliSample(1, 5);
+      if b {
+        t := t + 1;
+      }
+    }
+
+    print "Estimated parameter for BernoulliSample(1, 5): ", (t as real) / (n as real), " (should be around 0.2)\n";
+
+    t := 0;
+    for i := 0 to n {
+      var b := r.BernoulliSample(0, 5);
+      if b {
+        t := t + 1;
+      }
+    }
+
+    print "Estimated parameter for BernoulliSample(0, 5): ", (t as real) / (n as real), " (should be around 0.0)\n";
+
+    t := 0;
+    for i := 0 to n {
+      var b := r.BernoulliSample(5, 5);
+      if b {
+        t := t + 1;
+      }
+    }
+
+    print "Estimated parameter for BernoulliSample(5, 5): ", (t as real) / (n as real), " (should be around 1.0)\n";
+
+    t := 0;
+    for i := 0 to n {
+      var u := r.BernoulliExpNegSample(12381, 5377); // about -ln(0.1)
+      if u {
+        t := t + 1;
+      }
+    }
+    print "Estimated parameter for BernoulliExpNegSample(-ln(0.1)): ", (t as real) / (n as real), " (should be around 0.1)\n";
+
+    var count0 := 0;
+    var count1 := 0;
+    var countneg1 := 0;
+    for i := 0 to n {
+      var u := r.DiscreteLaplaceSample(7, 5);
+      match u {
+        case -1 => countneg1 := countneg1 + 1;
+        case 0 => count0 := count0 + 1;
+        case 1 => count1 := count1 + 1;
+        case _ =>
+      }
+    }
+    // Reference values computed with Wolfram Alpha:
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5B%28E%5E%5B1%2Ft%5D+-+1%29+%2F+%28E%5E%5B1%2Ft%5D+%2B+1%29+*+E%5E%28-Abs%5Bx%5D%2Ft%29%2C+%7Bt+-%3E+7%2F5%2C+x+-%3E+0%7D%5D
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5B%28E%5E%5B1%2Ft%5D+-+1%29+%2F+%28E%5E%5B1%2Ft%5D+%2B+1%29+*+E%5E%28-Abs%5Bx%5D%2Ft%29%2C+%7Bt+-%3E+7%2F5%2C+x+-%3E+1%7D%5D
+    print "Estimated probabilities for DiscreteLaplaceSample(7/5): ", count0 as real / n as real, " (should be around 0.3426949) and ", count1 as real / n as real, ", ", countneg1 as real / n as real, " (should both be around 0.1677634)\n";
+
+    count0 := 0;
+    count1 := 0;
+    countneg1 := 0;
+    for i := 0 to n {
+      var u := r.DiscreteGaussianSample(7, 5, 7);
+      match u {
+        case -1 => countneg1 := countneg1 + 1;
+        case 0 => count0 := count0 + 1;
+        case 1 => count1 := count1 + 1;
+        case _ =>
+      }
+    }
+    // Reference values computed with Wolfram Alpha:
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5BE%5E%28-x%5E2+%2F+%282+*%CF%83%5E2%29%29+%2F+Sum%5BE%5E%28-y%5E2%2F%282+%CF%83%5E2%29%29%2C+%7By%2C+-Infinity%2C+Infinity%7D%5D%2C+%7Bx+-%3E+0%2C+%CF%83+-%3E+1.4%7D%5D
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5BE%5E%28-x%5E2+%2F+%282+*%CF%83%5E2%29%29+%2F+Sum%5BE%5E%28-y%5E2%2F%282+%CF%83%5E2%29%29%2C+%7By%2C+-Infinity%2C+Infinity%7D%5D%2C+%7Bx+-%3E+1%2C+%CF%83+-%3E+1.4%7D%5D
+    print "Estimated probabilities for DiscreteGaussianSample(1.4): ", count0 as real / n as real, " (should be around 0.284959) and ", count1 as real / n as real, ", ", countneg1 as real / n as real, " (should both be around 0.220797)\n";
+  
+    // Fisher-Yates Shuffle Example
+    print "Ten permutations of 012: ";
+    var arr: array<nat> := new nat[3](i => i); // [0, 1, 2]
+    for i := 0 to 10 {
+      var arrCopy := arr;
+      r.Shuffle(arrCopy);
+      print Helper.SeqToString(arrCopy[..], Helper.NatToString), ", ";
+    }
+    print "\n";
+  }
+}
+
+```
+
+FILE src/DafnyVMC.dfy [whole_file; bytes 0:1361]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module {:extern} DafnyVMCPartMaterial {
+  import opened Pos
+
+  class {:extern} Random {
+    // For running Dafny native testing with standard SecureRandom rng
+    static method {:extern "UniformPowerOfTwoSample"} ExternUniformPowerOfTwoSample(n: nat) returns (u: nat)
+
+    static method {:extern "UniformSample32"} ExternUniformSample32(n: pos32) returns (u: nat32)
+  }
+}
+
+module {:extern "DafnyVMCPart"} DafnyVMC {
+  import DafnyVMCTrait
+  import DafnyVMCPartMaterial
+  import Monad
+  import UniformPowerOfTwo
+  import Uniform
+  import opened Pos
+
+  class Random extends DafnyVMCTrait.RandomTrait {
+    constructor {:extern} ()
+
+    method UniformPowerOfTwoSample(n: nat) returns (u: nat)
+      requires n >= 1
+      modifies `s
+    {
+      u := DafnyVMCPartMaterial.Random.ExternUniformPowerOfTwoSample(n);
+    }
+
+    method {:verify false} UniformSample32(n: pos32) returns (u: nat32)
+      modifies `s
+      decreases *
+      ensures u < n
+      ensures Uniform.Model.Sample(n as nat)(old(s)) == Monad.Result(u as nat, s)
+    {
+      u := DafnyVMCPartMaterial.Random.ExternUniformSample32(n);
+    }
+  }
+
+}
+```
+
+FILE src/DafnyVMCTrait.dfy [whole_file; bytes 0:6700]
+```dafny
+
+module DafnyVMCTrait {
+
+  import UniformPowerOfTwo
+
+  import FisherYates
+
+  import opened Pos
+
+  import Uniform
+
+  trait {:termination false} RandomTrait extends  UniformPowerOfTwo.Interface.Trait, FisherYates.Implementation.Trait, Uniform.Interface.Trait {
+
+    method {:verify false} UniformSample (n: pos)
+      returns (o: nat)
+      modifies this
+      decreases *
+    {
+      var x := UniformPowerOfTwoSample(2 * n);
+      while ! (x < n)
+        decreases *
+      {
+        x := UniformPowerOfTwoSample(2 * n);
+      }
+      var r := x;
+      o := r;
+    }
+
+    method {:verify false} BernoulliSample (num: nat, den: pos)
+      returns (o: bool)
+      requires num <= den 
+      modifies this
+      decreases *
+    {
+      var d := UniformSample(den);
+      o := d < num;
+    }
+
+    method {:verify false} BernoulliExpNegSampleUnitLoop (num: nat, den: pos, state: (bool,pos))
+      returns (o: (bool,pos))
+      requires num <= den 
+      modifies this
+      decreases *
+    {
+      var A := BernoulliSample(num, state.1 * den);
+      o := (A,state.1 + 1);
+    }
+
+    method {:verify false} BernoulliExpNegSampleUnitAux (num: nat, den: pos)
+      returns (o: nat)
+      requires num <= den 
+      modifies this
+      decreases *
+    {
+      var state := (true,1);
+      while state.0
+        decreases *
+      {
+        state := BernoulliExpNegSampleUnitLoop(num, den, state);
+      }
+      var r := state;
+      o := r.1;
+    }
+
+    method {:verify false} BernoulliExpNegSampleUnit (num: nat, den: pos)
+      returns (o: bool)
+      requires num <= den 
+      modifies this
+      decreases *
+    {
+      var K := BernoulliExpNegSampleUnitAux(num, den);
+      if K % 2 == 0 {
+        o := true;
+      } else {
+        o := false;
+      }
+    }
+
+    method {:verify false} BernoulliExpNegSampleGenLoop (iter: nat)
+      returns (o: bool)
+      modifies this
+      decreases *
+    {
+      if iter == 0 {
+        o := true;
+      } else {
+        var B := BernoulliExpNegSampleUnit(1, 1);
+        if ! (B == true) {
+          o := B;
+        } else {
+          var R := BernoulliExpNegSampleGenLoop(iter - 1);
+          o := R;
+        }
+      }
+    }
+
+    method {:verify false} BernoulliExpNegSample (num: nat, den: pos)
+      returns (o: bool)
+      modifies this
+      decreases *
+    {
+      if num <= den {
+        var X := BernoulliExpNegSampleUnit(num, den);
+        o := X;
+      } else {
+        var gamf := num / den;
+        var B := BernoulliExpNegSampleGenLoop(gamf);
+        if B == true {
+          var X := BernoulliExpNegSampleUnit(num % den, den);
+          o := X;
+        } else {
+          o := false;
+        }
+      }
+    }
+
+    method {:verify false} DiscreteLaplaceSampleLoopIn1Aux (t: pos)
+      returns (o: (nat,bool))
+      modifies this
+      decreases *
+    {
+      var U := UniformSample(t);
+      var D := BernoulliExpNegSample(U, t);
+      o := (U,D);
+    }
+
+    method {:verify false} DiscreteLaplaceSampleLoopIn1 (t: pos)
+      returns (o: nat)
+      modifies this
+      decreases *
+    {
+      var x := DiscreteLaplaceSampleLoopIn1Aux(t);
+      while ! (x.1)
+        decreases *
+      {
+        x := DiscreteLaplaceSampleLoopIn1Aux(t);
+      }
+      var r1 := x;
+      o := r1.0;
+    }
+
+    method {:verify false} DiscreteLaplaceSampleLoopIn2Aux (num: nat, den: pos, K: (bool,nat))
+      returns (o: (bool,nat))
+      modifies this
+      decreases *
+    {
+      var A := BernoulliExpNegSample(num, den);
+      o := (A,K.1 + 1);
+    }
+
+    method {:verify false} DiscreteLaplaceSampleLoopIn2 (num: nat, den: pos)
+      returns (o: nat)
+      modifies this
+      decreases *
+    {
+      var K := (true,0);
+      while K.0
+        decreases *
+      {
+        K := DiscreteLaplaceSampleLoopIn2Aux(num, den, K);
+      }
+      var r2 := K;
+      o := r2.1;
+    }
+
+    method {:verify false} DiscreteLaplaceSampleLoop (num: pos, den: pos)
+      returns (o: (bool,nat))
+      modifies this
+      decreases *
+    {
+      var v := DiscreteLaplaceSampleLoopIn2(den, num);
+      var V := v - 1;
+      var B := BernoulliSample(1, 2);
+      o := (B,V);
+    }
+
+    method {:verify false} DiscreteLaplaceSampleLoop' (num: pos, den: pos)
+      returns (o: (bool,nat))
+      modifies this
+      decreases *
+    {
+      var U := DiscreteLaplaceSampleLoopIn1(num);
+      var v := DiscreteLaplaceSampleLoopIn2(1, 1);
+      var V := v - 1;
+      var X := U + num * V;
+      var Y := X / den;
+      var B := BernoulliSample(1, 2);
+      o := (B,Y);
+    }
+
+    method {:verify false} DiscreteLaplaceSample (num: pos, den: pos)
+      returns (o: int)
+      modifies this
+      decreases *
+    {
+      var x := DiscreteLaplaceSampleLoop(num, den);
+      while ! (! (x.0 == true && x.1 == 0))
+        decreases *
+      {
+        x := DiscreteLaplaceSampleLoop(num, den);
+      }
+      var r := x;
+      var Z := if r.0 == true then - (r.1) else r.1;
+      o := Z;
+    }
+
+    method {:verify false} DiscreteLaplaceSampleOptimized (num: pos, den: pos)
+      returns (o: int)
+      modifies this
+      decreases *
+    {
+      var x := DiscreteLaplaceSampleLoop'(num, den);
+      while ! (! (x.0 == true && x.1 == 0))
+        decreases *
+      {
+        x := DiscreteLaplaceSampleLoop'(num, den);
+      }
+      var r := x;
+      var Z := if r.0 == true then - (r.1) else r.1;
+      o := Z;
+    }
+
+    method {:verify false} DiscreteLaplaceSampleMixed (num: pos, den: pos, mix: nat)
+      returns (o: int)
+      modifies this
+      decreases *
+    {
+      if num <= den * mix {
+        var v := DiscreteLaplaceSample(num, den);
+        o := v;
+      } else {
+        var v := DiscreteLaplaceSampleOptimized(num, den);
+        o := v;
+      }
+    }
+
+    method {:verify false} DiscreteGaussianSampleLoop (num: pos, den: pos, t: pos, mix: nat)
+      returns (o: (int,bool))
+      modifies this
+      decreases *
+    {
+      var Y := DiscreteLaplaceSampleMixed(t, 1, mix);
+      var y := (if Y < 0 then -(Y) else (Y));
+      var n := ((if y * t * den - num < 0 then -(y * t * den - num) else (y * t * den - num))) * ((if y * t * den - num < 0 then -(y * t * den - num) else (y * t * den - num)));
+      var d := 2 * num * (t) * (t) * den;
+      var C := BernoulliExpNegSample(n, d);
+      o := (Y,C);
+    }
+
+    method {:verify false} DiscreteGaussianSample (num: pos, den: pos, mix: nat)
+      returns (o: int)
+      modifies this
+      decreases *
+    {
+      var ti := num / den;
+      var t := ti + 1;
+      var num := (num) * (num);
+      var den := (den) * (den);
+      var x := DiscreteGaussianSampleLoop(num, den, t, mix);
+      while ! (x.1)
+        decreases *
+      {
+        x := DiscreteGaussianSampleLoop(num, den, t, mix);
+      }
+      var r := x;
+      o := r.0;
+    }
+
+
+}
+
+}
+
+```
+
+FILE src/Distributions/Bitstream/Interface.dfy [whole_file; bytes 0:371]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Bitstream.Interface {
+  import Rand
+
+  trait {:termination false} Trait {
+    ghost var s: Rand.Bitstream
+  }
+}
+
+```
+
+FILE src/Distributions/Uniform/Correctness.dfy [whole_file; bytes 0:6189]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Uniform.Correctness {
+  import NatArith
+  import RealArith
+  import Monad
+  import Independence
+  import Rand
+  import Measures
+  import Model
+
+  /************
+   Definitions
+  ************/
+
+  function IntervalSampleIsIndepFunctionHelper(a: int, x: int): nat
+    requires x-a >= 0
+  {
+    x-a
+  }
+
+  ghost function IntervalSampleIsIndepFunctionHelperLifted(a: int, A: iset<int>): iset<nat>
+  {
+    iset x: int | x in A && x-a >= 0 :: IntervalSampleIsIndepFunctionHelper(a, x)
+  }
+
+  ghost function SampleEquals(n: nat, i: nat): iset<Rand.Bitstream>
+    requires 0 <= i < n
+  {
+    iset s | Model.Sample(n)(s).Equals(i)
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  // Correctness theorem for Model.Sample
+  // Equation (4.12) / PROB_BERN_UNIFORM
+  lemma UniformFullCorrectness(n: nat, i: nat)
+    requires 0 <= i < n
+    ensures
+      var e := iset s | Model.Sample(n)(s).Equals(i);
+      e in Rand.eventSpace &&
+      Rand.prob(e) == 1.0 / (n as real)
+  {}
+
+  // Correctness theorem for Model.IntervalSample
+  lemma UniformFullIntervalCorrectness(a: int, b: int, i: int)
+    requires a <= i < b
+    ensures
+      var e := iset s | Model.IntervalSample(a, b)(s).Equals(i);
+      && e in Rand.eventSpace
+      && Rand.prob(e) == (1.0 / ((b-a) as real))
+  {
+    assert 0 <= i - a < b - a by {
+      assert a <= i < b;
+    }
+    var e' := SampleEquals(b - a, i - a);
+    assert e' in Rand.eventSpace by { UniformFullCorrectness(b - a, i - a); }
+    assert Rand.prob(e') == (1.0 / ((b-a) as real)) by { UniformFullCorrectness(b - a, i - a); }
+    var e := iset s | Model.IntervalSample(a, b)(s).Equals(i);
+    assert e == e' by {
+      forall s ensures Model.IntervalSample(a, b)(s).Equals(i) <==> Model.Sample(b-a)(s).Equals(i - a) {
+        assert Model.IntervalSample(a, b)(s) == Model.Sample(b - a)(s).Map(x => a + x);
+      }
+    }
+  }
+
+  lemma SampleIsIndepFunction(n: nat)
+    requires n > 0
+    ensures Independence.IsIndepFunction(Model.Sample(n))
+  {}
+
+  lemma IntervalSampleIsIndepFunction(a: int, b: int)
+    requires a < b
+    ensures Independence.IsIndepFunction(Model.IntervalSample(a, b))
+  {
+    forall A: iset<int>, E: iset<Rand.Bitstream> | E in Rand.eventSpace ensures Independence.IsIndepFunctionCondition(Model.IntervalSample(a, b), A, E) {
+      var A': iset<nat> := IntervalSampleIsIndepFunctionHelperLifted(a, A);
+      assert Measures.AreIndepEvents(Rand.eventSpace, Rand.prob, Monad.BitstreamsWithValueIn(Model.IntervalSample(a, b), A), Monad.BitstreamsWithRestIn(Model.IntervalSample(a, b), E)) by {
+        assert Monad.BitstreamsWithValueIn(Model.IntervalSample(a, b), A) == Monad.BitstreamsWithValueIn(Model.Sample(b - a), A') by {
+          forall s ensures s in Monad.BitstreamsWithValueIn(Model.IntervalSample(a, b), A) <==> s in Monad.BitstreamsWithValueIn(Model.Sample(b - a), A') {
+            calc {
+              s in Monad.BitstreamsWithValueIn(Model.IntervalSample(a, b), A);
+              Monad.Map(Model.Sample(b - a), x => a + x)(s).value in A;
+              Monad.Bind(Model.Sample(b - a), x => Monad.Return(a+x))(s).value in A;
+              Model.Sample(b - a)(s).value + a in A;
+              Model.Sample(b - a)(s).value in A';
+              s in Monad.BitstreamsWithValueIn(Model.Sample(b - a), A');
+            }
+          }
+        }
+        assert Monad.BitstreamsWithRestIn(Model.IntervalSample(a, b), E) == Monad.BitstreamsWithRestIn(Model.Sample(b-a), E) by {
+          forall s ensures s in Monad.BitstreamsWithRestIn(Model.IntervalSample(a, b), E) <==> s in Monad.BitstreamsWithRestIn(Model.Sample(b-a), E) {
+            calc {
+              s in Monad.BitstreamsWithRestIn(Model.IntervalSample(a, b), E);
+              Monad.Map(Model.Sample(b - a), x => a + x)(s).rest in E;
+              Monad.Bind(Model.Sample(b - a), x => Monad.Return(a+x))(s).rest in E;
+              Model.Sample(b-a)(s).rest in E;
+              s in Monad.BitstreamsWithRestIn(Model.Sample(b-a), E);
+            }
+          }
+        }
+        assert Independence.IsIndepFunctionCondition(Model.Sample(b - a), A', E) by {
+          SampleIsIndepFunction(b-a);
+        }
+      }
+    }
+  }
+
+  lemma SampleBound(n: nat, s: Rand.Bitstream)
+    requires n > 0
+    ensures 0 <= Model.Sample(n)(s).value < n
+  {}
+
+  lemma IntervalSampleBound(a: int, b: int, s: Rand.Bitstream)
+    requires a < b
+    ensures a <= Model.IntervalSample(a, b)(s).value < b
+  {
+    SampleBound(b-a, s);
+  }
+
+  lemma SampleIsMeasurePreserving(n: nat)
+    requires n > 0
+    ensures forall n | n > 0 :: Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => Model.Sample(n)(s).rest)
+  {}
+
+  lemma IntervalSampleIsMeasurePreserving(a: int, b: int)
+    requires a < b
+    ensures Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => Model.IntervalSample(a, b)(s).rest)
+  {
+    var f := s => Model.IntervalSample(a, b)(s).rest;
+    var f' := s => Model.Sample(b-a)(s).rest;
+
+    forall e: iset<Rand.Bitstream> | e in Rand.eventSpace ensures Measures.PreImage(f, e) == Measures.PreImage(f', e) {
+      forall s ensures s in Measures.PreImage(f, e) <==> s in Measures.PreImage(f', e) {
+        calc {
+          s in Measures.PreImage(f, e);
+          f(s) in e;
+          Model.IntervalSample(a, b)(s).rest in e;
+          Model.Sample(b-a)(s).rest in e;
+          f'(s) in e;
+          s in Measures.PreImage(f', e);
+        }
+      }
+    }
+
+    assert Measures.IsMeasurable(Rand.eventSpace, Rand.eventSpace, f) by {
+      forall e: iset<Rand.Bitstream> | e in Rand.eventSpace ensures Measures.PreImage(f, e) in Rand.eventSpace {
+        assert Measures.PreImage(f, e) == Measures.PreImage(f', e);
+        SampleIsMeasurePreserving(b-a);
+      }
+    }
+
+    forall e | e in Rand.eventSpace ensures Rand.prob(Measures.PreImage(f, e)) == Rand.prob(e) {
+      assert Measures.PreImage(f, e) == Measures.PreImage(f', e);
+      SampleIsMeasurePreserving(b-a);
+    }
+
+  }
+}
+
+```
+
+FILE src/Distributions/Uniform/Interface.dfy [whole_file; bytes 0:1883]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Uniform.Interface {
+  import Monad
+  import Model
+  import opened Pos
+  import Bitstream
+
+  trait {:termination false} Trait extends Bitstream.Interface.Trait {
+
+    method UniformSample(n: pos) returns (u: nat)
+      modifies `s
+      decreases *
+      ensures u < n
+      ensures Model.Sample(n)(old(s)) == Monad.Result(u, s)
+
+    method UniformIntervalSample(a: int, b: int) returns (u: int)
+      modifies `s
+      decreases *
+      requires a < b
+      ensures a <= u < b
+      ensures Model.IntervalSample(a, b)(old(s)) == Monad.Result(u, s)
+    {
+      var v := UniformSample(b - a);
+      assert Model.Sample(b-a)(old(s)) == Monad.Result(v, s);
+      assert Model.IntervalSample(a, b)(old(s)) == Monad.Result(a + v, s);
+      u := a + v;
+    }
+
+  }
+
+  trait {:termination false} Trait32 extends Bitstream.Interface.Trait {
+
+    method UniformSample32(n: pos32) returns (u: nat32)
+      modifies `s
+      decreases *
+      ensures u < n
+      ensures Model.Sample(n as nat)(old(s)) == Monad.Result(u as nat, s)
+
+    method UniformIntervalSample32<T>(a: int32, b: int32, ghost arr: array<T>) returns (u: int32)
+      modifies `s
+      decreases *
+      requires 0 < b as int - a as int < 0x8000_0000
+      ensures a <= u < b
+      ensures Model.IntervalSample(a as int, b as int)(old(s)) == Monad.Result(u as int, s)
+      ensures old(arr[..]) == arr[..]
+    {
+      var v := UniformSample32(b-a);
+      assert Model.Sample(b as int - a as int)(old(s)) == Monad.Result(v as nat, s);
+      assert Model.IntervalSample(a as int, b as int)(old(s)) == Monad.Result(a as int + v as int, s);
+      u := a + v;
+    }
+
+  }
+
+}
+
+```
+
+FILE src/Distributions/Uniform/Model.dfy [whole_file; bytes 0:1037]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Uniform.Model {
+  import Measures
+  import NatArith
+  import Rand
+  import Monad
+  import Independence
+  import UniformPowerOfTwo
+
+  /************
+   Definitions
+  ************/
+
+  ghost function {:axiom} Sample(n: nat): (h: Monad.Hurd<nat>)
+    requires n > 0
+    ensures Independence.IsIndepFunction(h)
+    ensures Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => h(s).rest)
+    ensures forall s :: 0 <= h(s).value < n
+    ensures forall i | 0 <= i < n ::
+              var e := iset s | h(s).Equals(i);
+              && e in Rand.eventSpace
+              && Rand.prob(e) == 1.0 / (n as real)
+
+  ghost function IntervalSample(a: int, b: int): (f: Monad.Hurd<int>)
+    requires a < b
+  {
+    Monad.Map(Sample(b - a), x => a + x)
+  }
+
+}
+
+```
+
+FILE src/Distributions/UniformPowerOfTwo/Interface.dfy [whole_file; bytes 0:587]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module UniformPowerOfTwo.Interface {
+  import Bitstream
+
+  trait {:termination false} Trait extends Bitstream.Interface.Trait {
+
+    // The return value u is uniformly distributed between 0 <= u < 2^k where 2^k <= n < 2^(k + 1).
+    method UniformPowerOfTwoSample(n: nat) returns (u: nat)
+      requires n >= 1
+      modifies `s
+
+  }
+}
+```
+
+FILE src/Math/Analysis/Limits.dfy [whole_file; bytes 0:4514]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Limits {
+  import RealArith
+  import Sequences
+
+  /************
+   Definitions
+  ************/
+
+  ghost predicate SuffixIsClose(sequence: nat -> real, limit: real, epsilon: real, suffixStart: nat) {
+    forall n: nat | n >= suffixStart :: RealArith.Dist(sequence(n), limit) < epsilon
+  }
+
+  ghost predicate ExistsCloseSuffix(sequence: nat -> real, limit: real, epsilon: real) {
+    exists N: nat :: SuffixIsClose(sequence, limit, epsilon, N)
+  }
+
+  ghost predicate ConvergesTo(sequence: nat -> real, limit: real)
+  {
+    forall epsilon: real | epsilon > 0.0 :: ExistsCloseSuffix(sequence, limit, epsilon)
+  }
+
+  ghost predicate Converges(sequence: nat -> real) {
+    exists limit: real :: ConvergesTo(sequence, limit)
+  }
+
+  ghost function Limit(sequence: nat -> real): real
+    requires Converges(sequence)
+    ensures ConvergesTo(sequence, Limit(sequence))
+  {
+    var limit: real :| ConvergesTo(sequence, limit);
+    limit
+  }
+
+  /************
+   Lemmas
+  ************/
+
+  lemma LimitIsUnique(sequence: nat -> real, limit1: real, limit2: real)
+    requires ConvergesTo(sequence, limit1)
+    requires ConvergesTo(sequence, limit2)
+    ensures limit1 == limit2
+  {
+    if ConvergesTo(sequence, limit1) && ConvergesTo(sequence, limit2) && limit1 != limit2 {
+      var epsilon := RealArith.Dist(limit1, limit2) / 2.0;
+      assert ExistsCloseSuffix(sequence, limit1, epsilon);
+      var N1 : nat :| SuffixIsClose(sequence, limit1, epsilon, N1);
+      assert ExistsCloseSuffix(sequence, limit2, epsilon);
+      var N2 : nat :| SuffixIsClose(sequence, limit2, epsilon, N2);
+      var N : nat :| N >= N1 && N >= N2;
+      calc {
+        RealArith.Dist(limit1, limit2);
+      <= { RealArith.TriangleInequality(limit1, sequence(N), limit2); }
+        RealArith.Dist(limit1, sequence(N)) + RealArith.Dist(sequence(N), limit2);
+      <
+        epsilon + epsilon;
+      ==
+        epsilon * 2.0;
+      ==
+        RealArith.Dist(limit1, limit2);
+      }
+    }
+  }
+
+  lemma BoundOfConvergentSequence(sequence: nat -> real, limit: real) returns (bound: real)
+    requires ConvergesTo(sequence, limit)
+    ensures Sequences.IsBounded(sequence, bound)
+    ensures bound > 0.0
+  {
+    assert ExistsCloseSuffix(sequence, limit, 1.0);
+    var N: nat :| SuffixIsClose(sequence, limit, 1.0, N);
+    bound := RealArith.Abs(limit) + 1.0;
+    for n := 0 to N
+      invariant bound >= RealArith.Abs(limit) + 1.0
+      invariant forall i: nat | i < n :: RealArith.Abs(sequence(i)) < bound
+    {
+      if RealArith.Abs(sequence(n)) >= bound {
+        bound := RealArith.Abs(sequence(n)) + 1.0;
+      }
+    }
+    assert forall n: nat | n < N :: RealArith.Abs(sequence(n)) < bound;
+    forall n: nat ensures RealArith.Abs(sequence(n)) < bound {
+      if n < N {
+        assert RealArith.Abs(sequence(n)) < bound;
+      } else {
+        assert RealArith.Abs(sequence(n)) < RealArith.Abs(limit) + 1.0 <= bound;
+      }
+    }
+  }
+
+  // This would be trivial if Dafny had function extensionality
+  lemma LimitOfEqualsIsEqual(sequence1: nat -> real, sequence2: nat -> real, limit: real)
+    requires forall n: nat :: sequence1(n) == sequence2(n)
+    requires ConvergesTo(sequence1, limit)
+    ensures ConvergesTo(sequence2, limit)
+  {
+    assert Sequences.IsSuffixOf(sequence2, sequence1, 0);
+    SuffixConvergesToSame(sequence1, sequence2, 0, limit);
+  }
+
+  lemma SuffixConvergesToSame(sequence: nat -> real, suffix: nat -> real, prefix: nat, limit: real)
+    requires Sequences.IsSuffixOf(suffix, sequence, prefix)
+    ensures ConvergesTo(suffix, limit) <==> ConvergesTo(sequence, limit)
+  {
+    forall epsilon: real | epsilon > 0.0 ensures ExistsCloseSuffix(suffix, limit, epsilon) <==> ExistsCloseSuffix(sequence, limit, epsilon) {
+      if N: nat :| SuffixIsClose(sequence, limit, epsilon, N) {
+        assert SuffixIsClose(sequence, limit, epsilon, N + prefix);
+        assert SuffixIsClose(suffix, limit, epsilon, N);
+      }
+      if N: nat :| SuffixIsClose(suffix, limit, epsilon, N) {
+        assert SuffixIsClose(sequence, limit, epsilon, N + prefix) by {
+          forall n: nat | n >= N + prefix ensures RealArith.Dist(sequence(n), limit) < epsilon {
+            var n' := n - prefix;
+            assert sequence(n) == suffix(n');
+          }
+        }
+      }
+    }
+  }
+
+}
+
+```
+
+FILE src/Math/Analysis/Reals.dfy [whole_file; bytes 0:1205]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Reals {
+  import RealArith
+
+  ghost predicate IsLowerBound(s: iset<real>, lower: real) {
+    forall x <- s :: lower <= x
+  }
+
+  ghost predicate IsUpperBound(s: iset<real>, upper: real) {
+    forall x <- s :: x <= upper
+  }
+
+  ghost predicate IsInfimum(s: iset<real>, candidate: real) {
+    && IsLowerBound(s, candidate)
+    && forall other: real :: IsLowerBound(s, other) ==> other <= candidate
+  }
+
+  ghost predicate IsSupremum(s: iset<real>, candidate: real) {
+    && IsUpperBound(s, candidate)
+    && forall other: real :: IsUpperBound(s, other) ==> candidate <= other
+  }
+
+  lemma InfimumIsUnique(s: iset<real>, infimum1: real, infimum2: real)
+    requires IsInfimum(s, infimum1)
+    requires IsInfimum(s, infimum2)
+    ensures infimum1 == infimum2
+  {}
+
+  lemma SupremumIsUnique(s: iset<real>, infimum1: real, infimum2: real)
+    requires IsSupremum(s, infimum1)
+    requires IsSupremum(s, infimum2)
+    ensures infimum1 == infimum2
+  {}
+
+}
+
+```
+
+FILE src/Math/Analysis/Sequences.dfy [whole_file; bytes 0:2025]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Sequences {
+  import RealArith
+  import Reals
+
+  ghost predicate Equal(sequence1: nat -> real, sequence2: nat -> real) {
+    forall n: nat :: sequence1(n) == sequence2(n)
+  }
+
+  ghost predicate IsSuffixOf(suffix: nat -> real, full: nat -> real, offset: nat) {
+    forall n: nat :: suffix(n) == full(n + offset)
+  }
+
+  ghost predicate IsBounded(sequence: nat -> real, bound: real) {
+    forall n: nat :: RealArith.Abs(sequence(n)) < bound
+  }
+
+  ghost predicate IsLeq(sequence1: nat -> real, sequence2: nat -> real) {
+    forall n: nat :: sequence1(n) <= sequence2(n)
+  }
+
+  function OneOverNPlus1(n: nat): real
+  {
+    1.0 / (n as real + 1.0)
+  }
+
+  function Suffix(sequence: nat -> real, offset: nat): nat -> real {
+    (n: nat) => sequence(n + offset)
+  }
+
+  function Constant(constant: real): (nat -> real) {
+    (_: nat) => constant
+  }
+
+  function Add(sequence1: nat -> real, sequence2: nat -> real): (nat -> real) {
+    (n: nat) => sequence1(n) + sequence2(n)
+  }
+
+  function Mul(sequence1: nat -> real, sequence2: nat -> real): (nat -> real) {
+    (n: nat) => sequence1(n) * sequence2(n)
+  }
+
+  function Inverse(sequence: nat -> real): nat -> real
+    requires forall n: nat :: sequence(n) != 0.0
+  {
+    (n: nat) => 1.0 / sequence(n)
+  }
+
+  lemma OneOverNPlus1IsAntimonotonic(m: nat, n: nat)
+    requires m <= n
+    ensures OneOverNPlus1(m) >= OneOverNPlus1(n)
+  {
+    var mp1 := (m + 1) as real;
+    var np1 := (n + 1) as real;
+    assert mp1 > 0.0;
+    assert np1 > 0.0;
+    calc {
+      mp1 <= np1;
+    ==
+      mp1 / np1 <= 1.0;
+    ==
+      (1.0 / np1) * mp1 <= (1.0 / mp1) * mp1;
+    == { RealArith.MultiplicationCancelMonotonic(mp1, 1.0 / np1, 1.0 / mp1); }
+      1.0 / np1 <= 1.0 / mp1;
+    ==
+      OneOverNPlus1(m) >= OneOverNPlus1(n);
+    }
+  }
+}
+
+```
+
+FILE src/Math/Analysis/Series.dfy [whole_file; bytes 0:818]
+```dafny
+ module Series {
+  import NatArith
+  import RealArith
+  import Limits
+
+  ghost predicate SumsTo(summands: nat -> real, sum: real) {
+    Limits.ConvergesTo(PartialSums(summands), sum)
+  }
+
+  function SumFromTo(sequence: nat -> real, start: nat, end: nat): real
+    decreases end - start
+  {
+    if end <= start then 0.0 else sequence(start) + SumFromTo(sequence, start + 1, end)
+  }
+
+  function SumTo(sequence: nat -> real, end: nat): real {
+    SumFromTo(sequence, 0, end)
+  }
+
+  function PartialSums(sequence: nat -> real): nat -> real {
+    (n: nat) => SumTo(sequence, n)
+  }
+
+  ghost predicate IsSummable(summands: nat -> real) {
+    exists sum: real :: SumsTo(summands, sum)
+  }
+
+  ghost function Sum(summands: nat -> real): real
+    requires IsSummable(summands)
+  {
+    Limits.Limit(PartialSums(summands))
+  }
+
+}
+```
+
+FILE src/Math/Helper.dfy [whole_file; bytes 0:880]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Helper {
+
+  /************
+   Definitions
+  ************/
+
+  function NatToString(n: nat): string {
+    match n
+    case 0 => "0" case 1 => "1" case 2 => "2" case 3 => "3" case 4 => "4"
+    case 5 => "5" case 6 => "6" case 7 => "7" case 8 => "8" case 9 => "9"
+    case _ => NatToString(n / 10) + NatToString(n % 10)
+  }
+
+  function SeqToString<T>(xs: seq<T>, printer: T -> string): string {
+    if |xs| == 0 then
+      ""
+    else
+      printer(xs[0]) + SeqToString(xs[1..], printer)
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma Congruence<T, U>(x: T, y: T, f: T -> U)
+    requires x == y
+    ensures f(x) == f(y)
+  {}
+}
+
+```
+
+FILE src/Math/Measures.dfy [whole_file; bytes 0:5648]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Measures {
+  import Series
+
+  /************
+   Definitions
+  ************/
+
+  type Probability = x: real | 0.0 <= x <= 1.0
+
+  // States that given collection of sets is σ-algebra on the set of values of type `T`.
+  // In other words, the sample space is `SampleSpace<T>()`, i.e. the set of all values of type `T`,
+  // and `eventSpace` is the collection of measurable subsets.
+  ghost predicate IsSigmaAlgebra<T(!new)>(eventSpace: iset<iset<T>>) {
+    && (iset{}) in eventSpace
+    && (forall e | e in eventSpace :: Complement(e) in eventSpace)
+    && (forall f: nat -> iset<T> | (forall n :: f(n) in eventSpace) :: (CountableUnion(f) in eventSpace))
+  }
+
+  // The set of all values of type `T` that are not in the given set.
+  ghost function Complement<T(!new)>(event: iset<T>): iset<T> {
+    iset x: T | x !in event
+  }
+
+  // The set of all values of type `T`.
+  ghost function SampleSpace<T(!new)>(): iset<T> {
+    Complement(iset{})
+  }
+
+  ghost function CountableUnion<T(!new)>(f: nat -> iset<T>, i: nat := 0): iset<T> {
+    iset n: nat | n >= i, x <- f(n) :: x
+  }
+
+  // The σ-algebra that contains all subsets.
+  ghost function DiscreteSigmaAlgebra<A(!new)>(): iset<iset<A>> {
+    iset _: iset<A>
+  }
+
+  ghost const boolEventSpace: iset<iset<bool>> := DiscreteSigmaAlgebra<bool>()
+
+  // The sigma algebra on the natural numbers is just the power set
+  ghost const natEventSpace: iset<iset<nat>> := DiscreteSigmaAlgebra<nat>()
+
+  // Definition 5
+  ghost predicate IsPositive<T(!new)>(eventSpace: iset<iset<T>>, Prob: iset<T> -> real) {
+    && Prob(iset{}) == 0.0
+    && forall e | e in eventSpace :: 0.0 <= Prob(e)
+  }
+
+  // Definition 5
+  ghost predicate IsAdditive<T(!new)>(eventSpace: iset<iset<T>>, Prob: iset<T> -> real) {
+    forall e1, e2 | e1 in eventSpace && e2 in eventSpace && e1 * e2 == iset{} :: Prob(e1) + Prob(e2) == Prob(e1 + e2)
+  }
+
+  ghost predicate PairwiseDisjoint<T(!new)>(s: nat -> iset<T>) {
+    forall m, n | m != n :: s(m) * s(n) == iset{}
+  }
+
+  // Definition 5
+  ghost predicate IsCountablyAdditive<T(!new)>(eventSpace: iset<iset<T>>, Prob: iset<T> -> real) {
+    forall f: nat -> iset<T> | (forall n :: f(n) in eventSpace) && PairwiseDisjoint(f) && (CountableUnion(f) in eventSpace) :: Series.SumsTo((n: nat) => Prob(f(n)), Prob(CountableUnion(f)))
+  }
+
+  // Definition 6
+  ghost predicate IsMeasure<T(!new)>(eventSpace: iset<iset<T>>, Prob: iset<T> -> real) {
+    && IsSigmaAlgebra(eventSpace)
+    && IsPositive(eventSpace, Prob)
+    && IsCountablyAdditive(eventSpace, Prob)
+  }
+
+  ghost function PreImage<S(!new),T>(f: S -> T, e: iset<T>): iset<S> {
+    (iset s | f(s) in e)
+  }
+
+  // Definition 9
+  ghost predicate IsMeasurable<S(!new),T>(eventSpaceS: iset<iset<S>>, eventSpaceT: iset<iset<T>>, f: S -> T) {
+    forall e | e in eventSpaceT :: PreImage(f, e) in eventSpaceS
+  }
+
+  // Definition 10
+  ghost predicate IsMeasurePreserving<S(!new),T>(eventSpaceS: iset<iset<S>>, measureS: iset<S> -> real, eventSpaceT: iset<iset<T>>, measureT: iset<T> -> real, f: S -> T) {
+    && IsMeasurable(eventSpaceS, eventSpaceT, f)
+    && forall e | e in eventSpaceT :: measureS(PreImage(f, e)) == measureT(e)
+  }
+
+  // Definition 12
+  ghost predicate IsProbability<T(!new)>(eventSpace: iset<iset<T>>, Prob: iset<T> -> real) {
+    && IsMeasure(eventSpace, Prob)
+    && Prob(SampleSpace()) == 1.0
+  }
+
+  // Definition 13
+  predicate AreIndepEvents<T>(eventSpace: iset<iset<T>>, Prob: iset<T> -> real, e1: iset<T>, e2: iset<T>) {
+    && (e1 in eventSpace)
+    && (e2 in eventSpace)
+    && (Prob(e1 * e2) == Prob(e1) * Prob(e2))
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma boolsHaveSigmaAlgebra()
+    ensures IsSigmaAlgebra(boolEventSpace)
+  {}
+
+  lemma natsHaveSigmaAlgebra()
+    ensures IsSigmaAlgebra(natEventSpace)
+  {}
+
+  lemma PreImageIdentity<S(!new)>(f: S -> S, e: iset<S>)
+    requires forall s: S :: f(s) == s
+    ensures PreImage(f, e) == e
+  {}
+
+  lemma PreImagesEqual<S(!new),T,U>(f: S -> T, e: iset<T>, f': S -> U, e': iset<U>)
+    requires forall s: S :: f(s) in e <==> f'(s) in e'
+    ensures PreImage(f, e) == PreImage(f', e')
+  {}
+
+  lemma CountableUnionSplit<T(!new)>(f: nat -> iset<T>, i: nat)
+    ensures CountableUnion(f, i) == f(i) + CountableUnion(f, i + 1)
+  {}
+
+  lemma BinaryUnionIsMeasurable<T(!new)>(eventSpace: iset<iset<T>>, e1: iset<T>, e2: iset<T>)
+    requires IsSigmaAlgebra(eventSpace)
+    requires e1 in eventSpace
+    requires e2 in eventSpace
+    ensures e1 + e2 in eventSpace
+  {
+    var f : nat -> iset<T> := (n: nat) => if n == 0 then e1 else if n == 1 then e2 else iset{};
+    assert CountableUnion(f) == e1 + e2 by {
+      calc {
+        CountableUnion(f);
+      == { CountableUnionSplit(f, 0); }
+        e1 + CountableUnion(f, 1);
+      == { CountableUnionSplit(f, 1); }
+        e1 + e2;
+      }
+    }
+  }
+
+  lemma BinaryIntersectionIsMeasurable<T(!new)>(eventSpace: iset<iset<T>>, e1: iset<T>, e2: iset<T>)
+    requires IsSigmaAlgebra(eventSpace)
+    requires e1 in eventSpace
+    requires e2 in eventSpace
+    ensures e1 * e2 in eventSpace
+  {
+    assert Complement(e1) + Complement(e2) in eventSpace by {
+      assert Complement(e1) in eventSpace;
+      assert Complement(e2) in eventSpace;
+      BinaryUnionIsMeasurable(eventSpace, Complement(e1), Complement(e2));
+    }
+    assert Complement(Complement(e1) + Complement(e2)) in eventSpace;
+    assert e1 * e2 == Complement(Complement(e1) + Complement(e2));
+  }
+
+}
+
+```
+
+FILE src/Math/NatArith.dfy [whole_file; bytes 0:2068]
+```dafny
+module NatArith {
+  function Max(a: nat, b: nat): nat {
+    if a < b then b else a
+  }
+
+  function Min(a: nat, b: nat): nat {
+    if a < b then a else b
+  }
+
+  function Power(b: nat, n: nat): (p: nat)
+    ensures b > 0 ==> p > 0
+  {
+    match n
+    case 0 => 1
+    case 1 => b
+    case _ => b * Power(b, n - 1)
+  }
+
+  function Log2Floor(n: nat): nat
+    requires n >= 1
+    decreases n
+  {
+    if n < 2
+    then 0
+    else Log2Floor(n / 2) + 1
+  }
+
+  lemma Log2FloorDef(n: nat)
+    requires n >= 1
+    ensures Log2Floor(2 * n) == Log2Floor(n) + 1
+  {}
+
+  function boolToNat(b: bool): nat {
+    if b then 1 else 0
+  }
+
+  // Computes the rising factorial start^(n),
+  // i.e. the product `start * (start + 1) * ... * (start + n - 1)`, i.e. with n factors.
+  // see: https://en.wikipedia.org/wiki/Falling_and_rising_factorials
+  // With the default value of start = 1, it computes n!
+  // The start parameter is useful for inductive proofs.
+  opaque function Factorial(n: nat, start: nat := 1): nat {
+    if n == 0 then 1 else start * Factorial(n - 1, start + 1)
+  }
+
+  lemma FactoralPositive(n: nat, start: nat := 1)
+    requires start >= 1
+    ensures Factorial(n, start) >= 1
+  {
+    reveal Factorial();
+  }
+
+  opaque function FactorialTraditional(n: nat): (fact: nat)
+    ensures fact != 0
+  {
+    if n == 0 then 1 else n * FactorialTraditional(n - 1)
+  }
+
+  lemma PowerGreater0(base: nat, exponent: nat)
+    requires base >= 1
+    ensures Power(base, exponent) >= 1
+  {}
+
+  lemma Power2OfLog2Floor(n: nat)
+    requires n >= 1
+    ensures Power(2, Log2Floor(n)) <= n < Power(2, Log2Floor(n) + 1)
+  {}
+
+  lemma NLtPower2Log2FloorOf2N(n: nat)
+    requires n >= 1
+    ensures n < Power(2, Log2Floor(2 * n))
+  {
+    calc {
+      n;
+    < { Power2OfLog2Floor(n); }
+      Power(2, Log2Floor(n) + 1);
+    == { Log2FloorDef(n); }
+      Power(2, Log2Floor(2 * n));
+    }
+  }
+
+  lemma MulMonotonic(a: nat, b: nat, c: nat, d: nat)
+    requires a <= c
+    requires b <= d
+    ensures a * b <= c * d
+  {
+    calc {
+      a * b;
+    <=
+      c * b;
+    <=
+      c * d;
+    }
+  }
+}
+
+```
+
+FILE src/Math/Rationals.dfy [whole_file; bytes 0:5118]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Rationals {
+  /************
+   Definitions
+  ************/
+
+  type PosInt = n: int | n >= 1 witness 1
+
+  datatype Rational = Rational(numer: int, denom: PosInt) {
+    predicate Eq(rhs: Rational) {
+      this.numer * rhs.denom == rhs.numer * this.denom
+    }
+
+    predicate Leq(rhs: Rational) {
+      this.numer * rhs.denom <= rhs.numer * this.denom
+    }
+
+    function Neg(): Rational {
+      Rational(-this.numer, this.denom)
+    }
+
+    function Add(rhs: Rational): Rational {
+      Rational(this.numer * rhs.denom + rhs.numer * this.denom, this.denom * rhs.denom)
+    }
+
+    function Sub(rhs: Rational): Rational {
+      Add(rhs.Neg())
+    }
+
+    function Inv(): Rational
+      requires this.numer != 0
+    {
+      var denom: int := this.denom;
+      if this.numer < 0 then Rational(-denom, -this.numer) else Rational(denom, this.numer)
+    }
+
+    function Mul(rhs: Rational): Rational {
+      Rational(this.numer * rhs.numer, this.denom * rhs.denom)
+    }
+
+    function Div(rhs: Rational): Rational
+      requires rhs.numer != 0
+    {
+      Mul(rhs.Inv())
+    }
+
+    function Floor(): int {
+      this.numer / this.denom
+    }
+
+    function FractionalPart(): Rational {
+      Rational(this.numer % this.denom, this.denom)
+    }
+
+    function ToReal(): real {
+      this.numer as real / this.denom as real
+    }
+  }
+
+  function Int(n: int): Rational {
+    Rational(n, 1)
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma RationalEqImpliesRealEq(lhs: Rational, rhs: Rational)
+    requires lhs.Eq(rhs)
+    ensures lhs.ToReal() == rhs.ToReal()
+  {}
+
+  lemma RealEqImpliesRationalEq(lhs: Rational, rhs: Rational)
+    requires lhs.ToReal() == rhs.ToReal()
+    ensures lhs.Eq(rhs)
+  {}
+
+  lemma RationalLeqImpliesRealLeq(lhs: Rational, rhs: Rational)
+    requires lhs.Leq(rhs)
+    ensures lhs.ToReal() <= rhs.ToReal()
+  {}
+
+  lemma RealLeqImpliesRationalLeq(lhs: Rational, rhs: Rational)
+    requires lhs.ToReal() <= rhs.ToReal()
+    ensures lhs.Leq(rhs)
+  {}
+
+  lemma NegIsCorrect(r: Rational)
+    ensures r.Neg().ToReal() == -r.ToReal()
+  {}
+
+  lemma AddIsCorrect(lhs: Rational, rhs: Rational)
+    ensures lhs.Add(rhs).ToReal() == lhs.ToReal() + rhs.ToReal()
+  {}
+
+  lemma SubIsCorrect(lhs: Rational, rhs: Rational)
+    ensures lhs.Sub(rhs).ToReal() == lhs.ToReal() - rhs.ToReal()
+  {}
+
+  lemma InvIsCorrect(r: Rational)
+    requires r.numer != 0
+    ensures r.Inv().ToReal() == 1.0 / r.ToReal()
+  {}
+
+  lemma MulIsCorrect(lhs: Rational, rhs: Rational)
+    ensures lhs.Mul(rhs).ToReal() == lhs.ToReal() * rhs.ToReal()
+  {}
+
+  lemma DivIsCorrect(lhs: Rational, rhs: Rational)
+    requires rhs.numer != 0
+    ensures lhs.Div(rhs).ToReal() == lhs.ToReal() / rhs.ToReal()
+  {}
+
+  lemma FractionAsFloor(a: int, b: nat)
+    requires b != 0
+    ensures a / b == (a as real / b as real).Floor
+  {
+    assert a as real / b as real == (a / b) as real + (a % b) as real / b as real by {
+      assert a as real == (a / b) as real * b as real + (a % b) as real by {
+        assert a == (a / b) * b + (a % b);
+      }
+    }
+    if a < 0 {
+    } else {
+    }
+  }
+
+  lemma FloorIsCorrect(r: Rational)
+    ensures r.Floor() == r.ToReal().Floor
+  {
+    var floor := r.numer / r.denom;
+    var multiple := floor * r.denom;
+    assert r.numer == multiple + r.numer % r.denom;
+    var nextMultiple := multiple + r.denom;
+    assert r.Floor() as real <= r.ToReal() by {
+      calc {
+        r.Floor() as real;
+      ==
+        (r.numer / r.denom) as real;
+      == { assert r.numer / r.denom == (r.numer as real / r.denom as real).Floor by { FractionAsFloor(r.numer, r.denom); } }
+        (r.numer as real / r.denom as real).Floor as real;
+      <=
+        r.numer as real / r.denom as real;
+      ==
+        r.ToReal();
+      }
+    }
+    assert r.ToReal() < r.Floor() as real + 1.0 by {
+      assert r.numer < nextMultiple;
+      calc {
+        r.ToReal();
+      ==
+        r.numer as real / r.denom as real;
+      < { DivStrictlyMonotonic(r.denom as real, r.numer as real, nextMultiple as real); }
+        nextMultiple as real / r.denom as real;
+      ==
+        (floor + 1) as real;
+      ==
+        r.Floor() as real + 1.0;
+      }
+    }
+  }
+
+  lemma FloorFractionalPartRelation(r: Rational)
+    ensures r == Int(r.Floor()).Add(r.FractionalPart())
+  {}
+
+  lemma FractionalPartIsCorrect(r: Rational)
+    ensures r.FractionalPart().ToReal() == r.ToReal() - r.ToReal().Floor as real
+  {
+    calc {
+      r.FractionalPart().ToReal();
+    == { FloorFractionalPartRelation(r); }
+      r.Sub(Int(r.Floor())).ToReal();
+    == { SubIsCorrect(r, Int(r.Floor())); }
+      r.ToReal() - Int(r.Floor()).ToReal();
+    ==
+      r.ToReal() - r.Floor() as real;
+    == { FloorIsCorrect(r); }
+      r.ToReal() - r.ToReal().Floor as real;
+    }
+  }
+
+  lemma DivStrictlyMonotonic(divisor: real, a: real, b: real)
+    requires a < b
+    requires divisor > 0.0
+    ensures a / divisor < b / divisor
+  {}
+}
+
+```
+
+FILE src/Math/RealArith.dfy [whole_file; bytes 0:4591]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module RealArith {
+  import NatArith
+
+  function Abs(r: real): real {
+    if r >= 0.0 then r else -r
+  }
+
+  function Max(x: real, y: real): real {
+    if x >= y then x else y
+  }
+
+  function Min(x: real, y: real): real {
+    if x <= y then x else y
+  }
+
+  function Dist(x: real, y: real): real {
+    Abs(x - y)
+  }
+
+  opaque function Pow(base: real, exponent: nat): real {
+    if exponent == 0 then 1.0 else base * Pow(base, exponent - 1)
+  }
+
+  lemma TriangleInequality(a: real, b: real, c: real)
+    ensures Dist(a, c) <= Dist(a, b) + Dist(b, c)
+  {}
+
+  lemma AbsMul(x: real, y: real)
+    ensures Abs(x * y) == Abs(x) * Abs(y)
+  {}
+
+  lemma MulMonotonicStrict(factor: real, x: real, y: real)
+    requires x < y
+    requires factor > 0.0
+    ensures x * factor < y * factor
+    ensures factor * x < factor * y
+  {}
+
+  lemma MulMonotonic(factor: real, x: real, y: real)
+    requires x <= y
+    requires factor >= 0.0
+    ensures x * factor <= y * factor
+    ensures factor * x <= factor * y
+  {}
+
+  lemma DivMulEqualsMulDiv(a: real, b: real, c: real)
+    requires b != 0.0
+    ensures a / b * c == a * c / b
+  {}
+
+  lemma DivMulEqualsDivDiv(a: real, b: real, c: real)
+    requires b != 0.0
+    requires c != 0.0
+    ensures a / (b * c) == a / b / c
+  {}
+
+  lemma DivMulEqualsDivDiv2(a: real, b: real, c: real)
+    requires b != 0.0
+    requires c != 0.0
+    ensures a / (b / c) == a * c / b
+  {}
+
+  lemma AbsDiv(a: real, b: real)
+    requires b != 0.0
+    ensures Abs(a / b) == Abs(a) / Abs(b)
+  {
+    if a >= 0.0 {}
+  }
+
+  lemma MultiplicationCancelMonotonic(factor:real, x: real, y: real)
+    requires factor > 0.0
+    ensures x * factor <= y * factor ==> x <= y
+  {}
+
+  lemma DivisionIsMonotonic(a: real, b: real, c: real)
+    requires c > 0.0
+    requires a <= b
+    ensures a / c <= b / c
+  {}
+
+  lemma MultiplicationIsMonotonic(a: real, b: real, c: real)
+    requires a <= b
+    requires c >= 0.0
+    ensures a * c <= b * c
+  {}
+
+  lemma DivisionIsMonotonicStrict(a: real, b: real, c: real)
+    requires c > 0.0
+    requires a < b
+    ensures a / c < b / c
+  {}
+
+
+  lemma DivisionIsAntiMonotonic(a: real, b: real, c: real)
+    requires a >= 0.0
+    requires b > 0.0
+    requires c > 0.0
+    requires c <= b
+    ensures a / b <= a / c
+  {}
+
+  lemma DivisionIsAntiMonotonicStrict(a: real, b: real, c: real)
+    requires a > 0.0
+    requires b > 0.0
+    requires c > 0.0
+    ensures (c < b) <==> (a / b < a / c)
+  {}
+
+  lemma AdditionOfFractions(x: real, y: real, z: real)
+    requires z != 0.0
+    ensures (x / z) + (y / z) == (x + y) / z
+  {}
+
+  lemma SubtractionOfFractions(x: real, y: real, z: real)
+    requires z != 0.0
+    ensures (x / z) - (y / z) == (x - y) / z
+  {}
+
+  lemma DivDivToDivMul(x: real, y: real, z: real)
+    requires y != 0.0
+    requires z != 0.0
+    ensures (x / y) / z == x / (y * z)
+  {}
+
+  lemma SimplifyFractions(x: real, y: real, z: real)
+    requires z != 0.0
+    requires y != 0.0
+    ensures (x / z) / (y / z) == x / y
+  {}
+
+  lemma SimplifyFractionsMultiplication(a: real, b: real, c: real, d: real)
+    requires b != 0.0
+    requires d != 0.0
+    ensures (a / b) * (c / d) == (a * c) / (b * d)
+  {}
+
+  lemma ExpandFraction(x: real, y: real, z: real)
+    requires z != 0.0
+    requires y != 0.0
+    ensures x / y == (x * z) / (y * z)
+  {}
+
+  lemma FractionOfMul(a: real, b: real, c: real, d: real)
+    requires c != 0.0
+    requires d != 0.0
+    ensures (a * b) / (c * d) == (a / c) * (b / d)
+  {}
+
+  lemma DivideSubtraction(x: real, y: real, z: real)
+    requires z != 0.0
+    ensures (x - y) / z == (x / z) - (y / z)
+  {}
+
+  lemma FractionAsOne(x: real)
+    requires x != 0.0
+    ensures x / x == 1.0
+  {}
+
+  lemma PowerOfTwoLemma(k: nat)
+    ensures (1.0 / NatArith.Power(2, k) as real) / 2.0 == 1.0 / (NatArith.Power(2, k + 1) as real)
+  {
+    calc {
+      (1.0 / NatArith.Power(2, k) as real) / 2.0;
+    == { DivDivToDivMul(1.0, NatArith.Power(2, k) as real, 2.0); }
+      1.0 / (NatArith.Power(2, k) as real * 2.0);
+    ==
+      1.0 / (NatArith.Power(2, k) * 2) as real;
+    ==
+      1.0 / (NatArith.Power(2, k + 1) as real);
+    }
+  }
+
+  lemma AsRealOfMultiplication(a: nat, b: nat)
+    ensures (a as real) * (b as real) == (a * b) as real
+  {}
+
+  lemma MultiplicationInvariance(a: real, b1: real, b2: real)
+    requires b1 == b2
+    ensures a * b1 == a * b2
+    ensures b1 * a == b2 * a
+  {}
+}
+
+```
+
+FILE src/ProbabilisticProgramming/Independence.dfy [whole_file; bytes 0:2658]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Independence {
+  import Monad
+  import Rand
+  import Measures
+
+  /************
+   Definitions
+  ************/
+
+  // Definition 33
+  ghost predicate IsIndepFunctionCondition<A(!new)>(f: Monad.Hurd<A>, A: iset<A>, E: iset<Rand.Bitstream>) {
+    Measures.AreIndepEvents(
+      Rand.eventSpace,
+      Rand.prob,
+      Monad.BitstreamsWithValueIn(f, A),
+      Monad.BitstreamsWithRestIn(f, E))
+  }
+
+  // Definition 33: (weak) independence
+  ghost predicate IsIndepFunction<A(!new)>(f: Monad.Hurd<A>) {
+    forall A: iset<A>, E: iset<Rand.Bitstream> | E in Rand.eventSpace :: IsIndepFunctionCondition(f, A, E)
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma ResultsIndependent<A(!new)>(
+    h: Monad.Hurd<A>,
+    aSet: iset<A>,
+    bSeeds: iset<Rand.Bitstream>
+  )
+    requires hIndep: IsIndepFunction(h)
+    requires bMeasurable: bSeeds in Rand.eventSpace
+    requires hIsMeasurePreserving: Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => h(s).rest)
+    ensures Rand.prob(Monad.BitstreamsWithValueIn(h, aSet) * Monad.BitstreamsWithRestIn(h, bSeeds)) == Rand.prob(Monad.BitstreamsWithValueIn(h, aSet)) * Rand.prob(bSeeds)
+  {
+    var aSeeds := Monad.BitstreamsWithValueIn(h, aSet);
+    var restBSeeds := Monad.BitstreamsWithRestIn(h, bSeeds);
+    assert Rand.prob(aSeeds * restBSeeds) == Rand.prob(aSeeds) * Rand.prob(restBSeeds) by {
+      reveal hIndep;
+      reveal bMeasurable;
+      assert IsIndepFunction(h);
+      assert IsIndepFunctionCondition(h, aSet, bSeeds);
+      assert Measures.AreIndepEvents(Rand.eventSpace, Rand.prob, aSeeds, restBSeeds);
+    }
+    assert Rand.prob(restBSeeds) == Rand.prob(bSeeds) by {
+      calc {
+        Rand.prob(restBSeeds);
+        Rand.prob(Monad.BitstreamsWithRestIn(h, bSeeds));
+        { assert Monad.BitstreamsWithRestIn(h, bSeeds) == iset s | h(s).rest in bSeeds; }
+        Rand.prob(iset s | h(s).rest in bSeeds);
+        { assert (iset s | h(s).rest in bSeeds) == Measures.PreImage(s => h(s).rest, bSeeds); }
+        Rand.prob(Measures.PreImage(s => h(s).rest, bSeeds));
+        { reveal bMeasurable; reveal hIsMeasurePreserving; }
+        Rand.prob(bSeeds);
+      }
+    }
+  }
+
+  lemma AreIndepEventsConjunctElimination(e1: iset<Rand.Bitstream>, e2: iset<Rand.Bitstream>)
+    requires Measures.AreIndepEvents(Rand.eventSpace, Rand.prob, e1, e2)
+    ensures Rand.prob(e1 * e2) == Rand.prob(e1) * Rand.prob(e2)
+  {}
+}
+```
+
+FILE src/ProbabilisticProgramming/Monad.dfy [whole_file; bytes 0:4102]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Monad {
+  import Rand
+  import Measures
+
+  /************
+   Definitions
+  ************/
+
+  // The type (monad) of probabilistic computations (cf. Joe Hurd's PhD thesis).
+  // For a given stream of bits (coin flips), it yields the result of the computation.
+  type Hurd<A> = Rand.Bitstream -> Result<A>
+
+  // The result of a probabilistic computation on a bitstream.
+  // It consists of the computed value and the (unconsumed) rest of the bitstream.
+  datatype Result<A> = Result(value: A, rest: Rand.Bitstream)
+  {
+    function Map<B>(f: A -> B): Result<B> {
+      Result(f(value), rest)
+    }
+
+    function Bind<B>(f: A -> Hurd<B>): Result<B> {
+      f(value)(rest)
+    }
+
+    ghost predicate In(s: iset<A>) {
+      Satisfies(x => x in s)
+    }
+
+    ghost predicate Equals(a: A) {
+      Satisfies(x => x == a)
+    }
+
+    predicate Satisfies(property: A -> bool) {
+      property(value)
+    }
+
+    ghost predicate RestIn(s: iset<Rand.Bitstream>) {
+      RestSatisfies(r => r in s)
+    }
+
+    predicate RestSatisfies(property: Rand.Bitstream -> bool) {
+      property(rest)
+    }
+
+    function Extract(): (x: (A, Rand.Bitstream))
+      ensures this == Result(x.0, x.1)
+    {
+      (this.value, this.rest)
+    }
+  }
+
+  ghost function Values<A>(results: iset<Result<A>>): iset<A> {
+    iset r <- results :: r.value
+  }
+
+  ghost function Rests<A>(results: iset<Result<A>>): iset<Rand.Bitstream> {
+    iset r <- results :: r.rest
+  }
+
+  ghost function ResultEventSpace<A(!new)>(eventSpace: iset<iset<A>>): iset<iset<Result<A>>> {
+    iset e: iset<Result<A>> | Values(e) in eventSpace && Rests(e) in Rand.eventSpace
+  }
+
+  ghost const boolResultEventSpace: iset<iset<Result<bool>>> := ResultEventSpace(Measures.boolEventSpace)
+
+  ghost const natResultEventSpace: iset<iset<Result<nat>>> := ResultEventSpace(Measures.natEventSpace)
+
+  ghost function ResultsWithValueIn<A(!new)>(values: iset<A>): iset<Result<A>> {
+    iset result: Result<A> | result.value in values
+  }
+
+  ghost function ResultsWithRestIn<A(!new)>(rests: iset<Rand.Bitstream>): iset<Result<A>> {
+    iset result: Result<A> | result.rest in rests
+  }
+
+  ghost function BitstreamsWithValueIn<A(!new)>(h: Hurd<A>, aSet: iset<A>): iset<Rand.Bitstream> {
+    iset s | h(s).In(aSet)
+  }
+
+  ghost function BitstreamsWithRestIn<A(!new)>(h: Hurd<A>, restSet: iset<Rand.Bitstream>): iset<Rand.Bitstream> {
+    iset s | h(s).RestIn(restSet)
+  }
+
+  // Equation (3.4)
+  function Bind<A,B>(f: Hurd<A>, g: A -> Hurd<B>): Hurd<B> {
+    (s: Rand.Bitstream) => f(s).Bind(g)
+  }
+
+  // Equation (2.42)
+  const Coin: Hurd<bool> := s => Result(Rand.Head(s), Rand.Tail(s))
+
+  function Composition<A,B,C>(f: A -> Hurd<B>, g: B -> Hurd<C>): A -> Hurd<C> {
+    (a: A) => Bind(f(a), g)
+  }
+
+  // Equation (3.3)
+  function Return<A>(a: A): Hurd<A> {
+    (s: Rand.Bitstream) => Result(a, s)
+  }
+
+  function Map<A,B>(m: Hurd<A>, f: A -> B): Hurd<B> {
+    Bind(m, (a: A) => Return(f(a)))
+  }
+
+  function Join<A>(ff: Hurd<Hurd<A>>): Hurd<A> {
+    (s: Rand.Bitstream) => ff(s).Bind(f => f)
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma UnitalityBindReturn<A,B>(a: A, g: A -> Hurd<B>, s: Rand.Bitstream)
+    ensures Bind(Return(a), g)(s) == g(a)(s)
+  {}
+
+  lemma BindIsAssociative<A,B,C>(f: Hurd<A>, g: A -> Hurd<B>, h: B -> Hurd<C>, s: Rand.Bitstream)
+    ensures Bind(Bind(f, g), h)(s) == Bind(f, (a: A) => Bind(g(a), h))(s)
+  {}
+
+  lemma CompositionIsAssociative<A,B,C,D>(f: A -> Hurd<B>, g: B -> Hurd<C>, h: C -> Hurd<D>, a: A, s: Rand.Bitstream)
+    ensures Composition(Composition(f, g), h)(a)(s) == Composition(f, Composition(g, h))(a)(s)
+  {}
+
+  lemma UnitalityJoinReturn<A>(f: Hurd<A>, s: Rand.Bitstream)
+    ensures Join(Map(f, Return))(s) == Join(Return(f))(s)
+  {}
+
+  lemma JoinIsAssociative<A>(fff: Hurd<Hurd<Hurd<A>>>, s: Rand.Bitstream)
+    ensures Join(Map(fff, Join))(s) == Join(Join(fff))(s)
+  {}
+
+}
+```
+
+FILE src/ProbabilisticProgramming/RandomSource.dfy [whole_file; bytes 0:1187]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Rand {
+  import Measures
+
+  /************
+   Definitions
+  ************/
+
+  type Bitstream = nat -> bool
+
+  ghost const eventSpace: iset<iset<Bitstream>>
+
+  ghost const prob: iset<Bitstream> -> real
+
+  // Equation (2.37)
+  function Head(s: Bitstream): bool {
+    s(0)
+  }
+
+  // Equation (2.38)
+  function Tail(s: Bitstream): (s': Bitstream) {
+    (n: nat) => s(n+1)
+  }
+
+  function IterateTail(s: Bitstream, n: nat): (t: Bitstream)
+    ensures t(0) == s(n)
+  {
+    if n == 0 then s else IterateTail(Tail(s), n - 1)
+  }
+
+  lemma TailOfIterateTail(s: Bitstream, n: nat)
+    ensures Tail(IterateTail(s, n)) == IterateTail(s, n + 1)
+  {}
+
+  // Equation (2.41)
+  function Drop(n: nat, s: Bitstream): (s': Bitstream)
+    ensures Head(s') == s(n)
+  {
+    if n == 0 then s else Drop(n - 1, Tail(s))
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma {:axiom} ProbIsProbabilityMeasure()
+    ensures Measures.IsProbability(eventSpace, prob)
+
+}
+```
+
+FILE src/Util/FisherYates/Correctness.dfy [whole_file; bytes 0:29150]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module FisherYates.Correctness {
+  import NatArith
+  import Model
+  import Rand
+  import Measures
+  import Monad
+  import Uniform
+  import Independence
+  import RealArith
+
+  /************
+   Definitions
+  ************/
+
+  ghost function CorrectnessConstructEvent<T(!new)>(xs: seq<T>, p: seq<T>, i: nat): iset<Rand.Bitstream>
+    requires i <= |xs|
+    requires i <= |p|
+  {
+    iset s | Model.Shuffle(xs, i)(s).value[i..] == p[i..]
+  }
+
+  ghost predicate CorrectnessPredicate<T(!new)>(xs: seq<T>, p: seq<T>, i: nat)
+    requires i <= |xs|
+    requires i <= |p|
+  {
+    var e := CorrectnessConstructEvent(xs, p, i);
+    e in Rand.eventSpace
+    && Rand.prob(e) == 1.0 / (NatArith.FactorialTraditional(|xs|-i) as real)
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma CorrectnessFisherYates<T(!new)>(xs: seq<T>, p: seq<T>)
+    requires
+      var xs' := seq(|xs|, i requires 0 <= i < |xs| => (xs[i], i));
+      var p' := seq(|p|, i requires 0 <= i < |p| => (p[i], i));
+      multiset(p') == multiset(xs')
+    ensures
+      var xs' := seq(|xs|, i requires 0 <= i < |xs| => (xs[i], i));
+      var p' := seq(|p|, i requires 0 <= i < |p| => (p[i], i));
+      var e := iset s | Model.Shuffle(xs')(s).Equals(p');
+      e in Rand.eventSpace
+      && Rand.prob(e) == 1.0 / (NatArith.FactorialTraditional(|xs|) as real)
+  {
+    var xs' := seq(|xs|, i requires 0 <= i < |xs| => (xs[i], i));
+    var p' := seq(|p|, i requires 0 <= i < |p| => (p[i], i));
+    CorrectnessFisherYatesUniqueElements(xs', p');
+  }
+
+  lemma CorrectnessFisherYatesUniqueElements<T(!new)>(xs: seq<T>, p: seq<T>)
+    requires forall a, b | 0 <= a < b < |xs| :: xs[a] != xs[b]
+    requires multiset(p) == multiset(xs)
+    ensures
+      var e := iset s | Model.Shuffle(xs)(s).Equals(p);
+      e in Rand.eventSpace
+      && Rand.prob(e) == 1.0 / (NatArith.FactorialTraditional(|xs|) as real)
+  {
+    var e := iset s | Model.Shuffle(xs)(s).Equals(p);
+    var i := 0;
+    var e' := iset s | Model.Shuffle(xs, i)(s).value[i..] == p[i..];
+    assert e == e';
+    assert |xs| == |p| by {
+      Model.PermutationsPreserveCardinality(xs, p);
+    }
+    CorrectnessFisherYatesUniqueElementsGeneral(xs, p, 0);
+  }
+
+  lemma CorrectnessFisherYatesUniqueElementsGeneral<T(!new)>(xs: seq<T>, p: seq<T>, i: nat)
+    decreases |xs| - i
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    ensures CorrectnessPredicate(xs, p, i)
+  {
+    var e := iset s | Model.Shuffle(xs, i)(s).value[i..] == p[i..];
+    if |xs[i..]| <= 1 {
+      CorrectnessFisherYatesUniqueElementsGeneralLeq1(xs, p, i);
+    } else {
+      CorrectnessFisherYatesUniqueElementsGeneralGreater1(xs, p, i);
+    }
+  }
+
+  lemma CorrectnessFisherYatesUniqueElementsGeneralLeq1<T(!new)>(xs: seq<T>, p: seq<T>, i: nat)
+    decreases |xs| - i
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires |xs[i..]| <= 1
+    ensures CorrectnessPredicate(xs, p, i)
+  {
+    Model.PermutationsPreserveCardinality(p[i..], xs[i..]);
+    var e := iset s | Model.Shuffle(xs, i)(s).value[i..] == p[i..];
+    assert e == Measures.SampleSpace() by {
+      forall s
+        ensures s in e
+      {
+        calc {
+          s in e;
+          Model.Shuffle(xs, i)(s).value[i..] == p[i..];
+          { assert Model.Shuffle(xs, i)(s) == Monad.Return(xs)(s); }
+          Monad.Return(xs)(s).value[i..] == p[i..];
+          { assert Monad.Return(xs)(s).value == xs; }
+          xs[i..] == p[i..];
+          if |xs[i..]| == 0 then [] == p[i..] else [xs[i]] == p[i..];
+          { assert if |xs[i..]| == 0 then p[i..] == [] else p[i..] == [p[i]]; }
+          if |xs[i..]| == 0 then true else [xs[i]] == [p[i]];
+          { assert |xs[i..]| != 0 ==> [xs[i]] == [p[i]] by { assert |xs[i..]| != 0 ==> assert p[i..] == [p[i]]; assert xs[i..] == [xs[i]]; assert multiset(p[i..]) == multiset(xs[i..]); multiset([p[i]]) == multiset([xs[i]]); } }
+          if |xs[i..]| == 0 then true else true;
+          true;
+        }
+      }
+    }
+    assert CorrectnessPredicate(xs, p, i) by {
+      reveal NatArith.FactorialTraditional();
+      Rand.ProbIsProbabilityMeasure();
+      assert Measures.IsProbability(Rand.eventSpace, Rand.prob);
+      assert Measures.SampleSpace() == Measures.Complement<Rand.Bitstream>(iset{});
+      calc {
+        Rand.prob(e);
+        1.0;
+        1.0 / 1.0;
+        1.0 / (1 as real);
+        1.0 / (NatArith.FactorialTraditional(|xs|-i) as real);
+      }
+    }
+  }
+
+  lemma CorrectnessFisherYatesUniqueElementsGeneralGreater1ASingleton<T(!new)>(xs: seq<T>, p: seq<T>, i: nat) returns (j: nat)
+    requires i <= |xs|
+    requires i <= |p|
+    requires |xs| == |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires |xs[i..]| > 1
+    ensures
+      var A := iset j | i <= j < |xs| && xs[j] == p[i];
+      A != iset{} && A == iset{j}
+  {
+    var A := iset j | i <= j < |xs| && xs[j] == p[i];
+    assert A != iset{} by {
+      calc {
+        true;
+        p[i] in multiset(p[i..]);
+        { assert multiset(p[i..]) == multiset(xs[i..]); }
+        p[i] in multiset(xs[i..]);
+        p[i] in xs[i..];
+        exists j | 0 <= j < |xs[i..]| :: xs[i..][j] == p[i];
+        exists j | i <= j < |xs| :: xs[j] == p[i];
+        { assert forall j :: j in A <==> i <= j < |xs| && xs[j] == p[i]; }
+        exists j :: j in A;
+      }
+    }
+    j :| j in A;
+    assert A == iset{j} by {
+      assert forall k :: k in A <==> k in iset{j} by {
+        forall k
+          ensures k in A <==> k in iset{j}
+        {
+          if k in A {
+            assert xs[k] == p[i];
+            assert xs[j] == p[i];
+            assert xs[k] == xs[j];
+            assert k == j by {
+              assert forall a, b | i <= a < b < |xs| :: xs[a] != xs[b];
+            }
+            assert k in iset{j};
+          }
+          if k in iset{j} {
+            assert k == j;
+            assert k in A;
+          }
+        }
+      }
+    }
+  }
+
+  lemma CorrectnessFisherYatesUniqueElementsGeneralGreater1<T(!new)>(xs: seq<T>, p: seq<T>, i: nat)
+    decreases |xs| - i
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires |xs[i..]| > 1
+    ensures CorrectnessPredicate(xs, p, i)
+  {
+    Model.PermutationsPreserveCardinality(p[i..], xs[i..]);
+    var e := CorrectnessConstructEvent(xs, p, i);
+    assert |xs| > i + 1;
+    var h := Uniform.Model.IntervalSample(i, |xs|);
+    assert Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => h(s).rest) by {
+      Uniform.Correctness.IntervalSampleIsMeasurePreserving(i, |xs|);
+    }
+    assert Independence.IsIndepFunction(h) by {
+      Uniform.Correctness.IntervalSampleIsIndepFunction(i, |xs|);
+    }
+    var A := iset j | i <= j < |xs| && xs[j] == p[i];
+    var j := CorrectnessFisherYatesUniqueElementsGeneralGreater1ASingleton(xs, p, i);
+    assert A == iset{j};
+    assert Monad.BitstreamsWithValueIn(h, A) == (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j)) by {
+      BitStreamsInA(xs, p, i, j, h, A);
+    }
+    var ys := Model.Swap(xs, i, j);
+    var e' := CorrectnessConstructEvent(ys, p, i+1);
+    assert CorrectnessPredicate(ys, p, i+1) by {
+      assert multiset(ys[i+1..]) == multiset(p[i+1..]) by {
+        InductionHypothesisPrecondition1(xs, ys, p, i, j);
+      }
+      assert forall a, b | i+1 <= a < b < |ys| :: ys[a] != ys[b] by {
+        InductionHypothesisPrecondition2(xs, ys, p, i, j);
+      }
+      assert i+1 <= |ys| by {
+        calc {
+          i + 1;
+        <
+          |xs|;
+        ==
+          |ys|;
+        }
+      }
+      assert i < |p| by {
+        calc {
+          i;
+        <
+          i+1;
+        <
+          |xs|;
+        ==
+          |p|;
+        }
+      }
+      assert |ys| == |p| by {
+        calc {
+          |ys|;
+          |xs|;
+          |p|;
+        }
+      }
+      if |ys[i+1..]| > 1 {
+        CorrectnessFisherYatesUniqueElementsGeneralGreater1(ys, p, i+1);
+      } else {
+        CorrectnessFisherYatesUniqueElementsGeneralLeq1(ys, p, i+1);
+      }
+    }
+    assert e == Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e') by {
+      DecomposeE(xs, ys, p, i, j, h, A, e, e');
+    }
+
+    assert CorrectnessPredicate(xs, p, i) by {
+      CorrectnessFisherYatesUniqueElementsGeneralGreater1Helper(xs, ys, p, i, j, h, A, e, e');
+    }
+  }
+
+  lemma CorrectnessFisherYatesUniqueElementsGeneralGreater1Helper<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    decreases |xs| - i
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires |xs[i..]| > 1
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires |xs| == |ys|
+    requires ys == Model.Swap(xs, i, j)
+    requires e == CorrectnessConstructEvent(xs, p, i)
+    requires e' == CorrectnessConstructEvent(ys, p, i+1)
+    requires DecomposeE: e == Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+    requires HIsIndependent: Independence.IsIndepFunction(h)
+    requires BitStreamsInA: Monad.BitstreamsWithValueIn(h, A) == (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j))
+    requires InductionHypothesis: CorrectnessPredicate(ys, p, i+1)
+    requires hIsMeasurePreserving: Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => h(s).rest)
+    ensures CorrectnessPredicate(xs, p, i)
+  {
+    reveal DecomposeE;
+    reveal HIsIndependent;
+    reveal BitStreamsInA;
+    assert e' in Rand.eventSpace && Rand.prob(e') == 1.0 / (NatArith.FactorialTraditional(|xs|-(i+1)) as real) by {
+      assert e' in Rand.eventSpace by {
+        assert CorrectnessPredicate(ys, p, i+1) by { reveal InductionHypothesis; }
+        assert e' == CorrectnessConstructEvent(ys, p, i+1);
+      }
+      calc {
+        Rand.prob(e');
+        { assert CorrectnessPredicate(ys, p, i+1) by { reveal InductionHypothesis; }
+          assert e' == CorrectnessConstructEvent(ys, p, i+1); }
+        1.0 / (NatArith.FactorialTraditional(|ys|-(i+1)) as real);
+        { assert |xs| == |ys|;
+          assert |ys|-(i+1) == |xs|-(i+1);
+          assert NatArith.FactorialTraditional(|ys|-(i+1)) == NatArith.FactorialTraditional(|xs|-(i+1));
+          assert (NatArith.FactorialTraditional(|ys|-(i+1)) as real) == (NatArith.FactorialTraditional(|xs|-(i+1)) as real); }
+        1.0 / (NatArith.FactorialTraditional(|xs|-(i+1)) as real);
+      }
+    }
+    reveal hIsMeasurePreserving;
+    assert e in Rand.eventSpace by {
+      EInEventSpace(xs, p, h, A, e, e');
+    }
+    assert Rand.prob(e) == 1.0 / (NatArith.FactorialTraditional(|xs|-i) as real) by {
+      ProbabilityOfE(xs, ys, p, i, j, h, A, e, e');
+    }
+  }
+
+
+  lemma BitStreamsInA<T(!new)>(xs: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>)
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires |xs|-i > 1
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires A == iset j | i <= j < |xs| && xs[j] == p[i]
+    requires A == iset{j}
+    requires h == Uniform.Model.IntervalSample(i, |xs|)
+    ensures Monad.BitstreamsWithValueIn(h, A) == (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j))
+  {
+    assert forall s :: s in Monad.BitstreamsWithValueIn(h, A) <==> s in (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j)) by {
+      forall s
+        ensures s in Monad.BitstreamsWithValueIn(h, A) <==> s in (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j))
+      {
+        if s in Monad.BitstreamsWithValueIn(h, A) {
+          assert Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j);
+        }
+        if s in (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j)) {
+        }
+      }
+    }
+  }
+
+  lemma DecomposeEImplicationOne<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>, s: Rand.Bitstream)
+    requires i <= |p|
+    requires |xs| == |p|
+    requires |xs|-i > 1
+    requires i <= |xs|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires A == iset j | i <= j < |xs| && xs[j] == p[i]
+    requires A == iset{j}
+    requires h == Uniform.Model.IntervalSample(i, |xs|)
+    requires ys == Model.Swap(xs, i, j)
+    requires e == CorrectnessConstructEvent(xs, p, i)
+    requires e' == CorrectnessConstructEvent(ys, p, i+1)
+    requires s in e
+    ensures s in Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+  {
+    assert s in Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e') by {
+      var zs := Model.Shuffle(xs, i)(s).value;
+      assert zs[i..] == p[i..];
+      var k := Uniform.Model.IntervalSample(i, |xs|)(s).value;
+      Uniform.Correctness.IntervalSampleBound(i, |xs|, s);
+      var s' := Uniform.Model.IntervalSample(i, |xs|)(s).rest;
+
+      assert s in Monad.BitstreamsWithValueIn(h, A) by {
+        var ys' := Model.Swap(xs, i, k);
+        var zs' := Model.Shuffle(ys', i+1)(s').value;
+        assert zs == zs';
+        calc {
+          p[i];
+          zs[i];
+          zs'[i];
+          { assert Model.ShuffleInvariancePredicatePointwise(ys', Model.Shuffle(ys', i+1)(s'), i); }
+          ys'[i];
+          xs[k];
+        }
+        assert k in A;
+      }
+
+      assert s in Monad.BitstreamsWithRestIn(h, e') by {
+        assert Model.Shuffle(ys, i+1)(s').value[i+1..] == p[i+1..] by {
+          forall j | 0 <= j < |xs| - (i+1) ensures Model.Shuffle(ys, i+1)(s').value[i+1..][j] == p[i+1..][j] {
+            calc {
+              Model.Shuffle(ys, i+1)(s').value[i+1..][j];
+              Model.ShuffleCurried(ys, s', i+1).value[i+1..][j];
+              Model.ShuffleCurried(xs, s, i).value[i+1..][j];
+              Model.Shuffle(xs, i)(s).value[i+1..][j];
+              Model.Shuffle(xs, i)(s).value[i..][j+1];
+              { assert Model.Shuffle(xs, i)(s).value[i..] == p[i..]; }
+              p[i..][j+1];
+              p[i+1..][j];
+            }
+          }
+        }
+      }
+    }
+  }
+
+  lemma DecomposeEImplicationTwo<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>, s: Rand.Bitstream)
+    requires i <= |p|
+    requires |xs| == |p|
+    requires |xs|-i > 1
+    requires i <= |xs|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires A == iset j | i <= j < |xs| && xs[j] == p[i]
+    requires A == iset{j}
+    requires h == Uniform.Model.IntervalSample(i, |xs|)
+    requires ys == Model.Swap(xs, i, j)
+    requires e == CorrectnessConstructEvent(xs, p, i)
+    requires e' == CorrectnessConstructEvent(ys, p, i+1)
+    requires s in Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+    ensures s in e
+  {
+    var k := Uniform.Model.IntervalSample(i, |xs|)(s).value;
+    assert k in A;
+    assert k == j;
+    var s' := Uniform.Model.IntervalSample(i, |xs|)(s).rest;
+    assert s' in e';
+    var ys' := Model.Swap(xs, i, k);
+    assert ys' == ys;
+    var zs' := Model.Shuffle(ys', i+1)(s').value;
+    assert Model.Shuffle(xs, i)(s).value[i..] == p[i..] by {
+      calc {
+        Model.Shuffle(xs, i)(s).value[i..];
+        { assert Model.Shuffle(xs, i)(s).value == zs'; }
+        zs'[i..];
+        Model.Shuffle(ys', i+1)(s').value[i..];
+        { assert ys' == ys; }
+        Model.Shuffle(ys, i+1)(s').value[i..];
+        { SliceOfSequences(Model.Shuffle(ys, i+1)(s').value, i); }
+        [Model.Shuffle(ys, i+1)(s').value[i]] + Model.Shuffle(ys, i+1)(s').value[i+1..];
+        { assert Model.ShuffleInvariancePredicatePointwise(ys, Model.Shuffle(ys, i+1)(s'), i); assert Model.Shuffle(ys, i+1)(s').value[i] == ys[i]; }
+        [ys[i]] + Model.Shuffle(ys, i+1)(s').value[i+1..];
+        { assert ys[i] == xs[k]; }
+        [xs[k]] + Model.Shuffle(ys, i+1)(s').value[i+1..];
+        { assert xs[k] == p[i]; }
+        [p[i]] + p[i+1..];
+        { SliceOfSequences(p, i); }
+        p[i..];
+      }
+    }
+  }
+
+  lemma DecomposeE<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    requires i <= |p|
+    requires |xs| == |p|
+    requires |xs|-i > 1
+    requires i <= |xs|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires A == iset j | i <= j < |xs| && xs[j] == p[i]
+    requires A == iset{j}
+    requires h == Uniform.Model.IntervalSample(i, |xs|)
+    requires ys == Model.Swap(xs, i, j)
+    requires e == CorrectnessConstructEvent(xs, p, i)
+    requires e' == CorrectnessConstructEvent(ys, p, i+1)
+    ensures e == Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+  {
+    assert e == Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e') by {
+      forall s
+        ensures s in e <==> s in Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+      {
+        if s in e {
+          DecomposeEImplicationOne(xs, ys, p, i, j, h, A, e, e', s);
+        }
+        if s in Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e') {
+          DecomposeEImplicationTwo(xs, ys, p, i, j, h, A, e, e', s);
+        }
+      }
+    }
+  }
+
+  lemma InductionHypothesisPrecondition1<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat)
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires ys == Model.Swap(xs, i, j)
+    requires |xs[i..]| > 1
+    ensures multiset(ys[i+1..]) == multiset(p[i+1..])
+  {
+    if j == i {
+      calc {
+        multiset(ys[i+1..]);
+        { assert ys[i+1..] == xs[i+1..] by { assert xs == ys; } }
+        multiset(xs[i+1..]);
+        { MultisetOfSequence(xs, i, i+1); }
+        multiset(xs[i..]) - multiset(xs[i..i+1]);
+        { assert xs[i..i+1] == [xs[i]]; }
+        multiset(xs[i..]) - multiset([xs[i]]);
+        { assert multiset(xs[i..]) == multiset(p[i..]); assert xs[i] == xs[j] by { assert i == j; } }
+        multiset(p[i..]) - multiset([xs[j]]);
+        { assert multiset([xs[j]]) == multiset([p[i]]) by { assert xs[j] == p[i]; } }
+        multiset(p[i..]) - multiset([p[i]]);
+        { assert multiset([p[i]]) == multiset(p[i..i+1]) by { assert [p[i]] == p[i..i+1]; } }
+        multiset(p[i..]) - multiset(p[i..i+1]);
+        { assert |p| == |xs|; MultisetOfSequence(p, i, i+1); }
+        multiset(p[i+1..]);
+      }
+    } else {
+      calc {
+        multiset(ys[i+1..]);
+        { assert i+1 <= j; SliceOfSequencesVariation(ys, i+1, j); }
+        multiset(ys[i+1..j] + ys[j..]);
+        { SliceOfSequences(ys, j); }
+        multiset(ys[i+1..j] + [ys[j]] + ys[j+1..]);
+        { assert ys[i+1..j] == xs[i+1..j];}
+        multiset(xs[i+1..j] + [ys[j]] + ys[j+1..]);
+        { assert ys[j] == xs[i]; }
+        multiset(xs[i+1..j] + [xs[i]] + ys[j+1..]);
+        { assert ys[j+1..] == xs[j+1..]; }
+        multiset(xs[i+1..j] + [xs[i]] + xs[j+1..]);
+        { assert multiset([xs[j]]) - multiset([xs[j]]) == multiset{}; }
+        multiset(xs[i+1..j] + [xs[i]] + xs[j+1..]) + multiset([xs[j]]) - multiset([xs[j]]);
+        { assert multiset(xs[i+1..j] + [xs[i]] + xs[j+1..]) + multiset([xs[j]]) == multiset(xs[i+1..j] + [xs[i]] + xs[j+1..] + [xs[j]]); }
+        multiset(xs[i+1..j] + [xs[i]] + xs[j+1..] + [xs[j]]) - multiset([xs[j]]);
+        { assert multiset(xs[i+1..j] + [xs[i]] + xs[j+1..] + [xs[j]]) == multiset(xs[i+1..j]) + multiset([xs[i]]) + multiset(xs[j+1..]) + multiset([xs[j]]); }
+        multiset(xs[i+1..j]) + multiset([xs[i]]) + multiset(xs[j+1..]) + multiset([xs[j]]) - multiset([xs[j]]);
+        { assert multiset(xs[i+1..j]) + multiset([xs[i]]) + multiset(xs[j+1..]) + multiset([xs[j]]) == multiset([xs[i]]) + multiset(xs[i+1..j]) + multiset([xs[j]]) + multiset(xs[j+1..]); }
+        multiset([xs[i]]) + multiset(xs[i+1..j]) + multiset([xs[j]]) + multiset(xs[j+1..]) - multiset([xs[j]]);
+        { assert multiset([xs[i]]) + multiset(xs[i+1..j]) + multiset([xs[j]]) + multiset(xs[j+1..]) == multiset([xs[i]] + xs[i+1..j] + [xs[j]] + xs[j+1..]); }
+        multiset([xs[i]] + xs[i+1..j] + [xs[j]] + xs[j+1..]) - multiset([xs[j]]);
+        { SliceOfSequencesGeneral(xs, i, j); SliceOfSequences(xs, j); }
+        multiset(xs[i..j] + xs[j..]) - multiset([xs[j]]);
+        { SliceOfSequencesVariation(xs, i, j); }
+        multiset(xs[i..]) - multiset([xs[j]]);
+        { assert multiset(xs[i..]) == multiset(p[i..]); assert xs[j] == p[i]; }
+        multiset(p[i..]) - multiset([p[i]]);
+        { assert [p[i]] == p[i..i+1]; }
+        multiset(p[i..]) - multiset(p[i..i+1]);
+        { assert |p| == |xs|; MultisetOfSequence(p, i, i+1); }
+        multiset(p[i+1..]);
+      }
+    }
+  }
+
+  lemma InductionHypothesisPrecondition2<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat)
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires ys == Model.Swap(xs, i, j)
+    requires |xs[i..]| > 1
+    ensures forall a, b | i+1 <= a < b < |ys| :: ys[a] != ys[b]
+  {
+    assert forall a, b | i+1 <= a < b < |ys| :: ys[a] != ys[b] by {
+      forall a, b | i+1 <= a < b < |ys|
+        ensures ys[a] != ys[b]
+      {
+        if a == i+1 {
+        }
+      }
+    }
+  }
+
+  lemma EInEventSpace<T(!new)>(xs: seq<T>, p: seq<T>, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    requires |xs| == |p|
+    requires DecomposeE: e == Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+    requires InductionHypothesis: e' in Rand.eventSpace
+    requires HIsIndependent: Independence.IsIndepFunction(h)
+    ensures e in Rand.eventSpace
+  {
+    reveal InductionHypothesis;
+    reveal HIsIndependent;
+    assert Independence.IsIndepFunctionCondition(h, A, e');
+    assert Monad.BitstreamsWithValueIn(h, A) in Rand.eventSpace;
+    assert Monad.BitstreamsWithRestIn(h, e') in Rand.eventSpace;
+    Rand.ProbIsProbabilityMeasure();
+    Measures.BinaryIntersectionIsMeasurable(Rand.eventSpace, Monad.BitstreamsWithValueIn(h, A), Monad.BitstreamsWithRestIn(h, e'));
+    reveal DecomposeE;
+  }
+
+  lemma ProbabilityOfESimplifyFractions<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    requires |xs| - i > 1
+    ensures (1.0 / ((|xs|-i) as real)) * (1.0 /  NatArith.FactorialTraditional((|xs|-i)-1) as real) == (1.0 * 1.0) / (((|xs|-i) as real) * (NatArith.FactorialTraditional(|xs|-(i+1)) as real))
+  {
+    var denom := NatArith.FactorialTraditional(|xs|-(i+1)) as real;
+    RealArith.SimplifyFractionsMultiplication(1.0, (|xs|-i) as real, 1.0, denom);
+  }
+
+  lemma ProbabilityOfEAsRealOfMult<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    requires |xs| - i > 1
+    ensures (((|xs|-i) * NatArith.FactorialTraditional((|xs|-i)-1)) as real) != 0.0
+    ensures 1.0 / (((|xs|-i) as real) * NatArith.FactorialTraditional(|xs|-(i+1)) as real) == 1.0 / (((|xs|-i) * NatArith.FactorialTraditional((|xs|-i)-1)) as real)
+  {
+    RealArith.AsRealOfMultiplication(|xs|-i, NatArith.FactorialTraditional((|xs|-i)-1));
+  }
+
+  lemma ProbabilityOfE<T(!new)>(xs: seq<T>, ys: seq<T>, p: seq<T>, i: nat, j: nat, h: Monad.Hurd<int>, A: iset<int>, e: iset<Rand.Bitstream>, e': iset<Rand.Bitstream>)
+    requires i <= |xs|
+    requires i <= |p|
+    requires forall a, b | i <= a < b < |xs| :: xs[a] != xs[b]
+    requires |xs| == |p|
+    requires multiset(p[i..]) == multiset(xs[i..])
+    requires i <= j < |xs| && xs[j] == p[i]
+    requires ys == Model.Swap(xs, i, j)
+    requires |xs|-i > 1
+    requires e' in Rand.eventSpace
+    requires |xs| == |ys|
+    requires DecomposeE: e == Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e')
+    requires HIsIndependent: Independence.IsIndepFunction(h)
+    requires hIsMeasurePreserving: Measures.IsMeasurePreserving(Rand.eventSpace, Rand.prob, Rand.eventSpace, Rand.prob, s => h(s).rest)
+    requires InductionHypothesis: Rand.prob(e') == 1.0 / (NatArith.FactorialTraditional(|xs|-(i+1)) as real)
+    requires BitStreamsInA: Monad.BitstreamsWithValueIn(h, A) == (iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j))
+    ensures
+      Rand.prob(e) == 1.0 / (NatArith.FactorialTraditional(|xs|-i) as real)
+  {
+    var e'' := iset s | Uniform.Model.IntervalSample(i, |xs|)(s).Equals(j);
+    assert BitStreamsInALifted: Rand.prob(Monad.BitstreamsWithValueIn(h, A)) * Rand.prob(e') == Rand.prob(e'') * Rand.prob(e') by {
+      assert Rand.prob(Monad.BitstreamsWithValueIn(h, A)) == Rand.prob(e'') by {
+        reveal BitStreamsInA;
+      }
+    }
+
+    assert FullIntervalLifted: Rand.prob(e'') * Rand.prob(e') == (1.0 / ((|xs|-i) as real)) * Rand.prob(e') by {
+      assert Rand.prob(e'') == 1.0 / ((|xs|-i) as real) by {
+        Uniform.Correctness.UniformFullIntervalCorrectness(i, |xs|, j);
+      }
+      RealArith.MultiplicationInvariance(Rand.prob(e'), Rand.prob(e''), 1.0 / ((|xs|-i) as real));
+    }
+
+    var denom := NatArith.FactorialTraditional(|xs|-(i+1)) as real;
+    var denom2 := NatArith.FactorialTraditional((|xs|-i)-1) as real;
+    var frac := 1.0 / denom;
+    var frac2 := 1.0 / denom2;
+
+    assert InductionHypothesisLifted: (1.0 / ((|xs|-i) as real)) * Rand.prob(e') == (1.0 / ((|xs|-i) as real)) * frac by {
+      assert Rand.prob(e') == frac by {
+        reveal InductionHypothesis;
+      }
+      RealArith.MultiplicationInvariance(1.0 / ((|xs|-i) as real), Rand.prob(e'), frac);
+    }
+
+    assert FracLifted: (1.0 / ((|xs|-i) as real)) * frac == (1.0 / ((|xs|-i) as real)) * frac2 by {
+      assert frac == frac2;
+      RealArith.MultiplicationInvariance(1.0 / ((|xs|-i) as real), frac, frac2);
+    }
+
+    calc {
+      Rand.prob(e);
+      { reveal DecomposeE; }
+      Rand.prob(Monad.BitstreamsWithValueIn(h, A) * Monad.BitstreamsWithRestIn(h, e'));
+      { reveal HIsIndependent; reveal InductionHypothesis; reveal hIsMeasurePreserving; Independence.ResultsIndependent(h, A, e'); }
+      Rand.prob(Monad.BitstreamsWithValueIn(h, A)) * Rand.prob(e');
+      { reveal BitStreamsInALifted; }
+      Rand.prob(e'') * Rand.prob(e');
+      { reveal FullIntervalLifted; }
+      (1.0 / ((|xs|-i) as real)) * Rand.prob(e');
+      { reveal InductionHypothesisLifted; }
+      (1.0 / ((|xs|-i) as real)) * frac;
+      { reveal FracLifted; }
+      (1.0 / ((|xs|-i) as real)) * frac2;
+      { ProbabilityOfESimplifyFractions(xs, ys, p, i, j, h, A, e, e'); }
+      (1.0 * 1.0) / (((|xs|-i) as real) * denom);
+      { assert 1.0 * 1.0 == 1.0; }
+      1.0 / (((|xs|-i) as real) * denom);
+      { ProbabilityOfEAsRealOfMult(xs, ys, p, i, j, h, A, e, e'); }
+      1.0 / (((|xs|-i) * NatArith.FactorialTraditional((|xs|-i)-1)) as real);
+      { assert (|xs|-i) * NatArith.FactorialTraditional((|xs|-i)-1) == NatArith.FactorialTraditional(|xs|-i) by { reveal NatArith.FactorialTraditional(); } }
+      1.0 / (NatArith.FactorialTraditional(|xs|-i) as real);
+    }
+  }
+
+  lemma MultisetOfSequence<T>(xs: seq<T>, i: nat, j: nat)
+    requires i <= j < |xs|
+    ensures multiset(xs[i..]) - multiset(xs[i..j]) == multiset(xs[j..])
+  {
+    calc {
+      multiset(xs[i..]) - multiset(xs[i..j]);
+      { assert xs[i..] == xs[i..j] + xs[j..]; }
+      multiset(xs[i..j] + xs[j..]) - multiset(xs[i..j]);
+      { assert  multiset(xs[i..j] + xs[j..]) == multiset(xs[i..j]) + multiset(xs[j..]); }
+      multiset(xs[i..j]) + multiset(xs[j..]) - multiset(xs[i..j]);
+      multiset(xs[j..]);
+    }
+  }
+
+  lemma SliceOfSequences<T>(xs: seq<T>, i: nat)
+    requires 0 <= i < |xs|
+    ensures xs[i..] == [xs[i]] + xs[i+1..]
+  {}
+
+  lemma SliceOfSequencesGeneral<T>(xs: seq<T>, i: nat, j: nat)
+    requires 0 <= i < j < |xs|
+    ensures xs[i..j] == [xs[i]] + xs[i+1..j]
+  {}
+
+  lemma SliceOfSequencesVariation<T>(xs: seq<T>, i: nat, j: nat)
+    requires 0 <= i <= j < |xs|
+    ensures xs[i..] == xs[i..j] + xs[j..]
+  {}
+
+}
+```
+
+FILE src/Util/FisherYates/Equivalence.dfy [whole_file; bytes 0:1070]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module FisherYates.Equivalence {
+  import Model
+  import Rand
+  import Monad
+  import opened Pos
+
+  ghost predicate LoopInvariant<T>(prevI: nat32, i: nat32, a: array<T>, prevASeq: seq<T>, oldASeq: seq<T>, oldS: Rand.Bitstream, prevS: Rand.Bitstream, s: Rand.Bitstream)
+    reads a
+  {
+    && prevI as nat <= |prevASeq|
+    && i as nat <= a.Length - 1
+    && Model.Shuffle(oldASeq)(oldS) == Model.Shuffle(prevASeq, prevI as nat)(prevS)
+    && Model.Shuffle(prevASeq, prevI as nat)(prevS) == Model.Shuffle(a[..], i as nat)(s)
+  }
+
+  lemma ShuffleElseClause<T>(a: array<T>, oldASeq: seq<T>, oldS: Rand.Bitstream, s: Rand.Bitstream)
+    requires aLength: a.Length <= 1
+    requires aInvariant: oldASeq == a[..]
+    requires sInvariant: oldS == s
+    ensures Model.Shuffle(oldASeq)(oldS) == Monad.Result(a[..], s)
+  {
+  }
+}
+```
+
+FILE src/Util/FisherYates/Implementation.dfy [whole_file; bytes 0:1697]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module FisherYates.Implementation {
+  import Interface
+  import Monad
+  import Model
+  import Uniform
+  import Equivalence
+  import opened Pos
+
+  trait {:termination false} Trait extends Interface.Trait {
+
+    method Shuffle<T>(a: array<T>)
+      decreases *
+      modifies `s, a
+      requires a.Length < 0x8000_0000
+      ensures Model.Shuffle(old(a[..]))(old(s)) == Monad.Result(a[..], s)
+    {
+      ghost var prevI, prevASeq, prevS := 0 as int32, a[..], s; // ghost
+
+      if (a.Length as nat32) > (1 as nat32) {
+        for i: nat32 := (0 as nat32) to (a.Length as nat32) - (1 as nat32)
+          invariant Equivalence.LoopInvariant(prevI, i, a, prevASeq, old(a[..]), old(s), prevS, s) // ghost
+        {
+          prevI, prevASeq, prevS := i, a[..], s; // ghost
+          var j := UniformIntervalSample32(i, a.Length as nat32, a);
+          assert prevASeq == a[..]; // ghost
+          Swap(a, i, j);
+          assert Equivalence.LoopInvariant(prevI, i+1, a, prevASeq, old(a[..]), old(s), prevS, s); // ghost
+        }
+      } else {
+        Equivalence.ShuffleElseClause(a, old(a[..]), old(s), s); // ghost
+      }
+
+    }
+
+    method Swap<T>(a: array<T>, i: nat32, j: nat32)
+      modifies a
+      requires i <= j
+      requires 0 <= i as nat < a.Length
+      requires 0 <= j as nat < a.Length
+      ensures Model.Swap(old(a[..]), i as nat, j as nat) == a[..]
+      ensures old(s) == s
+    {
+      a[i], a[j] := a[j], a[i];
+    }
+
+  }
+}
+
+```
+
+FILE src/Util/FisherYates/Interface.dfy [whole_file; bytes 0:595]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module FisherYates.Interface {
+  import Uniform
+  import Model
+  import Monad
+
+  trait {:termination false} Trait extends Uniform.Interface.Trait32 {
+
+    method Shuffle<T>(a: array<T>)
+      decreases *
+      modifies `s, a
+      requires a.Length < 0x8000_0000
+      ensures Model.Shuffle(old(a[..]))(old(s)) == Monad.Result(a[..], s)
+
+  }
+}
+```
+
+FILE src/Util/FisherYates/Model.dfy [whole_file; bytes 0:3235]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module FisherYates.Model {
+  import Monad
+  import Uniform
+  import Rand
+
+  /************
+   Definitions
+  ************/
+
+  ghost predicate ShuffleInvariancePredicatePointwise<T>(xs: seq<T>, r: Monad.Result<seq<T>>, j: int)
+    requires |r.value| == |xs|
+    requires 0 <= j < |xs|
+  {
+    r.value[j] == xs[j]
+  }
+
+  ghost function Shuffle<T>(xs: seq<T>, i: nat := 0): (h: Monad.Hurd<seq<T>>)
+    requires i <= |xs|
+    ensures forall s :: multiset(h(s).value) == multiset(xs) && |h(s).value| == |xs|
+    ensures forall s, j | 0 <= j < i :: ShuffleInvariancePredicatePointwise(xs, h(s), j)
+  {
+    (s: Rand.Bitstream) => ShuffleCurried(xs, s, i)
+  }
+
+  ghost function ShuffleCurried<T>(xs: seq<T>, s: Rand.Bitstream, i: nat := 0): (r: Monad.Result<seq<T>>)
+    requires i <= |xs|
+    decreases |xs| - i
+    ensures multiset(r.value) == multiset(xs) && |r.value| == |xs|
+    ensures forall j | 0 <= j < i :: ShuffleInvariancePredicatePointwise(xs, r, j)
+  {
+    if |xs| - i > 1 then
+      var (j, s') := Uniform.Model.IntervalSample(i, |xs|)(s).Extract();
+      assert i <= j < |xs| by { Uniform.Correctness.IntervalSampleBound(i, |xs|, s); }
+      var ys := Swap(xs, i, j);
+      var r := ShuffleCurried(ys, s', i + 1);
+      assert forall j | 0 <= j < i :: ShuffleInvariancePredicatePointwise(xs, r, j) by {
+        forall j | 0 <= j < i
+          ensures ShuffleInvariancePredicatePointwise(xs, r, j)
+        {
+          assert ShuffleInvariancePredicatePointwise(ys, r, j);
+        }
+      }
+      r
+    else
+      Monad.Return(xs)(s)
+  }
+
+  function Swap<T>(s: seq<T>, i: nat, j: nat): (t: seq<T>)
+    requires i <= j
+    requires 0 <= i < |s|
+    requires 0 <= j < |s|
+    ensures multiset(s) == multiset(t)
+    ensures |s| == |t|
+    ensures t[..i] == s[..i]
+    ensures t[j] == s[i]
+    ensures i+1 <= j ==> t[i+1..j] == s[i+1..j]
+  {
+    if i == j then
+      s
+    else
+      var t := s[..i] + [s[j]] + s[i+1..j] + [s[i]] + s[j+1..];
+      calc {
+        multiset(t);
+        multiset(s[..i] + [s[j]] + s[i+1..j] + [s[i]] + s[j+1..]);
+        multiset(s[..i]) + multiset([s[j]]) + multiset(s[i+1..j]) + multiset([s[i]]) + multiset(s[j+1..]);
+        multiset(s[..i]) +  multiset([s[i]]) + multiset(s[i+1..j]) + multiset([s[j]]) + multiset(s[j+1..]);
+        multiset(s[..i] + [s[i]] + s[i+1..j] + [s[j]] + s[j+1..]);
+        { assert s[..i] + [s[i]] + s[i+1..j] + [s[j]] + s[j+1..] == s; }
+        multiset(s);
+      }
+      PermutationsPreserveCardinality(t, s);
+      t
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma MultisetAndSequenceCardinality<T>(s: seq<T>)
+    ensures |multiset(s)| == |s|
+  {}
+
+  lemma PermutationsPreserveCardinality<T>(p: seq<T>, s: seq<T>)
+    requires R: multiset(p) == multiset(s)
+    ensures |p| == |s|
+  {
+    calc {
+      |p|;
+      { MultisetAndSequenceCardinality(p); }
+      |multiset(p)|;
+      { assert multiset(p) == multiset(s) by { reveal R; }}
+      |multiset(s)|;
+      { MultisetAndSequenceCardinality(s); }
+      |s|;
+    }
+  }
+
+
+}
+```
+
+FILE src/Util/Pos.dfy [whole_file; bytes 0:202]
+```dafny
+
+module Pos {
+
+  newtype int32 = x: int | -0x8000_0000 <= x < 0x8000_0000
+
+  type pos = x: nat | x > 0 witness 1
+
+  type nat32 = x: int32 | x >= 0 witness 1
+
+  type pos32 = x: nat32 | x > 0 witness 1
+
+}
+```
+
+FILE tests/Tests.dfy [whole_file; bytes 0:10455]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module Tests {
+  import NatArith
+  import RealArith
+  import Helper
+  import DafnyVMC
+  import opened Pos
+
+  method TestBernoulliIsWithin3SigmaOfTrueMean(
+    n: nat,
+    empiricalSum: real,
+    successProb: real,
+    description: string
+  )
+    requires n > 0
+  {
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, empiricalSum, successProb, successProb * (1.0 - successProb), description);
+  }
+
+  method TestEmpiricalIsWithin3SigmaOfTrueMean(
+    n: nat,
+    empiricalSum: real,
+    trueMean: real,
+    trueVariance: real,
+    description: string
+  )
+    requires n > 0
+  {
+    var empiricalMean := empiricalSum / n as real;
+    var diff := RealArith.Abs(empiricalMean - trueMean);
+    var threshold := 4.0 * 4.0 * trueVariance / n as real;
+    if diff * diff > threshold {
+      print "Test failed: ", description, "\n";
+      print "True mean: ", trueMean, "\n";
+      print "Empirical mean: ", empiricalMean, "\n";
+      print "Difference between empirical and true mean: ", diff, "\n";
+      print "squared difference: ", diff * diff, "\n";
+      print "sigma squared:      ", trueVariance / n as real, "\n";
+    }
+    expect diff * diff <= threshold, "Empirical mean should be within 3 sigma of true mean. This individual test may fail with probability of about 6.3e-5.";
+  }
+
+  method TestUniformPowerOfTwo(n: nat, u: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    requires u > 0
+    modifies r
+  {
+    var k := NatArith.Log2Floor(u);
+    var m := NatArith.Power(2, k);
+    var a := new nat[m](i => 0);
+    var sum := 0;
+    for i := 0 to n {
+      var l := r.UniformPowerOfTwoSample(u);
+      expect 0 <= l < m, "sample not in the right bound";
+      a[l] := a[l] + 1;
+      sum := sum + l;
+    }
+    for i := 0 to NatArith.Power(2, k) {
+      TestBernoulliIsWithin3SigmaOfTrueMean(n, a[i] as real, 1.0 / (m as real), "p(" + Helper.NatToString(i) + ")");
+    }
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, sum as real, (m - 1) as real / 2.0, (m * m - 1) as real / 12.0, "mean of UniformPowerOfTwo(" + Helper.NatToString(u) + ")");
+  }
+
+  method TestUniformPowerOfTwoMean(n: nat, u: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    requires u > 0
+    modifies r
+  {
+    var k := NatArith.Log2Floor(u);
+    var m := NatArith.Power(2, k);
+    var sum := 0;
+    for i := 0 to n {
+      var l := r.UniformPowerOfTwoSample(u);
+      expect 0 <= l < m, "sample not in the right bound";
+      sum := sum + l;
+    }
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, sum as real, (m - 1) as real / 2.0, (m * m - 1) as real / 12.0, "mean of UniformPowerOfTwo(" + Helper.NatToString(u) + ")");
+  }
+
+  method TestUniform(n: nat, u: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    requires u > 0
+    modifies r
+  {
+    var k := NatArith.Log2Floor(u);
+    var a := new nat[u](i => 0);
+    var sum := 0;
+    for i := 0 to n {
+      var l := r.UniformSample(u);
+      expect 0 <= l < u, "sample not in the right bound";
+      a[l] := a[l] + 1;
+      sum := sum + l;
+    }
+    for i := 0 to u {
+      TestBernoulliIsWithin3SigmaOfTrueMean(n, a[i] as real, 1.0 / (u as real), "p(" + Helper.NatToString(i) + ")");
+    }
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, sum as real, (u - 1) as real / 2.0, (u * u - 1) as real / 12.0, "mean of Uniform(" + Helper.NatToString(u) + ")");
+  }
+
+  method TestUniformMean(n: nat, u: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    requires u > 0
+    modifies r
+  {
+    var k := NatArith.Log2Floor(u);
+    var sum := 0;
+    for i := 0 to n {
+      var l := r.UniformSample(u);
+      expect 0 <= l < u, "sample not in the right bound";
+      sum := sum + l;
+    }
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, sum as real, (u - 1) as real / 2.0, (u * u - 1) as real / 12.0, "mean of Uniform(" + Helper.NatToString(u) + ")");
+  }
+
+  method TestUniformInterval(n: nat, a: int, b: int, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    requires a < b
+    modifies r
+  {
+    var u := b-a;
+    var arr := new nat[u](i => 0);
+    for i := 0 to n {
+      var l := r.UniformIntervalSample(a, b);
+      expect a <= l < b, "sample not in the right bound";
+      var k := l-a;
+      assert 0 <= k < u;
+      arr[k] := arr[k] + 1;
+    }
+
+    for i := 0 to u {
+      TestBernoulliIsWithin3SigmaOfTrueMean(n, arr[i] as real, 1.0 / (u as real), "p(" + Helper.NatToString(i) + ")");
+    }
+
+  }
+
+  method TestBernoulli(n: nat, num: nat, den: pos, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    requires num <= den
+    modifies r
+  {
+    var t := 0;
+    for i := 0 to n {
+      var b := r.BernoulliSample(num, den);
+      if b {
+        t := t + 1;
+      }
+    }
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, t as real, (num as real) / (den as real), "p(true)");
+  }
+
+  method TestBernoulliExpNegLe1(n: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    modifies r
+  {
+    var t := 0;
+    for i := 0 to n {
+      var u := r.BernoulliExpNegSample(5108256, 10000000); // about -ln(0.6)
+      if u {
+        t := t + 1;
+      }
+    }
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, t as real, 0.6, "p(true)");
+  }
+
+  method TestBernoulliExpNeg(n: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    modifies r
+  {
+    var t := 0;
+    for i := 0 to n {
+      var u := r.BernoulliExpNegSample(12381, 5377); // about -ln(0.1)
+      if u {
+        t := t + 1;
+      }
+    }
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, t as real, 0.1, "p(true)");
+  }
+
+  method TestDiscreteLaplace(n: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    modifies r
+  {
+    var counts := map[-2 := 0, -1 := 0, 0 := 0, 1 := 0, 2 := 0];
+    var sum := 0;
+    for i := 0 to n
+      invariant -2 in counts && -1 in counts && 0 in counts && 1 in counts && 2 in counts
+    {
+      var u := r.DiscreteLaplaceSample(7, 5);
+      sum := sum + u;
+      if u !in counts {
+        counts := counts[ u := 1 ];
+      } else {
+        counts := counts[ u := counts[u] + 1 ];
+      }
+    }
+    // Reference values computed with Wolfram Alpha:
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5B%28E%5E%5B1%2Ft%5D+-+1%29+%2F+%28E%5E%5B1%2Ft%5D+%2B+1%29+*+E%5E%28-Abs%5Bx%5D%2Ft%29%2C+%7Bt+-%3E+7%2F5%2C+x+-%3E+0%7D%5D
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5B%28E%5E%5B1%2Ft%5D+-+1%29+%2F+%28E%5E%5B1%2Ft%5D+%2B+1%29+*+E%5E%28-Abs%5Bx%5D%2Ft%29%2C+%7Bt+-%3E+7%2F5%2C+x+-%3E+1%7D%5D
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5B%28E%5E%5B1%2Ft%5D+-+1%29+%2F+%28E%5E%5B1%2Ft%5D+%2B+1%29+*+E%5E%28-Abs%5Bx%5D%2Ft%29%2C+%7Bt+-%3E+7%2F5%2C+x+-%3E+2%7D%5D
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[0] as real, 0.3426949, "p(0)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[1] as real, 0.1677634, "p(1)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[-1] as real, 0.1677634, "p(-1)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[2] as real, 0.0821272, "p(2)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[-2] as real, 0.0821272, "p(-2)");
+    var variance := 3.7575005; // variance of DiscreteLaplace(7/5) is (2*exp(5/7))/(exp(5/7)-1)^2
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, sum as real, 0.0, variance, "mean");
+  }
+
+  method TestDiscreteGaussian(n: nat, r: DafnyVMC.Random)
+    decreases *
+    requires n > 0
+    modifies r
+  {
+    var counts := map[-2 := 0, -1 := 0, 0 := 0, 1 := 0, 2 := 0];
+    var sum := 0;
+    for i := 0 to n
+      invariant -2 in counts && -1 in counts && 0 in counts && 1 in counts && 2 in counts
+    {
+      var u := r.DiscreteGaussianSample(7, 5, 7);
+      sum := sum + u;
+      if u !in counts {
+        counts := counts[ u := 1 ];
+      } else {
+        counts := counts[ u := counts[u] + 1 ];
+      }
+    }
+    // Reference values computed with Wolfram Alpha:
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5BE%5E%28-x%5E2+%2F+%282+*%CF%83%5E2%29%29+%2F+Sum%5BE%5E%28-y%5E2%2F%282+%CF%83%5E2%29%29%2C+%7By%2C+-Infinity%2C+Infinity%7D%5D%2C+%7Bx+-%3E+0%2C+%CF%83+-%3E+1.4%7D%5D
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5BE%5E%28-x%5E2+%2F+%282+*%CF%83%5E2%29%29+%2F+Sum%5BE%5E%28-y%5E2%2F%282+%CF%83%5E2%29%29%2C+%7By%2C+-Infinity%2C+Infinity%7D%5D%2C+%7Bx+-%3E+1%2C+%CF%83+-%3E+1.4%7D%5D
+    // https://www.wolframalpha.com/input?i=ReplaceAll%5BE%5E%28-x%5E2+%2F+%282+*%CF%83%5E2%29%29+%2F+Sum%5BE%5E%28-y%5E2%2F%282+%CF%83%5E2%29%29%2C+%7By%2C+-Infinity%2C+Infinity%7D%5D%2C+%7Bx+-%3E+2%2C+%CF%83+-%3E+1.4%7D%5D
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[0] as real, 0.284959, "p(0)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[1] as real, 0.220797, "p(1)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[-1] as real, 0.220797, "p(-1)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[2] as real, 0.102713, "p(2)");
+    TestBernoulliIsWithin3SigmaOfTrueMean(n, counts[-2] as real, 0.102713, "p(-2)");
+    var varianceBound := 1.4 * 1.4; // variance of DiscreteGaussian(1.4) is < 1.4^2
+    TestEmpiricalIsWithin3SigmaOfTrueMean(n, sum as real, 0.0, varianceBound, "mean");
+  }
+
+  method TestFisherYates<T(==, !new)>(n: nat, a: array<T>, r: DafnyVMC.Random, printer: ((T, nat)) -> string) 
+    decreases *
+    modifies r
+    modifies a
+    requires n > 0
+    requires a.Length < 0x8000_0000
+  {
+    var a := new (T, nat)[a.Length](i reads a requires 0 <= i < a.Length => (a[i], i));
+    var numberOfPermutations: nat := NatArith.FactorialTraditional(a.Length);
+    var numberOfObservedPermutations: map<seq<(T, nat)>, nat> := map[];
+    
+    for i := 0 to n {
+      var aCopy := a;
+      r.Shuffle(aCopy);
+      var aCopyAsSeq := aCopy[..];
+      if aCopyAsSeq in numberOfObservedPermutations {
+        numberOfObservedPermutations := numberOfObservedPermutations[aCopyAsSeq := numberOfObservedPermutations[aCopyAsSeq] + 1];
+      } else {
+        numberOfObservedPermutations := numberOfObservedPermutations[aCopyAsSeq := 1];
+      }
+    }
+
+    var items := numberOfObservedPermutations.Items;
+
+    while items != {}
+      decreases |items| 
+     {
+      var item :| item in items;
+      items := items - {item};
+      TestBernoulliIsWithin3SigmaOfTrueMean(n, item.1 as real, 1.0 / numberOfPermutations as real, "p(" + Helper.SeqToString(item.0, printer) + ")");
+    }
+  }
+}
+
+```
+
+FILE tests/TestsRandom.dfy [whole_file; bytes 0:4817]
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module TestsRandom {
+  import NatArith
+  import DafnyVMC
+  import Helper
+  import Tests
+
+  method {:test} TestUniformPowerOfTwo_10()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformPowerOfTwo(1_000_000, 10, r);
+  }
+
+  method {:test} TestUniformPowerOfTwo_100()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformPowerOfTwo(1_000_000, 100, r);
+  }
+
+  // Test arguments that don't fit in 64 bits:
+  method {:test} TestUniformPowerOfTwoMean_10Pow100()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformPowerOfTwoMean(100_000, NatArith.Power(10, 100), r);
+  }
+
+  method {:test} TestUniform_10()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniform(1_000_000, 10, r);
+  }
+
+  method {:test} TestUniform_100()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniform(1_000_000, 100, r);
+  }
+
+  // Test arguments that don't fit in 64 bits:
+  method {:test} TestUniformMean_10Pow100()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformMean(100_000, NatArith.Power(10, 100), r);
+  }
+
+  method {:test} TestUniformInterval0()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformInterval(1_000_000, 0, 1, r);
+  }
+
+  method {:test} TestUniformInterval1()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformInterval(1_000_000, -5, 5, r);
+  }
+
+  method {:test} TestUniformInterval2()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformInterval(1_000_000, -15, 15, r);
+  }
+
+  method {:test} TestUniformInterval3()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformInterval(1_000_000, -30, -5, r);
+  }
+
+  method {:test} TestUniformInterval4()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestUniformInterval(1_000_000, -30, 30, r);
+  }
+
+  method {:test} TestBernoulli0()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestBernoulli(1_000_000, 1, 5, r);
+  }
+
+  method {:test} TestBernoulli1()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestBernoulli(1_000_000, 0, 5, r);
+  }
+
+  method {:test} TestBernoulli2()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestBernoulli(1_000_000, 5, 5, r);
+  }
+
+
+  method {:test} TestBernoulli3()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestBernoulli(1_000_000, 1, 100, r);
+  }
+
+  method {:test} TestBernoulliExpNegLe1()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestBernoulliExpNegLe1(1_000_000, r);
+  }
+
+  method {:test} TestBernoulliExpNeg()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestBernoulliExpNeg(1_000_000, r);
+  }
+
+  method {:test} TestDiscreteLaplace()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestDiscreteLaplace(1_000_000, r);
+  }
+
+  method {:test} TestDiscreteGaussian()
+    decreases *
+  {
+    var r := new DafnyVMC.Random();
+    Tests.TestDiscreteGaussian(1_000_000, r);
+  }
+
+  method {:test} TestFisherYatesIdentity()
+    decreases *
+  {
+    var a: array<nat> := new nat[4](i => i); // [0, 1, 2, 3]
+    var r := new DafnyVMC.Random();
+    Tests.TestFisherYates(1_000_000, a, r, (x: (nat, nat)) => Helper.NatToString(x.0));
+  }
+
+  method {:test} TestFisherYatesConstant()
+    decreases *
+  {
+    var a: array<nat> := new nat[4](i => 0); // [0, 0, 0, 0]
+    var r := new DafnyVMC.Random();
+    Tests.TestFisherYates(1_000_000, a, r, (x: (nat, nat)) => Helper.NatToString(x.0));
+  }
+
+  method {:test} TestFisherYatesMixed()
+    decreases *
+  {
+    var a: array<nat> := new nat[] [0, 1, 1, 2]; // [0, 1, 1, 2]
+    var r := new DafnyVMC.Random();
+    Tests.TestFisherYates(1_000_000, a, r, (x: (nat, nat)) => Helper.NatToString(x.0));
+  }
+
+  method {:test} TestFisherYatesLengthZero()
+    decreases *
+  {
+    var a: array<nat> := new nat[] []; // length 0
+    var r := new DafnyVMC.Random();
+    Tests.TestFisherYates(1_000_000, a, r, (x: (nat, nat)) => Helper.NatToString(x.0));
+  }
+
+  method {:test} TestFisherYatesLengthOne()
+    decreases *
+  {
+    var a: array<nat> := new nat[] [0]; // length 1
+    var r := new DafnyVMC.Random();
+    Tests.TestFisherYates(1_000_000, a, r,  (x: (nat, nat)) => Helper.NatToString(x.0));
+  }
+
+  method {:test} TestFisherYatesLengthEven()
+    decreases *
+  {
+    var a: array<nat> := new nat[] [2, 1, 18, 2, 3, 4]; // length 6
+    var r := new DafnyVMC.Random();
+    Tests.TestFisherYates(1_000_000, a, r, (x: (nat, nat)) => Helper.NatToString(x.0));
+  }
+
+}
+
+```
+
+Return the replacement body as the single JSON string specified by the system message.

@@ -1,0 +1,46 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling verus_prettyplease v0.0.0-2026-09-06-0133
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+   Compiling indexmap v2.14.1
+   Compiling convert_case v0.4.0
+   Compiling vstd v0.0.0-2026-10-25-0158
+    Checking verus_builtin v0.0.0-2026-10-11-0230
+   Compiling verus_syn v0.0.0-2026-09-06-0133
+   Compiling syn v2.0.119
+   Compiling synstructure v0.13.2
+   Compiling verus_state_machines_macros v0.0.0-2026-10-25-0158
+   Compiling verus_builtin_macros v0.0.0-2026-10-25-0158
+    Checking vest_lib v0.2.3 (/n/home13/sophiezeng/formal-disco/outputs/real-repository-repair-pilot-001/runtime-002/work/vest-roundtrip-empty/vest_lib)
+error: postcondition not satisfied
+  --> vest_lib/src/core/proof.rs:71:13
+   |
+71 | /             ({
+72 | |                 let bytes = self.spec_serialize(v);
+73 | |                 self.spec_parse(bytes) == Some((bytes.len() as int, v))
+74 | |             }),
+   | |______________^ failed this postcondition
+...
+83 |       proof fn theorem_serialize_parse_roundtrip(&self, v: Self::T) {
+   |             ------------------------------------------------------- at the end of the function body
+
+note: diagnostics via expansion
+      
+      let bytes = old(self).spec_serialize(old(v));
+          old(self).spec_parse(bytes) =~= Some((bytes.len(), old(v)))
+          |   !(old(self).spec_parse(bytes) is None) ✘
+          |   old(self).spec_parse(bytes) is Some ==>
+          |       old(self).spec_parse(bytes).0 =~= (bytes.len(), old(v)) ✘
+          |       |   old(self).spec_parse(bytes).0.0 =~= bytes.len() ✘
+          |       |   old(self).spec_parse(bytes).0.1 =~= old(v) ✘
+          |       +---
+          +---
+      
+  --> vest_lib/src/core/proof.rs:73:17
+   |
+73 |                 self.spec_parse(bytes) == Some((bytes.len() as int, v))
+   |                 ^^^^^^^^^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: could not compile `vest_lib` (lib) due to 1 previous error

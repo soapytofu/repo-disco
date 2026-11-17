@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/n/home13/sophiezeng/formal-disco/outputs/real-repository-repair-pilot-001/run_controls.py", line 61, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/n/home13/sophiezeng/formal-disco/outputs/real-repository-repair-pilot-001/run_controls.py", line 15, in main
+    for n,h in json.loads((ROOT/'qualification-pins.json').read_bytes()).items():assert digest((QUAL/n).read_bytes())==h,n
+                                                                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/.conda/envs/repodisco/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/n/home13/sophiezeng/.conda/envs/repodisco/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/n/home13/sophiezeng/formal-disco/outputs/real-repository-qualification-001/coverage-001/review-001.json'
