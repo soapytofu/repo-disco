@@ -8,11 +8,16 @@ All 25 offline tests pass locally and on Cannon. Exact replay preserves all nine
 previously admitted candidates; the seven excluded responses yield three distinct
 candidate files. Verifier-only jobs 61653288 (one CPU, Dafny) and 61653437 (four
 CPUs, Vest) were submitted once on live-confirmed nonpreemptible test. Their
-three native observations will cover seven outputs by explicit identical-source
+three native observations cover seven outputs by explicit identical-source
 reuse, not seven independent trials. Dafny is complete: small-shuffle passes all
 267 units; swap passes 265 units and exhausts the fixed resource limit in two
-downstream lemmas. Its own logged unit passes. Vest remains running. Original score
-**7/16** and all 653 parent archive files remain unchanged; zero new model calls.
+downstream lemmas. Its own logged unit passes. Vest is also complete: all required
+proofs pass, but an extra Cargo incremental-build cleanup warning prevents
+qualified acceptance. All seven outputs are covered: one qualified accept,
+two full-proof results with that warning, four resource-limited results. The
+36-file raw transfer and final source/coverage/mapping reviews are published.
+Original score **7/16** and all 653 parent archive files remain unchanged;
+zero new model calls or retries. No jobs remain active.
 
 ## Real-repository repair — completed sixteen-call pilot
 

@@ -20,11 +20,17 @@ candidates replay identically. The seven excluded responses reduce to three dist
 full candidate files. Dafny job 61653288 is complete: small-shuffle passes all 267
 units with the three exact upstream warnings; Swap's own logged unit passes, but
 two downstream units exhaust the fixed resource limit (265/267 pass). These are
-resource failures, not counterexamples. Vest job 61653437 remains running with
-the original qualified toolchain and coverage/warning policy. One CPU was allocated
-to Dafny and four to the unchanged three-thread Verus/four-worker Cargo command.
+resource failures, not counterexamples. Vest job 61653437 is also complete: the
+Pair candidate passes the full required inventory (340/3,279/2,102 native verified
+counts across dev/library/vstd), but one additional incremental-build cleanup
+warning prevents qualified acceptance. The three distinct native observations
+cover all seven saved responses: one qualified accept, two full-proof outputs
+with the added warning, four resource-limited outputs. All 36 transferred files
+and source/coverage reviews are published. One CPU was allocated to Dafny and four
+to the unchanged three-thread Verus/four-worker Cargo command; Vest's full-job CPU
+efficiency was 20.8%, so serial preparation remains a resource-sizing concern.
 Original 7/16 acceptance and all 653 parent files remain unchanged. Zero new model
-calls, no retry or increased verifier budget.
+calls, no retry or increased verifier budget. No jobs remain active.
 
 The user's November 17 JDS notice requires workload-specific
 CPU allocations. The [repair pilot scheduling note](../experiments/real-repository-repair-pilot-001/README.md#november-17-resource-sizing-for-future-execution)
