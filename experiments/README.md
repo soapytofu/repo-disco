@@ -1,21 +1,20 @@
 # Experiment log
 
-## Real-repository repair — approved 16-call pilot
+## Real-repository repair — completed sixteen-call pilot
 
-[real-repository-repair-pilot-001](real-repository-repair-pilot-001/README.md) now
-freezes eight exact prompts and a counterbalanced 16-slot comparison on Dafny-VMC
-and Vest: two sites per repository, diagnostics versus a failure notice, two
-independent responses per task-arm. Only one fixed body is editable per trial;
-contracts, source outside the region and build/verification inputs are protected.
-All six fresh negative controls match actual named proof failures, and four
-original reference sites reuse two exact qualified positive runs. Eleven policy
-tests pass locally/on Cannon and eight preparation tests pass against the freeze.
-The initial staging failure and full corrected-job logs are preserved. These
-are induced development failures in real source, not model results. The user has
-now approved **16 fresh calls, no retries**. The [execution bundle](real-repository-repair-pilot-001/execution-001/README.md) passed 17 offline tests
-locally and on Cannon. Separate collection/Dafny/Vest jobs request 1/1/4 CPUs;
-no model calls have run yet. Repository growth is outside this smaller pilot,
-and the old terminal paid ledger remains closed.
+[Results and full logs](real-repository-repair-pilot-001/execution-001/RESULTS.md):
+16 responses, unique IDs, zero SDK retries. **7/16 qualified accepts**, plus one
+full-proof pass excluded by a new incremental-build cleanup warning; seven
+frozen-guard rejections and one native Rust type error. All nine verifier
+observations replay against exact source/coverage bindings. Dafny small-shuffle
+has three accepted repairs; Vest roundtrip has three and Pair one. There are no
+observed mathematical failures among verified candidates; seven excluded outputs
+remain unverified. Guard syntax limitations and the warning exclusion prevent a
+clean feedback comparison. The 198-file transfer preserves full requests,
+responses, logs, proof inventories, source hashes and accounting. Jobs used 1/1/4
+CPUs; Vest's measured whole-job efficiency still warrants preparation/scheduling
+improvements. These are four induced development sites in two repositories,
+not a held-out benchmark or an open-ended generation result.
 
 ## Real repositories — source-reviewed plan for November 24
 

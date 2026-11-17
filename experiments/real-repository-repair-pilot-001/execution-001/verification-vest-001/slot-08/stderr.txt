@@ -1,0 +1,38 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling verus_prettyplease v0.0.0-2026-09-06-0133
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.17.1
+   Compiling convert_case v0.4.0
+   Compiling vstd v0.0.0-2026-10-25-0158
+   Compiling indexmap v2.14.1
+    Checking verus_builtin v0.0.0-2026-10-11-0230
+   Compiling verus_syn v0.0.0-2026-09-06-0133
+   Compiling syn v2.0.119
+   Compiling synstructure v0.13.2
+   Compiling verus_state_machines_macros v0.0.0-2026-10-25-0158
+   Compiling verus_builtin_macros v0.0.0-2026-10-25-0158
+    Checking vest_lib v0.2.3 (/n/home13/sophiezeng/formal-disco/outputs/real-repository-repair-pilot-001/execution-001/work/vest/slot-08/vest_lib)
+error[E0599]: no method named `lemma_serialize_dps_len` found for type parameter `B` in the current scope
+  --> vest_lib/src/combinators/tuple/proof.rs:22:16
+   |
+ 8 | impl<A: SPRoundTripDps + NonTailFmt, B: SPRoundTripDps> SPRoundTripDps for super::Pair<A, B> {
+   |                                      - method `lemma_serialize_dps_len` not found for this type parameter
+...
+22 |         self.1.lemma_serialize_dps_len(v.1, obuf);
+   |                ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: items from traits can only be used if the type parameter is bounded by the trait
+help: the following trait defines an item `lemma_serialize_dps_len`, perhaps you need to restrict type parameter `B` with it:
+   |
+ 8 | impl<A: SPRoundTripDps + NonTailFmt, B: SPRoundTripDps + core::spec::NonTailFmt> SPRoundTripDps for super::Pair<A, B> {
+   |                                                        ++++++++++++++++++++++++
+help: there is a method `spec_serialize_dps` with a similar name
+   |
+22 -         self.1.lemma_serialize_dps_len(v.1, obuf);
+22 +         self.1.spec_serialize_dps(v.1, obuf);
+   |
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `vest_lib` (lib) due to 1 previous error

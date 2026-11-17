@@ -1,9 +1,12 @@
 # Real-repository repair pilot: Dafny-VMC and Vest
 
-The user has now approved **16 new calls with no retries**. The separately
-[prepared execution bundle](execution-001/README.md) passed 17 offline tests
-locally and on Cannon; no new model calls have run yet. The frozen proposal
-artifacts retain their historical pre-approval state. This pilot tests
+The approved sixteen-call pilot is **complete**: seven outputs meet the frozen
+qualified-scope acceptance policy; an eighth proves the full scope but has a new
+build-cleanup warning. Seven outputs are guard-rejected and one has a native type
+error. [Full results, logs and limitations](execution-001/RESULTS.md) are published
+with the exact sixteen responses and nine verifier observations. There were no
+SDK retries or additional model calls. The frozen proposal artifacts retain
+their historical pre-approval state. This pilot tests
 one-shot repair at four real upstream sites, using detailed verifier feedback or
 a failure notice. The seeds are deliberately damaged verified code, not newly
 discovered bugs. Both repositories and all four sites are inspected development
@@ -142,11 +145,11 @@ proposal. `review_controls.py` replays raw source-bound observations without
 running a verifier. `build_freeze.py` exclusively constructs the proposal only
 after that gate; `test_preparation.py` checks exact reconstruction and pairing.
 
-Future execution requires a separately approved 16-call scope and a reviewed
-bounded live handler bound to this freeze. No paid runner, authorization file or
-credential handoff is created here. The older terminal paid session remains
-closed; this proposal cannot reuse or recover its unused slots. No reconnection
-or Bedrock key is needed to inspect the saved plan.
+The original preparation required a separate sixteen-call approval and a reviewed
+bounded handler. The completed [execution](execution-001/RESULTS.md) records that
+new approval, the exact runner and all outcomes. The older terminal paid session
+remains closed; no old slots were reused or recovered. No reconnection or Bedrock
+key is needed to inspect the saved evidence.
 
 ## November 17: resource sizing for future execution
 

@@ -12,36 +12,40 @@ Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 16: real-repository evaluation and progressive extension
 
-November 17 operational update: the user's JDS notice requires workload-specific
+The user's November 17 JDS notice requires workload-specific
 CPU allocations. The [repair pilot scheduling note](../experiments/real-repository-repair-pilot-001/README.md#november-17-resource-sizing-for-future-execution)
 records serial one-core defaults and measured command CPU usage before building
 a live runner. Saved queue receipts identify flagged jobs `61253676` and
 `61334047` as dynamic-activations/VLA workloads, not RepoDisco; the other six
 email entries have not been attributed here. This is an allocation issue, not
-evidence that the recorded proof outcomes are wrong. No jobs were changed or
-submitted, no new tests or model calls ran, and all frozen experiments remain
-unchanged.
+evidence that the recorded proof outcomes are wrong. That audit preceded the
+new execution below; the historical frozen scripts and experiments remain unchanged.
 
-The next concrete collection is now the [frozen real-source repair proposal](../experiments/real-repository-repair-pilot-001/README.md):
-**16 new calls explicitly approved, no retries; none made yet**, on two Dafny-VMC and two Vest
-sites. It compares saved diagnostics with a failure notice, two independent
-responses per task-arm, under one protected body per trial. All six new negative
-controls fail their intended proof targets; four original reference sites reuse
-two qualified positive runs. Eleven edit-policy tests and eight prompt-preparation
-tests pass. Eight exact payloads, order, source/context/feedback hashes and full
-verifier evidence are saved, including the separate initial staging failure.
-VMC callers can pass under their failed helpers' contracts; Vest stops before
-the downstream crate when a dependency fails. Neither situation counts as a
-complete-workspace repair. These are induced development failures, and Vest uses
-curated context with full qualified dependency verification. This small repair
-proposal narrows the earlier roadmap below; it does not include repository growth,
-new language comparisons or held-out evaluation. The separately staged
-[bounded execution bundle](../experiments/real-repository-repair-pilot-001/execution-001/README.md)
-passed 17 fake-transport/saved-evidence tests locally and on Cannon. It preserves
-the exact proposal and uses separate 1-CPU collection, 1-CPU Dafny, and 4-CPU Vest
-jobs. Collection requires a fresh hash-bound approval record and exclusive
-submission; verifier jobs require a reviewed candidate gate. No new model calls
-have run during preparation.
+The [real-source repair pilot](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md)
+is now complete: **16 returned responses, 16 unique IDs, zero SDK retries**.
+Seven outputs meet the frozen qualified-scope acceptance policy; an eighth
+proves all required obligations but has a new build-cleanup warning. Seven
+outputs are rejected by the body guard before verification, and one admitted
+Vest candidate has a native trait-bound type error. All nine verifier observations
+pass source/coverage/diagnostic replay. Accepted repairs occur in Dafny-VMC's
+small-shuffle lemma and Vest's blanket and Pair roundtrip proofs.
+
+The syntax audit exposes overly broad Dafny assignment/macro checks and missing
+Verus `=~=` support. Those seven exclusions are not mathematical failures and
+were not rescored. The diagnostics/notice arms have 3/8 versus 4/8 qualified
+accepts, or 4/8 each for full-proof passes; this small, admission-confounded
+comparison establishes no feedback advantage. All 198 transferred evidence files
+are published. The new sixteen-call budget is exhausted; no jobs remain active.
+
+The three distinct jobs used one CPU for collection, one for Dafny and four for
+Vest's unchanged three-verifier-thread/four-build-worker command. Dafny native
+checks used 90–94% of one core. Vest's 52m05s job had only 15.8% overall CPU
+efficiency, with considerable work outside timed native commands; future runs
+should isolate preparation and qualify reduced-core settings. This completes the
+small real-source repair feasibility pilot, not repository growth, corpus
+completion, a language comparison or held-out evaluation. Guard fixes and
+verifier-only checks on saved excluded outputs are the next concrete step before
+another model collection.
 
 Following Nada's feedback, the next milestone targets online Dafny and Verus
 codebases for the November 24 meeting. The [source-reviewed plan](../experiments/real-repository-evolution-001/PLAN.md)

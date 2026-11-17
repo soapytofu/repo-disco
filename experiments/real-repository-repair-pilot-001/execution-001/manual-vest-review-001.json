@@ -1,0 +1,21 @@
+{
+  "project": "vest",
+  "qualified_slots": [
+    3,
+    4,
+    9,
+    14
+  ],
+  "full_proof_but_new_warning": [
+    13
+  ],
+  "frontend_rejection": [
+    8
+  ],
+  "protected_inputs": "All 3,481 original upstream file hashes retained except the one registered body, with exact prefix/suffix replay; imports, contracts, type bounds, build inputs and verifier settings unchanged.",
+  "roundtrip_review": "Slots 3/4/13/14 restore the serializer equivalence fact at the empty buffer and instantiate the existing child roundtrip theorem there. Scope covers vest_dev, vest_lib and vstd under the unchanged upstream trust boundary.",
+  "pair_review": "Slot 9 applies the first child theorem to serialized1 and the second child theorem to obuf, connects byte lengths and the remaining input sequence using existing methods. No API signature/trait bound changes.",
+  "frontend_review": "Slot 8 additionally calls self.1.lemma_serialize_dps_len. The fixed B: SPRoundTripDps bound does not supply this NonTailFmt method; native E0599 rejects the candidate. No contract strengthening or analyst fix was attempted.",
+  "warning_review": "Slot 13 is byte-identical to qualified slot 4 and proves the full inventory with exit zero. A new incremental-compilation cleanup warning (Directory not empty, os error 39) violates the frozen allowed-warning set. Preserve qualified=false and proof_pass=true; no retry/rescore.",
+  "new_model_calls": 0
+}
