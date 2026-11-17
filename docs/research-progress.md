@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 16, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ submitted, no new tests or model calls ran, and all frozen experiments remain
 unchanged.
 
 The next concrete collection is now the [frozen real-source repair proposal](../experiments/real-repository-repair-pilot-001/README.md):
-**16 proposed calls, zero authorized or made**, on two Dafny-VMC and two Vest
+**16 new calls explicitly approved, no retries; none made yet**, on two Dafny-VMC and two Vest
 sites. It compares saved diagnostics with a failure notice, two independent
 responses per task-arm, under one protected body per trial. All six new negative
 controls fail their intended proof targets; four original reference sites reuse
@@ -35,8 +35,13 @@ the downstream crate when a dependency fails. Neither situation counts as a
 complete-workspace repair. These are induced development failures, and Vest uses
 curated context with full qualified dependency verification. This small repair
 proposal narrows the earlier roadmap below; it does not include repository growth,
-new language comparisons or held-out evaluation. A bounded live handler and a
-separate explicit paid decision remain prerequisites for execution.
+new language comparisons or held-out evaluation. The separately staged
+[bounded execution bundle](../experiments/real-repository-repair-pilot-001/execution-001/README.md)
+passed 17 fake-transport/saved-evidence tests locally and on Cannon. It preserves
+the exact proposal and uses separate 1-CPU collection, 1-CPU Dafny, and 4-CPU Vest
+jobs. Collection requires a fresh hash-bound approval record and exclusive
+submission; verifier jobs require a reviewed candidate gate. No new model calls
+have run during preparation.
 
 Following Nada's feedback, the next milestone targets online Dafny and Verus
 codebases for the November 24 meeting. The [source-reviewed plan](../experiments/real-repository-evolution-001/PLAN.md)

@@ -1,0 +1,29 @@
+Saved native verifier feedback:
+{
+  "stderr": "warning: failed to save last-use data\nThis may prevent cargo from accurately tracking what is being used in its global cache. This information is used for automatically removing unused data in the cache.\n\ndatabase is locked\n\nCaused by:\n  Error code 5: database is locked\n   Compiling proc-macro2 v1.0.107\n   Compiling quote v1.0.47\n   Compiling unicode-ident v1.0.24\n   Compiling verus_prettyplease v0.0.0-2026-09-06-0133\n   Compiling equivalent v1.0.2\n   Compiling hashbrown v0.17.1\n   Compiling indexmap v2.14.1\n   Compiling vstd v0.0.0-2026-10-25-0158\n   Compiling convert_case v0.4.0\n    Checking verus_builtin v0.0.0-2026-10-11-0230\n   Compiling verus_syn v0.0.0-2026-09-06-0133\n   Compiling syn v2.0.119\n   Compiling synstructure v0.13.2\n   Compiling verus_state_machines_macros v0.0.0-2026-10-25-0158\n   Compiling verus_builtin_macros v0.0.0-2026-10-25-0158\n    Checking vest_lib v0.2.3 (<workspace>/vest_lib)\nerror: postcondition not satisfied\n  --> vest_lib/src/core/proof.rs:71:13\n   |\n71 | /             ({\n72 | |                 let bytes = self.spec_serialize(v);\n73 | |                 self.spec_parse(bytes) == Some((bytes.len() as int, v))\n74 | |             }),\n   | |______________^ failed this postcondition\n...\n83 |       proof fn theorem_serialize_parse_roundtrip(&self, v: Self::T) {\n   |             ------------------------------------------------------- at the end of the function body\n\nnote: diagnostics via expansion\n      \n      let bytes = old(self).spec_serialize(old(v));\n          old(self).spec_parse(bytes) =~= Some((bytes.len(), old(v)))\n          |   !(old(self).spec_parse(bytes) is None) ✘\n          |   old(self).spec_parse(bytes) is Some ==>\n          |       old(self).spec_parse(bytes).0 =~= (bytes.len(), old(v)) ✘\n          |       |   old(self).spec_parse(bytes).0.0 =~= bytes.len() ✘\n          |       |   old(self).spec_parse(bytes).0.1 =~= old(v) ✘\n          |       +---\n          +---\n      \n  --> vest_lib/src/core/proof.rs:73:17\n   |\n73 |                 self.spec_parse(bytes) == Some((bytes.len() as int, v))\n   |                 ^^^^^^^^^^^^^^^^^^^^^^    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: could not compile `vest_lib` (lib) due to 1 previous error\n",
+  "stdout_report_projection": {
+    "category": "PROOF_FAILURE",
+    "crates": {
+      "vest_lib": {
+        "encountered-error": true,
+        "encountered-vir-error": false,
+        "errors": 1,
+        "is-verifying-entire-crate": true,
+        "success": false,
+        "verified": 3278
+      },
+      "vstd": {
+        "encountered-error": false,
+        "encountered-vir-error": false,
+        "errors": 0,
+        "is-verifying-entire-crate": true,
+        "success": true,
+        "verified": 2102
+      }
+    },
+    "exit_code": 101,
+    "failed_friendly_labels": [
+      "vest_lib::core::proof::impl&%0::C::theorem_serialize_parse_roundtrip"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+Saved native verifier feedback:
+{
+  "stderr": "   Compiling proc-macro2 v1.0.107\n   Compiling quote v1.0.47\n   Compiling unicode-ident v1.0.24\n   Compiling verus_prettyplease v0.0.0-2026-09-06-0133\n   Compiling equivalent v1.0.2\n   Compiling hashbrown v0.17.1\n   Compiling vstd v0.0.0-2026-10-25-0158\n   Compiling convert_case v0.4.0\n   Compiling indexmap v2.14.1\n    Checking verus_builtin v0.0.0-2026-10-11-0230\n   Compiling verus_syn v0.0.0-2026-09-06-0133\n   Compiling syn v2.0.119\n   Compiling synstructure v0.13.2\n   Compiling verus_state_machines_macros v0.0.0-2026-10-25-0158\n   Compiling verus_builtin_macros v0.0.0-2026-10-25-0158\n    Checking vest_lib v0.2.3 (<workspace>/vest_lib)\nnote: function body check: not all errors may have been reported; rerun with a higher value for --multiple-errors to find other potential errors in this function\n  --> vest_lib/src/combinators/tuple/proof.rs:15:11\n   |\n15 |     proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {\n   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: assertion failed\n  --> vest_lib/src/combinators/tuple/proof.rs:24:20\n   |\n24 |             assert(n0 == serialized0.len() - serialized1.len());\n   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ assertion failed\n\nerror: postcondition not satisfied\n  --> vest_lib/src/core/proof.rs:39:13\n   |\n39 | /             ({\n40 | |                 let ibuf = self.spec_serialize_dps(v, obuf);\n41 | |                 let n = self.byte_len(v) as int;\n42 | |                 self.spec_parse(ibuf) == Some((n, v))\n43 | |             }),\n   | |______________^ failed this postcondition\n   |\n  ::: vest_lib/src/combinators/tuple/proof.rs:23:9\n   |\n23 | /         if let Some((n0, v0)) = self.0.spec_parse(serialized0) {\n24 | |             assert(n0 == serialized0.len() - serialized1.len());\n25 | |             assert(serialized0[n0..] == serialized1);\n26 | |         }\n   | |_________- at the end of the function body\n\nnote: diagnostics via expansion\n      \n      n0 == serialized0.len() - serialized1.len() \n      \n\nerror: could not compile `vest_lib` (lib) due to 2 previous errors\n",
+  "stdout_report_projection": {
+    "category": "PROOF_FAILURE",
+    "crates": {
+      "vest_lib": {
+        "encountered-error": true,
+        "encountered-vir-error": false,
+        "errors": 1,
+        "is-verifying-entire-crate": true,
+        "success": false,
+        "verified": 3278
+      },
+      "vstd": {
+        "encountered-error": false,
+        "encountered-vir-error": false,
+        "errors": 0,
+        "is-verifying-entire-crate": true,
+        "success": true,
+        "verified": 2102
+      }
+    },
+    "exit_code": 101,
+    "failed_friendly_labels": [
+      "vest_lib::combinators::tuple::Pair::theorem_serialize_dps_parse_roundtrip"
+    ]
+  }
+}

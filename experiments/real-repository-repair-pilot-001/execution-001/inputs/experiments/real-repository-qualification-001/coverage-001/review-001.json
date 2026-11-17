@@ -1,0 +1,178 @@
+{
+  "status": "QUALIFIED_FOR_DECLARED_PINNED_VMC_SCOPE",
+  "model_calls": 0,
+  "job_id": "61260179",
+  "new_invocations": 5,
+  "reused_native_baselines": 1,
+  "baseline_obligations": 267,
+  "declared_source_files": 28,
+  "files_with_logged_units": 26,
+  "unlogged_files": {
+    "src/DafnyVMCTrait.dfy": "Existing RandomTrait implementations use explicit {:verify false}; unproved trusted upstream bodies, not passes.",
+    "src/Distributions/Bitstream/Interface.dfy": "Ghost-state trait with no method body; no logged verification obligation."
+  },
+  "upstream_trigger_warnings": 3,
+  "strict_zero_warning_baseline": false,
+  "native_adapter_agreements": [
+    "correct baseline",
+    "broken Swap"
+  ],
+  "coverage_controls": [
+    "Passing Shuffle cannot hide failing Swap",
+    "Omitted failing module rejected despite native exit zero",
+    "Explicit failing module detected"
+  ],
+  "scope": "Upstream pinned proof scope under existing trust exemptions; neither all code verified nor verifier soundness proved",
+  "observations": {
+    "vmc_baseline-adapter": {
+      "category": "PROVED_WITH_WARNINGS",
+      "summary": [
+        [
+          267,
+          0
+        ]
+      ],
+      "csv_headers": [
+        [
+          "TestResult.DisplayName",
+          "TestResult.Outcome",
+          "TestResult.Duration",
+          "TestResult.ResourceCount"
+        ]
+      ],
+      "warnings": [
+        "src/Math/Measures.dfy(40,4): Warning: /!\\ No terms found to trigger on.",
+        "src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\\ No terms found to trigger on.",
+        "src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\\ No terms found to trigger on."
+      ],
+      "coverage_complete": true,
+      "count_agreement": true,
+      "proof_pass": true,
+      "strict_zero_warning_pass": false,
+      "warnings_match_upstream": true,
+      "qualified_scope_pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 34.4660739148967
+    },
+    "vmc_broken_swap-native": {
+      "category": "PROOF_FAILURE",
+      "summary": [
+        [
+          266,
+          1
+        ]
+      ],
+      "csv_headers": [
+        [
+          "TestResult.DisplayName",
+          "TestResult.Outcome",
+          "TestResult.Duration",
+          "TestResult.ResourceCount"
+        ]
+      ],
+      "warnings": [
+        "src/Math/Measures.dfy(40,4): Warning: /!\\ No terms found to trigger on.",
+        "src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\\ No terms found to trigger on.",
+        "src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\\ No terms found to trigger on."
+      ],
+      "coverage_complete": true,
+      "count_agreement": true,
+      "proof_pass": false,
+      "strict_zero_warning_pass": false,
+      "warnings_match_upstream": true,
+      "qualified_scope_pass": false,
+      "exit_code": 4,
+      "elapsed_seconds": 25.36426207795739
+    },
+    "vmc_broken_swap-adapter": {
+      "category": "PROOF_FAILURE",
+      "summary": [
+        [
+          266,
+          1
+        ]
+      ],
+      "csv_headers": [
+        [
+          "TestResult.DisplayName",
+          "TestResult.Outcome",
+          "TestResult.Duration",
+          "TestResult.ResourceCount"
+        ]
+      ],
+      "warnings": [
+        "src/Math/Measures.dfy(40,4): Warning: /!\\ No terms found to trigger on.",
+        "src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\\ No terms found to trigger on.",
+        "src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\\ No terms found to trigger on."
+      ],
+      "coverage_complete": true,
+      "count_agreement": true,
+      "proof_pass": false,
+      "strict_zero_warning_pass": false,
+      "warnings_match_upstream": true,
+      "qualified_scope_pass": false,
+      "exit_code": 4,
+      "elapsed_seconds": 25.516449972987175
+    },
+    "vmc_detached-native-omitted": {
+      "category": "PROVED_WITH_WARNINGS",
+      "summary": [
+        [
+          267,
+          0
+        ]
+      ],
+      "csv_headers": [
+        [
+          "TestResult.DisplayName",
+          "TestResult.Outcome",
+          "TestResult.Duration",
+          "TestResult.ResourceCount"
+        ]
+      ],
+      "warnings": [
+        "src/Math/Measures.dfy(40,4): Warning: /!\\ No terms found to trigger on.",
+        "src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\\ No terms found to trigger on.",
+        "src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\\ No terms found to trigger on."
+      ],
+      "coverage_complete": false,
+      "count_agreement": true,
+      "proof_pass": false,
+      "strict_zero_warning_pass": false,
+      "warnings_match_upstream": true,
+      "qualified_scope_pass": false,
+      "exit_code": 0,
+      "elapsed_seconds": 25.422089106868953
+    },
+    "vmc_detached-adapter": {
+      "category": "PROOF_FAILURE",
+      "summary": [
+        [
+          267,
+          1
+        ]
+      ],
+      "csv_headers": [
+        [
+          "TestResult.DisplayName",
+          "TestResult.Outcome",
+          "TestResult.Duration",
+          "TestResult.ResourceCount"
+        ]
+      ],
+      "warnings": [
+        "src/Math/Measures.dfy(40,4): Warning: /!\\ No terms found to trigger on.",
+        "src/Distributions/Uniform/Model.dfy(23,12): Warning: /!\\ No terms found to trigger on.",
+        "src/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\\ No terms found to trigger on."
+      ],
+      "coverage_complete": true,
+      "count_agreement": true,
+      "proof_pass": false,
+      "strict_zero_warning_pass": false,
+      "warnings_match_upstream": true,
+      "qualified_scope_pass": false,
+      "exit_code": 4,
+      "elapsed_seconds": 25.174719863105565
+    }
+  }
+}

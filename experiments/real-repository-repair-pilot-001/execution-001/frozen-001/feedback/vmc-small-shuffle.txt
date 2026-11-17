@@ -1,0 +1,5 @@
+Saved native verifier feedback:
+{
+  "stderr": "",
+  "stdout": "src/Math/Measures.dfy(40,4): Warning: /!\\ No terms found to trigger on.\n   |\n40 |     iset _: iset<A>\n   |     ^^^^\n\nsrc/Distributions/Uniform/Model.dfy(23,12): Warning: /!\\ No terms found to trigger on.\n   |\n23 |     ensures forall i | 0 <= i < n ::\n   |             ^^^^^^\n\nsrc/Util/FisherYates/Correctness.dfy(381,10): Warning: /!\\ No terms found to trigger on.\n    |\n381 |           forall j | 0 <= j < |xs| - (i+1) ensures Model.Shuffle(ys, i+1)(s').value[i+1..][j] == p[i+1..][j] {\n    |           ^^^^^^\n\nsrc/Util/FisherYates/Equivalence.dfy(26,2): Error: a postcondition could not be proved on this return path\n   |\n26 |   {\n   |   ^\n\nsrc/Util/FisherYates/Equivalence.dfy(25,12): Related location: this is the postcondition that could not be proved\n   |\n25 |     ensures Model.Shuffle(oldASeq)(oldS) == Monad.Result(a[..], s)\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\nDafny program verifier finished with 266 verified, 1 error\n"
+}

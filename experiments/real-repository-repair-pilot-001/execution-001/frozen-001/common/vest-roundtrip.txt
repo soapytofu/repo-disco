@@ -1,0 +1,816 @@
+Repair task
+Restore the blanket serialization/parsing roundtrip proof under the existing trait contracts.
+Toolchain: Verus 0.2026.10.26.d17fbd0 with Rust 1.99.1 and Z3 4.16.0.
+The prompt supplies curated source context, not the entire repository. Verification runs the default-feature vest_dev target with its vest_lib and vstd dependencies; it is not a focus-only check.
+
+Only the body of vest_lib::core::proof::impl&%0::C::theorem_serialize_parse_roundtrip in vest_lib/src/core/proof.rs may change. The host replaces that one byte-delimited region; it does not apply arbitrary patches. Keep signatures, type parameters, contracts, imports, other bodies, project configuration and dependencies unchanged. Existing trusted declarations elsewhere remain read-only.
+Body syntax: ASCII only; at most 16384 UTF-8 bytes, 4096 lexical tokens and nesting depth 32. Balanced braces/parentheses/brackets; no source comments, string/character literals, attributes, macros, new declarations, imports, closures, loops, return statements, assumptions, admits, axioms or trust bypasses. Value locals, expressions, conditionals and assertions are allowed within this bounded syntax; Dafny also permits calc blocks. The following callable names are a vocabulary, not a required sequence. Do not call unlisted functions, introduce function aliases, or call the target recursively.
+Allowed callable names: Seq::empty, Some, self.byte_len, self.consistent, self.equiv_inv, self.lemma_serialize_equiv_on_empty, self.lemma_serialize_len, self.serialize_inv, self.sp_roundtrip_inv, self.spec_parse, self.spec_serialize, self.spec_serialize_dps, self.theorem_serialize_dps_parse_roundtrip, self.unambiguous.
+Length observations on permitted values/locals are allowed. Do not shadow inputs or module/type/call roots: Seq, Some, self, v.
+No reveal statement is permitted.
+
+Editable region: original candidate file bytes [2920, 3058); the surrounding braces belong to the immutable file.
+Current body, for locating the region:
+```verus
+
+        let empty = Seq::empty();
+        self.theorem_serialize_dps_parse_roundtrip(v, empty);
+        self.lemma_serialize_len(v);
+    
+```
+Module relationships (context, not repair advice):
+core/spec.rs declares serializer/parser interfaces; core/proof.rs declares the roundtrip interfaces and blanket implementations. vest_dev/formats/dependent.rs contains clients calling the blanket theorem through concrete format instances.
+
+Repository source context:
+FILE vest_lib/src/core/spec.rs [whole_file; bytes 0:11563]
+```verus
+//! Core specification traits for Vest combinators.
+use vstd::prelude::*;
+
+verus! {
+
+/// Parser specification.
+pub trait SpecParser {
+    /// The type of parsed values.
+    type PVal;
+
+    /// Attempts to parse a value from `ibuf`.
+    ///
+    /// Returns `Some((n, v))` on success, where `n` bytes were consumed and `v` is
+    /// the parsed value, or `None` on failure.
+    spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)>;
+}
+
+/// Two parsers have disjoint domains if no input can be successfully parsed by both.
+///
+/// This is the key condition for establishing unambiguity in combinator compositions.
+/// See also [`crate::combinators::disjoint`] for broadcast lemmas establishing
+/// disjointness for common compositions.
+#[verifier::opaque]
+pub open spec fn disjoint_domains<P1: SpecParser, P2: SpecParser>(p1: P1, p2: P2) -> bool {
+    forall|input: Seq<u8>| p1.spec_parse(input) is Some && p2.spec_parse(input) is Some ==> false
+}
+
+/// Combinator denotations that admit disjoint (mutually exclusive) sets of consistent values.
+///
+/// Used by [`crate::combinators::Alt`] to recover non-malleability.
+pub open spec fn disjoint_values<C1, C2>(c1: C1, c2: C2) -> bool where
+    C1: Consistency,
+    C2: Consistency<Val = C1::Val>,
+ {
+    forall|v: C1::Val| c1.consistent(v) && c2.consistent(v) ==> false
+}
+
+/// Returns `true` when parser `p` fails on input `ibuf`.
+pub open spec fn parser_fails_on<P: SpecParser>(p: P, ibuf: Seq<u8>) -> bool {
+    p.spec_parse(ibuf) is None
+}
+
+/// Parser safety.
+///
+/// Successful parses never consume bytes out of bounds.
+pub trait SafeParser: SpecParser {
+    /// Optional invariant (used by spec-function combinators; struct-based combinators
+    /// typically leave this as `true`).
+    open spec fn safe_inv(&self) -> bool {
+        true
+    }
+
+    /// For any successful parse `Some((n, _))`, `0 <= n <= ibuf.len()`.
+    broadcast proof fn lemma_parse_safe(&self, ibuf: Seq<u8>)
+        requires
+            self.safe_inv(),
+        ensures
+            #[trigger] self.spec_parse(ibuf) matches Some((n, _)) ==> 0 <= n <= ibuf.len(),
+    ;
+}
+
+/// Parser soundness.
+///
+/// Successful parsing produces a value consistent with the format. This does not
+/// constrain the consumed length; see [`SafeParser`] and [`StrictParser`]
+/// for additional constraints on the consumed length.
+pub trait SoundParser: SpecParser + Consistency<Val = Self::PVal> {
+    /// Optional invariant (used by spec-function combinators; struct-based combinators
+    /// typically leave this as `true`).
+    open spec fn sound_inv(&self) -> bool {
+        true
+    }
+
+    /// For any successful parse `Some((_, v))`, `v` is consistent with the format's spec.
+    broadcast proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>)
+        requires
+            self.sound_inv(),
+        ensures
+            #[trigger] self.spec_parse(ibuf) matches Some((_, v)) ==> self.consistent(v),
+    ;
+}
+
+/// Parser strictness.
+///
+/// This trait constrains parsing to consume exactly the number of bytes specified by the format's spec.
+/// However, it still permits malleable encodings of the same length.
+///
+/// See [`super::proof::NonMalleable`] for even stronger guarantees that rule out malleable encodings.
+pub trait StrictParser: SpecByteLen + SoundParser<PVal = Self::T> {
+    /// Additional conditions needed for length agreement.
+    open spec fn strict_inv(&self) -> bool {
+        true
+    }
+
+    broadcast proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>)
+        requires
+            self.sound_inv(),
+            self.strict_inv(),
+        ensures
+            #[trigger] self.spec_parse(ibuf) matches Some((n, v)) ==> n == self.byte_len(v),
+    ;
+}
+
+/// Value well-formedness according to a format's specification.
+///
+/// ## Examples
+///
+/// - [`crate::combinators::Refined`] requires the refinement predicate;
+/// - [`crate::combinators::Varied`]/[`crate::combinators::Repeat`] requires matching length/count;
+/// - [`crate::combinators::U8`] imposes trivial consistency condition (all `u8` values are consistent with the format);
+/// - [`crate::combinators::Void`] is uninhabited and thus has no consistent values.
+pub trait Consistency {
+    /// The type of values whose consistency is being checked.
+    type Val;
+
+    /// Returns `true` if `v` is well-formed w.r.t. this combinator.
+    spec fn consistent(&self, v: Self::Val) -> bool;
+}
+
+/// Combinators whose consistency admits at most one value.
+///
+/// Used by e.g., [`crate::combinators::Preceded`] and [`crate::combinators::Terminated`] to
+/// recover non-malleability when the discarded side is not checked explicitly.
+pub trait AdmitsUniqueVal: Consistency {
+    /// Any two consistent values must be equal.
+    proof fn lemma_unique_consistent_val(&self, v1: Self::Val, v2: Self::Val)
+        ensures
+            self.consistent(v1) && self.consistent(v2) ==> v1 == v2,
+    ;
+}
+
+/// Spec-level predicate abstraction.
+pub trait SpecPred<T> {
+    /// Applies the predicate to a value.
+    spec fn apply(&self, value: T) -> bool;
+}
+
+/// A spec-level predicate function type alias.
+pub type PredFnSpec<T> = spec_fn(T) -> bool;
+
+impl<T> SpecPred<T> for PredFnSpec<T> {
+    open spec fn apply(&self, value: T) -> bool {
+        self(value)
+    }
+}
+
+impl<T, P: SpecPred<T>> SpecPred<T> for &P {
+    open spec fn apply(&self, value: T) -> bool {
+        (*self).apply(value)
+    }
+}
+
+/// Destination-passing style (DPS) serializer specification.
+///
+/// See [`crate::core::proof::EquivSerializers`] for its relationship to [`SpecSerializer`].
+pub trait SpecSerializerDps {
+    /// The type of values to be serialized.
+    type SValue;
+
+    /// Serializes `v` by prepending its encoding onto `obuf`.
+    spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8>;
+}
+
+/// Denotes the byte length of a value w.r.t. a combinator's format spec.
+pub trait SpecByteLen {
+    /// The type of values whose byte length is being computed.
+    type T;
+
+    /// Returns the number of bytes `v` occupies when serialized.
+    spec fn byte_len(&self, v: Self::T) -> nat;
+}
+
+/// Denotes the min/max byte length of a value w.r.t. a combinator's format spec.
+///
+/// **Combinators that do not implement `MinMaxByteLen`**
+/// * **Unbounded Sequence/Tail Combinators:**
+///   *   `Tail` (consumes the remaining buffer)
+///   *   `Star<A>` (zero or more repetitions)
+///   *   `Repeat<A, B>` (zero or more `A`s followed by terminator `B`)
+///   *   `RepeatTillEnd<A>` (sugar for `Repeat<A, Eof>`)
+/// * **Dependent and Recursive Combinators:**
+///   *   `Bind<A, B>` (the suffix parser `B` is constructed dynamically from the parsed value of `A`)
+///   *   `FixWith<LIMIT, Body, Param>` (recursive fixpoint)
+pub trait MinMaxByteLen: SpecByteLen + Consistency<Val = Self::T> {
+    spec fn min(&self) -> nat;
+
+    spec fn max(&self) -> nat;
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T)
+        requires
+            self.consistent(v),
+        ensures
+            self.min() <= self.byte_len(v) <= self.max(),
+    ;
+}
+
+/// Static byte length for fixed-size combinators.
+pub trait StaticByteLen: SpecByteLen + Consistency<Val = Self::T> {
+    /// The statically known serialized length.
+    spec fn static_byte_len() -> nat;
+
+    /// Bridge between the dynamic byte-length view and the static one.
+    broadcast proof fn lemma_static_len_matches_byte_len(&self, v: Self::T)
+        requires
+            self.consistent(v),
+        ensures
+            #[trigger] self.byte_len(v) == Self::static_byte_len(),
+    ;
+}
+
+/// Like [`SpecByteLen`], but the byte length can be computed from the value alone, without needing to refer
+/// to the combinator/format's parameters or internal states (`self`).
+pub trait ValueByteLen: SpecByteLen + Consistency<Val = Self::T> {
+    /// The byte length computed from the value alone.
+    spec fn value_byte_len(v: Self::T) -> nat;
+
+    /// Bridge between the parameterized byte-length view and the value-based one.
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T)
+        requires
+            self.consistent(v),
+        ensures
+            self.byte_len(v) == Self::value_byte_len(v),
+    ;
+}
+
+/// Broadcast wrapper for [`ValueByteLen::lemma_value_len_matches_byte_len`].
+pub broadcast proof fn lemma_value_len_matches_byte_len<C: ValueByteLen + Consistency>(
+    c: C,
+    v: C::T,
+)
+    requires
+        c.consistent(v),
+    ensures
+        #[trigger] c.byte_len(v) == C::value_byte_len(v),
+{
+    c.lemma_value_len_matches_byte_len(v);
+}
+
+/// Marker for combinators whose corresponding values are raw bytes (`Seq<u8>`).
+pub trait BytesCombinator: SpecByteLen<T = Seq<u8>> {
+    /// Byte length equals buffer length.
+    proof fn lemma_byte_len_is_buf_len(&self, buf: Seq<u8>)
+        ensures
+            self.byte_len(buf) == buf.len(),
+    ;
+}
+
+/// Serializer specification.
+///
+/// See [`crate::core::proof::EquivSerializers`] for its relationship to [`SpecSerializerDps`].
+pub trait SpecSerializer {
+    /// The type of values to be serialized.
+    type SVal;
+
+    /// Serializes `v` into a fresh byte sequence.
+    spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8>;
+}
+
+/// A non-tail format combinator would allow for things to be serialized after itself.
+///
+/// ## Notable formats that are *not* non-tail (i.e., tail formats)
+///
+/// - [`crate::combinators::Tail`]
+/// - [`crate::combinators::Eof`]
+/// - [`crate::combinators::OptionalEnd`]
+/// - [`crate::combinators::RepeatTillEnd`]
+pub trait NonTailFmt: SpecByteLen + SpecSerializerDps<SValue = Self::T> {
+    /// Optional invariant for DPS serializer proofs.
+    open spec fn serialize_dps_inv(&self) -> bool {
+        true
+    }
+
+    /// The serializer prepends to `obuf` (so it will leave `obuf` intact, no truncation, corruption, etc.).
+    ///
+    /// Another way to think about this is that the format allows for trailing bytes after itself, whereas a tail format
+    /// would only allow for leading bytes before itself.
+    proof fn lemma_serialize_dps_prepend(&self, v: Self::SValue, obuf: Seq<u8>)
+        requires
+            self.serialize_dps_inv(),
+        ensures
+            exists|new_buf: Seq<u8>| self.spec_serialize_dps(v, obuf) == new_buf + obuf,
+    ;
+
+    /// number of bytes prepended equals `byte_len(v)`.
+    proof fn lemma_serialize_dps_len(&self, v: Self::SValue, obuf: Seq<u8>)
+        requires
+            self.serialize_dps_inv(),
+        ensures
+            self.spec_serialize_dps(v, obuf).len() - obuf.len() == self.byte_len(v),
+    ;
+}
+
+/// A well-behaved serializer.
+pub trait GoodSerializer: SpecByteLen + SpecSerializer<SVal = Self::T> {
+    /// Optional invariant for serializer-length proofs.
+    open spec fn serialize_inv(&self) -> bool {
+        true
+    }
+
+    /// serialized byte sequence has the expected length.
+    broadcast proof fn lemma_serialize_len(&self, v: Self::SVal)
+        requires
+            self.serialize_inv(),
+        ensures
+            #[trigger] self.spec_serialize(v).len() == self.byte_len(v),
+    ;
+}
+
+/// Marker trait for all specification traits bundled together.
+pub trait SpecCombinator: SpecByteLen + Consistency<Val = Self::T> + SpecParser<
+    PVal = Self::T,
+> + SpecSerializer<SVal = Self::T> + SpecSerializerDps<SValue = Self::T> {
+
+}
+
+impl<T> SpecCombinator for T where
+    T: SpecByteLen + Consistency<Val = Self::T> + SpecParser<PVal = Self::T> + SpecSerializer<
+        SVal = Self::T,
+    > + SpecSerializerDps<SValue = Self::T>,
+ {
+
+}
+
+} // verus!
+pub use crate::core::fns::{ByteLenFnSpec, ParserFnSpec, SerializerDPSFnSpec, SerializerFnSpec};
+
+```
+
+FILE vest_lib/src/core/proof.rs [whole_file; bytes 0:13636]
+```verus
+//! Correctness and security proof traits for Vest combinators.
+
+use crate::core::spec::SpecParser;
+
+use super::spec::*;
+use vstd::prelude::*;
+
+verus! {
+
+/// Serialize-parse roundtrip (DPS).
+///
+/// Serializing a consistent value in DPS style and parsing the result recovers the
+/// original value, consuming exactly `byte_len(v)` bytes.
+///
+/// This is a low-level trait. Individual combinators in the library prove this directly;
+/// the higher-level property [`SPRoundTrip`] is derived via a blanket impl composing this with
+/// [`GoodSerializer`] and [`EquivSerializers`].
+///
+/// ## Note on user-defined combinators
+///
+/// User-defined combinators should prefer proving this trait to proving [`SPRoundTrip`], as
+/// 1. it's a stronger property and proving and implementing this trait would make Rust/Verus auto-derive a proof for [`SPRoundTrip`];
+/// 2. it makes the combinator composable with the rest of the library, which are all built on this stronger property.
+pub trait SPRoundTripDps where
+    Self: SpecByteLen +
+          Consistency<Val = Self::T> +
+          SpecParser<PVal = Self::T> +
+          SpecSerializerDps<SValue = Self::T>,
+ {
+    open spec fn unambiguous(&self) -> bool {
+        true
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>)
+        requires
+            self.unambiguous(),
+            self.consistent(v),
+        ensures
+            ({
+                let ibuf = self.spec_serialize_dps(v, obuf);
+                let n = self.byte_len(v) as int;
+                self.spec_parse(ibuf) == Some((n, v))
+            }),
+    ;
+}
+
+/// Serialize-parse roundtrip.
+///
+/// Serializing a consistent value and parsing the result recovers `v`, consuming
+/// the entire serialized buffer. Automatically derived for combinators implementing
+/// [`SPRoundTripDps`] + [`GoodSerializer`] + [`EquivSerializers`].
+///
+/// ## Note on user-defined combinators
+///
+/// User-defined combinators should prefer proving [`SPRoundTripDps`] to proving this trait. See the note on [`SPRoundTripDps`] for details.
+pub trait SPRoundTrip where
+    Self: SpecByteLen +
+          SpecParser<PVal = Self::T> +
+          SpecSerializer<SVal = Self::T> +
+          Consistency<Val = Self::T> +
+{
+    open spec fn sp_roundtrip_inv(&self) -> bool {
+        true
+    }
+
+    proof fn theorem_serialize_parse_roundtrip(&self, v: Self::T)
+        requires
+            self.sp_roundtrip_inv(),
+            self.consistent(v),
+        ensures
+            ({
+                let bytes = self.spec_serialize(v);
+                self.spec_parse(bytes) == Some((bytes.len() as int, v))
+            }),
+    ;
+}
+
+impl<C: SPRoundTripDps + GoodSerializer + EquivSerializers> SPRoundTrip for C {
+    open spec fn sp_roundtrip_inv(&self) -> bool {
+        self.serialize_inv() && self.equiv_inv() && self.unambiguous()
+    }
+
+    proof fn theorem_serialize_parse_roundtrip(&self, v: Self::T) {
+        let empty = Seq::empty();
+        self.theorem_serialize_dps_parse_roundtrip(v, empty);
+        self.lemma_serialize_len(v);
+    }
+}
+
+
+/// Serializer unambiguity (injectivity on consistent values).
+///
+/// Two different consistent values cannot serialize to the same bytes. This
+/// rules out ambiguity in the value-to-wire direction and follows
+/// automatically from [`SPRoundTrip`].
+pub trait NonAmbiguous where
+    Self: Consistency + SpecSerializer<SVal = Self::Val>
+{
+    /// Side conditions needed by the injectivity proof.
+    open spec fn nonamb_inv(&self) -> bool {
+        true
+    }
+
+    /// Proves that equal serializations imply equal values.
+    proof fn lemma_serialize_injective(&self, v1: Self::Val, v2: Self::Val)
+        requires
+            self.nonamb_inv(),
+            self.consistent(v1),
+            self.consistent(v2),
+        ensures
+            self.spec_serialize(v1) == self.spec_serialize(v2) ==> v1 == v2
+    ;
+
+    /// Equivalent contrapositive: distinct values have distinct serializations.
+    proof fn corollary_serialize_injective_contrapositive(&self, v1: Self::Val, v2: Self::Val)
+        requires
+            self.nonamb_inv(),
+            self.consistent(v1),
+            self.consistent(v2),
+        ensures
+            v1 != v2 ==> self.spec_serialize(v1) != self.spec_serialize(v2),
+    {
+        self.lemma_serialize_injective(v1, v2);
+    }
+}
+
+impl<C: SPRoundTrip> NonAmbiguous for C {
+    open spec fn nonamb_inv(&self) -> bool {
+        self.sp_roundtrip_inv()
+    }
+
+    proof fn lemma_serialize_injective(&self, v1: Self::Val, v2: Self::Val) {
+        self.theorem_serialize_parse_roundtrip(v1);
+        self.theorem_serialize_parse_roundtrip(v2);
+    }
+}
+
+
+/// Parse-serialize roundtrip.
+///
+/// Parsing a buffer and serializing the result reproduces the consumed bytes.
+///
+/// Automatically derived from [`SPRoundTrip`], [`NonMalleable`], and [`SoundParser`].
+///
+/// User-defined combinators can also prove this directly.
+pub trait PSRoundTrip where
+    Self: SpecByteLen +
+          SpecParser<PVal = Self::T> +
+          SpecSerializer<SVal = Self::T> +
+{
+    open spec fn ps_roundtrip_inv(&self) -> bool {
+        true
+    }
+
+    proof fn theorem_parse_serialize_roundtrip(&self, ibuf: Seq<u8>)
+        requires
+            self.ps_roundtrip_inv(),
+        ensures
+            self.spec_parse(ibuf) matches Some((n, v)) ==> self.spec_serialize(v) == ibuf[0..n],
+    ;
+
+    proof fn corollary_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>)
+        requires
+            self.ps_roundtrip_inv(),
+        ensures
+            self.spec_parse(buf1) matches Some((n1, v1)) ==>
+            self.spec_parse(buf2) matches Some((n2, v2)) ==>
+            v1 == v2 ==> buf1[0..n1] == buf2[0..n2],
+    {
+        self.theorem_parse_serialize_roundtrip(buf1);
+        self.theorem_parse_serialize_roundtrip(buf2);
+    }
+}
+
+impl<C: SPRoundTrip + NonMalleable + SoundParser> PSRoundTrip for C {
+    open spec fn ps_roundtrip_inv(&self) -> bool {
+        self.safe_inv() && self.sound_inv() && self.nonmal_inv() && self.sp_roundtrip_inv()
+    }
+
+    proof fn theorem_parse_serialize_roundtrip(&self, ibuf: Seq<u8>) {
+        let c = self;
+        if let Some((n, v)) = c.spec_parse(ibuf) {
+            c.lemma_parse_sound_value(ibuf);
+            c.theorem_serialize_parse_roundtrip(v);
+
+            let serialized = c.spec_serialize(v);
+            assert((c.spec_parse(serialized)->0).1 == v);
+
+            // By non-malleability: both parses return v, so serialized is equal to the input prefix
+            c.lemma_parse_non_malleable(ibuf, serialized);
+            assert(ibuf[0..n] == serialized);
+        }
+    }
+}
+
+/// Parser non-malleability.
+///
+/// If two buffers parse to equal values, their consumed bytes are identical—i.e.,
+/// each semantic value has a unique byte-level representation.
+pub trait NonMalleable: SafeParser {
+    /// Optional invariant (used by spec-function combinators; struct-based combinators
+    /// typically leave this as `true`)
+    open spec fn nonmal_inv(&self) -> bool {
+        true
+    }
+
+    #[verusfmt::skip]
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.nonmal_inv(),
+        ensures
+            self.spec_parse(buf1) matches Some((n1, v1)) ==>
+            self.spec_parse(buf2) matches Some((n2, v2)) ==>
+            v1 == v2 ==> buf1[0..n1] == buf2[0..n2],
+    ;
+}
+
+/// No-lookahead property for parsers.
+///
+/// Intuitively: the parser's behavior does not depend on "future" bytes beyond the consumed prefix
+/// (i.e., it does not need to "look ahead"/"peek" at them to decide how to parse the prefix).
+///
+/// Formally: if two buffers share a common prefix that successfully parses, then they parse to the same value.
+pub trait NoLookAhead: SafeParser {
+    open spec fn no_lookahead_inv(&self) -> bool {
+        true
+    }
+
+    #[verusfmt::skip]
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.no_lookahead_inv(),
+        ensures
+            self.spec_parse(i1) matches Some((n, v)) ==>
+            0 <= n <= i2.len() ==> i2[0..n] == i1[0..n] ==>
+            self.spec_parse(i2) == Some((n, v)),
+    ;
+
+    proof fn corollary_non_extensible(&self, i1: Seq<u8>, i2: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.no_lookahead_inv(),
+        ensures
+            self.spec_parse(i1) matches Some((n, v)) ==> self.spec_parse(i1 + i2) == Some((n, v)),
+    {
+        self.lemma_no_lookahead(i1, i1 + i2);
+        if let Some((n, v)) = self.spec_parse(i1) {
+            self.lemma_parse_safe(i1);
+            assert(0 <= n <= (i1 + i2).len());
+            assert(i1[0..n] == (i1 + i2)[0..n]);
+        }
+    }
+}
+
+/// Productivity for parsers.
+///
+/// A productive parser always consumes at least one byte when it succeeds.
+///
+/// Inherently unproductive combinators are:
+/// *   **`Empty`**: Always succeeds and never consumes any bytes.
+/// *   **`Eof`**: Asserts the end of the input. It only succeeds if the buffer is entirely empty, thus always consuming 0 bytes.
+/// *   **`Tail`**: Consumes all remaining bytes in the buffer. If the buffer is already empty, it successfully consumes 0 bytes.
+/// *   **`Opt<A>`**: Evaluates an optional field. If `A` fails, `Opt<A>` successfully returns `None` while consuming 0 bytes.
+/// *   **`Star<A>`**: The Kleene star for zero-or-more repetitions. It can successfully parse zero occurrences of `A`, consuming 0 bytes.
+/// *   **`OptionalEnd<C>` & `RepeatTillEnd<C>`**: These are syntax sugar for `Optional<C, Eof>` and `Repeat<C, Eof>`.
+///
+/// The above combinators still implement the `Productive` trait in order for sequencing combinators
+/// like `Pair` to remain productive, but their `productive_inv` would return `false` (so `lemma_productive` would not apply to them).
+pub trait Productive: SafeParser {
+    open spec fn productive_inv(&self) -> bool {
+        true
+    }
+
+    broadcast proof fn lemma_productive(&self, s: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.productive_inv(),
+        ensures
+            #[trigger] self.spec_parse(s) matches Some((n, _)) ==> n > 0,
+    ;
+}
+
+/// Full DPS ↔ non-DPS serializer equivalence for *any* output buffer.
+///
+/// See [`EquivSerializers`] for the weaker empty-buffer variant.
+pub trait EquivSerializersGeneral: SpecSerializer + SpecSerializerDps<SValue = Self::SVal> {
+    open spec fn equiv_general_inv(&self) -> bool {
+        true
+    }
+
+    /// `spec_serialize_dps(v, obuf) == spec_serialize(v) + obuf`.
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>)
+        requires
+            self.equiv_general_inv(),
+        ensures
+            self.spec_serialize_dps(v, obuf) == self.spec_serialize(v) + obuf,
+    ;
+}
+
+/// DPS ↔ non-DPS serializer equivalence on the empty buffer.
+///
+/// Sufficient for deriving [`SPRoundTrip`] from [`SPRoundTripDps`].
+pub trait EquivSerializers: SpecSerializer + SpecSerializerDps<SValue = Self::SVal> {
+    open spec fn equiv_inv(&self) -> bool {
+        true
+    }
+
+    /// `spec_serialize_dps(v, []) == spec_serialize(v)`.
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal)
+        requires
+            self.equiv_inv(),
+        ensures
+            self.spec_serialize_dps(v, seq![]) == self.spec_serialize(v),
+    ;
+}
+
+/// A "strict" combinator that satisfies all the core correctness and security properties proven by the library's combinators.
+pub trait StrictCombinator:
+    SafeParser +
+    Productive +
+    StrictParser +
+    NonMalleable +
+    GoodSerializer +
+    NonTailFmt +
+    SPRoundTripDps +
+    EquivSerializersGeneral {
+
+}
+
+impl<Body> StrictCombinator for Body where
+    Body:
+        SafeParser +
+        Productive +
+        StrictParser +
+        NonMalleable +
+        GoodSerializer +
+        NonTailFmt +
+        SPRoundTripDps +
+        EquivSerializersGeneral,
+ {
+
+}
+
+/// This is a marker trait for combinators that are "leaves" in the combinator hierarchy.
+///
+/// A "leaf" combinator does not expose any non-trivial preconditions on its correctness and security properties.
+///
+/// Built-in combinators that are "leaves" include [Fixed](crate::combinators::bytes::Fixed), [Varied](crate::combinators::bytes::Varied),
+/// [U8](crate::combinators::uints::U8)/[U16Le](crate::combinators::uints::U16Le)/[U32Le](crate::combinators::uints::U32Le),
+/// [FixWith](crate::combinators::recursive::FixWith), [Empty](crate::combinators::marker::Empty), and [Void](crate::combinators::marker::Void).
+///
+/// In addition, any derived/composed combinator proven to satisfy `Leaf::leaf_inv` can also be marked as a leaf combinator.
+pub trait Leaf:
+    SafeParser +
+    GoodSerializer +
+    NonTailFmt +
+    SPRoundTripDps +
+    EquivSerializersGeneral {
+    proof fn leaf_inv(&self)
+        ensures
+            self.unambiguous(),
+            self.safe_inv(),
+            self.serialize_inv(),
+            self.serialize_dps_inv(),
+            self.equiv_general_inv(),
+    ;
+}
+
+/// Similar to [`Leaf`], but also includes parser strictness
+/// and non-malleability.
+pub trait LeafNonMalleable:
+    Leaf +
+    StrictParser +
+    NonMalleable {
+    proof fn nonmal_leaf_inv(&self)
+        ensures
+            self.unambiguous(),
+            self.safe_inv(),
+            self.sound_inv(),
+            self.strict_inv(),
+            self.nonmal_inv(),
+            self.serialize_inv(),
+            self.serialize_dps_inv(),
+            self.equiv_general_inv(),
+    ;
+}
+
+impl<Fmt: LeafNonMalleable> Leaf for Fmt {
+    proof fn leaf_inv(&self) {
+        self.nonmal_leaf_inv();
+    }
+}
+
+} // verus!
+
+```
+
+FILE vest_dev/src/formats/dependent.rs [whole_file; bytes 0:1927]
+```verus
+//! Dependent wire fields and inferred values expressed with `Bind` and `Mapped`.
+use crate::combinators::{Bind, Choice, Cond, Mapped, Sum, U16Le, U32Le, Varied, U8};
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+verus! {
+
+broadcast use crate::combinators::disjoint::disjointness_lemmas;
+
+proof fn explicit_length_roundtrip() {
+    let fmt = Bind(U8, |len: u8| Varied(len));
+    let value = (3u8, seq![0xaau8, 0xbbu8, 0xccu8]);
+    fmt.theorem_serialize_parse_roundtrip(value);
+}
+
+proof fn inferred_length_roundtrip() {
+    let fmt = Mapped {
+        inner: Bind(U8, |len: u8| Varied(len)),
+        mapper: (|wire: (u8, Seq<u8>)| wire.1, |bytes: Seq<u8>| (bytes.len() as u8, bytes)),
+    };
+    let value = seq![0xaau8, 0xbbu8, 0xccu8];
+    assert(fmt.consistent(value));
+    assert(fmt.unambiguous());
+    fmt.theorem_serialize_parse_roundtrip(value);
+    assert(fmt.spec_parse(fmt.spec_serialize(value)) == Some((3int + 1, value)));
+}
+
+proof fn explicit_tag_roundtrip() {
+    let fmt = Bind(U8, |tag: u8| Choice(Cond(tag == 0u8, U16Le), Cond(tag == 1u8, U32Le)));
+    let value = (1u8, Sum::Inr(0x78563412u32));
+    assert(fmt.unambiguous());
+    fmt.theorem_serialize_parse_roundtrip(value);
+}
+
+proof fn inferred_tag_roundtrip() {
+    let fmt = Mapped {
+        inner: Bind(U8, |tag: u8| Choice(Cond(tag == 0u8, U16Le), Cond(tag == 1u8, U32Le))),
+        mapper: (
+            |wire: (u8, Sum<u16, u32>)| wire.1,
+            |value: Sum<u16, u32>|
+                match value {
+                    Sum::Inl(v) => (0u8, Sum::Inl(v)),
+                    Sum::Inr(v) => (1u8, Sum::Inr(v)),
+                },
+        ),
+    };
+    let small = Sum::Inl(0x1234u16);
+    let large = Sum::Inr(0x78563412u32);
+    assert(fmt.unambiguous());
+    assert(fmt.consistent(small) && fmt.consistent(large));
+    fmt.theorem_serialize_parse_roundtrip(small);
+    fmt.theorem_serialize_parse_roundtrip(large);
+}
+
+} // verus!
+
+```
+
+Return the replacement body as the single JSON string specified by the system message.

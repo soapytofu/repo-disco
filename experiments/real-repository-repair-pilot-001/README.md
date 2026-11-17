@@ -1,6 +1,9 @@
 # Real-repository repair pilot: Dafny-VMC and Vest
 
-This is a **16-call proposal, with zero model calls authorized or made**. It tests
+The user has now approved **16 new calls with no retries**. The separately
+[prepared execution bundle](execution-001/README.md) passed 17 offline tests
+locally and on Cannon; no new model calls have run yet. The frozen proposal
+artifacts retain their historical pre-approval state. This pilot tests
 one-shot repair at four real upstream sites, using detailed verifier feedback or
 a failure notice. The seeds are deliberately damaged verified code, not newly
 discovered bugs. Both repositories and all four sites are inspected development

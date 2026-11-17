@@ -1,6 +1,6 @@
 # Experiment log
 
-## Real-repository repair — four task sites and a frozen 16-call proposal
+## Real-repository repair — approved 16-call pilot
 
 [real-repository-repair-pilot-001](real-repository-repair-pilot-001/README.md) now
 freezes eight exact prompts and a counterbalanced 16-slot comparison on Dafny-VMC
@@ -11,9 +11,11 @@ All six fresh negative controls match actual named proof failures, and four
 original reference sites reuse two exact qualified positive runs. Eleven policy
 tests pass locally/on Cannon and eight preparation tests pass against the freeze.
 The initial staging failure and full corrected-job logs are preserved. These
-are induced development failures in real source, not model results. **16 calls
-are proposed; none are authorized or made.** Repository growth is outside this
-smaller pilot, and the old terminal paid ledger remains closed.
+are induced development failures in real source, not model results. The user has
+now approved **16 fresh calls, no retries**. The [execution bundle](real-repository-repair-pilot-001/execution-001/README.md) passed 17 offline tests
+locally and on Cannon. Separate collection/Dafny/Vest jobs request 1/1/4 CPUs;
+no model calls have run yet. Repository growth is outside this smaller pilot,
+and the old terminal paid ledger remains closed.
 
 ## Real repositories — source-reviewed plan for November 24
 
