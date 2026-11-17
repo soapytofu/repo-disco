@@ -1,0 +1,12 @@
+{
+  "parent_job": "61265172",
+  "cause": "Pinned Z3 4.16.0 requires GLIBC_2.38 plus GLIBCXX_3.4.31 and 3.4.32, absent from Bookworm",
+  "change": "Immutable official Rust slim Trixie runtime supplies glibc 2.41 and GCC14 libraries plus cc; existing task-owned Rust/Verus/Z3 unchanged",
+  "primary_sources": [
+    "https://packages.debian.org/trixie/libc6",
+    "https://packages.debian.org/trixie/libstdc++6",
+    "https://github.com/rust-lang/docker-rust/blob/main/Dockerfile-slim.template"
+  ],
+  "setup_performance_change": "Extract temporary OCI files on compute-local /tmp instead of NFS; preserve final SIF and full logs in versioned output",
+  "automatic_retries": 0
+}

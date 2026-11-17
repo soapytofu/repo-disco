@@ -71,7 +71,17 @@ preparation checks.
   and libc development files. The exact previously installed Verus and Rust are
   reused and version-compared; source and Cargo.lock remain unchanged. Cached
   dependencies are used offline, with distinct fresh target directories. This
-  phase must pass before Vest coverage controls can run.
+  phase passed the compiler, Rust and Verus checks but failed the pinned Z3
+  startup check: Bookworm lacks `GLIBC_2.38` and `GLIBCXX_3.4.31/3.4.32`.
+  Job 61265172 and its full 28-file evidence are retained; no proof ran.
+- **Vest container phase 004, job 61304625:** a newly pinned official Rust slim
+  Trixie base supplies the identified glibc/C++ versions and compiler. The exact
+  task-owned Verus, Rust and Z3 installations remain unchanged, with version
+  equality checks before proof commands. Temporary image extraction now uses
+  compute-local `/tmp`; final images and all logs stay in the versioned output.
+  [Debian records glibc 2.41](https://packages.debian.org/trixie/libc6) and
+  [GCC 14 C++ libraries](https://packages.debian.org/trixie/libstdc%2B%2B6).
+  This phase is submitted once, not yet a baseline pass.
 
 All executions use compute nodes, live-checked nonpreemptible shared partition,
 exclusive submission/output locks, fixed time/resource bounds and no requeue.
@@ -119,3 +129,18 @@ with three unchanged trigger warnings. It is not a zero-warning baseline, proof 
 all upstream runtime code, or approval for arbitrary model edits. Future model
 collection must bind a reviewed edit policy and this exact scope/toolchain; no
 model runner or paid authorization has been introduced. Vest remains pending.
+
+## Connection and continuation
+
+Socket 18 disappeared during the completed phase-003 job. The user reconnected
+on socket 19; `phase_ops.py` now changes only the coordinator's transport. The
+pinned original `ops.py` and all compute bundles remain unchanged. Never resubmit
+an existing phase. Check the single current job, fetch its evidence once terminal,
+and review it before freezing a Vest coverage inventory. `continuation-state.json`
+records this handoff. No Bedrock key or model calls are needed.
+
+For a fresh checkout, `source-manifest.json` records pinned public archive URLs,
+archive hashes and every original file hash. Restore the excluded generated/docs
+assets from those exact archives before using the strict full-snapshot staging
+checks; never replace existing vendored files without verifying their hashes.
+The one-use output/submission locks deliberately prevent rerunning an old phase.

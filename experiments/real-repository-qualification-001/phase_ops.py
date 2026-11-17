@@ -1,10 +1,13 @@
 """Exclusive versioned verifier phase operations; uses existing authenticated transport."""
 import io,json,sys,tarfile
 from pathlib import Path,PurePosixPath
+import ops
 from ops import remote,save,sha
+# Controller-only transport change. Pinned ops.py and all compute bundles stay unchanged.
+ops.SSH[ops.SSH.index('-S')+1]=str(Path.home()/'.ssh/repodisco-codex-19.sock')
 BASE=Path(__file__).resolve().parent
 def call(phase,code,data=None,seconds=45):
-    assert phase in {'container-002','container-003','coverage-001','vest-container-002','vest-container-003','vest-coverage-001'}
+    assert phase in {'container-002','container-003','coverage-001','vest-container-002','vest-container-003','vest-container-004','vest-coverage-001'}
     return remote('root=root/'+repr(phase)+'\n'+code,data,seconds)
 CHECK='''import hashlib,json
 for n,h in json.loads((root/'manifest.json').read_text()).items():assert hashlib.sha256((root/n).read_bytes()).hexdigest()==h,n

@@ -22,3 +22,10 @@ Earlier host-library and HTTP/2 image-pull failures are preserved separately and
 See [coverage-001/review-001.json](coverage-001/review-001.json), [profile.json](coverage-001/profile.json), [full raw results](coverage-001/results/) and [native baseline](container-003/results/native-baseline/).
 
 Vest: job 61259311 validates the pinned Verus archive, Verus commit, Rust 1.99.1 and Z3 versions. Both native commands then fail with exit 101 while compiling Rust dependencies because `cc` is missing; no verification report exists. Full 60-file evidence is retained. A separately versioned official Rust slim build environment is prepared to supply the linker without changing those pinned tools or sources. No Vest qualification claim yet; both the partial-download and linker failures remain saved.
+
+The compiler-equipped phase-003 environment then exposed the pinned Z3 binary's
+exact runtime requirements: glibc 2.38 and GCC C++ symbols through 3.4.32. Its
+28-file evidence is retained; it stopped before repository verification. Phase
+004 uses a pinned Trixie image satisfying those identified requirements. Job
+61304625 is submitted once through the restored socket-19 connection. Vest's
+qualification remains pending; these environment failures are not proof scores.
