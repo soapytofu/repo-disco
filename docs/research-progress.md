@@ -30,7 +30,17 @@ accepted parent. Native integration must preserve all 5,410 existing Vest timed
 occurrences rather than collapse its 5,300 tuple keys. Two full-scope reference
 checks precede the remaining controls. A later eight-call, four-lineage pilot is only a proposal,
 with stage two blocked if its actual first-stage parent fails. No new model calls
-are authorized; the reconnect request for verifier-only compute remains pending.
+are authorized.
+
+The user has now reconnected, and the exact runtime passed all 31 checks on
+Cannon. Reference jobs 61747428 (Dafny) and 61747454 (Vest) were each submitted
+once on nonpreemptible `test` with one CPU. Dafny completed in 28 seconds but
+native verification stopped at a module-resolution cycle, exit 2 and zero
+logged proof units. All 23 transferred artifacts and evidence replay are saved
+in the [initial reference results](../experiments/real-repository-growth-001/qualification-001/RESULTS.md).
+A separate namespace-only source revision is being prepared; no contracts or
+proof bodies are being relaxed. Vest remains running. Both reference gates and
+all subsequent negative controls remain unresolved; no model calls were made.
 
 ## November 16: real-repository evaluation and progressive extension
 

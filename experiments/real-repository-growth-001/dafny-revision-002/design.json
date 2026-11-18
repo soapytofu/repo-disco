@@ -1,0 +1,61 @@
+{
+  "controls": 12,
+  "model_calls": 0,
+  "native_verifier_calls": 0,
+  "new_unit_labels_provisional_until_native_csv": true,
+  "no_native_execution_or_submission_prepared": true,
+  "parent_failure": {
+    "category": "RESOLUTION_OR_TYPE_FAILURE",
+    "diagnostic_cycle": "module FisherYates -> module GrowthPick -> import Shift -> module FisherYates",
+    "exit_code": 2,
+    "job_id": "61747428",
+    "path": "experiments/real-repository-growth-001/qualification-001/verification-dafny-vmc-001/pair-reference",
+    "raw_evidence_sha256": {
+      "bound-record.json": "6430fad97725422b6a266d9761f90f9bc723ed4d086520c8213d6cca89a6eda2",
+      "observation.json": "73d6e0d8b8cc7417d9c20564fc7e6581a235b9a51d8fce8912ac4e7a2e369ac8",
+      "profile.json": "3388fb11288b7efc57a1edcf6b4d18057fa0f77f68b5b7e323f2b289a4e93185",
+      "record.json": "f5512b8dabd9035871b4f95183850609c3163ca13bc033cbea3c59869aa525b3",
+      "source-after.json": "03c507ee43faf751347f02520377abefc38ba849697674fad66de21b061e59b0",
+      "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout.txt": "ab9bee0a82e903bcc812f97ae0d45709a6f42a1fc349e8963b28849b83976410"
+    }
+  },
+  "preservation": {
+    "bodies": true,
+    "call_arguments": true,
+    "contracts": true,
+    "decreases": true,
+    "destinations": true,
+    "expected_control_outcomes": true,
+    "export_visibility": true,
+    "omission_controls": true,
+    "original_failure": true,
+    "original_sources": true
+  },
+  "protected_upstream_files": 91,
+  "reasoning": [
+    "The original added GrowthPick is a FisherYates child; its qualified sibling import traverses the parent that implicitly depends on that child.",
+    "Both revised additions are distinct top-level modules, outside the existing FisherYates parent.",
+    "Stage one explicitly binds its unchanged Model alias to the original FisherYates.Model; stage two binds its unchanged Shift alias to the top-level stage-one Public export.",
+    "No protected upstream source refers to either new name, so these additions introduce no upstream-to-growth back edge.",
+    "This is namespace/dependency reasoning, not a successful native resolution or proof observation."
+  ],
+  "required_original_unit_count": 267,
+  "revision": "002",
+  "stages": [
+    {
+      "destination": "repodisco-growth/MoveToFront.dfy",
+      "import_binding": "Model = FisherYates.Model",
+      "module": "RepoDiscoGrowthShift",
+      "target": "MoveToFront"
+    },
+    {
+      "destination": "repodisco-growth/PickPair.dfy",
+      "import_binding": "Shift = RepoDiscoGrowthShift`Public",
+      "module": "RepoDiscoGrowthPick",
+      "target": "PickPair"
+    }
+  ],
+  "status": "OFFLINE_NAMESPACE_REVISION_NATIVE_CHECK_PENDING",
+  "upstream_commit": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e"
+}

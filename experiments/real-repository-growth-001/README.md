@@ -4,6 +4,11 @@ Prepared November 18, 2026. This is **nonpaid task construction and verifier-onl
 qualification preparation**. No model requests are authorized or dispatched by
 this experiment. The analyst sources are currently unverified candidates.
 
+The first [native reference checks](qualification-001/RESULTS.md) are underway.
+Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
+failure evidence is preserved. Vest job 61747454 is running. A separate Dafny
+namespace correction is being prepared; no negative controls are released.
+
 The target is a short growing lineage: a qualified upstream seed, an accepted
 first addition, and a second addition made against that exact accepted parent.
 Earlier repairs and independent client extensions do not already establish this
@@ -85,7 +90,7 @@ reconstructions. The runtime passed 31 tests locally and in an isolated package.
 Independent review identified and corrected an archive-state check that could
 have fetched suspended jobs prematurely; the original runtime and test records
 are retained. The [implementation review](implementation-review-001.json)
-binds these packages and their limitations. No new native job has been submitted.
+binds these packages and their limitations as reviewed before native dispatch.
 
 Before live parent-policy integration, the host must preserve the native
 inventory's multiplicities. The existing Vest scope has 5,300 tuple keys but
