@@ -1,0 +1,107 @@
+{
+  "files_sha256": {
+    "README.md": "832def85fa1dab9afb84065cadecb5b21010ed6bc75080a5c141a837292879d6",
+    "inherited-inputs.json": "e0122aa293c681b88a1ad8e566abf56f3bc2452f3d1e055673440498c52e56c6",
+    "inherited/__init__.py": "dc7c19c883d35a9fda9a65baaff22476f1d0090dd6a23ef9b4b1461d31c6268a",
+    "inherited/body_guard.py": "e64c475a152bc2a1d8ba8f2346b980214eb9908df3813e4255a200b3f7d0b2fe",
+    "inherited/extract_response.py": "d2f007fdf5cbd5a194a0d21715192ffcc746a39cdb856355c606b9f2b7f2c62c",
+    "offline-checks-001.json": "d131ec8cddb4c1e25608d4915591dfd0d60f9c7ccdb6e19a840488eb1ca2100a",
+    "offline-checks-001.stderr": "35b914f6ee735c85775ebe6388ff594242ce04a818e2f0bb218fcda727adc239",
+    "offline-checks-001.stdout": "b22327890ce9836c7d830526c339c7e70b574bb9cbf6e26dc747484d336519e3",
+    "policy-spec.json": "cd02279e50f39762a67dcbf9ae5fba4eeca90c7ffcc4fbe0e16813c89fedf3c5",
+    "policy.py": "96c56dc8176f3358756bf41411b0c6439ef8e944b62c206fba583f68f305c4a8",
+    "templates/MoveToFront.dfy": "21e68de82a035ca2ed100634bdb94f5e270f80053d727db106d147a60de2fed6",
+    "templates/PickPair.dfy": "a764059c6883d6a59f6a531abe8a22cda6be1392defe6a7821fbf41e5ec5802f",
+    "templates/growth_batch.rs": "a7337078ea42291c6d6ffdfdb15a1bcba8c5cf8c84ba579b31d27520bf8d887b",
+    "templates/growth_frame.rs": "83fe5dc7191d4a5834c89f52311707cf431f810b20b998386040acbc5d287ef4",
+    "test_policy.py": "28858a318e478a3a76e2f47cce78e3bd00f2ced5cceab71752d2dc5d8d828072",
+    "upstream-inventory.json": "47cd26abfdea01981e4ddccb82ef3fd717cae7e94ee31d3ec70d3e8e2c26e04f"
+  },
+  "isolated_production_package_check": {
+    "examples": 8,
+    "model_calls": 0,
+    "native_verifier_calls": 0,
+    "policy_sha256": "5fbf5db1ff8bbf98c3fb0410df0d3a2df905621171a2c342e06b03550a6ded5c",
+    "status": "ISOLATED_OFFLINE_PACKAGE_PASS_NOT_NATIVE_PROOF"
+  },
+  "limitations": [
+    "Host pins are trusted inputs, not authenticated by this policy.",
+    "No model handler, paid execution authorization or exact model prompts are included.",
+    "Complete native required-unit inventories must be constructed and reviewed by the native evidence gate.",
+    "A permitted body may still fail native parsing, typing, termination or mathematical proof.",
+    "Direct body implementations are allowed; syntactic parent calls are not proof-necessity evidence.",
+    "Vest additions are specification/proof-library growth, not executable parser generation."
+  ],
+  "model_calls": 0,
+  "native_verifier_calls": 0,
+  "parent_tests": {
+    "default_acceptance": false,
+    "kind": "synthetic-offline",
+    "positive_fixtures_use_explicit_offline_opt_in": true,
+    "real_native_acceptance_claimed": false
+  },
+  "policy_runtime_sha256": "5fbf5db1ff8bbf98c3fb0410df0d3a2df905621171a2c342e06b03550a6ded5c",
+  "policy_spec_sha256": "cd02279e50f39762a67dcbf9ae5fba4eeca90c7ffcc4fbe0e16813c89fedf3c5",
+  "production_files": [
+    "policy.py",
+    "policy-spec.json",
+    "upstream-inventory.json",
+    "inherited/__init__.py",
+    "inherited/body_guard.py",
+    "inherited/extract_response.py",
+    "templates/growth_batch.rs",
+    "templates/growth_frame.rs",
+    "templates/MoveToFront.dfy",
+    "templates/PickPair.dfy"
+  ],
+  "reference_alternative_source_reconstructions": 8,
+  "review_time_utc": "2026-11-18T06:18:07.582667+00:00",
+  "schema": "repodisco-offline-growth-policy-review-v1",
+  "scope": [
+    "current body only, exact host registration",
+    "complete original source byte inventories preserved",
+    "actual accepted stage-one source and host-pinned evidence binding required for stage two",
+    "failed/missing/stale evidence and reference substitution rejected",
+    "no native acceptance or promotion implementation"
+  ],
+  "stage_prefix_suffix_pins": {
+    "vest-batch": {
+      "path": "vest_dev/src/formats/growth_batch.rs",
+      "prefix_sha256": "36c6dae1bc103b4131ffbc0126ae94f555bca7545e4f1768acdce7cd3e855a63",
+      "project": "vest",
+      "stage": 2,
+      "suffix_sha256": "f1a2ef277f78403be73e448efda551731683863fee63ccd6c32aef7a140e23ef",
+      "template_sha256": "a7337078ea42291c6d6ffdfdb15a1bcba8c5cf8c84ba579b31d27520bf8d887b"
+    },
+    "vest-frame": {
+      "path": "vest_dev/src/formats/growth_frame.rs",
+      "prefix_sha256": "3042302564703e37613c4abaa3cfa5b03b80f86b81edaceb1783664f9b0a7f3e",
+      "project": "vest",
+      "stage": 1,
+      "suffix_sha256": "096679efd1c2737addd81f8098d2f46ff5989ed6191165c1dc10e6f80b31d4c7",
+      "template_sha256": "83fe5dc7191d4a5834c89f52311707cf431f810b20b998386040acbc5d287ef4"
+    },
+    "vmc-move": {
+      "path": "repodisco-growth/MoveToFront.dfy",
+      "prefix_sha256": "6e65394c7059313d621ad5c83ba9e329495044db324874458d97ef00c53df730",
+      "project": "dafny-vmc",
+      "stage": 1,
+      "suffix_sha256": "bb937f2d96d6fa130a13de2c7655e0058bc0571f49f382d7e7dff00ffd432fc8",
+      "template_sha256": "21e68de82a035ca2ed100634bdb94f5e270f80053d727db106d147a60de2fed6"
+    },
+    "vmc-pair": {
+      "path": "repodisco-growth/PickPair.dfy",
+      "prefix_sha256": "2eca65c839b661b3dfb24ad39a19df1ff8ead705d4c25a842f37a39e846ded42",
+      "project": "dafny-vmc",
+      "stage": 2,
+      "suffix_sha256": "bb937f2d96d6fa130a13de2c7655e0058bc0571f49f382d7e7dff00ffd432fc8",
+      "template_sha256": "a764059c6883d6a59f6a531abe8a22cda6be1392defe6a7821fbf41e5ec5802f"
+    }
+  },
+  "status": "OFFLINE_QUALIFIED_NATIVE_PARENT_EVIDENCE_NOT_PRESENT",
+  "tests_passed": 19,
+  "upstream_protected_files": {
+    "dafny-vmc": 91,
+    "vest": 3481
+  }
+}

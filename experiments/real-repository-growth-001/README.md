@@ -72,6 +72,39 @@ tests and fake-process tests remain offline. The separate qualification runtime
 must be self-contained and hash-pinned before staging. Native proof inventories
 and a frozen edit/parent policy are prerequisites to a model prompt freeze.
 
+The [offline parent policy](protocol/README.md) reconstructs only the current
+body and exact host registration while retaining the actual accepted parent.
+Its accepted-parent examples are explicitly synthetic and rejected by default;
+they do not establish native acceptance. The separate
+[reference runtime](qualification-001/README.md) permits only the first two
+reference invocations. Neither package promotes revisions or releases the
+remaining controls automatically.
+
+The policy passed 19 offline tests, including eight exact reference/alternative
+reconstructions. The runtime passed 31 tests locally and in an isolated package.
+Independent review identified and corrected an archive-state check that could
+have fetched suspended jobs prematurely; the original runtime and test records
+are retained. The [implementation review](implementation-review-001.json)
+binds these packages and their limitations. No new native job has been submitted.
+
+Before live parent-policy integration, the host must preserve the native
+inventory's multiplicities. The existing Vest scope has 5,300 tuple keys but
+5,410 timed occurrences, including 96 repeated keys. Encode each occurrence as
+canonical JSON `["verus-timed-occurrence-v1", crate, module, label, mode, ordinal]`,
+numbered 1 through the observed count within that exact tuple. Recounting the
+expanded IDs must reproduce the reviewed native inventory exactly; retain each
+raw record's success flag and stream/report/module/function indices. These are
+timed occurrence slots, not distinct logical proof obligations. Preserve native
+crate summary counts separately. New occurrences require the same treatment.
+
+The policy's distinct `native_units` artifact is a host-derived extraction from
+the original native streams, not a separate verifier output. Its provenance must
+bind those complete stdout/stderr hashes, extractor/runtime identity, source
+revision, command, toolchain and run ID. The host must replay extraction and
+inventory expansion before issuing a parent receipt. Hash-consistent records
+alone cannot authenticate their own proof claims. This adapter and actual native
+parent evidence remain prerequisites to any model collection.
+
 ## Accepted-parent and measurement rules
 
 Each lineage starts from the pinned qualified upstream snapshot. Stage one gets

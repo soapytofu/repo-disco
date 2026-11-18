@@ -20,9 +20,15 @@ specification/proof-library growth, not executable parser generation. These are
 analyst feasibility candidates: no new model result or native proof is claimed.
 Twelve Dafny and thirteen Vest control overlays are prepared. Four finite/source
 tests pass for Dafny; root's source review confirms all 3,572 upstream files
-unchanged and exact Vest protected boundaries. Guard/parent binding and native
-runtime preparation are underway. Two full-scope reference checks precede the
-remaining controls. A later eight-call, four-lineage pilot is only a proposal,
+unchanged and exact Vest protected boundaries. The offline edit/parent policy
+now passes 19 tests, including eight exact reference/alternative reconstructions
+and rejection of substituted parents or stale evidence. The reference-only
+runtime passes 31 tests locally and in an isolated package. Independent review
+found and corrected a premature-archive edge case; the original preparation
+and logs are retained. Both packages remain offline preparation, with no native
+accepted parent. Native integration must preserve all 5,410 existing Vest timed
+occurrences rather than collapse its 5,300 tuple keys. Two full-scope reference
+checks precede the remaining controls. A later eight-call, four-lineage pilot is only a proposal,
 with stage two blocked if its actual first-stage parent fails. No new model calls
 are authorized; the reconnect request for verifier-only compute remains pending.
 
