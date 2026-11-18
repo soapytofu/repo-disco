@@ -1,5 +1,20 @@
 # Experiment log
 
+## Evaluation stability — warnings and matched resource budgets
+
+[Versioned policy and completed results](real-repository-evaluation-stability-001/RESULTS.md)
+separate full proof completion from the exact observed Cargo cleanup warning.
+Seventeen unit/fake-process tests pass locally and on Cannon. Replay of twelve
+saved native observations identifies two known cleanup cases; unknown warnings,
+missing upstream warnings and incomplete proofs remain blocking. Historical
+observations and model scores are unchanged. Job 61661285 completed four deliberate
+source/budget controls on one node, one CPU / 2 GB: upstream passes 267/267 units
+at both 20k and 100k; the exact saved swap candidate passes 265/267 at 20k with two
+downstream resource failures, then 267/267 at the predeclared 100k limit. The
+candidate's passing induction proof uses about 15.5 times the upstream resource
+count. Full logs and per-unit counts are published; all 867 parent archive files
+are unchanged. No automatic retries, model calls or historical rescoring.
+
 ## Saved real-source outputs — separate syntax diagnostic
 
 [Guard revision and separate results](real-repository-guard-diagnostic-001/RESULTS.md)

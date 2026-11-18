@@ -12,6 +12,21 @@ Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 
 ## November 16: real-repository evaluation and progressive extension
 
+The subsequent [evaluation-stability follow-up](../experiments/real-repository-evaluation-stability-001/RESULTS.md)
+is complete. Job 61661285 ran four predeclared full-scope controls on one compute
+node with one CPU: upstream passes 267/267 units at both 20k and 100k resource
+limits; the exact saved swap candidate passes 265/267 at 20k (two downstream
+resource failures) and 267/267 at 100k. No source repair or automatic retry was
+used. One downstream induction lemma uses about 15.5 times the upstream resource
+count in the passing candidate run, illustrating implementation-sensitive
+cross-module verification cost under fixed contracts. This is one candidate,
+not a general structural-effect estimate. A separate warning-reporting policy
+passed 17 offline tests and twelve exact saved-observation replays; only two
+known Cargo cleanup observations change prospective eligibility. All raw
+warnings, 867 parent files and the original 7/16 model score remain unchanged.
+Full logs, per-unit resource counts and source-bound audits are published;
+zero new model calls.
+
 November 17 follow-up: the separate
 [saved-output syntax diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md)
 fixes the three observed guard exclusions without changing model response bytes.
