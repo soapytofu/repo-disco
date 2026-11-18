@@ -3,8 +3,9 @@
 Prepared November 18, 2026. This is **nonpaid task construction and verifier-only
 qualification**. No model requests are authorized or dispatched by
 this experiment. Both complete analyst reference scopes now verify. The
-[11 remaining Dafny controls](controls-001/RESULTS.md) match every expectation;
-Vest's 12 controls are running.
+[11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
+expectation. The [combined control gate](control-gates-001.json) releases
+offline host integration and prompt preparation; no model collection is authorized.
 
 The first [native reference checks](qualification-001/RESULTS.md) are complete.
 Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
@@ -46,8 +47,8 @@ The host alone registers the new modules in the native verification scope.
 
 ## Qualification before collection
 
-The draft fixtures contain 12 Dafny and 13 Vest source overlays. Their pass/fail
-labels are expectations, not measured outcomes. Dafny has four passing offline
+The fixtures contain 12 Dafny and 13 Vest source overlays. Their originally
+prospective labels now have reviewed native outcomes, recorded above. Dafny has four passing offline
 test methods covering finite sequence semantics, protected construction and
 counterexamples; Vest has a source/overlay integrity review. Neither establishes
 native parsing or proof success.
@@ -123,14 +124,14 @@ exactly 11 Dafny and 12 Vest observations, excluding the completed references.
 It passed 34 tests locally and in a manifest-only isolated package. Named
 failures, omitted modules, complete inherited coverage, signals/timeouts and
 ambiguous execution have distinct checks. Both jobs reserve one CPU. Dafny
-control outcomes are reviewed; Vest outcomes remain pending. No proof success
+and Vest control outcomes are reviewed. No proof success
 is inferred from the offline tests.
 
 The separately revised [native-parent policy](protocol-002/README.md) passes
 17 offline tests and replays the actual 269 Dafny entries and 5,416 Vest timing
 occurrences without losing multiplicities or raw record locations. Its full
 reference replays remain stage-two analyst observations, never accepted model
-parents. Actual stage-one controls and host integration are still required.
+parents. Actual stage-one controls are now reviewed; host integration remains required.
 The [root review](implementation-review-002.json) records inspected code, pins,
 provenance and remaining trust boundaries. No model calls were made.
 

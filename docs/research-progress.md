@@ -73,8 +73,16 @@ native-success case is rejected because a staged failing module was omitted.
 A caller passes under an unproved helper contract, while whole-scope acceptance
 correctly fails. Full 192-file evidence, source audits, CSV and resources are
 saved in the [control results](../experiments/real-repository-growth-001/controls-001/RESULTS.md).
-The one-CPU job took 8m34s with no retries or model calls. Vest controls remain
-running; model-growth readiness is still pending.
+The one-CPU job took 8m34s with no retries or model calls.
+
+Vest control job 61762644 also completed: 12/12 expectations match, comprising
+three passing scopes, seven named proof failures and two native-success coverage
+rejections. Every run preserves all 5,410 old timed occurrences and their success
+flags. The unproved frame/passing batch control is correctly rejected. Full
+205-file evidence and independent source/diagnostic review are saved alongside
+the Dafny results. Its one-CPU job took 1h58m46s, with no retry or model call.
+Both control gates now pass; actual-parent host integration and the prospective
+pilot freeze remain pending. These are analyst controls, not model-generated growth.
 
 ## November 16: real-repository evaluation and progressive extension
 
