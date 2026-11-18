@@ -1,0 +1,78 @@
+{
+  "accepted_model_parent": false,
+  "constraints": [
+    "No repeat of either completed full reference or old failed namespace job.",
+    "Exactly eleven remaining Dafny and twelve remaining Vest observations, each at most once.",
+    "Native results, including failed proofs, retain full sources, diagnostics, named-unit inventories, resources and original accounting.",
+    "Unexpected outcomes are preserved before deliberate versioned changes; no automatic retry, source repair or resource escalation.",
+    "Qualification and controls are analyst observations, not model-generated growth."
+  ],
+  "control_preparation_released": true,
+  "controls_source_bindings": {
+    "dafny-revision-002/controls-manifest.json": "4a97910deea1f3aa1a6389b2b787d128b1d6ec57e7c96656dddd1742103e059e",
+    "qualification-001/plan.json": "25dfedbff9a2f6252489a633511cbc3fbe44ebacf3c776643e15a504c8e38210"
+  },
+  "fixed_resources": {
+    "dafny-vmc": {
+      "cpus": 1,
+      "native_wall_seconds": 300,
+      "resource_limit": 100000
+    },
+    "vest": {
+      "cargo_workers": 1,
+      "cpus": 1,
+      "native_wall_seconds": 900,
+      "verus_threads": 1
+    }
+  },
+  "model_calls_authorized": 0,
+  "model_generated_growth": false,
+  "native_control_dispatch_requires_frozen_reviewed_runtime": true,
+  "references": {
+    "dafny-vmc": {
+      "gate": "qualification-002/reference-gate-dafny-001.json",
+      "job_id": "61753046",
+      "logged_passes": 269,
+      "sha256": "d93727a9ca203d776617829fc80f233ba54e0c075d5bf64834e8c393a2853b63"
+    },
+    "vest": {
+      "distinct_inventory_keys": 5306,
+      "gate": "qualification-001/reference-gate-vest-001.json",
+      "job_id": "61747454",
+      "sha256": "628b1d02ee3eb66f215d1ffcbdccda6e3dead781b56eb05b2ec4292951c532a9",
+      "timed_successful_occurrences": 5416
+    }
+  },
+  "remaining_control_ids": {
+    "dafny-vmc": [
+      "move-reference",
+      "move-alternative",
+      "move-noop",
+      "move-endpoint-swap",
+      "pair-alternative",
+      "pair-noop",
+      "pair-first-only",
+      "pair-wrong-adjustment",
+      "pair-with-unproved-parent",
+      "detached-explicit",
+      "detached-omitted"
+    ],
+    "vest": [
+      "frame-reference",
+      "frame-empty",
+      "frame-alternative",
+      "frame-wrong-header",
+      "frame-wrong-consumption",
+      "batch-empty",
+      "batch-alternative",
+      "batch-wrong-count",
+      "batch-missing-induction",
+      "batch-unproved-frame",
+      "frame-omitted",
+      "batch-omitted"
+    ]
+  },
+  "review_basis": "Root source-bound review plus independent read-only audits of both complete native observations.",
+  "schema": "growth-reference-review-and-control-preparation-v1",
+  "status": "BOTH_REFERENCE_SOURCE_AND_INVENTORY_GATES_PASSED"
+}

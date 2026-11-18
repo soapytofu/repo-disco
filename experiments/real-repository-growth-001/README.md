@@ -1,15 +1,18 @@
 # Sequential additions to qualified real repositories
 
 Prepared November 18, 2026. This is **nonpaid task construction and verifier-only
-qualification preparation**. No model requests are authorized or dispatched by
-this experiment. The analyst sources are currently unverified candidates.
+qualification**. No model requests are authorized or dispatched by
+this experiment. Both complete analyst reference scopes now verify; negative
+and coverage controls remain pending.
 
-The first [native reference checks](qualification-001/RESULTS.md) are underway.
+The first [native reference checks](qualification-001/RESULTS.md) are complete.
 Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
 failure evidence is preserved. Vest job 61747454 passed its complete required
 scope plus both new proofs, with zero errors and the five inherited warnings.
-The [separate Dafny namespace correction](qualification-002/README.md) is ready
-for its native check; no negative controls are released.
+The [separate Dafny namespace correction](qualification-002/RESULTS.md) passes
+all 269 logged units, zero errors and only the three inherited warnings. These
+source-bound reference gates permit preparation of the remaining controls;
+they do not establish model-generated growth or accepted model parents.
 
 The target is a short growing lineage: a qualified upstream seed, an accepted
 first addition, and a second addition made against that exact accepted parent.

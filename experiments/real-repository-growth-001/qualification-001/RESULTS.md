@@ -40,9 +40,10 @@ puts the additions in distinct top-level modules, retains their local
 `Model`/`Shift` aliases with explicit bindings, and preserves every other source
 byte, including contracts, bodies and termination clauses. Five offline checks
 pass; all 31 frozen artifacts and 24 source provenance entries were reviewed.
-This remains unverified by Dafny and requires a separate
-source review, frozen package and native observation. The original job will not
-be retried. Neither the negative controls nor a model pilot can proceed yet.
+That distinct source revision subsequently passed all 269 logged units in
+[job 61753046](../qualification-002/RESULTS.md), under the same native limits.
+The original failure is unchanged and was not retried. Negative controls and
+model collection remain separate gates.
 
 The historical 7/16 real-source repair score is unchanged.
 
@@ -75,6 +76,6 @@ This establishes analyst-authored compositional proof feasibility. It is not
 model-generated growth, executable parser generation, two sequential acceptance
 events, or completed negative-control qualification. A separately prepared
 [Dafny correction runtime](../qualification-002/README.md) passed 28 offline
-tests locally and in isolation; its one native invocation remains pending.
-Only after that source/inventory gate passes may the remaining 23 controls be
-prepared for dispatch. No model calls were made.
+tests locally, in isolation and on Cannon. Its native reference now passes
+with complete source/inventory review. The remaining 23 controls may therefore
+be prepared under a separately reviewed runtime. No model calls were made.

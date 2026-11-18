@@ -17,7 +17,8 @@ adds two proposed stages to each qualified seed. Dafny-VMC's stable MoveToFront
 operation supports ordered PickPair selection; Vest's length-framed payload proof
 supports recursive counted batches with exact suffix preservation. Vest work is
 specification/proof-library growth, not executable parser generation. These are
-analyst feasibility candidates: no new model result or native proof is claimed.
+analyst feasibility sources: both full reference scopes now verify, with no
+new model results.
 Twelve Dafny and thirteen Vest control overlays are prepared. Four finite/source
 tests pass for Dafny; root's source review confirms all 3,572 upstream files
 unchanged and exact Vest protected boundaries. The offline edit/parent policy
@@ -38,9 +39,12 @@ once on nonpreemptible `test` with one CPU. Dafny completed in 28 seconds but
 native verification stopped at a module-resolution cycle, exit 2 and zero
 logged proof units. All 23 transferred artifacts and evidence replay are saved
 in the [initial reference results](../experiments/real-repository-growth-001/qualification-001/RESULTS.md).
-A separate namespace-only source revision is being prepared; no contracts or
-proof bodies are being relaxed. Its separate one-invocation runtime passed 28
-offline tests locally and in isolation and is ready for native dispatch.
+A separate namespace-only source revision preserves every contract and proof
+body. Its one-invocation runtime passed 28 offline tests locally, in isolation
+and on Cannon. Job 61753046 then passed all 269 logged units (267 upstream and
+two new), zero errors and the three exact upstream warnings in 36.72 native
+seconds. Full sources, raw CSV, resources and accounting are retained in the
+[corrected reference results](../experiments/real-repository-growth-001/qualification-002/RESULTS.md).
 
 Vest's reference subsequently completed in 10m55s. Its full qualified scope
 preserves all 5,410 old timed occurrences and adds six successful entries,
@@ -50,8 +54,9 @@ independent audit confirm exact sources, registration, native inventories and
 actual frame-to-batch API use. The native command took 385.64s on one CPU (84%
 native CPU use; 50.8% whole-job CPU use). This is analyst-authored compositional
 proof feasibility, not model growth or executable parser generation. The
-corrected Dafny reference and all subsequent negative controls remain pending;
-no model calls were made.
+corrected Dafny reference also passes. The remaining 23 controls, native-parent
+integration and a namespace-compatible edit policy are still required before
+model collection. No model calls were made.
 
 ## November 16: real-repository evaluation and progressive extension
 
