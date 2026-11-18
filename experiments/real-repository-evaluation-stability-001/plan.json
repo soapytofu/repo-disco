@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "candidate_sha256": "ff9f233f26e9cdd6691ef5e618b2d2c73f93d241205fdeab31c61d8a6594cd10",
+      "project": "dafny-vmc",
+      "resource_limit": 20000,
+      "slot": 1,
+      "source": "upstream",
+      "task": "vmc-swap",
+      "wall_seconds": 300
+    },
+    {
+      "candidate_sha256": "f30c6a0f04ee2d65d8610fab475e19e8241dc5213a6345405070556317a415da",
+      "project": "dafny-vmc",
+      "resource_limit": 20000,
+      "slot": 2,
+      "source": "saved-candidate",
+      "task": "vmc-swap",
+      "wall_seconds": 300
+    },
+    {
+      "candidate_sha256": "f30c6a0f04ee2d65d8610fab475e19e8241dc5213a6345405070556317a415da",
+      "project": "dafny-vmc",
+      "resource_limit": 100000,
+      "slot": 3,
+      "source": "saved-candidate",
+      "task": "vmc-swap",
+      "wall_seconds": 300
+    },
+    {
+      "candidate_sha256": "ff9f233f26e9cdd6691ef5e618b2d2c73f93d241205fdeab31c61d8a6594cd10",
+      "project": "dafny-vmc",
+      "resource_limit": 100000,
+      "slot": 4,
+      "source": "upstream",
+      "task": "vmc-swap",
+      "wall_seconds": 300
+    }
+  ],
+  "claims": "Descriptive single observations per cell; no broad causal or mathematical-incorrectness claim from resource exhaustion.",
+  "kind": "matched_source_by_resource_budget_diagnostic",
+  "model_calls": 0,
+  "native_invocations": 4,
+  "new_current_controls": "Both 20k cases are deliberate contemporaneous controls on the same allocated node, not automatic retries or replacements of historical results.",
+  "original_model_score_unchanged": true,
+  "source_pins": {
+    "saved-candidate": {
+      "body_sha256": "5eb5bed5a5d8947e83065888d5294e20504f0b09bd5d37101a0f4a9ba150cac6",
+      "file_sha256": "f30c6a0f04ee2d65d8610fab475e19e8241dc5213a6345405070556317a415da",
+      "prefix_sha256": "01c8599eb81dd345f6e0bb8e97f13c6f275cc1b76bed299e0255c2c5d0e4a5e3",
+      "suffix_sha256": "7cbefcd0a23ff8bd294a938a6a8fab95de422afc87c6447d44ff2fa5c5697ed0"
+    },
+    "upstream": {
+      "body_sha256": "6885a850028aab0d72cc892f70053a35b1cc9f40ad70a30c784bb6207e8d4323",
+      "file_sha256": "ff9f233f26e9cdd6691ef5e618b2d2c73f93d241205fdeab31c61d8a6594cd10",
+      "prefix_sha256": "01c8599eb81dd345f6e0bb8e97f13c6f275cc1b76bed299e0255c2c5d0e4a5e3",
+      "suffix_sha256": "7cbefcd0a23ff8bd294a938a6a8fab95de422afc87c6447d44ff2fa5c5697ed0"
+    }
+  },
+  "stop": "No automatic retry, adaptive budget increase, source repair or new model calls.",
+  "task": {
+    "body_start": 2093,
+    "file": "src/Util/FisherYates/Model.dfy",
+    "id": "vmc-swap",
+    "project": "dafny-vmc",
+    "protected_prefix_sha256": "01c8599eb81dd345f6e0bb8e97f13c6f275cc1b76bed299e0255c2c5d0e4a5e3",
+    "protected_suffix_sha256": "7cbefcd0a23ff8bd294a938a6a8fab95de422afc87c6447d44ff2fa5c5697ed0",
+    "suffix_bytes": 501
+  }
+}
