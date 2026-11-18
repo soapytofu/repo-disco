@@ -1,6 +1,6 @@
 # Experiment log
 
-## Sequential real-source growth — controls verified, pilot proposed
+## Sequential real-source growth — controls verified, bounded runner ready
 
 [Task sources and plan](real-repository-growth-001/README.md) now define two
 dependent additions per qualified seed. Dafny-VMC adds stable movement followed
@@ -22,8 +22,15 @@ replays the 23 saved controls and passes 19 focused tests. The
 [eight-call pilot proposal](real-repository-growth-001/pilot/README.md) freezes
 four exact first-stage payloads and the rules for four conditional children;
 eleven focused tests and independent prompt review passed. Stage two must use
-its actual accepted parent, with no reference substitution. A bounded live
-handler and separate paid approval remain required; no model calls were made.
+its actual accepted parent, with no reference substitution. The
+[bounded runner](real-repository-growth-001/execution-001/README.md) is frozen and
+staged: 57 fake-transport/process tests passed locally, in isolation and on
+Cannon, with a separately tested launcher correction before the final Cannon
+run. Request accounting, restart rejection, fresh native evidence, actual-parent
+lineage and full saved-evidence replay are covered. The
+[preparation review](real-repository-growth-001/execution-001/preparation-review-001.json)
+binds the final code and full logs. Separate paid approval remains required;
+no new model or native calls were made during runner preparation.
 
 ## Evaluation stability — warnings and matched resource budgets
 

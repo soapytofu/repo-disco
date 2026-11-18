@@ -1,0 +1,236 @@
+test_changed_native_extraction_or_result_classification_rejected (test_native_host.NativeHostTests.test_changed_native_extraction_or_result_classification_rejected) ... ok
+test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) ... 
+  test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='dafny-vmc', stage=1) ... ERROR
+  test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='vest', stage=1) ... ERROR
+  test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='dafny-vmc', stage=2) ... ERROR
+  test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='vest', stage=2) ... ERROR
+test_no_real_fallback_or_unallocated_multicore_or_unfrozen_slot (test_native_host.NativeHostTests.test_no_real_fallback_or_unallocated_multicore_or_unfrozen_slot) ... ok
+test_proof_failure_is_returned_outcome_not_retry (test_native_host.NativeHostTests.test_proof_failure_is_returned_outcome_not_retry) ... ERROR
+test_provider_credentials_are_neither_retained_nor_forwarded (test_native_host.NativeHostTests.test_provider_credentials_are_neither_retained_nor_forwarded) ... ERROR
+test_source_mutation_stops_and_preserves_before_after_and_native_raw (test_native_host.NativeHostTests.test_source_mutation_stops_and_preserves_before_after_and_native_raw) ... ERROR
+test_stage_one_artifacts_fit_protocol_parent_audit_without_acceptance_issuance (test_native_host.NativeHostTests.test_stage_one_artifacts_fit_protocol_parent_audit_without_acceptance_issuance) ... ok
+test_stage_two_cannot_reuse_stage_one_inventory_or_changed_sources (test_native_host.NativeHostTests.test_stage_two_cannot_reuse_stage_one_inventory_or_changed_sources) ... ok
+test_synthetic_pure_fixture_both_stages_rejects_relabeling (test_native_host.NativeHostTests.test_synthetic_pure_fixture_both_stages_rejects_relabeling) ... ok
+test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) ... 
+  test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='timeout') ... ERROR
+  test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='signal') ... ERROR
+  test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='frontend') ... ERROR
+  test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='missing_coverage') ... ERROR
+  test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='missing_resources') ... ERROR
+  test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='raise') ... ERROR
+test_warning_only_is_preserved_unaccepted_returned_outcome (test_native_host.NativeHostTests.test_warning_only_is_preserved_unaccepted_returned_outcome) ... ERROR
+
+======================================================================
+ERROR: test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='dafny-vmc', stage=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 153, in test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay
+    result=adapter.verify(slot,sources,Path(tmp)/"run", "synthetic-run:"+slot['slot_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='vest', stage=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 153, in test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay
+    result=adapter.verify(slot,sources,Path(tmp)/"run", "synthetic-run:"+slot['slot_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='dafny-vmc', stage=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 153, in test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay
+    result=adapter.verify(slot,sources,Path(tmp)/"run", "synthetic-run:"+slot['slot_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay (test_native_host.NativeHostTests.test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay) (project='vest', stage=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 153, in test_fake_one_invocation_both_projects_both_stages_full_scope_and_replay
+    result=adapter.verify(slot,sources,Path(tmp)/"run", "synthetic-run:"+slot['slot_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_proof_failure_is_returned_outcome_not_retry (test_native_host.NativeHostTests.test_proof_failure_is_returned_outcome_not_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 175, in test_proof_failure_is_returned_outcome_not_retry
+    result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-failure')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_provider_credentials_are_neither_retained_nor_forwarded (test_native_host.NativeHostTests.test_provider_credentials_are_neither_retained_nor_forwarded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 215, in test_provider_credentials_are_neither_retained_nor_forwarded
+    result=clean(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-env')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_source_mutation_stops_and_preserves_before_after_and_native_raw (test_native_host.NativeHostTests.test_source_mutation_stops_and_preserves_before_after_and_native_raw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 201, in test_source_mutation_stops_and_preserves_before_after_and_native_raw
+    adapter,fake=self.adapter(slot,'source_mutation');result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-source')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='timeout')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 191, in test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal
+    adapter,fake=self.adapter(slot,outcome);result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-'+outcome)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='signal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 191, in test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal
+    adapter,fake=self.adapter(slot,outcome);result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-'+outcome)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='frontend')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 191, in test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal
+    adapter,fake=self.adapter(slot,outcome);result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-'+outcome)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='missing_coverage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 191, in test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal
+    adapter,fake=self.adapter(slot,outcome);result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-'+outcome)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='missing_resources')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 191, in test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal
+    adapter,fake=self.adapter(slot,outcome);result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-'+outcome)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal (test_native_host.NativeHostTests.test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal) (outcome='raise')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 191, in test_timeout_signal_frontend_missing_coverage_and_resources_are_terminal
+    adapter,fake=self.adapter(slot,outcome);result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-'+outcome)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+======================================================================
+ERROR: test_warning_only_is_preserved_unaccepted_returned_outcome (test_native_host.NativeHostTests.test_warning_only_is_preserved_unaccepted_returned_outcome)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/test_native_host.py", line 183, in test_warning_only_is_preserved_unaccepted_returned_outcome
+    adapter,fake=self.adapter(slot,"warning");result=adapter(slot,self.sources[('dafny-vmc',1)],Path(tmp)/'run','synthetic-warning')
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 366, in verify
+    _no_symlink(destination)
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 42, in _no_symlink
+    require(not current.is_symlink(), "Symlink in native source/evidence/tool path")
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-001/native_host.py", line 29, in require
+    raise ValueError(message)
+ValueError: Symlink in native source/evidence/tool path
+
+----------------------------------------------------------------------
+Ran 11 tests in 9.375s
+
+FAILED (errors=14)

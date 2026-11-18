@@ -1,0 +1,30 @@
+{
+  "reviewed_utc": "2026-11-18T12:34:00.227184+00:00",
+  "scope": "Read-only authenticated socket21 inspection before any stage or submission",
+  "first_inspection": {
+    "command_interpreter": "python3",
+    "exit_code": 1,
+    "failure": "System Python3.6 subprocess.run does not accept capture_output; probe stopped before checking the destination or queue.",
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n  File \"/usr/lib64/python3.6/subprocess.py\", line 423, in run\n    with Popen(*popenargs, **kwargs) as process:\nTypeError: __init__() got an unexpected keyword argument 'capture_output'\n"
+  },
+  "qualified_environment_inspection": {
+    "command_interpreter": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/python -B",
+    "exit_code": 0,
+    "observed": {
+      "runtime_root": "/n/home13/sophiezeng/formal-disco/outputs/real-repository-growth-001/execution-001",
+      "root_exists": false,
+      "matching_queue": [],
+      "python": "3.11.17 (main, Oct 13 2026, 16:45:47) [GCC 15.3.0]",
+      "model_calls": 0,
+      "native_calls": 0,
+      "credential_access": false
+    }
+  },
+  "implementation_action": "Use the exact qualified interpreter for all new ops remote programs before freezing; retain earlier code/test history.",
+  "staging_performed": false,
+  "job_submission_performed": false,
+  "model_calls": 0,
+  "native_calls": 0,
+  "credential_access": false,
+  "source": "Root-captured subprocess outputs in this chat; no native or model evidence fabricated."
+}

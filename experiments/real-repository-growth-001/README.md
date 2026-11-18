@@ -8,8 +8,10 @@ expectation. Together with the two full references, all 25 source controls match
 eight passing scopes, fourteen intended proof failures and three native-success
 cases rejected for missing coverage. The [offline parent integration](protocol-003/README.md)
 and [proposed eight-call prompt freeze](pilot/README.md) are now reviewed.
-No model collection is authorized; a bounded live execution handler remains to
-be implemented and reviewed.
+The [bounded execution package](execution-001/README.md) is now frozen, tested
+and staged. Its final Cannon preflight passed all 57 fake-transport/process
+tests; [preparation review](execution-001/preparation-review-001.json) binds the
+code, complete test logs and staging receipt. No model collection is authorized.
 
 The first [native reference checks](qualification-001/RESULTS.md) are complete.
 Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
@@ -192,13 +194,27 @@ statistical comparison between languages. Do not pool these outcomes with the
 earlier 16-call repair pilot.
 
 Native controls, offline edit/parent boundaries, source-selection rules,
-stage-specific templates, settings and order are now frozen. Before requesting
-execution approval, implement and test the bounded live runner, including request
-accounting and genuine accepted-parent evidence. Stage-two exact prompts depend
-on the actual accepted stage-one source: their rendering rule is frozen, but
-each instantiated payload and parent binding must be archived before dispatch.
+stage-specific templates, settings and order are now frozen. The separate
+bounded runner reserves each request before dispatch, binds approval to one
+runtime and output, and blocks restart or slot reassignment. It issues a parent
+receipt only after checking the actual returned response, protected source and
+fresh complete native evidence. Each child payload and parent binding are saved
+before dispatch. Ambiguous transport or incomplete native execution stops later
+requests; a mathematical parent failure blocks its child while independent
+lineages may continue.
 
-Existing model budgets are exhausted or terminal. There is no new model handler,
-authorization, credential handoff or paid submission here. These inspected
-upstream seeds are development material; no held-out, broad generation or causal
-depth/sharing conclusion follows from this proposed pilot.
+The 57-test suite passed locally, in a manifest-only package and on Cannon. The
+local and isolated runs preceded a three-file launcher correction, separately
+tested in both environments; Cannon ran all 57 against the final frozen code.
+All logs and the correction history are retained. Tests use fake transport and
+native processes, so they establish execution-policy behavior, not new proofs
+or model success. The prospective single job allocates one CPU, 8 GB and four
+hours; both native tools use one worker. The staged package pins 4,142 files and
+uses the qualified Python 3.11 environment.
+
+Existing model budgets are exhausted or terminal. Separate explicit approval
+for at most eight new calls and a private handoff remain required. No
+authorization, credential access, paid submission or new native run occurred
+during runner preparation. These inspected upstream seeds are development
+material; no held-out, broad generation or causal depth/sharing conclusion
+follows from this proposed pilot.

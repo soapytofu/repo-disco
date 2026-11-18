@@ -10,7 +10,7 @@ Status: November 18, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 18: real-repository growth controls complete; pilot proposed
+## November 18: real-repository growth qualified; bounded pilot runner ready
 
 The [growth task package](../experiments/real-repository-growth-001/README.md)
 adds two proposed stages to each qualified seed. Dafny-VMC's stable MoveToFront
@@ -101,9 +101,24 @@ deferred until their own first-stage source is accepted. Eleven focused tests
 and independent prompt review passed. The renderer fixes selected upstream
 context, contracts, syntax rules, settings and order; child prompts must preserve
 the actual accepted parent. The [root review](../experiments/real-repository-growth-001/implementation-review-003.json)
-binds the final artifacts. Remaining execution gates are a reviewed bounded
-live handler, genuine request/native provenance and separate paid approval.
-No new model calls are authorized or have been made.
+binds the final artifacts.
+
+The [bounded execution package](../experiments/real-repository-growth-001/execution-001/README.md)
+is now implemented, frozen and staged on Cannon. Its request ledger, exclusive
+scope claim, parent-source/provenance checks, complete native-inventory adapter
+and independent saved-evidence replay have passed 57 fake-transport/process
+tests locally, in an isolated manifest-only package, and on Cannon. A three-file
+launcher correction followed the local/isolated full runs; focused checks passed
+in both environments, and the final Cannon run exercised all 57 tests against
+the final 4,142-file freeze. Full successful and unsuccessful development logs,
+the correction history and staging receipt are bound by the
+[preparation review](../experiments/real-repository-growth-001/execution-001/preparation-review-001.json).
+The launcher uses qualified Python 3.11, one CPU, 8 GB and a four-hour job limit.
+No provider client, model request, credential access, native verifier run or
+Slurm job was created by this preparation. Existing 25-control results and all
+historical model scores are unchanged. Separate explicit eight-call approval
+and a private handoff are the remaining execution prerequisites. Real model
+growth and accepted model-parent evidence remain unobserved.
 
 ## November 16: real-repository evaluation and progressive extension
 
