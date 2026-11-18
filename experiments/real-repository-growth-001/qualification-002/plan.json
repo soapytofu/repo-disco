@@ -1,0 +1,74 @@
+{
+  "catalog": {
+    "dafny-vmc": [
+      {
+        "deliberately_omitted_arguments": [],
+        "expected_control_outcome": "PASS",
+        "id": "pair-reference",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "acf85f1b8dac91a9747a77827696f8a66554da8d4b657b7e3f115bc0537aa7e6"
+        },
+        "phase_one_eligible": true,
+        "required_new_names": [
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+          "RepoDiscoGrowthPick.PickPair (well-formedness)"
+        ]
+      }
+    ]
+  },
+  "controls_execution_enabled": false,
+  "excluded_projects": [
+    "vest"
+  ],
+  "model_calls": 0,
+  "model_policy_frozen": false,
+  "native_invocations_authorized_in_this_runtime": 1,
+  "old_model_body_policy_compatible": false,
+  "policy_notice": "Old model-body policy binds old namespaces. It is not live-compatible and must be separately revised after mathematical qualification; no model-policy revision or authorization is included.",
+  "prior_failure": {
+    "category": "RESOLUTION_OR_TYPE_FAILURE",
+    "exit_code": 2,
+    "job_id": "61747428",
+    "path": "experiments/real-repository-growth-001/qualification-001/verification-dafny-vmc-001/pair-reference",
+    "raw_sha256": {
+      "bound-record.json": "6430fad97725422b6a266d9761f90f9bc723ed4d086520c8213d6cca89a6eda2",
+      "observation.json": "73d6e0d8b8cc7417d9c20564fc7e6581a235b9a51d8fce8912ac4e7a2e369ac8",
+      "profile.json": "3388fb11288b7efc57a1edcf6b4d18057fa0f77f68b5b7e323f2b289a4e93185",
+      "record.json": "f5512b8dabd9035871b4f95183850609c3163ca13bc033cbea3c59869aa525b3",
+      "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout.txt": "ab9bee0a82e903bcc812f97ae0d45709a6f42a1fc349e8963b28849b83976410"
+    }
+  },
+  "references": {
+    "dafny-vmc": "pair-reference"
+  },
+  "remaining_controls_gate": {
+    "count": 11,
+    "dispatch_available": false,
+    "may_not_infer_release_from_exit_zero": true,
+    "requires": "Separate source-bound outcome and exact new inventory review followed by separately frozen control dispatch preparation."
+  },
+  "resources": {
+    "dafny-vmc": {
+      "cpus": 1,
+      "job_minutes": 30,
+      "memory_gb": 2,
+      "native_wall_seconds": 300,
+      "resource_limit": 100000
+    }
+  },
+  "retry_policy": "No automatic retry, no restart, no adaptive resources, no reuse of old output directories.",
+  "revision_binding": {
+    "allowed_diffs_sha256": "160594e0ab2e3f34cf9c6af4ec9ea8f2de650472608f15da69be27b9fdeff185",
+    "changed_source_scope": "Only module/import header lines; contracts, bodies, decreases and original upstream unchanged.",
+    "controls_manifest_sha256": "4a97910deea1f3aa1a6389b2b787d128b1d6ec57e7c96656dddd1742103e059e",
+    "offline_files_sha256": "51e4f5d1c52fe7558f29555eb5053e45a17ddfd779e744c1636aa03f36cf0c8b",
+    "source": "experiments/real-repository-growth-001/dafny-revision-002",
+    "source_provenance_sha256": "c05cf5d8dba7b49506249e9013c08041340119bf926736a9e5908839cc669b47"
+  },
+  "runtime_destination": "outputs/real-repository-growth-001/qualification-002",
+  "schema": "real-source-growth-namespace-reference-qualification-v2",
+  "scope": "One full original Dafny-VMC scope plus namespace-revised MoveToFront and PickPair; no other reference, negative control, Vest or paid dispatch.",
+  "source_directory": "Existing outputs/real-repository-qualification-001/upstream/dafny-vmc; exact qualified manifest required."
+}

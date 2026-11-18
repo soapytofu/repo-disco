@@ -6,8 +6,10 @@ this experiment. The analyst sources are currently unverified candidates.
 
 The first [native reference checks](qualification-001/RESULTS.md) are underway.
 Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
-failure evidence is preserved. Vest job 61747454 is running. A separate Dafny
-namespace correction is being prepared; no negative controls are released.
+failure evidence is preserved. Vest job 61747454 passed its complete required
+scope plus both new proofs, with zero errors and the five inherited warnings.
+The [separate Dafny namespace correction](qualification-002/README.md) is ready
+for its native check; no negative controls are released.
 
 The target is a short growing lineage: a qualified upstream seed, an accepted
 first addition, and a second addition made against that exact accepted parent.

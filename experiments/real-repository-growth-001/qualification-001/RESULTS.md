@@ -1,12 +1,12 @@
 # Initial growth reference checks
 
-Status: November 18, 2026, 06:49 UTC. These are analyst reference checks with
+Status: November 18, 2026. Both initial jobs are complete. These are analyst reference checks with
 zero model calls. They are not generated-repository results.
 
 | Project | Job | Native observation | Next gate |
 | --- | --- | --- | --- |
 | Dafny-VMC | 61747428 | Completed; exit 2, module-resolution cycle, zero logged proof units | Preserve this failure and verify a separately versioned namespace correction |
-| Vest | 61747454 | Still running at the last check | Retrieve and review the complete native evidence when terminal |
+| Vest | 61747454 | Exit 0; complete original inventory plus six new timed entries, zero errors, five exact inherited warnings | Reference source/inventory gate passed; negative controls still pending |
 
 Both jobs were submitted once to live-confirmed nonpreemptible `test`, with one
 CPU each and no requeue. The remote fake-process/import preflight passed all 31
@@ -45,3 +45,36 @@ source review, frozen package and native observation. The original job will not
 be retried. Neither the negative controls nor a model pilot can proceed yet.
 
 The historical 7/16 real-source repair score is unchanged.
+
+## Vest reference: compositional proof succeeds
+
+Both new modules pass in the full qualified default `vest_dev` scope and its
+dependency crates. All 5,410 original timed occurrences retain their exact
+multiplicities. The frame proof, batch proof and four recursive batch spec
+checks add six successful entries: 5,416 occurrences across 5,306 inventory
+keys. Native summary counts are separate: 346 verified for `vest_dev`, 3,279
+for `vest_lib` and 2,102 for `vstd`, each with zero errors. Six fixed frame spec
+definitions do not emit timing entries; they are source-bound and explicitly
+unlogged, not six more observed passes.
+
+`batch_roundtrip` calls `frame_roundtrip(first, rest_encoded)` and composes the
+frame encoding, decoding, fit and length APIs. The two additions and exact
+host registration are the only source changes. Root and an independent reader
+checked source inventories, raw success flags, all 23 transferred artifacts,
+tool bindings and the exact five inherited warnings. There are no new warnings
+or proof bypasses in the additions. The source-bound inventory is frozen in
+[reference-gate-vest-001.json](reference-gate-vest-001.json).
+
+With one Cargo worker and one Verus thread, the native command took 385.64
+seconds, used 84% of one CPU and peaked at about 1.17 GiB RSS. The complete
+one-CPU Slurm job took 655 seconds and used 50.8% CPU over that interval, with
+about 1.24 GiB peak RSS. Native timing and whole-job preparation costs remain
+separate; this is not a controlled concurrency-speed comparison.
+
+This establishes analyst-authored compositional proof feasibility. It is not
+model-generated growth, executable parser generation, two sequential acceptance
+events, or completed negative-control qualification. A separately prepared
+[Dafny correction runtime](../qualification-002/README.md) passed 28 offline
+tests locally and in isolation; its one native invocation remains pending.
+Only after that source/inventory gate passes may the remaining 23 controls be
+prepared for dispatch. No model calls were made.

@@ -39,8 +39,19 @@ native verification stopped at a module-resolution cycle, exit 2 and zero
 logged proof units. All 23 transferred artifacts and evidence replay are saved
 in the [initial reference results](../experiments/real-repository-growth-001/qualification-001/RESULTS.md).
 A separate namespace-only source revision is being prepared; no contracts or
-proof bodies are being relaxed. Vest remains running. Both reference gates and
-all subsequent negative controls remain unresolved; no model calls were made.
+proof bodies are being relaxed. Its separate one-invocation runtime passed 28
+offline tests locally and in isolation and is ready for native dispatch.
+
+Vest's reference subsequently completed in 10m55s. Its full qualified scope
+preserves all 5,410 old timed occurrences and adds six successful entries,
+including both new proofs; zero errors and exactly five inherited warnings.
+Six fixed frame spec definitions remain explicitly unlogged. Root and an
+independent audit confirm exact sources, registration, native inventories and
+actual frame-to-batch API use. The native command took 385.64s on one CPU (84%
+native CPU use; 50.8% whole-job CPU use). This is analyst-authored compositional
+proof feasibility, not model growth or executable parser generation. The
+corrected Dafny reference and all subsequent negative controls remain pending;
+no model calls were made.
 
 ## November 16: real-repository evaluation and progressive extension
 
