@@ -10,7 +10,7 @@ Status: November 18, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 18: sequential real-repository additions under construction
+## November 18: real-repository growth controls complete; pilot proposed
 
 The [growth task package](../experiments/real-repository-growth-001/README.md)
 adds two proposed stages to each qualified seed. Dafny-VMC's stable MoveToFront
@@ -29,7 +29,7 @@ found and corrected a premature-archive edge case; the original preparation
 and logs are retained. Both packages remain offline preparation, with no native
 accepted parent. Native integration must preserve all 5,410 existing Vest timed
 occurrences rather than collapse its 5,300 tuple keys. Two full-scope reference
-checks precede the remaining controls. A later eight-call, four-lineage pilot is only a proposal,
+checks preceded the remaining controls. The eight-call, four-lineage pilot remains a proposal,
 with stage two blocked if its actual first-stage parent fails. No new model calls
 are authorized.
 
@@ -54,17 +54,17 @@ independent audit confirm exact sources, registration, native inventories and
 actual frame-to-batch API use. The native command took 385.64s on one CPU (84%
 native CPU use; 50.8% whole-job CPU use). This is analyst-authored compositional
 proof feasibility, not model growth or executable parser generation. The
-corrected Dafny reference also passes. The remaining 23 controls, native-parent
-integration and a namespace-compatible edit policy are still required before
-model collection. No model calls were made.
+corrected Dafny reference also passes. At that milestone, the remaining 23
+controls and native-parent integration were still pending; their subsequent
+completion is recorded below. No model calls were made.
 
 The remaining-control runtime is now reviewed: 34 local and isolated tests,
 exactly 11 Dafny and 12 Vest cases, one CPU per project, with no retry or resume.
 A separate revised parent policy passes 17 offline tests and losslessly replays
 both real reference inventories. It rejects treating a full two-stage reference
-as an accepted first-stage model revision. Native controls and actual-parent
-integration remain pending; [preparation review](../experiments/real-repository-growth-001/implementation-review-002.json)
-records these boundaries.
+as an accepted first-stage model revision. The historical
+[preparation review](../experiments/real-repository-growth-001/implementation-review-002.json)
+records the then-pending native controls and actual-parent integration.
 
 Dafny control job 61762615 is complete: all 11 remaining expectations match,
 with all 267 original units passing in every case. Three positive cases pass;
@@ -81,8 +81,29 @@ rejections. Every run preserves all 5,410 old timed occurrences and their succes
 flags. The unproved frame/passing batch control is correctly rejected. Full
 205-file evidence and independent source/diagnostic review are saved alongside
 the Dafny results. Its one-CPU job took 1h58m46s, with no retry or model call.
-Both control gates now pass; actual-parent host integration and the prospective
-pilot freeze remain pending. These are analyst controls, not model-generated growth.
+Together with the two full references, all 25 source controls match their
+expectations: eight passing scopes, fourteen intended proof failures and three
+native-success cases rejected for missing coverage. These are analyst controls,
+not model-generated growth.
+
+The separately frozen [parent integration](../experiments/real-repository-growth-001/protocol-003/README.md)
+now replays all 23 saved controls and binds the actual first-stage native scopes.
+Nineteen focused tests passed, including exact supplied-parent preservation and
+rejection of failed, stale, substituted or default synthetic parents. An old
+public validator entry point found during review was corrected to forward to
+the new validator; intermediate logs and the final regression are preserved.
+No native verifier was rerun and no accepted model parent was issued.
+
+The [proposed eight-call pilot](../experiments/real-repository-growth-001/pilot/README.md)
+is frozen: two lineages per project, one response per stage, no retries or slot
+reassignment. Four exact first-stage payloads are saved; four children remain
+deferred until their own first-stage source is accepted. Eleven focused tests
+and independent prompt review passed. The renderer fixes selected upstream
+context, contracts, syntax rules, settings and order; child prompts must preserve
+the actual accepted parent. The [root review](../experiments/real-repository-growth-001/implementation-review-003.json)
+binds the final artifacts. Remaining execution gates are a reviewed bounded
+live handler, genuine request/native provenance and separate paid approval.
+No new model calls are authorized or have been made.
 
 ## November 16: real-repository evaluation and progressive extension
 

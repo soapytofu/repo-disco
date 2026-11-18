@@ -1,0 +1,148 @@
+TASK
+Add stable ordered selection of two indexed sequence elements, preserving the relative order of every unselected element, length and multiset.
+Pinned native syntax/toolchain: Dafny 4.4.0+707b18acee078b3aa4d84c0590a980966bf22428; Z3 version 4.12.1 - 64 bit.
+The precise fixed source contracts below define correctness. This task adds repodisco-growth/PickPair.dfy to the qualified repository.
+
+Return only the replacement body string, not a declaration or an enclosing function/proof block. The host changes only the marked region of PickPair. All imports, types, signatures, contracts, specification definitions, termination clauses, other source and build inputs remain fixed.
+Body limits: ASCII source; at most 16384 bytes, 4096 lexical tokens and delimiter nesting depth 32. Balanced braces, parentheses and brackets are required. New value locals, expressions, conditionals and assertions are permitted when admitted by the bounded grammar. No source comments, strings/character literals, attributes, new declarations/imports, lambdas/closures, loops, return statements, indirect calls, assumptions, admits, axioms, external/trusted mechanisms, reveal/hide statements, verification options or resource changes. The callable vocabulary is not a required call sequence.
+Allowed direct callable names: Shift.MoveToFront, multiset.
+Protected inputs: i, j, xs. Do not assign to or shadow them, or shadow the listed API/type/module/call roots: Seq, Shift, T, bool, int, multiset, nat, u16, u32, u64, u8.
+This is a function body and must end with a result expression. Dafny calc blocks are permitted. Use Dafny sequence and multiset syntax; Verus =~= syntax is not allowed. A functional sequence update [index := value] is permitted. Recursive calls are permitted only if listed above and must satisfy the fixed decreases clause.
+
+The previous addition is read-only and was accepted in this same lineage. You may use its exposed API; a direct implementation meeting the fixed contract is also admissible. The host preserves its actual accepted bytes.
+
+{{ACTUAL_ACCEPTED_PARENT_VIEW}}
+
+CURRENT TARGET FILE repodisco-growth/PickPair.dfy
+```dafny
+module RepoDiscoGrowthPick {
+  import Shift = RepoDiscoGrowthShift`Public
+  export Public provides PickPair
+
+  function PickPair<T>(xs: seq<T>, i: nat, j: nat): (ys: seq<T>)
+    requires i < j < |xs|
+    ensures ys == [xs[i], xs[j]] + xs[..i] + xs[i+1..j] + xs[j+1..]
+    ensures |ys| == |xs|
+    ensures multiset(ys) == multiset(xs)
+    decreases 0
+  {
+    // BEGIN MODEL BODY
+    xs
+    // END MODEL BODY
+  }
+}
+
+```
+
+The following whole source files are curated context, not a complete import or dependency closure. Native verification still checks the full pinned original scope plus the registered additions.
+Context omissions:
+- Model imports Monad, Uniform and Rand, whose complete definitions are not shown.
+- Other original verification source files and inherited libraries are not shown; they remain in the full native scope.
+
+READ-ONLY UPSTREAM FILE src/Util/FisherYates/Model.dfy (complete file)
+```dafny
+/*******************************************************************************
+ *  Copyright by the contributors to the Dafny Project
+ *  SPDX-License-Identifier: MIT
+ *******************************************************************************/
+
+module FisherYates.Model {
+  import Monad
+  import Uniform
+  import Rand
+
+  /************
+   Definitions
+  ************/
+
+  ghost predicate ShuffleInvariancePredicatePointwise<T>(xs: seq<T>, r: Monad.Result<seq<T>>, j: int)
+    requires |r.value| == |xs|
+    requires 0 <= j < |xs|
+  {
+    r.value[j] == xs[j]
+  }
+
+  ghost function Shuffle<T>(xs: seq<T>, i: nat := 0): (h: Monad.Hurd<seq<T>>)
+    requires i <= |xs|
+    ensures forall s :: multiset(h(s).value) == multiset(xs) && |h(s).value| == |xs|
+    ensures forall s, j | 0 <= j < i :: ShuffleInvariancePredicatePointwise(xs, h(s), j)
+  {
+    (s: Rand.Bitstream) => ShuffleCurried(xs, s, i)
+  }
+
+  ghost function ShuffleCurried<T>(xs: seq<T>, s: Rand.Bitstream, i: nat := 0): (r: Monad.Result<seq<T>>)
+    requires i <= |xs|
+    decreases |xs| - i
+    ensures multiset(r.value) == multiset(xs) && |r.value| == |xs|
+    ensures forall j | 0 <= j < i :: ShuffleInvariancePredicatePointwise(xs, r, j)
+  {
+    if |xs| - i > 1 then
+      var (j, s') := Uniform.Model.IntervalSample(i, |xs|)(s).Extract();
+      assert i <= j < |xs| by { Uniform.Correctness.IntervalSampleBound(i, |xs|, s); }
+      var ys := Swap(xs, i, j);
+      var r := ShuffleCurried(ys, s', i + 1);
+      assert forall j | 0 <= j < i :: ShuffleInvariancePredicatePointwise(xs, r, j) by {
+        forall j | 0 <= j < i
+          ensures ShuffleInvariancePredicatePointwise(xs, r, j)
+        {
+          assert ShuffleInvariancePredicatePointwise(ys, r, j);
+        }
+      }
+      r
+    else
+      Monad.Return(xs)(s)
+  }
+
+  function Swap<T>(s: seq<T>, i: nat, j: nat): (t: seq<T>)
+    requires i <= j
+    requires 0 <= i < |s|
+    requires 0 <= j < |s|
+    ensures multiset(s) == multiset(t)
+    ensures |s| == |t|
+    ensures t[..i] == s[..i]
+    ensures t[j] == s[i]
+    ensures i+1 <= j ==> t[i+1..j] == s[i+1..j]
+  {
+    if i == j then
+      s
+    else
+      var t := s[..i] + [s[j]] + s[i+1..j] + [s[i]] + s[j+1..];
+      calc {
+        multiset(t);
+        multiset(s[..i] + [s[j]] + s[i+1..j] + [s[i]] + s[j+1..]);
+        multiset(s[..i]) + multiset([s[j]]) + multiset(s[i+1..j]) + multiset([s[i]]) + multiset(s[j+1..]);
+        multiset(s[..i]) +  multiset([s[i]]) + multiset(s[i+1..j]) + multiset([s[j]]) + multiset(s[j+1..]);
+        multiset(s[..i] + [s[i]] + s[i+1..j] + [s[j]] + s[j+1..]);
+        { assert s[..i] + [s[i]] + s[i+1..j] + [s[j]] + s[j+1..] == s; }
+        multiset(s);
+      }
+      PermutationsPreserveCardinality(t, s);
+      t
+  }
+
+  /*******
+   Lemmas
+  *******/
+
+  lemma MultisetAndSequenceCardinality<T>(s: seq<T>)
+    ensures |multiset(s)| == |s|
+  {}
+
+  lemma PermutationsPreserveCardinality<T>(p: seq<T>, s: seq<T>)
+    requires R: multiset(p) == multiset(s)
+    ensures |p| == |s|
+  {
+    calc {
+      |p|;
+      { MultisetAndSequenceCardinality(p); }
+      |multiset(p)|;
+      { assert multiset(p) == multiset(s) by { reveal R; }}
+      |multiset(s)|;
+      { MultisetAndSequenceCardinality(s); }
+      |s|;
+    }
+  }
+
+
+}
+```

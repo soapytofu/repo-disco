@@ -1,0 +1,66 @@
+{
+  "rule": "Remove only the exact listed leading metadata lines for display; no other byte changes. Candidate and accepted source bytes remain protected and are never rewritten by the view.",
+  "stages": {
+    "vest-batch": {
+      "asset": "assets/templates/growth_batch.rs",
+      "begin": "    // BEGIN EDITABLE batch_roundtrip\n",
+      "end": "    // END EDITABLE batch_roundtrip\n",
+      "parent": "vest-frame",
+      "path": "vest_dev/src/formats/growth_batch.rs",
+      "project": "vest",
+      "removed_prefix_lines": [
+        "//! Analyst reference for a counted stream of accepted length-prefixed frames.\n"
+      ],
+      "removed_prefix_sha256": "7e3a3f1eb09caf2ce6972f57d93413f820ef59fc4a93537b3488f581c8332635",
+      "source_sha256": "a7337078ea42291c6d6ffdfdb15a1bcba8c5cf8c84ba579b31d27520bf8d887b",
+      "stage": 2,
+      "view_sha256": "a3b8008cc94f6a5bd0466f67e1ced7b5f02142ae75f6098cce67caa36a0a1752"
+    },
+    "vest-frame": {
+      "asset": "assets/templates/growth_frame.rs",
+      "begin": "    // BEGIN EDITABLE frame_roundtrip\n",
+      "end": "    // END EDITABLE frame_roundtrip\n",
+      "parent": null,
+      "path": "vest_dev/src/formats/growth_frame.rs",
+      "project": "vest",
+      "removed_prefix_lines": [
+        "//! Analyst reference for a bounded length-prefixed frame API.\n",
+        "//! Native verification is pending; this is a proposed proof-library extension.\n"
+      ],
+      "removed_prefix_sha256": "5c9bf8f7a08b95750d3ff20ee31c762a04e335b2b251839452d1e2cb3b5cccd9",
+      "source_sha256": "83fe5dc7191d4a5834c89f52311707cf431f810b20b998386040acbc5d287ef4",
+      "stage": 1,
+      "view_sha256": "097272a3ac53db8996bf1b0c73e25e8889c09d87b38bb410ecb31aacd00b0843"
+    },
+    "vmc-move": {
+      "asset": "assets/templates/MoveToFront.dfy",
+      "begin": "    // BEGIN MODEL BODY\n",
+      "end": "    // END MODEL BODY\n",
+      "parent": null,
+      "path": "repodisco-growth/MoveToFront.dfy",
+      "project": "dafny-vmc",
+      "removed_prefix_lines": [
+        "// RepoDisco extension to pinned Dafny-VMC; this file is analyst-authored.\n"
+      ],
+      "removed_prefix_sha256": "107042091415ace23cf2c2d75ec957e9c1004d27ef936a241df143c4aaecc1b5",
+      "source_sha256": "b521d3842ecde91c66d867b45dbbc36f10813038fd46a125073610ef1be8a28c",
+      "stage": 1,
+      "view_sha256": "af6fbc4012c3e4f8ecf1a6e1e60c1f535a9921ec1893f97177d2f966484684d4"
+    },
+    "vmc-pair": {
+      "asset": "assets/templates/PickPair.dfy",
+      "begin": "    // BEGIN MODEL BODY\n",
+      "end": "    // END MODEL BODY\n",
+      "parent": "vmc-move",
+      "path": "repodisco-growth/PickPair.dfy",
+      "project": "dafny-vmc",
+      "removed_prefix_lines": [
+        "// RepoDisco extension to pinned Dafny-VMC; this file is analyst-authored.\n"
+      ],
+      "removed_prefix_sha256": "107042091415ace23cf2c2d75ec957e9c1004d27ef936a241df143c4aaecc1b5",
+      "source_sha256": "baa159472d42313d5377b47396ad3bb1211bbe4395473cf2110f0debb619b670",
+      "stage": 2,
+      "view_sha256": "2f5abe93e3af585032aecdc2ac351214743aa80e643a19c529efdff86acffba8"
+    }
+  }
+}

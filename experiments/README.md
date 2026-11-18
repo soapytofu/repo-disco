@@ -1,6 +1,6 @@
 # Experiment log
 
-## Sequential real-source growth — references verified, controls pending
+## Sequential real-source growth — controls verified, pilot proposed
 
 [Task sources and plan](real-repository-growth-001/README.md) now define two
 dependent additions per qualified seed. Dafny-VMC adds stable movement followed
@@ -13,8 +13,17 @@ now verify: corrected Dafny 269/269 logged units, Vest 5,410 original plus six n
 successful timed occurrences. Each has zero errors and only its exact inherited
 warnings. The initial Dafny namespace-cycle failure remains preserved. The
 remaining 11 Dafny and 12 Vest controls match all expectations, including
-unproved-parent and omitted-module rejections. Native-parent integration remains pending. The
-proposed later eight-call design is unapproved; no model calls were made.
+unproved-parent and omitted-module rejections. Together with the two references,
+all 25 source controls match: eight passing scopes, fourteen intended proof
+failures and three native-success cases rejected for coverage.
+
+The [offline parent integration](real-repository-growth-001/protocol-003/README.md)
+replays the 23 saved controls and passes 19 focused tests. The
+[eight-call pilot proposal](real-repository-growth-001/pilot/README.md) freezes
+four exact first-stage payloads and the rules for four conditional children;
+eleven focused tests and independent prompt review passed. Stage two must use
+its actual accepted parent, with no reference substitution. A bounded live
+handler and separate paid approval remain required; no model calls were made.
 
 ## Evaluation stability — warnings and matched resource budgets
 

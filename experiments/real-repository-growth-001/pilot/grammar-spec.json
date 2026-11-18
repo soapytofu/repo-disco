@@ -1,0 +1,193 @@
+{
+  "body_ascii_only": true,
+  "forbidden_words": [
+    "admit",
+    "arbitrary",
+    "assume",
+    "assume_false",
+    "assume_specification",
+    "async",
+    "autospec",
+    "await",
+    "axiom",
+    "break",
+    "broadcast",
+    "catch",
+    "class",
+    "const",
+    "continue",
+    "datatype",
+    "decreases",
+    "decreases_by",
+    "diverges",
+    "dyn",
+    "ensures",
+    "exec",
+    "expect",
+    "export",
+    "extern",
+    "external",
+    "external_body",
+    "fn",
+    "for",
+    "fuel",
+    "function",
+    "ghost",
+    "group",
+    "hide",
+    "impl",
+    "import",
+    "include",
+    "include_bytes",
+    "include_str",
+    "lemma",
+    "loop",
+    "macro_rules",
+    "method",
+    "mod",
+    "modifies",
+    "mut",
+    "newtype",
+    "opaque",
+    "panic",
+    "predicate",
+    "pub",
+    "reads",
+    "recommends",
+    "requires",
+    "resource_limit",
+    "return",
+    "reveal",
+    "rlimit",
+    "static",
+    "timeLimit",
+    "todo",
+    "trait",
+    "transmute",
+    "trusted",
+    "try",
+    "unimplemented",
+    "union",
+    "unreachable",
+    "unsafe",
+    "use",
+    "verify",
+    "while",
+    "yield"
+  ],
+  "language_policy_sha256": "3eb9181efaf05f189c0bea88921235ae3fa7e14fac6d1b36ac869a9be4dbd394",
+  "max_body_bytes": 16384,
+  "max_lexical_tokens": 4096,
+  "max_nesting": 32,
+  "origin": "../protocol-002/body_policy.py",
+  "rules": {
+    "vest-batch": {
+      "calls": [
+        "Seq::empty",
+        "Some",
+        "batch_fits",
+        "batch_len",
+        "batch_roundtrip",
+        "decode_batch",
+        "decode_frame",
+        "encode_batch",
+        "encode_frame",
+        "frame_len",
+        "frame_roundtrip",
+        "payload_fits"
+      ],
+      "inputs": [
+        "payloads",
+        "tail"
+      ],
+      "methods": [
+        "drop_first",
+        "len",
+        "skip",
+        "subrange",
+        "take"
+      ],
+      "roots": [
+        "Seq"
+      ]
+    },
+    "vest-frame": {
+      "calls": [
+        "Seq::empty",
+        "Some",
+        "Varied",
+        "decode_frame",
+        "encode_frame",
+        "frame_format",
+        "frame_len",
+        "frame_value",
+        "payload_fits"
+      ],
+      "inputs": [
+        "payload",
+        "tail"
+      ],
+      "methods": [
+        "byte_len",
+        "consistent",
+        "lemma_serialize_dps_len",
+        "lemma_serialize_dps_prepend",
+        "len",
+        "serialize_dps_inv",
+        "spec_parse",
+        "spec_serialize_dps",
+        "theorem_serialize_dps_parse_roundtrip",
+        "unambiguous"
+      ],
+      "roots": [
+        "Seq",
+        "U16Le",
+        "Varied"
+      ]
+    },
+    "vmc-move": {
+      "calls": [
+        "Model.Swap",
+        "MoveToFront",
+        "multiset"
+      ],
+      "inputs": [
+        "k",
+        "xs"
+      ],
+      "methods": [],
+      "roots": [
+        "Model",
+        "T"
+      ]
+    },
+    "vmc-pair": {
+      "calls": [
+        "Shift.MoveToFront",
+        "multiset"
+      ],
+      "inputs": [
+        "i",
+        "j",
+        "xs"
+      ],
+      "methods": [],
+      "roots": [
+        "Shift",
+        "T"
+      ]
+    }
+  },
+  "schema": "growth-prompt-grammar-description-v1",
+  "semantic_validation": "Native verification required; lexical admission is not proof or type checking.",
+  "type_words": [
+    "Seq",
+    "bool",
+    "int",
+    "nat",
+    "u16",
+    "u32",
+    "u64",
+    "u8"
+  ]
+}

@@ -4,8 +4,12 @@ Prepared November 18, 2026. This is **nonpaid task construction and verifier-onl
 qualification**. No model requests are authorized or dispatched by
 this experiment. Both complete analyst reference scopes now verify. The
 [11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
-expectation. The [combined control gate](control-gates-001.json) releases
-offline host integration and prompt preparation; no model collection is authorized.
+expectation. Together with the two full references, all 25 source controls match:
+eight passing scopes, fourteen intended proof failures and three native-success
+cases rejected for missing coverage. The [offline parent integration](protocol-003/README.md)
+and [proposed eight-call prompt freeze](pilot/README.md) are now reviewed.
+No model collection is authorized; a bounded live execution handler remains to
+be implemented and reviewed.
 
 The first [native reference checks](qualification-001/RESULTS.md) are complete.
 Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
@@ -53,11 +57,10 @@ test methods covering finite sequence semantics, protected construction and
 counterexamples; Vest has a source/overlay integrity review. Neither establishes
 native parsing or proof success.
 
-First run **two full-scope reference observations**, one per repository, with
-both new additions present. Review old and new proof targets, exact source/tool
-bindings, warnings and runtime. Only after that review may the distinct remaining
-controls run; do not blindly submit all variants against a broken reference.
-Preserve unexpected outcomes before deliberate versioned corrections.
+Qualification first checked **two full-scope references**, one per repository,
+with both new additions present. Old and new proof targets, exact source/tool
+bindings, warnings and runtime were reviewed before dispatching the remaining
+controls. The initial namespace failure and deliberate correction are preserved.
 
 The native controls must demonstrate:
 
@@ -114,8 +117,9 @@ the original native streams, not a separate verifier output. Its provenance must
 bind those complete stdout/stderr hashes, extractor/runtime identity, source
 revision, command, toolchain and run ID. The host must replay extraction and
 inventory expansion before issuing a parent receipt. Hash-consistent records
-alone cannot authenticate their own proof claims. This adapter and actual native
-parent evidence remain prerequisites to any model collection.
+alone cannot authenticate their own proof claims. The adapter now exists in
+`protocol-003`; a future live host must establish genuine model/request provenance
+and supply actual native parent evidence before dispatching a child.
 
 ## Reviewed control and parent-evidence preparation
 
@@ -131,9 +135,26 @@ The separately revised [native-parent policy](protocol-002/README.md) passes
 17 offline tests and replays the actual 269 Dafny entries and 5,416 Vest timing
 occurrences without losing multiplicities or raw record locations. Its full
 reference replays remain stage-two analyst observations, never accepted model
-parents. Actual stage-one controls are now reviewed; host integration remains required.
+parents. Actual stage-one controls are now reviewed and bound by `protocol-003`.
 The [root review](implementation-review-002.json) records inspected code, pins,
-provenance and remaining trust boundaries. No model calls were made.
+provenance and trust boundaries at that earlier preparation milestone.
+
+The [current integration](protocol-003/README.md) replays all 23 saved controls
+without rerunning native verification. It uses the actual first-stage scopes:
+268 named Dafny units and 5,411 Vest timed occurrences, preserving raw flags and
+multiplicities. Nineteen focused tests cover failed/stale/substituted parents,
+synthetic evidence rejection and exact supplied-parent preservation. All saved
+analyst controls remain ineligible as model parents. This package checks evidence;
+it does not issue acceptance or authenticate a model request by itself.
+
+The [pilot freeze](pilot/README.md) has four exact first-stage payloads, four
+stage-specific templates and four explicitly deferred child slots. Eleven
+focused tests passed. Child payloads require the exact accepted first-stage
+source and host-pinned evidence from the same lineage. Root and independent
+prompt reviews checked fixed contracts, language-specific grammar, selected
+upstream context and absence of new reference solutions or analyst advice.
+The [current root review](implementation-review-003.json) records all pins,
+tests and remaining live-host requirements. No model calls were made.
 
 ## Accepted-parent and measurement rules
 
@@ -170,12 +191,12 @@ provide a small repeatability check, not four independent task families or a
 statistical comparison between languages. Do not pool these outcomes with the
 earlier 16-call repair pilot.
 
-Before requesting approval, complete native controls, protect edit/parent
-boundaries, freeze source-selection rules and stage-specific prompt templates,
-and test the bounded runner. Stage-two exact prompts necessarily depend on the
-actual accepted stage-one source: freeze the rendering rule prospectively, then
-archive each instantiated payload and parent binding before dispatch. Model
-settings, order, guards, scoring and global call limit must be explicit.
+Native controls, offline edit/parent boundaries, source-selection rules,
+stage-specific templates, settings and order are now frozen. Before requesting
+execution approval, implement and test the bounded live runner, including request
+accounting and genuine accepted-parent evidence. Stage-two exact prompts depend
+on the actual accepted stage-one source: their rendering rule is frozen, but
+each instantiated payload and parent binding must be archived before dispatch.
 
 Existing model budgets are exhausted or terminal. There is no new model handler,
 authorization, credential handoff or paid submission here. These inspected

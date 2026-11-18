@@ -1,0 +1,90 @@
+{
+  "control_inputs_sha256": "9848f988937128ac404f973938f81650c521c75209d6a62818f279e978db0d8b",
+  "inherited": {
+    "__init__.py": "dc7c19c883d35a9fda9a65baaff22476f1d0090dd6a23ef9b4b1461d31c6268a",
+    "body_guard.py": "e64c475a152bc2a1d8ba8f2346b980214eb9908df3813e4255a200b3f7d0b2fe",
+    "extract_response.py": "d2f007fdf5cbd5a194a0d21715192ffcc746a39cdb856355c606b9f2b7f2c62c"
+  },
+  "native_inventory_policy": "Only a host-pinned reviewed native profile may name required units. This draft supplies no native unit names or acceptance evidence.",
+  "native_parser_files": {
+    "native_parsers/__init__.py": "e741473b12b514f1b38dcacae25af59f8654e531868797a39b3b028ac2941bb9",
+    "native_parsers/dafny.py": "684f366453b9075b067ab69d5cbb005e51d458b48ba7bc9eecb93130127cc4ab",
+    "native_parsers/vest/__init__.py": "e741473b12b514f1b38dcacae25af59f8654e531868797a39b3b028ac2941bb9",
+    "native_parsers/vest/protocol.py": "e6fdfa9ec6dbc01c8feafd2f81b218ef7f2cfd63997afa2a20d322e35fd2cb6c",
+    "native_parsers/vest/protocol_v2.py": "381ec71e44a67f9430d8ab1bac0c75e11e73306831ac3e7e6218942a0e7ef6a6",
+    "native_parsers/warning_policy.py": "076a54d0645ed2013ba85ebf35426be75795ec4c09b63dff5c32330f4e3e83a8"
+  },
+  "reference_inputs_sha256": "7a50c61ba4351a859b880f3f688ddeff3d6a64e7bc301bd2afc3d64c9b8e41d0",
+  "registration": {
+    "base_sha256": "8d1e47dcdfaa59d4129fadabc75d4028dd2a9e33dfce0facf0fc6d00c44bd477",
+    "path": "vest_dev/src/formats/mod.rs",
+    "project": "vest",
+    "stage1_append": "\npub mod growth_frame;\n",
+    "stage2_append": "pub mod growth_batch;\n"
+  },
+  "schema": "repodisco-sequential-growth-body-policy-v2",
+  "stages": {
+    "vest-batch": {
+      "begin": "    // BEGIN EDITABLE batch_roundtrip\n",
+      "end": "    // END EDITABLE batch_roundtrip\n",
+      "parent": "vest-frame",
+      "parent_calls": [
+        "frame_roundtrip",
+        "frame_len",
+        "encode_frame",
+        "decode_frame",
+        "payload_fits"
+      ],
+      "path": "vest_dev/src/formats/growth_batch.rs",
+      "prefix_sha256": "36c6dae1bc103b4131ffbc0126ae94f555bca7545e4f1768acdce7cd3e855a63",
+      "project": "vest",
+      "stage": 2,
+      "suffix_sha256": "f1a2ef277f78403be73e448efda551731683863fee63ccd6c32aef7a140e23ef",
+      "template": "growth_batch.rs",
+      "template_sha256": "a7337078ea42291c6d6ffdfdb15a1bcba8c5cf8c84ba579b31d27520bf8d887b"
+    },
+    "vest-frame": {
+      "begin": "    // BEGIN EDITABLE frame_roundtrip\n",
+      "end": "    // END EDITABLE frame_roundtrip\n",
+      "parent": null,
+      "parent_calls": [],
+      "path": "vest_dev/src/formats/growth_frame.rs",
+      "prefix_sha256": "3042302564703e37613c4abaa3cfa5b03b80f86b81edaceb1783664f9b0a7f3e",
+      "project": "vest",
+      "stage": 1,
+      "suffix_sha256": "096679efd1c2737addd81f8098d2f46ff5989ed6191165c1dc10e6f80b31d4c7",
+      "template": "growth_frame.rs",
+      "template_sha256": "83fe5dc7191d4a5834c89f52311707cf431f810b20b998386040acbc5d287ef4"
+    },
+    "vmc-move": {
+      "begin": "    // BEGIN MODEL BODY\n",
+      "end": "    // END MODEL BODY\n",
+      "parent": null,
+      "parent_calls": [],
+      "path": "repodisco-growth/MoveToFront.dfy",
+      "prefix_sha256": "1e8010660f1e8a11c747a8e40551ad5d9e300df96e9ce9c63fd1ebabd8999008",
+      "project": "dafny-vmc",
+      "stage": 1,
+      "suffix_sha256": "bb937f2d96d6fa130a13de2c7655e0058bc0571f49f382d7e7dff00ffd432fc8",
+      "template": "MoveToFront.dfy",
+      "template_sha256": "b521d3842ecde91c66d867b45dbbc36f10813038fd46a125073610ef1be8a28c"
+    },
+    "vmc-pair": {
+      "begin": "    // BEGIN MODEL BODY\n",
+      "end": "    // END MODEL BODY\n",
+      "parent": "vmc-move",
+      "parent_calls": [
+        "Shift.MoveToFront"
+      ],
+      "path": "repodisco-growth/PickPair.dfy",
+      "prefix_sha256": "5c4a2eb52dfc3bed02d936faa0426ebdad8c1c1ed90ecee998c2688b27437eac",
+      "project": "dafny-vmc",
+      "stage": 2,
+      "suffix_sha256": "bb937f2d96d6fa130a13de2c7655e0058bc0571f49f382d7e7dff00ffd432fc8",
+      "template": "PickPair.dfy",
+      "template_sha256": "baa159472d42313d5377b47396ad3bb1211bbe4395473cf2110f0debb619b670"
+    }
+  },
+  "status": "PROSPECTIVE_NATIVE_PARENT_INTEGRATION_NOT_YET_QUALIFIED",
+  "upstream_inventory_sha256": "47cd26abfdea01981e4ddccb82ef3fd717cae7e94ee31d3ec70d3e8e2c26e04f"
+}

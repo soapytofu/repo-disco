@@ -1,0 +1,45 @@
+test_actual_control_source_exception_cannot_admit_model_candidate (test_integration.ActualControlIntegration.test_actual_control_source_exception_cannot_admit_model_candidate) ... ok
+test_actual_failed_helpers_cannot_hide_behind_passing_children (test_integration.ActualControlIntegration.test_actual_failed_helpers_cannot_hide_behind_passing_children) ... ok
+test_actual_omissions_native_pass_but_fail_workspace_coverage (test_integration.ActualControlIntegration.test_actual_omissions_native_pass_but_fail_workspace_coverage) ... ok
+test_actual_stage_one_duplicate_or_missing_occurrence_cannot_be_deduplicated (test_integration.ActualControlIntegration.test_actual_stage_one_duplicate_or_missing_occurrence_cannot_be_deduplicated) ... ok
+test_actual_stage_one_scope_is_not_filtered_stage_two_evidence (test_integration.ActualControlIntegration.test_actual_stage_one_scope_is_not_filtered_stage_two_evidence) ... ok
+test_actual_twenty_three_cases_match_reviewed_full_inventory (test_integration.ActualControlIntegration.test_actual_twenty_three_cases_match_reviewed_full_inventory) ... ok
+test_actual_verus_multiplicities_success_and_owning_crate_are_lossless (test_integration.ActualControlIntegration.test_actual_verus_multiplicities_success_and_owning_crate_are_lossless) ... ok
+test_all_actual_controls_reject_model_origin_relabeling_and_run_rename (test_integration.ActualControlIntegration.test_all_actual_controls_reject_model_origin_relabeling_and_run_rename) ... ok
+test_full_reference_native_identity_cannot_be_relabelled_as_stage_one (test_integration.ActualControlIntegration.test_full_reference_native_identity_cannot_be_relabelled_as_stage_one) ... ok
+test_tampered_missing_duplicate_and_stale_actual_binding_rejected (test_integration.ActualControlIntegration.test_tampered_missing_duplicate_and_stale_actual_binding_rejected) ... ok
+setUpClass (test_integration.ProspectiveParentBoundary) ... ERROR
+
+======================================================================
+ERROR: setUpClass (test_integration.ProspectiveParentBoundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/test_integration.py", line 151, in setUpClass
+    cls.fixtures = {project: synthetic_parent(project) for project in p.STAGES}
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/test_fixtures.py", line 107, in synthetic_parent
+    extraction = p.audit_model_parent_native(native, metadata, sources, allow_synthetic=True, repo=repo)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/integration.py", line 268, in audit_model_parent_native
+    extraction = n.audit_native(native, metadata, sources, allow_synthetic=allow_synthetic)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/native_adapter.py", line 248, in audit_native
+    parsed, extraction = extract_native(binding.project, raw, record["exit_code"])
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/native_adapter.py", line 167, in extract_native
+    parsed, occurrence = (_extract_dafny if project == "dafny-vmc" else _extract_verus)(raw, exit_code)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/native_adapter.py", line 144, in _extract_dafny
+    parsed = dg.dafny_observation(exit_code, raw["stdout.txt"], raw["stderr.txt"], csv_files)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/native_parsers/dafny.py", line 45, in dafny_observation
+    require(re.fullmatch(r'(?:\d+\.)?\d{2}:[0-5]\d:[0-5]\d(?:\.\d+)?',row['TestResult.Duration']) and row['TestResult.ResourceCount'].isdigit(),'Invalid unit resource metrics')
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/protocol-003/native_parsers/dafny.py", line 11, in require
+    if not condition:raise ValueError(message)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid unit resource metrics
+
+----------------------------------------------------------------------
+Ran 10 tests in 16.700s
+
+FAILED (errors=1)

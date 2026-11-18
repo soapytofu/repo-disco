@@ -1,0 +1,5048 @@
+TASK
+Prove the fixed bounded length-prefixed frame contract, including exact bytes consumed and preservation of an arbitrary suffix.
+The precise fixed source contracts below define correctness. This task adds vest_dev/src/formats/growth_frame.rs to the qualified repository.
+
+Return only the replacement body string, not a declaration or an enclosing function/proof block. The host changes only the marked region of frame_roundtrip. All imports, types, signatures, contracts, specification definitions, termination clauses, other source and build inputs remain fixed.
+Body limits: ASCII source; at most 16384 bytes, 4096 lexical tokens and delimiter nesting depth 32. Balanced braces, parentheses and brackets are required. New value locals, expressions, conditionals, assertions and calc blocks are permitted when admitted by the bounded grammar. No source comments, strings/character literals, attributes, new declarations/imports, lambdas/closures, loops, return statements, indirect calls, assumptions, admits, axioms, external/trusted mechanisms, reveal/hide statements, verification options or resource changes. The callable vocabulary is not a required call sequence.
+Allowed direct callable names: Seq::empty, Some, Varied, decode_frame, encode_frame, frame_format, frame_len, frame_value, payload_fits.
+Protected inputs: payload, tail. Do not assign to or shadow them, or shadow the listed API/type/module/call roots: Seq, Some, U16Le, Varied, bool, decode_frame, encode_frame, frame_format, frame_len, frame_value, int, nat, payload_fits, u16, u32, u64, u8.
+Use Verus proof syntax. Typed choose/forall/exists binders, sequence extensional equality =~=, and the seq![...] macro are permitted; other macros and new closures are forbidden. Use assert(expression); or an admitted assertion proof block, not assert!(...). Explicit closed generic type arguments may use only Seq, bool, int, nat, u16, u32, u64, u8.
+Allowed receiver methods on admitted inputs, locals and API values: byte_len, consistent, lemma_serialize_dps_len, lemma_serialize_dps_prepend, len, serialize_dps_inv, spec_parse, spec_serialize_dps, theorem_serialize_dps_parse_roundtrip, unambiguous.
+
+CURRENT TARGET FILE vest_dev/src/formats/growth_frame.rs
+```rust
+use crate::combinators::{Bind, U16Le, Varied};
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+verus! {
+
+pub type FrameFmt = Bind<U16Le, spec_fn(u16) -> Varied<u16>>;
+
+pub open spec fn frame_format() -> FrameFmt {
+    Bind(U16Le, |n: u16| Varied(n))
+}
+
+pub open spec fn payload_fits(payload: Seq<u8>) -> bool {
+    payload.len() <= 65535
+}
+
+pub open spec fn frame_value(payload: Seq<u8>) -> (u16, Seq<u8>) {
+    (payload.len() as u16, payload)
+}
+
+pub open spec fn frame_len(payload: Seq<u8>) -> nat {
+    2 + payload.len()
+}
+
+pub open spec fn encode_frame(payload: Seq<u8>, tail: Seq<u8>) -> Seq<u8> {
+    frame_format().spec_serialize_dps(frame_value(payload), tail)
+}
+
+pub open spec fn decode_frame(input: Seq<u8>) -> Option<(int, Seq<u8>)> {
+    match frame_format().spec_parse(input) {
+        Some((used, (_, payload))) => Some((used, payload)),
+        None => None,
+    }
+}
+
+pub proof fn frame_roundtrip(payload: Seq<u8>, tail: Seq<u8>)
+    requires
+        payload_fits(payload),
+    ensures
+        decode_frame(encode_frame(payload, tail))
+            == Some((frame_len(payload) as int, payload)),
+        encode_frame(payload, tail).len() == frame_len(payload) + tail.len(),
+        encode_frame(payload, tail)[frame_len(payload) as int..] == tail,
+{
+    // BEGIN EDITABLE frame_roundtrip
+    // END EDITABLE frame_roundtrip
+}
+
+} // verus!
+
+```
+
+The following whole source files are curated context, not a complete import or dependency closure. Native verification still checks the full pinned original scope plus the registered additions.
+Context omissions:
+- Transitive imported combinators, executables, properties, helpers and vstd sources outside the selected files are not shown.
+- The pinned full default-feature vest_dev, vest_lib and vstd native scopes remain required.
+
+READ-ONLY UPSTREAM FILE vest_dev/src/lib.rs (complete file)
+```rust
+#![cfg_attr(not(feature = "std"), no_std)]
+#![cfg_attr(verus_only, feature(never_type))]
+#![allow(unused_imports)]
+#![allow(dead_code)]
+
+#[cfg(feature = "alloc")]
+extern crate alloc;
+
+pub type Never = vest_lib::Never;
+
+pub use vest_lib::*;
+
+// #[cfg(verus_only)]
+pub mod formats;
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/lib.rs (complete file)
+```rust
+//! # `vest_lib`
+//!
+//! `vest_lib` is Vest's format combinator
+//! library verified in [Verus](https://github.com/verus-lang/verus).
+//! A format in Vest is organized in three layers:
+//!
+//! - pure parsing, serialization, byte-length, and consistency specifications
+//!   in [`core::spec`];
+//! - executable parsing and serialization APIs in [`core::exec`]; and
+//! - correctness and security theorems in [`core::proof`].
+//!
+//! ## Where to start
+//!
+//! - [`core`] includes Vest's core specs as well as the runtime API and buffer abstractions.
+//! - [`combinators`] documents all the primitive and higher-order formats.
+//! - [`asn1`] contains modular DER and BER formats.
+//! - [`cbor`] provides generic CBOR formats for both general and deterministic profiles.
+//! - [`primitives`] contains reusable variable-width integer formats.
+//!
+//! See the [Vest guide](https://secure-foundations.github.io/vest/guide/) for more background and
+//! gentle introductions.
+//!
+#![cfg_attr(not(feature = "std"), no_std)]
+#![cfg_attr(verus_only, feature(never_type))]
+#![allow(unused_imports)]
+#![allow(dead_code)]
+// Enable once proof-internal helper items are hidden from the public rustdoc surface.
+// #![warn(missing_docs)]
+
+#[cfg(feature = "alloc")]
+extern crate alloc;
+
+// Unit tests run on a host with `std` even when checking the library's core-only feature set.
+// Import its macros so allocation-free APIs can still be exercised by ordinary test fixtures.
+#[cfg(all(test, not(feature = "std")))]
+#[macro_use]
+extern crate std;
+
+/// An uninhabitable type used to represent impossible values (e.g., in [`combinators::Void`]).
+pub type Never = combinators::marker::exec::ExecNever;
+
+/// Whether runtime errors retain diagnostic traces (for tooling that checks build settings).
+#[doc(hidden)]
+pub const ERROR_TRACE_ENABLED: bool = cfg!(feature = "error-trace");
+
+pub mod asn1;
+#[cfg(feature = "alloc")]
+pub mod cbor;
+pub mod combinators;
+pub mod core;
+pub mod macros;
+pub mod prelude;
+pub mod primitives;
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/core/mod.rs (complete file)
+```rust
+//! Core specifications and correctness/security theorems for Vest combinators.
+//!
+//! This module forms the foundation of the Vest combinator framework. It defines:
+//!
+//! ## [`spec`] — Specification Family of Traits
+//!
+//! - [`spec::SpecParser`] — parser specification
+//! - [`spec::SpecSerializer`] — serializer specification
+//! - [`spec::Consistency`] — value well-formedness against the format specification
+//! - [`spec::SpecByteLen`] — byte length of serialized values
+//! - [`spec::SpecSerializerDps`] — destination-passing style serializer specification for better composability
+//! - [`spec::StaticByteLen`] — fixed byte length for static-size formats
+//! - [`spec::SoundParser`] — successful parsing produces consistent values
+//! - [`spec::StrictParser`] — parsing consumes input length strictly equal to the format's specified byte length
+//!
+//! These traits are designed to be as independent as possible such that they can be useful individually
+//! (e.g., applications that only need to specify parsing but not serialization, or vice versa). However,
+//! Vest combinators generally provide trait implementations for all of these traits, and the proofs
+//! in the [`proof`] module often rely on multiple, if not all, of these traits being implemented
+//! for the combinators in question.
+//!
+//! ## [`proof`] — Proof Family of Traits
+//!
+//! - [`proof::SPRoundTrip`] — serialize-parse roundtrip
+//! - [`proof::SPRoundTripDps`] — serialize-parse roundtrip (the DPS variant, used mostly internally),
+//!   which also carries the unambiguity side condition needed by roundtrip proofs
+//! - [`proof::PSRoundTrip`] — parse-serialize roundtrip
+//! - [`proof::NonMalleable`] — parser non-malleability
+//! - [`proof::NoLookAhead`] — parser no-look-ahead property
+//! - [`proof::Productive`] — parser productivity
+//! - [`proof::NonAmbiguous`] — serializer non-ambiguity
+//! - [`proof::EquivSerializers`] / [`proof::EquivSerializersGeneral`] — DPS ↔ non-DPS equivalence
+//!
+//! Following the same philosophy as the specification traits, these proof traits are defined on top of
+//! a *minimal* set of specification traits, and crucially, they are *not* defined/dependent on each other.
+//! This way, combinators can implement only the proof traits that are relevant to their intended use cases
+//! (e.g., formats that accept non-canonical encodings may not be non-malleable, and thus would not implement
+//!  [`proof::NonMalleable`]).
+//!
+//! ## [`fns`] — Spec Function Combinators
+//!
+//! Type aliases and trait implementations that allow plain Verus `spec_fn`s
+//! to be used as combinators without defining new types.
+pub mod exec;
+pub mod fns;
+pub mod proof;
+pub mod spec;
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/core/spec.rs (complete file)
+```rust
+//! Core specification traits for Vest combinators.
+use vstd::prelude::*;
+
+verus! {
+
+/// Parser specification.
+pub trait SpecParser {
+    /// The type of parsed values.
+    type PVal;
+
+    /// Attempts to parse a value from `ibuf`.
+    ///
+    /// Returns `Some((n, v))` on success, where `n` bytes were consumed and `v` is
+    /// the parsed value, or `None` on failure.
+    spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)>;
+}
+
+/// Two parsers have disjoint domains if no input can be successfully parsed by both.
+///
+/// This is the key condition for establishing unambiguity in combinator compositions.
+/// See also [`crate::combinators::disjoint`] for broadcast lemmas establishing
+/// disjointness for common compositions.
+#[verifier::opaque]
+pub open spec fn disjoint_domains<P1: SpecParser, P2: SpecParser>(p1: P1, p2: P2) -> bool {
+    forall|input: Seq<u8>| p1.spec_parse(input) is Some && p2.spec_parse(input) is Some ==> false
+}
+
+/// Combinator denotations that admit disjoint (mutually exclusive) sets of consistent values.
+///
+/// Used by [`crate::combinators::Alt`] to recover non-malleability.
+pub open spec fn disjoint_values<C1, C2>(c1: C1, c2: C2) -> bool where
+    C1: Consistency,
+    C2: Consistency<Val = C1::Val>,
+ {
+    forall|v: C1::Val| c1.consistent(v) && c2.consistent(v) ==> false
+}
+
+/// Returns `true` when parser `p` fails on input `ibuf`.
+pub open spec fn parser_fails_on<P: SpecParser>(p: P, ibuf: Seq<u8>) -> bool {
+    p.spec_parse(ibuf) is None
+}
+
+/// Parser safety.
+///
+/// Successful parses never consume bytes out of bounds.
+pub trait SafeParser: SpecParser {
+    /// Optional invariant (used by spec-function combinators; struct-based combinators
+    /// typically leave this as `true`).
+    open spec fn safe_inv(&self) -> bool {
+        true
+    }
+
+    /// For any successful parse `Some((n, _))`, `0 <= n <= ibuf.len()`.
+    broadcast proof fn lemma_parse_safe(&self, ibuf: Seq<u8>)
+        requires
+            self.safe_inv(),
+        ensures
+            #[trigger] self.spec_parse(ibuf) matches Some((n, _)) ==> 0 <= n <= ibuf.len(),
+    ;
+}
+
+/// Parser soundness.
+///
+/// Successful parsing produces a value consistent with the format. This does not
+/// constrain the consumed length; see [`SafeParser`] and [`StrictParser`]
+/// for additional constraints on the consumed length.
+pub trait SoundParser: SpecParser + Consistency<Val = Self::PVal> {
+    /// Optional invariant (used by spec-function combinators; struct-based combinators
+    /// typically leave this as `true`).
+    open spec fn sound_inv(&self) -> bool {
+        true
+    }
+
+    /// For any successful parse `Some((_, v))`, `v` is consistent with the format's spec.
+    broadcast proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>)
+        requires
+            self.sound_inv(),
+        ensures
+            #[trigger] self.spec_parse(ibuf) matches Some((_, v)) ==> self.consistent(v),
+    ;
+}
+
+/// Parser strictness.
+///
+/// This trait constrains parsing to consume exactly the number of bytes specified by the format's spec.
+/// However, it still permits malleable encodings of the same length.
+///
+/// See [`super::proof::NonMalleable`] for even stronger guarantees that rule out malleable encodings.
+pub trait StrictParser: SpecByteLen + SoundParser<PVal = Self::T> {
+    /// Additional conditions needed for length agreement.
+    open spec fn strict_inv(&self) -> bool {
+        true
+    }
+
+    broadcast proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>)
+        requires
+            self.sound_inv(),
+            self.strict_inv(),
+        ensures
+            #[trigger] self.spec_parse(ibuf) matches Some((n, v)) ==> n == self.byte_len(v),
+    ;
+}
+
+/// Value well-formedness according to a format's specification.
+///
+/// ## Examples
+///
+/// - [`crate::combinators::Refined`] requires the refinement predicate;
+/// - [`crate::combinators::Varied`]/[`crate::combinators::Repeat`] requires matching length/count;
+/// - [`crate::combinators::U8`] imposes trivial consistency condition (all `u8` values are consistent with the format);
+/// - [`crate::combinators::Void`] is uninhabited and thus has no consistent values.
+pub trait Consistency {
+    /// The type of values whose consistency is being checked.
+    type Val;
+
+    /// Returns `true` if `v` is well-formed w.r.t. this combinator.
+    spec fn consistent(&self, v: Self::Val) -> bool;
+}
+
+/// Combinators whose consistency admits at most one value.
+///
+/// Used by e.g., [`crate::combinators::Preceded`] and [`crate::combinators::Terminated`] to
+/// recover non-malleability when the discarded side is not checked explicitly.
+pub trait AdmitsUniqueVal: Consistency {
+    /// Any two consistent values must be equal.
+    proof fn lemma_unique_consistent_val(&self, v1: Self::Val, v2: Self::Val)
+        ensures
+            self.consistent(v1) && self.consistent(v2) ==> v1 == v2,
+    ;
+}
+
+/// Spec-level predicate abstraction.
+pub trait SpecPred<T> {
+    /// Applies the predicate to a value.
+    spec fn apply(&self, value: T) -> bool;
+}
+
+/// A spec-level predicate function type alias.
+pub type PredFnSpec<T> = spec_fn(T) -> bool;
+
+impl<T> SpecPred<T> for PredFnSpec<T> {
+    open spec fn apply(&self, value: T) -> bool {
+        self(value)
+    }
+}
+
+impl<T, P: SpecPred<T>> SpecPred<T> for &P {
+    open spec fn apply(&self, value: T) -> bool {
+        (*self).apply(value)
+    }
+}
+
+/// Destination-passing style (DPS) serializer specification.
+///
+/// See [`crate::core::proof::EquivSerializers`] for its relationship to [`SpecSerializer`].
+pub trait SpecSerializerDps {
+    /// The type of values to be serialized.
+    type SValue;
+
+    /// Serializes `v` by prepending its encoding onto `obuf`.
+    spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8>;
+}
+
+/// Denotes the byte length of a value w.r.t. a combinator's format spec.
+pub trait SpecByteLen {
+    /// The type of values whose byte length is being computed.
+    type T;
+
+    /// Returns the number of bytes `v` occupies when serialized.
+    spec fn byte_len(&self, v: Self::T) -> nat;
+}
+
+/// Denotes the min/max byte length of a value w.r.t. a combinator's format spec.
+///
+/// **Combinators that do not implement `MinMaxByteLen`**
+/// * **Unbounded Sequence/Tail Combinators:**
+///   *   `Tail` (consumes the remaining buffer)
+///   *   `Star<A>` (zero or more repetitions)
+///   *   `Repeat<A, B>` (zero or more `A`s followed by terminator `B`)
+///   *   `RepeatTillEnd<A>` (sugar for `Repeat<A, Eof>`)
+/// * **Dependent and Recursive Combinators:**
+///   *   `Bind<A, B>` (the suffix parser `B` is constructed dynamically from the parsed value of `A`)
+///   *   `FixWith<LIMIT, Body, Param>` (recursive fixpoint)
+pub trait MinMaxByteLen: SpecByteLen + Consistency<Val = Self::T> {
+    spec fn min(&self) -> nat;
+
+    spec fn max(&self) -> nat;
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T)
+        requires
+            self.consistent(v),
+        ensures
+            self.min() <= self.byte_len(v) <= self.max(),
+    ;
+}
+
+/// Static byte length for fixed-size combinators.
+pub trait StaticByteLen: SpecByteLen + Consistency<Val = Self::T> {
+    /// The statically known serialized length.
+    spec fn static_byte_len() -> nat;
+
+    /// Bridge between the dynamic byte-length view and the static one.
+    broadcast proof fn lemma_static_len_matches_byte_len(&self, v: Self::T)
+        requires
+            self.consistent(v),
+        ensures
+            #[trigger] self.byte_len(v) == Self::static_byte_len(),
+    ;
+}
+
+/// Like [`SpecByteLen`], but the byte length can be computed from the value alone, without needing to refer
+/// to the combinator/format's parameters or internal states (`self`).
+pub trait ValueByteLen: SpecByteLen + Consistency<Val = Self::T> {
+    /// The byte length computed from the value alone.
+    spec fn value_byte_len(v: Self::T) -> nat;
+
+    /// Bridge between the parameterized byte-length view and the value-based one.
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T)
+        requires
+            self.consistent(v),
+        ensures
+            self.byte_len(v) == Self::value_byte_len(v),
+    ;
+}
+
+/// Broadcast wrapper for [`ValueByteLen::lemma_value_len_matches_byte_len`].
+pub broadcast proof fn lemma_value_len_matches_byte_len<C: ValueByteLen + Consistency>(
+    c: C,
+    v: C::T,
+)
+    requires
+        c.consistent(v),
+    ensures
+        #[trigger] c.byte_len(v) == C::value_byte_len(v),
+{
+    c.lemma_value_len_matches_byte_len(v);
+}
+
+/// Marker for combinators whose corresponding values are raw bytes (`Seq<u8>`).
+pub trait BytesCombinator: SpecByteLen<T = Seq<u8>> {
+    /// Byte length equals buffer length.
+    proof fn lemma_byte_len_is_buf_len(&self, buf: Seq<u8>)
+        ensures
+            self.byte_len(buf) == buf.len(),
+    ;
+}
+
+/// Serializer specification.
+///
+/// See [`crate::core::proof::EquivSerializers`] for its relationship to [`SpecSerializerDps`].
+pub trait SpecSerializer {
+    /// The type of values to be serialized.
+    type SVal;
+
+    /// Serializes `v` into a fresh byte sequence.
+    spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8>;
+}
+
+/// A non-tail format combinator would allow for things to be serialized after itself.
+///
+/// ## Notable formats that are *not* non-tail (i.e., tail formats)
+///
+/// - [`crate::combinators::Tail`]
+/// - [`crate::combinators::Eof`]
+/// - [`crate::combinators::OptionalEnd`]
+/// - [`crate::combinators::RepeatTillEnd`]
+pub trait NonTailFmt: SpecByteLen + SpecSerializerDps<SValue = Self::T> {
+    /// Optional invariant for DPS serializer proofs.
+    open spec fn serialize_dps_inv(&self) -> bool {
+        true
+    }
+
+    /// The serializer prepends to `obuf` (so it will leave `obuf` intact, no truncation, corruption, etc.).
+    ///
+    /// Another way to think about this is that the format allows for trailing bytes after itself, whereas a tail format
+    /// would only allow for leading bytes before itself.
+    proof fn lemma_serialize_dps_prepend(&self, v: Self::SValue, obuf: Seq<u8>)
+        requires
+            self.serialize_dps_inv(),
+        ensures
+            exists|new_buf: Seq<u8>| self.spec_serialize_dps(v, obuf) == new_buf + obuf,
+    ;
+
+    /// number of bytes prepended equals `byte_len(v)`.
+    proof fn lemma_serialize_dps_len(&self, v: Self::SValue, obuf: Seq<u8>)
+        requires
+            self.serialize_dps_inv(),
+        ensures
+            self.spec_serialize_dps(v, obuf).len() - obuf.len() == self.byte_len(v),
+    ;
+}
+
+/// A well-behaved serializer.
+pub trait GoodSerializer: SpecByteLen + SpecSerializer<SVal = Self::T> {
+    /// Optional invariant for serializer-length proofs.
+    open spec fn serialize_inv(&self) -> bool {
+        true
+    }
+
+    /// serialized byte sequence has the expected length.
+    broadcast proof fn lemma_serialize_len(&self, v: Self::SVal)
+        requires
+            self.serialize_inv(),
+        ensures
+            #[trigger] self.spec_serialize(v).len() == self.byte_len(v),
+    ;
+}
+
+/// Marker trait for all specification traits bundled together.
+pub trait SpecCombinator: SpecByteLen + Consistency<Val = Self::T> + SpecParser<
+    PVal = Self::T,
+> + SpecSerializer<SVal = Self::T> + SpecSerializerDps<SValue = Self::T> {
+
+}
+
+impl<T> SpecCombinator for T where
+    T: SpecByteLen + Consistency<Val = Self::T> + SpecParser<PVal = Self::T> + SpecSerializer<
+        SVal = Self::T,
+    > + SpecSerializerDps<SValue = Self::T>,
+ {
+
+}
+
+} // verus!
+pub use crate::core::fns::{ByteLenFnSpec, ParserFnSpec, SerializerDPSFnSpec, SerializerFnSpec};
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/core/proof.rs (complete file)
+```rust
+//! Correctness and security proof traits for Vest combinators.
+
+use crate::core::spec::SpecParser;
+
+use super::spec::*;
+use vstd::prelude::*;
+
+verus! {
+
+/// Serialize-parse roundtrip (DPS).
+///
+/// Serializing a consistent value in DPS style and parsing the result recovers the
+/// original value, consuming exactly `byte_len(v)` bytes.
+///
+/// This is a low-level trait. Individual combinators in the library prove this directly;
+/// the higher-level property [`SPRoundTrip`] is derived via a blanket impl composing this with
+/// [`GoodSerializer`] and [`EquivSerializers`].
+///
+/// ## Note on user-defined combinators
+///
+/// User-defined combinators should prefer proving this trait to proving [`SPRoundTrip`], as
+/// 1. it's a stronger property and proving and implementing this trait would make Rust/Verus auto-derive a proof for [`SPRoundTrip`];
+/// 2. it makes the combinator composable with the rest of the library, which are all built on this stronger property.
+pub trait SPRoundTripDps where
+    Self: SpecByteLen +
+          Consistency<Val = Self::T> +
+          SpecParser<PVal = Self::T> +
+          SpecSerializerDps<SValue = Self::T>,
+ {
+    open spec fn unambiguous(&self) -> bool {
+        true
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>)
+        requires
+            self.unambiguous(),
+            self.consistent(v),
+        ensures
+            ({
+                let ibuf = self.spec_serialize_dps(v, obuf);
+                let n = self.byte_len(v) as int;
+                self.spec_parse(ibuf) == Some((n, v))
+            }),
+    ;
+}
+
+/// Serialize-parse roundtrip.
+///
+/// Serializing a consistent value and parsing the result recovers `v`, consuming
+/// the entire serialized buffer. Automatically derived for combinators implementing
+/// [`SPRoundTripDps`] + [`GoodSerializer`] + [`EquivSerializers`].
+///
+/// ## Note on user-defined combinators
+///
+/// User-defined combinators should prefer proving [`SPRoundTripDps`] to proving this trait. See the note on [`SPRoundTripDps`] for details.
+pub trait SPRoundTrip where
+    Self: SpecByteLen +
+          SpecParser<PVal = Self::T> +
+          SpecSerializer<SVal = Self::T> +
+          Consistency<Val = Self::T> +
+{
+    open spec fn sp_roundtrip_inv(&self) -> bool {
+        true
+    }
+
+    proof fn theorem_serialize_parse_roundtrip(&self, v: Self::T)
+        requires
+            self.sp_roundtrip_inv(),
+            self.consistent(v),
+        ensures
+            ({
+                let bytes = self.spec_serialize(v);
+                self.spec_parse(bytes) == Some((bytes.len() as int, v))
+            }),
+    ;
+}
+
+impl<C: SPRoundTripDps + GoodSerializer + EquivSerializers> SPRoundTrip for C {
+    open spec fn sp_roundtrip_inv(&self) -> bool {
+        self.serialize_inv() && self.equiv_inv() && self.unambiguous()
+    }
+
+    proof fn theorem_serialize_parse_roundtrip(&self, v: Self::T) {
+        let empty = Seq::empty();
+        self.theorem_serialize_dps_parse_roundtrip(v, empty);
+        self.lemma_serialize_equiv_on_empty(v);
+        self.lemma_serialize_len(v);
+    }
+}
+
+
+/// Serializer unambiguity (injectivity on consistent values).
+///
+/// Two different consistent values cannot serialize to the same bytes. This
+/// rules out ambiguity in the value-to-wire direction and follows
+/// automatically from [`SPRoundTrip`].
+pub trait NonAmbiguous where
+    Self: Consistency + SpecSerializer<SVal = Self::Val>
+{
+    /// Side conditions needed by the injectivity proof.
+    open spec fn nonamb_inv(&self) -> bool {
+        true
+    }
+
+    /// Proves that equal serializations imply equal values.
+    proof fn lemma_serialize_injective(&self, v1: Self::Val, v2: Self::Val)
+        requires
+            self.nonamb_inv(),
+            self.consistent(v1),
+            self.consistent(v2),
+        ensures
+            self.spec_serialize(v1) == self.spec_serialize(v2) ==> v1 == v2
+    ;
+
+    /// Equivalent contrapositive: distinct values have distinct serializations.
+    proof fn corollary_serialize_injective_contrapositive(&self, v1: Self::Val, v2: Self::Val)
+        requires
+            self.nonamb_inv(),
+            self.consistent(v1),
+            self.consistent(v2),
+        ensures
+            v1 != v2 ==> self.spec_serialize(v1) != self.spec_serialize(v2),
+    {
+        self.lemma_serialize_injective(v1, v2);
+    }
+}
+
+impl<C: SPRoundTrip> NonAmbiguous for C {
+    open spec fn nonamb_inv(&self) -> bool {
+        self.sp_roundtrip_inv()
+    }
+
+    proof fn lemma_serialize_injective(&self, v1: Self::Val, v2: Self::Val) {
+        self.theorem_serialize_parse_roundtrip(v1);
+        self.theorem_serialize_parse_roundtrip(v2);
+    }
+}
+
+
+/// Parse-serialize roundtrip.
+///
+/// Parsing a buffer and serializing the result reproduces the consumed bytes.
+///
+/// Automatically derived from [`SPRoundTrip`], [`NonMalleable`], and [`SoundParser`].
+///
+/// User-defined combinators can also prove this directly.
+pub trait PSRoundTrip where
+    Self: SpecByteLen +
+          SpecParser<PVal = Self::T> +
+          SpecSerializer<SVal = Self::T> +
+{
+    open spec fn ps_roundtrip_inv(&self) -> bool {
+        true
+    }
+
+    proof fn theorem_parse_serialize_roundtrip(&self, ibuf: Seq<u8>)
+        requires
+            self.ps_roundtrip_inv(),
+        ensures
+            self.spec_parse(ibuf) matches Some((n, v)) ==> self.spec_serialize(v) == ibuf[0..n],
+    ;
+
+    proof fn corollary_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>)
+        requires
+            self.ps_roundtrip_inv(),
+        ensures
+            self.spec_parse(buf1) matches Some((n1, v1)) ==>
+            self.spec_parse(buf2) matches Some((n2, v2)) ==>
+            v1 == v2 ==> buf1[0..n1] == buf2[0..n2],
+    {
+        self.theorem_parse_serialize_roundtrip(buf1);
+        self.theorem_parse_serialize_roundtrip(buf2);
+    }
+}
+
+impl<C: SPRoundTrip + NonMalleable + SoundParser> PSRoundTrip for C {
+    open spec fn ps_roundtrip_inv(&self) -> bool {
+        self.safe_inv() && self.sound_inv() && self.nonmal_inv() && self.sp_roundtrip_inv()
+    }
+
+    proof fn theorem_parse_serialize_roundtrip(&self, ibuf: Seq<u8>) {
+        let c = self;
+        if let Some((n, v)) = c.spec_parse(ibuf) {
+            c.lemma_parse_sound_value(ibuf);
+            c.theorem_serialize_parse_roundtrip(v);
+
+            let serialized = c.spec_serialize(v);
+            assert((c.spec_parse(serialized)->0).1 == v);
+
+            // By non-malleability: both parses return v, so serialized is equal to the input prefix
+            c.lemma_parse_non_malleable(ibuf, serialized);
+            assert(ibuf[0..n] == serialized);
+        }
+    }
+}
+
+/// Parser non-malleability.
+///
+/// If two buffers parse to equal values, their consumed bytes are identical—i.e.,
+/// each semantic value has a unique byte-level representation.
+pub trait NonMalleable: SafeParser {
+    /// Optional invariant (used by spec-function combinators; struct-based combinators
+    /// typically leave this as `true`)
+    open spec fn nonmal_inv(&self) -> bool {
+        true
+    }
+
+    #[verusfmt::skip]
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.nonmal_inv(),
+        ensures
+            self.spec_parse(buf1) matches Some((n1, v1)) ==>
+            self.spec_parse(buf2) matches Some((n2, v2)) ==>
+            v1 == v2 ==> buf1[0..n1] == buf2[0..n2],
+    ;
+}
+
+/// No-lookahead property for parsers.
+///
+/// Intuitively: the parser's behavior does not depend on "future" bytes beyond the consumed prefix
+/// (i.e., it does not need to "look ahead"/"peek" at them to decide how to parse the prefix).
+///
+/// Formally: if two buffers share a common prefix that successfully parses, then they parse to the same value.
+pub trait NoLookAhead: SafeParser {
+    open spec fn no_lookahead_inv(&self) -> bool {
+        true
+    }
+
+    #[verusfmt::skip]
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.no_lookahead_inv(),
+        ensures
+            self.spec_parse(i1) matches Some((n, v)) ==>
+            0 <= n <= i2.len() ==> i2[0..n] == i1[0..n] ==>
+            self.spec_parse(i2) == Some((n, v)),
+    ;
+
+    proof fn corollary_non_extensible(&self, i1: Seq<u8>, i2: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.no_lookahead_inv(),
+        ensures
+            self.spec_parse(i1) matches Some((n, v)) ==> self.spec_parse(i1 + i2) == Some((n, v)),
+    {
+        self.lemma_no_lookahead(i1, i1 + i2);
+        if let Some((n, v)) = self.spec_parse(i1) {
+            self.lemma_parse_safe(i1);
+            assert(0 <= n <= (i1 + i2).len());
+            assert(i1[0..n] == (i1 + i2)[0..n]);
+        }
+    }
+}
+
+/// Productivity for parsers.
+///
+/// A productive parser always consumes at least one byte when it succeeds.
+///
+/// Inherently unproductive combinators are:
+/// *   **`Empty`**: Always succeeds and never consumes any bytes.
+/// *   **`Eof`**: Asserts the end of the input. It only succeeds if the buffer is entirely empty, thus always consuming 0 bytes.
+/// *   **`Tail`**: Consumes all remaining bytes in the buffer. If the buffer is already empty, it successfully consumes 0 bytes.
+/// *   **`Opt<A>`**: Evaluates an optional field. If `A` fails, `Opt<A>` successfully returns `None` while consuming 0 bytes.
+/// *   **`Star<A>`**: The Kleene star for zero-or-more repetitions. It can successfully parse zero occurrences of `A`, consuming 0 bytes.
+/// *   **`OptionalEnd<C>` & `RepeatTillEnd<C>`**: These are syntax sugar for `Optional<C, Eof>` and `Repeat<C, Eof>`.
+///
+/// The above combinators still implement the `Productive` trait in order for sequencing combinators
+/// like `Pair` to remain productive, but their `productive_inv` would return `false` (so `lemma_productive` would not apply to them).
+pub trait Productive: SafeParser {
+    open spec fn productive_inv(&self) -> bool {
+        true
+    }
+
+    broadcast proof fn lemma_productive(&self, s: Seq<u8>)
+        requires
+            self.safe_inv(),
+            self.productive_inv(),
+        ensures
+            #[trigger] self.spec_parse(s) matches Some((n, _)) ==> n > 0,
+    ;
+}
+
+/// Full DPS ↔ non-DPS serializer equivalence for *any* output buffer.
+///
+/// See [`EquivSerializers`] for the weaker empty-buffer variant.
+pub trait EquivSerializersGeneral: SpecSerializer + SpecSerializerDps<SValue = Self::SVal> {
+    open spec fn equiv_general_inv(&self) -> bool {
+        true
+    }
+
+    /// `spec_serialize_dps(v, obuf) == spec_serialize(v) + obuf`.
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>)
+        requires
+            self.equiv_general_inv(),
+        ensures
+            self.spec_serialize_dps(v, obuf) == self.spec_serialize(v) + obuf,
+    ;
+}
+
+/// DPS ↔ non-DPS serializer equivalence on the empty buffer.
+///
+/// Sufficient for deriving [`SPRoundTrip`] from [`SPRoundTripDps`].
+pub trait EquivSerializers: SpecSerializer + SpecSerializerDps<SValue = Self::SVal> {
+    open spec fn equiv_inv(&self) -> bool {
+        true
+    }
+
+    /// `spec_serialize_dps(v, []) == spec_serialize(v)`.
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal)
+        requires
+            self.equiv_inv(),
+        ensures
+            self.spec_serialize_dps(v, seq![]) == self.spec_serialize(v),
+    ;
+}
+
+/// A "strict" combinator that satisfies all the core correctness and security properties proven by the library's combinators.
+pub trait StrictCombinator:
+    SafeParser +
+    Productive +
+    StrictParser +
+    NonMalleable +
+    GoodSerializer +
+    NonTailFmt +
+    SPRoundTripDps +
+    EquivSerializersGeneral {
+
+}
+
+impl<Body> StrictCombinator for Body where
+    Body:
+        SafeParser +
+        Productive +
+        StrictParser +
+        NonMalleable +
+        GoodSerializer +
+        NonTailFmt +
+        SPRoundTripDps +
+        EquivSerializersGeneral,
+ {
+
+}
+
+/// This is a marker trait for combinators that are "leaves" in the combinator hierarchy.
+///
+/// A "leaf" combinator does not expose any non-trivial preconditions on its correctness and security properties.
+///
+/// Built-in combinators that are "leaves" include [Fixed](crate::combinators::bytes::Fixed), [Varied](crate::combinators::bytes::Varied),
+/// [U8](crate::combinators::uints::U8)/[U16Le](crate::combinators::uints::U16Le)/[U32Le](crate::combinators::uints::U32Le),
+/// [FixWith](crate::combinators::recursive::FixWith), [Empty](crate::combinators::marker::Empty), and [Void](crate::combinators::marker::Void).
+///
+/// In addition, any derived/composed combinator proven to satisfy `Leaf::leaf_inv` can also be marked as a leaf combinator.
+pub trait Leaf:
+    SafeParser +
+    GoodSerializer +
+    NonTailFmt +
+    SPRoundTripDps +
+    EquivSerializersGeneral {
+    proof fn leaf_inv(&self)
+        ensures
+            self.unambiguous(),
+            self.safe_inv(),
+            self.serialize_inv(),
+            self.serialize_dps_inv(),
+            self.equiv_general_inv(),
+    ;
+}
+
+/// Similar to [`Leaf`], but also includes parser strictness
+/// and non-malleability.
+pub trait LeafNonMalleable:
+    Leaf +
+    StrictParser +
+    NonMalleable {
+    proof fn nonmal_leaf_inv(&self)
+        ensures
+            self.unambiguous(),
+            self.safe_inv(),
+            self.sound_inv(),
+            self.strict_inv(),
+            self.nonmal_inv(),
+            self.serialize_inv(),
+            self.serialize_dps_inv(),
+            self.equiv_general_inv(),
+    ;
+}
+
+impl<Fmt: LeafNonMalleable> Leaf for Fmt {
+    proof fn leaf_inv(&self) {
+        self.nonmal_leaf_inv();
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/mod.rs (complete file)
+```rust
+//! Combinators for composing binary data formats.
+//!
+//! Each format implements only the specification, proof, and executable traits
+//! that its semantics justify. In particular, deliberately malleable formats
+//! such as [`Alt`] and the permutation combinators do not claim
+//! [`NonMalleable`](crate::core::proof::NonMalleable). See the
+//! [combinator guide](https://secure-foundations.github.io/vest/guide/library/combinators.html)
+//! for the overall construction model.
+//!
+//! # Primitive combinators
+//!
+//! | Combinator | Description |
+//! |---|---|
+//! | [`Fixed<N>`] | Exactly `N` bytes |
+//! | [`Varied<Len>`] | Variable-length bytes determined by a length parameter |
+//! | [`U8`] | Unsigned 8-bit integer |
+//! | [`I8`] | Signed 8-bit integer |
+//! | [`U16Le`] / [`U16Be`] | Unsigned 16-bit integer (little/big-endian) |
+//! | [`I16Le`] / [`I16Be`] | Signed 16-bit integer (little/big-endian) |
+//! | [`U24Le`] / [`U24Be`] | Unsigned 24-bit integer represented as `u32` (little/big-endian) |
+//! | [`U32Le`] / [`U32Be`] | Unsigned 32-bit integer (little/big-endian) |
+//! | [`I32Le`] / [`I32Be`] | Signed 32-bit integer (little/big-endian) |
+//! | [`U64Le`] / [`U64Be`] | Unsigned 64-bit integer (little/big-endian) |
+//! | [`I64Le`] / [`I64Be`] | Signed 64-bit integer (little/big-endian) |
+//!
+//! # Higher-order combinators
+//!
+//! | Combinator | Description |
+//! |---|---|
+//! | [`Pair<A, B>`] | Sequential composition |
+//! | [`Choice<A, B>`] | Non-malleable ordered alternative |
+//! | [`Alt<A, B>`] | Malleable ordered alternative |
+//! | [`Opt<A>`] | Optional value |
+//! | [`Optional<A, B>`] | Same as `Pair(Opt<A>, B)`, but disambiguates `A` and `B` |
+//! | [`Star<A>`] | The Kleene star: zero-or-more repetitions |
+//! | [`Repeat<A, B>`] | Same as `Pair(Star<A>, B)`, but disambiguates `A` and `B` |
+//! | [`RepeatN<C, Len>`] | Fixed number of repetitions determined by a length parameter |
+//! | [`Array<N, C>`] | Array of values of length `N` |
+//! | [`Preceded<A, AVal, B>`] | Same as `Pair(A, B)`, but discards A's value and uses `a_val` as its serialization witness |
+//! | [`Terminated<A, B, BVal>`] | Same as `Pair(A, B)`, but discards B's value and uses `b_val` as its serialization witness |
+//! | [`Permute2<P1, P2>`] | Accepts either order of two components, serializes the declared order (malleable) |
+//! | [`Permute3<A, B, C>`] | Accepts any of the 6 orders of three components (malleable) |
+//! | [`Permute4<A, B, C, D>`] | Accepts any of the 24 orders of four components (malleable) |
+//! | [`Permute5<A, B, C, D, E>`] | Accepts any of the 120 orders of five components (malleable) |
+//! | [`Mapped<Inner, M>`] | Isomorphic format transformation via a [bijection](mapped::spec::SpecMapper) |
+//! | [`Refined<Inner, Pred>`] | Format refinement via a [predicate](crate::core::spec::SpecPred) |
+//! | [`Const<Inner, T>`] | Matches and returns a specific constant value |
+//! | [`PrefixTagged<Tg, T, Of>`] | A format preceded by a tag value |
+//! | [`SuffixTagged<Of, Tg, T>`] | A format followed by a tag value |
+//! | [`Cond<Inner>`] | Boolean-gated combinator (most often used in branches of `Choice` / `Alt`) |
+//! | [`Named<Inner>`] | Like `Inner`, but annotates runtime parse errors with a static format name |
+//!
+//! # Dependent combinators
+//!
+//! | Combinator | Description |
+//! |---|---|
+//! | [`Bind<A, B>`] | Like `Pair<A, B>`, but `B` can depend on `A`'s value |
+//!
+//! # Tail combinators
+//!
+//! | Combinator | Description |
+//! |---|---|
+//! | [`Tail`] | Like [`Varied`], but at the tail position (underspecify the format and allow trailing data) |
+//! | [`Eof`] | Signals end-of-file (no trailing data) |
+//! | [`OptionalEnd<C>`] | Same as `Optional<C, Eof>` (for convenience) |
+//! | [`RepeatTillEnd<C>`] | Same as `Repeat<C, Eof>` (for convenience) |
+//!
+//! # Marker combinators
+//!
+//! | Combinator | Description |
+//! |---|---|
+//! | [`Empty`] | Unit (nothing interesting, but still occupies zero bytes) |
+//! | [`Void`] | Bottom (no value can satisfy this format) |
+//!
+//! # Recursive combinators
+//!
+//! | Combinator | Description |
+//! |---|---|
+//! | [`FixWith<LIMIT, Body, Param>`] | Bounded fixpoint for recursive formats; use `Param = ()` for context-free recursion |
+pub mod bits;
+pub mod bytes;
+pub mod choice;
+pub mod cond;
+pub mod congruence;
+pub mod disjoint;
+pub mod length;
+pub mod mapped;
+pub mod marker;
+pub mod named;
+pub mod opt;
+pub mod permute;
+pub mod preceded;
+pub mod recursive;
+pub mod reference;
+pub mod refined;
+pub mod sints;
+pub mod star;
+pub mod tail;
+pub mod terminated;
+pub mod tuple;
+pub mod uints;
+
+pub use bits::Bits;
+pub use bytes::{AndThen, ExactLen, Fixed, Varied};
+pub use choice::{Alt, Choice, Dispatch, Sum};
+pub use cond::Cond;
+pub use length::AsLen;
+pub use mapped::Mapped;
+pub use marker::{exec::ExecNever, Empty, Void};
+pub use named::Named;
+pub use opt::{Opt, Optional};
+pub use permute::{Permute2, Permute3, Permute4, Permute5};
+pub use preceded::Preceded;
+pub use recursive::FixWith;
+pub use reference::Ref;
+pub use refined::{Const, PrefixTagged, Refined, SuffixTagged};
+pub use sints::{I16Be, I16Le, I32Be, I32Le, I64Be, I64Le, I8};
+pub use star::{Array, Repeat, RepeatN, Star};
+pub use tail::{Eof, OptionalEnd, RepeatTillEnd, Tail};
+pub use terminated::Terminated;
+pub use tuple::{Bind, Pair};
+pub use uints::{U16Be, U16Le, U24Be, U24Le, U32Be, U32Le, U64Be, U64Le, U8};
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/tuple/mod.rs (complete file)
+```rust
+//! Sequential and dependent composition.
+//!
+//! [`Pair`] parses two formats in order; N-ary formats nest it as
+//! `Pair(A, Pair(B, C))`. [`Bind`] chooses the second format based on the first's value.
+/// Executable trait implementations for this combinator.
+pub mod exec;
+/// Correctness proofs for this combinator.
+pub mod proof;
+/// Specification trait implementations for this combinator.
+pub mod spec;
+
+use vstd::prelude::*;
+
+verus! {
+
+/// Sequential composition of formats `A` and `B`.
+#[derive(Copy)]
+pub struct Pair<A, B>(pub A, pub B);
+
+impl<A: Clone, B: Clone> Clone for Pair<A, B> {
+    fn clone(&self) -> (cloned: Self)
+        ensures
+            call_ensures(A::clone, (&self.0,), cloned.0),
+            call_ensures(B::clone, (&self.1,), cloned.1),
+    {
+        Pair(self.0.clone(), self.1.clone())
+    }
+}
+
+/// Sequential composition of formats `A` and `B`, where `B` may depend on the value of `A`.
+///
+/// Parsing semantics: parses `A` to get a `key`, then parses `B(key)` to get the body `value`,
+/// and returns `(key, value)`.
+/// During serialization, the caller must provide both the `key` and `value`.
+///
+#[derive(Copy)]
+pub struct Bind<A, B>(pub A, pub B);
+
+impl<A: Clone, B: Clone> Clone for Bind<A, B> {
+    fn clone(&self) -> (cloned: Self)
+        ensures
+            call_ensures(A::clone, (&self.0,), cloned.0),
+            call_ensures(B::clone, (&self.1,), cloned.1),
+    {
+        Bind(self.0.clone(), self.1.clone())
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/tuple/spec.rs (complete file)
+```rust
+//! Specifications for sequential composition.
+use crate::combinators::mapped::spec::*;
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+verus! {
+
+impl<A, B> SpecParser for super::Pair<A, B> where A: SpecParser, B: SpecParser {
+    type PVal = (A::PVal, B::PVal);
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)> {
+        match self.0.spec_parse(ibuf) {
+            Some((n1, v1)) => match self.1.spec_parse(ibuf[n1..]) {
+                Some((n2, v2)) => Some((n1 + n2, (v1, v2))),
+                None => None,
+            },
+            None => None,
+        }
+    }
+}
+
+impl<A, B> Consistency for super::Pair<A, B> where A: Consistency, B: Consistency {
+    type Val = (A::Val, B::Val);
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        self.0.consistent(v.0) && self.1.consistent(v.1)
+    }
+}
+
+impl<A, B> SafeParser for super::Pair<A, B> where A: SafeParser, B: SafeParser {
+    open spec fn safe_inv(&self) -> bool {
+        &&& self.0.safe_inv()
+        &&& self.1.safe_inv()
+    }
+
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        assert(self.safe_inv());
+        self.0.lemma_parse_safe(ibuf);
+        if let Some((n1, v1)) = self.0.spec_parse(ibuf) {
+            self.1.lemma_parse_safe(ibuf[n1..]);
+        }
+    }
+}
+
+impl<A, B> SoundParser for super::Pair<A, B> where A: SoundParser, B: SoundParser {
+    open spec fn sound_inv(&self) -> bool {
+        &&& self.0.sound_inv()
+        &&& self.1.sound_inv()
+    }
+
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        assert(self.sound_inv());
+        self.0.lemma_parse_sound_value(ibuf);
+        if let Some((n1, v1)) = self.0.spec_parse(ibuf) {
+            self.1.lemma_parse_sound_value(ibuf[n1..]);
+        }
+    }
+}
+
+impl<A, B> StrictParser for super::Pair<A, B> where A: StrictParser, B: StrictParser {
+    open spec fn strict_inv(&self) -> bool {
+        &&& self.0.strict_inv()
+        &&& self.1.strict_inv()
+    }
+
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        assert(self.strict_inv());
+        self.0.lemma_parse_strict_consumption(ibuf);
+        if let Some((n1, v1)) = self.0.spec_parse(ibuf) {
+            self.1.lemma_parse_strict_consumption(ibuf[n1..]);
+        }
+    }
+}
+
+impl<A, B> SpecSerializerDps for super::Pair<A, B> where
+    A: SpecSerializerDps,
+    B: SpecSerializerDps,
+ {
+    type SValue = (A::SValue, B::SValue);
+
+    open spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8> {
+        self.0.spec_serialize_dps(v.0, self.1.spec_serialize_dps(v.1, obuf))
+    }
+}
+
+impl<A, B> SpecSerializer for super::Pair<A, B> where A: SpecSerializer, B: SpecSerializer {
+    type SVal = (A::SVal, B::SVal);
+
+    open spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8> {
+        self.0.spec_serialize(v.0) + self.1.spec_serialize(v.1)
+    }
+}
+
+impl<A, B> NonTailFmt for super::Pair<A, B> where A: NonTailFmt, B: NonTailFmt {
+    open spec fn serialize_dps_inv(&self) -> bool {
+        &&& self.0.serialize_dps_inv()
+        &&& self.1.serialize_dps_inv()
+    }
+
+    proof fn lemma_serialize_dps_prepend(&self, v: Self::SValue, obuf: Seq<u8>) {
+        let serialized1 = self.1.spec_serialize_dps(v.1, obuf);
+        let serialized0 = self.0.spec_serialize_dps(v.0, serialized1);
+        assert(self.serialize_dps_inv());
+        self.1.lemma_serialize_dps_prepend(v.1, obuf);
+        self.0.lemma_serialize_dps_prepend(v.0, serialized1);
+        let witness1 = choose|wit1: Seq<u8>| self.1.spec_serialize_dps(v.1, obuf) == wit1 + obuf;
+        let witness0 = choose|wit0: Seq<u8>|
+            self.0.spec_serialize_dps(v.0, serialized1) == wit0 + serialized1;
+        assert(serialized0 == witness0 + witness1 + obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: Self::SValue, obuf: Seq<u8>) {
+        assert(self.serialize_dps_inv());
+        self.1.lemma_serialize_dps_len(v.1, obuf);
+        let serialized1 = self.1.spec_serialize_dps(v.1, obuf);
+        self.0.lemma_serialize_dps_len(v.0, serialized1);
+    }
+}
+
+impl<A, B> GoodSerializer for super::Pair<A, B> where A: GoodSerializer, B: GoodSerializer {
+    open spec fn serialize_inv(&self) -> bool {
+        &&& self.0.serialize_inv()
+        &&& self.1.serialize_inv()
+    }
+
+    proof fn lemma_serialize_len(&self, v: Self::SVal) {
+        assert(self.serialize_inv());
+        self.1.lemma_serialize_len(v.1);
+        self.0.lemma_serialize_len(v.0);
+    }
+}
+
+impl<A: SpecByteLen, B: SpecByteLen> SpecByteLen for super::Pair<A, B> {
+    type T = (A::T, B::T);
+
+    open spec fn byte_len(&self, v: Self::T) -> nat {
+        self.0.byte_len(v.0) + self.1.byte_len(v.1)
+    }
+}
+
+impl<A: MinMaxByteLen, B: MinMaxByteLen> MinMaxByteLen for super::Pair<A, B> {
+    open spec fn max(&self) -> nat {
+        self.0.max() + self.1.max()
+    }
+
+    open spec fn min(&self) -> nat {
+        self.0.min() + self.1.min()
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+        self.0.lemma_min_max_byte_len(v.0);
+        self.1.lemma_min_max_byte_len(v.1);
+    }
+}
+
+impl<A: ValueByteLen, B: ValueByteLen> ValueByteLen for super::Pair<A, B> {
+    open spec fn value_byte_len(v: Self::T) -> nat {
+        A::value_byte_len(v.0) + B::value_byte_len(v.1)
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+        self.0.lemma_value_len_matches_byte_len(v.0);
+        self.1.lemma_value_len_matches_byte_len(v.1);
+    }
+}
+
+impl<A: StaticByteLen, B: StaticByteLen> StaticByteLen for super::Pair<A, B> {
+    open spec fn static_byte_len() -> nat {
+        A::static_byte_len() + B::static_byte_len()
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+        self.0.lemma_static_len_matches_byte_len(v.0);
+        self.1.lemma_static_len_matches_byte_len(v.1);
+    }
+}
+
+impl<A, B> SpecParser for super::Bind<A, B> where
+    A: SpecParser,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: SpecParser,
+ {
+    type PVal = (A::PVal, <B::Output as SpecParser>::PVal);
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)> {
+        match self.0.spec_parse(ibuf) {
+            Some((n1, key)) => {
+                let next = self.1.spec_map(key);
+                match next.spec_parse(ibuf[n1..]) {
+                    Some((n2, val)) => Some((n1 + n2, (key, val))),
+                    None => None,
+                }
+            },
+            None => None,
+        }
+    }
+}
+
+impl<A, B> Consistency for super::Bind<A, B> where
+    A: Consistency,
+    B: SpecMap<Input = A::Val>,
+    B::Output: Consistency,
+ {
+    type Val = (A::Val, <B::Output as Consistency>::Val);
+
+    open spec fn consistent(&self, value: Self::Val) -> bool {
+        let (key, val) = value;
+        self.0.consistent(key) && self.1.spec_map(key).consistent(val)
+    }
+}
+
+impl<A, B> SafeParser for super::Bind<A, B> where
+    A: SafeParser,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: SafeParser,
+ {
+    open spec fn safe_inv(&self) -> bool {
+        &&& self.0.safe_inv()
+        &&& forall|key: A::PVal| #[trigger] self.1.spec_map(key).safe_inv()
+    }
+
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        assert(self.safe_inv());
+        self.0.lemma_parse_safe(ibuf);
+        if let Some((n1, key)) = self.0.spec_parse(ibuf) {
+            let next = self.1.spec_map(key);
+            next.lemma_parse_safe(ibuf[n1..]);
+        }
+    }
+}
+
+impl<A, B> SoundParser for super::Bind<A, B> where
+    A: SoundParser,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: SoundParser,
+ {
+    open spec fn sound_inv(&self) -> bool {
+        &&& self.0.sound_inv()
+        &&& forall|key: A::PVal| #[trigger] self.1.spec_map(key).sound_inv()
+    }
+
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        self.0.lemma_parse_sound_value(ibuf);
+        if let Some((n1, key)) = self.0.spec_parse(ibuf) {
+            let next = self.1.spec_map(key);
+            next.lemma_parse_sound_value(ibuf[n1..]);
+            if let Some((_n2, val)) = next.spec_parse(ibuf[n1..]) {
+                assert(self.consistent((key, val)));
+            }
+        }
+    }
+}
+
+impl<A, B> StrictParser for super::Bind<A, B> where
+    A: StrictParser,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: StrictParser,
+ {
+    open spec fn strict_inv(&self) -> bool {
+        &&& self.0.strict_inv()
+        &&& forall|key: A::PVal| #[trigger] self.1.spec_map(key).strict_inv()
+    }
+
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        self.0.lemma_parse_strict_consumption(ibuf);
+        self.0.lemma_parse_sound_value(ibuf);
+        if let Some((n1, key)) = self.0.spec_parse(ibuf) {
+            let next = self.1.spec_map(key);
+            next.lemma_parse_strict_consumption(ibuf[n1..]);
+            next.lemma_parse_sound_value(ibuf[n1..]);
+        }
+    }
+}
+
+impl<A, B> SpecSerializerDps for super::Bind<A, B> where
+    A: SpecSerializerDps,
+    B: SpecMap<Input = A::SValue>,
+    B::Output: SpecSerializerDps,
+ {
+    type SValue = (A::SValue, <B::Output as SpecSerializerDps>::SValue);
+
+    open spec fn spec_serialize_dps(&self, value: Self::SValue, obuf: Seq<u8>) -> Seq<u8> {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        self.0.spec_serialize_dps(key, next.spec_serialize_dps(val, obuf))
+    }
+}
+
+impl<A, B> SpecSerializer for super::Bind<A, B> where
+    A: SpecSerializer,
+    B: SpecMap<Input = A::SVal>,
+    B::Output: SpecSerializer,
+ {
+    type SVal = (A::SVal, <B::Output as SpecSerializer>::SVal);
+
+    open spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8> {
+        let (key, val) = v;
+        let next = self.1.spec_map(key);
+        self.0.spec_serialize(key) + next.spec_serialize(val)
+    }
+}
+
+impl<A, B> NonTailFmt for super::Bind<A, B> where
+    A: NonTailFmt,
+    B: SpecMap<Input = A::SValue>,
+    B::Output: NonTailFmt,
+ {
+    open spec fn serialize_dps_inv(&self) -> bool {
+        &&& self.0.serialize_dps_inv()
+        &&& forall|key: A::SValue| #[trigger] self.1.spec_map(key).serialize_dps_inv()
+    }
+
+    proof fn lemma_serialize_dps_prepend(&self, value: Self::SValue, obuf: Seq<u8>) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        let next_buf = next.spec_serialize_dps(val, obuf);
+
+        assert(self.serialize_dps_inv());
+        next.lemma_serialize_dps_prepend(val, obuf);
+        self.0.lemma_serialize_dps_prepend(key, next_buf);
+
+        let witness_next = choose|w: Seq<u8>| next.spec_serialize_dps(val, obuf) == w + obuf;
+        let witness_prefix = choose|w: Seq<u8>|
+            self.0.spec_serialize_dps(key, next_buf) == w + next_buf;
+        assert(self.spec_serialize_dps(value, obuf) == witness_prefix + witness_next + obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, value: Self::SValue, obuf: Seq<u8>) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        let next_buf = next.spec_serialize_dps(val, obuf);
+        assert(self.serialize_dps_inv());
+        next.lemma_serialize_dps_len(val, obuf);
+        self.0.lemma_serialize_dps_len(key, next_buf);
+    }
+}
+
+impl<A, B> GoodSerializer for super::Bind<A, B> where
+    A: GoodSerializer,
+    B: SpecMap<Input = A::SVal>,
+    B::Output: GoodSerializer,
+ {
+    open spec fn serialize_inv(&self) -> bool {
+        &&& self.0.serialize_inv()
+        &&& forall|key: A::SVal| #[trigger] self.1.spec_map(key).serialize_inv()
+    }
+
+    proof fn lemma_serialize_len(&self, value: Self::SVal) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        assert(self.serialize_inv());
+        self.0.lemma_serialize_len(key);
+        next.lemma_serialize_len(val);
+    }
+}
+
+impl<A, B> SpecByteLen for super::Bind<A, B> where
+    A: SpecByteLen,
+    B: SpecMap<Input = A::T>,
+    B::Output: SpecByteLen,
+ {
+    type T = (A::T, <B::Output as SpecByteLen>::T);
+
+    open spec fn byte_len(&self, value: Self::T) -> nat {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        self.0.byte_len(key) + next.byte_len(val)
+    }
+}
+
+impl<A, B> ValueByteLen for super::Bind<A, B> where
+    A: ValueByteLen,
+    B: SpecMap<Input = A::T>,
+    B::Output: ValueByteLen,
+ {
+    open spec fn value_byte_len(value: Self::T) -> nat {
+        A::value_byte_len(value.0) + <B::Output as ValueByteLen>::value_byte_len(value.1)
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, value: Self::T) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        self.0.lemma_value_len_matches_byte_len(key);
+        next.lemma_value_len_matches_byte_len(val);
+    }
+}
+
+impl<A, B> StaticByteLen for super::Bind<A, B> where
+    A: StaticByteLen,
+    B: SpecMap<Input = A::T>,
+    B::Output: StaticByteLen,
+ {
+    open spec fn static_byte_len() -> nat {
+        A::static_byte_len() + <B::Output as StaticByteLen>::static_byte_len()
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, value: Self::T) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        self.0.lemma_static_len_matches_byte_len(key);
+        next.lemma_static_len_matches_byte_len(val);
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/tuple/proof.rs (complete file)
+```rust
+//! Correctness and ambiguity proofs for sequential composition.
+use crate::combinators::mapped::spec::SpecMap;
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+verus! {
+
+impl<A: SPRoundTripDps + NonTailFmt, B: SPRoundTripDps> SPRoundTripDps for super::Pair<A, B> {
+    open spec fn unambiguous(&self) -> bool {
+        &&& self.0.serialize_dps_inv()
+        &&& self.0.unambiguous()
+        &&& self.1.unambiguous()
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {
+        let serialized1 = self.1.spec_serialize_dps(v.1, obuf);
+        let serialized0 = self.0.spec_serialize_dps(v.0, serialized1);
+        assert(self.unambiguous());
+        self.1.theorem_serialize_dps_parse_roundtrip(v.1, obuf);
+        self.0.theorem_serialize_dps_parse_roundtrip(v.0, serialized1);
+        self.0.lemma_serialize_dps_prepend(v.0, serialized1);
+        self.0.lemma_serialize_dps_len(v.0, serialized1);
+        if let Some((n0, v0)) = self.0.spec_parse(serialized0) {
+            assert(n0 == serialized0.len() - serialized1.len());
+            assert(serialized0[n0..] == serialized1);
+        }
+    }
+}
+
+impl<A: NonMalleable, B: NonMalleable> NonMalleable for super::Pair<A, B> {
+    open spec fn nonmal_inv(&self) -> bool {
+        &&& self.0.nonmal_inv()
+        &&& self.1.nonmal_inv()
+        &&& self.0.safe_inv()
+        &&& self.1.safe_inv()
+    }
+
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        if let Some((n1, v1)) = self.spec_parse(buf1) {
+            if let Some((n2, v2)) = self.spec_parse(buf2) {
+                if v1 == v2 {
+                    let (n1a, a1) = self.0.spec_parse(buf1)->0;
+                    let (n2a, a2) = self.0.spec_parse(buf2)->0;
+                    let (n1b, b1) = self.1.spec_parse(buf1[n1a..])->0;
+                    let (n2b, b2) = self.1.spec_parse(buf2[n2a..])->0;
+                    assert(self.nonmal_inv());
+                    self.0.lemma_parse_safe(buf1);
+                    self.0.lemma_parse_safe(buf2);
+                    self.1.lemma_parse_safe(buf1[n1a..]);
+                    self.1.lemma_parse_safe(buf2[n2a..]);
+                    self.0.lemma_parse_non_malleable(buf1, buf2);
+                    self.1.lemma_parse_non_malleable(buf1[n1a..], buf2[n2a..]);
+                    assert(n1 == n1a + n1b && n2 == n2a + n2b);
+                    assert(buf1[0..n1] == buf2[0..n2]) by {
+                        assert(buf1[0..n1] == buf1[0..n1a] + buf1[n1a..][0..n1b]);
+                        assert(buf2[0..n2] == buf2[0..n2a] + buf2[n2a..][0..n2b]);
+                    }
+                }
+            }
+        }
+    }
+}
+
+pub(crate) proof fn lemma_take_skip<T>(s: Seq<T>, n1: int, n2: int)
+    requires
+        0 <= n1,
+        0 <= n2,
+        n1 + n2 <= s.len(),
+    ensures
+        s[0..n1 + n2][n1..] == s[n1..][0..n2],
+{
+}
+
+impl<A: NoLookAhead, B: NoLookAhead> NoLookAhead for super::Pair<A, B> {
+    open spec fn no_lookahead_inv(&self) -> bool {
+        &&& self.0.no_lookahead_inv()
+        &&& self.1.no_lookahead_inv()
+    }
+
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        broadcast use vstd::seq_lib::group_seq_properties;
+
+        if let Some((n, v)) = self.spec_parse(i1) {
+            if 0 <= n <= i2.len() {
+                if i2[0..n] == i1[0..n] {
+                    if let Some((n1, v1)) = self.0.spec_parse(i1) {
+                        if let Some((n2, v2)) = self.1.spec_parse(i1[n1..]) {
+                            assert(self.no_lookahead_inv());
+                            self.lemma_parse_safe(i1);
+                            self.0.lemma_parse_safe(i1);
+                            self.1.lemma_parse_safe(i1[n1..]);
+                            assert(i2[0..n1] == i1[0..n1]);
+                            self.0.lemma_no_lookahead(i1, i2);
+                            assert(i2[n1..][0..n2] == i1[n1..][0..n2]) by {
+                                lemma_take_skip(i1, n1, n2);
+                                lemma_take_skip(i2, n1, n2);
+                            };
+                            self.1.lemma_no_lookahead(i1[n1..], i2[n1..]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+impl<A: Productive, B: Productive> Productive for super::Pair<A, B> {
+    open spec fn productive_inv(&self) -> bool {
+        ||| self.0.productive_inv()
+        ||| self.1.productive_inv()
+    }
+
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        if let Some((n, _v)) = self.spec_parse(s) {
+            let (n1, _v1) = self.0.spec_parse(s)->0;
+            let (n2, _v2) = self.1.spec_parse(s[n1..])->0;
+            self.0.lemma_parse_safe(s);
+            self.1.lemma_parse_safe(s[n1..]);
+            if self.0.productive_inv() {
+                self.0.lemma_productive(s);
+            } else {
+                self.1.lemma_productive(s[n1..]);
+            }
+        }
+    }
+}
+
+impl<A, B> EquivSerializersGeneral for super::Pair<A, B> where
+    A: EquivSerializersGeneral,
+    B: EquivSerializersGeneral,
+ {
+    open spec fn equiv_general_inv(&self) -> bool {
+        &&& self.0.equiv_general_inv()
+        &&& self.1.equiv_general_inv()
+    }
+
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>) {
+        let obuf1 = self.1.spec_serialize_dps(v.1, obuf);
+        assert(self.equiv_general_inv());
+
+        self.1.lemma_serialize_equiv(v.1, obuf);
+        self.0.lemma_serialize_equiv(v.0, obuf1);
+
+        // From self.1.lemma_serialize_equiv:
+        // self.1.spec_serialize_dps(v.1, obuf) == self.1.spec_serialize(v.1) + obuf
+        // So: obuf1 == self.1.spec_serialize(v.1) + obuf
+
+        // From self.0.lemma_serialize_equiv:
+        // self.0.spec_serialize_dps(v.0, obuf1) == self.0.spec_serialize(v.0) + obuf1
+
+        // Therefore:
+        // spec_serialize_dps(v, obuf) = self.0.spec_serialize_dps(v.0, obuf1)
+        //                              = self.0.spec_serialize(v.0) + obuf1
+        //                              = self.0.spec_serialize(v.0) + self.1.spec_serialize(v.1) + obuf
+        //                              = spec_serialize(v) + obuf
+    }
+}
+
+impl<A, B> EquivSerializers for super::Pair<A, B> where
+    A: EquivSerializersGeneral,
+    B: EquivSerializers,
+ {
+    open spec fn equiv_inv(&self) -> bool {
+        &&& self.0.equiv_general_inv()
+        &&& self.1.equiv_inv()
+    }
+
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal) {
+        let empty = Seq::empty();
+        let obuf = self.1.spec_serialize_dps(v.1, empty);
+        assert(self.equiv_inv());
+        self.1.lemma_serialize_equiv_on_empty(v.1);
+        self.0.lemma_serialize_equiv(v.0, obuf);
+    }
+}
+
+impl<A, B> SPRoundTripDps for super::Bind<A, B> where
+    A: SPRoundTripDps + NonTailFmt,
+    B: SpecMap<Input = A::T>,
+    B::Output: SPRoundTripDps,
+ {
+    open spec fn unambiguous(&self) -> bool {
+        &&& self.0.serialize_dps_inv()
+        &&& self.0.unambiguous()
+        &&& forall|key: A::T| #[trigger] self.1.spec_map(key).unambiguous()
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, value: Self::T, obuf: Seq<u8>) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        let next_buf = next.spec_serialize_dps(val, obuf);
+        let serialized = self.0.spec_serialize_dps(key, next_buf);
+        assert(self.unambiguous());
+        next.theorem_serialize_dps_parse_roundtrip(val, obuf);
+        self.0.theorem_serialize_dps_parse_roundtrip(key, next_buf);
+        self.0.lemma_serialize_dps_prepend(key, next_buf);
+        self.0.lemma_serialize_dps_len(key, next_buf);
+        if let Some((n0, _)) = self.0.spec_parse(serialized) {
+            assert(n0 == serialized.len() - next_buf.len());
+            assert(serialized[n0..] == next_buf);
+        }
+    }
+}
+
+impl<A, B> NoLookAhead for super::Bind<A, B> where
+    A: NoLookAhead,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: NoLookAhead,
+ {
+    open spec fn no_lookahead_inv(&self) -> bool {
+        &&& self.0.no_lookahead_inv()
+        &&& forall|key: A::PVal| #[trigger] self.1.spec_map(key).no_lookahead_inv()
+    }
+
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        broadcast use vstd::seq_lib::group_seq_properties;
+
+        use crate::combinators::tuple::proof::lemma_take_skip;
+
+        if let Some((n, v)) = self.spec_parse(i1) {
+            if 0 <= n <= i2.len() {
+                if i2[0..n] == i1[0..n] {
+                    if let Some((n1, key)) = self.0.spec_parse(i1) {
+                        let next = self.1.spec_map(key);
+                        if let Some((n2, _val)) = next.spec_parse(i1[n1..]) {
+                            assert(self.no_lookahead_inv());
+                            self.lemma_parse_safe(i1);
+                            self.0.lemma_parse_safe(i1);
+                            next.lemma_parse_safe(i1[n1..]);
+                            assert(i2[0..n1] == i1[0..n1]);
+                            self.0.lemma_no_lookahead(i1, i2);
+                            assert(i2[n1..][0..n2] == i1[n1..][0..n2]) by {
+                                lemma_take_skip(i1, n1, n2);
+                                lemma_take_skip(i2, n1, n2);
+                            };
+                            next.lemma_no_lookahead(i1[n1..], i2[n1..]);
+                            assert(self.spec_parse(i2) == Some((n, v)));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+impl<A, B> NonMalleable for super::Bind<A, B> where
+    A: NonMalleable,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: NonMalleable,
+ {
+    open spec fn nonmal_inv(&self) -> bool {
+        &&& self.0.nonmal_inv()
+        &&& self.0.safe_inv()
+        &&& forall|key: A::PVal| #[trigger] self.1.spec_map(key).nonmal_inv()
+        &&& forall|key: A::PVal| #[trigger] self.1.spec_map(key).safe_inv()
+    }
+
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        if let Some((n1, v1)) = self.spec_parse(buf1) {
+            if let Some((n2, v2)) = self.spec_parse(buf2) {
+                if v1 == v2 {
+                    assert(self.nonmal_inv());
+                    let (n1a, key1) = self.0.spec_parse(buf1)->0;
+                    let (n2a, key2) = self.0.spec_parse(buf2)->0;
+                    let next1 = self.1.spec_map(key1);
+                    let next2 = self.1.spec_map(key2);
+                    let (n1b, _val) = next1.spec_parse(buf1[n1a..])->0;
+                    let (n2b, _val) = next2.spec_parse(buf2[n2a..])->0;
+                    assert(key1 == key2 && next1 == next2);
+                    let next = next1;
+                    self.0.lemma_parse_safe(buf1);
+                    self.0.lemma_parse_safe(buf2);
+                    next.lemma_parse_safe(buf1[n1a..]);
+                    next.lemma_parse_safe(buf2[n2a..]);
+                    self.0.lemma_parse_non_malleable(buf1, buf2);
+                    next.lemma_parse_non_malleable(buf1[n1a..], buf2[n2a..]);
+                    assert(n1 == n1a + n1b && n2 == n2a + n2b);
+                    assert(buf1[0..n1] == buf2[0..n2]) by {
+                        assert(buf1[0..n1] == buf1[0..n1a] + buf1[n1a..][0..n1b]);
+                        assert(buf2[0..n2] == buf2[0..n2a] + buf2[n2a..][0..n2b]);
+                    }
+                }
+            }
+        }
+    }
+}
+
+impl<A, B> Productive for super::Bind<A, B> where
+    A: Productive,
+    B: SpecMap<Input = A::PVal>,
+    B::Output: Productive,
+ {
+    open spec fn productive_inv(&self) -> bool {
+        ||| self.0.productive_inv()
+        ||| forall|key: A::PVal| #[trigger] self.1.spec_map(key).productive_inv()
+    }
+
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        if let Some((n, v)) = self.spec_parse(s) {
+            let (n1, key) = self.0.spec_parse(s)->0;
+            let next = self.1.spec_map(key);
+            let (n2, _val) = next.spec_parse(s[n1..])->0;
+            self.0.lemma_parse_safe(s);
+            next.lemma_parse_safe(s[n1..]);
+            if self.0.productive_inv() {
+                self.0.lemma_productive(s);
+            } else {
+                next.lemma_productive(s[n1..]);
+            }
+        }
+    }
+}
+
+impl<A, B> EquivSerializersGeneral for super::Bind<A, B> where
+    A: EquivSerializersGeneral,
+    B: SpecMap<Input = A::SVal>,
+    B::Output: EquivSerializersGeneral,
+ {
+    open spec fn equiv_general_inv(&self) -> bool {
+        &&& self.0.equiv_general_inv()
+        &&& forall|key: A::SVal| #[trigger] self.1.spec_map(key).equiv_general_inv()
+    }
+
+    proof fn lemma_serialize_equiv(&self, value: Self::SVal, obuf: Seq<u8>) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        let obuf1 = next.spec_serialize_dps(val, obuf);
+        assert(self.equiv_general_inv());
+        next.lemma_serialize_equiv(val, obuf);
+        self.0.lemma_serialize_equiv(key, obuf1);
+    }
+}
+
+impl<A, B> EquivSerializers for super::Bind<A, B> where
+    A: EquivSerializersGeneral,
+    B: SpecMap<Input = A::SVal>,
+    B::Output: EquivSerializers,
+ {
+    open spec fn equiv_inv(&self) -> bool {
+        &&& self.0.equiv_general_inv()
+        &&& forall|key: A::SVal| #[trigger] self.1.spec_map(key).equiv_inv()
+    }
+
+    proof fn lemma_serialize_equiv_on_empty(&self, value: Self::SVal) {
+        let (key, val) = value;
+        let next = self.1.spec_map(key);
+        let empty = Seq::empty();
+        let obuf = next.spec_serialize_dps(val, empty);
+        assert(self.equiv_inv());
+        next.lemma_serialize_equiv_on_empty(val);
+        self.0.lemma_serialize_equiv(key, obuf);
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/bytes/mod.rs (complete file)
+```rust
+//! Fixed- and value-dependent byte sequence combinators.
+//!
+//! Use [`Fixed`] for a compile-time length, [`Varied`] for a runtime length,
+//! and [`ExactLen`] to confine another format to a bounded byte region.
+/// Executable trait implementations for this combinator.
+pub mod exec;
+/// Correctness proofs for this combinator.
+pub mod proof;
+/// Specification trait implementations for this combinator.
+pub mod spec;
+
+use crate::core::proof::LeafNonMalleable;
+use vstd::prelude::*;
+
+use super::AsLen;
+
+verus! {
+
+/// Parses/serializes exactly `N` bytes as `Seq<u8>`.
+#[derive(Clone, Copy)]
+pub struct Fixed<const N: usize>;
+
+/// Parses/serializes a variable-length byte sequence `Seq<u8>`.
+///
+/// The length is determined by `self.0`, which must implement [`super::length::AsLen`] and
+/// defaults to `u8`.
+///
+/// ## Consistency
+///
+/// A byte sequence is consistent w.r.t `Varied` iff its length equals `self.0`.
+#[derive(Copy)]
+pub struct Varied<Len = u8>(pub Len);
+
+impl<Len: Clone> Clone for Varied<Len> {
+    fn clone(&self) -> (cloned: Self)
+        ensures
+            call_ensures(Len::clone, (&self.0,), cloned.0),
+    {
+        Varied(self.0.clone())
+    }
+}
+
+/// Wraps an inner combinator, constraining it to consume/produce exactly `self.0` bytes.
+///
+/// Implemented as `AndThen(Varied(self.0), self.1)`.
+///
+/// ## Consistency
+///
+/// A value of type `Inner::Val` is consistent w.r.t `ExactLen` iff it is consistent w.r.t `Inner` and
+/// its byte length given by `Inner` equals `self.0`.
+#[derive(Copy)]
+pub struct ExactLen<Inner, Len = u8>(pub Len, pub Inner);
+
+impl<Inner: Clone, Len: Clone> Clone for ExactLen<Inner, Len> {
+    fn clone(&self) -> (cloned: Self)
+        ensures
+            call_ensures(Len::clone, (&self.0,), cloned.0),
+            call_ensures(Inner::clone, (&self.1,), cloned.1),
+    {
+        ExactLen(self.0.clone(), self.1.clone())
+    }
+}
+
+/// Run a [bytes combinator](crate::core::spec::BytesCombinator) `A` and then
+/// re-interpret the *entire* bytes consumed/produced by `A` with another combinator `B`.
+///
+/// ## Consistency
+///
+/// A value of type `B::Val` is consistent w.r.t `AndThen<A, B>` iff there exists a value of type
+/// `A::Val` that is consistent w.r.t `A` and whose byte length equals the byte length of the `B::Val` value w.r.t `B`.
+/// Prefer [`ExactLen`] over `AndThen` to avoid the existential reasoning in the consistency condition.
+#[derive(Copy)]
+pub struct AndThen<A, B>(pub A, pub B);
+
+impl<A: Clone, B: Clone> Clone for AndThen<A, B> {
+    fn clone(&self) -> (cloned: Self)
+        ensures
+            call_ensures(A::clone, (&self.0,), cloned.0),
+            call_ensures(B::clone, (&self.1,), cloned.1),
+    {
+        AndThen(self.0.clone(), self.1.clone())
+    }
+}
+
+impl<const N: usize> LeafNonMalleable for Fixed<N> {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl<Len: AsLen> LeafNonMalleable for Varied<Len> {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/bytes/spec.rs (complete file)
+```rust
+//! Specifications for fixed- and variable-length bytes.
+use crate::combinators::length::AsLen;
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+use super::Varied;
+use crate::combinators::Tail;
+
+verus! {
+
+pub uninterp spec fn array_from_seq<const N: usize, T>(s: Seq<T>) -> [T; N]
+    recommends
+        s.len() == N,
+;
+
+pub broadcast axiom fn axiom_array_from_seq<const N: usize, T>(s: Seq<T>)
+    requires
+        s.len() == N,
+    ensures
+        (#[trigger] array_from_seq::<N, T>(s))@ == s,
+;
+
+pub broadcast proof fn lemma_array_from_seq_roundtrip<const N: usize, T>(a: [T; N])
+    ensures
+        #[trigger] array_from_seq::<N, T>(a@) == a,
+{
+    broadcast use axiom_array_from_seq;
+
+}
+
+impl<const N: usize> SpecParser for super::Fixed<N> {
+    type PVal = Seq<u8>;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)> {
+        if ibuf.len() < N as int {
+            None
+        } else {
+            Some((N as int, ibuf[0..N]))
+        }
+    }
+}
+
+impl<const N: usize> Consistency for super::Fixed<N> {
+    type Val = Seq<u8>;
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        v.len() == N
+    }
+}
+
+impl<const N: usize> SafeParser for super::Fixed<N> {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> SoundParser for super::Fixed<N> {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> StrictParser for super::Fixed<N> {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> SpecSerializerDps for super::Fixed<N> {
+    type SValue = Seq<u8>;
+
+    open spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8> {
+        v + obuf
+    }
+}
+
+impl<const N: usize> SpecSerializer for super::Fixed<N> {
+    type SVal = Seq<u8>;
+
+    open spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8> {
+        v
+    }
+}
+
+impl<const N: usize> NonTailFmt for super::Fixed<N> {
+    proof fn lemma_serialize_dps_prepend(&self, v: Seq<u8>, obuf: Seq<u8>) {
+        assert(self.spec_serialize_dps(v, obuf) == v + obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: Seq<u8>, obuf: Seq<u8>) {
+        assert(self.spec_serialize_dps(v, obuf).len() - obuf.len() == v.len());
+    }
+}
+
+impl<const N: usize> GoodSerializer for super::Fixed<N> {
+    proof fn lemma_serialize_len(&self, v: Self::SVal) {
+        assert(self.spec_serialize(v).len() == v.len());
+    }
+}
+
+impl<const N: usize> SpecByteLen for super::Fixed<N> {
+    type T = Seq<u8>;
+
+    open spec fn byte_len(&self, v: Self::T) -> nat {
+        v.len()
+    }
+}
+
+impl<const N: usize> MinMaxByteLen for super::Fixed<N> {
+    open spec fn min(&self) -> nat {
+        N as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        N as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl<const N: usize> StaticByteLen for super::Fixed<N> {
+    open spec fn static_byte_len() -> nat {
+        N as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl<const N: usize> ValueByteLen for super::Fixed<N> {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        N as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl<const N: usize> BytesCombinator for super::Fixed<N> {
+    proof fn lemma_byte_len_is_buf_len(&self, buf: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> SpecParser for super::Varied<Len> {
+    type PVal = Seq<u8>;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)> {
+        if ibuf.len() < self.0.as_nat() {
+            None
+        } else {
+            Some((self.0.as_nat() as int, ibuf[0..self.0.as_nat()]))
+        }
+    }
+}
+
+impl<Len: AsLen> Consistency for super::Varied<Len> {
+    type Val = Seq<u8>;
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        v.len() == self.0.as_nat()
+    }
+}
+
+impl<Len: AsLen> SafeParser for super::Varied<Len> {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> SoundParser for super::Varied<Len> {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> StrictParser for super::Varied<Len> {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> SpecSerializerDps for super::Varied<Len> {
+    type SValue = Seq<u8>;
+
+    open spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8> {
+        v + obuf
+    }
+}
+
+impl<Len: AsLen> SpecSerializer for super::Varied<Len> {
+    type SVal = Seq<u8>;
+
+    open spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8> {
+        v
+    }
+}
+
+impl<Len: AsLen> NonTailFmt for super::Varied<Len> {
+    proof fn lemma_serialize_dps_prepend(&self, v: Seq<u8>, obuf: Seq<u8>) {
+        assert(self.spec_serialize_dps(v, obuf) == v + obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: Seq<u8>, obuf: Seq<u8>) {
+        assert(self.spec_serialize_dps(v, obuf).len() - obuf.len() == v.len());
+    }
+}
+
+impl<Len: AsLen> GoodSerializer for super::Varied<Len> {
+    proof fn lemma_serialize_len(&self, v: Self::SVal) {
+        assert(self.spec_serialize(v).len() == v.len());
+    }
+}
+
+impl<Len: AsLen> SpecByteLen for super::Varied<Len> {
+    type T = Seq<u8>;
+
+    open spec fn byte_len(&self, v: Self::T) -> nat {
+        v.len()
+    }
+}
+
+impl<Len: AsLen> MinMaxByteLen for super::Varied<Len> {
+    open spec fn min(&self) -> nat {
+        self.0.as_nat()
+    }
+
+    open spec fn max(&self) -> nat {
+        self.0.as_nat()
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl<Len: AsLen> super::Varied<Len> {
+    pub open spec fn byte_len(v: <Self as SpecByteLen>::T) -> nat {
+        v.len()
+    }
+}
+
+impl<Len: AsLen> BytesCombinator for super::Varied<Len> {
+    proof fn lemma_byte_len_is_buf_len(&self, s: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> ValueByteLen for super::Varied<Len> {
+    open spec fn value_byte_len(v: Self::T) -> nat {
+        v.len()
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl<Inner: SpecParser, Len: AsLen> SpecParser for super::ExactLen<Inner, Len> {
+    type PVal = Inner::PVal;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)> {
+        super::AndThen(super::Varied(self.0), self.1).spec_parse(ibuf)
+    }
+}
+
+impl<Inner: Consistency + SpecByteLen<T = Inner::Val>, Len: AsLen> Consistency for super::ExactLen<
+    Inner,
+    Len,
+> {
+    type Val = Inner::Val;
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        &&& self.1.consistent(v)
+        &&& self.0.as_nat() == self.1.byte_len(v)
+    }
+}
+
+impl<Inner: SafeParser, Len: AsLen> SafeParser for super::ExactLen<Inner, Len> {
+    open spec fn safe_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).safe_inv()
+    }
+
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_parse_safe(ibuf);
+    }
+}
+
+impl<Inner: StrictParser, Len: AsLen> SoundParser for super::ExactLen<Inner, Len> {
+    open spec fn sound_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).sound_inv()
+    }
+
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl<Inner: StrictParser, Len: AsLen> StrictParser for super::ExactLen<Inner, Len> {
+    open spec fn strict_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).strict_inv()
+    }
+
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl<Inner: SpecSerializerDps, Len: AsLen> SpecSerializerDps for super::ExactLen<Inner, Len> {
+    type SValue = Inner::SValue;
+
+    open spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8> {
+        super::AndThen(super::Varied(self.0), self.1).spec_serialize_dps(v, obuf)
+    }
+}
+
+impl<Inner: SpecSerializer, Len: AsLen> SpecSerializer for super::ExactLen<Inner, Len> {
+    type SVal = Inner::SVal;
+
+    open spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8> {
+        super::AndThen(super::Varied(self.0), self.1).spec_serialize(v)
+    }
+}
+
+impl<Inner, Len> NonTailFmt for super::ExactLen<Inner, Len> where
+    Inner: GoodSerializer + EquivSerializers,
+    Len: AsLen,
+ {
+    open spec fn serialize_dps_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).serialize_dps_inv()
+    }
+
+    proof fn lemma_serialize_dps_prepend(&self, v: Self::SValue, obuf: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: Self::SValue, obuf: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl<Inner: GoodSerializer, Len: AsLen> GoodSerializer for super::ExactLen<Inner, Len> {
+    open spec fn serialize_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).serialize_inv()
+    }
+
+    proof fn lemma_serialize_len(&self, v: Self::SVal) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_serialize_len(v);
+    }
+}
+
+impl<Inner: SpecByteLen, Len: AsLen> SpecByteLen for super::ExactLen<Inner, Len> {
+    type T = Inner::T;
+
+    open spec fn byte_len(&self, v: Self::T) -> nat {
+        super::AndThen(super::Varied(self.0), self.1).byte_len(v)
+    }
+}
+
+impl<Inner, Len> MinMaxByteLen for super::ExactLen<Inner, Len> where
+    Inner: SpecByteLen + Consistency<Val = Inner::T>,
+    Len: AsLen,
+ {
+    open spec fn min(&self) -> nat {
+        self.0.as_nat()
+    }
+
+    open spec fn max(&self) -> nat {
+        self.0.as_nat()
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+        assert(self.0.as_nat() == self.1.byte_len(v));
+    }
+}
+
+impl<Inner: SpecByteLen, Len: AsLen> super::ExactLen<Inner, Len> {
+    pub open spec fn byte_len(inner: Inner, v: <Self as SpecByteLen>::T) -> nat {
+        inner.byte_len(v)
+    }
+}
+
+impl<Inner: ValueByteLen, Len: AsLen> ValueByteLen for super::ExactLen<Inner, Len> {
+    open spec fn value_byte_len(v: Self::T) -> nat {
+        Inner::value_byte_len(v)
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+        self.1.lemma_value_len_matches_byte_len(v);
+    }
+}
+
+impl<Inner: StaticByteLen, Len: AsLen> StaticByteLen for super::ExactLen<Inner, Len> {
+    open spec fn static_byte_len() -> nat {
+        Inner::static_byte_len()
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+        self.1.lemma_static_len_matches_byte_len(v);
+    }
+}
+
+impl<A, Then> SpecParser for super::AndThen<A, Then> where
+    A: SpecParser<PVal = Seq<u8>>,
+    Then: SpecParser,
+ {
+    type PVal = Then::PVal;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, Self::PVal)> {
+        match self.0.spec_parse(ibuf) {
+            None => None,
+            Some((len_a, chunk)) => match self.1.spec_parse(chunk) {
+                Some((len_b, v)) if len_a == len_b => Some((len_a, v)),
+                _ => None,
+            },
+        }
+    }
+}
+
+impl<A, Then> Consistency for super::AndThen<A, Then> where
+    A: BytesCombinator + Consistency<Val = Seq<u8>>,
+    Then: Consistency + SpecByteLen<T = Then::Val>,
+ {
+    type Val = Then::Val;
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        &&& self.1.consistent(v)
+        &&& exists|chunk: Seq<u8>|
+            self.0.consistent(chunk) && self.0.byte_len(chunk) == self.1.byte_len(v)
+    }
+}
+
+pub broadcast proof fn lemma_tail_and_then_consistent<Then>(then: Then, v: Then::Val) where
+    Then: Consistency + SpecByteLen<T = Then::Val>,
+
+    ensures
+        #[trigger] super::AndThen(Tail, then).consistent(v) == then.consistent(v),
+{
+    if then.consistent(v) {
+        let chunk = Seq::new(then.byte_len(v), |_i| 0u8);
+        assert(Tail.consistent(chunk));
+        assert(Tail.byte_len(chunk) == then.byte_len(v));
+        assert(super::AndThen(Tail, then).0.consistent(chunk));
+    } else {
+    }
+}
+
+pub broadcast group tail_and_then_lemmas {
+    lemma_tail_and_then_consistent,
+}
+
+impl<A, Then> SafeParser for super::AndThen<A, Then> where
+    A: BytesCombinator + SafeParser<PVal = Seq<u8>>,
+    Then: SafeParser,
+ {
+    open spec fn safe_inv(&self) -> bool {
+        self.0.safe_inv()
+    }
+
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        self.0.lemma_parse_safe(ibuf);
+    }
+}
+
+impl<A, Then> SoundParser for super::AndThen<A, Then> where
+    A: BytesCombinator + StrictParser,
+    Then: StrictParser,
+ {
+    open spec fn sound_inv(&self) -> bool {
+        &&& self.0.sound_inv()
+        &&& self.1.sound_inv()
+        &&& self.0.strict_inv()
+        &&& self.1.strict_inv()
+    }
+
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        match self.0.spec_parse(ibuf) {
+            None => {},
+            Some((len_a, chunk)) => match self.1.spec_parse(chunk) {
+                Some((len_b, v)) if len_a == len_b => {
+                    self.0.lemma_parse_sound_value(ibuf);
+                    self.0.lemma_parse_strict_consumption(ibuf);
+                    self.1.lemma_parse_strict_consumption(chunk);
+                    self.1.lemma_parse_sound_value(chunk);
+                    assert(self.0.consistent(chunk));
+                },
+                _ => {},
+            },
+        }
+    }
+}
+
+impl<A, Then> StrictParser for super::AndThen<A, Then> where
+    A: BytesCombinator + StrictParser,
+    Then: StrictParser,
+ {
+    open spec fn strict_inv(&self) -> bool {
+        self.0.strict_inv() && self.1.strict_inv()
+    }
+
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        match self.0.spec_parse(ibuf) {
+            None => {},
+            Some((len_a, chunk)) => match self.1.spec_parse(chunk) {
+                Some((len_b, v)) if len_a == len_b => {
+                    self.1.lemma_parse_strict_consumption(chunk);
+                    assert(self.byte_len(v) == self.1.byte_len(v));
+                },
+                _ => {},
+            },
+        }
+    }
+}
+
+impl<A, Then> SpecSerializerDps for super::AndThen<A, Then> where
+    A: SpecSerializerDps<SValue = Seq<u8>>,
+    Then: SpecSerializerDps,
+ {
+    type SValue = Then::SValue;
+
+    open spec fn spec_serialize_dps(&self, v: Self::SValue, obuf: Seq<u8>) -> Seq<u8> {
+        self.0.spec_serialize_dps(self.1.spec_serialize_dps(v, seq![]), obuf)
+    }
+}
+
+impl<A, Then> SpecSerializer for super::AndThen<A, Then> where
+    A: SpecSerializer<SVal = Seq<u8>>,
+    Then: SpecSerializer,
+ {
+    type SVal = Then::SVal;
+
+    open spec fn spec_serialize(&self, v: Self::SVal) -> Seq<u8> {
+        let inner_bytes = self.1.spec_serialize(v);
+        self.0.spec_serialize(inner_bytes)
+    }
+}
+
+impl<A, Then> NonTailFmt for super::AndThen<A, Then> where
+    A: BytesCombinator + NonTailFmt,
+    Then: GoodSerializer + EquivSerializers,
+ {
+    open spec fn serialize_dps_inv(&self) -> bool {
+        &&& self.0.serialize_dps_inv()
+        &&& self.1.serialize_inv()
+        &&& self.1.equiv_inv()
+    }
+
+    proof fn lemma_serialize_dps_prepend(&self, v: Self::SValue, obuf: Seq<u8>) {
+        self.0.lemma_serialize_dps_prepend(self.1.spec_serialize_dps(v, seq![]), obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: Self::SValue, obuf: Seq<u8>) {
+        self.1.lemma_serialize_equiv_on_empty(v);
+        self.1.lemma_serialize_len(v);
+        let inner_bytes = self.1.spec_serialize_dps(v, seq![]);
+        self.0.lemma_serialize_dps_len(inner_bytes, obuf);
+        self.0.lemma_byte_len_is_buf_len(inner_bytes);
+    }
+}
+
+impl<A, Then> GoodSerializer for super::AndThen<A, Then> where
+    A: BytesCombinator + GoodSerializer,
+    Then: GoodSerializer,
+ {
+    open spec fn serialize_inv(&self) -> bool {
+        &&& self.0.serialize_inv()
+        &&& self.1.serialize_inv()
+    }
+
+    proof fn lemma_serialize_len(&self, v: Self::SVal) {
+        let inner_bytes = self.1.spec_serialize(v);
+        self.1.lemma_serialize_len(v);
+        self.0.lemma_serialize_len(inner_bytes);
+        self.0.lemma_byte_len_is_buf_len(inner_bytes);
+    }
+}
+
+impl<A, Then: SpecByteLen> SpecByteLen for super::AndThen<A, Then> {
+    type T = Then::T;
+
+    open spec fn byte_len(&self, v: Self::T) -> nat {
+        self.1.byte_len(v)
+    }
+}
+
+impl<A, Then> MinMaxByteLen for super::AndThen<A, Then> where
+    A: BytesCombinator + Consistency<Val = Seq<u8>>,
+    Then: MinMaxByteLen,
+ {
+    open spec fn min(&self) -> nat {
+        self.1.min()
+    }
+
+    open spec fn max(&self) -> nat {
+        self.1.max()
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+        self.1.lemma_min_max_byte_len(v);
+    }
+}
+
+impl<A, Then> ValueByteLen for super::AndThen<A, Then> where
+    A: BytesCombinator + Consistency<Val = Seq<u8>>,
+    Then: ValueByteLen,
+ {
+    open spec fn value_byte_len(v: Self::T) -> nat {
+        Then::value_byte_len(v)
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+        self.1.lemma_value_len_matches_byte_len(v);
+    }
+}
+
+impl<A, Then> StaticByteLen for super::AndThen<A, Then> where
+    A: BytesCombinator + StaticByteLen,
+    Then: Consistency + SpecByteLen<T = Then::Val>,
+ {
+    open spec fn static_byte_len() -> nat {
+        A::static_byte_len()
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+        let chunk = choose|chunk: Seq<u8>|
+            self.0.consistent(chunk) && self.0.byte_len(chunk) == self.1.byte_len(v);
+        self.0.lemma_static_len_matches_byte_len(chunk);
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/bytes/proof.rs (complete file)
+```rust
+//! Correctness proofs for fixed- and variable-length bytes.
+use crate::combinators::length::AsLen;
+use crate::combinators::Tail;
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+use super::Varied;
+
+verus! {
+
+impl<const N: usize> SPRoundTripDps for super::Fixed<N> {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> NonMalleable for super::Fixed<N> {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> NoLookAhead for super::Fixed<N> {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> Productive for super::Fixed<N> {
+    open spec fn productive_inv(&self) -> bool {
+        N > 0
+    }
+
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> EquivSerializersGeneral for super::Fixed<N> {
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>) {
+    }
+}
+
+impl<const N: usize> EquivSerializers for super::Fixed<N> {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal) {
+    }
+}
+
+impl<Len: AsLen> SPRoundTripDps for super::Varied<Len> {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> NonMalleable for super::Varied<Len> {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> NoLookAhead for super::Varied<Len> {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> Productive for super::Varied<Len> {
+    open spec fn productive_inv(&self) -> bool {
+        self.0.as_nat() > 0
+    }
+
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> EquivSerializersGeneral for super::Varied<Len> {
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>) {
+    }
+}
+
+impl<Len: AsLen> EquivSerializers for super::Varied<Len> {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal) {
+    }
+}
+
+impl<Inner, Len> SPRoundTripDps for super::ExactLen<Inner, Len> where
+    Inner: EquivSerializers + GoodSerializer + SPRoundTrip,
+    Len: AsLen,
+ {
+    open spec fn unambiguous(&self) -> bool {
+        &&& self.1.serialize_inv()
+        &&& self.1.equiv_inv()
+        &&& self.1.sp_roundtrip_inv()
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {
+        let inner_bytes = self.1.spec_serialize_dps(v, seq![]);
+        self.1.lemma_serialize_equiv_on_empty(v);
+        self.1.lemma_serialize_len(v);
+        self.1.theorem_serialize_parse_roundtrip(v);
+        super::Varied(self.0).theorem_serialize_dps_parse_roundtrip(inner_bytes, obuf);
+    }
+}
+
+impl<Inner: NonMalleable, Len: AsLen> NonMalleable for super::ExactLen<Inner, Len> {
+    open spec fn nonmal_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).nonmal_inv()
+    }
+
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl<Inner, Len> Productive for super::ExactLen<Inner, Len> where Inner: SafeParser, Len: AsLen {
+    open spec fn productive_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).productive_inv()
+    }
+
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_productive(s);
+    }
+}
+
+// [`ExactLen`] can make "look-ahead" parsers (e.g., [`Tail`] and [`Eof`]) non-look-ahead
+// (s.t. they can no longer "predict" the future)
+// because it always consumes the same number of bytes when it succeeds
+impl<Inner: SafeParser, Len: AsLen> NoLookAhead for super::ExactLen<Inner, Len> {
+    open spec fn no_lookahead_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).no_lookahead_inv()
+    }
+
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_no_lookahead(i1, i2);
+    }
+}
+
+////// [`ExactLen`] can make "context-sensitive" serializers (e.g., [`Tail`] and [`Eof`]) "context-free",
+// [`ExactLen`] can make "position-sensitive" serializers (e.g., [`Tail`] and [`Eof`]) "position-insensitive"
+// (s.t. they can no longer "change" the past)
+// because it "boxes" the inner serializer from the outside context `obuf`
+impl<Inner: EquivSerializers, Len: AsLen> EquivSerializersGeneral for super::ExactLen<Inner, Len> {
+    open spec fn equiv_general_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).equiv_general_inv()
+    }
+
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl<Inner: EquivSerializers, Len: AsLen> EquivSerializers for super::ExactLen<Inner, Len> {
+    open spec fn equiv_inv(&self) -> bool {
+        super::AndThen(super::Varied(self.0), self.1).equiv_inv()
+    }
+
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal) {
+        super::AndThen(super::Varied(self.0), self.1).lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl<Len, Then> SPRoundTripDps for super::AndThen<Varied<Len>, Then> where
+    Then: EquivSerializers + GoodSerializer + SPRoundTrip,
+    Len: AsLen,
+ {
+    open spec fn unambiguous(&self) -> bool {
+        &&& self.1.serialize_inv()
+        &&& self.1.equiv_inv()
+        &&& self.1.sp_roundtrip_inv()
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {
+        let inner_bytes = self.1.spec_serialize_dps(v, seq![]);
+        self.1.lemma_serialize_equiv_on_empty(v);
+        self.1.lemma_serialize_len(v);
+        self.1.theorem_serialize_parse_roundtrip(v);
+        self.0.theorem_serialize_dps_parse_roundtrip(inner_bytes, obuf);
+    }
+}
+
+impl<Then> SPRoundTripDps for super::AndThen<Tail, Then> where
+    Then: EquivSerializers + GoodSerializer + SPRoundTrip,
+ {
+    open spec fn unambiguous(&self) -> bool {
+        &&& self.1.serialize_inv()
+        &&& self.1.equiv_inv()
+        &&& self.1.sp_roundtrip_inv()
+    }
+
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: Self::T, obuf: Seq<u8>) {
+        let inner_bytes = self.1.spec_serialize_dps(v, seq![]);
+        self.1.lemma_serialize_equiv_on_empty(v);
+        self.1.lemma_serialize_len(v);
+        self.1.theorem_serialize_parse_roundtrip(v);
+        self.0.theorem_serialize_dps_parse_roundtrip(inner_bytes, obuf);
+    }
+}
+
+impl<A, Then> NonMalleable for super::AndThen<A, Then> where
+    A: BytesCombinator + StrictParser + NonMalleable,
+    Then: NonMalleable,
+ {
+    open spec fn nonmal_inv(&self) -> bool {
+        &&& self.0.nonmal_inv()
+        &&& self.0.sound_inv()
+        &&& self.0.strict_inv()
+        &&& self.1.nonmal_inv()
+        &&& self.1.safe_inv()
+    }
+
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        if let Some((n1, v1)) = self.spec_parse(buf1) {
+            if let Some((n2, v2)) = self.spec_parse(buf2) {
+                if v1 == v2 {
+                    let (n1a, chunk1) = self.0.spec_parse(buf1)->0;
+                    let (n2a, chunk2) = self.0.spec_parse(buf2)->0;
+                    let (n1b, v1b) = self.1.spec_parse(chunk1)->0;
+                    let (n2b, v2b) = self.1.spec_parse(chunk2)->0;
+                    self.0.lemma_parse_strict_consumption(buf1);
+                    self.0.lemma_parse_strict_consumption(buf2);
+                    self.0.lemma_byte_len_is_buf_len(chunk1);
+                    self.0.lemma_byte_len_is_buf_len(chunk2);
+                    self.0.lemma_parse_non_malleable(buf1, buf2);
+                    self.1.lemma_parse_non_malleable(chunk1, chunk2);
+                    assert(n1 == n1a && n2 == n2a);
+                    assert(chunk1[0..n1a] == chunk2[0..n2a]);
+                    assert(chunk1[0..n1a] == chunk1);
+                    assert(chunk2[0..n2a] == chunk2);
+                    assert(chunk1 == chunk2);
+                    assert(buf1[0..n1a] == buf2[0..n2a]);
+                }
+            }
+        }
+    }
+}
+
+impl<A, Then> NoLookAhead for super::AndThen<A, Then> where
+    A: BytesCombinator + NoLookAhead<PVal = Seq<u8>>,
+    Then: SafeParser,
+ {
+    open spec fn no_lookahead_inv(&self) -> bool {
+        self.0.no_lookahead_inv()
+    }
+
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        if let Some((n, v)) = self.spec_parse(i1) {
+            if 0 <= n <= i2.len() {
+                if i2[0..n] == i1[0..n] {
+                    self.0.lemma_no_lookahead(i1, i2);
+                }
+            }
+        }
+    }
+}
+
+impl<A, Then> Productive for super::AndThen<A, Then> where
+    A: BytesCombinator + Productive<PVal = Seq<u8>>,
+    Then: SafeParser,
+ {
+    open spec fn productive_inv(&self) -> bool {
+        self.0.productive_inv()
+    }
+
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        self.0.lemma_productive(s);
+    }
+}
+
+impl<A, Then> EquivSerializersGeneral for super::AndThen<A, Then> where
+    A: EquivSerializersGeneral<SVal = Seq<u8>, SValue = Seq<u8>>,
+    Then: EquivSerializers,
+ {
+    open spec fn equiv_general_inv(&self) -> bool {
+        &&& self.0.equiv_general_inv()
+        &&& self.1.equiv_inv()
+    }
+
+    proof fn lemma_serialize_equiv(&self, v: Self::SVal, obuf: Seq<u8>) {
+        let inner_bytes = self.1.spec_serialize(v);
+        self.0.lemma_serialize_equiv(inner_bytes, obuf);
+        self.1.lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl<A, Then> EquivSerializers for super::AndThen<A, Then> where
+    A: EquivSerializers<SVal = Seq<u8>, SValue = Seq<u8>>,
+    Then: EquivSerializers,
+ {
+    open spec fn equiv_inv(&self) -> bool {
+        &&& self.0.equiv_inv()
+        &&& self.1.equiv_inv()
+    }
+
+    proof fn lemma_serialize_equiv_on_empty(&self, v: Self::SVal) {
+        self.1.lemma_serialize_equiv_on_empty(v);
+        self.0.lemma_serialize_equiv_on_empty(self.1.spec_serialize(v));
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/uints/mod.rs (complete file)
+```rust
+//! Fixed-width unsigned integer combinators.
+//!
+//! The exported zero-sized formats cover 8-, 16-, 24-, 32-, and 64-bit values
+//! with explicit little- or big-endian order and allocation-free execution.
+/// Executable trait implementations for this combinator.
+pub mod exec;
+/// Correctness proofs for this combinator.
+pub mod proof;
+/// Specification trait implementations for this combinator.
+pub mod spec;
+
+use crate::core::proof::LeafNonMalleable;
+use vstd::prelude::*;
+
+verus! {
+
+/// Unsigned 8-bit integer combinator.
+///
+/// Defined as `Mapped { inner: Fixed::<1>, mapper: (u8_from_bytes, u8_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U8;
+
+/// Little-endian unsigned 16-bit integer.
+///
+/// Defined as `Mapped { inner: Fixed::<2>, mapper: (u16_le_from_bytes, u16_le_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U16Le;
+
+/// Big-endian unsigned 16-bit integer.
+///
+/// Defined as `Mapped { inner: Fixed::<2>, mapper: (u16_be_from_bytes, u16_be_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U16Be;
+
+/// Little-endian unsigned 24-bit integer, represented as `u32`.
+///
+/// Defined as `Mapped { inner: Fixed::<3>, mapper: (u24_le_from_bytes, u24_le_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U24Le;
+
+/// Big-endian unsigned 24-bit integer, represented as `u32`.
+///
+/// Defined as `Mapped { inner: Fixed::<3>, mapper: (u24_be_from_bytes, u24_be_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U24Be;
+
+/// Little-endian unsigned 32-bit integer.
+///
+/// Defined as `Mapped { inner: Fixed::<4>, mapper: (u32_le_from_bytes, u32_le_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U32Le;
+
+/// Big-endian unsigned 32-bit integer.
+///
+/// Defined as `Mapped { inner: Fixed::<4>, mapper: (u32_be_from_bytes, u32_be_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U32Be;
+
+/// Little-endian unsigned 64-bit integer.
+///
+/// Defined as `Mapped { inner: Fixed::<8>, mapper: (u64_le_from_bytes, u64_le_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U64Le;
+
+/// Big-endian unsigned 64-bit integer.
+///
+/// Defined as `Mapped { inner: Fixed::<8>, mapper: (u64_be_from_bytes, u64_be_to_bytes) }`.
+#[derive(Clone, Copy)]
+pub struct U64Be;
+
+impl LeafNonMalleable for U8 {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U16Le {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U16Be {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U24Le {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U24Be {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U32Le {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U32Be {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U64Le {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+impl LeafNonMalleable for U64Be {
+    proof fn nonmal_leaf_inv(&self) {
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/uints/spec.rs (complete file)
+```rust
+//! Specifications for fixed-width unsigned integers.
+use crate::combinators::bytes::spec::*;
+use crate::combinators::mapped::spec::{FnSpecMapper, LosslessMapper, LossyMapper, SpecMapper};
+use crate::combinators::{Fixed, Mapped};
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+verus! {
+
+pub const U8_BYTE_LEN: usize = 1;
+
+pub const U16_BYTE_LEN: usize = 2;
+
+pub const U24_BYTE_LEN: usize = 3;
+
+pub const U32_BYTE_LEN: usize = 4;
+
+pub const U64_BYTE_LEN: usize = 8;
+
+pub type U16LeFmt = Mapped<Fixed<2>, FnSpecMapper<Seq<u8>, u16>>;
+
+pub type U16BeFmt = Mapped<Fixed<2>, FnSpecMapper<Seq<u8>, u16>>;
+
+pub struct U24LeMapper;
+
+pub struct U24BeMapper;
+
+pub type U24LeFmt = Mapped<Fixed<3>, U24LeMapper>;
+
+pub type U24BeFmt = Mapped<Fixed<3>, U24BeMapper>;
+
+pub type U32LeFmt = Mapped<Fixed<4>, FnSpecMapper<Seq<u8>, u32>>;
+
+pub type U32BeFmt = Mapped<Fixed<4>, FnSpecMapper<Seq<u8>, u32>>;
+
+pub type U64LeFmt = Mapped<Fixed<8>, FnSpecMapper<Seq<u8>, u64>>;
+
+pub type U64BeFmt = Mapped<Fixed<8>, FnSpecMapper<Seq<u8>, u64>>;
+
+pub open spec fn u16_le_fmt() -> U16LeFmt {
+    Mapped {
+        inner: Fixed::<2>,
+        mapper: (|i: Seq<u8>| u16_le_from_bytes(array_from_seq(i)), |o: u16| u16_le_to_bytes(o)@),
+    }
+}
+
+pub open spec fn u16_be_fmt() -> U16BeFmt {
+    Mapped {
+        inner: Fixed::<2>,
+        mapper: (|i: Seq<u8>| u16_be_from_bytes(array_from_seq(i)), |o: u16| u16_be_to_bytes(o)@),
+    }
+}
+
+pub open spec fn u24_le_fmt() -> U24LeFmt {
+    Mapped { inner: Fixed::<3>, mapper: U24LeMapper }
+}
+
+pub open spec fn u24_be_fmt() -> U24BeFmt {
+    Mapped { inner: Fixed::<3>, mapper: U24BeMapper }
+}
+
+pub open spec fn u32_le_fmt() -> U32LeFmt {
+    Mapped {
+        inner: Fixed::<4>,
+        mapper: (|i: Seq<u8>| u32_le_from_bytes(array_from_seq(i)), |o: u32| u32_le_to_bytes(o)@),
+    }
+}
+
+pub open spec fn u32_be_fmt() -> U32BeFmt {
+    Mapped {
+        inner: Fixed::<4>,
+        mapper: (|i: Seq<u8>| u32_be_from_bytes(array_from_seq(i)), |o: u32| u32_be_to_bytes(o)@),
+    }
+}
+
+pub open spec fn u64_le_fmt() -> U64LeFmt {
+    Mapped {
+        inner: Fixed::<8>,
+        mapper: (|i: Seq<u8>| u64_le_from_bytes(array_from_seq(i)), |o: u64| u64_le_to_bytes(o)@),
+    }
+}
+
+pub open spec fn u64_be_fmt() -> U64BeFmt {
+    Mapped {
+        inner: Fixed::<8>,
+        mapper: (|i: Seq<u8>| u64_be_from_bytes(array_from_seq(i)), |o: u64| u64_be_to_bytes(o)@),
+    }
+}
+
+pub open spec fn u16_le_from_bytes(i: [u8; 2]) -> u16 {
+    (i[0] as u16) | (i[1] as u16) << 8
+}
+
+pub open spec fn u16_le_to_bytes(o: u16) -> [u8; 2] {
+    [(o & 0xff) as u8, ((o >> 8) & 0xff) as u8]
+}
+
+pub broadcast proof fn lemma_u16_le_bytes_roundtrip(i: [u8; 2])
+    ensures
+        #[trigger] u16_le_to_bytes(u16_le_from_bytes(i)) == i,
+{
+    let x = u16_le_from_bytes(i);
+    let i0 = i[0] as u16;
+    let i1 = i[1] as u16;
+    assert(((x == i0 | i1 << 8) && (i0 < 256) && (i1 < 256)) ==> i0 == (x & 0xff) && i1 == ((x >> 8)
+        & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u16_le_value_roundtrip(o: u16)
+    ensures
+        #[trigger] u16_le_from_bytes(u16_le_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+    }) by (bit_vector);
+    assert(o == ((o & 0xff) | ((o >> 8) & 0xff) << 8)) by (bit_vector);
+}
+
+pub open spec fn u16_be_from_bytes(i: [u8; 2]) -> u16 {
+    (i[0] as u16) << 8 | (i[1] as u16)
+}
+
+pub open spec fn u16_be_to_bytes(o: u16) -> [u8; 2] {
+    [((o >> 8) & 0xff) as u8, (o & 0xff) as u8]
+}
+
+pub broadcast proof fn lemma_u16_be_bytes_roundtrip(i: [u8; 2])
+    ensures
+        #[trigger] u16_be_to_bytes(u16_be_from_bytes(i)) == i,
+{
+    let x = u16_be_from_bytes(i);
+    let i0 = i[0] as u16;
+    let i1 = i[1] as u16;
+    assert(((x == i0 << 8 | i1) && (i0 < 256) && (i1 < 256)) ==> i0 == ((x >> 8) & 0xff) && i1 == (x
+        & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u16_be_value_roundtrip(o: u16)
+    ensures
+        #[trigger] u16_be_from_bytes(u16_be_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+    }) by (bit_vector);
+    assert(o == (((o >> 8) & 0xff) << 8 | (o & 0xff))) by (bit_vector);
+}
+
+pub open spec fn u24_le_from_bytes(i: [u8; 3]) -> u32 {
+    (i[0] as u32) | (i[1] as u32) << 8 | (i[2] as u32) << 16
+}
+
+pub open spec fn u24_le_to_bytes(o: u32) -> [u8; 3] {
+    [(o & 0xff) as u8, ((o >> 8) & 0xff) as u8, ((o >> 16) & 0xff) as u8]
+}
+
+pub broadcast proof fn lemma_u24_le_bytes_roundtrip(i: [u8; 3])
+    ensures
+        #[trigger] u24_le_to_bytes(u24_le_from_bytes(i)) == i,
+{
+    let x = u24_le_from_bytes(i);
+    let i0 = i[0] as u32;
+    let i1 = i[1] as u32;
+    let i2 = i[2] as u32;
+    assert(((x == i0 | i1 << 8 | i2 << 16) && (i0 < 256) && (i1 < 256) && (i2 < 256)) ==> i0 == (x
+        & 0xff) && i1 == ((x >> 8) & 0xff) && i2 == ((x >> 16) & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u24_le_value_roundtrip(o: u32)
+    requires
+        o < 0x01000000,
+    ensures
+        #[trigger] u24_le_from_bytes(u24_le_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+        &&& (o >> 16) & 0xff < 256
+    }) by (bit_vector);
+    assert(o < 0x01000000 ==> o == ((o & 0xff) | ((o >> 8) & 0xff) << 8 | ((o >> 16) & 0xff) << 16))
+        by (bit_vector);
+}
+
+pub proof fn lemma_u24_le_from_bytes_range(i: [u8; 3])
+    ensures
+        u24_le_from_bytes(i) < 0x01000000,
+{
+    let b0 = i[0];
+    let b1 = i[1];
+    let b2 = i[2];
+    assert(((b0 as u32) | ((b1 as u32) << 8) | ((b2 as u32) << 16)) < 0x01000000u32)
+        by (bit_vector);
+}
+
+pub open spec fn u24_be_from_bytes(i: [u8; 3]) -> u32 {
+    (i[0] as u32) << 16 | (i[1] as u32) << 8 | (i[2] as u32)
+}
+
+pub open spec fn u24_be_to_bytes(o: u32) -> [u8; 3] {
+    [((o >> 16) & 0xff) as u8, ((o >> 8) & 0xff) as u8, (o & 0xff) as u8]
+}
+
+pub broadcast proof fn lemma_u24_be_bytes_roundtrip(i: [u8; 3])
+    ensures
+        #[trigger] u24_be_to_bytes(u24_be_from_bytes(i)) == i,
+{
+    let x = u24_be_from_bytes(i);
+    let i0 = i[0] as u32;
+    let i1 = i[1] as u32;
+    let i2 = i[2] as u32;
+    assert(((x == i0 << 16 | i1 << 8 | i2) && (i0 < 256) && (i1 < 256) && (i2 < 256)) ==> i0 == ((x
+        >> 16) & 0xff) && i1 == ((x >> 8) & 0xff) && i2 == (x & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u24_be_value_roundtrip(o: u32)
+    requires
+        o < 0x01000000,
+    ensures
+        #[trigger] u24_be_from_bytes(u24_be_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+        &&& (o >> 16) & 0xff < 256
+    }) by (bit_vector);
+    assert(o < 0x01000000 ==> o == (((o >> 16) & 0xff) << 16 | ((o >> 8) & 0xff) << 8 | (o & 0xff)))
+        by (bit_vector);
+}
+
+pub proof fn lemma_u24_be_from_bytes_range(i: [u8; 3])
+    ensures
+        u24_be_from_bytes(i) < 0x01000000,
+{
+    let b0 = i[0];
+    let b1 = i[1];
+    let b2 = i[2];
+    assert((((b0 as u32) << 16) | ((b1 as u32) << 8) | (b2 as u32)) < 0x01000000u32)
+        by (bit_vector);
+}
+
+impl SpecMapper for U24LeMapper {
+    type In = Seq<u8>;
+
+    type Out = u32;
+
+    open spec fn spec_map(&self, i: Self::In) -> Self::Out {
+        u24_le_from_bytes(array_from_seq(i))
+    }
+
+    open spec fn spec_map_rev(&self, o: Self::Out) -> Self::In {
+        u24_le_to_bytes(o)@
+    }
+
+    open spec fn wf_in(&self, i: Self::In) -> bool {
+        i.len() == U24_BYTE_LEN
+    }
+
+    open spec fn wf_out(&self, o: Self::Out) -> bool {
+        o < 0x01000000
+    }
+}
+
+impl LossyMapper for U24LeMapper {
+    proof fn lemma_sound_mapper(&self, o: Self::Out) {
+        broadcast use lemma_array_from_seq_roundtrip;
+
+        lemma_u24_le_value_roundtrip(o);
+        assert(self.spec_map(self.spec_map_rev(o)) == o);
+    }
+
+    proof fn lemma_mapper_wf_out_in(&self, o: Self::Out) {
+    }
+}
+
+impl LosslessMapper for U24LeMapper {
+    proof fn lemma_lossless_mapper(&self, i: Self::In) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_le_bytes_roundtrip;
+
+    }
+
+    proof fn lemma_mapper_wf_in_out(&self, i: Self::In) {
+        broadcast use axiom_array_from_seq;
+
+        lemma_u24_le_from_bytes_range(array_from_seq(i));
+    }
+}
+
+impl SpecMapper for U24BeMapper {
+    type In = Seq<u8>;
+
+    type Out = u32;
+
+    open spec fn spec_map(&self, i: Self::In) -> Self::Out {
+        u24_be_from_bytes(array_from_seq(i))
+    }
+
+    open spec fn spec_map_rev(&self, o: Self::Out) -> Self::In {
+        u24_be_to_bytes(o)@
+    }
+
+    open spec fn wf_in(&self, i: Self::In) -> bool {
+        i.len() == U24_BYTE_LEN
+    }
+
+    open spec fn wf_out(&self, o: Self::Out) -> bool {
+        o < 0x01000000
+    }
+}
+
+impl LossyMapper for U24BeMapper {
+    proof fn lemma_sound_mapper(&self, o: Self::Out) {
+        broadcast use lemma_array_from_seq_roundtrip;
+
+        lemma_u24_be_value_roundtrip(o);
+        assert(self.spec_map(self.spec_map_rev(o)) == o);
+    }
+
+    proof fn lemma_mapper_wf_out_in(&self, o: Self::Out) {
+    }
+}
+
+impl LosslessMapper for U24BeMapper {
+    proof fn lemma_lossless_mapper(&self, i: Self::In) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_be_bytes_roundtrip;
+
+    }
+
+    proof fn lemma_mapper_wf_in_out(&self, i: Self::In) {
+        broadcast use axiom_array_from_seq;
+
+        lemma_u24_be_from_bytes_range(array_from_seq(i));
+    }
+}
+
+pub open spec fn u32_le_from_bytes(i: [u8; 4]) -> u32 {
+    (i[0] as u32) | (i[1] as u32) << 8 | (i[2] as u32) << 16 | (i[3] as u32) << 24
+}
+
+pub open spec fn u32_le_to_bytes(o: u32) -> [u8; 4] {
+    [(o & 0xff) as u8, ((o >> 8) & 0xff) as u8, ((o >> 16) & 0xff) as u8, ((o >> 24) & 0xff) as u8]
+}
+
+pub broadcast proof fn lemma_u32_le_bytes_roundtrip(i: [u8; 4])
+    ensures
+        #[trigger] u32_le_to_bytes(u32_le_from_bytes(i)) == i,
+{
+    let x = u32_le_from_bytes(i);
+    let i0 = i[0] as u32;
+    let i1 = i[1] as u32;
+    let i2 = i[2] as u32;
+    let i3 = i[3] as u32;
+    assert(((x == i0 | i1 << 8 | i2 << 16 | i3 << 24) && (i0 < 256) && (i1 < 256) && (i2 < 256) && (
+    i3 < 256)) ==> i0 == (x & 0xff) && i1 == ((x >> 8) & 0xff) && i2 == ((x >> 16) & 0xff) && i3
+        == ((x >> 24) & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u32_le_value_roundtrip(o: u32)
+    ensures
+        #[trigger] u32_le_from_bytes(u32_le_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+        &&& (o >> 16) & 0xff < 256
+        &&& (o >> 24) & 0xff < 256
+    }) by (bit_vector);
+    assert(o == ((o & 0xff) | ((o >> 8) & 0xff) << 8 | ((o >> 16) & 0xff) << 16 | ((o >> 24) & 0xff)
+        << 24)) by (bit_vector);
+}
+
+pub open spec fn u32_be_from_bytes(i: [u8; 4]) -> u32 {
+    (i[0] as u32) << 24 | (i[1] as u32) << 16 | (i[2] as u32) << 8 | (i[3] as u32)
+}
+
+pub open spec fn u32_be_to_bytes(o: u32) -> [u8; 4] {
+    [((o >> 24) & 0xff) as u8, ((o >> 16) & 0xff) as u8, ((o >> 8) & 0xff) as u8, (o & 0xff) as u8]
+}
+
+pub broadcast proof fn lemma_u32_be_bytes_roundtrip(i: [u8; 4])
+    ensures
+        #[trigger] u32_be_to_bytes(u32_be_from_bytes(i)) == i,
+{
+    let x = u32_be_from_bytes(i);
+    let i0 = i[0] as u32;
+    let i1 = i[1] as u32;
+    let i2 = i[2] as u32;
+    let i3 = i[3] as u32;
+    assert(((x == i0 << 24 | i1 << 16 | i2 << 8 | i3) && (i0 < 256) && (i1 < 256) && (i2 < 256) && (
+    i3 < 256)) ==> i0 == ((x >> 24) & 0xff) && i1 == ((x >> 16) & 0xff) && i2 == ((x >> 8) & 0xff)
+        && i3 == (x & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u32_be_value_roundtrip(o: u32)
+    ensures
+        #[trigger] u32_be_from_bytes(u32_be_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+        &&& (o >> 16) & 0xff < 256
+        &&& (o >> 24) & 0xff < 256
+    }) by (bit_vector);
+    assert(o == (((o >> 24) & 0xff) << 24 | ((o >> 16) & 0xff) << 16 | ((o >> 8) & 0xff) << 8 | (o
+        & 0xff))) by (bit_vector);
+}
+
+pub open spec fn u64_le_from_bytes(i: [u8; 8]) -> u64 {
+    (i[0] as u64) | (i[1] as u64) << 8 | (i[2] as u64) << 16 | (i[3] as u64) << 24 | (i[4] as u64)
+        << 32 | (i[5] as u64) << 40 | (i[6] as u64) << 48 | (i[7] as u64) << 56
+}
+
+pub open spec fn u64_le_to_bytes(o: u64) -> [u8; 8] {
+    [
+        (o & 0xff) as u8,
+        ((o >> 8) & 0xff) as u8,
+        ((o >> 16) & 0xff) as u8,
+        ((o >> 24) & 0xff) as u8,
+        ((o >> 32) & 0xff) as u8,
+        ((o >> 40) & 0xff) as u8,
+        ((o >> 48) & 0xff) as u8,
+        ((o >> 56) & 0xff) as u8,
+    ]
+}
+
+pub broadcast proof fn lemma_u64_le_bytes_roundtrip(i: [u8; 8])
+    ensures
+        #[trigger] u64_le_to_bytes(u64_le_from_bytes(i)) == i,
+{
+    let x = u64_le_from_bytes(i);
+    let i0 = i[0] as u64;
+    let i1 = i[1] as u64;
+    let i2 = i[2] as u64;
+    let i3 = i[3] as u64;
+    let i4 = i[4] as u64;
+    let i5 = i[5] as u64;
+    let i6 = i[6] as u64;
+    let i7 = i[7] as u64;
+    assert(((x == i0 | i1 << 8 | i2 << 16 | i3 << 24 | i4 << 32 | i5 << 40 | i6 << 48 | i7 << 56)
+        && (i0 < 256) && (i1 < 256) && (i2 < 256) && (i3 < 256) && (i4 < 256) && (i5 < 256) && (i6
+        < 256) && (i7 < 256)) ==> i0 == (x & 0xff) && i1 == ((x >> 8) & 0xff) && i2 == ((x >> 16)
+        & 0xff) && i3 == ((x >> 24) & 0xff) && i4 == ((x >> 32) & 0xff) && i5 == ((x >> 40) & 0xff)
+        && i6 == ((x >> 48) & 0xff) && i7 == ((x >> 56) & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u64_le_value_roundtrip(o: u64)
+    ensures
+        #[trigger] u64_le_from_bytes(u64_le_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+        &&& (o >> 16) & 0xff < 256
+        &&& (o >> 24) & 0xff < 256
+        &&& (o >> 32) & 0xff < 256
+        &&& (o >> 40) & 0xff < 256
+        &&& (o >> 48) & 0xff < 256
+        &&& (o >> 56) & 0xff < 256
+    }) by (bit_vector);
+    assert(o == ((o & 0xff) | ((o >> 8) & 0xff) << 8 | ((o >> 16) & 0xff) << 16 | ((o >> 24) & 0xff)
+        << 24 | ((o >> 32) & 0xff) << 32 | ((o >> 40) & 0xff) << 40 | ((o >> 48) & 0xff) << 48 | ((o
+        >> 56) & 0xff) << 56)) by (bit_vector);
+}
+
+pub open spec fn u64_be_from_bytes(i: [u8; 8]) -> u64 {
+    (i[0] as u64) << 56 | (i[1] as u64) << 48 | (i[2] as u64) << 40 | (i[3] as u64) << 32 | (
+    i[4] as u64) << 24 | (i[5] as u64) << 16 | (i[6] as u64) << 8 | (i[7] as u64)
+}
+
+pub open spec fn u64_be_to_bytes(o: u64) -> [u8; 8] {
+    [
+        ((o >> 56) & 0xff) as u8,
+        ((o >> 48) & 0xff) as u8,
+        ((o >> 40) & 0xff) as u8,
+        ((o >> 32) & 0xff) as u8,
+        ((o >> 24) & 0xff) as u8,
+        ((o >> 16) & 0xff) as u8,
+        ((o >> 8) & 0xff) as u8,
+        (o & 0xff) as u8,
+    ]
+}
+
+pub broadcast proof fn lemma_u64_be_bytes_roundtrip(i: [u8; 8])
+    ensures
+        #[trigger] u64_be_to_bytes(u64_be_from_bytes(i)) == i,
+{
+    let x = u64_be_from_bytes(i);
+    let i0 = i[0] as u64;
+    let i1 = i[1] as u64;
+    let i2 = i[2] as u64;
+    let i3 = i[3] as u64;
+    let i4 = i[4] as u64;
+    let i5 = i[5] as u64;
+    let i6 = i[6] as u64;
+    let i7 = i[7] as u64;
+    assert(((x == i0 << 56 | i1 << 48 | i2 << 40 | i3 << 32 | i4 << 24 | i5 << 16 | i6 << 8 | i7)
+        && (i0 < 256) && (i1 < 256) && (i2 < 256) && (i3 < 256) && (i4 < 256) && (i5 < 256) && (i6
+        < 256) && (i7 < 256)) ==> i0 == ((x >> 56) & 0xff) && i1 == ((x >> 48) & 0xff) && i2 == ((x
+        >> 40) & 0xff) && i3 == ((x >> 32) & 0xff) && i4 == ((x >> 24) & 0xff) && i5 == ((x >> 16)
+        & 0xff) && i6 == ((x >> 8) & 0xff) && i7 == (x & 0xff)) by (bit_vector);
+}
+
+pub broadcast proof fn lemma_u64_be_value_roundtrip(o: u64)
+    ensures
+        #[trigger] u64_be_from_bytes(u64_be_to_bytes(o)) == o,
+{
+    assert({
+        &&& o & 0xff < 256
+        &&& (o >> 8) & 0xff < 256
+        &&& (o >> 16) & 0xff < 256
+        &&& (o >> 24) & 0xff < 256
+        &&& (o >> 32) & 0xff < 256
+        &&& (o >> 40) & 0xff < 256
+        &&& (o >> 48) & 0xff < 256
+        &&& (o >> 56) & 0xff < 256
+    }) by (bit_vector);
+    assert(o == (((o >> 56) & 0xff) << 56 | ((o >> 48) & 0xff) << 48 | ((o >> 40) & 0xff) << 40 | ((
+    o >> 32) & 0xff) << 32 | ((o >> 24) & 0xff) << 24 | ((o >> 16) & 0xff) << 16 | ((o >> 8) & 0xff)
+        << 8 | (o & 0xff))) by (bit_vector);
+}
+
+impl SpecParser for super::U8 {
+    type PVal = u8;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u8)> {
+        if ibuf.len() >= 1 {
+            Some((1, ibuf[0]))
+        } else {
+            None
+        }
+    }
+}
+
+impl Consistency for super::U8 {
+    type Val = u8;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U8 {
+    type SValue = u8;
+
+    open spec fn spec_serialize_dps(&self, v: u8, obuf: Seq<u8>) -> Seq<u8> {
+        seq![v] + obuf
+    }
+}
+
+impl SpecSerializer for super::U8 {
+    type SVal = u8;
+
+    open spec fn spec_serialize(&self, v: u8) -> Seq<u8> {
+        seq![v]
+    }
+}
+
+impl SafeParser for super::U8 {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl SoundParser for super::U8 {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl StrictParser for super::U8 {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+    }
+}
+
+impl NonTailFmt for super::U8 {
+    proof fn lemma_serialize_dps_prepend(&self, v: u8, obuf: Seq<u8>) {
+        assert(self.spec_serialize_dps(v, obuf) == seq![v] + obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u8, obuf: Seq<u8>) {
+        assert(self.spec_serialize_dps(v, obuf).len() - obuf.len() == 1);
+    }
+}
+
+impl GoodSerializer for super::U8 {
+    proof fn lemma_serialize_len(&self, v: Self::SVal) {
+        assert(self.spec_serialize(v).len() == 1);
+    }
+}
+
+impl SpecByteLen for super::U8 {
+    type T = u8;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U8_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U8 {
+    open spec fn min(&self) -> nat {
+        U8_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U8_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U8 {
+    open spec fn static_byte_len() -> nat {
+        U8_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U8 {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U8_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U16Le {
+    type PVal = u16;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u16)> {
+        u16_le_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U16Le {
+    type Val = u16;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U16Le {
+    type SValue = u16;
+
+    open spec fn spec_serialize_dps(&self, v: u16, obuf: Seq<u8>) -> Seq<u8> {
+        u16_le_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U16Le {
+    type SVal = u16;
+
+    open spec fn spec_serialize(&self, v: u16) -> Seq<u8> {
+        u16_le_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U16Le {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u16_le_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U16Le {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u16_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u16_le_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U16Le {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u16_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u16_le_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U16Le {
+    proof fn lemma_serialize_dps_prepend(&self, v: u16, obuf: Seq<u8>) {
+        u16_le_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u16, obuf: Seq<u8>) {
+        u16_le_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U16Le {
+    proof fn lemma_serialize_len(&self, v: u16) {
+        u16_le_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U16Le {
+    type T = u16;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U16_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U16Le {
+    open spec fn min(&self) -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U16Le {
+    open spec fn static_byte_len() -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U16Le {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U16Be {
+    type PVal = u16;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u16)> {
+        u16_be_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U16Be {
+    type Val = u16;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U16Be {
+    type SValue = u16;
+
+    open spec fn spec_serialize_dps(&self, v: u16, obuf: Seq<u8>) -> Seq<u8> {
+        u16_be_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U16Be {
+    type SVal = u16;
+
+    open spec fn spec_serialize(&self, v: u16) -> Seq<u8> {
+        u16_be_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U16Be {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u16_be_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U16Be {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u16_be_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u16_be_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U16Be {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u16_be_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u16_be_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U16Be {
+    proof fn lemma_serialize_dps_prepend(&self, v: u16, obuf: Seq<u8>) {
+        u16_be_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u16, obuf: Seq<u8>) {
+        u16_be_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U16Be {
+    proof fn lemma_serialize_len(&self, v: u16) {
+        u16_be_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U16Be {
+    type T = u16;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U16_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U16Be {
+    open spec fn min(&self) -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U16Be {
+    open spec fn static_byte_len() -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U16Be {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U16_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U24Le {
+    type PVal = u32;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u32)> {
+        u24_le_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U24Le {
+    type Val = u32;
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        v < 0x01000000
+    }
+}
+
+impl SpecSerializerDps for super::U24Le {
+    type SValue = u32;
+
+    open spec fn spec_serialize_dps(&self, v: u32, obuf: Seq<u8>) -> Seq<u8> {
+        u24_le_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U24Le {
+    type SVal = u32;
+
+    open spec fn spec_serialize(&self, v: u32) -> Seq<u8> {
+        u24_le_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U24Le {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u24_le_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U24Le {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use LosslessMapper::lemma_mapper_wf_in_out;
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_le_bytes_roundtrip;
+
+        u24_le_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U24Le {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use LosslessMapper::lemma_mapper_wf_in_out;
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_le_bytes_roundtrip;
+
+        u24_le_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U24Le {
+    proof fn lemma_serialize_dps_prepend(&self, v: u32, obuf: Seq<u8>) {
+        u24_le_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u32, obuf: Seq<u8>) {
+        u24_le_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U24Le {
+    proof fn lemma_serialize_len(&self, v: u32) {
+        u24_le_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U24Le {
+    type T = u32;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U24_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U24Le {
+    open spec fn min(&self) -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U24Le {
+    open spec fn static_byte_len() -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U24Le {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U24Be {
+    type PVal = u32;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u32)> {
+        u24_be_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U24Be {
+    type Val = u32;
+
+    open spec fn consistent(&self, v: Self::Val) -> bool {
+        v < 0x01000000
+    }
+}
+
+impl SpecSerializerDps for super::U24Be {
+    type SValue = u32;
+
+    open spec fn spec_serialize_dps(&self, v: u32, obuf: Seq<u8>) -> Seq<u8> {
+        u24_be_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U24Be {
+    type SVal = u32;
+
+    open spec fn spec_serialize(&self, v: u32) -> Seq<u8> {
+        u24_be_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U24Be {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u24_be_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U24Be {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use LosslessMapper::lemma_mapper_wf_in_out;
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_be_bytes_roundtrip;
+
+        u24_be_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U24Be {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use LosslessMapper::lemma_mapper_wf_in_out;
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_be_bytes_roundtrip;
+
+        u24_be_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U24Be {
+    proof fn lemma_serialize_dps_prepend(&self, v: u32, obuf: Seq<u8>) {
+        u24_be_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u32, obuf: Seq<u8>) {
+        u24_be_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U24Be {
+    proof fn lemma_serialize_len(&self, v: u32) {
+        u24_be_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U24Be {
+    type T = u32;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U24_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U24Be {
+    open spec fn min(&self) -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U24Be {
+    open spec fn static_byte_len() -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U24Be {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U24_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U32Le {
+    type PVal = u32;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u32)> {
+        u32_le_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U32Le {
+    type Val = u32;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U32Le {
+    type SValue = u32;
+
+    open spec fn spec_serialize_dps(&self, v: u32, obuf: Seq<u8>) -> Seq<u8> {
+        u32_le_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U32Le {
+    type SVal = u32;
+
+    open spec fn spec_serialize(&self, v: u32) -> Seq<u8> {
+        u32_le_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U32Le {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u32_le_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U32Le {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u32_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u32_le_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U32Le {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u32_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u32_le_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U32Le {
+    proof fn lemma_serialize_dps_prepend(&self, v: u32, obuf: Seq<u8>) {
+        u32_le_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u32, obuf: Seq<u8>) {
+        u32_le_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U32Le {
+    proof fn lemma_serialize_len(&self, v: u32) {
+        u32_le_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U32Le {
+    type T = u32;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U32_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U32Le {
+    open spec fn min(&self) -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U32Le {
+    open spec fn static_byte_len() -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U32Le {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U32Be {
+    type PVal = u32;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u32)> {
+        u32_be_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U32Be {
+    type Val = u32;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U32Be {
+    type SValue = u32;
+
+    open spec fn spec_serialize_dps(&self, v: u32, obuf: Seq<u8>) -> Seq<u8> {
+        u32_be_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U32Be {
+    type SVal = u32;
+
+    open spec fn spec_serialize(&self, v: u32) -> Seq<u8> {
+        u32_be_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U32Be {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u32_be_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U32Be {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u32_be_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u32_be_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U32Be {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u32_be_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u32_be_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U32Be {
+    proof fn lemma_serialize_dps_prepend(&self, v: u32, obuf: Seq<u8>) {
+        u32_be_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u32, obuf: Seq<u8>) {
+        u32_be_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U32Be {
+    proof fn lemma_serialize_len(&self, v: u32) {
+        u32_be_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U32Be {
+    type T = u32;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U32_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U32Be {
+    open spec fn min(&self) -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U32Be {
+    open spec fn static_byte_len() -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U32Be {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U32_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U64Le {
+    type PVal = u64;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u64)> {
+        u64_le_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U64Le {
+    type Val = u64;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U64Le {
+    type SValue = u64;
+
+    open spec fn spec_serialize_dps(&self, v: u64, obuf: Seq<u8>) -> Seq<u8> {
+        u64_le_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U64Le {
+    type SVal = u64;
+
+    open spec fn spec_serialize(&self, v: u64) -> Seq<u8> {
+        u64_le_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U64Le {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u64_le_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U64Le {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u64_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u64_le_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U64Le {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u64_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u64_le_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U64Le {
+    proof fn lemma_serialize_dps_prepend(&self, v: u64, obuf: Seq<u8>) {
+        u64_le_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u64, obuf: Seq<u8>) {
+        u64_le_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U64Le {
+    proof fn lemma_serialize_len(&self, v: u64) {
+        u64_le_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U64Le {
+    type T = u64;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U64_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U64Le {
+    open spec fn min(&self) -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U64Le {
+    open spec fn static_byte_len() -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U64Le {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl SpecParser for super::U64Be {
+    type PVal = u64;
+
+    open spec fn spec_parse(&self, ibuf: Seq<u8>) -> Option<(int, u64)> {
+        u64_be_fmt().spec_parse(ibuf)
+    }
+}
+
+impl Consistency for super::U64Be {
+    type Val = u64;
+
+    open spec fn consistent(&self, _v: Self::Val) -> bool {
+        true
+    }
+}
+
+impl SpecSerializerDps for super::U64Be {
+    type SValue = u64;
+
+    open spec fn spec_serialize_dps(&self, v: u64, obuf: Seq<u8>) -> Seq<u8> {
+        u64_be_fmt().spec_serialize_dps(v, obuf)
+    }
+}
+
+impl SpecSerializer for super::U64Be {
+    type SVal = u64;
+
+    open spec fn spec_serialize(&self, v: u64) -> Seq<u8> {
+        u64_be_fmt().spec_serialize(v)
+    }
+}
+
+impl SafeParser for super::U64Be {
+    proof fn lemma_parse_safe(&self, ibuf: Seq<u8>) {
+        u64_be_fmt().lemma_parse_safe(ibuf);
+    }
+}
+
+impl SoundParser for super::U64Be {
+    proof fn lemma_parse_sound_value(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u64_be_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u64_be_fmt().lemma_parse_sound_value(ibuf);
+    }
+}
+
+impl StrictParser for super::U64Be {
+    proof fn lemma_parse_strict_consumption(&self, ibuf: Seq<u8>) {
+        broadcast use lemma_u64_be_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u64_be_fmt().lemma_parse_strict_consumption(ibuf);
+    }
+}
+
+impl NonTailFmt for super::U64Be {
+    proof fn lemma_serialize_dps_prepend(&self, v: u64, obuf: Seq<u8>) {
+        u64_be_fmt().lemma_serialize_dps_prepend(v, obuf);
+    }
+
+    proof fn lemma_serialize_dps_len(&self, v: u64, obuf: Seq<u8>) {
+        u64_be_fmt().lemma_serialize_dps_len(v, obuf);
+    }
+}
+
+impl GoodSerializer for super::U64Be {
+    proof fn lemma_serialize_len(&self, v: u64) {
+        u64_be_fmt().lemma_serialize_len(v);
+    }
+}
+
+impl SpecByteLen for super::U64Be {
+    type T = u64;
+
+    open spec fn byte_len(&self, _v: Self::T) -> nat {
+        U64_BYTE_LEN as nat
+    }
+}
+
+impl MinMaxByteLen for super::U64Be {
+    open spec fn min(&self) -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    open spec fn max(&self) -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    proof fn lemma_min_max_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl StaticByteLen for super::U64Be {
+    open spec fn static_byte_len() -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    proof fn lemma_static_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+impl ValueByteLen for super::U64Be {
+    open spec fn value_byte_len(_v: Self::T) -> nat {
+        U64_BYTE_LEN as nat
+    }
+
+    proof fn lemma_value_len_matches_byte_len(&self, v: Self::T) {
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/uints/proof.rs (complete file)
+```rust
+//! Correctness proofs for fixed-width unsigned integers.
+use super::spec::*;
+use crate::combinators::bytes::spec::*;
+use crate::core::{proof::*, spec::*};
+use vstd::prelude::*;
+
+verus! {
+
+impl SPRoundTripDps for super::U8 {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u8, obuf: Seq<u8>) {
+        assert(self.spec_parse(self.spec_serialize_dps(v, obuf)) == Some((1int, v)));
+    }
+}
+
+impl NonMalleable for super::U8 {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+    }
+}
+
+impl NoLookAhead for super::U8 {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        if let Some((n, v)) = self.spec_parse(i1) {
+            if 0 <= n <= i2.len() {
+                if i2[0..n] == i1[0..n] {
+                    assert(i2[0..1int][0] == i1[0..1int][0]);
+                    assert(self.spec_parse(i2) == Some((n, v)));
+                }
+            }
+        }
+    }
+}
+
+impl Productive for super::U8 {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+    }
+}
+
+impl EquivSerializersGeneral for super::U8 {
+    proof fn lemma_serialize_equiv(&self, v: u8, obuf: Seq<u8>) {
+    }
+}
+
+impl EquivSerializers for super::U8 {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u8) {
+    }
+}
+
+impl SPRoundTripDps for super::U16Le {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u16, obuf: Seq<u8>) {
+        broadcast use lemma_u16_le_value_roundtrip;
+        broadcast use lemma_array_from_seq_roundtrip;
+
+        u16_le_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U16Le {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use lemma_u16_le_bytes_roundtrip;
+        broadcast use axiom_array_from_seq;
+
+        u16_le_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U16Le {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u16_le_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U16Le {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u16_le_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U16Le {
+    proof fn lemma_serialize_equiv(&self, v: u16, obuf: Seq<u8>) {
+        u16_le_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U16Le {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u16) {
+        u16_le_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U16Be {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u16, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u16_be_value_roundtrip;
+
+        u16_be_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U16Be {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u16_be_bytes_roundtrip;
+
+        u16_be_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U16Be {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u16_be_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U16Be {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u16_be_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U16Be {
+    proof fn lemma_serialize_equiv(&self, v: u16, obuf: Seq<u8>) {
+        u16_be_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U16Be {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u16) {
+        u16_be_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U24Le {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u32, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u24_le_value_roundtrip;
+
+        u24_le_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U24Le {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_le_bytes_roundtrip;
+
+        u24_le_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U24Le {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u24_le_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U24Le {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u24_le_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U24Le {
+    proof fn lemma_serialize_equiv(&self, v: u32, obuf: Seq<u8>) {
+        u24_le_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U24Le {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u32) {
+        u24_le_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U24Be {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u32, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u24_be_value_roundtrip;
+
+        u24_be_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U24Be {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u24_be_bytes_roundtrip;
+
+        u24_be_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U24Be {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u24_be_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U24Be {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u24_be_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U24Be {
+    proof fn lemma_serialize_equiv(&self, v: u32, obuf: Seq<u8>) {
+        u24_be_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U24Be {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u32) {
+        u24_be_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U32Le {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u32, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u32_le_value_roundtrip;
+
+        u32_le_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U32Le {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u32_le_bytes_roundtrip;
+
+        u32_le_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U32Le {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u32_le_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U32Le {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u32_le_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U32Le {
+    proof fn lemma_serialize_equiv(&self, v: u32, obuf: Seq<u8>) {
+        u32_le_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U32Le {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u32) {
+        u32_le_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U32Be {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u32, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u32_be_value_roundtrip;
+
+        u32_be_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U32Be {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u32_be_bytes_roundtrip;
+
+        u32_be_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U32Be {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u32_be_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U32Be {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u32_be_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U32Be {
+    proof fn lemma_serialize_equiv(&self, v: u32, obuf: Seq<u8>) {
+        u32_be_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U32Be {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u32) {
+        u32_be_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U64Le {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u64, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u64_le_value_roundtrip;
+
+        u64_le_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U64Le {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u64_le_bytes_roundtrip;
+
+        u64_le_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U64Le {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u64_le_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U64Le {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u64_le_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U64Le {
+    proof fn lemma_serialize_equiv(&self, v: u64, obuf: Seq<u8>) {
+        u64_le_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U64Le {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u64) {
+        u64_le_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+impl SPRoundTripDps for super::U64Be {
+    proof fn theorem_serialize_dps_parse_roundtrip(&self, v: u64, obuf: Seq<u8>) {
+        broadcast use lemma_array_from_seq_roundtrip;
+        broadcast use lemma_u64_be_value_roundtrip;
+
+        u64_be_fmt().theorem_serialize_dps_parse_roundtrip(v, obuf);
+    }
+}
+
+impl NonMalleable for super::U64Be {
+    proof fn lemma_parse_non_malleable(&self, buf1: Seq<u8>, buf2: Seq<u8>) {
+        broadcast use axiom_array_from_seq;
+        broadcast use lemma_u64_be_bytes_roundtrip;
+
+        u64_be_fmt().lemma_parse_non_malleable(buf1, buf2);
+    }
+}
+
+impl NoLookAhead for super::U64Be {
+    proof fn lemma_no_lookahead(&self, i1: Seq<u8>, i2: Seq<u8>) {
+        u64_be_fmt().lemma_no_lookahead(i1, i2);
+    }
+}
+
+impl Productive for super::U64Be {
+    proof fn lemma_productive(&self, s: Seq<u8>) {
+        u64_be_fmt().lemma_productive(s);
+    }
+}
+
+impl EquivSerializersGeneral for super::U64Be {
+    proof fn lemma_serialize_equiv(&self, v: u64, obuf: Seq<u8>) {
+        u64_be_fmt().lemma_serialize_equiv(v, obuf);
+    }
+}
+
+impl EquivSerializers for super::U64Be {
+    proof fn lemma_serialize_equiv_on_empty(&self, v: u64) {
+        u64_be_fmt().lemma_serialize_equiv_on_empty(v);
+    }
+}
+
+} // verus!
+
+```
+
+READ-ONLY UPSTREAM FILE vest_lib/src/combinators/length.rs (complete file)
+```rust
+//! The length abstraction [`AsLen`] for types usable as format length (or count) fields.
+//!
+//! Implemented for [`u8`], [`u16`], [`u32`], and [`usize`].
+use vstd::prelude::*;
+
+verus! {
+
+/// Types that can serve as format length (or count) fields.
+///
+/// The spec-facing conversion is to `nat`, which is the natural domain for lengths in proofs. The
+/// exec-facing conversion is to `usize`, which is the natural domain for runtime indexing.
+pub trait AsLen: Sized + Copy {
+    /// The mathematical length represented by this value.
+    spec fn as_nat(self) -> nat;
+
+    /// The runtime length represented by this value.
+    fn get(self) -> (len: usize)
+        ensures
+            len as nat == self.as_nat(),
+    ;
+
+    /// Construct from a `nat`.
+    spec fn as_self(n: nat) -> Self;
+
+    /// `as_self(v.as_nat()) == v`.
+    proof fn lemma_lossless_casting(v: Self)
+        ensures
+            Self::as_self(v.as_nat()) == v,
+    ;
+}
+
+} // verus!
+macro_rules! impl_as_len_for_uint {
+    ($ty:ty) => {
+        verus! {
+            impl AsLen for $ty {
+                open spec fn as_nat(self) -> nat {
+                    self as nat
+                }
+
+                fn get(self) -> (len: usize) {
+                    self as usize
+                }
+
+                open spec fn as_self(n: nat) -> Self {
+                    n as $ty
+                }
+
+                proof fn lemma_lossless_casting(v: Self) {
+                }
+            }
+        }
+    };
+}
+
+impl_as_len_for_uint!(u8);
+impl_as_len_for_uint!(u16);
+impl_as_len_for_uint!(u32);
+impl_as_len_for_uint!(usize);
+
+verus! {
+
+global size_of usize == 8;
+
+impl AsLen for u64 {
+    open spec fn as_nat(self) -> nat {
+        self as nat
+    }
+
+    fn get(self) -> (len: usize) {
+        self as usize
+    }
+
+    open spec fn as_self(n: nat) -> Self {
+        n as u64
+    }
+
+    proof fn lemma_lossless_casting(v: Self) {
+    }
+}
+
+impl<T: AsLen> AsLen for &T {
+    open spec fn as_nat(self) -> nat {
+        (*self).as_nat()
+    }
+
+    fn get(self) -> (len: usize) {
+        (*self).get()
+    }
+
+    open spec fn as_self(n: nat) -> Self {
+        &T::as_self(n)
+    }
+
+    proof fn lemma_lossless_casting(v: Self) {
+        T::lemma_lossless_casting(*v);
+    }
+}
+
+} // verus!
+
+```
