@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 18, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,22 @@ Status: November 17, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Additional fixed-interface repair instances and matched feedback evaluations are now validated (see latest checkpoint). Full generation-corpus completion, reserved-family evaluation and training remain open. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 18: sequential real-repository additions under construction
+
+The [growth task package](../experiments/real-repository-growth-001/README.md)
+adds two proposed stages to each qualified seed. Dafny-VMC's stable MoveToFront
+operation supports ordered PickPair selection; Vest's length-framed payload proof
+supports recursive counted batches with exact suffix preservation. Vest work is
+specification/proof-library growth, not executable parser generation. These are
+analyst feasibility candidates: no new model result or native proof is claimed.
+Twelve Dafny and thirteen Vest control overlays are prepared. Four finite/source
+tests pass for Dafny; root's source review confirms all 3,572 upstream files
+unchanged and exact Vest protected boundaries. Guard/parent binding and native
+runtime preparation are underway. Two full-scope reference checks precede the
+remaining controls. A later eight-call, four-lineage pilot is only a proposal,
+with stage two blocked if its actual first-stage parent fails. No new model calls
+are authorized; the reconnect request for verifier-only compute remains pending.
 
 ## November 16: real-repository evaluation and progressive extension
 

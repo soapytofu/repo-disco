@@ -1,0 +1,7 @@
+    let fmt = frame_format();
+    let value = frame_value(payload);
+    assert(fmt.consistent(value));
+    assert(fmt.unambiguous());
+    fmt.theorem_serialize_dps_parse_roundtrip(value, tail);
+    // A frame has a two-byte header, so payload length alone is the wrong offset.
+    assert(decode_frame(encode_frame(payload, tail)) == Some((payload.len() as int, payload)));

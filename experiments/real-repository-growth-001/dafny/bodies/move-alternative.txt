@@ -1,0 +1,9 @@
+assert xs == xs[..k] + [xs[k]] + xs[k+1..];
+var ys := [xs[k]] + xs[..k] + xs[k+1..];
+calc {
+  multiset(ys);
+  multiset([xs[k]]) + multiset(xs[..k]) + multiset(xs[k+1..]);
+  multiset(xs[..k]) + multiset([xs[k]]) + multiset(xs[k+1..]);
+  multiset(xs);
+}
+ys

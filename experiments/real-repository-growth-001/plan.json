@@ -1,0 +1,73 @@
+{
+  "schema": "repodisco-sequential-real-source-growth-plan-v1",
+  "prepared_date_eastern": "2026-11-18",
+  "status": "OFFLINE_PREPARATION_NATIVE_QUALIFICATION_PENDING",
+  "model_calls_authorized": 0,
+  "model_calls_dispatched": 0,
+  "prior_results_unchanged": true,
+  "projects": [
+    {
+      "id": "dafny-vmc",
+      "commit": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+      "design": "dafny/design.json",
+      "stages": ["move-to-front", "pick-pair"],
+      "draft_control_count": 12,
+      "initial_reference_case": "pair-reference"
+    },
+    {
+      "id": "vest",
+      "commit": "333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc",
+      "design": "vest/design.json",
+      "stages": ["vest-frame", "vest-counted-batch"],
+      "draft_control_count": 13,
+      "initial_reference_case": "batch-reference",
+      "runtime_parser_generation": false
+    }
+  ],
+  "qualification": {
+    "initial_full_scope_reference_invocations": 2,
+    "remaining_controls_require_reference_evidence_review": true,
+    "dafny_resource_limit": 100000,
+    "dafny_wall_seconds": 300,
+    "vest_build_workers": 1,
+    "vest_verifier_threads": 1,
+    "vest_wall_seconds": 900,
+    "cpus_per_job": 1,
+    "native_compute_only": true,
+    "automatic_retry": false,
+    "automatic_budget_escalation": false,
+    "requeue": false
+  },
+  "future_model_design": {
+    "execution_authorized": false,
+    "recommended_lineages_per_project": 2,
+    "maximum_stages_per_lineage": 2,
+    "maximum_new_calls": 8,
+    "minimum_demonstration_calls": 4,
+    "responses_per_stage": 1,
+    "retries": 0,
+    "reassignment": false,
+    "child_requires_exact_accepted_parent": true,
+    "child_undispatched_if_parent_fails": true,
+    "first_accepted_revision_retained_if_child_fails": true,
+    "exact_prompts_frozen": false,
+    "model_settings_frozen": false,
+    "live_runner_prepared": false
+  },
+  "distinct_measurements": [
+    "complete augmented-scope proof result",
+    "protected-source and exact-parent integrity",
+    "two-stage accepted lineage completion",
+    "actual use of an accepted earlier API",
+    "parser/frontend/proof/resource/warning categories",
+    "model request and token counts",
+    "native wall time and resource use"
+  ],
+  "limits": [
+    "Analyst feasibility references are not model results.",
+    "The Vest chain is specification/proof-library growth.",
+    "Repeated responses and descendants are clustered under their source repository.",
+    "Observed API calls do not establish necessary proof dependence.",
+    "No unseen-family or causal structural comparison is claimed."
+  ]
+}

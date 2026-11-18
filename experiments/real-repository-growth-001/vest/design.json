@@ -1,0 +1,100 @@
+{
+  "schema": "repodisco-real-source-growth-draft-v1",
+  "status": "SOURCE_REVIEWED_OFFLINE_ONLY_NOT_FROZEN",
+  "project": "vest",
+  "upstream_commit": "333d61c1f0a2a5accc6962ee9a4ae05619fd0dcc",
+  "scope": "Pinned default-feature vest_dev plus required vest_lib/vstd proof dependencies",
+  "kind": "contract-guided specification/proof library growth",
+  "runtime_parser_implementation_added": false,
+  "model_calls_authorized": 0,
+  "proposed_maximum_calls_for_one_lineage": 2,
+  "count_encoding": "Stage-two frame count is supplied out of band, not encoded",
+  "stages": [
+    {
+      "id": "vest-frame",
+      "new_path": "vest_dev/src/formats/growth_frame.rs",
+      "editable_proof": "frame_roundtrip",
+      "reference_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "contract": "For all payloads of at most 65535 bytes and arbitrary suffixes, decode the U16Le-prefixed payload, consume exactly 2+payload.len bytes and preserve the suffix.",
+      "upstream_apis": [
+        "Bind",
+        "U16Le",
+        "Varied",
+        "SPRoundTripDps",
+        "NonTailFmt"
+      ]
+    },
+    {
+      "id": "vest-counted-batch",
+      "new_path": "vest_dev/src/formats/growth_batch.rs",
+      "editable_proof": "batch_roundtrip",
+      "reference_sha256": "119e472a7cf82546e35c18ceded958fdcc610af169a0f0be3a4ef4e1eec241ac",
+      "requires_accepted_parent": "vest-frame",
+      "contract": "For every finite list of fitting payloads and arbitrary suffix, parse the requested number of accepted frames in order, consume their summed lengths and preserve the original suffix.",
+      "parent_apis": [
+        "payload_fits",
+        "frame_len",
+        "encode_frame",
+        "decode_frame",
+        "frame_roundtrip"
+      ],
+      "blocked_child_if_parent_fails": true,
+      "parent_source_must_equal_accepted_source": true
+    }
+  ],
+  "protected": [
+    "all upstream bytes except exact host module registration",
+    "spec function definitions",
+    "contracts",
+    "signatures",
+    "imports",
+    "decreases",
+    "module names",
+    "stage-one accepted source at stage two"
+  ],
+  "host_registration": {
+    "path": "vest_dev/src/formats/mod.rs",
+    "original_sha256": "8d1e47dcdfaa59d4129fadabc75d4028dd2a9e33dfce0facf0fc6d00c44bd477",
+    "stage_one_suffix": "\npub mod growth_frame;\n",
+    "stage_two_additional_suffix": "pub mod growth_batch;\n"
+  },
+  "coverage": {
+    "old_inventory": "experiments/real-repository-qualification-001/vest-coverage-001/profile.json",
+    "required_new_friendly_names": [
+      "vest_dev::formats::growth_frame::frame_roundtrip",
+      "vest_dev::formats::growth_batch::batch_roundtrip"
+    ],
+    "additional_native_units_must_be_inventoried": true,
+    "unlogged_specs_not_counted_as_verified_units": true
+  },
+  "relevant_upstream_source_pins": {
+    "vest_dev/src/formats/mod.rs": "8d1e47dcdfaa59d4129fadabc75d4028dd2a9e33dfce0facf0fc6d00c44bd477",
+    "vest_dev/src/formats/dependent.rs": "54609f47936a3e77fb06371eea6864545bc8ec55cbd5293d18afef06a625b081",
+    "vest_dev/src/formats/value_len.rs": "3059efd5af3f0026d3faba91e874cd9c2ea56771e47bcb4c1627c19c36c044f2",
+    "vest_dev/src/formats/star.rs": "25ed87886430f202b64aa48d70f9ddc74f9f51cfa0987045bac85721e7fdfb31",
+    "vest_lib/src/core/spec.rs": "4578e863c7e0fda2c22bfd359fce7bcbe4af369756197b428d846d2ba68749e0",
+    "vest_lib/src/core/proof.rs": "f450ab2a0493bb9fa2535b4dbf9f82ce88dc2d1a9c711b740d7bbb90aa765459",
+    "vest_lib/src/combinators/tuple/spec.rs": "d6ce66749374a3db3706c429a1eb830da085141c0e958860e40a8c749d34f92a",
+    "vest_lib/src/combinators/tuple/proof.rs": "8238873f10ef43120a8b43fe0f1e32767a8d01ea8bbbf52dbf63be868739fefc",
+    "vest_lib/src/combinators/bytes/spec.rs": "33505172f494dc010c0df68b218a4d670b823870594400f6715249d613f22f22",
+    "vest_lib/src/combinators/bytes/proof.rs": "1fbbcb49c4c68d8fbd52a31c8247434bc7c21f8474476861e86aa5d18d85990d",
+    "vest_lib/src/combinators/uints/spec.rs": "69fcdb1b2fab9b0aebeebb6ccf3b5c4398ab764d3ad64e7ba664d52987114128",
+    "vest_lib/src/combinators/uints/mod.rs": "270633ac375c9d1e5ff448f263a16b8b87dd78cd8d8d0ee68308820c78a0f0f4",
+    "vest_lib/src/combinators/length.rs": "d964db0452bd741e21dc9febf4b71b569f5d091fad6ea9386e7b1ad4432e66c3"
+  },
+  "native_validation_pending": [
+    "reference and alternative correctness",
+    "empty and semantic negative failures",
+    "broken-parent passing-client coverage rejection",
+    "unregistered new modules rejected",
+    "additional new well-formedness/termination inventory",
+    "warnings and bounded runtime"
+  ],
+  "limits": [
+    "not new independent families",
+    "not open-ended specification synthesis",
+    "not executable parser generation",
+    "not proof of necessary helper use",
+    "no paid scope frozen"
+  ]
+}

@@ -1,0 +1,8 @@
+    if payloads.len() == 0 {
+        assert(payloads == Seq::<Seq<u8>>::empty());
+    } else {
+        let first = payloads[0];
+        let rest = payloads.drop_first();
+        // The single-frame theorem does not establish the arbitrary remaining batch.
+        frame_roundtrip(first, encode_batch(rest, tail));
+    }

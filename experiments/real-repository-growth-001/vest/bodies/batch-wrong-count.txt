@@ -1,0 +1,5 @@
+    if payloads.len() > 0 {
+        // Parsing zero frames cannot recover a nonempty payload list.
+        assert(decode_batch(encode_batch(payloads, tail), 0)
+            == Some((batch_len(payloads) as int, payloads)));
+    }

@@ -1,0 +1,70 @@
+{
+  "controls_manifest_sha256": "2c67ed9b9a9df76831be2c71c3288208a93054df58990150500efef524f3bd33",
+  "coverage": "All original 267 units plus every new required named unit; command registration is host-owned.",
+  "date": "2026-11-18",
+  "finite_move_inputs": 1641,
+  "finite_pair_inputs": 3006,
+  "finite_sequence_inputs": 363,
+  "future_model_call_design": {
+    "child_blocked_if_parent_fails": true,
+    "execution_authorized": false,
+    "max_calls_per_chain": 2,
+    "retries": 0,
+    "slot_reassignment": false
+  },
+  "id": "vmc-stable-selection-chain",
+  "limitations": [
+    "No new native proof or parser observation yet.",
+    "Two dependent additions form one chain, not two independent repositories.",
+    "Reference API calls do not establish a necessary proof-dependency lower bound.",
+    "Deterministic selection operations do not establish random sampling or distributional properties.",
+    "Existing upstream trust assumptions persist."
+  ],
+  "model_calls": 0,
+  "model_edit_scope": "Only marked function body of the current stage; accepted parent and all other source fixed.",
+  "native_verifier_calls": 0,
+  "offline_tests": 4,
+  "stages": [
+    {
+      "additional_invariants": [
+        "length preserved",
+        "multiset preserved"
+      ],
+      "destination": "repodisco-growth/MoveToFront.dfy",
+      "exact_output": "[xs[k]] + xs[..k] + xs[k+1..]",
+      "id": "move-to-front",
+      "module": "FisherYates.GrowthShift",
+      "parent": "pinned qualified upstream",
+      "reference_api_calls": [
+        "FisherYates.Model.Swap",
+        "MoveToFront recursion at k-1"
+      ],
+      "required_condition": "0 <= k < |xs|",
+      "target": "MoveToFront"
+    },
+    {
+      "additional_invariants": [
+        "length preserved",
+        "multiset preserved"
+      ],
+      "destination": "repodisco-growth/PickPair.dfy",
+      "exact_output": "[xs[i], xs[j]] + xs[..i] + xs[i+1..j] + xs[j+1..]",
+      "id": "pick-pair",
+      "module": "FisherYates.GrowthPick",
+      "parent": "actual accepted stage-one revision; never substitute the analyst reference",
+      "reference_api_calls": [
+        "accepted GrowthShift.MoveToFront(xs,i)",
+        "accepted GrowthShift.MoveToFront(first[1..],j-1)"
+      ],
+      "required_condition": "0 <= i < j < |xs|",
+      "target": "PickPair"
+    }
+  ],
+  "status": "OFFLINE_PREPARED_NATIVE_QUALIFICATION_PENDING",
+  "upstream": {
+    "commit": "e3631f8d335bf7ec3648b13976fa2a96a2a5406e",
+    "protected_files": 91,
+    "repository": "dafny-lang/Dafny-VMC",
+    "required_original_units": 267
+  }
+}

@@ -1,0 +1,9 @@
+var secondFirst := Shift.MoveToFront(xs, j);
+assert secondFirst == [xs[j]] + xs[..j] + xs[j+1..];
+assert xs[..j] == xs[..i] + [xs[i]] + xs[i+1..j];
+assert secondFirst[i+1] == xs[i];
+assert secondFirst[..i+1] == [xs[j]] + xs[..i];
+assert secondFirst[i+2..] == xs[i+1..j] + xs[j+1..];
+var ys := Shift.MoveToFront(secondFirst, i+1);
+assert ys == [xs[i], xs[j]] + xs[..i] + xs[i+1..j] + xs[j+1..];
+ys

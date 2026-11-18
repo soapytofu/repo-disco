@@ -1,5 +1,18 @@
 # Experiment log
 
+## Sequential real-source growth — draft chains and controls
+
+[Task sources and plan](real-repository-growth-001/README.md) now define two
+dependent additions per qualified seed. Dafny-VMC adds stable movement followed
+by ordered pair selection. Vest adds a payload/suffix frame theorem followed by
+an inductive counted-batch theorem; this is proof-library growth, not executable
+parser generation. Twelve Dafny and thirteen Vest control overlays are prepared.
+Four Dafny offline tests pass, and the parent review confirms all 3,572 upstream
+files unchanged and exact Vest protected boundaries. Native outcomes are still
+pending. The first compute gate is one full-scope reference per repository;
+remaining controls and any model collection stay gated. The proposed later
+eight-call design is unapproved. No new model or native-verifier calls.
+
 ## Evaluation stability — warnings and matched resource budgets
 
 [Versioned policy and completed results](real-repository-evaluation-stability-001/RESULTS.md)

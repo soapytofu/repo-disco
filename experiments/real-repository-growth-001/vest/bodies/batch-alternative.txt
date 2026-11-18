@@ -1,0 +1,16 @@
+    if payloads.len() != 0 {
+        let first = payloads[0];
+        let rest = payloads.drop_first();
+        let rest_encoded = encode_batch(rest, tail);
+        frame_roundtrip(first, rest_encoded);
+        batch_roundtrip(rest, tail);
+        let encoded = encode_batch(payloads, tail);
+        let offset = frame_len(first) as int;
+        let remaining = batch_len(rest) as int;
+        assert(rest.len() + 1 == payloads.len());
+        assert(seq![first] + rest == payloads);
+        assert(encoded[offset..] == rest_encoded);
+        assert(encoded[offset..][remaining..] == encoded[offset + remaining..]);
+    } else {
+        assert(payloads == Seq::<Seq<u8>>::empty());
+    }

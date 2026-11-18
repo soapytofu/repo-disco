@@ -1,0 +1,16 @@
+    let n = payload.len() as u16;
+    let body_and_tail = payload + tail;
+    let encoded = encode_frame(payload, tail);
+    assert(n as nat == payload.len());
+    Varied(n).theorem_serialize_dps_parse_roundtrip(payload, tail);
+    U16Le.theorem_serialize_dps_parse_roundtrip(n, body_and_tail);
+    U16Le.lemma_serialize_dps_prepend(n, body_and_tail);
+    U16Le.lemma_serialize_dps_len(n, body_and_tail);
+    assert(U16Le.byte_len(n) == 2);
+    assert(encoded == U16Le.spec_serialize_dps(n, body_and_tail));
+    let prefix = choose|prefix: Seq<u8>| encoded == prefix + body_and_tail;
+    assert(prefix.len() == 2);
+    assert(encoded[2..] == body_and_tail);
+    assert(body_and_tail[0..payload.len() as int] == payload);
+    assert(body_and_tail[payload.len() as int..] == tail);
+    assert(encoded[2..][payload.len() as int..] == encoded[frame_len(payload) as int..]);
