@@ -1,0 +1,866 @@
+{
+  "ambiguous_native_categories_halt": [
+    "ENVIRONMENT_OR_BUILD_ERROR",
+    "ENVIRONMENT_OR_SOLVER_ERROR",
+    "FRONTEND_OR_EXECUTION_ERROR",
+    "INCOMPLETE_OR_UNCLASSIFIED",
+    "NO_VERIFICATION_REPORT",
+    "UNCLASSIFIED"
+  ],
+  "case_policy": "Exactly the frozen order, fresh work/output/target per case; at most one native invocation per case, no restart/resume/retry/requeue/resource escalation.",
+  "cases": {
+    "dafny-vmc": [
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [],
+        "expected_kind": "proof_pass",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "move-reference",
+        "ordinal": 1,
+        "original_expected_label": "PASS",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [],
+        "expected_kind": "proof_pass",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "move-alternative",
+        "ordinal": 2,
+        "original_expected_label": "PASS",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "ae28b0448c12d026102fd75ea701c1bed872a9f844828a1311e6a140d5f4abf9"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "move-noop",
+        "ordinal": 3,
+        "original_expected_label": "MOVE_PROOF_FAILURE",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "b521d3842ecde91c66d867b45dbbc36f10813038fd46a125073610ef1be8a28c"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "move-endpoint-swap",
+        "ordinal": 4,
+        "original_expected_label": "MOVE_PROOF_FAILURE",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "b1c664757014334626aa0af97aa130127df125546610e3b43591797cda7b4e53"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [],
+        "expected_kind": "proof_pass",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Passed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "pair-alternative",
+        "ordinal": 5,
+        "original_expected_label": "PASS",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "872a9e801cf6ab8a438c6a7bf65afd519aac0406caaaf6ddb2515c63d2c8aa17"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "RepoDiscoGrowthPick.PickPair (well-formedness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Failed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "pair-noop",
+        "ordinal": 6,
+        "original_expected_label": "PAIR_PROOF_FAILURE",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "baa159472d42313d5377b47396ad3bb1211bbe4395473cf2110f0debb619b670"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "RepoDiscoGrowthPick.PickPair (well-formedness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Failed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "pair-first-only",
+        "ordinal": 7,
+        "original_expected_label": "PAIR_PROOF_FAILURE",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "63c359cd13dd72f1aac5fa15c47b74edfd4c353bff3fec5a070c303e1e89db2e"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "RepoDiscoGrowthPick.PickPair (well-formedness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Failed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "pair-wrong-adjustment",
+        "ordinal": 8,
+        "original_expected_label": "PAIR_PROOF_FAILURE",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "da0269a4229ed7656687be5e7847d14e43f209317c34dbc15dc8377a2588c42a"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Passed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "pair-with-unproved-parent",
+        "ordinal": 9,
+        "original_expected_label": "MOVE_PROOF_FAILURE_CLIENT_MAY_PASS",
+        "overlay_sha256": {
+          "repodisco-growth/MoveToFront.dfy": "b521d3842ecde91c66d867b45dbbc36f10813038fd46a125073610ef1be8a28c",
+          "repodisco-growth/PickPair.dfy": "acf85f1b8dac91a9747a77827696f8a66554da8d4b657b7e3f115bc0537aa7e6"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": true
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [
+          "QualificationGrowthDetached.Fails (correctness)"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "QualificationGrowthDetached.Fails (correctness)": "Failed",
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Passed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "QualificationGrowthDetached.Fails (correctness)": 1,
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "detached-explicit",
+        "ordinal": 10,
+        "original_expected_label": "DETACHED_PROOF_FAILURE",
+        "overlay_sha256": {
+          "repodisco-growth/Detached.dfy": "09890e30955f60bfc8bb6fb0aaab4da1a7fdde4319bc91b04a893b740e13e9e8",
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "acf85f1b8dac91a9747a77827696f8a66554da8d4b657b7e3f115bc0537aa7e6"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "QualificationGrowthDetached.Fails (correctness)": 1,
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "RepoDiscoGrowthPick.PickPair (well-formedness)",
+        "expected_failed_new_units": [],
+        "expected_kind": "coverage_omission",
+        "expected_missing_new_units": [
+          "QualificationGrowthDetached.Fails (correctness)"
+        ],
+        "expected_new_outcomes": {
+          "QualificationGrowthDetached.Fails (correctness)": "Missing",
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": "Passed",
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "explicitly_omit_from_command": [
+          "repodisco-growth/Detached.dfy"
+        ],
+        "id": "detached-omitted",
+        "ordinal": 11,
+        "original_expected_label": "NATIVE_PASS_COVERAGE_REJECT",
+        "overlay_sha256": {
+          "repodisco-growth/Detached.dfy": "09890e30955f60bfc8bb6fb0aaab4da1a7fdde4319bc91b04a893b740e13e9e8",
+          "repodisco-growth/MoveToFront.dfy": "675c28557e63ac036bd7839bf32c2d64b93cce1ed9ad9e78a453778b83039ebd",
+          "repodisco-growth/PickPair.dfy": "acf85f1b8dac91a9747a77827696f8a66554da8d4b657b7e3f115bc0537aa7e6"
+        },
+        "parent_target": "RepoDiscoGrowthShift.MoveToFront (well-formedness)",
+        "required_new_inventory": {
+          "QualificationGrowthDetached.Fails (correctness)": 1,
+          "RepoDiscoGrowthPick.PickPair (well-formedness)": 1,
+          "RepoDiscoGrowthShift.MoveToFront (well-formedness)": 1
+        },
+        "unproved_parent_control": false
+      }
+    ],
+    "vest": [
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [],
+        "expected_kind": "proof_pass",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "frame-reference",
+        "ordinal": 1,
+        "original_expected_label": "proof_pass",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "d2faf29070af8f6d1ea44bb5ac56a435b74e24277020f14b083b0726cd74f047"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "frame-empty",
+        "ordinal": 2,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_frame.rs": "83fe5dc7191d4a5834c89f52311707cf431f810b20b998386040acbc5d287ef4",
+          "vest_dev/src/formats/mod.rs": "d2faf29070af8f6d1ea44bb5ac56a435b74e24277020f14b083b0726cd74f047"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [],
+        "expected_kind": "proof_pass",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "frame-alternative",
+        "ordinal": 3,
+        "original_expected_label": "proof_pass",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_frame.rs": "54f56b4d433e2b4265f58b93cb533345498bac18a5863758bea0ef52010cc6d0",
+          "vest_dev/src/formats/mod.rs": "d2faf29070af8f6d1ea44bb5ac56a435b74e24277020f14b083b0726cd74f047"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "frame-wrong-header",
+        "ordinal": 4,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_frame.rs": "5b8d1039bb7813cfcf7bfdcf47e5467d5a64cd85755bb71e11ed2c1ef8834f94",
+          "vest_dev/src/formats/mod.rs": "d2faf29070af8f6d1ea44bb5ac56a435b74e24277020f14b083b0726cd74f047"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "frame-wrong-consumption",
+        "ordinal": 5,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_frame.rs": "7d9a08e310ea5cf4a44785dec1d28f804156321a308e4abff01d6d8a17348040",
+          "vest_dev/src/formats/mod.rs": "d2faf29070af8f6d1ea44bb5ac56a435b74e24277020f14b083b0726cd74f047"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": "Failed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "batch-empty",
+        "ordinal": 6,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_batch.rs": "a7337078ea42291c6d6ffdfdb15a1bcba8c5cf8c84ba579b31d27520bf8d887b",
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "b2ff48dc25d61ee3076036a09ee71b801ee03e501c4133f01490c334c41402ee"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [],
+        "expected_kind": "proof_pass",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "batch-alternative",
+        "ordinal": 7,
+        "original_expected_label": "proof_pass",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_batch.rs": "b7cf25533348b944aecec0443af02e8cbb74660dc6764868c029a48343c23e59",
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "b2ff48dc25d61ee3076036a09ee71b801ee03e501c4133f01490c334c41402ee"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": "Failed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "batch-wrong-count",
+        "ordinal": 8,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_batch.rs": "58cc9a8d77089580d895e2b6f1c7f4d2c8525a6de86b3de183652688b9506bc3",
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "b2ff48dc25d61ee3076036a09ee71b801ee03e501c4133f01490c334c41402ee"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": "Failed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "batch-missing-induction",
+        "ordinal": 9,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_batch.rs": "86901b8735cbdfe7f280008ad851ed7fffb1d451de17340e0383a6029e672fbf",
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "b2ff48dc25d61ee3076036a09ee71b801ee03e501c4133f01490c334c41402ee"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]"
+        ],
+        "expected_kind": "named_proof_failure",
+        "expected_missing_new_units": [],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": "Passed",
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Failed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "batch-unproved-frame",
+        "ordinal": 10,
+        "original_expected_label": "proof_failure",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_batch.rs": "119e472a7cf82546e35c18ceded958fdcc610af169a0f0be3a4ef4e1eec241ac",
+          "vest_dev/src/formats/growth_frame.rs": "5b8d1039bb7813cfcf7bfdcf47e5467d5a64cd85755bb71e11ed2c1ef8834f94",
+          "vest_dev/src/formats/mod.rs": "b2ff48dc25d61ee3076036a09ee71b801ee03e501c4133f01490c334c41402ee"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": true
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [],
+        "expected_kind": "coverage_omission",
+        "expected_missing_new_units": [
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]"
+        ],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Missing"
+        },
+        "expected_observed_new_inventory": {},
+        "explicitly_omit_from_command": [],
+        "id": "frame-omitted",
+        "ordinal": 11,
+        "original_expected_label": "coverage_rejection",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "8d1e47dcdfaa59d4129fadabc75d4028dd2a9e33dfce0facf0fc6d00c44bd477"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      },
+      {
+        "child_target": "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+        "expected_failed_new_units": [],
+        "expected_kind": "coverage_omission",
+        "expected_missing_new_units": [
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]"
+        ],
+        "expected_new_outcomes": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": "Missing",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": "Missing",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": "Missing",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": "Missing",
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": "Missing",
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": "Passed"
+        },
+        "expected_observed_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "explicitly_omit_from_command": [],
+        "id": "batch-omitted",
+        "ordinal": 12,
+        "original_expected_label": "coverage_rejection",
+        "overlay_sha256": {
+          "vest_dev/src/formats/growth_batch.rs": "119e472a7cf82546e35c18ceded958fdcc610af169a0f0be3a4ef4e1eec241ac",
+          "vest_dev/src/formats/growth_frame.rs": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+          "vest_dev/src/formats/mod.rs": "d2faf29070af8f6d1ea44bb5ac56a435b74e24277020f14b083b0726cd74f047"
+        },
+        "parent_target": "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]",
+        "required_new_inventory": {
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_fits\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_len\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::batch_roundtrip\",\"proof\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::decode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_batch\",\"vest_dev::formats::growth_batch::encode_batch\",\"spec\"]": 1,
+          "[\"vest_dev\",\"formats::growth_frame\",\"vest_dev::formats::growth_frame::frame_roundtrip\",\"proof\"]": 1
+        },
+        "unproved_parent_control": false
+      }
+    ]
+  },
+  "completed_references_excluded": {
+    "dafny-vmc": "pair-reference",
+    "vest": "batch-reference"
+  },
+  "continuation_policy": "Continue distinct fixed cases after well-formed unexpected proof/frontend/resource outcomes; stop on integrity/parser/ambiguous execution errors or native timeout/kill.",
+  "live_repository_promoted": false,
+  "model_calls": 0,
+  "model_scope_authorized": false,
+  "native_invocations_max": 23,
+  "native_stop_exit_codes": [
+    124,
+    137,
+    143
+  ],
+  "reference_gate_sha256": "0999050882566d8630dec4566ed5526e05fbabcd9f4f1092c9c9322322a82207",
+  "reference_gates": {
+    "dafny-vmc": {
+      "file": "reference-gates/dafny-vmc.json",
+      "sha256": "d93727a9ca203d776617829fc80f233ba54e0c075d5bf64834e8c393a2853b63"
+    },
+    "vest": {
+      "file": "reference-gates/vest.json",
+      "sha256": "628b1d02ee3eb66f215d1ffcbdccda6e3dead781b56eb05b2ec4292951c532a9"
+    }
+  },
+  "resources": {
+    "dafny-vmc": {
+      "case_count": 11,
+      "cpus": 1,
+      "job_minutes": 90,
+      "memory_gb": 2,
+      "native_wall_seconds": 300,
+      "resource_limit": 100000
+    },
+    "vest": {
+      "cargo_build_jobs": 1,
+      "case_count": 12,
+      "cpus": 1,
+      "job_minutes": 240,
+      "memory_gb": 4,
+      "native_wall_seconds": 900,
+      "verus_num_threads": 1
+    }
+  },
+  "runtime_destination": "outputs/real-repository-growth-001/controls-001",
+  "schema": "real-source-growth-fixed-controls-v1",
+  "stop_on_negative_exit": true,
+  "unlogged_vest_frame_definitions": [
+    {
+      "counted_as_pass": false,
+      "file": "vest_dev/src/formats/growth_frame.rs",
+      "observation": "UNLOGGED_FIXED_SPEC_DEFINITION",
+      "source_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "unit": [
+        "vest_dev",
+        "formats::growth_frame",
+        "vest_dev::formats::growth_frame::frame_format",
+        "spec"
+      ]
+    },
+    {
+      "counted_as_pass": false,
+      "file": "vest_dev/src/formats/growth_frame.rs",
+      "observation": "UNLOGGED_FIXED_SPEC_DEFINITION",
+      "source_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "unit": [
+        "vest_dev",
+        "formats::growth_frame",
+        "vest_dev::formats::growth_frame::payload_fits",
+        "spec"
+      ]
+    },
+    {
+      "counted_as_pass": false,
+      "file": "vest_dev/src/formats/growth_frame.rs",
+      "observation": "UNLOGGED_FIXED_SPEC_DEFINITION",
+      "source_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "unit": [
+        "vest_dev",
+        "formats::growth_frame",
+        "vest_dev::formats::growth_frame::frame_value",
+        "spec"
+      ]
+    },
+    {
+      "counted_as_pass": false,
+      "file": "vest_dev/src/formats/growth_frame.rs",
+      "observation": "UNLOGGED_FIXED_SPEC_DEFINITION",
+      "source_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "unit": [
+        "vest_dev",
+        "formats::growth_frame",
+        "vest_dev::formats::growth_frame::frame_len",
+        "spec"
+      ]
+    },
+    {
+      "counted_as_pass": false,
+      "file": "vest_dev/src/formats/growth_frame.rs",
+      "observation": "UNLOGGED_FIXED_SPEC_DEFINITION",
+      "source_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "unit": [
+        "vest_dev",
+        "formats::growth_frame",
+        "vest_dev::formats::growth_frame::encode_frame",
+        "spec"
+      ]
+    },
+    {
+      "counted_as_pass": false,
+      "file": "vest_dev/src/formats/growth_frame.rs",
+      "observation": "UNLOGGED_FIXED_SPEC_DEFINITION",
+      "source_sha256": "57971eabd40ce323e6aa110f421ee9e51da2030514fac9ba4effe29362ae6bce",
+      "unit": [
+        "vest_dev",
+        "formats::growth_frame",
+        "vest_dev::formats::growth_frame::decode_frame",
+        "spec"
+      ]
+    }
+  ]
+}

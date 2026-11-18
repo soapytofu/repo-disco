@@ -58,6 +58,14 @@ corrected Dafny reference also passes. The remaining 23 controls, native-parent
 integration and a namespace-compatible edit policy are still required before
 model collection. No model calls were made.
 
+The remaining-control runtime is now reviewed: 34 local and isolated tests,
+exactly 11 Dafny and 12 Vest cases, one CPU per project, with no retry or resume.
+A separate revised parent policy passes 17 offline tests and losslessly replays
+both real reference inventories. It rejects treating a full two-stage reference
+as an accepted first-stage model revision. Native controls and actual-parent
+integration remain pending; [preparation review](../experiments/real-repository-growth-001/implementation-review-002.json)
+records these boundaries.
+
 ## November 16: real-repository evaluation and progressive extension
 
 The subsequent [evaluation-stability follow-up](../experiments/real-repository-evaluation-stability-001/RESULTS.md)

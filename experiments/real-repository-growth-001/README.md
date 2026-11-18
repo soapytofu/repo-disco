@@ -115,6 +115,23 @@ inventory expansion before issuing a parent receipt. Hash-consistent records
 alone cannot authenticate their own proof claims. This adapter and actual native
 parent evidence remain prerequisites to any model collection.
 
+## Reviewed control and parent-evidence preparation
+
+The separate [remaining-control runtime](controls-001/README.md) now binds
+exactly 11 Dafny and 12 Vest observations, excluding the completed references.
+It passed 34 tests locally and in a manifest-only isolated package. Named
+failures, omitted modules, complete inherited coverage, signals/timeouts and
+ambiguous execution have distinct checks. Both jobs reserve one CPU. Native
+control outcomes remain pending; no proof success is inferred from these tests.
+
+The separately revised [native-parent policy](protocol-002/README.md) passes
+17 offline tests and replays the actual 269 Dafny entries and 5,416 Vest timing
+occurrences without losing multiplicities or raw record locations. Its full
+reference replays remain stage-two analyst observations, never accepted model
+parents. Actual stage-one controls and host integration are still required.
+The [root review](implementation-review-002.json) records inspected code, pins,
+provenance and remaining trust boundaries. No model calls were made.
+
 ## Accepted-parent and measurement rules
 
 Each lineage starts from the pinned qualified upstream snapshot. Stage one gets
