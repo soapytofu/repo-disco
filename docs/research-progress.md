@@ -66,6 +66,16 @@ as an accepted first-stage model revision. Native controls and actual-parent
 integration remain pending; [preparation review](../experiments/real-repository-growth-001/implementation-review-002.json)
 records these boundaries.
 
+Dafny control job 61762615 is complete: all 11 remaining expectations match,
+with all 267 original units passing in every case. Three positive cases pass;
+seven intended proof failures are identified by their actual named units; one
+native-success case is rejected because a staged failing module was omitted.
+A caller passes under an unproved helper contract, while whole-scope acceptance
+correctly fails. Full 192-file evidence, source audits, CSV and resources are
+saved in the [control results](../experiments/real-repository-growth-001/controls-001/RESULTS.md).
+The one-CPU job took 8m34s with no retries or model calls. Vest controls remain
+running; model-growth readiness is still pending.
+
 ## November 16: real-repository evaluation and progressive extension
 
 The subsequent [evaluation-stability follow-up](../experiments/real-repository-evaluation-stability-001/RESULTS.md)

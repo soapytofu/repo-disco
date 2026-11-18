@@ -12,7 +12,8 @@ files unchanged and exact Vest protected boundaries. Both full reference scopes
 now verify: corrected Dafny 269/269 logged units, Vest 5,410 original plus six new
 successful timed occurrences. Each has zero errors and only its exact inherited
 warnings. The initial Dafny namespace-cycle failure remains preserved. The
-remaining 23 controls and native-parent integration are still pending. The
+remaining 11 Dafny controls match all expectations; 12 Vest controls are
+running, and native-parent integration remains pending. The
 proposed later eight-call design is unapproved; no model calls were made.
 
 ## Evaluation stability — warnings and matched resource budgets
