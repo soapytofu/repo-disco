@@ -1,0 +1,1 @@
+Pre-staging manifest-only failure preserved: aws/cases.json was an operational gate input absent from the provisional Stdlib package. No stage or submission used this manifest. Full failed isolated transcript remains in reviews/isolated-stdlib-001. The correction explicitly requires and freezes both case catalogs. Native inputs, outcomes and dispatch cases are unchanged.

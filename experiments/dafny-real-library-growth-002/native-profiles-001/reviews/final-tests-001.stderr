@@ -1,0 +1,48 @@
+test_actual_named_targets_unlogged_definitions_and_fixed_resources (test_final_gate.ActualReferenceGateTests.test_actual_named_targets_unlogged_definitions_and_fixed_resources) ... ok
+test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) ... 
+  test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='aws-batch') ... FAIL
+  test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='aws-tagged') ... FAIL
+  test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='stdlib-filter') ... FAIL
+  test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='stdlib-splice') ... FAIL
+test_mixed_version_reuse_and_resource_failure_are_not_new_successes (test_final_gate.ActualReferenceGateTests.test_mixed_version_reuse_and_resource_failure_are_not_new_successes) ... ok
+
+======================================================================
+FAIL: test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='aws-batch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/native-profiles-001/test_final_gate.py", line 55, in test_all_actual_receipts_replay_and_every_input_pin_matches
+    self.assertEqual(actual, report['replay'])
+AssertionError: {'schema': 'dafny-library-native-review-v1'[53399 chars]alse} != {'acceptance_issued': False, 'category': 'V[53399 chars]': 0}
+Diff is 91886 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='aws-tagged')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/native-profiles-001/test_final_gate.py", line 55, in test_all_actual_receipts_replay_and_every_input_pin_matches
+    self.assertEqual(actual, report['replay'])
+AssertionError: {'schema': 'dafny-library-native-review-v1'[52723 chars]alse} != {'acceptance_issued': False, 'category': 'V[52723 chars]': 0}
+Diff is 90861 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='stdlib-filter')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/native-profiles-001/test_final_gate.py", line 55, in test_all_actual_receipts_replay_and_every_input_pin_matches
+    self.assertEqual(actual, report['replay'])
+AssertionError: {'schema': 'dafny-library-native-review-v1'[45249 chars]alse} != {'acceptance_issued': False, 'category': 'V[45249 chars]': 0}
+Diff is 77519 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_actual_receipts_replay_and_every_input_pin_matches (test_final_gate.ActualReferenceGateTests.test_all_actual_receipts_replay_and_every_input_pin_matches) (task='stdlib-splice')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/native-profiles-001/test_final_gate.py", line 55, in test_all_actual_receipts_replay_and_every_input_pin_matches
+    self.assertEqual(actual, report['replay'])
+AssertionError: {'schema': 'dafny-library-native-review-v1'[45528 chars]alse} != {'acceptance_issued': False, 'category': 'V[45528 chars]': 0}
+Diff is 78021 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.351s
+
+FAILED (failures=4)

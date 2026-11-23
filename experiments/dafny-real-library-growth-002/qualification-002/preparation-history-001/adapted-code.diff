@@ -1,0 +1,1184 @@
+--- qualification-001/collect.py
++++ qualification-002/collect.py
+@@ -16,8 +16,16 @@
+ import time
+ 
+ ROOT = Path(__file__).resolve().parent
+-REFERENCE_IDS = {'stdlib': ['filter-reference', 'splice-reference'],
+-                 'aws': ['counted-reference', 'tagged-reference']}
++CONTROL_IDS = {
++    'stdlib': ['filter-alternative','filter-empty','filter-inclusive-threshold','filter-no-tail-pop',
++        'filter-wrong-write-index','filter-missing-prefix-invariant','filter-omitted',
++        'splice-empty','splice-growth-wrong-order','splice-wrong-replacement-offset',
++        'splice-no-tail-pop','splice-missing-growth-call','splice-unproved-seed','splice-omitted'],
++    'aws': ['counted-always-failure','counted-missing-tail','counted-omitted','counted-reversed-payloads',
++        'counted-unproved-frame','counted-wrong-suffix','tagged-always-failure','tagged-keeps-tag',
++        'tagged-omitted','tagged-skips-budget','tagged-skips-tag','tagged-unproved-pair']}
++TASK_REFERENCES = {'stdlib-filter':'filter-reference','stdlib-splice':'splice-alternative',
++                   'aws-batch':'counted-reference','aws-tagged':'tagged-reference'}
+ 
+ 
+ def require(ok, message):
+@@ -31,33 +39,173 @@
+             and all(32 <= ord(c) < 127 for c in name))
+ 
+ 
+-def validate_config(config, profiles=None):
++def validate_config(config, profiles=None, metadata=None):
+     profiles = profiles or json.loads((ROOT/'tool-profiles.json').read_bytes())
+     project = config.get('project')
+-    require(project in REFERENCE_IDS and config.get('schema') == 'dafny-growth-reference-qualification-v1'
+-            and config.get('references_only') is True, 'Reference-only project configuration required')
++    require(project in CONTROL_IDS and config.get('schema') == 'dafny-growth-controls-qualification-v1'
++            and config.get('controls_only') is True, 'Fixed remaining-control configuration required')
+     require(config.get('freeze') == 'freezes/'+project+'.json', 'Wrong project freeze')
+     profile = profiles[project]
+     require(all(config.get(k) == v for k, v in profile.items()), 'Pinned tool/profile settings changed')
+-    require(set(config) == set(profile) | {'schema','freeze','references_only','cases'},
++    require(set(config) == set(profile) | {'schema','freeze','controls_only','cases'},
+             'Unexpected configuration options')
+     cases = config.get('cases')
+-    require(isinstance(cases,list) and [c.get('id') for c in cases] == REFERENCE_IDS[project],
+-            'Exactly the two declared references are dispatchable')
+-    require(len({c.get('task_id') for c in cases}) == 2, 'Reference tasks must be independent')
+-    for case in cases:
++    require(isinstance(cases,list) and [c.get('id') for c in cases] == CONTROL_IDS[project],
++            'Only the exact remaining controls are dispatchable')
++    metadata = metadata or json.loads((ROOT/'control-metadata'/f'{project}.json').read_bytes())
++    require([entry['id'] for entry in metadata['cases']]==CONTROL_IDS[project], 'Control metadata order differs')
++    require(safe_path(metadata['source_path']), 'Unsafe source-case metadata path')
++    workspace_prefix=Path(metadata['source_path']).parent.as_posix()
++    require(len({c.get('task_id') for c in cases}) == 2, 'Wrong task grouping')
++    for case,original in zip(cases,metadata['cases']):
+         require(set(case) == {'id','task_id','role','workspace_dir','source_sha256','command_files'}
+-                and case['role'] == 'reference' and isinstance(case['task_id'],str)
+-                and case['task_id'] and safe_path(case['workspace_dir']), 'Malformed reference case')
++                and case['role'] == 'control' and case['task_id'] in TASK_REFERENCES
++                and safe_path(case['workspace_dir']), 'Malformed control case')
++        expected=dict(id=original['id'],task_id=original.get('task_id',original['project']),role='control',
++            workspace_dir=workspace_prefix+'/'+original['workspace_dir'],source_sha256=original['source_sha256'],
++            command_files=original['command_files'])
++        require(case==expected, 'Control is not an exact fixture projection')
+         source_map = case['source_sha256']
+         require(isinstance(source_map,dict) and source_map and all(safe_path(name)
+                 and name.endswith('.dfy') and isinstance(digest,str) and len(digest) == 64
+                 and all(c in '0123456789abcdef' for c in digest) for name,digest in source_map.items()),
+                 'Exact source hashes required')
+         inputs = case['command_files']
+-        require(isinstance(inputs,list) and len(inputs) == len(set(inputs))
+-                and set(inputs) == set(source_map), 'References require every source as an explicit input')
++        require(isinstance(inputs,list) and inputs and len(inputs) == len(set(inputs))
++                and set(inputs)<=set(source_map), 'Invalid explicit control inputs')
++        omitted=set(source_map)-set(inputs)
++        require(omitted==set(original.get('omit_from_command',[])), 'Omission differs from fixed control')
++        require(bool(omitted)==(original['expected_category']=='COVERAGE_OMISSION'),
++                'Only declared omission controls may omit sources')
+     return config
++
++
++def validate_reference_gate(package, root=None, *, allow_synthetic=False):
++    """Validate reviewed evidence pins; never construct a gate or profile."""
++    import native_scorer as scorer
++    package=Path(package);root=Path(root) if root is not None else ROOT
++    binding_path=root/'reference-gate-binding.json'
++    binding=json.loads(binding_path.read_bytes())
++    require(binding.get('schema')=='dafny-growth-controls-gate-binding-v1', 'Unknown gate binding')
++    require(not binding.get('synthetic') or allow_synthetic, 'Synthetic gate is ineligible for native dispatch')
++    gate_path=binding.get('gate_path')
++    require(gate_path=='native-profiles-001/reference-gate.json', 'Unexpected reference gate location')
++    raw=(package/gate_path).read_bytes()
++    require(sha(raw)==binding.get('gate_sha256'), 'Reference gate differs')
++    gate=json.loads(raw)
++    require(gate.get('status')=='PASS' and gate.get('all_references_match') is True
++            and gate.get('model_calls')==0 and set(gate.get('tasks',{}))==set(TASK_REFERENCES),
++            'All four actual reference outcomes must pass review')
++    require(not gate.get('synthetic') or allow_synthetic, 'Synthetic reference evidence rejected')
++    inputs=gate.get('input_files')
++    require(isinstance(inputs,dict) and inputs, 'Gate must bind complete source/raw/profile evidence')
++    for name,digest in inputs.items():
++        require(safe_path(name), 'Unsafe reference input')
++        path=package/name
++        require(path.is_file() and not path.is_symlink() and sha(path.read_bytes())==digest,
++                'Reference evidence drift: '+name)
++    manifests=binding.get('fixture_manifests',{})
++    require(set(manifests)=={'stdlib','aws'}, 'Both fixture manifests must be bound')
++    for project,entry in manifests.items():
++        metadata=json.loads((root/'control-metadata'/f'{project}.json').read_bytes())
++        require(safe_path(metadata['source_path']) and metadata['source_path'].startswith(project+'/'),
++                'Source metadata is not within its fixed project')
++        expected_manifest=(Path(metadata['source_path']).parent/'manifest.json').as_posix()
++        require(entry.get('path')==expected_manifest
++                and sha((package/entry['path']).read_bytes())==entry.get('sha256')
++                and inputs.get(entry['path'])==entry['sha256'], 'Fixture manifest binding differs')
++        require(sha((package/metadata['source_path']).read_bytes())==metadata['source_sha256'],
++                'Fixed control cases changed after preparation')
++    tasks=binding.get('tasks',{})
++    require(set(tasks)==set(TASK_REFERENCES), 'Gate task/profile bindings incomplete')
++    for task,entry in tasks.items():
++        observation=gate['tasks'][task]
++        require(observation.get('reference_case_id')==TASK_REFERENCES[task]
++                and observation.get('qualified_success') is True,
++                'Per-task reference success is missing')
++        require(entry.get('reference_case_id')==TASK_REFERENCES[task]
++                and entry.get('profile_path')=='native-profiles-001/profiles/'+task+'.json'
++                and inputs.get(entry['profile_path'])==entry.get('profile_sha256'),
++                'Wrong reference/profile correspondence')
++        native_pin=observation.get('native_profile',{})
++        require(native_pin.get('path')==entry['profile_path'] and native_pin.get('sha256')==entry['profile_sha256'],
++                'Per-task native profile differs from binding')
++        evidence=observation.get('input_files')
++        require(isinstance(evidence,dict) and evidence
++                and all(inputs.get(name)==digest for name,digest in evidence.items()),
++                'Per-task evidence must be a complete subset of gate pins')
++        edit=observation.get('edit_profile',{})
++        require(safe_path(edit.get('path')) and evidence.get(edit['path'])==edit.get('sha256'),
++                'Edit profile is not bound to reference evidence')
++        base=observation.get('base_sources')
++        require(isinstance(base,dict) and base and all(safe_path(logical) and logical.endswith('.dfy')
++                and isinstance(pin,dict) and safe_path(pin.get('path'))
++                and evidence.get(pin['path'])==pin.get('sha256') for logical,pin in base.items()),
++                'Model starting source bindings are incomplete')
++        profile=json.loads((package/entry['profile_path']).read_bytes())
++        require(native_pin.get('canonical_sha256')==scorer.sha(scorer.canonical(profile)),
++                'Canonical native profile identity differs')
++        require(profile.get('project')==task and profile.get('inventory_status')=='qualified'
++                and isinstance(profile.get('required_units'),dict) and profile['required_units'],
++                'Actual qualified native inventory required')
++        require(not profile.get('synthetic') or allow_synthetic, 'Synthetic native profile rejected')
++        record_pin=observation.get('reference_record',{});record_path=record_pin.get('path')
++        require(safe_path(record_path) and evidence.get(record_path)==record_pin.get('sha256'),
++                'Exact reference record pin is missing')
++        record=json.loads((package/record_path).read_bytes());folder=Path(record_path).parent
++        require(record.get('schema')=='dafny-library-native-record-v1'
++                and record.get('run_id')==observation.get('native_run_id')
++                and record.get('run_id','').endswith(':'+TASK_REFERENCES[task])
++                and record_pin.get('canonical_sha256')==scorer.sha(scorer.canonical(record)),
++                'Canonical reference observation differs')
++        require(record.get('origin')=='analyst_qualification'
++                or allow_synthetic and record.get('origin')=='synthetic_offline', 'Wrong reference provenance')
++        require(record.get('host',{}).get('cpus_per_task')==1, 'Reference resource provenance differs')
++        source_map=record.get('source_before_sha256',{})
++        raw_map=record.get('raw_sha256',{})
++        source_pins=observation.get('reference_sources',{});raw_pins=observation.get('reference_raw',{})
++        require(source_map and raw_map and set(source_pins)==set(source_map) and set(raw_pins)==set(raw_map),
++                'Missing reference source/raw inventory')
++        sources={};raw_streams={}
++        for logical,digest in source_map.items():
++            require(safe_path(logical), 'Unsafe reference source path')
++            path=(folder/'workspace'/logical).as_posix()
++            require(evidence.get(path)==digest and source_pins[logical]==dict(path=path,sha256=digest),
++                    'Reference source is absent from gate inputs')
++            sources[logical]=(package/path).read_bytes()
++        for logical,digest in raw_map.items():
++            require(safe_path(logical), 'Unsafe reference raw path')
++            path=(folder/'raw'/logical).as_posix()
++            require(evidence.get(path)==digest and raw_pins[logical]==dict(path=path,sha256=digest),
++                    'Reference raw stream is absent from gate inputs')
++            raw_streams[logical]=(package/path).read_bytes()
++        pins=scorer.EvidencePins(profile_sha256=scorer.sha(scorer.canonical(profile)),
++            record_sha256=scorer.sha(scorer.canonical(record)),
++            source_revision_sha256=scorer.sha(scorer.canonical(scorer.hashes(sources))),
++            raw_sha256=tuple(sorted(scorer.hashes(raw_streams).items())),
++            run_id=record['run_id'],origin=record['origin'])
++        reviewed=scorer.review(profile,sources,record,raw_streams,pins,allow_synthetic=allow_synthetic)
++        require(reviewed['qualified_success'] and reviewed['proof_coverage_complete']
++                and reviewed.get('strict_zero_warning_success') is True,
++                'Actual native reference replay is not a strict zero-warning qualified success')
++        review_pin=observation.get('native_review',{})
++        require(safe_path(review_pin.get('path')) and evidence.get(review_pin['path'])==review_pin.get('sha256'),
++                'Saved native review is unpinned')
++        saved_review=json.loads((package/review_pin['path']).read_bytes())
++        require(scorer.canonical(saved_review.get('replay'))==scorer.canonical(reviewed)
++                and saved_review.get('qualified_success') is True
++                and saved_review.get('inherited_inventory_unchanged') is True
++                and saved_review.get('exact_guarded_reconstruction') is True
++                and saved_review.get('source_sha256')==source_map
++                and saved_review.get('actual_target_units')==observation.get('actual_target_units')
++                and observation.get('raw_fingerprint_sha256')==reviewed['raw_fingerprint_sha256'],
++                'Saved native review differs from exact replay')
++        inherited={'stdlib-filter':56,'stdlib-splice':58,'aws-batch':77,'aws-tagged':77}[task]
++        require(observation.get('inherited_unit_count')==inherited
++                and observation.get('named_units')==len(reviewed['units'])
++                and len(reviewed['units'])>=inherited and observation.get('actual_target_units'),
++                'Reference inventory counts/target observations differ')
++    return binding,gate
+ 
+ 
+ def sha(raw):
+@@ -153,15 +301,17 @@
+     freeze_path = ROOT / config['freeze']
+     require(sha(freeze_path.read_bytes()) == expected_freeze_sha, 'Runtime freeze differs')
+     freeze = json.loads(freeze_path.read_bytes())
+-    require(freeze.get('schema') == 'dafny-growth-reference-freeze-v1'
++    require(freeze.get('schema') == 'dafny-growth-controls-freeze-v1'
+             and freeze.get('project') == config['project']
+-            and freeze.get('reference_case_ids') == REFERENCE_IDS[config['project']],
++            and freeze.get('control_case_ids') == CONTROL_IDS[config['project']],
+             'Runtime dispatch scope differs')
+     for name, digest in freeze['files'].items():
+         require(safe_path(name) and sha((package/name).read_bytes()) == digest, name)
+     require(config_path.resolve() == (ROOT/'configs'/f"{config['project']}.json").resolve()
+             and output.resolve() == (ROOT/f"output-{config['project']}").resolve(),
+             'Canonical project config/output required')
++    binding,gate=validate_reference_gate(package)
++    require(freeze.get('reference_gate_sha256')==binding['gate_sha256'], 'Frozen reference gate differs')
+     output.mkdir(exist_ok=False)
+     exe = Path(config['dafny']).expanduser()
+     require(exe.is_file(), 'Pinned verifier absent')
+@@ -184,10 +334,10 @@
+         workspace = destination/'workspace'
+         shutil.copytree(template, workspace)
+         before = sources(workspace)
+-        require(before == case['source_sha256'], 'Reference source differs: '+case['id'])
++        require(before == case['source_sha256'], 'Control source differs: '+case['id'])
+         source_args = case['command_files']
+         require(source_args and len(set(source_args)) == len(source_args)
+-                and set(source_args) == set(before), 'Incomplete explicit reference scope')
++                and set(source_args)<=set(before), 'Control command escapes declared scope')
+         argv = [str(exe), 'verify'] + config['options'] + source_args
+         rawdir = destination/'raw'; rawdir.mkdir()
+         resources = rawdir/'resources.txt'
+--- qualification-001/ops.py
++++ qualification-002/ops.py
+@@ -20,11 +20,11 @@
+ SOCKET=Path.home()/".ssh/repodisco-codex-21.sock"
+ HOST="sophiezeng@login.rc.fas.harvard.edu"
+ PYTHON="/n/home13/sophiezeng/.conda/envs/repodisco/bin/python"
+-REMOTE_BASE="/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-001"
++REMOTE_BASE="/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-002"
+ MAX_ARCHIVE_BYTES=2*1024**3
+ MAX_STAGE_BYTES=8*1024**2
+ MAX_PROGRAM_BYTES=16*1024**2
+-JOB_SECONDS=3600
++JOB_SECONDS={'stdlib':7200,'aws':14400}
+ ACCOUNTING_FIELDS=("JobID","State","Elapsed","ElapsedRaw","ExitCode","AllocCPUS",
+                    "TotalCPU","CPUTimeRAW","MaxRSS","NodeList")
+ TERMINAL_STATES=frozenset(("BOOT_FAIL","CANCELLED","COMPLETED","DEADLINE","FAILED",
+@@ -137,23 +137,23 @@
+ def settings(project):
+     require(project in {'stdlib','aws'}, 'Unknown project')
+     return dict(project=project,root=REMOTE_BASE+'/'+project,
+-                job_name='g2q001-'+project,freeze='qualification-001/freezes/'+project+'.json')
++                job_name='g2q002-'+project,freeze='qualification-002/freezes/'+project+'.json',
++                job_seconds=JOB_SECONDS[project],slurm_time='02:00:00' if project=='stdlib' else '04:00:00')
+ 
+ 
+ def identity(project):
+-    from collect import REFERENCE_IDS, validate_config
++    from collect import CONTROL_IDS, validate_config, validate_reference_gate
+     selected=settings(project)
+     path=ROOT/'freezes'/f'{project}.json'
+     frozen=read(path)
+-    require(frozen.get('schema')=='dafny-growth-reference-freeze-v1'
++    require(frozen.get('schema')=='dafny-growth-controls-freeze-v1'
+             and frozen.get('project')==project
+-            and frozen.get('reference_case_ids')==REFERENCE_IDS[project], 'Unreviewed dispatch freeze')
+-    required={'qualification-001/'+name for name in
+-              ('ops.py','collect.py','review.py','run.sbatch','native_scorer.py','tool-profiles.json','test_runtime.py')}
+-    required.add('qualification-001/configs/'+project+'.json')
+-    required.add('qualification-001/reference-metadata/'+project+'.json')
+-    required.update('qualification-001/inherited-profiles/'+name for name in
+-                    ('stdlib-stage0.json','stdlib-stage1.json','aws-stage2.json'))
++            and frozen.get('control_case_ids')==CONTROL_IDS[project], 'Unreviewed control dispatch freeze')
++    required={'qualification-002/'+name for name in
++              ('ops.py','collect.py','review.py','run.sbatch','native_scorer.py','tool-profiles.json','test_runtime.py',
++               'reference-gate-binding.json')}
++    required.add('qualification-002/configs/'+project+'.json')
++    required.update('qualification-002/control-metadata/'+name+'.json' for name in ('stdlib','aws'))
+     require(required <= set(frozen['files']), 'Runtime omits an operational input')
+     for name,digest in frozen['files'].items():
+         require(safe_name(name), 'Unsafe runtime path')
+@@ -161,10 +161,15 @@
+         require(source.is_file() and not source.is_symlink() and sha(source.read_bytes())==digest,
+                 'Runtime input differs: '+name)
+     config=validate_config(read(ROOT/'configs'/f'{project}.json'))
++    binding,gate=validate_reference_gate(PACKAGE,ROOT)
++    require(frozen.get('reference_gate_sha256')==binding['gate_sha256']
++            and frozen['files'].get(binding['gate_path'])==binding['gate_sha256']
++            and all(frozen['files'].get(name)==digest for name,digest in gate['input_files'].items()),
++            'Runtime must freeze the complete reviewed reference gate')
+     for case in config['cases']:
+         for name,digest in case['source_sha256'].items():
+             require(frozen['files'].get(case['workspace_dir']+'/'+name)==digest,
+-                    'Reference source absent from freeze')
++                    'Control source absent from freeze')
+     return selected,path,frozen
+ 
+ 
+@@ -187,8 +192,9 @@
+ def inspect_state(selected):
+     root=canonical_location(selected['root'])
+     queue=command(['squeue','-u','sophiezeng','-h','-o','%i|%Z|%j|%T'],15)
+-    return dict(root_exists=root.exists(),
+-        output_exists=(root/'qualification-001'/('output-'+selected['project'])).exists(),
++    output=root/Path(selected['freeze']).parent.parent/('output-'+selected['project'])
++    return dict(root_exists=root.exists(),output_path=str(output),
++        output_exists=output.exists(),
+         submission_exists=any((root/name).exists() for name in ('submission.intent.json','submission.json')),
+         fetch_exists=(root/'fetch.intent.json').exists(),queue=queue)
+ 
+@@ -241,7 +247,7 @@
+     require(not (root/'preflight.intent.json').exists() and not (root/'preflight-001.json').exists(),
+             'Preflight already attempted')
+     save(root/'preflight.intent.json',dict(runtime_sha256=digest,no_retry=True))
+-    argv=[PYTHON,'-B','-m','unittest','discover','-s',str(root/'qualification-001'),'-p','test_*.py','-v']
++    argv=[PYTHON,'-B','-m','unittest','discover','-s',str(root/'qualification-002'),'-p','test_*.py','-v']
+     started=time.monotonic()
+     try:
+         result=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=60)
+@@ -255,7 +261,7 @@
+     return record
+ 
+ 
+-def check_partition(text):
++def check_partition(text,selected):
+     pairs=re.findall(r'(?:^|\s)([A-Za-z][A-Za-z0-9]*)=(\S+)',text)
+     require(len({k for k,v in pairs})==len(pairs), 'Duplicate partition fields')
+     fields=dict(pairs)
+@@ -266,8 +272,8 @@
+         match=re.fullmatch(r'(?:(\d+)-)?(\d+):(\d{2}):(\d{2})',maximum)
+         require(match is not None, 'Unrecognized partition time limit')
+         days,hours,minutes,seconds=(int(x or 0) for x in match.groups())
+-        require(minutes<60 and seconds<60 and ((days*24+hours)*60+minutes)*60+seconds>=JOB_SECONDS,
+-                'Partition cannot fit one-hour serial qualification')
++        require(minutes<60 and seconds<60 and ((days*24+hours)*60+minutes)*60+seconds>=selected['job_seconds'],
++                'Partition cannot fit fixed project control qualification')
+     for key,minimum in (('MaxCPUsPerNode',1),('MaxMemPerNode',4096),('MaxMemPerCPU',4096)):
+         value=fields.get(key,'UNLIMITED')
+         require(value in {'UNLIMITED','0'} or value.isdigit() and int(value)>=minimum,
+@@ -279,13 +285,13 @@
+     root=Path(selected['root']);pre=read(root/'preflight-001.json')
+     require(pre['runtime_sha256']==digest and pre['exit_code']==0 and not pre['timeout'],
+             'Successful exact fake-process preflight required')
+-    partition=command(['scontrol','show','partition','test'],15);check_partition(partition)
++    partition=command(['scontrol','show','partition','test'],15);check_partition(partition,selected)
+     write(root/'partition-before-submit.txt',partition.encode())
+     save(root/'submission.intent.json',dict(runtime_sha256=digest,no_retry=True,maximum_submission_attempts=1))
+     argv=['sbatch','--parsable','--partition=test','--nodes=1','--ntasks=1','--cpus-per-task=1',
+-          '--mem=4G','--time=01:00:00','--no-requeue','--job-name='+selected['job_name'],
++          '--mem=4G','--time='+selected['slurm_time'],'--no-requeue','--job-name='+selected['job_name'],
+           '--chdir='+str(root),'--export=ALL,REPODISCO_FREEZE_SHA='+digest+',REPODISCO_EXECUTION_ROOT='+str(root),
+-          str(root/'qualification-001/run.sbatch'),selected['project']]
++          str(root/'qualification-002/run.sbatch'),selected['project']]
+     record=dict(runtime_sha256=digest,argv=argv)
+     try:
+         result=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=30)
+--- qualification-001/review.py
++++ qualification-002/review.py
+@@ -1,11 +1,10 @@
+-"""Read-only qualification inventory review; never issues a native profile.
++"""Replay fixed analyst controls against the reviewed reference inventories.
+ 
+-New labels are taken only from the retained CSV, not inferred from declarations.
+-The source-bound inherited unit maps are fixed prior evidence. New coverage and
+-unlogged declarations still require root's manual review before qualification.
++This does not create profiles, promote candidates or change any model score.
++Helper-mutated and omitted-source workspaces remain analyst trust controls.
+ """
+ import argparse
+-from collections import Counter
++import copy
+ import json
+ from pathlib import Path
+ import re
+@@ -17,128 +16,126 @@
+ ROOT=Path(__file__).resolve().parent
+ 
+ 
+-def select_inherited(project,case):
+-    name='aws-stage2.json' if project=='aws' else (
+-        'stdlib-stage1.json' if 'growth/AppendAll.dfy' in case['source_sha256'] else 'stdlib-stage0.json')
+-    path=ROOT/'inherited-profiles'/name
+-    return ops.read(path),dict(path='qualification-001/inherited-profiles/'+name,sha256=ops.sha(path.read_bytes()))
++def materialize_control_profile(profile,case,metadata,sources):
++    current=copy.deepcopy(profile)
++    inputs=current.get('verification_inputs')
++    ops.require(isinstance(inputs,list) and set(inputs)==set(sources), 'Qualified source inventory differs')
++    prefix=current['command'][:-len(inputs)]
++    ops.require(current['command'][-len(inputs):]==inputs, 'Qualified command inputs differ')
++    current['command']=prefix+case['command_files']
++    omitted=set(sources)-set(case['command_files'])
++    ops.require(omitted==set(metadata.get('omit_from_command',[])), 'Control omission differs')
++    if omitted:current.pop('verification_inputs')
++    else:current['verification_inputs']=case['command_files']
++    changed=[]
++    for entry in current['unlogged_definitions']:
++        file=entry['file'];actual=scorer.sha(sources[file])
++        if actual!=entry['source_sha256']:
++            line=entry.get('source_line')
++            ops.require(isinstance(line,str) and line.strip() in sources[file].decode('utf-8'),
++                        'An unlogged declaration itself changed; manual review required')
++            changed.append(dict(name=entry['name'],file=file,
++                reference_source_sha256=entry['source_sha256'],control_source_sha256=actual,
++                frozen_fixture_identity_required=True,counted_as_pass=False))
++            entry['source_sha256']=actual
++    return current,changed
+ 
+ 
+-def review_case(config,case,folder,annotation,inherited,inherited_pin,job):
+-    sources=ops.regular_files(folder/'workspace')
+-    sources={name:data for name,data in sources.items() if name.endswith('.dfy')}
++def named_outcomes(report,name):
++    return [row['outcome'] for row in report['units'] if row['name'].startswith(name+' (')]
++
++
++def expectation(report,metadata,profile,raw):
++    intended=metadata['expected_category']
++    required_failed=metadata.get('expected_failed_targets',[])
++    required_passed=metadata.get('expected_passed_targets',[])
++    inspect=metadata.get('inspect_targets',[])
++    failed_named=all('Failed' in named_outcomes(report,name) for name in required_failed)
++    passed_named=all(named_outcomes(report,name) and set(named_outcomes(report,name))=={'Passed'}
++                     for name in required_passed)
++    allowed_failures=required_failed+inspect
++    unexpected_failed=[row['name'] for row in report['units'] if row['outcome']=='Failed'
++        and not any(row['name'].startswith(name+' (') for name in allowed_failures)]
++    text=raw['stdout.txt'].decode()+'\n'+raw['stderr.txt'].decode()
++    expected_missing=sorted(label for label,file in profile['required_units'].items()
++                            if file in metadata.get('omitted_source_all_units',[]))
++    if intended=='PROOF_PASS':
++        matched=(report['qualified_success'] and report.get('strict_zero_warning_success') is True
++                 and passed_named)
++    elif intended=='PROOF_FAILURE':
++        matched=(report['category']=='PROOF_FAILURE' and bool(required_failed) and failed_named
++                 and passed_named and not unexpected_failed and report['proof_coverage_complete']
++                 and report.get('warning_policy_matches') is True and report.get('warnings')==0)
++    elif intended=='COVERAGE_OMISSION':
++        matched=(report['category']=='COVERAGE_FAILURE' and report['missing_units']==expected_missing
++                 and bool(expected_missing) and not report['extra_units'] and report['failed_units']==0
++                 and all(row['outcome']=='Passed' for row in report['units'])
++                 and report['summaries']==[(report['passed_units'],0)]
++                 and report['resources']['exit_status']==0 and report['warning_policy_matches']
++                 and not re.search(r'\bError\s*:',text,re.I))
++    else:raise ValueError('Unknown fixed control expectation')
++    return dict(expected_category=intended,expected_match=bool(matched),
++        expected_failed_targets=required_failed,expected_passed_targets=required_passed,
++        inspect_targets={name:named_outcomes(report,name) for name in inspect},
++        failed_targets_match=failed_named,passed_targets_match=bool(passed_named),
++        unexpected_failed_units=unexpected_failed,expected_omitted_units=expected_missing)
++
++
++def review_case(case,metadata,folder,profile,profile_pin,job):
++    workspace=ops.regular_files(folder/'workspace')
++    sources={name:data for name,data in workspace.items() if name.endswith('.dfy')}
+     source_hashes=scorer.check_sources(sources)
+-    record_bytes=(folder/'record.json').read_bytes();record=json.loads(record_bytes)
+-    raw=ops.regular_files(folder/'raw');raw_hashes=scorer.hashes(raw)
+-    ops.require(source_hashes==case['source_sha256'] and record.get('source_before_sha256')==source_hashes
+-                and record.get('source_after_sha256')==source_hashes, 'Exact candidate source evidence differs')
+-    ops.require(record.get('schema')=='dafny-library-native-record-v1'
+-                and record.get('origin')=='analyst_qualification'
+-                and record.get('attempts')==1 and record.get('model_calls')==0
+-                and record.get('run_id')==job+':'+case['id']
++    ops.require(source_hashes==case['source_sha256'], 'Frozen control source differs')
++    record=ops.read(folder/'record.json');raw=ops.regular_files(folder/'raw')
++    ops.require(record.get('run_id')==job+':'+case['id']
+                 and record.get('host',{}).get('job_id')==job
+-                and record['host'].get('cpus_per_task')==1
+-                and 'login' not in record['host'].get('hostname','').lower(), 'Native provenance differs')
+-    expected_argv=[config['dafny'],'verify']+config['options']+case['command_files']
+-    ops.require(record.get('argv')==expected_argv and set(case['command_files'])==set(sources),
+-                'Native explicit scope or command differs')
+-    ops.require(record.get('toolchain')==inherited['toolchain']
+-                and record.get('toolchain_after')==inherited['toolchain'], 'Native tool identity differs')
+-    ops.require({'stdout.txt','stderr.txt','resources.txt'}<=set(raw)
+-                and all(name in {'stdout.txt','stderr.txt','resources.txt'}
+-                    or name.startswith('csv/') and name.endswith('.csv') for name in raw)
+-                and record.get('raw_sha256')==raw_hashes, 'Full raw evidence differs')
+-    rows=scorer._csv(inherited,raw)
+-    resources=scorer._resources(raw['resources.txt'])
+-    units={row['name']:row['outcome'] for row in rows}
+-    inherited_units=inherited['required_units']
+-    ops.require(set(inherited_units.values())<=set(sources), 'Inherited scope is absent')
+-    missing=sorted(set(inherited_units)-set(units))
+-    failed_inherited={name:units[name] for name in inherited_units if name in units and units[name]!='Passed'}
+-    new_rows=[row for row in rows if row['name'] not in inherited_units]
+-    text=raw['stdout.txt'].decode('utf-8')+'\n'+raw['stderr.txt'].decode('utf-8')
+-    warnings=re.findall(r'^.*\bWarning\s*:[^\n]*$',text,re.I|re.M)
+-    warning_counts=[int(n) for n in re.findall(r'\b(\d+) warnings?\b',text,re.I)]
+-    warning_count=max([len(warnings)]+warning_counts)
+-    errors=re.findall(r'^.*\bError\s*:[^\n]*$',text,re.I|re.M)
+-    summaries=[(int(a),int(b)) for a,b in scorer.SUMMARY.findall(text)]
+-    passed=sum(outcome=='Passed' for outcome in units.values())
+-    failed=sum(outcome=='Failed' for outcome in units.values())
+-    nonfinal=[name for name,outcome in units.items() if outcome not in {'Passed','Failed'}]
+-    code=record.get('exit_code')
+-    category='UNKNOWN_NATIVE_FAILURE'
+-    if record.get('timeout') or code==124:category='TIMEOUT'
+-    elif code is None or code<0 or code in {137,143}:category='PROCESS_FAILURE'
+-    elif re.search(r'(?:Error:.*(?:timed out|time limit)|\b[1-9]\d* time outs?\b)',text,re.I):
+-        category='VERIFIER_TIMEOUT'
+-    elif re.search(r'(?:Error:.*(?:out of resource|resource limit|out of memory)|OutOfResource)',text,re.I) or nonfinal:
+-        category='RESOURCE_FAILURE'
+-    elif re.search(r'\bparse errors? detected\b',text,re.I):category='FRONTEND_PARSE_FAILURE'
+-    elif re.search(r'\bresolution/type errors? detected\b',text,re.I):category='FRONTEND_RESOLUTION_FAILURE'
+-    elif not resources['complete'] or resources['exit_status']!=code:category='RESOURCE_OBSERVATION_MISMATCH'
+-    elif missing:category='INHERITED_COVERAGE_FAILURE'
+-    elif len(summaries)!=1 or summaries[0][0]!=passed:category='SUMMARY_INVENTORY_MISMATCH'
+-    elif code==4 and summaries[0][1]>0 and failed and errors:category='PROOF_FAILURE'
+-    elif summaries[0][1]==0 and failed==0 and not errors and code in {0,2}:
+-        if code==2 and warning_count:category='WARNING_ONLY'
+-        elif code==0:category='NATIVE_SUCCESS_INVENTORY_PENDING'
+-    declared=list(dict.fromkeys(annotation.get('required_targets',[])+annotation.get('new_fixed_declarations',[])))
+-    observations={name:[row for row in rows if row['name'].startswith(name+' (')] for name in declared}
+-    inherited_unlogged=[dict(entry,current_source_sha256=source_hashes[entry['file']],
+-        current_declaration_review_pending=source_hashes[entry['file']]!=entry['source_sha256'])
+-        for entry in inherited['unlogged_definitions']]
+-    new_unlogged=[dict(name=name,actual_native_units=[],counted_as_pass=False,declaration_review_pending=True)
+-                  for name,observed in observations.items() if not observed]
+-    return dict(case_id=case['id'],task_id=case['task_id'],job_id=job,category=category,
+-        qualified_success=False,acceptance_issued=False,native_inventory_qualified=False,
+-        complete_new_declaration_inventory_requires_manual_review=True,
+-        source_sha256=source_hashes,source_revision_sha256=scorer.sha(scorer.canonical(source_hashes)),
+-        record_sha256=ops.sha(record_bytes),raw_sha256=raw_hashes,toolchain=record['toolchain'],
+-        inherited_profile=inherited_pin,inherited_expected_units=inherited_units,
+-        missing_inherited_units=missing,nonpassing_inherited_units=failed_inherited,
+-        exact_rows=rows,new_observed_rows=new_rows,passed_units=passed,failed_units=failed,
+-        summaries=summaries,exit_code=code,timeout=record['timeout'],warnings=warnings,
+-        warning_count=warning_count,inherited_warning_policy_matches=warning_count==len(warnings)
+-            and Counter(warnings)==Counter(inherited['inherited_warnings']),
+-        errors=errors,resources=resources,elapsed_seconds=record['elapsed_seconds'],
+-        declared_target_observations=observations,inherited_unlogged_declarations=inherited_unlogged,
+-        new_declarations_without_logged_units=new_unlogged)
++                and record['host'].get('cpus_per_task')==1, 'Exact native control job differs')
++    current,unlogged_changes=materialize_control_profile(profile,case,metadata,sources)
++    pins=scorer.EvidencePins(profile_sha256=scorer.sha(scorer.canonical(current)),
++        record_sha256=scorer.sha(scorer.canonical(record)),
++        source_revision_sha256=scorer.sha(scorer.canonical(source_hashes)),
++        raw_sha256=tuple(sorted(scorer.hashes(raw).items())),run_id=job+':'+case['id'],
++        origin='analyst_qualification')
++    report=scorer.review(current,sources,record,raw,pins)
++    return dict(case_id=case['id'],task_id=case['task_id'],reference_profile=profile_pin,
++        materialized_profile=current,unlogged_source_bindings=unlogged_changes,
++        observation=report,expectation=expectation(report,metadata,current,raw),
++        model_acceptance=False,acceptance_issued=False)
+ 
+ 
+ def review(project):
+     selected,freeze_path,frozen=ops.identity(project)
+-    archive=ROOT/f'retrieved-{project}'
+-    receipt=ops.read(ROOT/f'transfer-{project}.json')
+-    members=ops.regular_files(archive)
+-    inventory={name:dict(bytes=len(data),sha256=ops.sha(data)) for name,data in sorted(members.items())}
++    binding,gate=collect.validate_reference_gate(ROOT.parent,ROOT)
++    archive=ROOT/f'retrieved-{project}';receipt=ops.read(ROOT/f'transfer-{project}.json')
++    inventory={name:dict(bytes=len(data),sha256=ops.sha(data))
++               for name,data in sorted(ops.regular_files(archive).items())}
+     ops.require(inventory==receipt['files'], 'Retrieved archive differs from transfer inventory')
+     job=receipt['job_id']
+     ops.require(ops.submitted_job(project)==job and ops.read(archive/'submission.json').get('job_id')==job,
+-                'Archive/local exact submission differs')
++                'Exact control submission differs')
+     terminal=ops.terminal_accounting((archive/'accounting.txt').read_text(),job)
+     ops.require(ops.sha((archive/selected['freeze']).read_bytes())==ops.sha(freeze_path.read_bytes()),
+-                'Archived runtime freeze differs')
++                'Archived control freeze differs')
+     config=collect.validate_config(ops.read(ROOT/'configs'/f'{project}.json'))
+-    metadata=ops.read(ROOT/'reference-metadata'/f'{project}.json')
+-    annotations={entry['id']:entry for entry in metadata['references']}
+-    results=[];absent=[]
++    metadata={entry['id']:entry for entry in ops.read(ROOT/'control-metadata'/f'{project}.json')['cases']}
++    results=[];missing=[]
+     for case in config['cases']:
+-        folder=archive/'qualification-001'/f'output-{project}'/case['id']
+-        if not (folder/'record.json').is_file():
+-            absent.append(case['id']);continue
+-        inherited,pin=select_inherited(project,case)
+-        results.append(review_case(config,case,folder,annotations[case['id']],inherited,pin,job))
+-    return dict(schema='dafny-growth-reference-inventory-review-v1',project=project,job_id=job,
+-        freeze_sha256=ops.sha(freeze_path.read_bytes()),terminal_accounting=terminal,
+-        archive_sha256=receipt['archive_sha256'],archive_members=len(inventory),observations=results,
+-        missing_case_records=absent,all_expected_records_present=not absent,
+-        native_inventory_qualified=False,acceptance_issued=False,model_calls=0)
++        folder=archive/'qualification-002'/f'output-{project}'/case['id']
++        if not (folder/'record.json').is_file():missing.append(case['id']);continue
++        entry=binding['tasks'][case['task_id']]
++        profile=ops.read(ROOT.parent/entry['profile_path'])
++        results.append(review_case(case,metadata[case['id']],folder,profile,
++            dict(path=entry['profile_path'],sha256=entry['profile_sha256']),job))
++    return dict(schema='dafny-growth-controls-review-v1',project=project,job_id=job,
++        freeze_sha256=ops.sha(freeze_path.read_bytes()),reference_gate_sha256=binding['gate_sha256'],
++        terminal_accounting=terminal,observations=results,missing_records=missing,
++        all_expected_match=not missing and all(row['expectation']['expected_match'] for row in results),
++        model_calls=0,acceptance_issued=False)
+ 
+ 
+ if __name__=='__main__':
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('project',choices=('stdlib','aws'));parser.add_argument('--output',type=Path,required=True)
+     args=parser.parse_args();result=review(args.project);ops.save(args.output,result)
+-    print(json.dumps(dict(project=args.project,observations=len(result['observations']),
+-        categories={row['case_id']:row['category'] for row in result['observations']},
+-        missing=result['missing_case_records'],native_inventory_qualified=False)))
++    print(json.dumps(dict(project=args.project,cases=len(result['observations']),
++        all_expected_match=result['all_expected_match'],missing=result['missing_records'])))
+--- qualification-001/run.sbatch
++++ qualification-002/run.sbatch
+@@ -1,11 +1,11 @@
+ #!/bin/bash
+-#SBATCH --job-name=dafny-growth-002-references
++#SBATCH --job-name=dafny-growth-002-controls
+ #SBATCH --partition=test
+ #SBATCH --nodes=1
+ #SBATCH --ntasks=1
+ #SBATCH --cpus-per-task=1
+ #SBATCH --mem=4G
+-#SBATCH --time=01:00:00
++#SBATCH --time=02:00:00
+ #SBATCH --no-requeue
+ #SBATCH --output=qualification-%j.log
+ #SBATCH --error=qualification-%j.err
+@@ -15,6 +15,6 @@
+ export PATH="$CONDA_PREFIX/bin:$PATH"
+ export PYTHONDONTWRITEBYTECODE=1
+ export OMP_NUM_THREADS=1
+-exec "$CONDA_PREFIX/bin/python" -B -u qualification-001/collect.py \
+-  "qualification-001/configs/$1.json" "qualification-001/output-$1" \
++exec "$CONDA_PREFIX/bin/python" -B -u qualification-002/collect.py \
++  "qualification-002/configs/$1.json" "qualification-002/output-$1" \
+   --expected-freeze-sha "${REPODISCO_FREEZE_SHA:?Missing pinned runtime hash}"
+--- qualification-001/test_runtime.py
++++ qualification-002/test_runtime.py
+@@ -1,4 +1,4 @@
+-"""Synthetic qualification tests; never invoke SSH, Slurm, Dafny or a model."""
++"""Synthetic fixed-control dispatch/gate/archive checks; no native or network calls."""
+ import contextlib
+ import copy
+ import io
+@@ -6,28 +6,23 @@
+ import os
+ from pathlib import Path
+ import shlex
++import shutil
+ import subprocess
+ import sys
+ import tempfile
+ import unittest
+ from unittest import mock
+-
+ import collect
+ import ops
+ import review
+ import native_scorer
+ 
+ 
+-def config_fixture(project='stdlib'):
+-    value=copy.deepcopy(json.loads((Path(__file__).parent/'tool-profiles.json').read_bytes())[project])
+-    value.update(schema='dafny-growth-reference-qualification-v1',freeze='freezes/'+project+'.json',
+-                 references_only=True,cases=[])
+-    for index,ident in enumerate(collect.REFERENCE_IDS[project]):
+-        raw=('module Synthetic'+str(index)+' {}\n').encode()
+-        value['cases'].append(dict(id=ident,task_id=project+'-task-'+str(index),role='reference',
+-            workspace_dir=project+'/cases/'+ident+'/workspace',source_sha256={'Synthetic.dfy':collect.sha(raw)},
+-            command_files=['Synthetic.dfy']))
+-    return value
++def configured_projects():
++    projects=sorted(path.stem for path in (Path(__file__).parent/'configs').glob('*.json'))
++    if not projects or not set(projects)<={'stdlib','aws'}:
++        raise AssertionError('No exact control project configuration is packaged')
++    return projects
+ 
+ 
+ def accounting(job='123',state='COMPLETED',step='COMPLETED'):
+@@ -36,132 +31,13 @@
+     return header+'\n'+row(job,state)+'\n'+row(job+'.batch',step)+'\n'
+ 
+ 
+-class CollectorTests(unittest.TestCase):
+-    def test_only_two_exact_references_and_pinned_settings_are_dispatchable(self):
+-        for project in ('stdlib','aws'):
+-            valid=config_fixture(project);collect.validate_config(valid)
+-            variants=[]
+-            value=copy.deepcopy(valid);value['cases'].append(copy.deepcopy(value['cases'][0]));variants.append(value)
+-            value=copy.deepcopy(valid);value['cases'][0]['role']='control';variants.append(value)
+-            value=copy.deepcopy(valid);value['cases'][0]['id']='negative';variants.append(value)
+-            value=copy.deepcopy(valid);value['options']+=['--no-verify'];variants.append(value)
+-            value=copy.deepcopy(valid);value['wall_seconds']+=1;variants.append(value)
+-            for value in variants:
+-                with self.subTest(project=project,value=value['cases'][0]['id']),self.assertRaises(ValueError):
+-                    collect.validate_config(value)
+-
+-    def test_omitted_duplicate_or_unsafe_inputs_are_rejected(self):
+-        for inputs in ([],['Synthetic.dfy','Synthetic.dfy'],['../outside.dfy']):
+-            value=config_fixture();value['cases'][0]['command_files']=inputs
+-            with self.subTest(inputs=inputs),self.assertRaises(ValueError):collect.validate_config(value)
+-
+-    def test_native_capture_requires_compute_and_one_cpu(self):
+-        with mock.patch.dict(os.environ,{'SLURM_JOB_ID':'synthetic','SLURM_CPUS_PER_TASK':'1'}), \
+-                mock.patch.object(collect.socket,'gethostname',return_value='holylogin'),self.assertRaises(ValueError):
+-            collect.run(Path('never-read'),Path('never-written'),'0'*64)
+-        with mock.patch.dict(os.environ,{'SLURM_JOB_ID':'synthetic','SLURM_CPUS_PER_TASK':'2'}), \
+-                mock.patch.object(collect.socket,'gethostname',return_value='synthetic-compute'),self.assertRaises(ValueError):
+-            collect.run(Path('never-read'),Path('never-written'),'0'*64)
+-
+-    def run_fake(self,project,timeout_index=None,change_source=False):
+-        with tempfile.TemporaryDirectory() as folder:
+-            package=Path(folder).resolve();q=package/'qualification-001';q.mkdir()
+-            config=config_fixture(project)
+-            executable=package/'synthetic-tool-not-executed';executable.write_text('SYNTHETIC ONLY\n')
+-            config['dafny']=str(executable)
+-            profiles=json.loads((Path(__file__).parent/'tool-profiles.json').read_bytes())
+-            profiles[project]['dafny']=str(executable)
+-            ops.save(q/'tool-profiles.json',profiles)
+-            for index,case in enumerate(config['cases']):
+-                ops.write(package/case['workspace_dir']/'Synthetic.dfy',('module Synthetic'+str(index)+' {}\n').encode())
+-            config_path=q/'configs'/f'{project}.json';ops.save(config_path,config)
+-            pins={p.relative_to(package).as_posix():collect.sha(p.read_bytes()) for p in package.rglob('*') if p.is_file()}
+-            freeze_path=q/'freezes'/f'{project}.json'
+-            ops.save(freeze_path,dict(schema='dafny-growth-reference-freeze-v1',project=project,
+-                reference_case_ids=collect.REFERENCE_IDS[project],files=pins,synthetic=True))
+-            invocations=[]
+-            def capture(argv,cwd,seconds,stream_paths):
+-                index=len(invocations);invocations.append((argv,cwd,seconds))
+-                self.assertEqual(seconds,360 if project=='stdlib' else 900)
+-                self.assertEqual(argv[4:],[str(executable),'verify']+config['options']+['Synthetic.dfy'])
+-                Path(argv[3]).write_bytes(b'SYNTHETIC RESOURCE RECORD\n')
+-                stream_paths[0].write_bytes(b'SYNTHETIC STDOUT\n');stream_paths[1].write_bytes(b'')
+-                (cwd/'synthetic.csv').write_bytes(b'SYNTHETIC CSV,not proof evidence\n')
+-                if change_source:(cwd/'Synthetic.dfy').write_bytes(b'module Altered {}\n')
+-                timeout=index==timeout_index
+-                return dict(exit_code=-15 if timeout else 0,timeout=timeout,elapsed_seconds=.01),b'SYNTHETIC STDOUT\n',b''
+-            output=q/f'output-{project}'
+-            with mock.patch.object(collect,'ROOT',q), \
+-                    mock.patch.dict(os.environ,{'SLURM_JOB_ID':'synthetic','SLURM_CPUS_PER_TASK':'1'}), \
+-                    mock.patch.object(collect.socket,'gethostname',return_value='synthetic-compute'), \
+-                    mock.patch.object(collect,'capture_version',side_effect=lambda exe,flag,out,label:
+-                        config['expected_version'] if label=='tool' else 'Z3 synthetic'), \
+-                    mock.patch.object(collect,'tool_fingerprint',return_value=config['expected_tool_fingerprint']), \
+-                    mock.patch.object(collect,'capture',side_effect=capture), contextlib.redirect_stdout(io.StringIO()):
+-                if change_source:
+-                    with self.assertRaisesRegex(ValueError,'Verifier source changed'):
+-                        collect.run(config_path,output,collect.sha(freeze_path.read_bytes()))
+-                    self.assertTrue((output/config['cases'][0]['id']/'record.json').exists())
+-                    self.assertEqual(len(invocations),1)
+-                    return
+-                collect.run(config_path,output,collect.sha(freeze_path.read_bytes()))
+-            summary=ops.read(output/'summary.json');count=2 if timeout_index is None else timeout_index+1
+-            self.assertEqual(summary['native_calls'],count)  # Intercepted synthetic calls only.
+-            self.assertEqual(summary['model_calls'],0)
+-            self.assertEqual(summary['all_planned_cases_recorded'],timeout_index is None)
+-            for case in config['cases'][:count]:
+-                record=ops.read(output/case['id']/'record.json')
+-                self.assertEqual(record['attempts'],1)
+-                self.assertEqual(record['source_before_sha256'],case['source_sha256'])
+-                self.assertEqual(record['source_after_sha256'],case['source_sha256'])
+-                self.assertIn('csv/synthetic.csv',record['raw_sha256'])
+-            self.assertEqual(len(invocations),count)
+-            for case in config['cases'][count:]:self.assertFalse((output/case['id']).exists())
+-
+-    def test_fake_references_retain_all_streams_and_exact_commands(self):
+-        for project in ('stdlib','aws'):self.run_fake(project)
+-
+-    def test_timeout_stops_tail_without_retry(self):self.run_fake('aws',timeout_index=0)
+-    def test_source_drift_is_preserved_before_failure(self):self.run_fake('stdlib',change_source=True)
+-
+-    def test_process_streams_timeout_and_exclusive_records(self):
+-        with tempfile.TemporaryDirectory() as folder:
+-            result,out,err=collect.capture([sys.executable,'-c','import sys;print("synthetic");sys.exit(4)'],folder,5)
+-            self.assertEqual((result['exit_code'],out,err),(4,b'synthetic\n',b''))
+-            result,out,err=collect.capture([sys.executable,'-c','import time;print("start",flush=True);time.sleep(30)'],folder,.1)
+-            self.assertTrue(result['timeout']);self.assertLess(result['elapsed_seconds'],6)
+-            path=Path(folder)/'record.json';collect.write(path,{'synthetic':True})
+-            with self.assertRaises(FileExistsError):collect.write(path,{'replace':True})
+-
+-    def test_solver_version_uses_single_dash_and_retains_failure(self):
+-        with tempfile.TemporaryDirectory() as folder:
+-            root=Path(folder)
+-            with mock.patch.object(collect,'capture',return_value=(dict(exit_code=1,timeout=False,
+-                    elapsed_seconds=.1),b'partial',b'error')) as capture,self.assertRaises(ValueError):
+-                collect.capture_version('/synthetic/z3','-version',root,'solver')
+-            self.assertEqual(capture.call_args.args[0],['/synthetic/z3','-version'])
+-            self.assertEqual((root/'solver-version.stderr').read_bytes(),b'error')
+-
+-    def test_native_child_never_inherits_provider_environment(self):
+-        dummy={'AWS_ACCESS_KEY_ID':'SYNTHETIC-NOT-A-KEY','AWS_SECRET_ACCESS_KEY':'SYNTHETIC-NOT-A-SECRET',
+-               'AWS_SESSION_TOKEN':'SYNTHETIC-NOT-A-TOKEN','AWS_REGION':'synthetic-region',
+-               'BOTO_CONFIG':'synthetic-config','BOTO_PATH':'synthetic-path',
+-               'BEDROCK_API_KEY':'SYNTHETIC-NOT-A-KEY','SYNTHETIC_RETAIN':'retained'}
+-        code=('import os; assert not any(k.startswith("AWS_") or k in '
+-              '{"BOTO_CONFIG","BOTO_PATH","BEDROCK_API_KEY"} for k in os.environ); '
+-              'assert os.environ["SYNTHETIC_RETAIN"]=="retained"; print("environment boundary passed")')
+-        with tempfile.TemporaryDirectory() as folder,mock.patch.object(collect.os,'environ',dummy):
+-            result,out,err=collect.capture([sys.executable,'-c',code],folder,5)
+-        self.assertEqual((result['exit_code'],out,err),(0,b'environment boundary passed\n',b''))
+-
+-
+ class OpsTests(unittest.TestCase):
+     def setUp(self):
+         self.temp=tempfile.TemporaryDirectory();self.base=Path(self.temp.name).resolve()
+         self.selected=ops.settings('stdlib');self.selected['root']=str(self.base/'remote')
+-        self.files={'qualification-001/run.sbatch':b'# SYNTHETIC NEVER SUBMIT\n','source/A.dfy':b'module A {}\n'}
+-        frozen=dict(schema='dafny-growth-reference-freeze-v1',project='stdlib',
+-            reference_case_ids=collect.REFERENCE_IDS['stdlib'],files={n:ops.sha(v) for n,v in self.files.items()})
++        self.files={'qualification-002/run.sbatch':b'# SYNTHETIC NEVER SUBMIT\n','source/A.dfy':b'module A {}\n'}
++        frozen=dict(schema='dafny-growth-controls-freeze-v1',project='stdlib',
++            control_case_ids=collect.CONTROL_IDS['stdlib'],files={n:ops.sha(v) for n,v in self.files.items()})
+         self.freeze=ops.canonical(frozen);self.digest=ops.sha(self.freeze)
+         self.members=dict(self.files);self.members[self.selected['freeze']]=self.freeze
+         self.payload=ops.make_archive(self.members)
+@@ -199,13 +75,33 @@
+             ops.stage_remote(self.selected,self.digest,self.payload)
+         self.assertFalse(Path(self.selected['root']).exists())
+ 
++    def test_existing_output_is_reported_and_blocks_mutation(self):
++        root=Path(self.selected['root'])
++        output=root/Path(self.selected['freeze']).parent.parent/'output-stdlib'
++        output.mkdir(parents=True)
++        with mock.patch.object(ops,'command',return_value=''):
++            state=ops.inspect_state(self.selected)
++        self.assertTrue(state['output_exists']);self.assertEqual(state['output_path'],str(output))
++        with self.assertRaises(ValueError):ops.fresh_state(state,self.selected)
++
++    def test_generated_inspection_uses_exact_frozen_output_location(self):
++        root=Path(self.selected['root']);output=root/'qualification-002/output-stdlib'
++        output.mkdir(parents=True)
++        program=ops.remote_program('inspect',self.selected,self.digest)
++        captured=io.StringIO()
++        with mock.patch.object(subprocess,'run',return_value=subprocess.CompletedProcess([],0,b'',b'')), \
++                contextlib.redirect_stdout(captured):
++            exec(compile(program,'synthetic-stdin-inspection','exec'),{})
++        state=json.loads(captured.getvalue())
++        self.assertTrue(state['output_exists']);self.assertEqual(state['output_path'],str(output))
++
+     def test_partition_must_be_live_nonpreemptible_and_large_enough(self):
+-        ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=01:00:00')
++        ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=02:00:00',self.selected)
+         for text in ('PartitionName=test State=UP PreemptMode=REQUEUE MaxTime=12:00:00',
+                      'PartitionName=shared State=UP PreemptMode=OFF MaxTime=12:00:00',
+                      'PartitionName=test State=DOWN PreemptMode=OFF MaxTime=12:00:00',
+                      'PartitionName=test State=UP PreemptMode=OFF MaxTime=00:59:59'):
+-            with self.subTest(text=text),self.assertRaises(ValueError):ops.check_partition(text)
++            with self.subTest(text=text),self.assertRaises(ValueError):ops.check_partition(text,self.selected)
+ 
+     def test_submit_once_pins_one_cpu_and_no_requeue(self):
+         root=self.ready()
+@@ -213,7 +109,7 @@
+                 mock.patch.object(ops.subprocess,'run',return_value=subprocess.CompletedProcess([],0,b'123\n',b'')) as run:
+             record=ops.submit_remote(self.selected,self.digest)
+             self.assertEqual(record['job_id'],'123');run.assert_called_once()
+-            for arg in ('--cpus-per-task=1','--mem=4G','--time=01:00:00','--no-requeue'):
++            for arg in ('--cpus-per-task=1','--mem=4G','--time=02:00:00','--no-requeue'):
+                 self.assertIn(arg,record['argv'])
+             with self.assertRaises(ValueError):ops.submit_remote(self.selected,self.digest)
+             run.assert_called_once()
+@@ -237,7 +133,7 @@
+ 
+     def test_full_archive_preserves_inventory_and_remote_exclusive_intent(self):
+         root=self.ready();ops.save(root/'submission.json',{'job_id':'123'})
+-        ops.write(root/'qualification-001/output-stdlib/record.json',b'{"synthetic":true}')
++        ops.write(root/'qualification-002/output-stdlib/record.json',b'{"synthetic":true}')
+         with mock.patch.object(ops,'command',side_effect=self.fake_cluster):
+             files,estimate=ops.transfer_files(self.selected,self.digest,'123')
+             archive=ops.fetch_remote(self.selected,self.digest,'123',estimate)
+@@ -295,66 +191,252 @@
+                 with self.assertRaises(ValueError):ops.local_fresh('stdlib',action)
+ 
+ 
+-class ReviewTests(unittest.TestCase):
+-    def synthetic_record(self,root,*,outcome='Passed',code=0,warning=False):
+-        source=b'module Synthetic {}\n';sources={'Synthetic.dfy':collect.sha(source)}
+-        config=dict(dafny='/synthetic/not-executed',options=['--cores','1'])
+-        case=dict(id='synthetic-reference',task_id='synthetic-task',source_sha256=sources,
+-                  command_files=['Synthetic.dfy'])
+-        tools={'synthetic':'not-a-tool-measurement'}
+-        inherited=dict(required_units={'Synthetic.Base (correctness)':'Synthetic.dfy'},
+-            unlogged_definitions=[],inherited_warnings=[],toolchain=tools,
+-            csv_columns=list(native_scorer.BASE_COLUMNS)+['RandomSeed'],random_seed=0)
+-        ops.write(root/'workspace/Synthetic.dfy',source)
+-        passed=2 if outcome=='Passed' else 1;failed=0 if outcome=='Passed' else 1
+-        text=(('Error: synthetic proof failure\n' if failed else '')
+-              +('Warning: synthetic warning\n' if warning else '')
+-              +f'Dafny program verifier finished with {passed} verified, {failed} errors\n')
+-        resources=('User time (seconds): 0.1\nSystem time (seconds): 0.0\n'
+-            'Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.1\n'
+-            'Maximum resident set size (kbytes): 1\nExit status: '+str(code)+'\n')
+-        csv=(','.join(inherited['csv_columns'])+'\n'
+-            'Synthetic.Base (correctness),Passed,00:00:00.001,1,0\n'
+-            f'Synthetic.New (correctness),{outcome},00:00:00.001,1,0\n')
+-        raw={'stdout.txt':text.encode(),'stderr.txt':b'','resources.txt':resources.encode(),
+-             'csv/synthetic.csv':csv.encode()}
+-        for name,data in raw.items():ops.write(root/'raw'/name,data)
+-        record=dict(schema='dafny-library-native-record-v1',origin='analyst_qualification',attempts=1,
+-            model_calls=0,run_id='123:synthetic-reference',host=dict(job_id='123',cpus_per_task=1,
+-            hostname='synthetic-compute',partition='synthetic'),source_before_sha256=sources,
+-            source_after_sha256=sources,argv=[config['dafny'],'verify']+config['options']+['Synthetic.dfy'],
+-            toolchain=tools,toolchain_after=tools,raw_sha256=native_scorer.hashes(raw),exit_code=code,
+-            timeout=False,elapsed_seconds=.1)
+-        ops.save(root/'record.json',record)
+-        annotation={'required_targets':['Synthetic.New'],'new_fixed_declarations':['Synthetic.Unlogged']}
+-        return config,case,annotation,inherited
+-
+-    def test_success_is_only_observed_inventory_never_qualified_acceptance(self):
++class ControlScopeTests(unittest.TestCase):
++    def test_exact_remaining_sets_and_omission_inputs(self):
++        for project in configured_projects():
++            total={'stdlib':14,'aws':12}[project]
++            config=ops.read(Path(__file__).parent/'configs'/f'{project}.json')
++            collect.validate_config(config)
++            self.assertEqual(len(config['cases']),total)
++            self.assertFalse(set(c['id'] for c in config['cases']) & set(collect.TASK_REFERENCES.values()))
++            metadata=ops.read(Path(__file__).parent/'control-metadata'/f'{project}.json')
++            for case,meta in zip(config['cases'],metadata['cases']):
++                self.assertEqual(set(case['source_sha256'])-set(case['command_files']),set(meta['omit_from_command']))
++            for mutation in ('extra','reference','omission','limit'):
++                bad=copy.deepcopy(config)
++                if mutation=='extra':bad['cases'].append(copy.deepcopy(bad['cases'][0]))
++                elif mutation=='reference':bad['cases'][0]['id']='filter-reference'
++                elif mutation=='omission':bad['cases'][0]['command_files']=bad['cases'][0]['command_files'][:-1]
++                else:bad['options']+=['--no-verify']
++                with self.subTest(project=project,mutation=mutation),self.assertRaises(ValueError):
++                    collect.validate_config(bad)
++
++    def test_selected_alternative_and_failed_reference_are_never_redispatched(self):
++        self.assertEqual(collect.TASK_REFERENCES['stdlib-splice'],'splice-alternative')
++        self.assertFalse({'filter-reference','splice-reference','splice-alternative'} & set(collect.CONTROL_IDS['stdlib']))
++        self.assertEqual(sum(map(len,collect.CONTROL_IDS.values())),26)
++        if 'stdlib' in configured_projects():
++            config=ops.read(Path(__file__).parent/'configs/stdlib.json')
++            for ident in ('splice-reference','splice-alternative'):
++                bad=copy.deepcopy(config);bad['cases'][0]['id']=ident
++                with self.subTest(ident=ident),self.assertRaises(ValueError):collect.validate_config(bad)
++
++    def test_project_walltimes_are_fixed_and_live_limits_checked(self):
++        std=ops.settings('stdlib');aws=ops.settings('aws')
++        self.assertEqual((std['job_seconds'],std['slurm_time']),(7200,'02:00:00'))
++        self.assertEqual((aws['job_seconds'],aws['slurm_time']),(14400,'04:00:00'))
++        ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=04:00:00',aws)
++        with self.assertRaises(ValueError):
++            ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=03:59:59',aws)
++
++    def test_actual_packaged_gate_replays_all_four_reference_observations(self):
++        here=Path(__file__).parent
++        binding,gate=collect.validate_reference_gate(here.parent,here)
++        self.assertEqual(gate['status'],'PASS')
++        self.assertEqual({task:entry['reference_case_id'] for task,entry in gate['tasks'].items()},collect.TASK_REFERENCES)
++        self.assertEqual({task:entry['named_units'] for task,entry in gate['tasks'].items()},
++            {'stdlib-filter':59,'stdlib-splice':60,'aws-batch':81,'aws-tagged':79})
++        self.assertEqual(binding['gate_sha256'],ops.sha((here.parent/binding['gate_path']).read_bytes()))
++
++    def test_no_real_gate_exists_or_can_be_fabricated_by_dispatch(self):
++        # The preparation phase intentionally has no gate or freeze. This test
++        # remains valid after real gating by checking a fresh empty package.
+         with tempfile.TemporaryDirectory() as folder:
+-            root=Path(folder);config,case,annotation,inherited=self.synthetic_record(root)
+-            result=review.review_case(config,case,root,annotation,inherited,{'synthetic':True},'123')
+-            self.assertEqual(result['category'],'NATIVE_SUCCESS_INVENTORY_PENDING')
+-            self.assertFalse(result['qualified_success']);self.assertFalse(result['acceptance_issued'])
+-            self.assertFalse(result['native_inventory_qualified'])
+-            self.assertEqual([r['name'] for r in result['new_observed_rows']],['Synthetic.New (correctness)'])
+-            self.assertEqual(result['missing_inherited_units'],[])
+-            self.assertFalse(result['new_declarations_without_logged_units'][0]['counted_as_pass'])
+-
+-    def test_proof_failures_and_warning_only_are_not_successes(self):
+-        for outcome,code,warning,category in [('Failed',4,False,'PROOF_FAILURE'),('Passed',2,True,'WARNING_ONLY')]:
+-            with self.subTest(category=category),tempfile.TemporaryDirectory() as folder:
+-                root=Path(folder);config,case,annotation,inherited=self.synthetic_record(root,outcome=outcome,code=code,warning=warning)
+-                result=review.review_case(config,case,root,annotation,inherited,{},'123')
+-                self.assertEqual(result['category'],category);self.assertFalse(result['qualified_success'])
+-
+-    def test_stale_source_raw_and_job_identity_are_rejected(self):
+-        for target in ('source','raw','job'):
+-            with self.subTest(target=target),tempfile.TemporaryDirectory() as folder:
+-                root=Path(folder);config,case,annotation,inherited=self.synthetic_record(root)
+-                if target=='source':(root/'workspace/Synthetic.dfy').write_bytes(b'changed')
+-                elif target=='raw':(root/'raw/stdout.txt').write_bytes(b'changed')
+-                with self.assertRaises(ValueError):
+-                    review.review_case(config,case,root,annotation,inherited,{},'124' if target=='job' else '123')
++            with self.assertRaises(FileNotFoundError):collect.validate_reference_gate(Path(folder),Path(folder))
++
++    def run_fake_controls(self,project,timeout_index=None):
++        here=Path(__file__).parent;original=here.parent
++        config=ops.read(here/'configs'/f'{project}.json')
++        profiles=ops.read(here/'tool-profiles.json');calls=[]
++        with tempfile.TemporaryDirectory() as folder:
++            package=Path(folder).resolve();q=package/'qualification-002';q.mkdir()
++            executable=package/'synthetic-not-a-verifier';executable.write_bytes(b'NEVER EXECUTED\n')
++            config['dafny']=str(executable);profiles[project]['dafny']=str(executable)
++            ops.save(q/'tool-profiles.json',profiles)
++            ops.save(q/'control-metadata'/f'{project}.json',ops.read(here/'control-metadata'/f'{project}.json'))
++            for case in config['cases']:
++                shutil.copytree(original/case['workspace_dir'],package/case['workspace_dir'])
++            config_path=q/'configs'/f'{project}.json';ops.save(config_path,config)
++            pins={p.relative_to(package).as_posix():ops.sha(p.read_bytes()) for p in package.rglob('*') if p.is_file()}
++            freeze_path=q/'freezes'/f'{project}.json'
++            ops.save(freeze_path,dict(schema='dafny-growth-controls-freeze-v1',project=project,
++                control_case_ids=collect.CONTROL_IDS[project],reference_gate_sha256='f'*64,files=pins,synthetic=True))
++            def capture(argv,cwd,seconds,streams):
++                index=len(calls);calls.append(argv)
++                case=config['cases'][index]
++                self.assertEqual(argv[4:],[str(executable),'verify']+config['options']+case['command_files'])
++                self.assertEqual(seconds,360 if project=='stdlib' else 900)
++                self.assertEqual(collect.sources(cwd),case['source_sha256'])
++                Path(argv[3]).write_bytes(b'SYNTHETIC RESOURCES\n')
++                streams[0].write_bytes(b'SYNTHETIC STDOUT\n');streams[1].write_bytes(b'')
++                (cwd/'synthetic.csv').write_bytes(b'SYNTHETIC: not proof evidence\n')
++                timed=index==timeout_index
++                return dict(exit_code=-15 if timed else 4,elapsed_seconds=.01,timeout=timed),b'SYNTHETIC STDOUT\n',b''
++            output=q/f'output-{project}'
++            with mock.patch.object(collect,'ROOT',q), \
++                    mock.patch.dict(os.environ,{'SLURM_JOB_ID':'SYNTHETIC','SLURM_CPUS_PER_TASK':'1'}), \
++                    mock.patch.object(collect.socket,'gethostname',return_value='synthetic-compute'), \
++                    mock.patch.object(collect,'validate_reference_gate',return_value=({'gate_sha256':'f'*64},{'synthetic':True})), \
++                    mock.patch.object(collect,'capture_version',side_effect=lambda exe,flag,out,label:
++                        config['expected_version'] if label=='tool' else 'Synthetic Z3'), \
++                    mock.patch.object(collect,'tool_fingerprint',return_value=config['expected_tool_fingerprint']), \
++                    mock.patch.object(collect,'capture',side_effect=capture),contextlib.redirect_stdout(io.StringIO()):
++                collect.run(config_path,output,ops.sha(freeze_path.read_bytes()))
++            summary=ops.read(output/'summary.json');count=len(config['cases']) if timeout_index is None else timeout_index+1
++            self.assertEqual(summary['native_calls'],count)  # Intercepted fake attempts only.
++            self.assertEqual(len(calls),count);self.assertEqual(summary['model_calls'],0)
++            self.assertEqual(summary['all_planned_cases_recorded'],timeout_index is None)
++            self.assertEqual([row['case'] for row in summary['cases']],collect.CONTROL_IDS[project][:count])
++            for case in config['cases'][count:]:self.assertFalse((output/case['id']).exists())
++
++    def test_full_control_dispatch_exact_order_and_native_caps(self):
++        for project in configured_projects():self.run_fake_controls(project)
++
++    def test_control_timeout_retains_prefix_and_blocks_tail(self):
++        self.run_fake_controls(configured_projects()[0],timeout_index=1)
++
++    def gate_fixture(self,root):
++        package=root/'package';q=package/'qualification-002';q.mkdir(parents=True)
++        inputs={};manifests={};bindings={};observations={}
++        def put(name,raw):
++            ops.write(package/name,raw);return dict(path=name,sha256=ops.sha(raw))
++        for project in ('stdlib','aws'):
++            raw=ops.canonical({'synthetic':True,'project':project});pin=put(project+'/manifest.json',raw)
++            inputs[pin['path']]=pin['sha256'];manifests[project]=pin
++            cases=ops.canonical([]);put(project+'/cases.json',cases)
++            ops.save(q/'control-metadata'/f'{project}.json',dict(source_path=project+'/cases.json',source_sha256=ops.sha(cases),cases=[]))
++        for task,ref in collect.TASK_REFERENCES.items():
++            inherited={'stdlib-filter':56,'stdlib-splice':58,'aws-batch':77,'aws-tagged':77}[task]
++            count=inherited+1;folder='synthetic-native/'+task+'/'+ref
++            source=b'module Synthetic {}\n';sources={'A.dfy':source};source_hashes=native_scorer.hashes(sources)
++            columns=list(native_scorer.BASE_COLUMNS)+['RandomSeed']
++            unit_names=['Synthetic.Unit'+str(i)+' (correctness)' for i in range(count)]
++            profile=dict(schema=native_scorer.PROFILE_SCHEMA,synthetic=True,project=task,stage=1,stage_id=task,
++                inventory_status='qualified',command=['synthetic-dafny','verify','A.dfy'],verification_inputs=['A.dfy'],
++                toolchain={'synthetic':True},csv_columns=columns,random_seed=0,
++                required_units={name:'A.dfy' for name in unit_names},unitless_files={},inherited_warnings=[],unlogged_definitions=[])
++            profile_pin=put('native-profiles-001/profiles/'+task+'.json',ops.canonical(profile))
++            profile_pin['canonical_sha256']=native_scorer.sha(native_scorer.canonical(profile))
++            csv=(','.join(columns)+'\n'+''.join(name+',Passed,00:00:00.001,1,0\n' for name in unit_names)).encode()
++            raw={'stdout.txt':f'Dafny program verifier finished with {count} verified, 0 errors\n'.encode(),
++                 'stderr.txt':b'','csv/synthetic.csv':csv,
++                 'resources.txt':b'User time (seconds): 0.1\nSystem time (seconds): 0.0\nElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.1\nMaximum resident set size (kbytes): 1\nExit status: 0\n'}
++            raw_pins={name:put(folder+'/raw/'+name,data) for name,data in raw.items()}
++            source_pins={name:put(folder+'/workspace/'+name,data) for name,data in sources.items()}
++            record=dict(schema=native_scorer.RECORD_SCHEMA,origin='synthetic_offline',run_id='SYNTHETIC:'+ref,
++                source_before_sha256=source_hashes,source_after_sha256=source_hashes,argv=profile['command'],
++                toolchain=profile['toolchain'],toolchain_after=profile['toolchain'],attempts=1,model_calls=0,
++                timeout=False,exit_code=0,elapsed_seconds=.1,host=dict(job_id='SYNTHETIC',hostname='synthetic-compute',partition='synthetic',cpus_per_task=1),
++                raw_sha256=native_scorer.hashes(raw))
++            record_pin=put(folder+'/record.json',ops.canonical(record));record_pin['canonical_sha256']=native_scorer.sha(native_scorer.canonical(record))
++            pins=native_scorer.EvidencePins(profile_sha256=profile_pin['canonical_sha256'],record_sha256=record_pin['canonical_sha256'],
++                source_revision_sha256=native_scorer.sha(native_scorer.canonical(source_hashes)),raw_sha256=tuple(sorted(native_scorer.hashes(raw).items())),
++                run_id=record['run_id'],origin='synthetic_offline')
++            replay=native_scorer.review(profile,sources,record,raw,pins,allow_synthetic=True)
++            targets={'Synthetic.Unit'+str(count-1):[unit_names[-1]]}
++            wrapper=dict(replay=replay,qualified_success=True,inherited_inventory_unchanged=True,
++                exact_guarded_reconstruction=True,source_sha256=source_hashes,actual_target_units=targets,new_units=[unit_names[-1]])
++            review_pin=put('native-profiles-001/replays/'+task+'.json',ops.canonical(wrapper))
++            edit_pin=put('synthetic-edits/'+task+'.json',ops.canonical({'synthetic':True,'task':task}))
++            evidence={pin['path']:pin['sha256'] for pin in [profile_pin,record_pin,review_pin,edit_pin,*raw_pins.values(),*source_pins.values()]}
++            inputs.update(evidence)
++            bindings[task]=dict(reference_case_id=ref,profile_path=profile_pin['path'],profile_sha256=profile_pin['sha256'])
++            observations[task]=dict(reference_case_id=ref,qualified_success=True,native_profile=profile_pin,
++                native_review=review_pin,reference_record=record_pin,reference_raw=raw_pins,reference_sources=source_pins,
++                native_run_id=record['run_id'],raw_fingerprint_sha256=replay['raw_fingerprint_sha256'],edit_profile=edit_pin,
++                base_sources=source_pins,inherited_unit_count=inherited,named_units=count,actual_target_units=targets,input_files=evidence)
++        gate=dict(synthetic=True,status='PASS',all_references_match=True,model_calls=0,tasks=observations,input_files=inputs)
++        gate_path='native-profiles-001/reference-gate.json';ops.save(package/gate_path,gate)
++        binding=dict(schema='dafny-growth-controls-gate-binding-v1',synthetic=True,gate_path=gate_path,
++            gate_sha256=ops.sha((package/gate_path).read_bytes()),fixture_manifests=manifests,tasks=bindings)
++        ops.save(q/'reference-gate-binding.json',binding)
++        return package,q,binding,gate
++
++    def test_synthetic_gate_rejected_by_default_and_explicit_fixture_replays(self):
++        with tempfile.TemporaryDirectory() as folder:
++            package,q,binding,gate=self.gate_fixture(Path(folder))
++            with self.assertRaises(ValueError):collect.validate_reference_gate(package,q)
++            self.assertEqual(collect.validate_reference_gate(package,q,allow_synthetic=True),(binding,gate))
++
++    def test_gate_evidence_and_fixture_drift_block_even_synthetic_replay(self):
++        for changed in ('raw','gate','cases','profile'):
++            with self.subTest(changed=changed),tempfile.TemporaryDirectory() as folder:
++                package,q,binding,gate=self.gate_fixture(Path(folder))
++                path={'raw':'aws/manifest.json','gate':binding['gate_path'],'cases':'stdlib/cases.json',
++                      'profile':'native-profiles-001/profiles/aws-batch.json'}[changed]
++                with (package/path).open('ab') as stream:stream.write(b'changed')
++                with self.assertRaises(ValueError):collect.validate_reference_gate(package,q,allow_synthetic=True)
++
++
++class ControlReviewTests(unittest.TestCase):
++    def report(self,category='PROOF_FAILURE'):
++        return dict(category=category,qualified_success=False,
++            units=[dict(name='Helper.Transfer (correctness)',outcome='Failed'),
++                   dict(name='Client.Target (correctness)',outcome='Passed')],
++            proof_coverage_complete=True,missing_units=[],extra_units=[],failed_units=1,
++            passed_units=1,summaries=[(1,1)],resources={'exit_status':4},warning_policy_matches=True,
++            warnings=0,strict_zero_warning_success=False)
++
++    def test_helper_failure_cannot_be_masked_by_passing_client(self):
++        metadata=dict(expected_category='PROOF_FAILURE',expected_failed_targets=['Helper.Transfer'],
++                      expected_passed_targets=[],inspect_targets=['Client.Target'])
++        result=review.expectation(self.report(),metadata,{'required_units':{}},
++                                  {'stdout.txt':b'Error: synthetic','stderr.txt':b''})
++        self.assertTrue(result['expected_match'])
++        self.assertEqual(result['inspect_targets']['Client.Target'],['Passed'])
++
++    def test_frontend_warning_and_resource_failures_never_count_as_proof_failures(self):
++        metadata=dict(expected_category='PROOF_FAILURE',expected_failed_targets=['Helper.Transfer'])
++        for category in ('FRONTEND_PARSE_FAILURE','FRONTEND_RESOLUTION_FAILURE','WARNING_ONLY','RESOURCE_FAILURE','TIMEOUT'):
++            with self.subTest(category=category):
++                self.assertFalse(review.expectation(self.report(category),metadata,{'required_units':{}},
++                    {'stdout.txt':b'','stderr.txt':b''})['expected_match'])
++
++    def test_failed_unit_plus_warning_or_unmatched_policy_never_matches(self):
++        metadata=dict(expected_category='PROOF_FAILURE',expected_failed_targets=['Helper.Transfer'])
++        raw={'stdout.txt':b'Error: synthetic failed obligation\nWarning: synthetic warning', 'stderr.txt':b''}
++        for warnings,matched in ((1,True),(1,False),(0,False)):
++            report=self.report();report.update(warnings=warnings,warning_policy_matches=matched)
++            with self.subTest(warnings=warnings,policy_matches=matched):
++                self.assertEqual(report['category'],'PROOF_FAILURE')
++                self.assertFalse(review.expectation(report,metadata,{'required_units':{}},raw)['expected_match'])
++
++    def test_positive_requires_explicit_strict_zero_warning_success(self):
++        metadata=dict(expected_category='PROOF_PASS',expected_passed_targets=['Client.Target'])
++        report=self.report('PROOF_PASS');report.update(qualified_success=True,strict_zero_warning_success=True,
++            units=[dict(name='Client.Target (correctness)',outcome='Passed')],failed_units=0,passed_units=1,
++            summaries=[(1,0)],resources={'exit_status':0})
++        raw={'stdout.txt':b'', 'stderr.txt':b''}
++        self.assertTrue(review.expectation(report,metadata,{'required_units':{}},raw)['expected_match'])
++        for strict in (False,None):
++            changed=copy.deepcopy(report)
++            if strict is None:changed.pop('strict_zero_warning_success')
++            else:changed['strict_zero_warning_success']=strict
++            with self.subTest(strict=strict):
++                self.assertFalse(review.expectation(changed,metadata,{'required_units':{}},raw)['expected_match'])
++
++    def test_omitted_failing_source_needs_exact_missing_inventory(self):
++        profile={'required_units':{'Base.Check (correctness)':'Base.dfy','New.Check (correctness)':'New.dfy'}}
++        metadata={'expected_category':'COVERAGE_OMISSION','omitted_source_all_units':['New.dfy']}
++        report=dict(category='COVERAGE_FAILURE',qualified_success=False,
++            units=[dict(name='Base.Check (correctness)',outcome='Passed')],missing_units=['New.Check (correctness)'],
++            extra_units=[],failed_units=0,passed_units=1,summaries=[(1,0)],resources={'exit_status':0},warning_policy_matches=True)
++        raw={'stdout.txt':b'Dafny program verifier finished with 1 verified, 0 errors\n','stderr.txt':b''}
++        self.assertTrue(review.expectation(report,metadata,profile,raw)['expected_match'])
++        report['missing_units'].append('Base.Check (correctness)')
++        self.assertFalse(review.expectation(report,metadata,profile,raw)['expected_match'])
++
++    def test_unlogged_declarations_require_unchanged_definition_line(self):
++        source=b'module A {\n  datatype Flag = One\n  method M() { }\n}\n'
++        profile=dict(command=['dafny','verify','A.dfy'],verification_inputs=['A.dfy'],
++            unlogged_definitions=[dict(name='A.Flag',file='A.dfy',source_sha256='0'*64,
++                source_line='  datatype Flag = One',counted_as_pass=False)])
++        case={'command_files':['A.dfy']};meta={'omit_from_command':[]}
++        current,changes=review.materialize_control_profile(profile,case,meta,{'A.dfy':source})
++        self.assertEqual(current['unlogged_definitions'][0]['source_sha256'],ops.sha(source))
++        self.assertFalse(changes[0]['counted_as_pass'])
++        with self.assertRaises(ValueError):review.materialize_control_profile(profile,case,meta,{'A.dfy':b'module A {}'})
+ 
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)
++

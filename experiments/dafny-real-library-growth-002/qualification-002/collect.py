@@ -124,7 +124,7 @@ def validate_reference_gate(package, root=None, *, allow_synthetic=False):
                 and observation.get('qualified_success') is True,
                 'Per-task reference success is missing')
         require(entry.get('reference_case_id')==TASK_REFERENCES[task]
-                and entry.get('profile_path')=='native-profiles-001/'+task+'.json'
+                and entry.get('profile_path')=='native-profiles-001/profiles/'+task+'.json'
                 and inputs.get(entry['profile_path'])==entry.get('profile_sha256'),
                 'Wrong reference/profile correspondence')
         native_pin=observation.get('native_profile',{})
@@ -185,8 +185,9 @@ def validate_reference_gate(package, root=None, *, allow_synthetic=False):
             raw_sha256=tuple(sorted(scorer.hashes(raw_streams).items())),
             run_id=record['run_id'],origin=record['origin'])
         reviewed=scorer.review(profile,sources,record,raw_streams,pins,allow_synthetic=allow_synthetic)
-        require(reviewed['qualified_success'] and reviewed['proof_coverage_complete'],
-                'Actual native reference replay is not a qualified success')
+        require(reviewed['qualified_success'] and reviewed['proof_coverage_complete']
+                and reviewed.get('strict_zero_warning_success') is True,
+                'Actual native reference replay is not a strict zero-warning qualified success')
         review_pin=observation.get('native_review',{})
         require(safe_path(review_pin.get('path')) and evidence.get(review_pin['path'])==review_pin.get('sha256'),
                 'Saved native review is unpinned')

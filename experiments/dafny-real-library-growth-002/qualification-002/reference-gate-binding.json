@@ -1,0 +1,37 @@
+{
+  "fixture_manifests": {
+    "aws": {
+      "path": "aws/manifest.json",
+      "sha256": "9cce99dce4ff750f460f5eb2c0c7a98fb35b65b68fb4d5f7226a595d54569315"
+    },
+    "stdlib": {
+      "path": "stdlib/revision-004/manifest.json",
+      "sha256": "d7d1ea13bf2e8d16e20de37cdaf41f5e3272f3aa7a72def10d18d25fb781ad29"
+    }
+  },
+  "gate_path": "native-profiles-001/reference-gate.json",
+  "gate_sha256": "18888e38c1437b451595ff928a2c1ce1cd5908d405263ec54b46427e431d0b27",
+  "schema": "dafny-growth-controls-gate-binding-v1",
+  "tasks": {
+    "aws-batch": {
+      "profile_path": "native-profiles-001/profiles/aws-batch.json",
+      "profile_sha256": "9cce268325a96e6a9e3462762438821cb740f2192d8611f05b7a27bb6b7545dd",
+      "reference_case_id": "counted-reference"
+    },
+    "aws-tagged": {
+      "profile_path": "native-profiles-001/profiles/aws-tagged.json",
+      "profile_sha256": "4f5c761569ccf76167e8d82f06b101df89ae1c3b76351470e008ca85e60b91cd",
+      "reference_case_id": "tagged-reference"
+    },
+    "stdlib-filter": {
+      "profile_path": "native-profiles-001/profiles/stdlib-filter.json",
+      "profile_sha256": "1959a50b8da32f0bcfcf6b578604b188cf339375752ce893da17303b6e9ba2e1",
+      "reference_case_id": "filter-reference"
+    },
+    "stdlib-splice": {
+      "profile_path": "native-profiles-001/profiles/stdlib-splice.json",
+      "profile_sha256": "615d3fee1e634c8be9e2c2ff9cdbdebcccb85b791f841926f7e896a5ae1b6171",
+      "reference_case_id": "splice-alternative"
+    }
+  }
+}

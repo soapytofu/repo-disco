@@ -160,6 +160,10 @@ def identity(project):
         source=PACKAGE/name
         require(source.is_file() and not source.is_symlink() and sha(source.read_bytes())==digest,
                 'Runtime input differs: '+name)
+    for metadata_project in ('stdlib','aws'):
+        metadata=read(ROOT/'control-metadata'/f'{metadata_project}.json')
+        require(frozen['files'].get(metadata['source_path'])==metadata['source_sha256'],
+                'Both exact fixture case catalogs are operational frozen inputs')
     config=validate_config(read(ROOT/'configs'/f'{project}.json'))
     binding,gate=validate_reference_gate(PACKAGE,ROOT)
     require(frozen.get('reference_gate_sha256')==binding['gate_sha256']
@@ -192,8 +196,9 @@ def no_matching_queue(text,selected):
 def inspect_state(selected):
     root=canonical_location(selected['root'])
     queue=command(['squeue','-u','sophiezeng','-h','-o','%i|%Z|%j|%T'],15)
-    return dict(root_exists=root.exists(),
-        output_exists=(root/'qualification-002'/('output-'+selected['project'])).exists(),
+    output=root/Path(selected['freeze']).parent.parent/('output-'+selected['project'])
+    return dict(root_exists=root.exists(),output_path=str(output),
+        output_exists=output.exists(),
         submission_exists=any((root/name).exists() for name in ('submission.intent.json','submission.json')),
         fetch_exists=(root/'fetch.intent.json').exists(),queue=queue)
 

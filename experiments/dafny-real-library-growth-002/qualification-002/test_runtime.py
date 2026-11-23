@@ -75,6 +75,26 @@ class OpsTests(unittest.TestCase):
             ops.stage_remote(self.selected,self.digest,self.payload)
         self.assertFalse(Path(self.selected['root']).exists())
 
+    def test_existing_output_is_reported_and_blocks_mutation(self):
+        root=Path(self.selected['root'])
+        output=root/Path(self.selected['freeze']).parent.parent/'output-stdlib'
+        output.mkdir(parents=True)
+        with mock.patch.object(ops,'command',return_value=''):
+            state=ops.inspect_state(self.selected)
+        self.assertTrue(state['output_exists']);self.assertEqual(state['output_path'],str(output))
+        with self.assertRaises(ValueError):ops.fresh_state(state,self.selected)
+
+    def test_generated_inspection_uses_exact_frozen_output_location(self):
+        root=Path(self.selected['root']);output=root/'qualification-002/output-stdlib'
+        output.mkdir(parents=True)
+        program=ops.remote_program('inspect',self.selected,self.digest)
+        captured=io.StringIO()
+        with mock.patch.object(subprocess,'run',return_value=subprocess.CompletedProcess([],0,b'',b'')), \
+                contextlib.redirect_stdout(captured):
+            exec(compile(program,'synthetic-stdin-inspection','exec'),{})
+        state=json.loads(captured.getvalue())
+        self.assertTrue(state['output_exists']);self.assertEqual(state['output_path'],str(output))
+
     def test_partition_must_be_live_nonpreemptible_and_large_enough(self):
         ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=02:00:00',self.selected)
         for text in ('PartitionName=test State=UP PreemptMode=REQUEUE MaxTime=12:00:00',
@@ -209,6 +229,15 @@ class ControlScopeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=03:59:59',aws)
 
+    def test_actual_packaged_gate_replays_all_four_reference_observations(self):
+        here=Path(__file__).parent
+        binding,gate=collect.validate_reference_gate(here.parent,here)
+        self.assertEqual(gate['status'],'PASS')
+        self.assertEqual({task:entry['reference_case_id'] for task,entry in gate['tasks'].items()},collect.TASK_REFERENCES)
+        self.assertEqual({task:entry['named_units'] for task,entry in gate['tasks'].items()},
+            {'stdlib-filter':59,'stdlib-splice':60,'aws-batch':81,'aws-tagged':79})
+        self.assertEqual(binding['gate_sha256'],ops.sha((here.parent/binding['gate_path']).read_bytes()))
+
     def test_no_real_gate_exists_or_can_be_fabricated_by_dispatch(self):
         # The preparation phase intentionally has no gate or freeze. This test
         # remains valid after real gating by checking a fresh empty package.
@@ -286,7 +315,7 @@ class ControlScopeTests(unittest.TestCase):
                 inventory_status='qualified',command=['synthetic-dafny','verify','A.dfy'],verification_inputs=['A.dfy'],
                 toolchain={'synthetic':True},csv_columns=columns,random_seed=0,
                 required_units={name:'A.dfy' for name in unit_names},unitless_files={},inherited_warnings=[],unlogged_definitions=[])
-            profile_pin=put('native-profiles-001/'+task+'.json',ops.canonical(profile))
+            profile_pin=put('native-profiles-001/profiles/'+task+'.json',ops.canonical(profile))
             profile_pin['canonical_sha256']=native_scorer.sha(native_scorer.canonical(profile))
             csv=(','.join(columns)+'\n'+''.join(name+',Passed,00:00:00.001,1,0\n' for name in unit_names)).encode()
             raw={'stdout.txt':f'Dafny program verifier finished with {count} verified, 0 errors\n'.encode(),
@@ -334,7 +363,7 @@ class ControlScopeTests(unittest.TestCase):
             with self.subTest(changed=changed),tempfile.TemporaryDirectory() as folder:
                 package,q,binding,gate=self.gate_fixture(Path(folder))
                 path={'raw':'aws/manifest.json','gate':binding['gate_path'],'cases':'stdlib/cases.json',
-                      'profile':'native-profiles-001/aws-batch.json'}[changed]
+                      'profile':'native-profiles-001/profiles/aws-batch.json'}[changed]
                 with (package/path).open('ab') as stream:stream.write(b'changed')
                 with self.assertRaises(ValueError):collect.validate_reference_gate(package,q,allow_synthetic=True)
 
