@@ -1,0 +1,1608 @@
+{
+  "schema": "dafny-library-edit-review-v1",
+  "project": "aws",
+  "stage": 2,
+  "stage_id": "frame-pair",
+  "chain_id": "aws-lineage-03",
+  "guard_profile_sha256": "0bdc35942e8bc225b700d90332f990d5684a13b342a926fcccf7f297bdeee88b",
+  "parent_source_revision_sha256": "a7c2b6b456bb00dd48044368c7d3ecb56112d40462ed6071a537baeaef0816d7",
+  "source_revision_sha256": "2ef4174985246a5ebfc2dbb22c9374e08af5e32808bb6639bbf5e7e4234a9779",
+  "verification_inputs": [
+    "StandardLibrary/src/UInt.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Wrappers.dfy",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "StandardLibrary/src/RepoDiscoFramePair.dfy"
+  ],
+  "source_sha256": {
+    "StandardLibrary/src/RepoDiscoFramePair.dfy": "72e975a9cceec38f1f4520fef5d81a8362a6a4fe8c46dc7ba826f9af2e5cdd4b",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy": "3bfbfac4f1eeaaeab1f1812c842bd17fd6b8d6b69a5b97eabbd91ff9757a8912",
+    "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+  },
+  "body": {
+    "token_count": 3,
+    "body_sha256": "72d3a06f3ce64231aa9d227584cff26a289bb6bd3130c54b7f8c9e4f66443d29"
+  },
+  "parent": {
+    "native_review": {
+      "schema": "dafny-library-native-review-v1",
+      "project": "aws",
+      "stage": 1,
+      "stage_id": "u16-frame",
+      "run_id": "SYNTHETIC-NO-NATIVE-OR-MODEL-smoke:slot-09",
+      "origin": "synthetic_offline",
+      "synthetic": true,
+      "category": "VERIFIED",
+      "terminal": false,
+      "qualified_success": true,
+      "strict_zero_warning_success": true,
+      "proof_coverage_complete": true,
+      "missing_units": [],
+      "extra_units": [],
+      "units": [
+        {
+          "name": "BoundedInts.INT16_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 2,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT16_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT16_MIN (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 3,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT16_MIN (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT32_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 4,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT32_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT32_MIN (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 5,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT32_MIN (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT64_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 6,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT64_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT64_MIN (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 7,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT64_MIN (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT8_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 8,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT8_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.INT8_MIN (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 9,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.INT8_MIN (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.NAT16_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 10,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.NAT16_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.NAT32_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 11,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.NAT32_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.NAT64_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 12,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.NAT64_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.NAT8_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 13,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.NAT8_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.UINT16_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 14,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.UINT16_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.UINT32_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 15,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.UINT32_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.UINT64_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 16,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.UINT64_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.UINT8_MAX (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 17,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.UINT8_MAX (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.int16 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 18,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.int16 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.int32 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 19,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.int32 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.int64 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 20,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.int64 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.int8 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 21,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.int8 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.nat16 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 22,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.nat16 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.nat32 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 23,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.nat32 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.nat64 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 24,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.nat64 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.nat8 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 25,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.nat8 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.opt_byte (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 26,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.opt_byte (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.uint16 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 27,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.uint16 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.uint32 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 28,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.uint32 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.uint64 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 29,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.uint64 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "BoundedInts.uint8 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 30,
+          "fields": {
+            "TestResult.DisplayName": "BoundedInts.uint8 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "RepoDiscoU16Frame.FramePayload (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 31,
+          "fields": {
+            "TestResult.DisplayName": "RepoDiscoU16Frame.FramePayload (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "RepoDiscoU16Frame.FrameRest (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 32,
+          "fields": {
+            "TestResult.DisplayName": "RepoDiscoU16Frame.FrameRest (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "RepoDiscoU16Frame.HasFrame (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 33,
+          "fields": {
+            "TestResult.DisplayName": "RepoDiscoU16Frame.HasFrame (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "RepoDiscoU16Frame.ReadU16Frame (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 34,
+          "fields": {
+            "TestResult.DisplayName": "RepoDiscoU16Frame.ReadU16Frame (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt16 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 35,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt16 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt16Same (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 36,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt16Same (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt16Same (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 37,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt16Same (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt32 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 38,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt32 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt32Same (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 39,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt32Same (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt32Same (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 40,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt32Same (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt64 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 41,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt64 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt64Same (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 42,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt64Same (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqPosToUInt64Same (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 43,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqPosToUInt64Same (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqToNat (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 44,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqToNat (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqToNatZeroPrefix (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 45,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqToNatZeroPrefix (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqToNatZeroPrefix (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 46,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqToNatZeroPrefix (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqToUInt16 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 47,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqToUInt16 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqToUInt32 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 48,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqToUInt32 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqToUInt64 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 49,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqToUInt64 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqWithUInt32Suffix (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 50,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqWithUInt32Suffix (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.SeqWithUInt32Suffix (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 51,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.SeqWithUInt32Suffix (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt16SeqDeserializeSerialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 52,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt16SeqDeserializeSerialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt16SeqDeserializeSerialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 53,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt16SeqDeserializeSerialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt16SeqSerializeDeserialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 54,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt16SeqSerializeDeserialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt16SeqSerializeDeserialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 55,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt16SeqSerializeDeserialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt16ToSeq (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 56,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt16ToSeq (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt32SeqDeserializeSerialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 57,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt32SeqDeserializeSerialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt32SeqDeserializeSerialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 58,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt32SeqDeserializeSerialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt32SeqSerializeDeserialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 59,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt32SeqSerializeDeserialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt32SeqSerializeDeserialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 60,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt32SeqSerializeDeserialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt32ToSeq (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 61,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt32ToSeq (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64SeqDeserializeSerialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 62,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64SeqDeserializeSerialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64SeqDeserializeSerialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 63,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64SeqDeserializeSerialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64SeqSerialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 64,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64SeqSerialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64SeqSerialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 65,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64SeqSerialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64SeqSerializeDeserialize (correctness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 66,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64SeqSerializeDeserialize (correctness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64SeqSerializeDeserialize (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 67,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64SeqSerializeDeserialize (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.UInt64ToSeq (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 68,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.UInt64ToSeq (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.seq16 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 69,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.seq16 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.seq32 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 70,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.seq32 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "StandardLibrary.UInt.seq64 (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 71,
+          "fields": {
+            "TestResult.DisplayName": "StandardLibrary.UInt.seq64 (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "Wrappers.FNeed (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 72,
+          "fields": {
+            "TestResult.DisplayName": "Wrappers.FNeed (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "Wrappers.Option.Extract (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 73,
+          "fields": {
+            "TestResult.DisplayName": "Wrappers.Option.Extract (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "Wrappers.Outcome.PropagateFailure (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 74,
+          "fields": {
+            "TestResult.DisplayName": "Wrappers.Outcome.PropagateFailure (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "Wrappers.Result.Extract (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 75,
+          "fields": {
+            "TestResult.DisplayName": "Wrappers.Result.Extract (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        },
+        {
+          "name": "Wrappers.Result.PropagateFailure (well-formedness)",
+          "outcome": "Passed",
+          "csv": "csv/TestResults/fake.csv",
+          "row": 76,
+          "fields": {
+            "TestResult.DisplayName": "Wrappers.Result.PropagateFailure (well-formedness)",
+            "TestResult.Outcome": "Passed",
+            "TestResult.Duration": "00:00:00.0001000",
+            "TestResult.ResourceCount": "10",
+            "RandomSeed": "0"
+          }
+        }
+      ],
+      "passed_units": 75,
+      "failed_units": 0,
+      "summaries": [
+        [
+          75,
+          0
+        ]
+      ],
+      "warnings": 0,
+      "warning_lines": [],
+      "warning_policy_matches": true,
+      "unlogged_definitions": [
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "kind": "datatype",
+          "line": 8,
+          "name": "RepoDiscoU16Frame.Frame",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  datatype Frame = Frame(payload: seq<U.uint8>, rest: seq<U.uint8>)",
+          "source_sha256": "3bfbfac4f1eeaaeab1f1812c842bd17fd6b8d6b69a5b97eabbd91ff9757a8912"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 8,
+          "name": "StandardLibrary.UInt.uint8",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type uint8 = BoundedInts.uint8",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 9,
+          "name": "StandardLibrary.UInt.uint16",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type uint16 = BoundedInts.uint16",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 10,
+          "name": "StandardLibrary.UInt.uint32",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type uint32 = BoundedInts.uint32",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 11,
+          "name": "StandardLibrary.UInt.uint64",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type uint64 = BoundedInts.uint64",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 12,
+          "name": "StandardLibrary.UInt.int32",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type int32 = BoundedInts.int32",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 13,
+          "name": "StandardLibrary.UInt.int64",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type int64 = BoundedInts.int64",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "StandardLibrary.UInt.UINT16_LIMIT",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const UINT16_LIMIT := BoundedInts.UINT16_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "StandardLibrary.UInt.UINT32_LIMIT",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const UINT32_LIMIT := BoundedInts.UINT32_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "StandardLibrary.UInt.UINT64_LIMIT",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const UINT64_LIMIT := BoundedInts.UINT64_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "StandardLibrary.UInt.INT32_MAX_LIMIT",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const INT32_MAX_LIMIT := BoundedInts.INT32_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "StandardLibrary.UInt.INT64_MAX_LIMIT",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const INT64_MAX_LIMIT := BoundedInts.INT64_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "StandardLibrary.UInt.UINT64_MAX_LIMIT",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const UINT64_MAX_LIMIT := BoundedInts.UINT64_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 21,
+          "name": "StandardLibrary.UInt.UInt8Less",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method UInt8Less(a: uint8, b: uint8) { a < b }",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 23,
+          "name": "StandardLibrary.UInt.HasUint16Len",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method HasUint16Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 28,
+          "name": "StandardLibrary.UInt.Uint8Seq16",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type Uint8Seq16 = seq16<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 30,
+          "name": "StandardLibrary.UInt.HasUint32Len",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method HasUint32Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 35,
+          "name": "StandardLibrary.UInt.Uint8Seq32",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type Uint8Seq32 = seq32<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 37,
+          "name": "StandardLibrary.UInt.HasUint64Len",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method HasUint64Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 42,
+          "name": "StandardLibrary.UInt.Uint8Seq64",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type Uint8Seq64 = seq64<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 44,
+          "name": "StandardLibrary.UInt.HasUint16Size",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method HasUint16Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 47,
+          "name": "StandardLibrary.UInt.HasUint32Size",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method HasUint32Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 50,
+          "name": "StandardLibrary.UInt.HasUint64Size",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  predicate method HasUint64Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 4,
+          "name": "BoundedInts.TWO_TO_THE_0",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_0:   int := 1",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 5,
+          "name": "BoundedInts.TWO_TO_THE_1",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_1:   int := 2",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 6,
+          "name": "BoundedInts.TWO_TO_THE_2",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_2:   int := 4",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 7,
+          "name": "BoundedInts.TWO_TO_THE_4",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_4:   int := 16",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 8,
+          "name": "BoundedInts.TWO_TO_THE_5",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_5:   int := 32",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 9,
+          "name": "BoundedInts.TWO_TO_THE_8",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_8:   int := 0x100",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 10,
+          "name": "BoundedInts.TWO_TO_THE_16",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_16:  int := 0x10000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 11,
+          "name": "BoundedInts.TWO_TO_THE_24",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_24:  int := 0x1000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 12,
+          "name": "BoundedInts.TWO_TO_THE_32",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_32:  int := 0x1_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 13,
+          "name": "BoundedInts.TWO_TO_THE_40",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_40:  int := 0x100_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "BoundedInts.TWO_TO_THE_48",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_48:  int := 0x10000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "BoundedInts.TWO_TO_THE_56",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_56:  int := 0x1000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "BoundedInts.TWO_TO_THE_64",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_64:  int := 0x1_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "BoundedInts.TWO_TO_THE_128",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_128: int := 0x1_00000000_00000000_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "BoundedInts.TWO_TO_THE_256",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_256: int := 0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "BoundedInts.TWO_TO_THE_512",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_512: int :=",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "type",
+          "line": 56,
+          "name": "BoundedInts.byte",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type byte = uint8",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "type",
+          "line": 57,
+          "name": "BoundedInts.bytes",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  type bytes = seq<byte>",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 10,
+          "name": "Wrappers.Option",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  datatype Option<+T> = None | Some(value: T) {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 11,
+          "name": "Wrappers.Option.ToResult",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function ToResult(): Result<T, string> {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 17,
+          "name": "Wrappers.Option.ToResult'",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function ToResult'<R>(error: R): Result<T, R> {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 23,
+          "name": "Wrappers.Option.UnwrapOr",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function UnwrapOr(default: T): T {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 29,
+          "name": "Wrappers.Option.IsFailure",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 33,
+          "name": "Wrappers.Option.PropagateFailure",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function PropagateFailure<U>(): Option<U>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 46,
+          "name": "Wrappers.Result",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  datatype Result<+T, +R> = | Success(value: T) | Failure(error: R) {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 47,
+          "name": "Wrappers.Result.ToOption",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function ToOption(): Option<T>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 54,
+          "name": "Wrappers.Result.UnwrapOr",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function UnwrapOr(default: T): T",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 61,
+          "name": "Wrappers.Result.IsFailure",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 71,
+          "name": "Wrappers.Result.MapFailure",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    function MapFailure<NewR>(reWrap: R -> NewR): Result<T, NewR>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 85,
+          "name": "Wrappers.Outcome",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  datatype Outcome<E> = Pass | Fail(error: E)",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 87,
+          "name": "Wrappers.Outcome.IsFailure",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 101,
+          "name": "Wrappers.Need",
+          "reason": "No named CSV unit for this source definition in the saved complete-scope observation; not a logged proof pass.",
+          "source_line": "  function Need<E>(condition: bool, error: E): (result: Outcome<E>)",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        }
+      ],
+      "unitless_files": {},
+      "elapsed_seconds": 0.01,
+      "resources": {
+        "max_rss_kib": 100,
+        "user_cpu_seconds": 0.01,
+        "system_cpu_seconds": 0.0,
+        "wall_time": "0:00.01",
+        "exit_status": 0,
+        "complete": true
+      },
+      "resources_sha256": "6b967d15594a6419e92e8f8e6c8fb7df5460c7b8c14273ccd01a083c285f0b8e",
+      "profile_sha256": "99801d02b52abbd5e425f48d58a46a7339d76c5b377af69e6b1c6b986ad011d2",
+      "record_sha256": "720cb57941051853cf429262e444b537ea7734191a4f5a541d9f8ed1cc69c902",
+      "source_revision_sha256": "a7c2b6b456bb00dd48044368c7d3ecb56112d40462ed6071a537baeaef0816d7",
+      "raw_fingerprint_sha256": "23281976a37e6d81f7b450699337e61981f34c63038f88b2c3f7b5510d018157",
+      "acceptance_issued": false
+    },
+    "receipt_sha256": "c0e09b687bc6211014f640d6a539137e47e8ca71bdfecddc5572a4118ab02143",
+    "source_revision_sha256": "a7c2b6b456bb00dd48044368c7d3ecb56112d40462ed6071a537baeaef0816d7",
+    "synthetic": true,
+    "acceptance_issued": false
+  },
+  "synthetic": true,
+  "acceptance_issued": false
+}

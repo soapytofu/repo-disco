@@ -1,0 +1,155 @@
+{
+  "authorization_issued": false,
+  "batch_id": "dafny-real-library-growth-001-execution-001",
+  "independent_root_reviews": [
+    {
+      "path": "root-reviews/stdlib-native-001.json",
+      "sha256": "a26e34d3187bfe1a6371de9e6304e8f76f63066a4e6f40ed2ce0c64d28338c61"
+    },
+    {
+      "path": "root-reviews/aws-reference-profile-001.json",
+      "sha256": "716a8009cdb884765bde24ab8242eadee9775d8db9a52bf3badd9b4fbc1c3564"
+    },
+    {
+      "path": "root-reviews/aws-control-gate-001.json",
+      "sha256": "c0228d84b89f6abfc74df1c26a71b471d672398decf7daa3972d82f6e926ecf7"
+    }
+  ],
+  "model_calls": 0,
+  "new_native_calls": 0,
+  "projects": {
+    "aws": {
+      "base_sources": {
+        "StandardLibrary/src/UInt.dfy": {
+          "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/StandardLibrary/src/UInt.dfy",
+          "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        "libraries/src/BoundedInts.dfy": {
+          "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/libraries/src/BoundedInts.dfy",
+          "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        "libraries/src/Wrappers.dfy": {
+          "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/libraries/src/Wrappers.dfy",
+          "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        }
+      },
+      "control_gate": {
+        "path": "native-profiles/aws-002/control-gate.json",
+        "sha256": "1f0eda8fad8925a6a839ce210727c06b731e8a6a5cf1ba2dfec7fc6afcd713cc"
+      },
+      "interfaces": {
+        "1": {
+          "callable_name": "ReadU16Frame",
+          "kind": "function",
+          "stage_id": "u16-frame",
+          "target_file": "StandardLibrary/src/RepoDiscoU16Frame.dfy"
+        },
+        "2": {
+          "callable_name": "ReadFramePair",
+          "kind": "function",
+          "stage_id": "frame-pair",
+          "target_file": "StandardLibrary/src/RepoDiscoFramePair.dfy"
+        }
+      },
+      "native_adapter": {
+        "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+        "wall_seconds": 900
+      },
+      "native_adapter_source": {
+        "path": "qualification-005/configs/aws.json",
+        "sha256": "d890e40c1b12472641a2106c5a2ef57bcb285057ec9f27d2f4cca7d690465484"
+      },
+      "native_profiles": {
+        "1": {
+          "path": "native-profiles/aws-002/stage1.json",
+          "sha256": "6ff16549474d7e3cab944a871d698a60c4d3319b7b700e40cad7ff46e890b3e5"
+        },
+        "2": {
+          "path": "native-profiles/aws-002/stage2.json",
+          "sha256": "1b690c9c689b051b524cfdbe881b818e7d0c89d1f791e9d8a70c47d645a592b1"
+        }
+      },
+      "reference_sources": {
+        "1": {
+          "path": "qualification-005/retrieved-aws/qualification-005/output-aws/stage1-reference/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "sha256": "20decd21ea0cb28f5351169439c2f232e6083ad3abc34e7ed2486aea2fbe46f9"
+        },
+        "2": {
+          "path": "qualification-005/retrieved-aws/qualification-005/output-aws/stage2-reference/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+          "sha256": "546849ae2194e4a44dd3231130020a5cf10f410381a530464b29722f02d1acfa"
+        }
+      }
+    },
+    "stdlib": {
+      "base_sources": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+          "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+          "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+          "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        }
+      },
+      "control_gate": {
+        "path": "native-profiles/stdlib-002/control-gate.json",
+        "sha256": "f1901c342d30884496e64c9a93d1fc87421e64512e5fbca8f21e971865d20c56"
+      },
+      "interfaces": {
+        "1": {
+          "callable_name": "AppendAll",
+          "kind": "method",
+          "stage_id": "append-all",
+          "target_file": "growth/AppendAll.dfy"
+        },
+        "2": {
+          "callable_name": "AppendRotated",
+          "kind": "method",
+          "stage_id": "append-rotated",
+          "target_file": "growth/AppendRotated.dfy"
+        }
+      },
+      "native_adapter": {
+        "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+        "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+        "wall_seconds": 360
+      },
+      "native_adapter_source": {
+        "path": "qualification-003/configs/stdlib.json",
+        "sha256": "d419ece2e9e21632626de0b1e32c7d356d15597dbacdd62130136dd770dbf3a7"
+      },
+      "native_profiles": {
+        "1": {
+          "path": "native-profiles/stdlib-002/stage1.json",
+          "sha256": "b732e2b79c3043227752494414212018f367e697d4509ca6cdb2611ca1659d7f"
+        },
+        "2": {
+          "path": "native-profiles/stdlib-002/stage2.json",
+          "sha256": "e99bb8c4af87491185f48431545b1e6077afb0d60b2abf5e9f6492c3574f3af1"
+        }
+      },
+      "reference_sources": {
+        "1": {
+          "path": "qualification-003/retrieved-stdlib/qualification-003/output-stdlib/append-reference/workspace/growth/AppendAll.dfy",
+          "sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d"
+        },
+        "2": {
+          "path": "qualification-003/retrieved-stdlib/qualification-003/output-stdlib/rotate-reference/workspace/growth/AppendRotated.dfy",
+          "sha256": "986da431048fcd16811f4355c74f022a7188dfc58b4f93dca733977cebe43701"
+        }
+      }
+    }
+  },
+  "region": "us-east-1",
+  "schema": "dafny-library-pilot-preparation-input-v2",
+  "settings_region_origin": {
+    "region": "us-east-1",
+    "repository_file": "experiments/real-repository-growth-001/pilot/frozen-001/settings.json"
+  },
+  "synthetic": false
+}

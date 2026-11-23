@@ -10,6 +10,27 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 23: two additional Dafny component chains qualified
+
+The [Dafny-library growth study](../experiments/dafny-real-library-growth-001/)
+now qualifies dynamic-array append/rotation additions from Dafny's standard
+library and U16 frame/frame-pair readers from AWS MPL's UInt component.
+All **24 declared source-control outcomes match**: eight passing scopes,
+thirteen proof failures and three omitted-coverage rejections. Failed helpers
+cannot be masked by passing clients. Full raw proof inventories, sources,
+diagnostics and accounting are published. These are analyst controls, not
+model-generated growth. The broader 102-file AWS baseline failed diagnostics,
+wall time and memory qualification; its evidence is preserved separately.
+
+The fixed **12-slot** collection runs at most four initial pilot calls and eight
+conditional expansion calls, with no retries or reassignment. The exact
+53-file runner is staged; all 75 Cannon tests and actual-package synthetic
+renderer checks passed without provider/native calls. Only a renewed private
+handoff remains before a fresh bound execution record and submission. The
+budget has 28/100 slots allocated, seven earlier requests returned, and zero
+requests from this study. Each project uses a declared three-file upstream
+component, not its whole repository; the two components share library ancestry.
+
 ## November 23: sequential growth measured on the two real seeds
 
 The [fresh frozen cohort](../experiments/real-repository-growth-001/execution-005/COLLECTION.md)

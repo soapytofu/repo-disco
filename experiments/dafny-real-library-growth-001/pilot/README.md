@@ -1,5 +1,100 @@
 # Two executable library-growth chains: prompt draft
 
+## Current preparation: draft-002
+
+`draft-002` binds the reviewed standard-library and AWS UInt-only native gates.
+Both gates match **12/12 expected saved observations**. This preparation adds no
+model or verifier calls and issues no execution release. Root froze runtime
+`69d07a07` after review; authorization and dispatch remain root-owned.
+
+| Project | Stage one | Stage two |
+| --- | --- | --- |
+| Dafny standard library, 4.11.0 | `AppendAll` over the existing `DynamicArray` API | `AppendRotated`, preserving the actual accepted stage-one addition |
+| AWS MPL UInt closure, 4.9.1 | Executable `ReadU16Frame` with exact payload/suffix contracts | Executable `ReadFramePair`, preserving the actual accepted frame parser |
+
+The AWS scope contains three original files—`UInt`, `BoundedInts`, and
+`Wrappers`—and makes no UTF8-validation or encryption-context claim. The earlier
+102-file proposal remains unchanged below as unqualified history. Both current
+prompts show their complete three-file upstream scope verbatim: 14,676 bytes for
+the standard library and 18,360 bytes for AWS. Stage-one payloads are about 19 KB
+and 24 KB, respectively; these are byte counts, not provider token estimates.
+
+The ceiling remains twelve fresh requests: one two-stage lineage per project
+in the first four slots, then two more lineages per project only after complete
+healthy pilot accounting and at least one accepted stage-one result. Every slot
+uses one independent response, no retries or reassignment. Unaccepted parents
+block their children. All settings are Claude Opus 4.5, temperature 1, maximum
+4,096 output tokens, with a `{"body":"replacement body text"}` response.
+
+`prepare_v2.py` selects exact native profiles, complete reviewed control gates,
+source bytes, and the existing root-owned execution binding/budget snapshot. It
+checks reference reconstruction under the host body boundary, then removes each
+entire reference body. Native options and source order match the actual qualified
+commands. `reviews/final-draft-review-001.json` checks the actual model-visible
+content: all four empty-body views, exact source context, reference-body and
+private-control-label exclusion, protected boundaries, and deferred children.
+All 16 prepared artifacts and 30 renderer input pins match. Caller-selected
+hashes still need trusted-host review; they do not authenticate arbitrary JSON.
+
+`render_v2.py` uses the **experiment/package root** supplied by the real bounded
+runner and returns direct Converse payloads. There is no bare sibling `prepare`
+import. A child can be rendered only from supplied accepted same-lineage source
+and typed `ParentEvidence`; reference bodies are never a fallback. Both stages
+retain `dispatch_eligible:false`. No exact child payload has been saved.
+
+```python
+renderer = runtime.load_renderer(package_root, "pilot/render_v2.py")
+first = renderer.render_stage1(project, chain_id, root=package_root)
+second = renderer.render_stage2(
+    project, chain_id, exact_parent_sources, parent_evidence,
+    root=package_root, allow_synthetic=False,
+)
+```
+
+Seven focused integration tests passed in `reviews/renderer-integration-005`.
+They exercise the actual manifest-staged loader, renderer and Runner in fresh
+interpreters, including exact parent views, strict default synthetic rejection,
+failed-parent child blocking, native argument order, Converse/context agreement,
+package closure, reviewed upstream-source selection, and the packaged smoke CLI.
+Only transport/native results are fake; all their inventories and receipts are
+explicitly synthetic. These tests supply no native proof or model success. All
+65 tested code/data pins remained unchanged.
+
+Earlier transcripts are retained. `renderer-integration-001` failed before any
+test because its host-template selector incorrectly assumed an include line;
+`renderer-integration-003` exposed a synthetic report count error. The fixes
+changed test preparation/reporting, not native results. Successful earlier suites
+remain in `renderer-integration-002` and `renderer-integration-004`.
+
+The actual final package was checked through the same staged path against its
+real source/templates/native profiles using only synthetic transport/native
+observations:
+
+```text
+python3 -B pilot/test_render_v2.py --smoke /absolute/path/to/package pilot/draft-002/scope.json
+```
+
+This mode does not load historical references, issue a budget claim, read a key,
+or invoke a provider/verifier. It writes an explicitly synthetic twelve-slot
+simulation to the sibling `synthetic-smoke` directory once, checks six exact
+parent views and strict default parent rejection, and refuses to reuse that
+directory. Synthetic pass records are software-test fixtures, not proof results.
+
+The single final-package smoke passed in 1.55 seconds, with all 53 runtime pins
+unchanged, twelve fake responses/native observations, six exact parent views and
+six strict default synthetic rejections. Full logs and its 314-file evidence
+inventory are in `../execution-001/reviews/actual-package-smoke-001`. A separate
+read-only review checked every saved stage against the actual 58/60 standard-
+library and 75/77 AWS inventories, exact command/tool pins and candidate bytes.
+All six child workspaces and views retain their same-lineage synthetic parent
+bytes. Only the allowed whole-file hashes for predeclared unlogged definitions
+were materialized. Audit field-name/canonical-hash mistakes are preserved in
+three review-attempt records; the smoke ran only once and no runtime, source or
+saved result was changed. This remains software integration evidence, not
+mathematical evidence for the synthetic bodies or model-generated growth.
+
+## Historical draft-001 (unchanged)
+
 `draft-001` is a reviewable prompt and edit-profile preparation, **not a native
 qualification or execution release**. Root will freeze/release the pilot only
 after the actual positive, negative and coverage gates have been reviewed.

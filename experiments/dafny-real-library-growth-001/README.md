@@ -2,7 +2,8 @@
 
 Prepared November 23, 2026 under Sophie's instruction to qualify the suggested
 Dafny projects, run a small pilot, then proceed within the existing 100-new-call
-ceiling. This experiment is in preparation. **No model request has been made.**
+ceiling. The frozen runner is tested and staged; a renewed private credential
+handoff is needed before the authorized collection. **No model request has been made.**
 
 ## Two selected component scopes
 
@@ -102,6 +103,24 @@ classification, unchanged source/tool hashes and complete resources. Existing
 AWS axioms and externs are inventoried and preserved; invoking their trusted
 shortcuts from new bodies is forbidden. Hashing a staged file is not proof of
 verification coverage.
+
+## Execution readiness
+
+The final [pilot draft-002](pilot/draft-002/scope.json) and
+[execution-001 runtime](execution-001/runtime-freeze.json) bind both completed
+qualification gates. All **75 runner/operations tests pass on Cannon**. The
+actual manifest-only package also passed a synthetic 12-slot renderer/runner
+integration check locally and on Cannon, including six exact accepted-parent
+views and six default rejections of synthetic parent evidence. These fake
+outcomes are not model successes or native verification results. Full test
+streams and synthetic artifacts are retained in [execution reviews](execution-001/reviews/).
+
+The runtime pins 53 files (SHA `69d07a07241982e21bf06cf16ed038187c8fd2d2a7fff1e71443515745f49548`).
+The live host requires a separate fresh hash-bound execution record, an
+exclusive permanent allocation claim, and native tool preflight on a compute
+node before loading the private handoff. No model authorization file, allocation
+claim, model output or submission has yet been created. The current Cannon
+connection works; the previous collection consumed its private handoff.
 
 ## Bounded collection design
 

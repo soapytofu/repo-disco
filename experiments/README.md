@@ -1,5 +1,19 @@
 # Experiment log
 
+## November 23: Dafny Standard Library and AWS UInt growth ready
+
+[Dafny-library growth](dafny-real-library-growth-001/) qualifies two executable
+two-stage chains on selected unchanged upstream components. All 24 source-control
+expectations match (eight passing scopes, thirteen proof failures, three coverage
+rejections), with full raw logs and earlier qualification failures preserved.
+The 12-slot pilot/conditional expansion is frozen and staged; 75 runner tests
+pass on Cannon, and actual-package fake-response checks validate six parent-child
+views locally and remotely. No model request, allocation claim or submission
+exists yet; private handoff is required. The allocation uses 12 new slots within
+the existing 100-call ceiling, bringing total allocations to 28; old ledgers stay
+closed. These are selected component scopes with shared library ancestry, not
+whole-project, independent-family or model-performance results.
+
 ## November 23: sequential model growth — two complete Vest lineages
 
 [Execution-005 job 63033780](real-repository-growth-001/execution-005/COLLECTION.md)

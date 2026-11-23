@@ -1,0 +1,33 @@
+{
+  "schema": "independent-runner-review-v1",
+  "reviewer": "dafny_sequential_extensions",
+  "mode": "read_only",
+  "reviewed_hash_prefixes": {
+    "run_pilot.py": "6ce89bd5",
+    "runtime.py": "3a82f73d",
+    "native_host.py": "965beabd",
+    "build_runtime.py": "36fdae27"
+  },
+  "blocking_findings": [
+    {
+      "id": "authorization-replay",
+      "finding": "Same authorization can use alternate output/runtime copy and create another12-call gate. Need fixed paths, cumulative allocation binding and exclusive canonical durableclaim.",
+      "status": "correction_in_progress"
+    },
+    {
+      "id": "renderer-integration",
+      "finding": "Current draft renderer uses different root/import/wrappedpayload conventions; fake renderer tests do not establish real packaging compatibility.",
+      "status": "final_adapter_pending"
+    }
+  ],
+  "reviewed_nonblocking_boundaries": [
+    "current-run durable response identity and zero SDK retries",
+    "actual guarded parent sources and same chain",
+    "owned fresh native event/raw/workspace",
+    "qualified whole-scope review before acceptance",
+    "analyst/synthetic provenance rejection",
+    "terminal provider ambiguity and no resume"
+  ],
+  "native_calls": 0,
+  "model_calls": 0
+}

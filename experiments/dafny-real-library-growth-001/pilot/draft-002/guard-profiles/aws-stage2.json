@@ -1,0 +1,32 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT",
+    "kind": "function",
+    "path": "StandardLibrary/src/RepoDiscoFramePair.dfy",
+    "template_utf8": "include \"RepoDiscoU16Frame.dfy\"\n\nmodule RepoDiscoFramePair {\n  import U = StandardLibrary.UInt\n  import F = RepoDiscoU16Frame\n  import opened Wrappers\n\n  datatype Pair = Pair(left: seq<U.uint8>, right: seq<U.uint8>, rest: seq<U.uint8>)\n\n  predicate method HasFramePair(input: seq<U.uint8>) {\n    F.HasFrame(input) && F.HasFrame(F.FrameRest(input))\n  }\n\n  function method {:opaque} ReadFramePair(input: seq<U.uint8>)\n    : (result: Result<Pair, string>)\n    ensures result.Success? <==> HasFramePair(input)\n    ensures result.Success? ==> result.value.left == F.FramePayload(input)\n    ensures result.Success? ==> result.value.right == F.FramePayload(F.FrameRest(input))\n    ensures result.Success? ==> result.value.rest == F.FrameRest(F.FrameRest(input))\n    ensures result.Success? ==>\n      U.HasUint16Len(result.value.left) && U.HasUint16Len(result.value.right)\n    ensures result.Success? ==>\n      input == U.UInt16ToSeq(|result.value.left| as U.uint16) + result.value.left +\n               U.UInt16ToSeq(|result.value.right| as U.uint16) + result.value.right +\n               result.value.rest\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": {
+    "addition_path": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "guard_profile_sha256": "1adc940762f645b322ff14ac7418602cd8511e494114f253cf2bfe472ddabd80",
+    "stage_id": "u16-frame"
+  },
+  "project": "aws",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 2,
+  "stage_id": "frame-pair",
+  "verification_inputs": [
+    "StandardLibrary/src/UInt.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Wrappers.dfy",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "StandardLibrary/src/RepoDiscoFramePair.dfy"
+  ]
+}

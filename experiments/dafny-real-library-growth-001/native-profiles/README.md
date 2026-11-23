@@ -5,7 +5,7 @@ inventories, source ownership, exact command order, versions/package hashes,
 warning policy and unlogged-definition records come from actual saved native
 observations. The profile builder/reviewer makes no verifier or model calls and
 issues no model acceptance or execution release. Root's independent review and
-the other project's qualification remain separate gates.
+the final runtime/execution review remain separate gates.
 
 | Saved observation | Native units | Outcome |
 | --- | ---: | --- |

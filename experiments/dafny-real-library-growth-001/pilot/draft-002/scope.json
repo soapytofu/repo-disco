@@ -1,0 +1,356 @@
+{
+  "authorization_issued": false,
+  "batch_id": "dafny-real-library-growth-001-execution-001",
+  "child_gate": "Exact same-lineage accepted stage-one model/source/native/request binding; otherwise child is blocked without consuming/reassigning its slot.",
+  "execution_binding": {
+    "allocation_claim_path": "/n/home13/sophiezeng/formal-disco/outputs/research-budget-20261123/claims/dafny-libraries-growth-12-001.json",
+    "allocation_id": "dafny-libraries-growth-12-001",
+    "budget_session_id": "repodisco-new-research-20261123-100",
+    "budget_snapshot_input": "execution-001/budget-snapshot.json",
+    "budget_snapshot_path": "/n/home13/sophiezeng/formal-disco/outputs/research-budget-20261123/005.json",
+    "budget_snapshot_sha256": "4644f46578f253966ac9b1f29fde33abe367773f46a82b7848346b23bff3f42e",
+    "output_path": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/execution-001/model-001",
+    "package_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/execution-001/package"
+  },
+  "execution_enabled": false,
+  "expansion_gate": {
+    "ambiguous_request_or_native_infrastructure_failure_stops": true,
+    "minimum_accepted_stage1": 1,
+    "pilot_slots": [
+      "slot-01",
+      "slot-02",
+      "slot-03",
+      "slot-04"
+    ],
+    "requires_complete_healthy_accounting": true
+  },
+  "max_calls": 12,
+  "pilot_slots": 4,
+  "preparation_status": "READY_FOR_ROOT_RUNTIME_REVIEW",
+  "projects": {
+    "aws": {
+      "qualification_gate": {
+        "path": "native-profiles/aws-002/control-gate.json",
+        "sha256": "1f0eda8fad8925a6a839ce210727c06b731e8a6a5cf1ba2dfec7fc6afcd713cc"
+      },
+      "stages": {
+        "1": {
+          "base_sources": {
+            "StandardLibrary/src/UInt.dfy": {
+              "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/StandardLibrary/src/UInt.dfy",
+              "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+            },
+            "libraries/src/BoundedInts.dfy": {
+              "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/libraries/src/BoundedInts.dfy",
+              "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+            },
+            "libraries/src/Wrappers.dfy": {
+              "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/libraries/src/Wrappers.dfy",
+              "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+            }
+          },
+          "child_template_payload_path": null,
+          "edit_profile": "pilot/draft-002/guard-profiles/aws-stage1.json",
+          "exact_live_payload": "pilot/draft-002/payloads/aws-stage1.json",
+          "exact_payload_path": "pilot/draft-002/payloads/aws-stage1.json",
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+            "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+            "wall_seconds": 900
+          },
+          "native_profile": "native-profiles/aws-002/stage1.json",
+          "parent_display_fixed_prefix_utf8": "",
+          "stage_id": "u16-frame",
+          "target_file": "StandardLibrary/src/RepoDiscoU16Frame.dfy"
+        },
+        "2": {
+          "base_sources": {
+            "StandardLibrary/src/UInt.dfy": {
+              "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/StandardLibrary/src/UInt.dfy",
+              "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+            },
+            "libraries/src/BoundedInts.dfy": {
+              "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/libraries/src/BoundedInts.dfy",
+              "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+            },
+            "libraries/src/Wrappers.dfy": {
+              "path": "qualification-005/retrieved-aws/qualification-005/output-aws/baseline/workspace/libraries/src/Wrappers.dfy",
+              "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+            }
+          },
+          "child_template_payload_path": "pilot/draft-002/payloads/aws-stage2-template.json",
+          "edit_profile": "pilot/draft-002/guard-profiles/aws-stage2.json",
+          "exact_live_payload": null,
+          "exact_payload_path": null,
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+            "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+            "wall_seconds": 900
+          },
+          "native_profile": "native-profiles/aws-002/stage2.json",
+          "parent_display_fixed_prefix_utf8": "",
+          "stage_id": "frame-pair",
+          "target_file": "StandardLibrary/src/RepoDiscoFramePair.dfy"
+        }
+      },
+      "upstream_source_files": 3
+    },
+    "stdlib": {
+      "qualification_gate": {
+        "path": "native-profiles/stdlib-002/control-gate.json",
+        "sha256": "f1901c342d30884496e64c9a93d1fc87421e64512e5fbca8f21e971865d20c56"
+      },
+      "stages": {
+        "1": {
+          "base_sources": {
+            "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+              "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+              "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+            },
+            "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+              "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+              "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+            },
+            "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+              "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+              "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+            }
+          },
+          "child_template_payload_path": null,
+          "edit_profile": "pilot/draft-002/guard-profiles/stdlib-stage1.json",
+          "exact_live_payload": "pilot/draft-002/payloads/stdlib-stage1.json",
+          "exact_payload_path": "pilot/draft-002/payloads/stdlib-stage1.json",
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+            "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+            "wall_seconds": 360
+          },
+          "native_profile": "native-profiles/stdlib-002/stage1.json",
+          "parent_display_fixed_prefix_utf8": "",
+          "stage_id": "append-all",
+          "target_file": "growth/AppendAll.dfy"
+        },
+        "2": {
+          "base_sources": {
+            "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+              "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+              "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+            },
+            "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+              "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+              "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+            },
+            "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+              "path": "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+              "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+            }
+          },
+          "child_template_payload_path": "pilot/draft-002/payloads/stdlib-stage2-template.json",
+          "edit_profile": "pilot/draft-002/guard-profiles/stdlib-stage2.json",
+          "exact_live_payload": null,
+          "exact_payload_path": null,
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+            "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+            "wall_seconds": 360
+          },
+          "native_profile": "native-profiles/stdlib-002/stage2.json",
+          "parent_display_fixed_prefix_utf8": "",
+          "stage_id": "append-rotated",
+          "target_file": "growth/AppendRotated.dfy"
+        }
+      },
+      "upstream_source_files": 3
+    }
+  },
+  "qualification_release": {
+    "aws": {
+      "path": "native-profiles/aws-002/control-gate.json",
+      "sha256": "1f0eda8fad8925a6a839ce210727c06b731e8a6a5cf1ba2dfec7fc6afcd713cc"
+    },
+    "stdlib": {
+      "path": "native-profiles/stdlib-002/control-gate.json",
+      "sha256": "f1901c342d30884496e64c9a93d1fc87421e64512e5fbca8f21e971865d20c56"
+    }
+  },
+  "renderer": "pilot/render_v2.py",
+  "response_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "body": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "body"
+    ],
+    "type": "object"
+  },
+  "runtime_inputs": [
+    "execution-001/budget-snapshot.json",
+    "execution-001/execution-binding.json",
+    "execution-001/model.sbatch",
+    "execution-001/ops.py",
+    "execution-001/test_ops.py",
+    "native-profiles/aws-002/control-gate.json",
+    "native-profiles/aws-002/stage1.json",
+    "native-profiles/aws-002/stage2.json",
+    "native-profiles/stdlib-002/control-gate.json",
+    "native-profiles/stdlib-002/stage1.json",
+    "native-profiles/stdlib-002/stage2.json",
+    "pilot/draft-002/context/aws-inherited-trust.json",
+    "pilot/draft-002/context/aws.json",
+    "pilot/draft-002/context/stdlib-inherited-trust.json",
+    "pilot/draft-002/context/stdlib.json",
+    "pilot/draft-002/guard-profiles/aws-stage1.json",
+    "pilot/draft-002/guard-profiles/aws-stage2.json",
+    "pilot/draft-002/guard-profiles/stdlib-stage1.json",
+    "pilot/draft-002/guard-profiles/stdlib-stage2.json",
+    "pilot/draft-002/payloads/aws-stage1.json",
+    "pilot/draft-002/payloads/aws-stage2-template.json",
+    "pilot/draft-002/payloads/stdlib-stage1.json",
+    "pilot/draft-002/payloads/stdlib-stage2-template.json",
+    "pilot/draft-002/preparation-manifest.json",
+    "pilot/draft-002/preparation-review.json",
+    "pilot/draft-002/renderer-inputs.json",
+    "pilot/test_render_v2.py"
+  ],
+  "schema": "dafny-library-growth-scope-v1",
+  "settings": {
+    "inference_config": {
+      "maxTokens": 4096,
+      "temperature": 1
+    },
+    "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+    "region": "us-east-1"
+  },
+  "slots": [
+    {
+      "chain_id": "stdlib-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-01",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "stdlib",
+      "stage": 1
+    },
+    {
+      "chain_id": "aws-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-02",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "aws",
+      "stage": 1
+    },
+    {
+      "chain_id": "stdlib-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-03",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-01",
+      "project": "stdlib",
+      "stage": 2
+    },
+    {
+      "chain_id": "aws-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-04",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-02",
+      "project": "aws",
+      "stage": 2
+    },
+    {
+      "chain_id": "stdlib-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-05",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "stdlib",
+      "stage": 1
+    },
+    {
+      "chain_id": "aws-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-06",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "aws",
+      "stage": 1
+    },
+    {
+      "chain_id": "stdlib-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-07",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-05",
+      "project": "stdlib",
+      "stage": 2
+    },
+    {
+      "chain_id": "aws-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-08",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-06",
+      "project": "aws",
+      "stage": 2
+    },
+    {
+      "chain_id": "aws-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-09",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "aws",
+      "stage": 1
+    },
+    {
+      "chain_id": "stdlib-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-10",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "stdlib",
+      "stage": 1
+    },
+    {
+      "chain_id": "aws-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-11",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-09",
+      "project": "aws",
+      "stage": 2
+    },
+    {
+      "chain_id": "stdlib-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-12",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-10",
+      "project": "stdlib",
+      "stage": 2
+    }
+  ],
+  "study_limits": [
+    "Two selected real-source development chains, not whole upstream repositories.",
+    "Contract-guided executable body generation, not unrestricted repository synthesis.",
+    "API call observations are descriptive, not necessary proof dependence.",
+    "No held-out or pretraining-contamination claim."
+  ],
+  "synthetic_fixture_only": false
+}
