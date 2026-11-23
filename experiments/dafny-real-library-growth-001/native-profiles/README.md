@@ -58,6 +58,46 @@ new files. The earlier prompt draft sorted those file names. Its source set is
 the same, but the final prompt/edit profile must adopt this actual ordered list
 before release. No native rerun is needed just to change draft metadata.
 
-AWS profiles are intentionally absent until its actual pinned-toolchain native
-evidence is available. Analyst reference success establishes a qualification
-control, never a model-generated or model-accepted parent revision.
+## AWS UInt-only reference gate
+
+`aws-001` now binds the three actual qualification-005 observations from job
+63100879: **71, 75 and 77 named units**, respectively, all Passed with exit zero
+and no warnings. The common reviewer replays exact source, raw CSV/stdout/stderr,
+resources, command order and before/after toolchain pins. The native observations
+took 5.70, 5.94 and 6.10 seconds; this replay made no new native/model calls.
+This reference-only checkpoint remains preserved; `aws-002` adds the completed
+control review below.
+
+The baseline contains only the original `UInt`, `BoundedInts` and `Wrappers`
+files. Stage one adds `ReadU16Frame`; stage two preserves those exact reference
+bytes and adds `ReadFramePair`. All references match the exact host body markers.
+The earlier 102-file AWS scope remains unqualified historical evidence; this
+smaller scope does not test UTF8 validation, encryption-context parsing or all
+of AWS MPL.
+
+These function methods emit actual **well-formedness** units that check their
+bodies/contracts; no separate correctness label is fabricated. Stage one adds
+four units (`HasFrame`, `FramePayload`, `FrameRest`, `ReadU16Frame`); stage two adds
+two (`HasFramePair`, `ReadFramePair`). Every actual CSV occurrence is retained;
+the inventories have no duplicate names. There are 54/55/56 explicitly unlogged
+source definitions, including datatype declarations; none is counted as a pass.
+
+`build_aws.py` reuses the immutable saved-observation loader and source scanner,
+with a narrowly reviewed declaration-to-file mapping that handles legacy
+function syntax and Wrappers datatype members. `reviews/aws-mapping-001` retains
+the full replay transcript and code pins. All three observations are explicitly
+analyst-origin and ineligible as model parents. Analyst reference success
+establishes a qualification control, never a model-generated or accepted parent.
+
+`aws-002/control-gate.json` combines those three saved positives with nine
+distinct observations from job **63103670**. All twelve expectations match:
+eight postcondition failures and one omitted-child coverage rejection, in
+addition to the three positives. Every control preserves all 71 upstream passes.
+The actual unproved-parent case has a failed `ReadU16Frame` and passing
+`ReadFramePair`; the workspace remains rejected. The omission case verifies
+75 units while staging the same bad child that fails when included. Only the
+whole-file hashes for already declared unlogged definitions are materialized
+after checking protected source boundaries; source declarations, named units,
+native commands, warnings and toolchain pins remain fixed. Root independently
+reviewed all 133 gate inputs and the full 242-file transfer. This gate qualifies
+the task and measurement; it is not model evidence or live execution authority.

@@ -1,0 +1,33 @@
+StandardLibrary/src/RepoDiscoFramePair.dfy(32,6): Error: a postcondition could not be proved on this return path
+   |
+32 |       Success(Pair(leftFrame.value.payload, [], leftFrame.value.rest))
+   |       ^^^^^^^
+
+StandardLibrary/src/RepoDiscoFramePair.dfy(16,12): Related location: this is the postcondition that could not be proved
+   |
+16 |     ensures result.Success? <==> HasFramePair(input)
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+StandardLibrary/src/RepoDiscoFramePair.dfy(32,6): Error: a postcondition could not be proved on this return path
+   |
+32 |       Success(Pair(leftFrame.value.payload, [], leftFrame.value.rest))
+   |       ^^^^^^^
+
+StandardLibrary/src/RepoDiscoFramePair.dfy(18,32): Related location: this is the postcondition that could not be proved
+   |
+18 |     ensures result.Success? ==> result.value.right == F.FramePayload(F.FrameRest(input))
+   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+StandardLibrary/src/RepoDiscoFramePair.dfy(32,6): Error: a postcondition could not be proved on this return path
+   |
+32 |       Success(Pair(leftFrame.value.payload, [], leftFrame.value.rest))
+   |       ^^^^^^^
+
+StandardLibrary/src/RepoDiscoFramePair.dfy(19,32): Related location: this is the postcondition that could not be proved
+   |
+19 |     ensures result.Success? ==> result.value.rest == F.FrameRest(F.FrameRest(input))
+   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 76 verified, 3 errors
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/qualification-006/aws/qualification-006/output-aws/stage2-missing-second-frame/workspace/TestResults/2026-11-23_11_18_44-0.csv

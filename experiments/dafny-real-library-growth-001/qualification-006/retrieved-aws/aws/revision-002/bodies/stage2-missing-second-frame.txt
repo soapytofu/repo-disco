@@ -1,0 +1,5 @@
+    var leftFrame := F.ReadU16Frame(input);
+    if leftFrame.Failure? then
+      Failure(leftFrame.error)
+    else
+      Success(Pair(leftFrame.value.payload, [], leftFrame.value.rest))

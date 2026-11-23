@@ -1,0 +1,13 @@
+StandardLibrary/src/RepoDiscoFramePair.dfy(36,8): Error: a postcondition could not be proved on this return path
+   |
+36 |         Success(Pair(rightFrame.value.payload, leftFrame.value.payload, rightFrame.value.rest))
+   |         ^^^^^^^
+
+StandardLibrary/src/RepoDiscoFramePair.dfy(17,32): Related location: this is the postcondition that could not be proved
+   |
+17 |     ensures result.Success? ==> result.value.left == F.FramePayload(input)
+   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 76 verified, 1 error
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/qualification-006/aws/qualification-006/output-aws/stage2-swapped-fields/workspace/TestResults/2026-11-23_11_18_30-0.csv

@@ -1,0 +1,121 @@
+--- qualification-005/ops.py
++++ qualification-006/ops.py
+@@ -39,7 +39,7 @@
+ 
+ def remote(project,program,data=None,seconds=45):
+     identity(project)
+-    prefix='from pathlib import Path\nEXPECTED_FREEZE='+repr(sha((ROOT/'freezes'/f'{project}.json').read_bytes()))+'\nroot=Path.home()/'+repr('formal-disco/outputs/dafny-real-library-growth-001/qualification-005/'+project)+'\n'
++    prefix='from pathlib import Path\nEXPECTED_FREEZE='+repr(sha((ROOT/'freezes'/f'{project}.json').read_bytes()))+'\nroot=Path.home()/'+repr('formal-disco/outputs/dafny-real-library-growth-001/qualification-006/'+project)+'\n'
+     argv=['ssh','-S',str(SOCKET),'-o','BatchMode=yes','-o','ConnectTimeout=10','-o','ProxyCommand=false',HOST]
+     command=' '.join(shlex.quote(x) for x in [PYTHON,'-B','-c',prefix+program])
+     p=subprocess.run(argv+[command],input=data,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=seconds)
+@@ -48,7 +48,7 @@
+ 
+ 
+ CHECK='''import hashlib,json
+-freeze_bytes=(root/'qualification-005/freezes/PROJECT.json').read_bytes()
++freeze_bytes=(root/'qualification-006/freezes/PROJECT.json').read_bytes()
+ assert hashlib.sha256(freeze_bytes).hexdigest()==EXPECTED_FREEZE,'Remote freeze differs from authoritative local pin'
+ freeze=json.loads(freeze_bytes)
+ for name,digest in freeze['files'].items():
+@@ -71,7 +71,7 @@
+     payload=io.BytesIO()
+     with tarfile.open(fileobj=payload,mode='w:gz') as tar:
+         for name in sorted(freeze['files']):tar.add(PACKAGE/name,arcname=name,recursive=False)
+-        tar.add(freeze_path,arcname='qualification-005/freezes/'+project+'.json',recursive=False)
++        tar.add(freeze_path,arcname='qualification-006/freezes/'+project+'.json',recursive=False)
+     write(ROOT/'stages'/f'{project}.intent.json',encode(dict(freeze_sha256=sha(freeze_path.read_bytes()),native_calls=0,model_calls=0)))
+     code='''import io,tarfile,sys,json
+ from pathlib import PurePosixPath
+@@ -94,9 +94,9 @@
+ 
+ def preflight(project):
+     code=CHECK.replace('PROJECT',project)+'''import subprocess,json
+-log=root/'qualification-005/preflight.log'
++log=root/'qualification-006/preflight.log'
+ assert not log.exists()
+-p=subprocess.run(['PYTHON','-B','-m','unittest','discover','-s',str(root/'qualification-005'),'-p','test_*.py','-v'],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=45)
++p=subprocess.run(['PYTHON','-B','-m','unittest','discover','-s',str(root/'qualification-006'),'-p','test_*.py','-v'],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=45)
+ with log.open('xb') as f:f.write(p.stdout)
+ print(json.dumps(dict(exit_code=p.returncode,stdout=p.stdout.decode(),native_calls=0,model_calls=0)))
+ '''.replace('PYTHON',PYTHON)
+@@ -110,14 +110,14 @@
+     assert json.loads((ROOT/'preflight'/f'{project}.json').read_bytes())['exit_code']==0
+     write(ROOT/'submissions'/f'{project}.intent.json',encode(dict(project=project,no_retry=True)))
+     code=CHECK.replace('PROJECT',project)+'''import subprocess,json
+-assert not (root/'submission.intent.json').exists() and not (root/'qualification-005/output-PROJECT').exists()
++assert not (root/'submission.intent.json').exists() and not (root/'qualification-006/output-PROJECT').exists()
+ q=subprocess.run(['squeue','-u','sophiezeng','-h','-o','%i|%j|%Z'],capture_output=True,text=True,timeout=15);assert q.returncode==0
+-assert 'libq005-PROJECT' not in q.stdout and str(root) not in q.stdout
++assert 'libq006-PROJECT' not in q.stdout and str(root) not in q.stdout
+ p=subprocess.run(['scontrol','show','partition','test'],capture_output=True,text=True,timeout=15)
+ assert p.returncode==0 and 'PreemptMode=OFF' in p.stdout and 'State=UP' in p.stdout and 'MaxTime=12:00:00' in p.stdout
+ (root/'partition-before-submit.txt').write_text(p.stdout)
+ with (root/'submission.intent.json').open('x') as f:json.dump(dict(project='PROJECT',no_retry=True),f)
+-command=['sbatch','--parsable','--export=ALL,REPODISCO_FREEZE_SHA='+EXPECTED_FREEZE+',REPODISCO_EXECUTION_ROOT='+str(root),'--job-name=libq005-PROJECT','--chdir='+str(root),str(root/'qualification-005/run.sbatch'),'PROJECT']
++command=['sbatch','--parsable','--export=ALL,REPODISCO_FREEZE_SHA='+EXPECTED_FREEZE+',REPODISCO_EXECUTION_ROOT='+str(root),'--job-name=libq006-PROJECT','--chdir='+str(root),str(root/'qualification-006/run.sbatch'),'PROJECT']
+ s=subprocess.run(command,cwd=root,capture_output=True,text=True,timeout=30)
+ record=dict(command=command,exit_code=s.returncode,stdout=s.stdout,stderr=s.stderr,partition=p.stdout)
+ with (root/'submission.json').open('x') as f:json.dump(record,f,indent=2)
+--- qualification-005/run.sbatch
++++ qualification-006/run.sbatch
+@@ -15,6 +15,6 @@
+ export PATH="$CONDA_PREFIX/bin:$PATH"
+ export PYTHONDONTWRITEBYTECODE=1
+ export OMP_NUM_THREADS=1
+-exec "$CONDA_PREFIX/bin/python" -B -u qualification-005/collect.py \
+-  "qualification-005/configs/$1.json" "qualification-005/output-$1" \
++exec "$CONDA_PREFIX/bin/python" -B -u qualification-006/collect.py \
++  "qualification-006/configs/$1.json" "qualification-006/output-$1" \
+   --expected-freeze-sha "${REPODISCO_FREEZE_SHA:?Missing pinned runtime hash}"
+--- qualification-005/test_submission.py
++++ qualification-006/test_submission.py
+@@ -29,7 +29,7 @@
+     def synthetic_package(self, base, project):
+         package = base / 'runtime root'
+         package.mkdir()
+-        q = package / 'qualification-005'
++        q = package / 'qualification-006'
+         (q / 'freezes').mkdir(parents=True)
+         source = package / 'synthetic-input.txt'
+         source.write_bytes(b'explicit synthetic offline input\n')
+@@ -62,7 +62,7 @@
+                 self.assertIn('--export=ALL,REPODISCO_FREEZE_SHA=' + expected
+                               + ',REPODISCO_EXECUTION_ROOT=' + str(root), argv)
+                 self.assertEqual(argv[-2:], [str(remote_q / 'run.sbatch'), project])
+-                self.assertIn('--job-name=libq005-' + project, argv)
++                self.assertIn('--job-name=libq006-' + project, argv)
+                 return subprocess.CompletedProcess(argv, 0, '12345678\n', '')
+             raise AssertionError('Unmocked subprocess: ' + repr(argv))
+ 
+@@ -113,7 +113,7 @@
+                 remote_args = shlex.split(argv[-1])
+                 self.assertEqual(remote_args[:3], [ops.PYTHON, '-B', '-c'])
+                 self.assertIn('EXPECTED_FREEZE=' + repr(expected), remote_args[3])
+-                self.assertIn('outputs/dafny-real-library-growth-001/qualification-005/stdlib', remote_args[3])
++                self.assertIn('outputs/dafny-real-library-growth-001/qualification-006/stdlib', remote_args[3])
+                 self.assertEqual(kwargs['timeout'], 45)
+                 return subprocess.CompletedProcess(argv, 0, b'synthetic', b'')
+ 
+@@ -124,7 +124,7 @@
+ 
+     def run_fake_shell(self, base, project, missing=None):
+         root = base / 'runtime root'
+-        q = root / 'qualification-005'
++        q = root / 'qualification-006'
+         (q / 'configs').mkdir(parents=True)
+         (q / 'configs' / (project + '.json')).write_text('{}\n')
+         (q / 'collect.py').write_text('raise AssertionError("Must never execute collector")\n')
+@@ -166,9 +166,9 @@
+                 self.assertEqual(Path(actual['cwd']).resolve(), root.resolve())
+                 self.assertEqual(actual['root'], str(root))
+                 self.assertEqual(actual['freeze'], 'a' * 64)
+-                self.assertEqual(actual['args'], ['-B', '-u', 'qualification-005/collect.py',
+-                    'qualification-005/configs/' + project + '.json',
+-                    'qualification-005/output-' + project, '--expected-freeze-sha', 'a' * 64])
++                self.assertEqual(actual['args'], ['-B', '-u', 'qualification-006/collect.py',
++                    'qualification-006/configs/' + project + '.json',
++                    'qualification-006/output-' + project, '--expected-freeze-sha', 'a' * 64])
+                 self.assertTrue(actual['config_exists'])
+ 
+     def test_missing_root_or_freeze_fails_before_python(self):

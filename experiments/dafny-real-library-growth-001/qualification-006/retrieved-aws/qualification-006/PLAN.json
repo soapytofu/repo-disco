@@ -1,0 +1,50 @@
+{
+  "aggregate_limit_caveat": "The fixed one-hour Slurm cap is below nine worst-case 900-second invocations; termination preserves the completed prefix and leaves the tail undispatched. No automatic retries, restart, limit escalation or duplicate jobs.",
+  "coverage_policy": "Native pass of staged but omitted child is a coverage failure, never full-workspace success. Exact native inventories and named well-formedness units must be compared to the reviewed references; no guessed correctness unit names.",
+  "dispatch_case_ids": [
+    "stage1-always-failure",
+    "stage1-wrong-suffix",
+    "stage1-wrong-payload",
+    "stage2-always-failure",
+    "stage2-swapped-fields",
+    "stage2-wrong-suffix",
+    "stage2-missing-second-frame",
+    "unproved-parent-reference-child",
+    "stage2-omitted-from-roots"
+  ],
+  "excluded_completed_case_ids": [
+    "baseline",
+    "stage1-reference",
+    "stage2-reference"
+  ],
+  "expected_native_pass_with_coverage_omission_count": 1,
+  "expected_ordinary_proof_failure_count": 8,
+  "freeze_allowed_only_after_reference_gate_exists_and_passes": true,
+  "model_calls": 0,
+  "native": {
+    "attempts_per_case": 1,
+    "per_unit_seconds": 300,
+    "resource_limit": 500000000,
+    "retry": false,
+    "wall_seconds": 900
+  },
+  "native_status": "UNKNOWN",
+  "paid_execution_authorized": false,
+  "project": "aws",
+  "qualification": "qualification-006",
+  "reference_gate": "qualification-005/reviews/native-reference-review-001.json",
+  "reference_gate_sha256": "519aac72ebf41fea57be153271b785cf41f4d8686dc79fa6fc0f475621675942",
+  "reference_gate_status": "PASS_REFERENCE_ONLY",
+  "schema": "dafny-library-qualification-phase-v1",
+  "scope": "Nine distinct frozen UInt/raw-byte-frame controls; no completed positives rerun.",
+  "slurm": {
+    "cpus_per_task": 1,
+    "memory_gib": 4,
+    "partition": "test",
+    "requeue": false,
+    "requires_live_preempt_mode_off": true,
+    "time_seconds": 3600
+  },
+  "source_changes": "None; exact aws/revision-002 files.",
+  "unproved_parent_policy": "Require actual parent failure; report actual child outcome without presupposing pass. A locally passing child never masks an unproved parent."
+}

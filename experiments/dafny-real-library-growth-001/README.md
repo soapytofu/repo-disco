@@ -78,8 +78,22 @@ Before any model collection, [aws/revision-002](aws/revision-002/) declares a
 new, narrower three-file UInt component and replaces the encryption-context
 entry task with a raw frame-pair reader. It retains the upstream source bytes,
 Dafny/Z3 versions, verifier flags, one CPU, 4 GB and the same native time/resource
-limits. Its three positive cases must qualify before nine distinct controls.
+limits. Job **63100879** verifies the new baseline and both reference scopes:
+**71 / 75 / 77** logged units, zero errors or warnings. Job **63103670** then
+matches all nine distinct controls: eight genuine postcondition failures and
+one native-success case rejected for an omitted child. All 71 upstream units
+pass in each control. The failed-parent control has a passing child, but the
+workspace is rejected. These function-method postconditions are checked in
+units Dafny labels `well-formedness`; the controls fail those exact units.
+Full evidence is retained under qualification-005 and qualification-006, with
+the combined source-bound gate in [native-profiles/aws-002](native-profiles/aws-002/).
 The broader failed scope is preserved and is not being repaired or rescored.
+
+Across the two current component chains, all **24 expected source-control
+outcomes match**: eight passing scopes, thirteen proof failures and three
+coverage rejections. These are analyst qualification outcomes, not model
+successes. Each component retains its separate toolchain, units and resource
+policy; the counts are not a controlled comparison between projects.
 
 Passing references, meaningful broken bodies, omitted-module controls and a
 passing client with an unproved parent must all be reviewed before collection.

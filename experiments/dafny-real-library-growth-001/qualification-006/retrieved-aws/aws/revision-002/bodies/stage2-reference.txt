@@ -1,0 +1,13 @@
+    var leftFrame := F.ReadU16Frame(input);
+    if leftFrame.Failure? then
+      Failure(leftFrame.error)
+    else
+      var rightFrame := F.ReadU16Frame(leftFrame.value.rest);
+      if rightFrame.Failure? then
+        Failure(rightFrame.error)
+      else
+        assert input == U.UInt16ToSeq(|leftFrame.value.payload| as U.uint16) +
+                        leftFrame.value.payload + leftFrame.value.rest;
+        assert leftFrame.value.rest == U.UInt16ToSeq(|rightFrame.value.payload| as U.uint16) +
+                                       rightFrame.value.payload + rightFrame.value.rest;
+        Success(Pair(leftFrame.value.payload, rightFrame.value.payload, rightFrame.value.rest))
