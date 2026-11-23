@@ -34,6 +34,12 @@ errors, new warnings, incomplete coverage, outer timeouts, integrity drift,
 missing provenance or ambiguous provider outcomes stop all later dispatch.
 There is no repair loop, automatic retry, resumption or adaptive sampling.
 
+The offline collection reviewer reconstructs every saved prompt and candidate,
+replays native coverage, and checks request IDs, retry counts, token totals and
+the externally pinned authorization/allocation claim. It also audits stopped
+collections without inventing a proof score or token count for an unreturned
+request. Synthetic observations are rejected by the production review entry.
+
 Offline tests use fake transports and synthetic native records or Python child
 processes. They never call a provider, access credentials or invoke Dafny. The
 current code is preparation only; the qualification gate and final prompt/runtime

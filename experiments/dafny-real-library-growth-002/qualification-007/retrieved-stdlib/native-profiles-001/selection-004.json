@@ -1,0 +1,120 @@
+{
+  "excluded_observations": [
+    "qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference",
+    "qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference",
+    "qualification-003/retrieved-stdlib/qualification-003/output-stdlib/filter-reference",
+    "qualification-003/retrieved-stdlib/qualification-003/output-stdlib/splice-reference",
+    "qualification-004/retrieved-stdlib/qualification-004/output-stdlib/splice-reference",
+    "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference"
+  ],
+  "inherited_exclusion_profiles": [
+    "qualification-001/inherited-profiles/stdlib-stage0.json",
+    "qualification-001/inherited-profiles/stdlib-stage1.json",
+    "qualification-001/inherited-profiles/aws-stage2.json"
+  ],
+  "note": "Prospective source selection recorded before model collection. The existing v4 splice-alternative snapshot/rebuild body is the next solvability candidate after q005 splice-reference exceeded the fixed 1M resource cap. Qualification006 must actually pass before any aggregate gate can issue; no resource escalation, source repair, model call or relabeling of the retained failed reference is implied. Filter reuses q004 exact bytes now in v4; AWS reuses q001.",
+  "original_fixture_manifests": {
+    "aws": {
+      "path": "aws/manifest.json",
+      "sha256": "9cce99dce4ff750f460f5eb2c0c7a98fb35b65b68fb4d5f7226a595d54569315"
+    },
+    "stdlib": {
+      "path": "stdlib/manifest.json",
+      "sha256": "e979b605b1b908a7348e2c81c37e6d88f0000fba029d195aa3542a60ee7c403d"
+    }
+  },
+  "schema": "dafny-growth-reference-selection-v1",
+  "solvability_selection_decision": {
+    "current_matrix_if_reference_gate_passes": {
+      "constructed_fixture_cases": 31,
+      "distinct_remaining_controls": 26,
+      "historical_observations_retained": true,
+      "selected_positive_cases": 4
+    },
+    "model_calls_at_selection": 0,
+    "native_success_assumed": false,
+    "reason": "The shifting splice-reference exceeded the unchanged native resource cap; select the already frozen snapshot/rebuild alternative for independent verifier-only qualification.",
+    "resource_escalation": false,
+    "retired_from_current_matrix": [
+      {
+        "case_id": "splice-reference",
+        "counted_as_pass": false,
+        "failure_evidence_retained": true,
+        "observation": "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference",
+        "original_fixture_expectation_preserved": true
+      }
+    ],
+    "selected_existing_fixture_case": "splice-alternative",
+    "selected_fixture_manifest": "stdlib/revision-004/manifest.json",
+    "source_or_contract_change": false
+  },
+  "tasks": {
+    "aws-batch": {
+      "base_sources": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/UInt.dfy": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy": "aws/seed/workspace/libraries/src/Wrappers.dfy"
+      },
+      "case_id": "counted-reference",
+      "edit_profile": "aws/profiles/aws-batch.json",
+      "family": "aws",
+      "fixture_manifest": "aws/manifest.json",
+      "inherited_profile": "qualification-001/inherited-profiles/aws-stage2.json",
+      "observation": "qualification-001/retrieved-aws/qualification-001/output-aws/counted-reference",
+      "runtime_root": "qualification-001",
+      "target": "RepoDiscoFrameBatch.ReadCountedFrames"
+    },
+    "aws-tagged": {
+      "base_sources": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/UInt.dfy": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy": "aws/seed/workspace/libraries/src/Wrappers.dfy"
+      },
+      "case_id": "tagged-reference",
+      "edit_profile": "aws/profiles/aws-tagged.json",
+      "family": "aws",
+      "fixture_manifest": "aws/manifest.json",
+      "inherited_profile": "qualification-001/inherited-profiles/aws-stage2.json",
+      "observation": "qualification-001/retrieved-aws/qualification-001/output-aws/tagged-reference",
+      "runtime_root": "qualification-001",
+      "target": "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+    },
+    "stdlib-filter": {
+      "base_sources": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy"
+      },
+      "case_id": "filter-reference",
+      "edit_profile": "stdlib/revision-004/profiles/stdlib-filter.json",
+      "family": "stdlib",
+      "fixture_manifest": "stdlib/revision-004/manifest.json",
+      "fixture_workspace": "stdlib/revision-004/cases/filter-reference/workspace",
+      "inherited_profile": "qualification-001/inherited-profiles/stdlib-stage0.json",
+      "observation": "qualification-004/retrieved-stdlib/qualification-004/output-stdlib/filter-reference",
+      "observed_fixture_manifest": "stdlib/revision-003/manifest.json",
+      "runtime_root": "qualification-004",
+      "target": "RepoDiscoStableFilter.StableFilterBelow"
+    },
+    "stdlib-splice": {
+      "base_sources": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "growth/AppendAll.dfy": "stdlib/revision-004/base/growth/AppendAll.dfy"
+      },
+      "case_id": "splice-alternative",
+      "edit_profile": "stdlib/revision-004/profiles/stdlib-splice.json",
+      "family": "stdlib",
+      "fixture_manifest": "stdlib/revision-004/manifest.json",
+      "inherited_profile": "qualification-001/inherited-profiles/stdlib-stage1.json",
+      "observation": "qualification-006/retrieved-stdlib/qualification-006/output-stdlib/splice-alternative",
+      "runtime_root": "qualification-006",
+      "target": "RepoDiscoSplice.Splice"
+    }
+  }
+}

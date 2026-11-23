@@ -1,0 +1,18 @@
+growth/SpliceRange.dfy(6,9): Error: Verification out of resource (RepoDiscoSplice.Splice)
+  |
+6 |   method Splice<T>(a: DA.DynamicArray<T>, position: nat,
+  |          ^^^^^^
+
+growth/AppendAll.dfy(17,4): Error: a postcondition could not be proved on this return path
+   |
+17 |     return;
+   |     ^^^^^^^
+
+growth/AppendAll.dfy(10,20): Related location: this is the postcondition that could not be proved
+   |
+10 |     ensures a.items == old(a.items) + values
+   |                     ^^
+
+
+Dafny program verifier finished with 58 verified, 1 error, 1 out of resource
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-002/stdlib/qualification-002/output-stdlib/splice-unproved-seed/workspace/TestResults/2026-11-23_16_17_44-0.csv

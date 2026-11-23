@@ -1,0 +1,16 @@
+--- verified-splice-alternative/growth/AppendAll.dfy
++++ splice-unproved-seed-rebuild/growth/AppendAll.dfy
+@@ -14,12 +14,7 @@
+     decreases |values|
+   {
+     // BEGIN REPLACEMENT
+-    if |values| == 0 {
+-      return;
+-    }
+-    a.Push(values[0]);
+-    AppendAll(a, values[1..]);
+-  
++    return;
+     // END REPLACEMENT
+   }
+ }

@@ -277,7 +277,7 @@ def preflight_remote(binding,expected_runtime):
         save(root/"preflight-001.json",result)
         return result
     save(root/"sdk-imports.json",sdk)
-    argv=[PYTHON,"-B","-m","unittest","-v","test_runner","test_native_host","test_build_runtime","test_allocation","test_ops"]
+    argv=[PYTHON,"-B","-m","unittest","-v","test_runner","test_native_host","test_build_runtime","test_allocation","test_ops","test_review_collection"]
     unit,out,err=capture_preflight(argv,package/"execution-001",60)
     write(root/"preflight.stdout.txt",out);write(root/"preflight.stderr.txt",err)
     require(not Path(binding["allocation_claim_path"]).exists(),"Fake preflight created canonical allocation claim")

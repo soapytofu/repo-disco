@@ -1,0 +1,434 @@
+--- qualification-002/collect.py
++++ qualification-007/collect.py
+@@ -16,14 +16,7 @@
+ import time
+ 
+ ROOT = Path(__file__).resolve().parent
+-CONTROL_IDS = {
+-    'stdlib': ['filter-alternative','filter-empty','filter-inclusive-threshold','filter-no-tail-pop',
+-        'filter-wrong-write-index','filter-missing-prefix-invariant','filter-omitted',
+-        'splice-empty','splice-growth-wrong-order','splice-wrong-replacement-offset',
+-        'splice-no-tail-pop','splice-missing-growth-call','splice-unproved-seed','splice-omitted'],
+-    'aws': ['counted-always-failure','counted-missing-tail','counted-omitted','counted-reversed-payloads',
+-        'counted-unproved-frame','counted-wrong-suffix','tagged-always-failure','tagged-keeps-tag',
+-        'tagged-omitted','tagged-skips-budget','tagged-skips-tag','tagged-unproved-pair']}
++CONTROL_IDS = {'stdlib':['splice-retains-old-content','splice-unproved-seed-rebuild']}
+ TASK_REFERENCES = {'stdlib-filter':'filter-reference','stdlib-splice':'splice-alternative',
+                    'aws-batch':'counted-reference','aws-tagged':'tagged-reference'}
+ 
+@@ -56,7 +49,7 @@
+     require([entry['id'] for entry in metadata['cases']]==CONTROL_IDS[project], 'Control metadata order differs')
+     require(safe_path(metadata['source_path']), 'Unsafe source-case metadata path')
+     workspace_prefix=Path(metadata['source_path']).parent.as_posix()
+-    require(len({c.get('task_id') for c in cases}) == 2, 'Wrong task grouping')
++    require({c.get('task_id') for c in cases} == {'stdlib-splice'}, 'Only the fixed splice task is dispatchable')
+     for case,original in zip(cases,metadata['cases']):
+         require(set(case) == {'id','task_id','role','workspace_dir','source_sha256','command_files'}
+                 and case['role'] == 'control' and case['task_id'] in TASK_REFERENCES
+@@ -107,7 +100,7 @@
+     manifests=binding.get('fixture_manifests',{})
+     require(set(manifests)=={'stdlib','aws'}, 'Both fixture manifests must be bound')
+     for project,entry in manifests.items():
+-        metadata=json.loads((root/'control-metadata'/f'{project}.json').read_bytes())
++        metadata=json.loads((root/'reference-fixture-metadata'/f'{project}.json').read_bytes())
+         require(safe_path(metadata['source_path']) and metadata['source_path'].startswith(project+'/'),
+                 'Source metadata is not within its fixed project')
+         expected_manifest=(Path(metadata['source_path']).parent/'manifest.json').as_posix()
+@@ -208,6 +201,70 @@
+     return binding,gate
+ 
+ 
++def validate_control_revision(package, root=None):
++    """Bind only the two replacements and preserve the actual old mismatches."""
++    package=Path(package);root=Path(root) if root is not None else ROOT
++    binding=json.loads((root/'control-revision-binding.json').read_bytes())
++    require(binding.get('schema')=='repodisco-two-control-replacement-binding-v1'
++            and binding.get('manifest_path')=='control-revision-001/manifest.json'
++            and binding.get('case_ids')==CONTROL_IDS['stdlib'], 'Unknown replacement selection')
++    manifest_path=package/binding['manifest_path']
++    require(sha(manifest_path.read_bytes())==binding.get('manifest_sha256'), 'Replacement manifest differs')
++    manifest=json.loads(manifest_path.read_bytes());folder=manifest_path.parent
++    require(manifest.get('schema')=='repodisco-splice-control-revision-manifest-v1'
++            and manifest.get('case_ids')==CONTROL_IDS['stdlib']
++            and manifest.get('native_qualification') is False, 'Invalid replacement construction manifest')
++    for name,digest in manifest['files'].items():
++        require(safe_path(name), 'Unsafe replacement input')
++        path=folder/name
++        require(path.is_file() and not path.is_symlink() and sha(path.read_bytes())==digest,
++                'Replacement source or construction input differs: '+name)
++    revision=json.loads((folder/'revision.json').read_bytes())
++    require(revision.get('new_case_ids')==CONTROL_IDS['stdlib']
++            and revision.get('native_status')=='UNKNOWN'
++            and revision.get('new_control_observations')==2
++            and revision.get('unchanged_matching_prior_controls')==24
++            and revision.get('unchanged_reused_reference_observations')==4
++            and revision.get('active_matrix_cases')==30
++            and revision.get('expanded_historical_catalog')==33
++            and revision.get('retired_outcomes_unchanged') is True
++            and revision.get('model_calls')==0, 'Replacement scope/history differs')
++    gate_binding=json.loads((root/'reference-gate-binding.json').read_bytes())
++    require(binding['reference_gate_sha256']==gate_binding['gate_sha256']==revision['reference_gate_sha256'],
++            'Replacement must use the same reviewed reference gate')
++    require((revision.get('resource_limit'),revision.get('verifier_time_limit_seconds'),revision.get('outer_wall_seconds'))
++            ==(1000000,300,360), 'Replacement native policy changed')
++    for name,digest in revision['input_pins'].items():
++        require(safe_path(name), 'Unsafe preserved observation input')
++        path=package/name
++        require(path.is_file() and not path.is_symlink() and sha(path.read_bytes())==digest,
++                'Preserved observation or origin changed: '+name)
++    prior={project:json.loads((package/f'qualification-002/reviews/native-{project}-001.json').read_bytes())
++           for project in ('stdlib','aws')}
++    require(sum(bool(row['expectation']['expected_match']) for report in prior.values()
++                for row in report['observations'])==24, 'Prior matching observations differ')
++    excluded=revision.get('excluded_prior_control_observations',[])
++    require([row['case_id'] for row in excluded]==['splice-no-tail-pop','splice-unproved-seed'],
++            'Only the two resource-mismatched controls are replaced')
++    for item in excluded:
++        observations=[row for row in prior['stdlib']['observations'] if row['case_id']==item['case_id']]
++        require(len(observations)==1, 'Excluded observation missing or duplicated')
++        observation=observations[0]
++        require(item.get('original_expected_category')=='PROOF_FAILURE'
++                and item.get('actual_category')=='RESOURCE_FAILURE'
++                and item.get('expected_match') is False and item.get('rerun_enabled') is False
++                and item.get('rescored') is False
++                and observation['expectation']['expected_match'] is False
++                and observation['observation']['category']=='RESOURCE_FAILURE',
++                'Old resource outcome cannot be relabelled or retried')
++    metadata=json.loads((root/'control-metadata/stdlib.json').read_bytes())
++    require(metadata['source_path']=='control-revision-001/cases.json'
++            and metadata['source_sha256']==sha((folder/'cases.json').read_bytes())
++            and metadata['cases']==json.loads((folder/'cases.json').read_bytes()),
++            'Replacement control metadata differs from constructed fixtures')
++    return binding,revision
++
++
+ def sha(raw):
+     return hashlib.sha256(raw).hexdigest()
+ 
+@@ -311,6 +368,7 @@
+             and output.resolve() == (ROOT/f"output-{config['project']}").resolve(),
+             'Canonical project config/output required')
+     binding,gate=validate_reference_gate(package)
++    validate_control_revision(package)
+     require(freeze.get('reference_gate_sha256')==binding['gate_sha256'], 'Frozen reference gate differs')
+     output.mkdir(exist_ok=False)
+     exe = Path(config['dafny']).expanduser()
+--- qualification-002/ops.py
++++ qualification-007/ops.py
+@@ -20,11 +20,11 @@
+ SOCKET=Path.home()/".ssh/repodisco-codex-21.sock"
+ HOST="sophiezeng@login.rc.fas.harvard.edu"
+ PYTHON="/n/home13/sophiezeng/.conda/envs/repodisco/bin/python"
+-REMOTE_BASE="/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-002"
++REMOTE_BASE="/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-007"
+ MAX_ARCHIVE_BYTES=2*1024**3
+ MAX_STAGE_BYTES=8*1024**2
+ MAX_PROGRAM_BYTES=16*1024**2
+-JOB_SECONDS={'stdlib':7200,'aws':14400}
++JOB_SECONDS={'stdlib':3600}
+ ACCOUNTING_FIELDS=("JobID","State","Elapsed","ElapsedRaw","ExitCode","AllocCPUS",
+                    "TotalCPU","CPUTimeRAW","MaxRSS","NodeList")
+ TERMINAL_STATES=frozenset(("BOOT_FAIL","CANCELLED","COMPLETED","DEADLINE","FAILED",
+@@ -135,25 +135,26 @@
+ 
+ 
+ def settings(project):
+-    require(project in {'stdlib','aws'}, 'Unknown project')
++    require(project in {'stdlib'}, 'Unknown project')
+     return dict(project=project,root=REMOTE_BASE+'/'+project,
+-                job_name='g2q002-'+project,freeze='qualification-002/freezes/'+project+'.json',
+-                job_seconds=JOB_SECONDS[project],slurm_time='02:00:00' if project=='stdlib' else '04:00:00')
++                job_name='g2q007-'+project,freeze='qualification-007/freezes/'+project+'.json',
++                job_seconds=JOB_SECONDS[project],slurm_time='01:00:00')
+ 
+ 
+ def identity(project):
+-    from collect import CONTROL_IDS, validate_config, validate_reference_gate
++    from collect import CONTROL_IDS, validate_config, validate_reference_gate, validate_control_revision
+     selected=settings(project)
+     path=ROOT/'freezes'/f'{project}.json'
+     frozen=read(path)
+     require(frozen.get('schema')=='dafny-growth-controls-freeze-v1'
+             and frozen.get('project')==project
+             and frozen.get('control_case_ids')==CONTROL_IDS[project], 'Unreviewed control dispatch freeze')
+-    required={'qualification-002/'+name for name in
++    required={'qualification-007/'+name for name in
+               ('ops.py','collect.py','review.py','run.sbatch','native_scorer.py','tool-profiles.json','test_runtime.py',
+-               'reference-gate-binding.json')}
+-    required.add('qualification-002/configs/'+project+'.json')
+-    required.update('qualification-002/control-metadata/'+name+'.json' for name in ('stdlib','aws'))
++               'reference-gate-binding.json','control-revision-binding.json')}
++    required.add('qualification-007/configs/'+project+'.json')
++    required.add('qualification-007/control-metadata/stdlib.json')
++    required.update('qualification-007/reference-fixture-metadata/'+name+'.json' for name in ('stdlib','aws'))
+     require(required <= set(frozen['files']), 'Runtime omits an operational input')
+     for name,digest in frozen['files'].items():
+         require(safe_name(name), 'Unsafe runtime path')
+@@ -161,11 +162,18 @@
+         require(source.is_file() and not source.is_symlink() and sha(source.read_bytes())==digest,
+                 'Runtime input differs: '+name)
+     for metadata_project in ('stdlib','aws'):
+-        metadata=read(ROOT/'control-metadata'/f'{metadata_project}.json')
++        metadata=read(ROOT/'reference-fixture-metadata'/f'{metadata_project}.json')
+         require(frozen['files'].get(metadata['source_path'])==metadata['source_sha256'],
+                 'Both exact fixture case catalogs are operational frozen inputs')
+     config=validate_config(read(ROOT/'configs'/f'{project}.json'))
+     binding,gate=validate_reference_gate(PACKAGE,ROOT)
++    revision_binding,revision=validate_control_revision(PACKAGE,ROOT)
++    revision_manifest=read(PACKAGE/revision_binding['manifest_path'])
++    revision_prefix=Path(revision_binding['manifest_path']).parent.as_posix()
++    require(frozen['files'].get(revision_binding['manifest_path'])==revision_binding['manifest_sha256']
++            and all(frozen['files'].get(revision_prefix+'/'+name)==digest for name,digest in revision_manifest['files'].items())
++            and all(frozen['files'].get(name)==digest for name,digest in revision['input_pins'].items()),
++            'Runtime must freeze complete replacement source and preserved failure evidence')
+     require(frozen.get('reference_gate_sha256')==binding['gate_sha256']
+             and frozen['files'].get(binding['gate_path'])==binding['gate_sha256']
+             and all(frozen['files'].get(name)==digest for name,digest in gate['input_files'].items()),
+@@ -251,7 +259,7 @@
+     require(not (root/'preflight.intent.json').exists() and not (root/'preflight-001.json').exists(),
+             'Preflight already attempted')
+     save(root/'preflight.intent.json',dict(runtime_sha256=digest,no_retry=True))
+-    argv=[PYTHON,'-B','-m','unittest','discover','-s',str(root/'qualification-002'),'-p','test_*.py','-v']
++    argv=[PYTHON,'-B','-m','unittest','discover','-s',str(root/'qualification-007'),'-p','test_*.py','-v']
+     started=time.monotonic()
+     try:
+         result=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=60)
+@@ -295,7 +303,7 @@
+     argv=['sbatch','--parsable','--partition=test','--nodes=1','--ntasks=1','--cpus-per-task=1',
+           '--mem=4G','--time='+selected['slurm_time'],'--no-requeue','--job-name='+selected['job_name'],
+           '--chdir='+str(root),'--export=ALL,REPODISCO_FREEZE_SHA='+digest+',REPODISCO_EXECUTION_ROOT='+str(root),
+-          str(root/'qualification-002/run.sbatch'),selected['project']]
++          str(root/'qualification-007/run.sbatch'),selected['project']]
+     record=dict(runtime_sha256=digest,argv=argv)
+     try:
+         result=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=30)
+@@ -476,7 +484,7 @@
+ if __name__=='__main__':
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('action',choices=('inspect','stage','preflight','submit','status','fetch'))
+-    parser.add_argument('project',choices=('stdlib','aws'))
++    parser.add_argument('project',choices=('stdlib',))
+     args=parser.parse_args()
+     if args.action=='inspect':inspect_remote(args.project)
+     else:globals()[args.action](args.project)
+--- qualification-002/review.py
++++ qualification-007/review.py
+@@ -120,7 +120,7 @@
+     metadata={entry['id']:entry for entry in ops.read(ROOT/'control-metadata'/f'{project}.json')['cases']}
+     results=[];missing=[]
+     for case in config['cases']:
+-        folder=archive/'qualification-002'/f'output-{project}'/case['id']
++        folder=archive/'qualification-007'/f'output-{project}'/case['id']
+         if not (folder/'record.json').is_file():missing.append(case['id']);continue
+         entry=binding['tasks'][case['task_id']]
+         profile=ops.read(ROOT.parent/entry['profile_path'])
+@@ -135,7 +135,7 @@
+ 
+ if __name__=='__main__':
+     parser=argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument('project',choices=('stdlib','aws'));parser.add_argument('--output',type=Path,required=True)
++    parser.add_argument('project',choices=('stdlib',));parser.add_argument('--output',type=Path,required=True)
+     args=parser.parse_args();result=review(args.project);ops.save(args.output,result)
+     print(json.dumps(dict(project=args.project,cases=len(result['observations']),
+         all_expected_match=result['all_expected_match'],missing=result['missing_records'])))
+--- qualification-002/run.sbatch
++++ qualification-007/run.sbatch
+@@ -1,11 +1,11 @@
+ #!/bin/bash
+-#SBATCH --job-name=dafny-growth-002-controls
++#SBATCH --job-name=dafny-growth-002-replacement-controls
+ #SBATCH --partition=test
+ #SBATCH --nodes=1
+ #SBATCH --ntasks=1
+ #SBATCH --cpus-per-task=1
+ #SBATCH --mem=4G
+-#SBATCH --time=02:00:00
++#SBATCH --time=01:00:00
+ #SBATCH --no-requeue
+ #SBATCH --output=qualification-%j.log
+ #SBATCH --error=qualification-%j.err
+@@ -15,6 +15,6 @@
+ export PATH="$CONDA_PREFIX/bin:$PATH"
+ export PYTHONDONTWRITEBYTECODE=1
+ export OMP_NUM_THREADS=1
+-exec "$CONDA_PREFIX/bin/python" -B -u qualification-002/collect.py \
+-  "qualification-002/configs/$1.json" "qualification-002/output-$1" \
++exec "$CONDA_PREFIX/bin/python" -B -u qualification-007/collect.py \
++  "qualification-007/configs/$1.json" "qualification-007/output-$1" \
+   --expected-freeze-sha "${REPODISCO_FREEZE_SHA:?Missing pinned runtime hash}"
+--- qualification-002/test_runtime.py
++++ qualification-007/test_runtime.py
+@@ -20,7 +20,7 @@
+ 
+ def configured_projects():
+     projects=sorted(path.stem for path in (Path(__file__).parent/'configs').glob('*.json'))
+-    if not projects or not set(projects)<={'stdlib','aws'}:
++    if not projects or not set(projects)=={'stdlib'}:
+         raise AssertionError('No exact control project configuration is packaged')
+     return projects
+ 
+@@ -35,7 +35,7 @@
+     def setUp(self):
+         self.temp=tempfile.TemporaryDirectory();self.base=Path(self.temp.name).resolve()
+         self.selected=ops.settings('stdlib');self.selected['root']=str(self.base/'remote')
+-        self.files={'qualification-002/run.sbatch':b'# SYNTHETIC NEVER SUBMIT\n','source/A.dfy':b'module A {}\n'}
++        self.files={'qualification-007/run.sbatch':b'# SYNTHETIC NEVER SUBMIT\n','source/A.dfy':b'module A {}\n'}
+         frozen=dict(schema='dafny-growth-controls-freeze-v1',project='stdlib',
+             control_case_ids=collect.CONTROL_IDS['stdlib'],files={n:ops.sha(v) for n,v in self.files.items()})
+         self.freeze=ops.canonical(frozen);self.digest=ops.sha(self.freeze)
+@@ -85,7 +85,7 @@
+         with self.assertRaises(ValueError):ops.fresh_state(state,self.selected)
+ 
+     def test_generated_inspection_uses_exact_frozen_output_location(self):
+-        root=Path(self.selected['root']);output=root/'qualification-002/output-stdlib'
++        root=Path(self.selected['root']);output=root/'qualification-007/output-stdlib'
+         output.mkdir(parents=True)
+         program=ops.remote_program('inspect',self.selected,self.digest)
+         captured=io.StringIO()
+@@ -109,7 +109,7 @@
+                 mock.patch.object(ops.subprocess,'run',return_value=subprocess.CompletedProcess([],0,b'123\n',b'')) as run:
+             record=ops.submit_remote(self.selected,self.digest)
+             self.assertEqual(record['job_id'],'123');run.assert_called_once()
+-            for arg in ('--cpus-per-task=1','--mem=4G','--time=02:00:00','--no-requeue'):
++            for arg in ('--cpus-per-task=1','--mem=4G','--time=01:00:00','--no-requeue'):
+                 self.assertIn(arg,record['argv'])
+             with self.assertRaises(ValueError):ops.submit_remote(self.selected,self.digest)
+             run.assert_called_once()
+@@ -133,7 +133,7 @@
+ 
+     def test_full_archive_preserves_inventory_and_remote_exclusive_intent(self):
+         root=self.ready();ops.save(root/'submission.json',{'job_id':'123'})
+-        ops.write(root/'qualification-002/output-stdlib/record.json',b'{"synthetic":true}')
++        ops.write(root/'qualification-007/output-stdlib/record.json',b'{"synthetic":true}')
+         with mock.patch.object(ops,'command',side_effect=self.fake_cluster):
+             files,estimate=ops.transfer_files(self.selected,self.digest,'123')
+             archive=ops.fetch_remote(self.selected,self.digest,'123',estimate)
+@@ -194,7 +194,7 @@
+ class ControlScopeTests(unittest.TestCase):
+     def test_exact_remaining_sets_and_omission_inputs(self):
+         for project in configured_projects():
+-            total={'stdlib':14,'aws':12}[project]
++            total={'stdlib':2}[project]
+             config=ops.read(Path(__file__).parent/'configs'/f'{project}.json')
+             collect.validate_config(config)
+             self.assertEqual(len(config['cases']),total)
+@@ -214,20 +214,21 @@
+     def test_selected_alternative_and_failed_reference_are_never_redispatched(self):
+         self.assertEqual(collect.TASK_REFERENCES['stdlib-splice'],'splice-alternative')
+         self.assertFalse({'filter-reference','splice-reference','splice-alternative'} & set(collect.CONTROL_IDS['stdlib']))
+-        self.assertEqual(sum(map(len,collect.CONTROL_IDS.values())),26)
++        self.assertEqual(sum(map(len,collect.CONTROL_IDS.values())),2)
++        self.assertFalse({'splice-no-tail-pop','splice-unproved-seed'} & set(collect.CONTROL_IDS['stdlib']))
+         if 'stdlib' in configured_projects():
+             config=ops.read(Path(__file__).parent/'configs/stdlib.json')
+-            for ident in ('splice-reference','splice-alternative'):
++            for ident in ('splice-reference','splice-alternative','splice-no-tail-pop','splice-unproved-seed'):
+                 bad=copy.deepcopy(config);bad['cases'][0]['id']=ident
+                 with self.subTest(ident=ident),self.assertRaises(ValueError):collect.validate_config(bad)
+ 
+     def test_project_walltimes_are_fixed_and_live_limits_checked(self):
+-        std=ops.settings('stdlib');aws=ops.settings('aws')
+-        self.assertEqual((std['job_seconds'],std['slurm_time']),(7200,'02:00:00'))
+-        self.assertEqual((aws['job_seconds'],aws['slurm_time']),(14400,'04:00:00'))
+-        ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=04:00:00',aws)
++        std=ops.settings('stdlib')
++        self.assertEqual((std['job_seconds'],std['slurm_time']),(3600,'01:00:00'))
++        ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=01:00:00',std)
++        with self.assertRaises(ValueError):ops.settings('aws')
+         with self.assertRaises(ValueError):
+-            ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=03:59:59',aws)
++            ops.check_partition('PartitionName=test State=UP PreemptMode=OFF MaxTime=00:59:59',std)
+ 
+     def test_actual_packaged_gate_replays_all_four_reference_observations(self):
+         here=Path(__file__).parent
+@@ -237,6 +238,27 @@
+         self.assertEqual({task:entry['named_units'] for task,entry in gate['tasks'].items()},
+             {'stdlib-filter':59,'stdlib-splice':60,'aws-batch':81,'aws-tagged':79})
+         self.assertEqual(binding['gate_sha256'],ops.sha((here.parent/binding['gate_path']).read_bytes()))
++        revision_binding,revision=collect.validate_control_revision(here.parent,here)
++        self.assertEqual(revision_binding['case_ids'],collect.CONTROL_IDS['stdlib'])
++        self.assertEqual(revision['unchanged_matching_prior_controls'],24)
++
++    def test_replacement_sources_and_retired_raw_evidence_cannot_drift(self):
++        here=Path(__file__).parent;original=here.parent
++        for changed in ('source','retired_raw'):
++            with self.subTest(changed=changed),tempfile.TemporaryDirectory() as directory:
++                package=Path(directory);q=package/'qualification-007';q.mkdir()
++                for name in ('control-revision-binding.json','reference-gate-binding.json','control-metadata/stdlib.json'):
++                    dest=q/name;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes((here/name).read_bytes())
++                revision=ops.read(original/'control-revision-001/revision.json')
++                manifest=ops.read(original/'control-revision-001/manifest.json')
++                names=list(revision['input_pins'])+['control-revision-001/'+n for n in manifest['files']]+['control-revision-001/manifest.json']
++                for name in names:
++                    dest=package/name;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes((original/name).read_bytes())
++                collect.validate_control_revision(package,q)
++                name=('control-revision-001/cases/splice-retains-old-content/workspace/growth/SpliceRange.dfy'
++                      if changed=='source' else next(n for n in revision['input_pins'] if n.endswith('/raw/stderr.txt')))
++                with (package/name).open('ab') as stream:stream.write(b'SYNTHETIC DRIFT')
++                with self.assertRaises(ValueError):collect.validate_control_revision(package,q)
+ 
+     def test_no_real_gate_exists_or_can_be_fabricated_by_dispatch(self):
+         # The preparation phase intentionally has no gate or freeze. This test
+@@ -249,7 +271,7 @@
+         config=ops.read(here/'configs'/f'{project}.json')
+         profiles=ops.read(here/'tool-profiles.json');calls=[]
+         with tempfile.TemporaryDirectory() as folder:
+-            package=Path(folder).resolve();q=package/'qualification-002';q.mkdir()
++            package=Path(folder).resolve();q=package/'qualification-007';q.mkdir()
+             executable=package/'synthetic-not-a-verifier';executable.write_bytes(b'NEVER EXECUTED\n')
+             config['dafny']=str(executable);profiles[project]['dafny']=str(executable)
+             ops.save(q/'tool-profiles.json',profiles)
+@@ -277,6 +299,7 @@
+                     mock.patch.dict(os.environ,{'SLURM_JOB_ID':'SYNTHETIC','SLURM_CPUS_PER_TASK':'1'}), \
+                     mock.patch.object(collect.socket,'gethostname',return_value='synthetic-compute'), \
+                     mock.patch.object(collect,'validate_reference_gate',return_value=({'gate_sha256':'f'*64},{'synthetic':True})), \
++                    mock.patch.object(collect,'validate_control_revision',return_value=({},{})), \
+                     mock.patch.object(collect,'capture_version',side_effect=lambda exe,flag,out,label:
+                         config['expected_version'] if label=='tool' else 'Synthetic Z3'), \
+                     mock.patch.object(collect,'tool_fingerprint',return_value=config['expected_tool_fingerprint']), \
+@@ -285,7 +308,7 @@
+             summary=ops.read(output/'summary.json');count=len(config['cases']) if timeout_index is None else timeout_index+1
+             self.assertEqual(summary['native_calls'],count)  # Intercepted fake attempts only.
+             self.assertEqual(len(calls),count);self.assertEqual(summary['model_calls'],0)
+-            self.assertEqual(summary['all_planned_cases_recorded'],timeout_index is None)
++            self.assertEqual(summary['all_planned_cases_recorded'],count==len(config['cases']))
+             self.assertEqual([row['case'] for row in summary['cases']],collect.CONTROL_IDS[project][:count])
+             for case in config['cases'][count:]:self.assertFalse((output/case['id']).exists())
+ 
+@@ -293,10 +316,10 @@
+         for project in configured_projects():self.run_fake_controls(project)
+ 
+     def test_control_timeout_retains_prefix_and_blocks_tail(self):
+-        self.run_fake_controls(configured_projects()[0],timeout_index=1)
++        self.run_fake_controls(configured_projects()[0],timeout_index=0)
+ 
+     def gate_fixture(self,root):
+-        package=root/'package';q=package/'qualification-002';q.mkdir(parents=True)
++        package=root/'package';q=package/'qualification-007';q.mkdir(parents=True)
+         inputs={};manifests={};bindings={};observations={}
+         def put(name,raw):
+             ops.write(package/name,raw);return dict(path=name,sha256=ops.sha(raw))
+@@ -304,7 +327,7 @@
+             raw=ops.canonical({'synthetic':True,'project':project});pin=put(project+'/manifest.json',raw)
+             inputs[pin['path']]=pin['sha256'];manifests[project]=pin
+             cases=ops.canonical([]);put(project+'/cases.json',cases)
+-            ops.save(q/'control-metadata'/f'{project}.json',dict(source_path=project+'/cases.json',source_sha256=ops.sha(cases),cases=[]))
++            ops.save(q/'reference-fixture-metadata'/f'{project}.json',dict(source_path=project+'/cases.json',source_sha256=ops.sha(cases),cases=[]))
+         for task,ref in collect.TASK_REFERENCES.items():
+             inherited={'stdlib-filter':56,'stdlib-splice':58,'aws-batch':77,'aws-tagged':77}[task]
+             count=inherited+1;folder='synthetic-native/'+task+'/'+ref
+@@ -438,5 +461,14 @@
+         with self.assertRaises(ValueError):review.materialize_control_profile(profile,case,meta,{'A.dfy':b'module A {}'})
+ 
+ 
++def load_tests(loader, tests, pattern):
++    import importlib.util
++    path=Path(__file__).parent.parent/'control-revision-001/test_construction.py'
++    spec=importlib.util.spec_from_file_location('replacement_fixture_construction',path)
++    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
++    tests.addTests(loader.loadTestsFromModule(module))
++    return tests
++
++
+ if __name__=='__main__':unittest.main(verbosity=2)
+ 

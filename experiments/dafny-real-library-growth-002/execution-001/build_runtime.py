@@ -11,7 +11,7 @@ EXECUTION_FILES = (
     "bounded_requests.py", "credential_transport.py", "provider_error.py",
     "extract_response.py", "copy-provenance.json", "test_runner.py",
     "test_native_host.py", "test_build_runtime.py", "test_allocation.py", "README.md",
-    "prior-budget-snapshot.json",
+    "prior-budget-snapshot.json", "review_collection.py", "test_review_collection.py",
 )
 COMMON_FILES = ("common/guard.py", "common/review_native.py")
 

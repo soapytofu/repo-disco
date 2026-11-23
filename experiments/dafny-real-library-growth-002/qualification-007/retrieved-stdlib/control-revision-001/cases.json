@@ -1,0 +1,174 @@
+[
+  {
+    "actual_native_unit_labels": null,
+    "analyst_authored": true,
+    "argv": [
+      "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny/dafny",
+      "verify",
+      "--cores",
+      "1",
+      "--solver-path",
+      "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+      "--log-format",
+      "csv",
+      "--resource-limit",
+      "1000000",
+      "--verification-time-limit",
+      "300",
+      "--track-print-effects",
+      "--enforce-determinism",
+      "--reads-clauses-on-methods",
+      "--type-system-refresh",
+      "--general-traits",
+      "datatype",
+      "--general-newtypes",
+      "--warn-redundant-assumptions=false",
+      "--warn-contradictory-assumptions=false",
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "growth/AppendAll.dfy",
+      "growth/SpliceRange.dfy"
+    ],
+    "body_sha256": "cff09fe22c92726e36acf3b1cdb8512ce4df9eb22a091dc1937de6cf99c489c1",
+    "classification_requires_named_units_and_exact_inventory": true,
+    "command_files": [
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "growth/AppendAll.dfy",
+      "growth/SpliceRange.dfy"
+    ],
+    "control_purpose": "Snapshot and append the requested result without clearing the old array; the fixed result content and length fail for nonempty originals.",
+    "coverage_complete": true,
+    "declared_scope_files": [
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "growth/AppendAll.dfy",
+      "growth/SpliceRange.dfy"
+    ],
+    "edit_profile_path": "profiles/stdlib-splice.json",
+    "expected_category": "PROOF_FAILURE",
+    "expected_failed_targets": [
+      "RepoDiscoSplice.Splice"
+    ],
+    "expected_native_category": "PROOF_FAILURE",
+    "expected_passed_targets": [
+      "RepoDiscoStdAppend.AppendAll"
+    ],
+    "gated_until_positive_review": false,
+    "id": "splice-retains-old-content",
+    "inspect_targets": [],
+    "model_acceptance": false,
+    "native_dispatch_authorized": false,
+    "native_status": "UNKNOWN",
+    "omit_from_command": [],
+    "omitted_source_all_units": [],
+    "omitted_targets": [],
+    "project": "stdlib-splice",
+    "protected_source_candidate": true,
+    "replaces_case": "splice-no-tail-pop",
+    "required_targets": [
+      "RepoDiscoStdAppend.AppendAll",
+      "RepoDiscoSplice.Splice"
+    ],
+    "source_sha256": {
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+      "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+      "growth/SpliceRange.dfy": "bbe7704d7261c19d64c93a2f11bfcf2d8e14038ea0a3d958e1f6caa9689b15f2"
+    },
+    "stage": 1,
+    "stage_id": "splice-range",
+    "task_id": "stdlib-splice",
+    "workspace_dir": "cases/splice-retains-old-content/workspace"
+  },
+  {
+    "actual_native_unit_labels": null,
+    "analyst_authored": true,
+    "argv": [
+      "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny/dafny",
+      "verify",
+      "--cores",
+      "1",
+      "--solver-path",
+      "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+      "--log-format",
+      "csv",
+      "--resource-limit",
+      "1000000",
+      "--verification-time-limit",
+      "300",
+      "--track-print-effects",
+      "--enforce-determinism",
+      "--reads-clauses-on-methods",
+      "--type-system-refresh",
+      "--general-traits",
+      "datatype",
+      "--general-newtypes",
+      "--warn-redundant-assumptions=false",
+      "--warn-contradictory-assumptions=false",
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "growth/AppendAll.dfy",
+      "growth/SpliceRange.dfy"
+    ],
+    "body_sha256": "4c28b1321117b274fad0f6e038763297af6c8812b9ac35301709d131edbd94f0",
+    "classification_requires_named_units_and_exact_inventory": true,
+    "command_files": [
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "growth/AppendAll.dfy",
+      "growth/SpliceRange.dfy"
+    ],
+    "control_purpose": "Exact proved rebuild caller with the existing return-only helper mutant. The client must actually pass under the helper contract while the helper fails; reject the workspace.",
+    "coverage_complete": true,
+    "declared_scope_files": [
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "growth/AppendAll.dfy",
+      "growth/SpliceRange.dfy"
+    ],
+    "edit_profile_path": "profiles/stdlib-splice.json",
+    "expected_category": "PROOF_FAILURE",
+    "expected_failed_targets": [
+      "RepoDiscoStdAppend.AppendAll"
+    ],
+    "expected_native_category": "PROOF_FAILURE",
+    "expected_passed_targets": [
+      "RepoDiscoSplice.Splice"
+    ],
+    "gated_until_positive_review": false,
+    "id": "splice-unproved-seed-rebuild",
+    "inspect_targets": [],
+    "model_acceptance": false,
+    "native_dispatch_authorized": false,
+    "native_status": "UNKNOWN",
+    "omit_from_command": [],
+    "omitted_source_all_units": [],
+    "omitted_targets": [],
+    "project": "stdlib-splice",
+    "protected_source_candidate": false,
+    "replaces_case": "splice-unproved-seed",
+    "required_targets": [
+      "RepoDiscoStdAppend.AppendAll",
+      "RepoDiscoSplice.Splice"
+    ],
+    "source_sha256": {
+      "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+      "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+      "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+      "growth/AppendAll.dfy": "b412902f111114b043dcf813a5d048c16f7ea6304c8d4342913a2afea975abcd",
+      "growth/SpliceRange.dfy": "c6c052c3476ad436cd74160d4a5b3bf0876fdcaf8b92ec6286511cdb57604959"
+    },
+    "stage": 1,
+    "stage_id": "splice-range",
+    "task_id": "stdlib-splice",
+    "workspace_dir": "cases/splice-unproved-seed-rebuild/workspace"
+  }
+]

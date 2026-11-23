@@ -1,0 +1,20 @@
+--- verified-splice-alternative/growth/SpliceRange.dfy
++++ splice-retains-old-content/growth/SpliceRange.dfy
+@@ -38,17 +38,6 @@
+       index := index + 1;
+     }
+     assert snapshot == original;
+-    while a.size > 0
+-      modifies a, a.Repr
+-      invariant fresh(a.Repr - old(a.Repr))
+-      invariant a.Valid?()
+-      invariant a.size == |a.items|
+-      invariant a.size <= originalSize
+-      invariant a.items == original[..a.size]
+-      decreases a.size
+-    {
+-      a.PopFast();
+-    }
+     Append.AppendAll(a,
+       snapshot[..position] + replacement + snapshot[position + deleteCount..]);
+     // END REPLACEMENT

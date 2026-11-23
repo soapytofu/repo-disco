@@ -24,8 +24,9 @@ The Cannon connection was restored; the alternative was submitted once after
 fresh state inspection. Remaining controls, exact prompts and final runtime
 review precede collection. The first 26 control checks matched 24 expectations;
 the two remaining shifting-derived splice cases exhausted the resource limit.
-They stay preserved while two separately versioned controls use the verified
-rebuild alternative. All four omitted-coverage cases were correctly rejected,
+They stay preserved; two separately versioned controls using the verified
+rebuild alternative now match both intended ordinary proof failures in job
+63185390 (22 seconds, one CPU). All four omitted-coverage cases were correctly rejected,
 and AWS controls show passing callers cannot mask failed helpers. The planned
 eight independent calls (four tasks twice, no retries) are allocated within the
 approved 100-call ceiling: 36 allocated, 64 unallocated, still 19 returned from

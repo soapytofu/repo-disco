@@ -206,6 +206,7 @@ class OpsTests(unittest.TestCase):
         self.assertEqual(config_calls[0]["retries"]["total_max_attempts"],1)
         self.assertIn("test_allocation",spawn.call_args_list[0].args[0])
         self.assertIn("test_ops",spawn.call_args_list[0].args[0])
+        self.assertIn("test_review_collection",spawn.call_args_list[0].args[0])
         self.assertEqual(spawn.call_args_list[1].args[0],
             [ops.PYTHON,"-B",str(Path(self.binding["package_root"])/"pilot/test_render.py"),
              "--smoke",self.binding["package_root"],"pilot/scope.json"])
