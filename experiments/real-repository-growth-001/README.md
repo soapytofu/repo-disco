@@ -1,12 +1,14 @@
 # Sequential additions to qualified real repositories
 
-**Current collection:** the [fresh eight-call allocation](execution-004/approval-receipt-001.json)
-is within Sophie's separately approved [100-new-call ceiling](research-budget-20261123-001.json).
-Job **63018923** was submitted once and started on nonpreemptible `shared`, one
-CPU, 8 GB, four hours and no requeue. It uses the unchanged frozen pilot and
-execution-004; child calls require accepted parents and failed/unused slots are
-not reassigned. No model-growth outcome is claimed until the full evidence is
-retrieved and reviewed. The earlier terminal collections remain closed.
+**Latest collection:** [job 63018923](execution-004/COLLECTION.md) returned one
+admitted Dafny candidate, then stopped on its verifier resource failure. All 267
+upstream units pass; the new MoveToFront body is incorrect on a concrete
+three-element input. There are **0/1 observed accepted additions**, no complete
+pilot/lineage score, and seven undispatched slots in the closed ledger. All 156
+raw files and the source-bound counterexample are saved. The
+[budget snapshot](research-budget-20261123-002.json) records one request used,
+eight allocated and 92 unallocated under the new 100-call ceiling. A separate
+failure-containment policy is the next preparation step; this run is not resumed.
 
 **Latest preparation:** [execution-004](execution-004/RESULTS.md) adds bounded,
 redacted AWS error evidence while preserving the frozen prompts, one-CPU limits,

@@ -1,25 +1,28 @@
 # November 24 meeting: real-repository repair and growth
 
 Evidence checkpoint: November 23, 2026, Eastern. **Real-source repair results
-are available; sequential model-generated growth remains unmeasured.** The
-first growth attempt stopped on a host credential-lifetime bug, reproduced and
-corrected offline. The separately approved corrected run, **job 62950853**, then
-stopped with `AccessDeniedException` before any model response or verifier call.
-Both complete evidence archives are preserved and both ledgers are closed.
-The saved log lacks AWS's detailed denial message, so the original access
-restriction is not established from that run. Neither stopped run is a 0/8
-model score. The separate execution-004 adds bounded, redacted error evidence
-and passes 98 tests locally and on Cannon plus five intercepted-SDK scenarios.
-These offline checks do not establish access for a replacement key.
+are available. The first returned growth candidate is incorrect; the growth
+cohort stopped before a complete lineage evaluation.** Job **63018923** returned
+one admitted Dafny MoveToFront body, with one unique request ID, zero SDK retries
+and 2,290 tokens. Its native check preserves all 267 upstream passes but exhausts
+the new function's resource budget. A concrete input also demonstrates that its
+output order violates the fixed specification.
 
-Sophie has now approved a total ceiling of **100 new calls**, with confirmation
-required before exceeding it. The first allocation is the existing frozen
-**eight-call** growth pilot; 92 calls remain unallocated. Previous closed ledgers
-are not reused. The [budget receipt](../experiments/real-repository-growth-001/research-budget-20261123-001.json)
-records this decision. The fresh frozen collection was submitted once as
-**job 63018923** and started on nonpreemptible `shared`, with one CPU, 8 GB,
-four hours and no requeue. No new growth outcome is claimed before response,
-native-evidence and lineage review.
+The frozen runner stops on every verifier resource failure. Seven slots were
+therefore undispatched; **0/1 observed additions were accepted**, with no full
+8-slot or 4-lineage score. Vest and all second-stage tasks remain unattempted.
+[Full evidence and counterexample](../experiments/real-repository-growth-001/execution-004/COLLECTION.md)
+are saved. Earlier credential/access failures had no returned responses and
+remain separate closed records. The latest invocation establishes working
+access for that request only.
+
+Sophie approved a total ceiling of **100 new calls**, with confirmation before
+exceeding it. Eight are allocated, one used and seven unused in the closed
+allocation; **92 remain unallocated**. The [budget snapshot](../experiments/real-repository-growth-001/research-budget-20261123-002.json)
+records this. Next is a separately qualified policy that records complete,
+source-bound resource failures as unaccepted and blocks their children while
+continuing independent lineages. Missing evidence, process timeouts, integrity
+or provider failures remain terminal; prompts and proof acceptance stay fixed.
 
 ## Main message
 
@@ -45,7 +48,7 @@ repair agent.
 | Fixed-source verification-resource study | Saved Swap candidate **265/267** units at 20k; **267/267** at 100k. Upstream **267/267** at both limits. | A locally valid transparent implementation can raise downstream proof cost under unchanged contracts. This is one candidate, not a general structural effect. |
 | Growth-task native controls | **25/25 expected outcomes:** 8 passing scopes, 14 intended proof failures, 3 missing-coverage rejections. | The new tasks are feasible and the harness rejects important false-success cases. These are analyst controls, not model-generated extensions. |
 | Current growth runner preparation | **98/98 tests locally and on Cannon plus 5 intercepted-SDK scenarios**; frozen prompts/order unchanged. | Request accounting, parent preservation, SDK lifetime and redacted failure evidence are tested. These tests are not additional native proofs or model results. |
-| Growth collection attempts | **0 responses, 0 native checks in each stopped run**: first a host credential bug, then an access denial after the correction. | No extension-performance score. The host bug was reproduced offline; the specific access restriction remains unknown. Both ledgers stay closed. |
+| First returned growth candidate | **0/1 observed accepts**, 267/267 upstream passes, new target out of resource; concrete order counterexample. Seven slots unattempted. | One incorrect model extension; incomplete cohort, not a 0/8 or 0/4 score. Earlier access failures remain separate. |
 
 Source reports: [repair results](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md),
 [guard diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md),
@@ -53,7 +56,7 @@ Source reports: [repair results](../experiments/real-repository-repair-pilot-001
 [growth controls](../experiments/real-repository-growth-001/controls-001/RESULTS.md),
 [current runner preparation](../experiments/real-repository-growth-001/execution-004/RESULTS.md),
 [first stopped execution](../experiments/real-repository-growth-001/execution-001/RESULTS.md),
-[current access-denied execution](../experiments/real-repository-growth-001/execution-003/RESULTS.md).
+[earlier access-denied execution](../experiments/real-repository-growth-001/execution-003/RESULTS.md).
 
 Original repair results by site:
 

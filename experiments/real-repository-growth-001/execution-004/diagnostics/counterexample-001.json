@@ -1,0 +1,56 @@
+{
+  "actual": [
+    1,
+    2,
+    0
+  ],
+  "analyst_authored": true,
+  "inputs": {
+    "k": 2,
+    "xs": [
+      0,
+      1,
+      2
+    ]
+  },
+  "interpretation": "This concrete trace refutes the ordered-sequence contract for the exact saved implementation. The original native classification remains resource exhaustion; this is not an analyst repair, native rerun or rescore.",
+  "length_postcondition": true,
+  "model_calls": 0,
+  "multiset_postcondition": true,
+  "native_calls": 0,
+  "ordered_sequence_postcondition": false,
+  "recursive_trace": [
+    {
+      "k": 0,
+      "result": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "k": 1,
+      "result": [
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "k": 2,
+      "result": [
+        1,
+        2,
+        0
+      ]
+    }
+  ],
+  "required": [
+    2,
+    0,
+    1
+  ],
+  "response_sha256": "933305bd3b9065f7c3504e10134d3e86c6eeb43ab672d5e5d699334b1eedecd5",
+  "schema": "repodisco-source-bound-concrete-counterexample-v1",
+  "source_sha256": "ef4dacc5fe562fba502477c827762d028df4ea14e5505344cce29fdfd2a09ef2"
+}

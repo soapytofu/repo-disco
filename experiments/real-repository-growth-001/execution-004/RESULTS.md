@@ -1,5 +1,9 @@
 # AWS error-logging runner preparation
 
+Subsequent authorized collection: [one returned candidate and a terminal
+resource failure, with full evidence](COLLECTION.md). The preparation record
+below describes the earlier offline-only checkpoint.
+
 Prepared November 23, 2026. This is **offline runner qualification**, with no
 model requests, native verifier runs, authorization file or job submission.
 The private key handoff was not inspected or consumed. No live AWS access test

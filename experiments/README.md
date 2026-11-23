@@ -1,14 +1,16 @@
 # Experiment log
 
-## Sequential real-source growth — fresh collection running
+## Sequential real-source growth — first returned candidate, stopped cohort
 
-The [execution-004 allocation](real-repository-growth-001/execution-004/approval-receipt-001.json)
-uses at most eight calls within the newly approved
-[100-call total ceiling](real-repository-growth-001/research-budget-20261123-001.json).
-Job **63018923** was submitted once and started on nonpreemptible `shared`, with
-one CPU, 8 GB, four hours and no requeue. Frozen prompts and no-retry/actual-parent
-requirements are unchanged. Outcome and lineage evidence are pending review;
-the older terminal collections and all historical scores remain unchanged.
+[Execution-004 job 63018923](real-repository-growth-001/execution-004/COLLECTION.md)
+returned one admitted MoveToFront body: one unique request ID, zero SDK retries,
+2,290 tokens. Its native check preserves all 267 upstream passes but exhausts
+the new target's resource budget. A source-bound three-element counterexample
+also establishes incorrect order. The frozen runner stopped; seven slots are
+undispatched and closed. Report **0/1 observed accepted additions**, not a
+complete eight-slot or four-lineage rate. All 156 raw files, exact source review
+and analyst trace are saved. The new 100-call ceiling has eight allocated and
+92 unallocated; old ledgers and all historical scores remain unchanged.
 
 ## Sequential real-source growth — AWS error-logging preparation
 
