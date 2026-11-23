@@ -1,0 +1,31 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT\n",
+    "kind": "function",
+    "path": "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy",
+    "template_utf8": "include \"RepoDiscoFramePair.dfy\"\n\nmodule RepoDiscoTaggedFramePair {\n  import U = StandardLibrary.UInt\n  import F = RepoDiscoU16Frame\n  import P = RepoDiscoFramePair\n  import opened Wrappers\n\n  datatype TaggedPair = TaggedPair(payload: seq<U.uint8>, companion: seq<U.uint8>, rest: seq<U.uint8>)\n\n  predicate method IsTaggedBounded(input: seq<U.uint8>, tag: U.uint8, budget: nat) {\n    P.HasFramePair(input) &&\n      0 < |F.FramePayload(input)| &&\n      F.FramePayload(input)[0] == tag &&\n      |F.FramePayload(input)| - 1 + |F.FramePayload(F.FrameRest(input))| <= budget\n  }\n\n  function method {:opaque} ReadTaggedBoundedPair(input: seq<U.uint8>, tag: U.uint8, budget: nat)\n    : (result: Result<TaggedPair, string>)\n    ensures result.Success? <==> IsTaggedBounded(input, tag, budget)\n    ensures result.Success? ==> result.value.payload == F.FramePayload(input)[1..]\n    ensures result.Success? ==> result.value.companion == F.FramePayload(F.FrameRest(input))\n    ensures result.Success? ==> result.value.rest == F.FrameRest(F.FrameRest(input))\n    ensures result.Success? ==> |result.value.payload| + |result.value.companion| <= budget\n    ensures result.Success? ==>\n      U.HasUint16Len([tag] + result.value.payload) && U.HasUint16Len(result.value.companion)\n    ensures result.Success? ==>\n      input == U.UInt16ToSeq(|[tag] + result.value.payload| as U.uint16) + [tag] + result.value.payload +\n               U.UInt16ToSeq(|result.value.companion| as U.uint16) + result.value.companion + result.value.rest\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": null,
+  "project": "aws-tagged",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 1,
+  "stage_id": "aws-tagged",
+  "verification_inputs": [
+    "StandardLibrary/src/UInt.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Wrappers.dfy",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "StandardLibrary/src/RepoDiscoFramePair.dfy",
+    "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+  ]
+}

@@ -1,0 +1,19 @@
+    ghost var original := a.items;
+    var originalSize := a.size;
+    if originalSize == 0 {
+      removed := 0;
+    } else {
+      var last := a.At(originalSize - 1);
+      assert last == original[originalSize - 1];
+      a.PopFast();
+      assert a.items == original[..originalSize - 1];
+      removed := StableFilterBelow(a, limit);
+      if last < limit {
+        a.Push(last);
+      } else {
+        removed := removed + 1;
+      }
+      assert KeepBelow(original, limit) ==
+        KeepBelow(original[..originalSize - 1], limit) +
+        (if last < limit then [last] else []);
+    }

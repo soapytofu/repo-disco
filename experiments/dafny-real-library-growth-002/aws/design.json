@@ -1,0 +1,151 @@
+{
+  "limitations": [
+    "Analyst-authored harder requirements do not establish empirical model difficulty.",
+    "These two development tasks share the same component and ancestry; they are not independent held-out repository families.",
+    "The two tasks are independent extensions of a frozen model-grown seed, not stages of a new sequential run.",
+    "Finite Python oracles check intended examples, not Dafny parsing, proof correctness or runtime verification.",
+    "Earlier broad AWS/MPL qualification remains failed and unchanged."
+  ],
+  "native_qualification": {
+    "case_count": 14,
+    "complete_old_inventory": 77,
+    "expected_coverage_omission_count": 2,
+    "expected_positive_count": 2,
+    "expected_proof_failure_count": 10,
+    "first_cases": [
+      "counted-reference",
+      "tagged-reference"
+    ],
+    "gated_control_ids": [
+      "counted-always-failure",
+      "counted-missing-tail",
+      "counted-omitted",
+      "counted-reversed-payloads",
+      "counted-unproved-frame",
+      "counted-wrong-suffix",
+      "tagged-always-failure",
+      "tagged-keeps-tag",
+      "tagged-omitted",
+      "tagged-skips-budget",
+      "tagged-skips-tag",
+      "tagged-unproved-pair"
+    ],
+    "gates": "Controls remain unsubmitted until both source-bound references pass; preserve all unexpected failures before a deliberate revision.",
+    "model_calls": 0,
+    "native_status": "UNKNOWN",
+    "new_actual_unit_labels": "UNKNOWN until native qualification; do not invent correctness labels for function methods.",
+    "omission_policy": "Staged bad target file omitted from every explicit root and include path; native pass of the five-file base must not count as requested six-file success.",
+    "required_review": "Every frozen old native unit, actual new emitted declarations and target, exact source/tool/raw hashes; missing or unexpected coverage is separate from proof status.",
+    "resource_policy_file": "native-policy.json",
+    "unproved_helper_policy": "Mutate only an accepted helper body while preserving its contract in an analyst-only negative; require genuine helper proof failure and record actual new-client and other-provider outcomes. A passing client cannot mask a failed helper."
+  },
+  "protected_edits": {
+    "direct_correct_implementations_allowed": true,
+    "editable_region": "exactly one function expression body in one new file",
+    "fixed": [
+      "all five saved model-grown base files",
+      "all declarations, types, imports, specifications, signatures and decreases",
+      "all new fixed helper definitions"
+    ],
+    "independent_requests": true,
+    "new_dynamic_parent": false,
+    "new_trust_bypasses": false,
+    "profile_directory": "profiles",
+    "reuse_measure": "syntactic call/reveal observations only; no necessary-dependency or minimality claim",
+    "stage": 1,
+    "syntax_grammar_origin": "experiments/dafny-real-library-growth-001/common/guard.py",
+    "syntax_limits": {
+      "ascii": true,
+      "max_lexical_tokens": 32768,
+      "max_nesting": 128,
+      "max_utf8_bytes": 65536
+    }
+  },
+  "schema": "repodisco-aws-independent-growth-design-v1",
+  "seed": {
+    "accepted_lineage": "aws-lineage-01",
+    "accepted_slot": "slot-04",
+    "directory": "seed/workspace",
+    "new_native_observations": 0,
+    "not_full_repository": true,
+    "old_observations_reused": 1,
+    "parent_slot": "slot-02",
+    "scope": "qualified UInt three-file component plus the actual accepted ReadU16Frame and ReadFramePair additions",
+    "selection_rule": "earliest complete accepted AWS lineage by the frozen prior execution order",
+    "source_pin": "dab800a2a610253659d113ee6e4bf8a70b86d13a",
+    "source_revision_sha256": "c7d77ff6a33a4756ef7a2baf5247f74aae3787638c87a4e1c9f3c0bd29b9f874",
+    "sources": {
+      "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+      "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+      "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+      "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+      "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+    }
+  },
+  "status": "PREPARED_NATIVE_UNKNOWN",
+  "task_ids": [
+    "aws-batch",
+    "aws-tagged"
+  ],
+  "tasks": {
+    "aws-batch": {
+      "contracts": [
+        "success iff sufficient complete frames",
+        "result payload count equals count",
+        "every payload length fits uint16",
+        "input equals canonical encoding of returned payloads concatenated with returned suffix",
+        "suffix is exactly the input slice after that encoded prefix"
+      ],
+      "entrypoint": "RepoDiscoFrameBatch.ReadCountedFrames",
+      "fairness_note": "The fixed helpers define feasibility and encoding, but no completed decoder or analyst reference body is shown by the task template.",
+      "fixed_specs": [
+        "HasCountedFrames: recursive feasibility predicate",
+        "BoundedPayloads: all payload lengths fit uint16",
+        "EncodeFrames: canonical recursive serialization, not a decoder"
+      ],
+      "kind": "function",
+      "meaning": "Decode exactly count consecutive uint16-length-prefixed byte strings; return their original order and the exact remaining suffix.",
+      "new_reasoning": [
+        "arbitrary-count recursion with fixed decreases count",
+        "recursive result aggregation in original order",
+        "composing canonical encodings and exact suffix"
+      ],
+      "path": "StandardLibrary/src/RepoDiscoFrameBatch.dfy",
+      "reference_case": "counted-reference",
+      "success_iff": "The input has at least count complete frames; count is nat, and count=0 succeeds with zero payloads and unchanged input even when input is malformed."
+    },
+    "aws-tagged": {
+      "budget_excludes": [
+        "tag byte",
+        "two uint16 headers",
+        "remaining suffix"
+      ],
+      "budget_includes": [
+        "first payload after removing its one-byte tag",
+        "entire second payload"
+      ],
+      "contracts": [
+        "success iff all syntactic and semantic conditions hold",
+        "exact untagged first payload, second payload and suffix",
+        "inclusive combined payload budget",
+        "uint16 length bounds for re-tagged first and second fields",
+        "original input re-encoding identity with the tag restored"
+      ],
+      "entrypoint": "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair",
+      "fixed_specs": [
+        "IsTaggedBounded: declarative conjunction of parsing, tag and budget conditions"
+      ],
+      "kind": "function",
+      "meaning": "Parse the frozen frame pair, validate and remove a leading tag byte in the first payload, enforce a combined payload budget, and preserve the second payload and suffix exactly.",
+      "new_reasoning": [
+        "failure-condition completeness",
+        "tag validation and exact slicing",
+        "inclusive boundary arithmetic",
+        "preservation and re-encoding across modules"
+      ],
+      "path": "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy",
+      "reference_case": "tagged-reference",
+      "success_iff": "Exactly: two complete frames are available, the first payload is nonempty and starts with the requested byte tag, and untagged-first length plus second length is at most budget."
+    }
+  }
+}

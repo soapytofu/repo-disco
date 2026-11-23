@@ -1,0 +1,36 @@
+# Varied extensions of model-grown Dafny components
+
+This follow-up tests four new extension tasks on the exact qualified Dafny
+Standard Library and AWS MPL UInt component snapshots. The earlier pilot
+accepted all twelve append/frame additions. Those results motivate tasks with
+new reasoning demands; they do not establish these tasks are harder for models.
+
+The planned tasks are stable array filtering, generic array splicing, counted
+frame decoding, and tagged/size-bounded frame validation. Each is an independent
+addition to a fixed source snapshot that includes previously accepted model
+code where relevant. The two responses for a task see the same saved base;
+neither response is repaired, retried, or used as the other's parent. This is
+extension of model-grown components, not a newly collected two-stage trajectory.
+
+Reference solutions, exact native unit inventories, targeted proof failures and
+coverage controls must be reviewed before collection. Mathematical outcomes are
+currently unknown. Only the current method/function body is editable; types,
+contracts, fixed specification helpers, upstream files, saved accepted code,
+termination clauses and the explicit source registration remain host-owned.
+
+The bounded pilot will allocate at most **eight new calls**: four tasks times
+two fresh contexts. Task order is reversed for the second replicate. Ordinary
+proof failures remain failures; collection is not extended to reach a favorable
+score. Infrastructure, source-integrity or ambiguous provider failures stop
+dispatch. There are no retries or reassigned slots.
+
+The user's existing 100-call ceiling covers this requested pilot. The latest
+completed budget snapshot allocates 28 calls, with 19 returned responses and
+nine unused slots permanently closed. Eight new slots would bring cumulative
+allocation to 36 and leave 64 unallocated. A fresh runtime-bound allocation and
+authorization will be written only after qualification and runner review.
+
+This is selected-component development evidence. The Standard Library ancestry
+shared with AWS, supplied contracts, prior exposure to the task families and
+small sample size preclude independent-family, held-out or whole-project claims.
+All previous scores and frozen artifacts remain unchanged.

@@ -1,0 +1,30 @@
+{
+  "files": {
+    "execution-001/native_host.py": "1f10911fb9fd53df3f62b49ef44186b9508fc7d4a0ef7b6efd618381d86952c8",
+    "execution-001/test_native_host.py": "07e145396f12f66e532832daccfb7e286be1594d75dfc4ae545268f5009ecfb7",
+    "pilot/prepare.py": "c9f430f91dc5791b511ef4f6b6abcb48de40b97aa2b8477d0de3a91fb9a2830b"
+  },
+  "frozen_or_raw_files_edited": false,
+  "new_model_calls": 0,
+  "new_native_calls": 0,
+  "prior_review_sha256": "037bc7a557dcbe8adb357c27030ac05813bdb2681a1a2a1ace1db0420872c4a3",
+  "remaining_gates": [
+    "Actual native positive/negative/coverage qualification.",
+    "Source-linked final task gates/native profiles and exact model-visible prompt content audit.",
+    "Final runtime freeze and actual-package synthetic preflight."
+  ],
+  "resolved": [
+    {
+      "id": "qualification-membership",
+      "observation": "Each of the four selected task keys now requires qualified_success and all_controls_match; selected native/edit/base file path+hash pairs must exactly match that task gate input_files map before payload construction. Host-pinned reviewed gate remains the authority."
+    },
+    {
+      "id": "ambient-provider-environment",
+      "observation": "Every native/version capture passes an explicit environment that removes AWS_* and BOTO_CONFIG/BOTO_PATH/BEDROCK_API_KEY. A focused fake-child regression checks no provider keys survive while SLURM_JOB_ID remains. Its execution belongs to the root final suite; this review did not rerun it."
+    }
+  ],
+  "review_mode": "Read-only inspection of the two targeted fixes; no test rerun",
+  "schema": "dafny-harder-extension-independent-source-review-v1",
+  "status": "PRIOR_FINDINGS_RESOLVED_IN_SOURCE",
+  "tests_run": 0
+}

@@ -1,0 +1,28 @@
+test_exact_bases_and_only_template_are_model_visible (test_prepare.PreparationTests.test_exact_bases_and_only_template_are_model_visible) ... ERROR
+test_failed_or_missing_task_controls_cannot_freeze (test_prepare.PreparationTests.test_failed_or_missing_task_controls_cannot_freeze) ... ok
+test_mixed_task_gate_is_rejected_even_when_profiles_individually_pinned (test_prepare.PreparationTests.test_mixed_task_gate_is_rejected_even_when_profiles_individually_pinned) ... ok
+test_source_drift_is_rejected_before_payload_creation (test_prepare.PreparationTests.test_source_drift_is_rejected_before_payload_creation) ... ok
+
+======================================================================
+ERROR: test_exact_bases_and_only_template_are_model_visible (test_prepare.PreparationTests.test_exact_bases_and_only_template_are_model_visible)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/pilot/test_prepare.py", line 52, in test_exact_bases_and_only_template_are_model_visible
+    with mock.patch.object(prepare,'ROOT',root):result=prepare.prepare(root/'inputs.json',root/'pilot/frozen-001')
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/pilot/prepare.py", line 86, in prepare
+    validate_scope(scope);validate_frozen_budget(ROOT,scope)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/execution-001/allocation.py", line 105, in validate_frozen_budget
+    return binding,raw,validate_budget(budget,binding,scope)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/execution-001/allocation.py", line 68, in validate_budget
+    require(current["execution_id"]==binding["allocation_id"]
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/execution-001/runtime.py", line 28, in require
+    raise native.EvidenceError(message)
+review_native.EvidenceError: Current allocation is not fresh exact eight-slot scope
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.059s
+
+FAILED (errors=1)

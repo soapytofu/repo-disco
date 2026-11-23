@@ -1,0 +1,27 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT",
+    "kind": "method",
+    "path": "growth/StableFilterBelow.dfy",
+    "template_utf8": "module RepoDiscoStableFilter {\n  import DA = Std.DynamicArray\n  export\n    reveals KeepBelow\n    provides DA, StableFilterBelow\n\n  function KeepBelow(xs: seq<int>, limit: int): seq<int>\n    ensures |KeepBelow(xs, limit)| <= |xs|\n    decreases |xs|\n  {\n    if |xs| == 0 then []\n    else KeepBelow(xs[..|xs| - 1], limit) +\n         (if xs[|xs| - 1] < limit then [xs[|xs| - 1]] else [])\n  }\n\n  method StableFilterBelow(a: DA.DynamicArray<int>, limit: int)\n      returns (removed: nat)\n    requires a.Valid?()\n    requires a.size == |a.items|\n    reads a, a.Repr\n    modifies a.Repr\n    ensures a.Valid?()\n    ensures a.size == |a.items|\n    ensures a.items == KeepBelow(old(a.items), limit)\n    ensures removed + a.size == old(a.size)\n    ensures fresh(a.Repr - old(a.Repr))\n    decreases a.size\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": null,
+  "project": "stdlib-filter",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 1,
+  "stage_id": "stable-filter-below",
+  "verification_inputs": [
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+    "growth/StableFilterBelow.dfy"
+  ]
+}

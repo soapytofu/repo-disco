@@ -1,0 +1,5 @@
+    if count == 0 then Success(Batch([], input))
+    else
+      var first := F.ReadU16Frame(input);
+      if first.Failure? then Failure(first.error)
+      else Success(Batch([first.value.payload], first.value.rest))
