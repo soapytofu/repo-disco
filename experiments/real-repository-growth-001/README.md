@@ -1,5 +1,15 @@
 # Sequential additions to qualified real repositories
 
+**Current collection stopped:** Sophie separately approved up to eight new calls for
+[execution-003](execution-003/approval-receipt-001.json), with no retries or
+reassignment. **Job 62950853 ended with AccessDeniedException** after 2m42s,
+before a model response or native verifier call. Its one reservation is
+unscored, seven slots remain unused and the ledger is closed. The
+[full 23-file archive and successful evidence review](execution-003/RESULTS.md)
+are published separately from the earlier credential bug. AWS's detailed
+denial message was not saved; account-owner access investigation is needed.
+Sequential model growth is still unmeasured. No active job or retry exists.
+
 Prepared November 18, 2026. This is **nonpaid task construction and verifier-only
 qualification**, followed by bounded-runner preparation. On November 22,
 Sophie explicitly approved at most eight new requests with no retries or
@@ -14,7 +24,7 @@ credential-lifetime bug. One reservation is unscored, seven slots remain unused,
 and the ledger is closed. No sequential-growth model score exists. The corrected
 [execution-003](execution-003/preparation-review-001.json) is now ready after
 76 Cannon offline tests and three exact-SDK scenarios, without further provider
-calls. A separate paid execution decision remains required.
+calls. The subsequent separate execution approval is recorded above.
 Both complete analyst reference scopes now verify. The
 [11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
 expectation. Together with the two full references, all 25 source controls match:
@@ -249,4 +259,5 @@ and three exact-SDK scenarios. It retains partial logs, cleans up the complete
 offline process group before evidence capture, and uses a larger test-only time
 allowance. Model/provider and native-verifier bounds are unchanged. Six complete
 preflight artifacts and the full transcript are saved with the reviewed freeze.
-No new paid authorization, model output or submission exists.
+At preparation release no paid authorization, model output or submission
+existed; the subsequent fresh collection is recorded at the top of this page.

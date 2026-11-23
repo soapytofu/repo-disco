@@ -10,7 +10,31 @@ Status: November 22, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 22: eight-call real-repository growth pilot approved
+## November 22: corrected growth collection stopped on access denial
+
+Sophie separately approved **up to eight new calls, no retries or reassignment**
+for execution-003 and renewed the private handoff. The
+[fresh approval](../experiments/real-repository-growth-001/execution-003/approval-receipt-001.json)
+preserves every earlier terminal ledger. Final read-only checks matched all
+4,164 runtime inputs, both images and all 287 Dafny/3,873 Vest tool files; there
+was no matching job, output or ledger. The frozen runner was submitted once as
+**job 62950853**, one CPU, 8 GB, four hours and no requeue. While pending on
+priority, it was moved **in place** from `shared` to live-confirmed
+nonpreemptible `test`, preserving resources, code, prompts and call cap.
+It ended `FAILED` after **2m42s** with **AccessDeniedException**, one closed
+unscored reservation, **zero returned responses and zero native invocations**.
+The seven unused slots stay unused; no retry or restart is authorized. Full
+[results and 23-file evidence](../experiments/real-repository-growth-001/execution-003/RESULTS.md)
+are preserved. The unchanged reviewer and exact source/transfer/prompt audit
+pass. No active job remains and no generation or lineage score exists.
+
+The frozen error path retained only the exception class, not AWS's denial
+message, request ID or HTTP status. The specific access restriction is unknown;
+an account-owner check of existing settings/logs is pending. No key or model
+test is requested. This is distinct from the prior host credential-lifetime
+bug and provides no evidence about the model's reasoning performance.
+
+## November 22: initial growth attempt and correction history
 
 Sophie explicitly approved the frozen maximum of eight new calls, with no
 retries or reassignment. The [approval receipt](../experiments/real-repository-growth-001/execution-001/approval-receipt-001.json)
@@ -25,14 +49,13 @@ these checks.
 
 The exact runner was submitted **once as job 62928981**, one CPU, 8 GB, four
 hours, no requeue. The fresh authorization binds the approved eight-call scope,
-one runtime/output and a 24-hour expiry. Its initial status is pending, with no
+one runtime/output and a 24-hour expiry. Its initial status was pending, with no
 model output. Submission, authorization and pre-submit records are saved in
 [execution-001](../experiments/real-repository-growth-001/execution-001/).
-No second submission or alternate runner is permitted; the next step is to
-follow this job and audit its full evidence. A subsequent live check found
+No second submission or alternate runner was used. A subsequent live check found
 `test` UP with `PreemptMode=OFF` and a 12-hour maximum, sufficient for the fixed
 four-hour request. The same pending job was moved in place from `shared` to
-`test`, started immediately on holy8a26602, and retains one CPU/8 GB,
+`test`, started immediately on holy8a26602, and retained one CPU/8 GB,
 `Requeue=0`, `Restarts=0`, the original submission ID and unchanged frozen
 code/prompts/call cap. The scheduling inspection, single update and before/after
 records are preserved separately. No duplicate submission occurred.
@@ -51,10 +74,10 @@ reproduces the credential bug: the host removed the bearer environment variable
 after client creation, before request-time authentication. Corrected scoped
 handling passes two fake-response calls and a terminal-error/no-retry check.
 All socket connections are blocked; zero network/provider/native calls or real
-credential reads occur. A separate execution-002 is being tested, with an
+credential reads occurred. A separate execution-002 was tested, with an
 independent [research assessment](nada-research-assessment-2026-11-24.md) of
-existing results and reevaluation criteria. No replacement execution is yet
-authorized, and the stopped ledger must not be reused.
+existing results and reevaluation criteria. At that point no replacement
+execution was authorized; the stopped ledger must never be reused.
 
 The separately frozen execution-002 passed 70 isolated offline tests and root
 plus independent source review. Its Cannon preflight then exceeded the
@@ -76,15 +99,17 @@ and normal-exit cleanup were independently reviewed. Six raw preflight files
 were reconstructed byte-exactly, all 4,164 runtime pins match, and old freezes,
 scores, prompts, parent rules and model/native limits are unchanged. Runtime
 SHA `e1ae9aa8b156f594c30e0ae17455577ed61c0b36e0520712929cb76c1b318711`
-is staged. No authorization, new model output or submission exists. A fresh
-up-to-eight-call decision is still required; earlier unused slots stay closed.
+was staged without an authorization, new model output or submission. The
+subsequent fresh eight-call approval is recorded above; earlier unused slots
+stay closed.
 
 The [November 24 meeting brief](nada-2026-11-24-results-brief.md) distinguishes
 the completed real-source repair result (7/16 original qualified accepts),
-separate syntax/resource diagnoses, 25 native growth controls and still-unrun
+separate syntax/resource diagnoses, 25 native growth controls and still-unmeasured
 model growth. It records the design rationale, scope limitations and lineage
-metrics to report after collection. The critical path is one bounded execution,
-complete evidence review and concrete success/failure cases for the meeting.
+metrics to report after collection. Owner-side access investigation and a
+separately authorized collection are prerequisites to any growth performance
+claim. The existing repair/resource evidence is available for the meeting.
 
 ## November 18: real-repository growth qualified; bounded pilot runner ready
 

@@ -1,0 +1,136 @@
+{
+  "schema": "repodisco-sequential-growth-run-v1",
+  "run_id": "growth-a6c78a382844481fa321005635ae8e38",
+  "synthetic": false,
+  "model_calls_authorized": 8,
+  "package": {
+    "runtime_sha256": "e1ae9aa8b156f594c30e0ae17455577ed61c0b36e0520712929cb76c1b318711",
+    "proposal_sha256": "9f2e4c9602b4ce98740f2a3fa1dcf7bbef07d2b0693db8d92d9cc55546820f0c",
+    "protocol_sha256": "9cf8cc81bd55f83a591c04c2877ab9a0ece3927fcddc31f6f3d42d7953d42057",
+    "policy_sha256": "ff6b8cecf1c1f1140e0b7fb1c27be0aa66c5c0f81be14767cf2b49b74bcefac1",
+    "order": [
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vmc-lineage-01",
+        "maximum_requests": 1,
+        "ordinal": 1,
+        "parent_slot": null,
+        "project": "dafny-vmc",
+        "retry": false,
+        "slot_id": "slot-01",
+        "stage": 1,
+        "stage_id": "vmc-move"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vest-lineage-01",
+        "maximum_requests": 1,
+        "ordinal": 2,
+        "parent_slot": null,
+        "project": "vest",
+        "retry": false,
+        "slot_id": "slot-02",
+        "stage": 1,
+        "stage_id": "vest-frame"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vmc-lineage-01",
+        "maximum_requests": 1,
+        "ordinal": 3,
+        "parent_slot": "slot-01",
+        "project": "dafny-vmc",
+        "retry": false,
+        "slot_id": "slot-03",
+        "stage": 2,
+        "stage_id": "vmc-pair"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vest-lineage-01",
+        "maximum_requests": 1,
+        "ordinal": 4,
+        "parent_slot": "slot-02",
+        "project": "vest",
+        "retry": false,
+        "slot_id": "slot-04",
+        "stage": 2,
+        "stage_id": "vest-batch"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vest-lineage-02",
+        "maximum_requests": 1,
+        "ordinal": 5,
+        "parent_slot": null,
+        "project": "vest",
+        "retry": false,
+        "slot_id": "slot-05",
+        "stage": 1,
+        "stage_id": "vest-frame"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vmc-lineage-02",
+        "maximum_requests": 1,
+        "ordinal": 6,
+        "parent_slot": null,
+        "project": "dafny-vmc",
+        "retry": false,
+        "slot_id": "slot-06",
+        "stage": 1,
+        "stage_id": "vmc-move"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vest-lineage-02",
+        "maximum_requests": 1,
+        "ordinal": 7,
+        "parent_slot": "slot-05",
+        "project": "vest",
+        "retry": false,
+        "slot_id": "slot-07",
+        "stage": 2,
+        "stage_id": "vest-batch"
+      },
+      {
+        "blocked_slot_reassignment": false,
+        "fresh_model_context": true,
+        "lineage_id": "vmc-lineage-02",
+        "maximum_requests": 1,
+        "ordinal": 8,
+        "parent_slot": "slot-06",
+        "project": "dafny-vmc",
+        "retry": false,
+        "slot_id": "slot-08",
+        "stage": 2,
+        "stage_id": "vmc-pair"
+      }
+    ],
+    "settings": {
+      "api_shape": "bedrock.converse",
+      "availability_tested": false,
+      "execution_authorized": false,
+      "inference_config": {
+        "maxTokens": 4096,
+        "temperature": 1.0
+      },
+      "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+      "new_context_per_slot": true,
+      "region": "us-east-1",
+      "sdk_total_max_attempts_if_executed": 1
+    }
+  },
+  "deadline": 1795489333,
+  "no_resume": true,
+  "started_at_epoch": 1795403141.8080914,
+  "authorization_sha256": "88dfbd16c9827c1f856d9831b64874c4c00a1050f07ad4f17eca14e91d6cd95e",
+  "execution_claim_sha256": "58033d2e17d64df9616b925ff9d855d131495ca5aac7c460c0b1e3924078983c"
+}

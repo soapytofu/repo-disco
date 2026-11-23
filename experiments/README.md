@@ -1,6 +1,19 @@
 # Experiment log
 
-## Sequential real-source growth — corrected runner ready; new decision pending
+## Sequential real-source growth — access-denied collection preserved
+
+Sophie separately approved up to eight new calls for
+[execution-003](real-repository-growth-001/execution-003/approval-receipt-001.json)
+and renewed the private handoff. After fresh source/tool/output/queue checks,
+**job 62950853** was submitted once and moved in place from `shared` to
+live-confirmed nonpreemptible `test`, with one CPU, 8 GB, a four-hour limit,
+no requeue and unchanged prompts. It stopped after **2m42s** with
+`AccessDeniedException`: one closed unscored reservation, zero returned model
+responses, zero native calls and seven unused slots. The full
+[23-file archive and successful evidence review](real-repository-growth-001/execution-003/RESULTS.md)
+are saved. The detailed provider denial message was not preserved, so access
+diagnosis requires the account owner. There is no growth score or active job;
+this and every older stopped ledger remain closed.
 
 On November 22, Sophie [approved up to eight new calls](real-repository-growth-001/execution-001/approval-receipt-001.json),
 with no retries or reassignment. After reconnection and read-only source/tool,
@@ -15,14 +28,15 @@ checks, one closed unscored reservation and seven unused slots. The
 are preserved; no complete-pilot score exists. The
 [exact-SDK offline diagnostic](real-repository-growth-001/credential-diagnostic-001/README.md)
 reproduces the token-lifetime bug and validates corrected handling without any
-network access. The separately versioned runner is ready for a new execution
-decision; no restart or replacement collection is authorized.
+network access. That preparation alone did not authorize a restart or
+replacement collection; the subsequent fresh approval is recorded above.
 Execution-002 passed 70 isolated offline tests, but its Cannon test suite
 exceeded the 220-second preflight bound. That frozen package and failure are
 preserved. The final [execution-003 preparation](real-repository-growth-001/execution-003/preparation-review-001.json)
 passed **76/76 Cannon offline tests and three SDK scenarios**, with complete
-logs, process-group cleanup and unchanged model/native limits. It is staged
-without authorization or a submission. These are preparation results, not
+logs, process-group cleanup and unchanged model/native limits. It was staged
+without authorization or a submission before the fresh approval above. These
+are preparation results, not
 model growth or native proof outcomes.
 The [November 24 meeting brief](../docs/nada-2026-11-24-results-brief.md) separates
 the existing real-repository repair evidence from the pending sequential-growth result.
