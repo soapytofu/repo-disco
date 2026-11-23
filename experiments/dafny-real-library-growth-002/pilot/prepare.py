@@ -12,7 +12,7 @@ from runtime import TASK_ORDER, canonical, read_json, require, save, save_bytes,
 from allocation import validate_frozen_budget
 
 SYSTEM='You are extending a Dafny library component under fixed contracts. Return exactly one JSON object with exactly one key, "body", whose string value contains only the replacement body. Do not include a new signature, surrounding method/function braces, imports, declarations, or changes to other files.'
-INSTRUCTIONS='''Implement the marked body so that the entire supplied verification scope passes the pinned Dafny verifier. All source files other than that body are fixed. Preserve the public contracts, specification helpers, return types, imports and termination clauses exactly. You may call the supplied APIs and use ordinary Dafny statements/expressions, loops, invariants, assertions, calc blocks and reveal where the language permits. No new declarations, assume/admit/axiom/expect, attributes or decreases * are allowed. A direct implementation is permitted; API-call presence is measured separately from verification. You receive one attempt, no later verifier feedback and no repair opportunity. Return the complete body, including every proof assertion needed. Escape newlines and quotes correctly in JSON. The editable body is a method statement sequence or a function expression as indicated below; omit the host-owned outer braces and marker comments.'''
+INSTRUCTIONS='''Implement the marked body so that the entire supplied verification scope passes the pinned Dafny verifier. All source files other than that body are fixed. Preserve the public contracts, specification helpers, return types, imports and termination clauses exactly. You may call the supplied APIs and use ordinary Dafny statements/expressions, loops, invariants, assertions, calc blocks and reveal where the language permits. Local variables and local ghost variables are allowed. Do not add module, type, function, method or lemma declarations, assume/admit/axiom/expect, attributes or decreases *. A direct implementation is permitted; API-call presence is measured separately from verification. You receive one attempt, no later verifier feedback and no repair opportunity. Return the complete body, including every proof assertion needed. Escape newlines and quotes correctly in JSON. The editable body is a method statement sequence or a function expression as indicated below; omit the host-owned outer braces and marker comments.'''
 
 
 def pinned(root,entry):
@@ -42,7 +42,7 @@ def prepare(inputs_path, output):
     runtime_inputs={inputs_path.relative_to(ROOT).as_posix(),inputs['control_gate']['path'],
         'execution-001/ops.py','execution-001/test_ops.py','execution-001/model.sbatch',
         'execution-001/execution-binding.json','execution-001/budget-snapshot.json',
-        'pilot/test_render.py','pilot/prepare.py','pilot/render.py'}
+        'pilot/test_render.py','pilot/test_prepare.py','pilot/prepare.py','pilot/render.py'}
     for task in TASK_ORDER:
         spec=inputs['tasks'][task]
         task_gate=gate.get('tasks',{}).get(task)

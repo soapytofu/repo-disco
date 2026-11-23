@@ -25,7 +25,7 @@ def fixture(root):
     _,binding=binding_fixture(root,config,stage_external=False)
     put(root,'execution-001/execution-binding.json',binding)
     for name in ['execution-001/ops.py','execution-001/test_ops.py','execution-001/model.sbatch',
-                 'pilot/test_render.py','pilot/prepare.py','pilot/render.py']:
+                 'pilot/test_render.py','pilot/test_prepare.py','pilot/prepare.py','pilot/render.py']:
         put(root,name,b'# SYNTHETIC FIXTURE ONLY\n')
     # The binding fixture uses a different frozen input path; preserve exact bytes.
     put(root,'execution-001/budget-snapshot.json',(root/binding['budget_snapshot_input']).read_bytes())

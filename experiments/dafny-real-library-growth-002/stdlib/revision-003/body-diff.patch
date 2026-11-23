@@ -1,0 +1,49 @@
+--- stdlib/revision-002/bodies/filter-reference.txt
++++ stdlib/revision-003/bodies/filter-reference.txt
+@@ -19,6 +19,10 @@
+       assert original[..read + 1][read] == value;
+       assert KeepBelow(original[..read + 1], limit) ==
+         KeepBelow(original[..read], limit) + (if value < limit then [value] else []);
++      assert a.items[read..][1..] == original[read..][1..];
++      assert a.items[read + 1..] == a.items[read..][1..];
++      assert original[read + 1..] == original[read..][1..];
++      assert a.items[read + 1..] == original[read + 1..];
+       if value < limit {
+         ghost var previous := a.items;
+         a.Put(write, value);
+@@ -27,6 +31,7 @@
+         assert a.items[read + 1..] == previous[read + 1..];
+         write := write + 1;
+       }
++      assert a.items[read + 1..] == original[read + 1..];
+       read := read + 1;
+     }
+     assert read == originalSize;
+--- stdlib/revision-002/bodies/splice-reference.txt
++++ stdlib/revision-003/bodies/splice-reference.txt
+@@ -11,8 +11,10 @@
+       Append.AppendAll(a, replacement[..growth]);
+       assert a.size == targetSize;
+       var remaining: nat := suffixCount;
++      label ShiftStart:
+       while remaining > 0
+         modifies a, a.Repr
++        invariant fresh@ShiftStart(a.Repr - old@ShiftStart(a.Repr))
+         invariant fresh(a.Repr - old(a.Repr))
+         invariant a.Valid?()
+         invariant a.size == targetSize == |a.items|
+@@ -108,6 +110,14 @@
+       assert replacement[..index + 1] == replacement[..index] + [replacement[index]];
+       index := index + 1;
+     }
++    assert index == replacementSize;
++    assert replacement[..index] == replacement;
++    assert a.items[position..position + replacementSize] == replacement;
++    assert a.items[..position + replacementSize] ==
++              a.items[..position] + a.items[position..position + replacementSize];
++    assert a.items[..targetSize] ==
++              a.items[..position + replacementSize] +
++              a.items[position + replacementSize..targetSize];
+     assert a.items[..targetSize] ==
+               original[..position] + replacement + original[sourceStart..];
+     while a.size > targetSize

@@ -1,0 +1,29 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT",
+    "kind": "method",
+    "path": "growth/SpliceRange.dfy",
+    "template_utf8": "module RepoDiscoSplice {\n  import DA = Std.DynamicArray\n  import Append = RepoDiscoStdAppend\n  export provides DA, Append, Splice\n\n  method Splice<T>(a: DA.DynamicArray<T>, position: nat,\n                   deleteCount: nat, replacement: seq<T>)\n    requires a.Valid?()\n    requires a.size == |a.items|\n    requires position + deleteCount <= a.size\n    reads *\n    modifies a, a.Repr\n    ensures a.Valid?()\n    ensures a.size == |a.items|\n    ensures a.items == old(a.items)[..position] + replacement +\n                       old(a.items)[position + deleteCount..]\n    ensures a.size == old(a.size) - deleteCount + |replacement|\n    ensures fresh(a.Repr - old(a.Repr))\n    decreases a.size + |replacement|\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": null,
+  "project": "stdlib-splice",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 1,
+  "stage_id": "splice-range",
+  "verification_inputs": [
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+    "growth/AppendAll.dfy",
+    "growth/SpliceRange.dfy"
+  ]
+}
