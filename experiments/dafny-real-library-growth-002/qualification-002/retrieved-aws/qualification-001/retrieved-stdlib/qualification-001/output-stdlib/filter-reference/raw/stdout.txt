@@ -1,0 +1,28 @@
+growth/StableFilterBelow.dfy(35,24): Error: insufficient reads clause to invoke function
+   |
+35 |       invariant a.Valid?()
+   |                         ^
+
+growth/StableFilterBelow.dfy(60,28): Error: assertion might not hold
+   |
+60 |     assert a.items[..write] == KeepBelow(original, limit);
+   |                             ^^
+
+growth/StableFilterBelow.dfy(62,24): Error: insufficient reads clause to invoke function
+   |
+62 |       invariant a.Valid?()
+   |                         ^
+
+growth/StableFilterBelow.dfy(69,15): Error: call might violate context's modifies clause
+   |
+69 |       a.PopFast();
+   |                ^
+
+growth/StableFilterBelow.dfy(69,15): Error: insufficient reads clause to call
+   |
+69 |       a.PopFast();
+   |                ^
+
+
+Dafny program verifier finished with 58 verified, 5 errors
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-001/stdlib/qualification-001/output-stdlib/filter-reference/workspace/TestResults/2026-11-23_14_35_54-0.csv

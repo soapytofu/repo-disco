@@ -17,12 +17,17 @@ coverage controls must be reviewed before collection. The initial AWS references
 pass, the revised filter passes all 59 native units, and the existing splice
 alternative passes all 60 units under unchanged contracts and resource limits.
 The shift-based splice reference's resource failure remains preserved separately.
-Exact inventory mapping and the remaining 26 controls precede model collection.
+Exact inventory mapping passed. The first 26 controls produced 24 matching
+expectations and two splice resource failures, preserved separately. Two
+replacement controls based on the passing rebuild implementation remain before
+model collection; no prior observation is rerun or rescored.
 See [initial native results](qualification-001/RESULTS.md) and
 [revised reference results](qualification-003/RESULTS.md), and
 [passing filter / remaining splice diagnostic](qualification-004/RESULTS.md),
 the [splice resource failure](qualification-005/RESULTS.md), and the
 [passing splice alternative](qualification-006/RESULTS.md).
+The [control results](qualification-002/RESULTS.md) distinguish ordinary proof
+failures, omitted coverage and resource exhaustion.
 Only the current method/function body is editable; types,
 contracts, fixed specification helpers, upstream files, saved accepted code,
 termination clauses and the explicit source registration remain host-owned.

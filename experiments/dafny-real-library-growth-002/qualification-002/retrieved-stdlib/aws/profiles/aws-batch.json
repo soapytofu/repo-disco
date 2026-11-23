@@ -1,0 +1,31 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT\n",
+    "kind": "function",
+    "path": "StandardLibrary/src/RepoDiscoFrameBatch.dfy",
+    "template_utf8": "include \"RepoDiscoU16Frame.dfy\"\n\nmodule RepoDiscoFrameBatch {\n  import U = StandardLibrary.UInt\n  import F = RepoDiscoU16Frame\n  import opened Wrappers\n\n  datatype Batch = Batch(payloads: seq<seq<U.uint8>>, rest: seq<U.uint8>)\n\n  predicate method HasCountedFrames(input: seq<U.uint8>, count: nat)\n    decreases count\n  {\n    count == 0 ||\n      (F.HasFrame(input) && HasCountedFrames(F.FrameRest(input), count - 1))\n  }\n\n  predicate method BoundedPayloads(payloads: seq<seq<U.uint8>>)\n    decreases |payloads|\n  {\n    |payloads| == 0 ||\n      (U.HasUint16Len(payloads[0]) && BoundedPayloads(payloads[1..]))\n  }\n\n  function method EncodeFrames(payloads: seq<seq<U.uint8>>): seq<U.uint8>\n    requires BoundedPayloads(payloads)\n    decreases |payloads|\n  {\n    if |payloads| == 0 then []\n    else U.UInt16ToSeq(|payloads[0]| as U.uint16) + payloads[0] +\n         EncodeFrames(payloads[1..])\n  }\n\n  function method {:opaque} ReadCountedFrames(input: seq<U.uint8>, count: nat)\n    : (result: Result<Batch, string>)\n    ensures result.Success? <==> HasCountedFrames(input, count)\n    ensures result.Success? ==> |result.value.payloads| == count\n    ensures result.Success? ==> BoundedPayloads(result.value.payloads)\n    ensures result.Success? ==>\n      input == EncodeFrames(result.value.payloads) + result.value.rest\n    ensures result.Success? ==>\n      result.value.rest == input[|EncodeFrames(result.value.payloads)|..]\n    decreases count\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": null,
+  "project": "aws-batch",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 1,
+  "stage_id": "aws-batch",
+  "verification_inputs": [
+    "StandardLibrary/src/UInt.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Wrappers.dfy",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "StandardLibrary/src/RepoDiscoFramePair.dfy",
+    "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+  ]
+}

@@ -1,0 +1,28 @@
+growth/SpliceRange.dfy(34,26): Error: insufficient reads clause to invoke function
+   |
+34 |         invariant a.Valid?()
+   |                           ^
+
+growth/SpliceRange.dfy(39,25): Error: upper bound below lower bound or above length of sequence
+   |
+39 |         invariant a.items[..sourceStart + remaining] ==
+   |                          ^
+
+growth/SpliceRange.dfy(40,26): Error: upper bound below lower bound or above length of sequence
+   |
+40 |                   original[..sourceStart + remaining]
+   |                           ^
+
+growth/SpliceRange.dfy(41,25): Error: lower bound out of range
+   |
+41 |         invariant a.items[position + replacementSize + remaining..] ==
+   |                          ^
+
+growth/SpliceRange.dfy(42,26): Error: lower bound out of range
+   |
+42 |                   original[sourceStart + remaining..]
+   |                           ^
+
+
+Dafny program verifier finished with 59 verified, 5 errors
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-001/stdlib/qualification-001/output-stdlib/splice-reference/workspace/TestResults/2026-11-23_14_36_00-0.csv

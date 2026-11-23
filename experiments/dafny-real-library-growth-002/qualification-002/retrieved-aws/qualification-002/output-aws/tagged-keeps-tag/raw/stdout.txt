@@ -1,0 +1,18 @@
+StandardLibrary/src/RepoDiscoTaggedFramePair.dfy(44,10): Error: a postcondition could not be proved on this return path
+   |
+44 |           Failure("Payload budget exceeded")
+   |           ^^^^^^^
+
+StandardLibrary/src/RepoDiscoTaggedFramePair.dfy(20,12): Related location: this is the postcondition that could not be proved
+   |
+20 |     ensures result.Success? <==> IsTaggedBounded(input, tag, budget)
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+StandardLibrary/src/RepoDiscoTaggedFramePair.dfy(50,17): Error: assertion might not hold
+   |
+50 |           assert pair.left == [tag] + payload;
+   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 78 verified, 2 errors
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-002/aws/qualification-002/output-aws/tagged-keeps-tag/workspace/TestResults/2026-11-23_16_17_42-0.csv
