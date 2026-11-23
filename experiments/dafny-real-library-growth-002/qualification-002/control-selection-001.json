@@ -1,0 +1,98 @@
+{
+  "exclusions": [
+    {
+      "actual_category": "RESOURCE_FAILURE",
+      "case_id": "splice-reference",
+      "job_id": "63168106",
+      "native_review": {
+        "path": "qualification-005/reviews/native-stdlib-001.json",
+        "sha256": "1955ab3e0c193d327409dc2b8d2c25f7d0cf6f66254420e443a77d2d3b745495"
+      },
+      "original_expected_category": "PROOF_PASS",
+      "raw_sha256": {
+        "csv/TestResults/2026-11-23_15_08_19-0.csv": "070c2ea42d28d0f4c5ed0afbeff7ac9973bdd155db0cd959a5c109b3f3cddb4e",
+        "resources.txt": "cd695f7b38783b2ff35097f9031d92d5377bcf9959c6e3977ac4bba82a49988f",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.txt": "205493025ccbddbb4cd092b06ce17ba31e052c7e8ff6368ae7aeda5eebd84063"
+      },
+      "record_sha256": "ceafabe8c8c3e0d8ca0166ad5ca26bff7c9221dd72c6bd9236682688f1f74601",
+      "rerun_enabled": false,
+      "score_changed": false,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "845daddcae626a6572494e41f7e60c431b9b237e39136391e6a232241f255690"
+      }
+    }
+  ],
+  "model_calls": 0,
+  "old_native_results_unchanged": true,
+  "original_catalogs": {
+    "aws": {
+      "count": 14,
+      "path": "aws/cases.json",
+      "sha256": "d1e6223700dee01b0896b3aae979d1ee4860b5a7cf0cdabf23db3aa52eaa8afb"
+    },
+    "stdlib": {
+      "count": 17,
+      "path": "stdlib/revision-004/cases.json",
+      "sha256": "b7b2d33d26d311b0c9ce4d59a5177c637c0dc969e80378c3efc62d182d5c65ec"
+    }
+  },
+  "original_fixture_catalog_count": 31,
+  "original_fixture_expectations_unchanged": true,
+  "planned_active_matrix_count": 30,
+  "planned_expected_categories": {
+    "COVERAGE_OMISSION": 4,
+    "PROOF_FAILURE": 21,
+    "PROOF_PASS": 5
+  },
+  "prior_draft": {
+    "path": "qualification-002/selection-history-001/manifest.json",
+    "sha256": "cfb2c4148045ef5759c47777ea093ae8bf1f7af52887eb18268e6b87ca31d83e"
+  },
+  "remaining_control_ids": {
+    "aws": [
+      "counted-always-failure",
+      "counted-missing-tail",
+      "counted-omitted",
+      "counted-reversed-payloads",
+      "counted-unproved-frame",
+      "counted-wrong-suffix",
+      "tagged-always-failure",
+      "tagged-keeps-tag",
+      "tagged-omitted",
+      "tagged-skips-budget",
+      "tagged-skips-tag",
+      "tagged-unproved-pair"
+    ],
+    "stdlib": [
+      "filter-alternative",
+      "filter-empty",
+      "filter-inclusive-threshold",
+      "filter-no-tail-pop",
+      "filter-wrong-write-index",
+      "filter-missing-prefix-invariant",
+      "filter-omitted",
+      "splice-empty",
+      "splice-growth-wrong-order",
+      "splice-wrong-replacement-offset",
+      "splice-no-tail-pop",
+      "splice-missing-growth-call",
+      "splice-unproved-seed",
+      "splice-omitted"
+    ]
+  },
+  "remaining_controls": 26,
+  "schema": "repodisco-control-matrix-selection-v1",
+  "selected_alternative_native_status": "UNKNOWN",
+  "selected_reference_ids": {
+    "aws-batch": "counted-reference",
+    "aws-tagged": "tagged-reference",
+    "stdlib-filter": "filter-reference",
+    "stdlib-splice": "splice-alternative"
+  },
+  "status": "AWAITING_ALTERNATIVE_NATIVE_REFERENCE_GATE"
+}

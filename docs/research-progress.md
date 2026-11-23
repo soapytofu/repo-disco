@@ -10,6 +10,24 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 23: four more varied additions under qualification
+
+[Varied library growth](../experiments/dafny-real-library-growth-002/) adds stable
+array filtering, generic range splicing, counted frame decoding and tagged,
+size-bounded frame validation. Native references currently pass 59, 81 and 79
+units for filter, counted frames and tagged frames, preserving every inherited
+unit. The shifting splice reference exhausts the unchanged 1M resource limit;
+all proof revisions and failures are published. Its already-constructed rebuild
+alternative is staged for a first native check under the same limit.
+
+The Cannon connection closed during read-only pre-submission inspection; no
+alternative job was submitted. One reconnect question is pending. Remaining
+controls, exact prompts and final runtime review precede collection. The planned
+eight independent calls (four tasks twice, no retries) are allocated within the
+approved 100-call ceiling: 36 allocated, 64 unallocated, still 19 returned from
+earlier cohorts. No request from this new study has been dispatched. Existing
+model results are unchanged; these new analyst observations are not model scores.
+
 ## November 23: twelve executable Dafny additions verified
 
 The new [library growth collection](../experiments/dafny-real-library-growth-001/execution-001/COLLECTION.md)

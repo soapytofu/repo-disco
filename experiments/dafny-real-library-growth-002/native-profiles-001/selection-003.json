@@ -1,0 +1,80 @@
+{
+  "excluded_observations": [
+    "qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference",
+    "qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference",
+    "qualification-003/retrieved-stdlib/qualification-003/output-stdlib/filter-reference",
+    "qualification-003/retrieved-stdlib/qualification-003/output-stdlib/splice-reference",
+    "qualification-004/retrieved-stdlib/qualification-004/output-stdlib/splice-reference"
+  ],
+  "inherited_exclusion_profiles": [
+    "qualification-001/inherited-profiles/stdlib-stage0.json",
+    "qualification-001/inherited-profiles/stdlib-stage1.json",
+    "qualification-001/inherited-profiles/aws-stage2.json"
+  ],
+  "note": "Stable-filter reuses the exact q004 observation over revision003 bytes now copied identically into revision004. Both manifests/workspace source maps must match the observation. Splice remains unselected until its distinct upcoming q005 reference succeeds. AWS q001 observations are reused unchanged; no aggregate gate or new native call.",
+  "original_fixture_manifests": {
+    "aws": {
+      "path": "aws/manifest.json",
+      "sha256": "9cce99dce4ff750f460f5eb2c0c7a98fb35b65b68fb4d5f7226a595d54569315"
+    },
+    "stdlib": {
+      "path": "stdlib/manifest.json",
+      "sha256": "e979b605b1b908a7348e2c81c37e6d88f0000fba029d195aa3542a60ee7c403d"
+    }
+  },
+  "schema": "dafny-growth-reference-selection-v1",
+  "tasks": {
+    "aws-batch": {
+      "base_sources": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/UInt.dfy": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy": "aws/seed/workspace/libraries/src/Wrappers.dfy"
+      },
+      "case_id": "counted-reference",
+      "edit_profile": "aws/profiles/aws-batch.json",
+      "family": "aws",
+      "fixture_manifest": "aws/manifest.json",
+      "inherited_profile": "qualification-001/inherited-profiles/aws-stage2.json",
+      "observation": "qualification-001/retrieved-aws/qualification-001/output-aws/counted-reference",
+      "runtime_root": "qualification-001",
+      "target": "RepoDiscoFrameBatch.ReadCountedFrames"
+    },
+    "aws-tagged": {
+      "base_sources": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/UInt.dfy": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy": "aws/seed/workspace/libraries/src/Wrappers.dfy"
+      },
+      "case_id": "tagged-reference",
+      "edit_profile": "aws/profiles/aws-tagged.json",
+      "family": "aws",
+      "fixture_manifest": "aws/manifest.json",
+      "inherited_profile": "qualification-001/inherited-profiles/aws-stage2.json",
+      "observation": "qualification-001/retrieved-aws/qualification-001/output-aws/tagged-reference",
+      "runtime_root": "qualification-001",
+      "target": "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+    },
+    "stdlib-filter": {
+      "base_sources": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy"
+      },
+      "case_id": "filter-reference",
+      "edit_profile": "stdlib/revision-004/profiles/stdlib-filter.json",
+      "family": "stdlib",
+      "fixture_manifest": "stdlib/revision-004/manifest.json",
+      "fixture_workspace": "stdlib/revision-004/cases/filter-reference/workspace",
+      "inherited_profile": "qualification-001/inherited-profiles/stdlib-stage0.json",
+      "observation": "qualification-004/retrieved-stdlib/qualification-004/output-stdlib/filter-reference",
+      "observed_fixture_manifest": "stdlib/revision-003/manifest.json",
+      "runtime_root": "qualification-004",
+      "target": "RepoDiscoStableFilter.StableFilterBelow"
+    },
+    "stdlib-splice": null
+  }
+}

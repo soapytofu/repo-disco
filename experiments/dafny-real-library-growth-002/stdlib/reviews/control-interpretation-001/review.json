@@ -1,0 +1,1282 @@
+{
+  "conclusions": [
+    "The five splice functional negatives have independent direct counterexamples to the fixed contract.",
+    "Complex shifting-derived negatives may still resource-fail; never credit that as an ordinary proof-failure control.",
+    "The missing filter invariant leaves executable behavior unchanged.",
+    "Helper falsity is independent; passing-client/unproved-helper requires actual named caller success.",
+    "Omission controls require exact input/inventory rejection even if native exits zero.",
+    "No minimality, causal ablation, necessary-call, model-difficulty or held-out inference."
+  ],
+  "controls": [
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/StableFilterBelow.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-alternative",
+      "interpretation": "Recursive pop/filter/reappend preserves stable order and exact removed count by induction on old size. Native proof remains required.",
+      "manual_counterexample": null,
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_PASS",
+      "planned_workspace_category": "PROOF_PASS",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "ALTERNATIVE_POSITIVE",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": false,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "74bb177ddb94ea794fcdc9aee01afdafd5596191a4b9c2aff0839f0e9e24f80c"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-alternative/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/StableFilterBelow.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-empty",
+      "interpretation": "Leaves the initial sequence unchanged.",
+      "manual_counterexample": {
+        "erased_body_items": [
+          2
+        ],
+        "erased_body_removed": 0,
+        "items": [
+          2
+        ],
+        "limit": 2,
+        "required_items": [],
+        "required_removed": 1
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "90665c03398ebefda848a992683fb0d401175ee46bd2ea448f32132e5bcfc0c4"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-empty/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/StableFilterBelow.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-inclusive-threshold",
+      "interpretation": "Retains a value equal to the strict threshold.",
+      "manual_counterexample": {
+        "erased_body_items": [
+          2
+        ],
+        "items": [
+          2
+        ],
+        "limit": 2,
+        "required_items": []
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "c79e28bc501b7367c007fd52db781b02822598b2526a7161571fca628e5f87a4"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-inclusive-threshold/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/StableFilterBelow.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-no-tail-pop",
+      "interpretation": "Compacts but does not remove the discarded tail.",
+      "manual_counterexample": {
+        "erased_body_items": [
+          2
+        ],
+        "erased_body_removed": 1,
+        "items": [
+          2
+        ],
+        "limit": 2,
+        "required_items": [],
+        "violates_removed_plus_size": true
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "1a92fd1b1c772d2d33f59a065205f85fbb8f710babb5f015569d58863fc57f77"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-no-tail-pop/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/StableFilterBelow.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-wrong-write-index",
+      "interpretation": "Writes to the read index rather than closing the gap.",
+      "manual_counterexample": {
+        "erased_body_items": [
+          5
+        ],
+        "items": [
+          5,
+          1
+        ],
+        "limit": 3,
+        "required_items": [
+          1
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "956795aeb4ab4dc278ce695c4ef369eedee7ad5122016950ed3260f5c056b8a7"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-wrong-write-index/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/StableFilterBelow.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-missing-prefix-invariant",
+      "interpretation": "Executable operations are identical to the qualified filter reference; only a proof invariant is removed. A failure would be proof-support sensitivity, and a pass must be preserved.",
+      "manual_counterexample": null,
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "PROOF_SUPPORT_ONLY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": false,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "a70affb8897e1e899567ad8b4fb5f1dad039667d5b6e36a0f89684a020a1b4a2"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-missing-prefix-invariant/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "filter-omitted",
+      "interpretation": "Exact filter-empty source is staged but the addition is excluded from native roots. Coverage must reject even exit zero.",
+      "manual_counterexample": {
+        "same_source_case": "filter-empty"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [
+        "growth/StableFilterBelow.dfy"
+      ],
+      "planned_native_category": "PROOF_PASS",
+      "planned_workspace_category": "COVERAGE_OMISSION",
+      "project": "stdlib-filter",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "COVERAGE_OMISSION",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": false,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "90665c03398ebefda848a992683fb0d401175ee46bd2ea448f32132e5bcfc0c4"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/filter-omitted/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy",
+        "growth/SpliceRange.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-empty",
+      "interpretation": "Returns without performing the range edit.",
+      "manual_counterexample": {
+        "deleteCount": 1,
+        "erased_body_items": [
+          1
+        ],
+        "items": [
+          1
+        ],
+        "position": 0,
+        "replacement": [],
+        "required_items": []
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "b2193616d010a7373c878839fbbe623286a973a297b762c6de6c0a8ddf9072f6"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-empty/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy",
+        "growth/SpliceRange.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-growth-wrong-order",
+      "interpretation": "Forward source order with backward destinations reverses the copied tail even on a nonoverlapping example.",
+      "manual_counterexample": {
+        "deleteCount": 0,
+        "erased_body_items": [
+          8,
+          9,
+          2,
+          1
+        ],
+        "items": [
+          1,
+          2
+        ],
+        "position": 0,
+        "replacement": [
+          8,
+          9
+        ],
+        "required_items": [
+          8,
+          9,
+          1,
+          2
+        ],
+        "trace_after_growth": [
+          1,
+          2,
+          8,
+          9
+        ],
+        "trace_after_shift": [
+          1,
+          2,
+          2,
+          1
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": true,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "7d6fd406da59448591a4c24441d62b7860bcc2f7ded237cbaee5cea40185fa1b"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-growth-wrong-order/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy",
+        "growth/SpliceRange.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-wrong-replacement-offset",
+      "interpretation": "Replacement overwrites the preserved prefix rather than starting at position.",
+      "manual_counterexample": {
+        "deleteCount": 1,
+        "erased_body_items": [
+          99,
+          20
+        ],
+        "items": [
+          10,
+          20
+        ],
+        "position": 1,
+        "replacement": [
+          99
+        ],
+        "required_items": [
+          10,
+          99
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": true,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "b0809ab6d148d3ec3d1c97552b13c53f29481ef40aa12f74f76c5d080f5c1f56"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-wrong-replacement-offset/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy",
+        "growth/SpliceRange.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-no-tail-pop",
+      "interpretation": "The changed final loop never shrinks the array from its working size.",
+      "manual_counterexample": {
+        "deleteCount": 2,
+        "erased_body_items": [
+          1,
+          2
+        ],
+        "items": [
+          1,
+          2
+        ],
+        "position": 0,
+        "replacement": [],
+        "required_items": []
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": true,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "beae4d1411250b5face6bbb6d12d331e0931cc0b3c7d181b74558fcc7c0ed35f"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-no-tail-pop/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy",
+        "growth/SpliceRange.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-missing-growth-call",
+      "interpretation": "The array never grows in a strict-growth case; the size assertion is false and a later Put is out of range.",
+      "manual_counterexample": {
+        "actual_size_before_fill": 0,
+        "deleteCount": 0,
+        "invalid_put_index": 0,
+        "items": [],
+        "position": 0,
+        "replacement": [
+          1
+        ],
+        "required_items": [
+          1
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": true,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "d863b3c0d10ef58967e3ed5d5c487eefab06f91f7b2799115b5a0476e454cae5"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-missing-growth-call/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy",
+        "growth/SpliceRange.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-unproved-seed",
+      "interpretation": "AppendAll returns without appending. Its caller remains the resource-heavy shifting body; caller success cannot be presumed.",
+      "manual_counterexample": {
+        "erased_body_items": [],
+        "helper": "RepoDiscoStdAppend.AppendAll",
+        "items": [],
+        "required_items": [
+          1
+        ],
+        "values": [
+          1
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": true,
+      "resource_heavy_shifting_body_retained": true,
+      "review_category": "INVALID_HELPER",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "b412902f111114b043dcf813a5d048c16f7ea6304c8d4342913a2afea975abcd",
+        "growth/SpliceRange.dfy": "845daddcae626a6572494e41f7e60c431b9b237e39136391e6a232241f255690"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-unproved-seed/workspace"
+    },
+    {
+      "command_files": [
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+        "growth/AppendAll.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "splice-omitted",
+      "interpretation": "Exact splice-empty source is staged but the addition is excluded from native roots. Coverage must reject even exit zero.",
+      "manual_counterexample": {
+        "same_source_case": "splice-empty"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [
+        "growth/SpliceRange.dfy"
+      ],
+      "planned_native_category": "PROOF_PASS",
+      "planned_workspace_category": "COVERAGE_OMISSION",
+      "project": "stdlib-splice",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "COVERAGE_OMISSION",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": false,
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "b2193616d010a7373c878839fbbe623286a973a297b762c6de6c0a8ddf9072f6"
+      },
+      "workspace_dir": "stdlib/revision-004/cases/splice-omitted/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "counted-always-failure",
+      "interpretation": "Count zero must succeed for any input; unconditional failure violates the biconditional.",
+      "manual_counterexample": {
+        "count": 0,
+        "erased_body_status": "Failure",
+        "input": [],
+        "required_status": "Success"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-batch",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "e7a7c68413d5daec6fce466c4a19775c81cfa8ff13eacbbb9c37cf89f268bb4d",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/counted-always-failure/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "counted-missing-tail",
+      "interpretation": "Only one frame is parsed when two are required.",
+      "manual_counterexample": {
+        "count": 2,
+        "erased_body_payloads": [
+          []
+        ],
+        "erased_body_rest": [
+          0,
+          0
+        ],
+        "input": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "required_payloads": [
+          [],
+          []
+        ],
+        "required_rest": []
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-batch",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "9c97b02ed344359913e395fe669c1e6ef606413ec9fda4fc758a50346e688159",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/counted-missing-tail/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "counted-omitted",
+      "interpretation": "Exact counted-always-failure source is staged but its addition is omitted.",
+      "manual_counterexample": {
+        "same_source_case": "counted-always-failure"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "planned_native_category": "PROOF_PASS",
+      "planned_workspace_category": "COVERAGE_OMISSION",
+      "project": "aws-batch",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "COVERAGE_OMISSION",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": false,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "e7a7c68413d5daec6fce466c4a19775c81cfa8ff13eacbbb9c37cf89f268bb4d",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/counted-omitted/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "counted-reversed-payloads",
+      "interpretation": "The payload order is reversed, violating exact re-encoding.",
+      "manual_counterexample": {
+        "count": 2,
+        "erased_body_payloads": [
+          [
+            8
+          ],
+          [
+            7
+          ]
+        ],
+        "input": [
+          0,
+          1,
+          7,
+          0,
+          1,
+          8
+        ],
+        "required_payloads": [
+          [
+            7
+          ],
+          [
+            8
+          ]
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-batch",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "3637d6b03fe6f95d5145f3c5c42972194f1b2ac7e04b1c83ea3c4973d9d83074",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/counted-reversed-payloads/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "counted-unproved-frame",
+      "interpretation": "ReadU16Frame always fails despite a valid empty frame; caller outcomes require actual named-unit evidence.",
+      "manual_counterexample": {
+        "erased_body_status": "Failure",
+        "helper": "RepoDiscoU16Frame.ReadU16Frame",
+        "input": [
+          0,
+          0
+        ],
+        "required_status": "Success"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-batch",
+      "require_actual_passed_caller_for_unproved_helper_claim": true,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_HELPER",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "19218b1a745df80b28e4ec3cb8a4a38e01a36c4a0ea9112c51b0e7b426494b3b",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "4871ea72b3a6c7d1b057297dd0d63f566839fe2a94eacdeb6692213438290680",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/counted-unproved-frame/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "counted-wrong-suffix",
+      "interpretation": "Discards a nonempty trailing suffix after the requested frames.",
+      "manual_counterexample": {
+        "count": 1,
+        "erased_body_rest": [],
+        "input": [
+          0,
+          0,
+          99
+        ],
+        "required_payloads": [
+          []
+        ],
+        "required_rest": [
+          99
+        ]
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-batch",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "0b0b7aae72b2a5c9ad84bed6f20a5f20a66b950e3322d40e3ab1a33668e231fa",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/counted-wrong-suffix/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "tagged-always-failure",
+      "interpretation": "A matching tag with empty payload/companion and adequate budget must succeed.",
+      "manual_counterexample": {
+        "budget": 0,
+        "erased_body_status": "Failure",
+        "input": [
+          0,
+          1,
+          7,
+          0,
+          0
+        ],
+        "required_status": "Success",
+        "tag": 7
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-tagged",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "3bfaf58311a868141c10dd99a9b483099c8f07be610937427d7b200b0768d408",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/tagged-always-failure/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "tagged-keeps-tag",
+      "interpretation": "Returns the tag as payload rather than removing exactly that byte.",
+      "manual_counterexample": {
+        "budget": 1,
+        "erased_body_payload": [
+          7
+        ],
+        "input": [
+          0,
+          1,
+          7,
+          0,
+          0
+        ],
+        "required_payload": [],
+        "tag": 7
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-tagged",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "2e064f59b6fc8d0e98341072b62ef6ab0f131a5ce532259493a9e9889955dc33",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/tagged-keeps-tag/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "tagged-omitted",
+      "interpretation": "Exact tagged-always-failure source is staged but its addition is omitted.",
+      "manual_counterexample": {
+        "same_source_case": "tagged-always-failure"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "planned_native_category": "PROOF_PASS",
+      "planned_workspace_category": "COVERAGE_OMISSION",
+      "project": "aws-tagged",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "COVERAGE_OMISSION",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": false,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "3bfaf58311a868141c10dd99a9b483099c8f07be610937427d7b200b0768d408",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/tagged-omitted/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "tagged-skips-budget",
+      "interpretation": "Returns success when decoded payload length exceeds the supplied budget.",
+      "manual_counterexample": {
+        "budget": 0,
+        "decoded_payload": [
+          9
+        ],
+        "erased_body_status": "Success",
+        "input": [
+          0,
+          2,
+          7,
+          9,
+          0,
+          0
+        ],
+        "required_status": "Failure",
+        "tag": 7
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-tagged",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "1376449b4ebf4a8f1f00bd9ce844ae86642aca0083a48bcfe569203825da1dc9",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/tagged-skips-budget/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "tagged-skips-tag",
+      "interpretation": "Returns success despite a mismatched first payload byte.",
+      "manual_counterexample": {
+        "budget": 0,
+        "erased_body_status": "Success",
+        "input": [
+          0,
+          1,
+          8,
+          0,
+          0
+        ],
+        "required_status": "Failure",
+        "tag": 7
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-tagged",
+      "require_actual_passed_caller_for_unproved_helper_claim": false,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_BODY",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "a5dc01557d4fd1af7e574df0833d00c165fd1e1ab0330b570caf5e213bf86f0a",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/tagged-skips-tag/workspace"
+    },
+    {
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "counterexample_execution": "NOT_EXECUTED",
+      "id": "tagged-unproved-pair",
+      "interpretation": "ReadFramePair always fails for two valid empty frames; caller outcomes require actual named-unit evidence.",
+      "manual_counterexample": {
+        "erased_body_status": "Failure",
+        "helper": "RepoDiscoFramePair.ReadFramePair",
+        "input": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "required_status": "Success"
+      },
+      "native_observation_for_this_control": "PENDING",
+      "omitted_inputs": [],
+      "planned_native_category": "PROOF_FAILURE",
+      "planned_workspace_category": "PROOF_FAILURE",
+      "project": "aws-tagged",
+      "require_actual_passed_caller_for_unproved_helper_claim": true,
+      "resource_heavy_shifting_body_retained": false,
+      "review_category": "INVALID_HELPER",
+      "semantic_invalidity_does_not_require_shifting_reference_pass": true,
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "3a15a727bdc24ecfff1082650e8333b0e7f1bbfb1016b07ed4d3a30b97c28606",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "e215c56d5e4af754e362ead32d4b283b52b01dd148977d7d38880cfc11045af7",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "workspace_dir": "aws/cases/tagged-unproved-pair/workspace"
+    }
+  ],
+  "counterexamples_are_manual_not_executed": true,
+  "counts": {
+    "ALTERNATIVE_POSITIVE": 1,
+    "COVERAGE_OMISSION": 4,
+    "INVALID_BODY": 17,
+    "INVALID_HELPER": 3,
+    "PROOF_SUPPORT_ONLY": 1
+  },
+  "created_utc": "2026-11-23T20:51:44.269226+00:00",
+  "fixture_changes": false,
+  "historical_scores_changed": false,
+  "input_sha256": {
+    "aws/cases.json": "d1e6223700dee01b0896b3aae979d1ee4860b5a7cf0cdabf23db3aa52eaa8afb",
+    "aws/cases/counted-always-failure/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "e7a7c68413d5daec6fce466c4a19775c81cfa8ff13eacbbb9c37cf89f268bb4d",
+    "aws/cases/counted-always-failure/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/counted-always-failure/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/counted-always-failure/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/counted-always-failure/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/counted-always-failure/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/counted-missing-tail/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "9c97b02ed344359913e395fe669c1e6ef606413ec9fda4fc758a50346e688159",
+    "aws/cases/counted-missing-tail/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/counted-missing-tail/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/counted-missing-tail/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/counted-missing-tail/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/counted-missing-tail/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/counted-omitted/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "e7a7c68413d5daec6fce466c4a19775c81cfa8ff13eacbbb9c37cf89f268bb4d",
+    "aws/cases/counted-omitted/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/counted-omitted/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/counted-omitted/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/counted-omitted/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/counted-omitted/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/counted-reversed-payloads/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "3637d6b03fe6f95d5145f3c5c42972194f1b2ac7e04b1c83ea3c4973d9d83074",
+    "aws/cases/counted-reversed-payloads/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/counted-reversed-payloads/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/counted-reversed-payloads/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/counted-reversed-payloads/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/counted-reversed-payloads/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/counted-unproved-frame/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "19218b1a745df80b28e4ec3cb8a4a38e01a36c4a0ea9112c51b0e7b426494b3b",
+    "aws/cases/counted-unproved-frame/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/counted-unproved-frame/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "4871ea72b3a6c7d1b057297dd0d63f566839fe2a94eacdeb6692213438290680",
+    "aws/cases/counted-unproved-frame/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/counted-unproved-frame/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/counted-unproved-frame/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/counted-wrong-suffix/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "0b0b7aae72b2a5c9ad84bed6f20a5f20a66b950e3322d40e3ab1a33668e231fa",
+    "aws/cases/counted-wrong-suffix/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/counted-wrong-suffix/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/counted-wrong-suffix/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/counted-wrong-suffix/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/counted-wrong-suffix/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/tagged-always-failure/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/tagged-always-failure/workspace/StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "3bfaf58311a868141c10dd99a9b483099c8f07be610937427d7b200b0768d408",
+    "aws/cases/tagged-always-failure/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/tagged-always-failure/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/tagged-always-failure/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/tagged-always-failure/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/tagged-keeps-tag/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/tagged-keeps-tag/workspace/StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "2e064f59b6fc8d0e98341072b62ef6ab0f131a5ce532259493a9e9889955dc33",
+    "aws/cases/tagged-keeps-tag/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/tagged-keeps-tag/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/tagged-keeps-tag/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/tagged-keeps-tag/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/tagged-omitted/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/tagged-omitted/workspace/StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "3bfaf58311a868141c10dd99a9b483099c8f07be610937427d7b200b0768d408",
+    "aws/cases/tagged-omitted/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/tagged-omitted/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/tagged-omitted/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/tagged-omitted/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/tagged-skips-budget/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/tagged-skips-budget/workspace/StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "1376449b4ebf4a8f1f00bd9ce844ae86642aca0083a48bcfe569203825da1dc9",
+    "aws/cases/tagged-skips-budget/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/tagged-skips-budget/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/tagged-skips-budget/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/tagged-skips-budget/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/tagged-skips-tag/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/cases/tagged-skips-tag/workspace/StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "a5dc01557d4fd1af7e574df0833d00c165fd1e1ab0330b570caf5e213bf86f0a",
+    "aws/cases/tagged-skips-tag/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/tagged-skips-tag/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/tagged-skips-tag/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/tagged-skips-tag/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "aws/cases/tagged-unproved-pair/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "3a15a727bdc24ecfff1082650e8333b0e7f1bbfb1016b07ed4d3a30b97c28606",
+    "aws/cases/tagged-unproved-pair/workspace/StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "e215c56d5e4af754e362ead32d4b283b52b01dd148977d7d38880cfc11045af7",
+    "aws/cases/tagged-unproved-pair/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/cases/tagged-unproved-pair/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/cases/tagged-unproved-pair/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/cases/tagged-unproved-pair/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "qualification-002/README.md": "f088163966a9ff90f9e8216b249ade8ee7b7f65834b6d602d32abff2d88fae74",
+    "qualification-002/configs/aws.json": "432d1a7613336826cab42f220a80b4446e53b9d6ff503519bbe887919d5d9c39",
+    "qualification-002/configs/stdlib.json": "6c8ce0767c34e546e4e53c55430c69a826c985c9c5a329e6d13fbfc11ece956f",
+    "qualification-002/control-metadata/aws.json": "b32a7d5c1f178a6d281cb2ea4612e4454571ae671ff134ce884cd7bc8f4cc8bf",
+    "qualification-002/control-metadata/stdlib.json": "a5b7f79920beb6513f3019173e20ffcbefd078469ab8e80ad5ddc992f8e1de0b",
+    "qualification-002/control-selection-001.json": "314092971bb82cbafce0ad5f8c6cfcbd5d4106afa79dfc1668dd6ee012e63a13",
+    "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference/raw/csv/TestResults/2026-11-23_15_08_19-0.csv": "070c2ea42d28d0f4c5ed0afbeff7ac9973bdd155db0cd959a5c109b3f3cddb4e",
+    "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference/raw/resources.txt": "cd695f7b38783b2ff35097f9031d92d5377bcf9959c6e3977ac4bba82a49988f",
+    "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference/raw/stdout.txt": "205493025ccbddbb4cd092b06ce17ba31e052c7e8ff6368ae7aeda5eebd84063",
+    "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference/record.json": "ceafabe8c8c3e0d8ca0166ad5ca26bff7c9221dd72c6bd9236682688f1f74601",
+    "qualification-005/reviews/native-stdlib-001.json": "1955ab3e0c193d327409dc2b8d2c25f7d0cf6f66254420e443a77d2d3b745495",
+    "stdlib/revision-004/bodies/splice-alternative.txt": "4c28b1321117b274fad0f6e038763297af6c8812b9ac35301709d131edbd94f0",
+    "stdlib/revision-004/cases.json": "b7b2d33d26d311b0c9ce4d59a5177c637c0dc969e80378c3efc62d182d5c65ec",
+    "stdlib/revision-004/cases/filter-alternative/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-alternative/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-alternative/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-alternative/workspace/growth/StableFilterBelow.dfy": "74bb177ddb94ea794fcdc9aee01afdafd5596191a4b9c2aff0839f0e9e24f80c",
+    "stdlib/revision-004/cases/filter-empty/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-empty/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-empty/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-empty/workspace/growth/StableFilterBelow.dfy": "90665c03398ebefda848a992683fb0d401175ee46bd2ea448f32132e5bcfc0c4",
+    "stdlib/revision-004/cases/filter-inclusive-threshold/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-inclusive-threshold/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-inclusive-threshold/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-inclusive-threshold/workspace/growth/StableFilterBelow.dfy": "c79e28bc501b7367c007fd52db781b02822598b2526a7161571fca628e5f87a4",
+    "stdlib/revision-004/cases/filter-missing-prefix-invariant/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-missing-prefix-invariant/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-missing-prefix-invariant/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-missing-prefix-invariant/workspace/growth/StableFilterBelow.dfy": "a70affb8897e1e899567ad8b4fb5f1dad039667d5b6e36a0f89684a020a1b4a2",
+    "stdlib/revision-004/cases/filter-no-tail-pop/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-no-tail-pop/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-no-tail-pop/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-no-tail-pop/workspace/growth/StableFilterBelow.dfy": "1a92fd1b1c772d2d33f59a065205f85fbb8f710babb5f015569d58863fc57f77",
+    "stdlib/revision-004/cases/filter-omitted/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-omitted/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-omitted/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-omitted/workspace/growth/StableFilterBelow.dfy": "90665c03398ebefda848a992683fb0d401175ee46bd2ea448f32132e5bcfc0c4",
+    "stdlib/revision-004/cases/filter-wrong-write-index/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/filter-wrong-write-index/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/filter-wrong-write-index/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/filter-wrong-write-index/workspace/growth/StableFilterBelow.dfy": "956795aeb4ab4dc278ce695c4ef369eedee7ad5122016950ed3260f5c056b8a7",
+    "stdlib/revision-004/cases/splice-empty/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-empty/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-empty/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-empty/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/cases/splice-empty/workspace/growth/SpliceRange.dfy": "b2193616d010a7373c878839fbbe623286a973a297b762c6de6c0a8ddf9072f6",
+    "stdlib/revision-004/cases/splice-growth-wrong-order/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-growth-wrong-order/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-growth-wrong-order/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-growth-wrong-order/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/cases/splice-growth-wrong-order/workspace/growth/SpliceRange.dfy": "7d6fd406da59448591a4c24441d62b7860bcc2f7ded237cbaee5cea40185fa1b",
+    "stdlib/revision-004/cases/splice-missing-growth-call/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-missing-growth-call/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-missing-growth-call/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-missing-growth-call/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/cases/splice-missing-growth-call/workspace/growth/SpliceRange.dfy": "d863b3c0d10ef58967e3ed5d5c487eefab06f91f7b2799115b5a0476e454cae5",
+    "stdlib/revision-004/cases/splice-no-tail-pop/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-no-tail-pop/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-no-tail-pop/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-no-tail-pop/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/cases/splice-no-tail-pop/workspace/growth/SpliceRange.dfy": "beae4d1411250b5face6bbb6d12d331e0931cc0b3c7d181b74558fcc7c0ed35f",
+    "stdlib/revision-004/cases/splice-omitted/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-omitted/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-omitted/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-omitted/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/cases/splice-omitted/workspace/growth/SpliceRange.dfy": "b2193616d010a7373c878839fbbe623286a973a297b762c6de6c0a8ddf9072f6",
+    "stdlib/revision-004/cases/splice-unproved-seed/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-unproved-seed/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-unproved-seed/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-unproved-seed/workspace/growth/AppendAll.dfy": "b412902f111114b043dcf813a5d048c16f7ea6304c8d4342913a2afea975abcd",
+    "stdlib/revision-004/cases/splice-unproved-seed/workspace/growth/SpliceRange.dfy": "845daddcae626a6572494e41f7e60c431b9b237e39136391e6a232241f255690",
+    "stdlib/revision-004/cases/splice-wrong-replacement-offset/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/cases/splice-wrong-replacement-offset/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/cases/splice-wrong-replacement-offset/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/cases/splice-wrong-replacement-offset/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/cases/splice-wrong-replacement-offset/workspace/growth/SpliceRange.dfy": "b0809ab6d148d3ec3d1c97552b13c53f29481ef40aa12f74f76c5d080f5c1f56",
+    "stdlib/revision-004/manifest.json": "d7d1ea13bf2e8d16e20de37cdaf41f5e3272f3aa7a72def10d18d25fb781ad29",
+    "stdlib/revision-004/profiles/stdlib-filter.json": "5a4152baaa84517e275c4f8a73089622ca91a0a3af9640e5a9c80fd3e52cc54b",
+    "stdlib/revision-004/profiles/stdlib-splice.json": "9d21053e8937c15d414d6af3ee39086a92404d27c8e7cad12b3c4cba838e7880"
+  },
+  "model_calls": 0,
+  "native_calls": 0,
+  "retired_shifting_reference": {
+    "actual_category": "RESOURCE_FAILURE",
+    "case_id": "splice-reference",
+    "classification_requires_stdout_and_full_raw_not_csv_failed_label_alone": true,
+    "original_expected_category": "PROOF_PASS",
+    "other_passed_units": 59,
+    "raw_root": "qualification-005/retrieved-stdlib/qualification-005/output-stdlib/splice-reference",
+    "resource_count": 1037148,
+    "resource_limit": 1000000
+  },
+  "schema": "repodisco-source-control-interpretation-v1",
+  "scope": "26 planned remaining controls; current native outcomes unknown",
+  "selected_reference_ids": {
+    "aws-batch": "counted-reference",
+    "aws-tagged": "tagged-reference",
+    "stdlib-filter": "filter-reference",
+    "stdlib-splice": "splice-alternative"
+  },
+  "selected_splice_alternative_native_status": "UNKNOWN",
+  "status": "SOURCE_INTERPRETATION_ONLY",
+  "tests_run": 0
+}

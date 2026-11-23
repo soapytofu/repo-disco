@@ -1,0 +1,1106 @@
+{
+  "cases": [
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "body_id": "counted-always-failure",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "counted-always-failure",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoFrameBatch.HasCountedFrames",
+        "RepoDiscoFrameBatch.BoundedPayloads",
+        "RepoDiscoFrameBatch.EncodeFrames"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-batch",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "e7a7c68413d5daec6fce466c4a19775c81cfa8ff13eacbbb9c37cf89f268bb4d",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-batch",
+      "workspace_dir": "cases/counted-always-failure/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "body_id": "counted-missing-tail",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "counted-missing-tail",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoFrameBatch.HasCountedFrames",
+        "RepoDiscoFrameBatch.BoundedPayloads",
+        "RepoDiscoFrameBatch.EncodeFrames"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-batch",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "9c97b02ed344359913e395fe669c1e6ef606413ec9fda4fc758a50346e688159",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-batch",
+      "workspace_dir": "cases/counted-missing-tail/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "body_id": "counted-always-failure",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "COVERAGE_OMISSION",
+      "expected_failed_targets": [],
+      "expected_native_category": "PROOF_PASS",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "counted-omitted",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoFrameBatch.HasCountedFrames",
+        "RepoDiscoFrameBatch.BoundedPayloads",
+        "RepoDiscoFrameBatch.EncodeFrames"
+      ],
+      "omit_from_command": [
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "omitted_source_all_units": [
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "omitted_targets": [
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "project": "aws-batch",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "e7a7c68413d5daec6fce466c4a19775c81cfa8ff13eacbbb9c37cf89f268bb4d",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-batch",
+      "workspace_dir": "cases/counted-omitted/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "body_id": "counted-reversed-payloads",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "counted-reversed-payloads",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoFrameBatch.HasCountedFrames",
+        "RepoDiscoFrameBatch.BoundedPayloads",
+        "RepoDiscoFrameBatch.EncodeFrames"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-batch",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "3637d6b03fe6f95d5145f3c5c42972194f1b2ac7e04b1c83ea3c4973d9d83074",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-batch",
+      "workspace_dir": "cases/counted-reversed-payloads/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "body_id": "counted-reference",
+      "child_outcome_predetermined": false,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "deliberately_mutated_seed_files": [
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy"
+      ],
+      "edit_guard_expected": "REJECT_IMMUTABLE_BASE",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [],
+      "gated_until_positive_review": true,
+      "id": "counted-unproved-frame",
+      "inspect_targets": [
+        "RepoDiscoFrameBatch.ReadCountedFrames",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoFrameBatch.HasCountedFrames",
+        "RepoDiscoFrameBatch.BoundedPayloads",
+        "RepoDiscoFrameBatch.EncodeFrames"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-batch",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "19218b1a745df80b28e4ec3cb8a4a38e01a36c4a0ea9112c51b0e7b426494b3b",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "4871ea72b3a6c7d1b057297dd0d63f566839fe2a94eacdeb6692213438290680",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-batch",
+      "workspace_dir": "cases/counted-unproved-frame/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "body_id": "counted-wrong-suffix",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "counted-wrong-suffix",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoFrameBatch.HasCountedFrames",
+        "RepoDiscoFrameBatch.BoundedPayloads",
+        "RepoDiscoFrameBatch.EncodeFrames"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-batch",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoFrameBatch.ReadCountedFrames"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFrameBatch.dfy": "0b0b7aae72b2a5c9ad84bed6f20a5f20a66b950e3322d40e3ab1a33668e231fa",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-batch",
+      "workspace_dir": "cases/counted-wrong-suffix/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "body_id": "tagged-always-failure",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "tagged-always-failure",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoTaggedFramePair.IsTaggedBounded"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-tagged",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "3bfaf58311a868141c10dd99a9b483099c8f07be610937427d7b200b0768d408",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-tagged",
+      "workspace_dir": "cases/tagged-always-failure/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "body_id": "tagged-keeps-tag",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "tagged-keeps-tag",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoTaggedFramePair.IsTaggedBounded"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-tagged",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "2e064f59b6fc8d0e98341072b62ef6ab0f131a5ce532259493a9e9889955dc33",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-tagged",
+      "workspace_dir": "cases/tagged-keeps-tag/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "body_id": "tagged-always-failure",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "COVERAGE_OMISSION",
+      "expected_failed_targets": [],
+      "expected_native_category": "PROOF_PASS",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "tagged-omitted",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoTaggedFramePair.IsTaggedBounded"
+      ],
+      "omit_from_command": [
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "omitted_source_all_units": [
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "omitted_targets": [
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "project": "aws-tagged",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "3bfaf58311a868141c10dd99a9b483099c8f07be610937427d7b200b0768d408",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-tagged",
+      "workspace_dir": "cases/tagged-omitted/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "body_id": "tagged-skips-budget",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "tagged-skips-budget",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoTaggedFramePair.IsTaggedBounded"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-tagged",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "1376449b4ebf4a8f1f00bd9ce844ae86642aca0083a48bcfe569203825da1dc9",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-tagged",
+      "workspace_dir": "cases/tagged-skips-budget/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "body_id": "tagged-skips-tag",
+      "child_outcome_predetermined": null,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "deliberately_mutated_seed_files": [],
+      "edit_guard_expected": "ADMIT_BODY",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "gated_until_positive_review": true,
+      "id": "tagged-skips-tag",
+      "inspect_targets": [],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoTaggedFramePair.IsTaggedBounded"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-tagged",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "a5dc01557d4fd1af7e574df0833d00c165fd1e1ab0330b570caf5e213bf86f0a",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-tagged",
+      "workspace_dir": "cases/tagged-skips-tag/workspace"
+    },
+    {
+      "actual_native_unit_labels": null,
+      "analyst_authored": true,
+      "argv": [
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny/dafny",
+        "verify",
+        "--cores",
+        "1",
+        "--solver-path",
+        "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "--enforce-determinism",
+        "--unicode-char",
+        "false",
+        "--function-syntax",
+        "3",
+        "--log-format",
+        "csv",
+        "--verification-time-limit",
+        "300",
+        "--resource-limit",
+        "500000000",
+        "--allow-deprecation",
+        "--allow-external-contracts",
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "body_id": "tagged-reference",
+      "child_outcome_predetermined": false,
+      "classification_requires_named_units_and_exact_inventory": true,
+      "command_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "declared_scope_files": [
+        "StandardLibrary/src/UInt.dfy",
+        "libraries/src/BoundedInts.dfy",
+        "libraries/src/Wrappers.dfy",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "StandardLibrary/src/RepoDiscoFramePair.dfy",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+      ],
+      "deliberately_mutated_seed_files": [
+        "StandardLibrary/src/RepoDiscoFramePair.dfy"
+      ],
+      "edit_guard_expected": "REJECT_IMMUTABLE_BASE",
+      "expected_category": "PROOF_FAILURE",
+      "expected_failed_targets": [
+        "RepoDiscoFramePair.ReadFramePair"
+      ],
+      "expected_native_category": "PROOF_FAILURE",
+      "expected_passed_targets": [],
+      "gated_until_positive_review": true,
+      "id": "tagged-unproved-pair",
+      "inspect_targets": [
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair",
+        "RepoDiscoU16Frame.ReadU16Frame"
+      ],
+      "model_acceptance": false,
+      "native_dispatch_authorized": false,
+      "native_status": "UNKNOWN",
+      "new_fixed_declarations": [
+        "RepoDiscoTaggedFramePair.IsTaggedBounded"
+      ],
+      "omit_from_command": [],
+      "omitted_source_all_units": [],
+      "omitted_targets": [],
+      "project": "aws-tagged",
+      "required_targets": [
+        "RepoDiscoU16Frame.ReadU16Frame",
+        "RepoDiscoFramePair.ReadFramePair",
+        "RepoDiscoTaggedFramePair.ReadTaggedBoundedPair"
+      ],
+      "source_sha256": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "3a15a727bdc24ecfff1082650e8333b0e7f1bbfb1016b07ed4d3a30b97c28606",
+        "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy": "e215c56d5e4af754e362ead32d4b283b52b01dd148977d7d38880cfc11045af7",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "stage": 1,
+      "stage_id": "aws-tagged",
+      "workspace_dir": "cases/tagged-unproved-pair/workspace"
+    }
+  ],
+  "source_path": "aws/cases.json",
+  "source_sha256": "d1e6223700dee01b0896b3aae979d1ee4860b5a7cf0cdabf23db3aa52eaa8afb"
+}

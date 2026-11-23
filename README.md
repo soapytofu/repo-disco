@@ -2,7 +2,7 @@
 
 Research on extending verified program discovery toward multi-module repositories, built on Formal Disco.
 
-**Next research stage (November 6): [varied monorepo corpus and family split](docs/corpus-family-split-plan.md).** Eighteen proposed semantic instances across development and reserved test families; no new calls authorized. The latest [16-call pilot](experiments/witness-map-calibration-pilot-001/RESULTS.md) scored 8/16 under strict verification; separate analyst diagnostics preserve that score.
+**Latest evidence (November 23): [twelve executable Dafny additions](experiments/dafny-real-library-growth-001/execution-001/COLLECTION.md)** verified across six two-stage lineages on selected Standard Library and AWS UInt components. The [next four extension tasks](experiments/dafny-real-library-growth-002/) are undergoing native qualification before an eight-call pilot; no new model requests have run. See the [current research progress](docs/research-progress.md) and [November 24 meeting brief](docs/nada-2026-11-24-results-brief.md). These are constrained component studies, not whole-project or held-out results.
 
 **Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
 

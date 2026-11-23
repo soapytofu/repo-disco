@@ -1,5 +1,17 @@
 # Experiment log
 
+## November 23: varied Dafny extensions — native qualification in progress
+
+[Four new tasks](dafny-real-library-growth-002/) cover stable filtering, range
+splicing, counted frame decoding and tag/budget validation. Three reference
+scopes pass all 59/81/79 units; the shift-based splice reference exceeds the fixed
+resource limit. The existing rebuild alternative is staged but not submitted:
+the shared Cannon connection closed during read-only pre-submission inspection.
+Full source revisions, raw failures, passing evidence and offline logs are saved.
+Remaining controls and final prompt/runtime review gate the eight-call pilot;
+no new model request has occurred. The allocation is 36/100, with 19 earlier
+returned responses and 64 unallocated slots. No prior result was changed.
+
 ## November 23: model-generated library growth — twelve of twelve accepted
 
 [Library growth job 63153129](dafny-real-library-growth-001/execution-001/COLLECTION.md)
