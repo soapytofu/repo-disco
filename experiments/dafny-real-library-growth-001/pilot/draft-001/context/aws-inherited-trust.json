@@ -1,0 +1,1106 @@
+{
+  "forbidden_identifiers": [
+    "AESDecryptExtern",
+    "AESEncryptExtern",
+    "Assume",
+    "Build",
+    "CiphertextGeneratedWithPlaintext",
+    "ComputeSetToOrderedSequence",
+    "ComputeSetToOrderedSequence2",
+    "ComputeSetToSequence",
+    "ConcurrentCall",
+    "DDBClientForRegion",
+    "Decode",
+    "DecryptExtern",
+    "DecryptedWithKey",
+    "DeleteCacheEntry",
+    "Digest",
+    "DynamoDBClient",
+    "Encode",
+    "EncryptExtern",
+    "EncryptedWithKey",
+    "EncryptionOutputEncryptedWithAAD",
+    "ExternCompressPublicKey",
+    "ExternDecompressPublicKey",
+    "ExternDeriveSharedSecret",
+    "ExternEccKeyGen",
+    "ExternGetPublicKeyFromPrivate",
+    "ExternKeyGen",
+    "ExternParsePublicKey",
+    "ExternValidatePublicKey",
+    "FromByteArray",
+    "GenerateBytes",
+    "GenerateKeyPairExtern",
+    "GenerateUUID",
+    "GetCacheEntry",
+    "GetCurrent",
+    "GetCurrentMilli",
+    "GetCurrentTimeStamp",
+    "GetDigest",
+    "GetInputSoFar",
+    "GetKey",
+    "GetLanguageLong",
+    "GetLanguageShort",
+    "GetOsLong",
+    "GetOsShort",
+    "GetProcessCpuTimeMillis",
+    "GetRSAKeyModulusLengthExtern",
+    "GetResult",
+    "GetValidGrantTokens",
+    "HasKey",
+    "HashSignature",
+    "INTERNAL_AppendBytesToFile",
+    "INTERNAL_ReadBytesFromFile",
+    "INTERNAL_WriteBytesToFile",
+    "Init",
+    "IsSigned",
+    "IsValidSignatureKeyPair",
+    "Items",
+    "KMSClient",
+    "KMSClientForRegion",
+    "KeyStore",
+    "Keys",
+    "PlaintextDecryptedWithAAD",
+    "Put",
+    "PutCacheEntry",
+    "RegionMatch",
+    "Remove",
+    "Select",
+    "Sign",
+    "Size",
+    "Stream",
+    "ToByteArray",
+    "Update",
+    "UpdateUsageMetadata",
+    "ValidateDiscoveryFilter",
+    "ValueIsSafeBecauseItIsInMemory",
+    "Values",
+    "Verify",
+    "content"
+  ],
+  "observations": [
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "identifier": "PutCacheEntry",
+      "line": 1059,
+      "reason": "callable-containing-assume",
+      "source_line": "      assume {:axiom} InternalModifies < Modifies && InternalValidState();",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695"
+    },
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "identifier": "UpdateUsageMetadata",
+      "line": 1096,
+      "reason": "callable-containing-assume",
+      "source_line": "      assume {:axiom} InternalModifies < Modifies && InternalValidState();",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695"
+    },
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "identifier": "GetCacheEntry",
+      "line": 1133,
+      "reason": "callable-containing-assume",
+      "source_line": "      assume {:axiom} InternalModifies < Modifies && InternalValidState();",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695"
+    },
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "identifier": "DeleteCacheEntry",
+      "line": 1170,
+      "reason": "callable-containing-assume",
+      "source_line": "      assume {:axiom} InternalModifies < Modifies && InternalValidState();",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.materialproviders.internaldafny.types\" }"
+      ],
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "forbidden_identifier": false,
+      "identifier": "AwsCryptographyMaterialProvidersTypes",
+      "line": 9,
+      "reason": "extern-module-namespace",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695"
+    },
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+      "identifier": "GetValidGrantTokens",
+      "line": 103,
+      "reason": "callable-containing-assume",
+      "source_line": "    assume {:axiom} forall token <- tokens :: HasUint64Len(token);",
+      "source_sha256": "bacf0fa41fdd6125a95137103caef9c49bcc37a3fef081c8352838b1f08bbc71"
+    },
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+      "identifier": "ValidateDiscoveryFilter",
+      "line": 196,
+      "reason": "callable-containing-assume",
+      "source_line": "    assume {:axiom} forall accountId <- filter.accountIds :: HasUint64Len(accountId);",
+      "source_sha256": "bacf0fa41fdd6125a95137103caef9c49bcc37a3fef081c8352838b1f08bbc71"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.keystore.internaldafny.types\" }"
+      ],
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+      "forbidden_identifier": false,
+      "identifier": "AwsCryptographyKeyStoreTypes",
+      "line": 7,
+      "reason": "extern-module-namespace",
+      "source_sha256": "9431617f51f73172efc4f6889f67013b05ce7a584baa75e0f7a4977b8eaabb41"
+    },
+    {
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy",
+      "identifier": "KeyStore",
+      "line": 163,
+      "reason": "callable-containing-assume",
+      "source_line": "    assume {:axiom} ddbClient.Modifies !! kmsClient.Modifies;",
+      "source_sha256": "62678f09c92c146d54569290d7d724aef70ec33cf4d637beeba8cd50bc5c09f4"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.keystore.internaldafny\"}"
+      ],
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy",
+      "forbidden_identifier": false,
+      "identifier": "KeyStore",
+      "line": 9,
+      "reason": "extern-module-namespace",
+      "source_sha256": "62678f09c92c146d54569290d7d724aef70ec33cf4d637beeba8cd50bc5c09f4"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.primitives.internaldafny.types\" }"
+      ],
+      "file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+      "forbidden_identifier": false,
+      "identifier": "AwsCryptographyPrimitivesTypes",
+      "line": 5,
+      "reason": "extern-module-namespace",
+      "source_sha256": "6e4059471bc5fa357129285cef4b9e2c5f03a9d4c917f814784183b9d75f8d0c"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "PlaintextDecryptedWithAAD",
+      "line": 15,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "EncryptionOutputEncryptedWithAAD",
+      "line": 16,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "CiphertextGeneratedWithPlaintext",
+      "line": 17,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "EncryptedWithKey",
+      "line": 18,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "DecryptedWithKey",
+      "line": 19,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:extern \"AESEncryption.AES_GCM\", \"AESEncryptExtern\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "AESEncryptExtern",
+      "line": 37,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:extern \"AESEncryption.AES_GCM\", \"AESDecryptExtern\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "identifier": "AESDecryptExtern",
+      "line": 89,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:extern \"AESEncryption\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "forbidden_identifier": false,
+      "identifier": "AESEncryption",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    {
+      "attributes": [
+        "{:extern \"AesKdfCtrStream\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AesKdfCtr.dfy",
+      "identifier": "Stream",
+      "line": 53,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "bd9651afdfa4b365bd24d77358166de1c8f6baed8b44d298a2c9f88e4bbe32b0"
+    },
+    {
+      "attributes": [
+        "{:extern \"AesKdfCtr\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/AesKdfCtr.dfy",
+      "forbidden_identifier": false,
+      "identifier": "AesKdfCtr",
+      "line": 46,
+      "reason": "extern-module-namespace",
+      "source_sha256": "bd9651afdfa4b365bd24d77358166de1c8f6baed8b44d298a2c9f88e4bbe32b0"
+    },
+    {
+      "attributes": [
+        "{:extern }"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Digest.dfy",
+      "identifier": "Digest",
+      "line": 42,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "becb7ddfeb3849bffcebe944e2b1fd977c633ab13971cc826afb9adac9d70f8b"
+    },
+    {
+      "attributes": [
+        "{:extern \"ExternDigest\" }"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Digest.dfy",
+      "forbidden_identifier": false,
+      "identifier": "ExternDigest",
+      "line": 37,
+      "reason": "extern-module-namespace",
+      "source_sha256": "becb7ddfeb3849bffcebe944e2b1fd977c633ab13971cc826afb9adac9d70f8b"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.KeyGeneration\", \"GenerateKeyPair\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternEccKeyGen",
+      "line": 113,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.ECCUtils\", \"GetPublicKey\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternGetPublicKeyFromPrivate",
+      "line": 121,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.ECCUtils\", \"ValidatePublicKey\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternValidatePublicKey",
+      "line": 130,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.DeriveSharedSecret\", \"CalculateSharedSecret\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternDeriveSharedSecret",
+      "line": 138,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.ECCUtils\", \"CompressPublicKey\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternCompressPublicKey",
+      "line": 145,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.ECCUtils\", \"DecompressPublicKey\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternDecompressPublicKey",
+      "line": 152,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH.ECCUtils\", \"ParsePublicKey\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "identifier": "ExternParsePublicKey",
+      "line": 158,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern \"ECDH\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "forbidden_identifier": false,
+      "identifier": "ECDH",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "GetKey",
+      "line": 18,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "GetDigest",
+      "line": 19,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "GetInputSoFar",
+      "line": 20,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "Build",
+      "line": 27,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern \"Init\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "Init",
+      "line": 35,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern \"BlockUpdate\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "Update",
+      "line": 42,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern \"GetResult\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "GetResult",
+      "line": 50,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "HashSignature",
+      "line": 59,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern \"Digest\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "identifier": "Digest",
+      "line": 71,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.primitives.internaldafny\" }"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Index.dfy",
+      "forbidden_identifier": false,
+      "identifier": "AtomicPrimitives",
+      "line": 7,
+      "reason": "extern-module-namespace",
+      "source_sha256": "e31159a0cf54192f72825dcf1cef1e25adb5c09716ccda8c1d4d91a979f2e92b"
+    },
+    {
+      "attributes": [
+        "{:extern \"RSAEncryption.RSA\", \"GenerateKeyPairExtern\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+      "identifier": "GenerateKeyPairExtern",
+      "line": 47,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c"
+    },
+    {
+      "attributes": [
+        "{:extern \"RSAEncryption.RSA\", \"GetRSAKeyModulusLengthExtern\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+      "identifier": "GetRSAKeyModulusLengthExtern",
+      "line": 52,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c"
+    },
+    {
+      "attributes": [
+        "{:extern \"RSAEncryption.RSA\", \"DecryptExtern\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+      "identifier": "DecryptExtern",
+      "line": 55,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c"
+    },
+    {
+      "attributes": [
+        "{:extern \"RSAEncryption.RSA\", \"EncryptExtern\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+      "identifier": "EncryptExtern",
+      "line": 61,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c"
+    },
+    {
+      "attributes": [
+        "{:extern \"RSAEncryption\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+      "forbidden_identifier": false,
+      "identifier": "RSAEncryption",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Random.dfy",
+      "identifier": "GenerateBytes",
+      "line": 34,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "1615a1f69656e6b72721914540afaff90fe44f54cbd07726fa2837046e8570c0"
+    },
+    {
+      "attributes": [
+        "{:extern \"ExternRandom\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Random.dfy",
+      "forbidden_identifier": false,
+      "identifier": "ExternRandom",
+      "line": 29,
+      "reason": "extern-module-namespace",
+      "source_sha256": "1615a1f69656e6b72721914540afaff90fe44f54cbd07726fa2837046e8570c0"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "identifier": "IsSigned",
+      "line": 15,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "identifier": "IsValidSignatureKeyPair",
+      "line": 29,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    {
+      "attributes": [
+        "{:extern \"Signature.ECDSA\", \"ExternKeyGen\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "identifier": "ExternKeyGen",
+      "line": 63,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    {
+      "attributes": [
+        "{:extern \"Signature.ECDSA\", \"Sign\"}",
+        "{:axiom}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "identifier": "Sign",
+      "line": 70,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    {
+      "attributes": [
+        "{:extern \"Signature.ECDSA\", \"Verify\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "identifier": "Verify",
+      "line": 82,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    {
+      "attributes": [
+        "{:extern \"Signature\"}"
+      ],
+      "file": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "forbidden_identifier": false,
+      "identifier": "Signature",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+      "identifier": "DynamoDBClient",
+      "line": 2932,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "cc4925ec6d9615fd1d7b88ca0a7b404287cbcd943b60f39732f78d0d18b1d2f7"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.services.dynamodb.internaldafny.types\" }"
+      ],
+      "file": "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+      "forbidden_identifier": false,
+      "identifier": "ComAmazonawsDynamodbTypes",
+      "line": 5,
+      "reason": "extern-module-namespace",
+      "source_sha256": "cc4925ec6d9615fd1d7b88ca0a7b404287cbcd943b60f39732f78d0d18b1d2f7"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "ComAmazonawsDynamodb/src/Index.dfy",
+      "identifier": "DDBClientForRegion",
+      "line": 12,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "c7ed8b2d843321b015c1f5706580878276cf0e54d1f1c8abe7945858c6ed4eca"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.services.dynamodb.internaldafny\"}"
+      ],
+      "file": "ComAmazonawsDynamodb/src/Index.dfy",
+      "forbidden_identifier": false,
+      "identifier": "Com",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "c7ed8b2d843321b015c1f5706580878276cf0e54d1f1c8abe7945858c6ed4eca"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy",
+      "identifier": "KMSClient",
+      "line": 1998,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "f00be89450fbf446e36447fb8aa7ca3787776cc4a8984899fd22caaac46e8f7e"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.services.kms.internaldafny.types\" }"
+      ],
+      "file": "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy",
+      "forbidden_identifier": false,
+      "identifier": "ComAmazonawsKmsTypes",
+      "line": 5,
+      "reason": "extern-module-namespace",
+      "source_sha256": "f00be89450fbf446e36447fb8aa7ca3787776cc4a8984899fd22caaac46e8f7e"
+    },
+    {
+      "attributes": [
+        "{:extern \"RegionMatch\"}"
+      ],
+      "file": "ComAmazonawsKms/src/Index.dfy",
+      "identifier": "RegionMatch",
+      "line": 18,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "74027306a3909205065e93fe506ab47251603f621144cfcd7457126d8481c79b"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "ComAmazonawsKms/src/Index.dfy",
+      "identifier": "KMSClientForRegion",
+      "line": 23,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "74027306a3909205065e93fe506ab47251603f621144cfcd7457126d8481c79b"
+    },
+    {
+      "attributes": [
+        "{:extern \"software.amazon.cryptography.services.kms.internaldafny\"}"
+      ],
+      "file": "ComAmazonawsKms/src/Index.dfy",
+      "forbidden_identifier": false,
+      "identifier": "Com",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "74027306a3909205065e93fe506ab47251603f621144cfcd7457126d8481c79b"
+    },
+    {
+      "attributes": [
+        "{:extern \"ConcurrentCall\"}"
+      ],
+      "file": "StandardLibrary/src/ConcurrentCall.dfy",
+      "identifier": "ConcurrentCall",
+      "line": 41,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "4ac0015fd089fb84bf269596bb6f4c35cf0b976e2efb919a044a5d2ba809ddee"
+    },
+    {
+      "attributes": [
+        "{:extern \"ConcurrentCall\"}"
+      ],
+      "file": "StandardLibrary/src/ConcurrentCall.dfy",
+      "forbidden_identifier": false,
+      "identifier": "ConcurrentCall",
+      "line": 26,
+      "reason": "extern-module-namespace",
+      "source_sha256": "4ac0015fd089fb84bf269596bb6f4c35cf0b976e2efb919a044a5d2ba809ddee"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "StandardLibrary/src/MemoryMath.dfy",
+      "identifier": "ValueIsSafeBecauseItIsInMemory",
+      "line": 17,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "1976f5bd4b6d2cb855c8098a2f815f2d42d72c2f0df4ab57697c6c9b0212c8c7"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "StandardLibrary/src/OsLang.dfy",
+      "identifier": "GetOsShort",
+      "line": 7,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "StandardLibrary/src/OsLang.dfy",
+      "identifier": "GetLanguageShort",
+      "line": 10,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "StandardLibrary/src/OsLang.dfy",
+      "identifier": "GetOsLong",
+      "line": 13,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "StandardLibrary/src/OsLang.dfy",
+      "identifier": "GetLanguageLong",
+      "line": 16,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b"
+    },
+    {
+      "attributes": [
+        "{:extern \"OsLang\"}"
+      ],
+      "file": "StandardLibrary/src/OsLang.dfy",
+      "forbidden_identifier": false,
+      "identifier": "OsLang",
+      "line": 4,
+      "reason": "extern-module-namespace",
+      "source_sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b"
+    },
+    {
+      "attributes": [
+        "{:extern \"SetToOrderedSequence\"}",
+        "{:axiom}"
+      ],
+      "file": "StandardLibrary/src/Sets.dfy",
+      "identifier": "ComputeSetToOrderedSequence",
+      "line": 11,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "08b57adc8107fbfbdfb8ea89ff984ca10054ef5d65eb0deff5e195dfaac7c599"
+    },
+    {
+      "attributes": [
+        "{:extern \"SetToOrderedSequence2\"}",
+        "{:axiom}"
+      ],
+      "file": "StandardLibrary/src/Sets.dfy",
+      "identifier": "ComputeSetToOrderedSequence2",
+      "line": 15,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "08b57adc8107fbfbdfb8ea89ff984ca10054ef5d65eb0deff5e195dfaac7c599"
+    },
+    {
+      "attributes": [
+        "{:extern \"SetToSequence\"}",
+        "{:axiom}"
+      ],
+      "file": "StandardLibrary/src/Sets.dfy",
+      "identifier": "ComputeSetToSequence",
+      "line": 30,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "08b57adc8107fbfbdfb8ea89ff984ca10054ef5d65eb0deff5e195dfaac7c599"
+    },
+    {
+      "attributes": [
+        "{:extern \"SortedSets\"}"
+      ],
+      "file": "StandardLibrary/src/Sets.dfy",
+      "forbidden_identifier": false,
+      "identifier": "SortedSets",
+      "line": 7,
+      "reason": "extern-module-namespace",
+      "source_sha256": "08b57adc8107fbfbdfb8ea89ff984ca10054ef5d65eb0deff5e195dfaac7c599"
+    },
+    {
+      "attributes": [
+        "{:extern \"CurrentRelativeTime\"}"
+      ],
+      "file": "StandardLibrary/src/Time.dfy",
+      "identifier": "GetCurrent",
+      "line": 32,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39"
+    },
+    {
+      "attributes": [
+        "{:extern \"CurrentRelativeTimeMilli\"}"
+      ],
+      "file": "StandardLibrary/src/Time.dfy",
+      "identifier": "GetCurrentMilli",
+      "line": 40,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39"
+    },
+    {
+      "attributes": [
+        "{:extern \"GetProcessCpuTimeMillis\"}"
+      ],
+      "file": "StandardLibrary/src/Time.dfy",
+      "identifier": "GetProcessCpuTimeMillis",
+      "line": 48,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39"
+    },
+    {
+      "attributes": [
+        "{:extern \"GetCurrentTimeStamp\"}"
+      ],
+      "file": "StandardLibrary/src/Time.dfy",
+      "identifier": "GetCurrentTimeStamp",
+      "line": 55,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39"
+    },
+    {
+      "attributes": [
+        "{:extern \"Time\"}"
+      ],
+      "file": "StandardLibrary/src/Time.dfy",
+      "forbidden_identifier": false,
+      "identifier": "Time",
+      "line": 11,
+      "reason": "extern-module-namespace",
+      "source_sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39"
+    },
+    {
+      "attributes": [
+        "{:extern \"Encode\"}"
+      ],
+      "file": "StandardLibrary/src/UTF8.dfy",
+      "identifier": "Encode",
+      "line": 25,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13"
+    },
+    {
+      "attributes": [
+        "{:extern \"Decode\"}"
+      ],
+      "file": "StandardLibrary/src/UTF8.dfy",
+      "identifier": "Decode",
+      "line": 33,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13"
+    },
+    {
+      "attributes": [
+        "{:extern \"UTF8\"}"
+      ],
+      "file": "StandardLibrary/src/UTF8.dfy",
+      "forbidden_identifier": false,
+      "identifier": "UTF8",
+      "line": 17,
+      "reason": "extern-module-namespace",
+      "source_sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13"
+    },
+    {
+      "attributes": [
+        "{:extern \"ToByteArray\"}"
+      ],
+      "file": "StandardLibrary/src/UUID.dfy",
+      "identifier": "ToByteArray",
+      "line": 10,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "c82ee108c529262a6134a5dff8197c2d9da7715ba0ca403fc1ce9ff055b33bfc"
+    },
+    {
+      "attributes": [
+        "{:extern \"FromByteArray\"}"
+      ],
+      "file": "StandardLibrary/src/UUID.dfy",
+      "identifier": "FromByteArray",
+      "line": 14,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "c82ee108c529262a6134a5dff8197c2d9da7715ba0ca403fc1ce9ff055b33bfc"
+    },
+    {
+      "attributes": [
+        "{:extern \"GenerateUUID\"}"
+      ],
+      "file": "StandardLibrary/src/UUID.dfy",
+      "identifier": "GenerateUUID",
+      "line": 22,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "c82ee108c529262a6134a5dff8197c2d9da7715ba0ca403fc1ce9ff055b33bfc"
+    },
+    {
+      "attributes": [
+        "{:extern \"UUID\"}"
+      ],
+      "file": "StandardLibrary/src/UUID.dfy",
+      "forbidden_identifier": false,
+      "identifier": "UUID",
+      "line": 6,
+      "reason": "extern-module-namespace",
+      "source_sha256": "c82ee108c529262a6134a5dff8197c2d9da7715ba0ca403fc1ce9ff055b33bfc"
+    },
+    {
+      "attributes": [
+        "{:extern \"DafnyLibraries.FileIO\", \"INTERNAL_ReadBytesFromFile\"}"
+      ],
+      "file": "libraries/src/FileIO/FileIO.dfy",
+      "identifier": "INTERNAL_ReadBytesFromFile",
+      "line": 75,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "b6896dac29e2929f10375b3a8a0351932f10733be5b3e0fc3a118d2a04912802"
+    },
+    {
+      "attributes": [
+        "{:extern \"DafnyLibraries.FileIO\", \"INTERNAL_WriteBytesToFile\"}"
+      ],
+      "file": "libraries/src/FileIO/FileIO.dfy",
+      "identifier": "INTERNAL_WriteBytesToFile",
+      "line": 80,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "b6896dac29e2929f10375b3a8a0351932f10733be5b3e0fc3a118d2a04912802"
+    },
+    {
+      "attributes": [
+        "{:extern \"DafnyLibraries.FileIO\", \"INTERNAL_AppendBytesToFile\"}"
+      ],
+      "file": "libraries/src/FileIO/FileIO.dfy",
+      "identifier": "INTERNAL_AppendBytesToFile",
+      "line": 85,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "b6896dac29e2929f10375b3a8a0351932f10733be5b3e0fc3a118d2a04912802"
+    },
+    {
+      "attributes": [
+        "{:axiom}"
+      ],
+      "file": "libraries/src/JSON/ZeroCopy/Serializer.dfy",
+      "identifier": "Assume",
+      "line": 119,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "31c7529e5d4639521647f22d609ed3894e235ca6a04d5f72451ac85d884122f0"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "content",
+      "line": 73,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Put",
+      "line": 76,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Keys",
+      "line": 82,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "HasKey",
+      "line": 86,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Values",
+      "line": 90,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Items",
+      "line": 94,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Select",
+      "line": 99,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Remove",
+      "line": 105,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    {
+      "attributes": [
+        "{:extern}"
+      ],
+      "file": "libraries/src/MutableMap/MutableMap.dfy",
+      "identifier": "Size",
+      "line": 110,
+      "reason": "callable-trust-attribute",
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    }
+  ],
+  "policy": "Forbid callable names with explicit trust attributes or an inherited assume in their declaration span. Namespace extern annotations remain disclosed; this is not a transitive proof-dependency audit."
+}

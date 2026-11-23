@@ -1,0 +1,204 @@
+{
+  "status": "TWELVE_EXPECTED_OBSERVATIONS_MATCH",
+  "counts": {
+    "total_expected": 12,
+    "total_matching": 12,
+    "new_control_observations": 9,
+    "reused_positive_observations": 3,
+    "alternative_native_successes": 2,
+    "ordinary_proof_failures": 5,
+    "exit_zero_omissions_rejected": 2
+  },
+  "observations": [
+    {
+      "case": "baseline",
+      "stage": 0,
+      "run_id": "63086889:baseline",
+      "observed": "VERIFIED",
+      "expected": "VERIFIED",
+      "expected_match": true,
+      "logged_passes": 56,
+      "reuse_of_saved_observation": true,
+      "new_native_trial": false,
+      "model_parent_eligible": false
+    },
+    {
+      "case": "append-reference",
+      "stage": 1,
+      "run_id": "63088122:append-reference",
+      "observed": "VERIFIED",
+      "expected": "VERIFIED",
+      "expected_match": true,
+      "logged_passes": 58,
+      "reuse_of_saved_observation": true,
+      "new_native_trial": false,
+      "model_parent_eligible": false
+    },
+    {
+      "case": "rotate-reference",
+      "stage": 2,
+      "run_id": "63088122:rotate-reference",
+      "observed": "VERIFIED",
+      "expected": "VERIFIED",
+      "expected_match": true,
+      "logged_passes": 60,
+      "reuse_of_saved_observation": true,
+      "new_native_trial": false,
+      "model_parent_eligible": false
+    },
+    {
+      "case": "append-alternative",
+      "stage": 1,
+      "run_id": "63088528:append-alternative",
+      "expected": "VERIFIED",
+      "observed": "VERIFIED",
+      "expected_match": true,
+      "logged_passes": 58,
+      "failed_units": [],
+      "qualified_success": true,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "append-empty",
+      "stage": 1,
+      "run_id": "63088528:append-empty",
+      "expected": "PROOF_FAILURE",
+      "observed": "PROOF_FAILURE",
+      "expected_match": true,
+      "logged_passes": 57,
+      "failed_units": [
+        "RepoDiscoStdAppend.AppendAll (correctness)"
+      ],
+      "qualified_success": false,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "append-reverse",
+      "stage": 1,
+      "run_id": "63088528:append-reverse",
+      "expected": "PROOF_FAILURE",
+      "observed": "PROOF_FAILURE",
+      "expected_match": true,
+      "logged_passes": 57,
+      "failed_units": [
+        "RepoDiscoStdAppend.AppendAll (correctness)"
+      ],
+      "qualified_success": false,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "rotate-direct",
+      "stage": 2,
+      "run_id": "63088528:rotate-direct",
+      "expected": "VERIFIED",
+      "observed": "VERIFIED",
+      "expected_match": true,
+      "logged_passes": 60,
+      "failed_units": [],
+      "qualified_success": true,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "rotate-empty",
+      "stage": 2,
+      "run_id": "63088528:rotate-empty",
+      "expected": "PROOF_FAILURE",
+      "observed": "PROOF_FAILURE",
+      "expected_match": true,
+      "logged_passes": 59,
+      "failed_units": [
+        "RepoDiscoStdRotate.AppendRotated (correctness)"
+      ],
+      "qualified_success": false,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "rotate-original-order",
+      "stage": 2,
+      "run_id": "63088528:rotate-original-order",
+      "expected": "PROOF_FAILURE",
+      "observed": "PROOF_FAILURE",
+      "expected_match": true,
+      "logged_passes": 59,
+      "failed_units": [
+        "RepoDiscoStdRotate.AppendRotated (correctness)"
+      ],
+      "qualified_success": false,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "rotate-unproved-append",
+      "stage": 2,
+      "run_id": "63088528:rotate-unproved-append",
+      "expected": "PROOF_FAILURE",
+      "observed": "PROOF_FAILURE",
+      "expected_match": true,
+      "logged_passes": 59,
+      "failed_units": [
+        "RepoDiscoStdAppend.AppendAll (correctness)"
+      ],
+      "qualified_success": false,
+      "missing_units": [],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "append-omitted",
+      "stage": 1,
+      "run_id": "63088528:append-omitted",
+      "expected": "INPUT_COVERAGE_REJECTED",
+      "observed": "INPUT_COVERAGE_REJECTED",
+      "expected_match": true,
+      "logged_passes": 56,
+      "failed_units": [],
+      "qualified_success": false,
+      "missing_units": [
+        "RepoDiscoStdAppend.AppendAll (correctness)",
+        "RepoDiscoStdAppend.AppendAll (well-formedness)"
+      ],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    },
+    {
+      "case": "rotate-omitted",
+      "stage": 2,
+      "run_id": "63088528:rotate-omitted",
+      "expected": "INPUT_COVERAGE_REJECTED",
+      "observed": "INPUT_COVERAGE_REJECTED",
+      "expected_match": true,
+      "logged_passes": 58,
+      "failed_units": [],
+      "qualified_success": false,
+      "missing_units": [
+        "RepoDiscoStdRotate.AppendRotated (correctness)",
+        "RepoDiscoStdRotate.AppendRotated (well-formedness)"
+      ],
+      "model_parent_eligible": false,
+      "new_native_trial": false,
+      "actual_saved_observation_replayed": true
+    }
+  ],
+  "new_native_calls": 0,
+  "model_calls": 0,
+  "execution_release_issued": false
+}

@@ -1,0 +1,229 @@
+{
+  "child_gate": "Exact same-lineage accepted stage-one model/source/native/request binding; otherwise child is blocked without consuming/reassigning its slot.",
+  "execution_enabled": false,
+  "expansion_gate": {
+    "ambiguous_request_or_native_infrastructure_failure_stops": true,
+    "minimum_accepted_stage1": 1,
+    "pilot_slots": [
+      "slot-01",
+      "slot-02",
+      "slot-03",
+      "slot-04"
+    ],
+    "requires_complete_healthy_accounting": true
+  },
+  "maximum_calls": 12,
+  "projects": {
+    "aws": {
+      "base_sources_manifest": "sources/aws-base.json",
+      "context_path": "context/aws.json",
+      "stages": {
+        "1": {
+          "base_sources_manifest": "sources/aws-base.json",
+          "child_template_payload_path": null,
+          "edit_profile_path": "guard-profiles/aws-stage1.json",
+          "exact_live_payload": "payloads/aws-stage1.json",
+          "exact_payload_path": "payloads/aws-stage1.json",
+          "guard_profile_sha256": "01acf4f465016b073b10678e3f31b61447589efded73ffd462796923e0845dc5",
+          "native_profile_path": null,
+          "native_qualification": "pending",
+          "stage_id": "u16-frame",
+          "target_file": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "template_source_path": "templates/aws-stage1.dfy"
+        },
+        "2": {
+          "base_sources_manifest": "sources/aws-base.json",
+          "child_template_payload_path": "payloads/aws-stage2-template.json",
+          "edit_profile_path": "guard-profiles/aws-stage2.json",
+          "exact_live_payload": null,
+          "exact_payload_path": null,
+          "guard_profile_sha256": "496cf5f99b1c94d2a986753e3340e1bf2d1a2d5a20cf3bb085b470a40bdaa77b",
+          "native_profile_path": null,
+          "native_qualification": "pending",
+          "stage_id": "context-entry",
+          "target_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/RepoDiscoContextEntry.dfy",
+          "template_source_path": "templates/aws-stage2.dfy"
+        }
+      },
+      "upstream_source_files": 102
+    },
+    "stdlib": {
+      "base_sources_manifest": "sources/stdlib-base.json",
+      "context_path": "context/stdlib.json",
+      "stages": {
+        "1": {
+          "base_sources_manifest": "sources/stdlib-base.json",
+          "child_template_payload_path": null,
+          "edit_profile_path": "guard-profiles/stdlib-stage1.json",
+          "exact_live_payload": "payloads/stdlib-stage1.json",
+          "exact_payload_path": "payloads/stdlib-stage1.json",
+          "guard_profile_sha256": "98376e0e871e1a2a570edbd152ae8c2dbb150ee4739e0234ac73126f6f948c46",
+          "native_profile_path": null,
+          "native_qualification": "pending",
+          "stage_id": "append-all",
+          "target_file": "growth/AppendAll.dfy",
+          "template_source_path": "templates/stdlib-stage1.dfy"
+        },
+        "2": {
+          "base_sources_manifest": "sources/stdlib-base.json",
+          "child_template_payload_path": "payloads/stdlib-stage2-template.json",
+          "edit_profile_path": "guard-profiles/stdlib-stage2.json",
+          "exact_live_payload": null,
+          "exact_payload_path": null,
+          "guard_profile_sha256": "812f9582a89e21b125a8bbe19238fa7262b8fed0ff119d9861622cb7b709a3bc",
+          "native_profile_path": null,
+          "native_qualification": "pending",
+          "stage_id": "append-rotated",
+          "target_file": "growth/AppendRotated.dfy",
+          "template_source_path": "templates/stdlib-stage2.dfy"
+        }
+      },
+      "upstream_source_files": 3
+    }
+  },
+  "qualification_release": null,
+  "reassignment": false,
+  "response_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "body": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "body"
+    ],
+    "type": "object"
+  },
+  "retries": 0,
+  "schema": "dafny-library-growth-pilot-draft-v1",
+  "slots": [
+    {
+      "chain_id": "stdlib-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-01",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "stdlib",
+      "stage": 1
+    },
+    {
+      "chain_id": "aws-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-02",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "aws",
+      "stage": 1
+    },
+    {
+      "chain_id": "stdlib-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-03",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-01",
+      "project": "stdlib",
+      "stage": 2
+    },
+    {
+      "chain_id": "aws-lineage-01",
+      "cohort": "pilot",
+      "id": "slot-04",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-02",
+      "project": "aws",
+      "stage": 2
+    },
+    {
+      "chain_id": "aws-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-05",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "aws",
+      "stage": 1
+    },
+    {
+      "chain_id": "stdlib-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-06",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "stdlib",
+      "stage": 1
+    },
+    {
+      "chain_id": "aws-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-07",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-05",
+      "project": "aws",
+      "stage": 2
+    },
+    {
+      "chain_id": "stdlib-lineage-02",
+      "cohort": "expansion",
+      "id": "slot-08",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-06",
+      "project": "stdlib",
+      "stage": 2
+    },
+    {
+      "chain_id": "stdlib-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-09",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "stdlib",
+      "stage": 1
+    },
+    {
+      "chain_id": "aws-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-10",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": null,
+      "project": "aws",
+      "stage": 1
+    },
+    {
+      "chain_id": "stdlib-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-11",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-09",
+      "project": "stdlib",
+      "stage": 2
+    },
+    {
+      "chain_id": "aws-lineage-03",
+      "cohort": "expansion",
+      "id": "slot-12",
+      "independent_context": true,
+      "maximum_requests": 1,
+      "parent_slot_id": "slot-10",
+      "project": "aws",
+      "stage": 2
+    }
+  ],
+  "status": "DRAFT_PENDING_NATIVE_GATES",
+  "study_limits": [
+    "Two selected real-source development chains, not whole upstream repositories.",
+    "Contract-guided executable body generation, not unrestricted repository synthesis.",
+    "API call observations are descriptive, not necessary proof dependence.",
+    "No held-out or pretraining-contamination claim."
+  ]
+}

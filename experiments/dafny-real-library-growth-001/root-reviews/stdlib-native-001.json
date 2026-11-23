@@ -1,0 +1,79 @@
+{
+  "gate_sha256": "f1901c342d30884496e64c9a93d1fc87421e64512e5fbca8f21e971865d20c56",
+  "input_files_checked": 148,
+  "native_profile_file_pins_checked": 3,
+  "controls": [
+    {
+      "case": "append-alternative",
+      "passed": 58,
+      "failed": [],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "append-empty",
+      "passed": 57,
+      "failed": [
+        "RepoDiscoStdAppend.AppendAll (correctness)"
+      ],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "append-omitted",
+      "passed": 56,
+      "failed": [],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "append-reverse",
+      "passed": 57,
+      "failed": [
+        "RepoDiscoStdAppend.AppendAll (correctness)"
+      ],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "rotate-direct",
+      "passed": 60,
+      "failed": [],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "rotate-empty",
+      "passed": 59,
+      "failed": [
+        "RepoDiscoStdRotate.AppendRotated (correctness)"
+      ],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "rotate-omitted",
+      "passed": 58,
+      "failed": [],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "rotate-original-order",
+      "passed": 59,
+      "failed": [
+        "RepoDiscoStdRotate.AppendRotated (correctness)"
+      ],
+      "upstream_56_passed": true
+    },
+    {
+      "case": "rotate-unproved-append",
+      "passed": 59,
+      "failed": [
+        "RepoDiscoStdAppend.AppendAll (correctness)"
+      ],
+      "upstream_56_passed": true
+    }
+  ],
+  "all_12_expected_outcomes_match": true,
+  "no_new_native_calls": true,
+  "model_calls": 0,
+  "qualified_component_files": 3,
+  "new_additions": 2,
+  "unlogged_definition_count": 44,
+  "unlogged_not_counted_as_pass": true,
+  "audit_development_correction": "Removed an irrelevant comparison between argv count and native unit count from initial ad-hoc audit; actual omission condition compares source paths in argv against staged sources. No source/native observation changed."
+}

@@ -1,0 +1,5346 @@
+{
+  "complete_source_files_shown": [
+    "StandardLibrary/src/UInt.dfy",
+    "StandardLibrary/src/UTF8.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Wrappers.dfy"
+  ],
+  "context_notice": "The host keeps every source file listed in the dependency inventory. Only the verbatim excerpts below are shown; omitted or partial files are not replaced by invented interfaces. All new-file imports and contracts are fixed.",
+  "dependency_inventory": {
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy": {
+      "imports": [
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 12,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 13,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 14,
+          "text": "  import AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 15,
+          "text": "  import AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 16,
+          "text": "  import ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 17,
+          "text": "  import ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 1736,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 1737,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 1738,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 1739,
+          "text": "  import opened Types = AwsCryptographyMaterialProvidersTypes"
+        },
+        {
+          "line": 1740,
+          "text": "  import Operations : AbstractAwsCryptographyMaterialProvidersOperations"
+        },
+        {
+          "line": 2498,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 2499,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 2500,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 2501,
+          "text": "  import opened Types = AwsCryptographyMaterialProvidersTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../../../StandardLibrary/src/Index.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/Index.dfy",
+          "text": "include \"../../../../StandardLibrary/src/Index.dfy\""
+        },
+        {
+          "include": "../../AwsCryptographyKeyStore/src/Index.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy",
+          "text": "include \"../../AwsCryptographyKeyStore/src/Index.dfy\""
+        },
+        {
+          "include": "../../../../AwsCryptographyPrimitives/src/Index.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographyPrimitives/src/Index.dfy",
+          "text": "include \"../../../../AwsCryptographyPrimitives/src/Index.dfy\""
+        },
+        {
+          "include": "../../../../ComAmazonawsDynamodb/src/Index.dfy",
+          "line": 7,
+          "resolved_file": "ComAmazonawsDynamodb/src/Index.dfy",
+          "text": "include \"../../../../ComAmazonawsDynamodb/src/Index.dfy\""
+        },
+        {
+          "include": "../../../../ComAmazonawsKms/src/Index.dfy",
+          "line": 8,
+          "resolved_file": "ComAmazonawsKms/src/Index.dfy",
+          "text": "include \"../../../../ComAmazonawsKms/src/Index.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 9,
+          "text": "module {:extern \"software.amazon.cryptography.materialproviders.internaldafny.types\" } AwsCryptographyMaterialProvidersTypes"
+        },
+        {
+          "line": 1734,
+          "text": "abstract module AbstractAwsCryptographyMaterialProvidersService"
+        },
+        {
+          "line": 2497,
+          "text": "abstract module AbstractAwsCryptographyMaterialProvidersOperations {"
+        }
+      ],
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 11,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 12,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 13,
+          "text": "  import Types = AwsCryptographyMaterialProvidersTypes"
+        },
+        {
+          "line": 14,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 15,
+          "text": "  import UTF8"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyMaterialProvidersTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyMaterialProvidersTypes.dfy\""
+        },
+        {
+          "include": "../../../../ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+          "line": 5,
+          "resolved_file": "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+          "text": "include \"../../../../ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module AwsArnParsing {"
+        }
+      ],
+      "source_sha256": "bd5d2fca7c15946907f29016c3db02512d9d89d2b7a838af21cb42fbb97dabbf"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/CanonicalEncryptionContext.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 10,
+          "text": "  import Types = AwsCryptographyMaterialProvidersTypes"
+        },
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 12,
+          "text": "  import Seq"
+        },
+        {
+          "line": 13,
+          "text": "  import SortedSets"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyMaterialProvidersTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyMaterialProvidersTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module CanonicalEncryptionContext {"
+        }
+      ],
+      "source_sha256": "dd42099a01c00f8ed04af39080b5724d77301d0ab0aaf6c22e938401142f9685"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 10,
+          "text": "  import opened AwsArnParsing"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../AwsArnParsing.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../AwsArnParsing.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module  AwsKmsMrkMatchForDecrypt {"
+        }
+      ],
+      "source_sha256": "7bcb531c646277aaea062dde0ca7b93a5ed40fe99f13da2a41b6b57527df57d2"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 11,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 12,
+          "text": "  import opened Actions"
+        },
+        {
+          "line": 13,
+          "text": "  import opened A = AwsKmsMrkMatchForDecrypt"
+        },
+        {
+          "line": 14,
+          "text": "  import opened AwsArnParsing"
+        },
+        {
+          "line": 15,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 16,
+          "text": "  import Types = AwsCryptographyMaterialProvidersTypes"
+        },
+        {
+          "line": 17,
+          "text": "  import KMS = Types.ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 18,
+          "text": "  import UTF8"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../../Model/AwsCryptographyMaterialProvidersTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+          "text": "include \"../../../Model/AwsCryptographyMaterialProvidersTypes.dfy\""
+        },
+        {
+          "include": "AwsKmsMrkMatchForDecrypt.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy",
+          "text": "include \"AwsKmsMrkMatchForDecrypt.dfy\""
+        },
+        {
+          "include": "../../AwsArnParsing.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../AwsArnParsing.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module AwsKmsUtils {"
+        }
+      ],
+      "source_sha256": "bacf0fa41fdd6125a95137103caef9c49bcc37a3fef081c8352838b1f08bbc71"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 11,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 12,
+          "text": "  import ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 13,
+          "text": "  import ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 299,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 300,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 301,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 302,
+          "text": "  import opened Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 303,
+          "text": "  import Operations : AbstractAwsCryptographyKeyStoreOperations"
+        },
+        {
+          "line": 498,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 499,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 500,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 501,
+          "text": "  import opened Types = AwsCryptographyKeyStoreTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../../../StandardLibrary/src/Index.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/Index.dfy",
+          "text": "include \"../../../../StandardLibrary/src/Index.dfy\""
+        },
+        {
+          "include": "../../../../ComAmazonawsDynamodb/src/Index.dfy",
+          "line": 5,
+          "resolved_file": "ComAmazonawsDynamodb/src/Index.dfy",
+          "text": "include \"../../../../ComAmazonawsDynamodb/src/Index.dfy\""
+        },
+        {
+          "include": "../../../../ComAmazonawsKms/src/Index.dfy",
+          "line": 6,
+          "resolved_file": "ComAmazonawsKms/src/Index.dfy",
+          "text": "include \"../../../../ComAmazonawsKms/src/Index.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:extern \"software.amazon.cryptography.keystore.internaldafny.types\" } AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 297,
+          "text": "abstract module AbstractAwsCryptographyKeyStoreService"
+        },
+        {
+          "line": 497,
+          "text": "abstract module AbstractAwsCryptographyKeyStoreOperations {"
+        }
+      ],
+      "source_sha256": "9431617f51f73172efc4f6889f67013b05ce7a584baa75e0f7a4977b8eaabb41"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/AwsCryptographyKeyStoreOperations.dfy": {
+      "imports": [
+        {
+          "line": 14,
+          "text": "  import opened AwsKmsUtils"
+        },
+        {
+          "line": 15,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 16,
+          "text": "  import KO = KMSKeystoreOperations"
+        },
+        {
+          "line": 17,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 18,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 19,
+          "text": "  import MPL = AwsCryptographyMaterialProvidersTypes"
+        },
+        {
+          "line": 20,
+          "text": "  import CreateKeys"
+        },
+        {
+          "line": 21,
+          "text": "  import CreateKeyStoreTable"
+        },
+        {
+          "line": 22,
+          "text": "  import GetKeys"
+        },
+        {
+          "line": 23,
+          "text": "  import UUID"
+        },
+        {
+          "line": 24,
+          "text": "  import Time"
+        },
+        {
+          "line": 25,
+          "text": "  import Structure"
+        },
+        {
+          "line": 26,
+          "text": "  import ErrorMessages = KeyStoreErrorMessages"
+        },
+        {
+          "line": 27,
+          "text": "  import KmsArn"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 3,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "../../AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+          "text": "include \"../../AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy\""
+        },
+        {
+          "include": "GetKeys.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/GetKeys.dfy",
+          "text": "include \"GetKeys.dfy\""
+        },
+        {
+          "include": "CreateKeyStoreTable.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeyStoreTable.dfy",
+          "text": "include \"CreateKeyStoreTable.dfy\""
+        },
+        {
+          "include": "CreateKeys.dfy",
+          "line": 8,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeys.dfy",
+          "text": "include \"CreateKeys.dfy\""
+        },
+        {
+          "include": "Structure.dfy",
+          "line": 9,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+          "text": "include \"Structure.dfy\""
+        },
+        {
+          "include": "ErrorMessages.dfy",
+          "line": 10,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+          "text": "include \"ErrorMessages.dfy\""
+        },
+        {
+          "include": "KmsArn.dfy",
+          "line": 11,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+          "text": "include \"KmsArn.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 13,
+          "text": "module AwsCryptographyKeyStoreOperations refines AbstractAwsCryptographyKeyStoreOperations {"
+        }
+      ],
+      "source_sha256": "0809f98945ef87a71b3f46a225946563e6093449e0f0b26032901209a1fe3845"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeyStoreTable.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 11,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 12,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 13,
+          "text": "  import Structure"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "Structure.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+          "text": "include \"Structure.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module CreateKeyStoreTable {"
+        }
+      ],
+      "source_sha256": "d333419746d56143fdd56b8390b308c1e474229755ad0274f3e8b847680960cd"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeys.dfy": {
+      "imports": [
+        {
+          "line": 13,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 14,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 16,
+          "text": "  import Structure"
+        },
+        {
+          "line": 17,
+          "text": "  import KMSKeystoreOperations"
+        },
+        {
+          "line": 18,
+          "text": "  import DDBKeystoreOperations"
+        },
+        {
+          "line": 19,
+          "text": "  import ErrorMessages = KeyStoreErrorMessages"
+        },
+        {
+          "line": 21,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 22,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 23,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 24,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 25,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 26,
+          "text": "  import AwsArnParsing"
+        },
+        {
+          "line": 27,
+          "text": "  import KmsArn"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "Structure.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+          "text": "include \"Structure.dfy\""
+        },
+        {
+          "include": "DDBKeystoreOperations.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/DDBKeystoreOperations.dfy",
+          "text": "include \"DDBKeystoreOperations.dfy\""
+        },
+        {
+          "include": "KMSKeystoreOperations.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KMSKeystoreOperations.dfy",
+          "text": "include \"KMSKeystoreOperations.dfy\""
+        },
+        {
+          "include": "ErrorMessages.dfy",
+          "line": 8,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+          "text": "include \"ErrorMessages.dfy\""
+        },
+        {
+          "include": "../../AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "line": 9,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy\""
+        },
+        {
+          "include": "KmsArn.dfy",
+          "line": 10,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+          "text": "include \"KmsArn.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 12,
+          "text": "module {:options \"/functionSyntax:4\" } CreateKeys {"
+        }
+      ],
+      "source_sha256": "9f2113f4b8901039c495aa91b1382308f06a2ae9bd5f0a0c48d1fb9c94c7c82b"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/DDBKeystoreOperations.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 10,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 11,
+          "text": "  import Seq"
+        },
+        {
+          "line": 12,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 13,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 14,
+          "text": "  import UTF8"
+        },
+        {
+          "line": 15,
+          "text": "  import Structure"
+        },
+        {
+          "line": 16,
+          "text": "  import ErrorMessages = KeyStoreErrorMessages"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 3,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "Structure.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+          "text": "include \"Structure.dfy\""
+        },
+        {
+          "include": "ErrorMessages.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+          "text": "include \"ErrorMessages.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module DDBKeystoreOperations {"
+        }
+      ],
+      "source_sha256": "3a35b2af06f56009b56617d994cc91b0cbb5a457e28e38408bca4640c37f38c3"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 4,
+          "text": "module {:options \"/functionSyntax:4\" } KeyStoreErrorMessages {"
+        }
+      ],
+      "source_sha256": "839518987c7cb5e74b5f8413ac7d0a8b66aa3d04a43a7b4d89cd13609b24e71e"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/GetKeys.dfy": {
+      "imports": [
+        {
+          "line": 12,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 14,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 16,
+          "text": "  import Structure"
+        },
+        {
+          "line": 17,
+          "text": "  import KMSKeystoreOperations"
+        },
+        {
+          "line": 18,
+          "text": "  import DDBKeystoreOperations"
+        },
+        {
+          "line": 19,
+          "text": "  import ErrorMessages = KeyStoreErrorMessages"
+        },
+        {
+          "line": 21,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 22,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 23,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 24,
+          "text": "  import UTF8"
+        },
+        {
+          "line": 25,
+          "text": "  import KmsArn"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "Structure.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+          "text": "include \"Structure.dfy\""
+        },
+        {
+          "include": "DDBKeystoreOperations.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/DDBKeystoreOperations.dfy",
+          "text": "include \"DDBKeystoreOperations.dfy\""
+        },
+        {
+          "include": "KMSKeystoreOperations.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KMSKeystoreOperations.dfy",
+          "text": "include \"KMSKeystoreOperations.dfy\""
+        },
+        {
+          "include": "ErrorMessages.dfy",
+          "line": 8,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+          "text": "include \"ErrorMessages.dfy\""
+        },
+        {
+          "include": "KmsArn.dfy",
+          "line": 9,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+          "text": "include \"KmsArn.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module GetKeys {"
+        }
+      ],
+      "source_sha256": "bc1768707d48041d2020eac0b6002c6adb6a5cc53d0577169e3764965a4ee2e7"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy": {
+      "imports": [
+        {
+          "line": 11,
+          "text": "  import opened AwsKmsUtils"
+        },
+        {
+          "line": 12,
+          "text": "  import Operations = AwsCryptographyKeyStoreOperations"
+        },
+        {
+          "line": 13,
+          "text": "  import KMSOperations = Com.Amazonaws.Kms"
+        },
+        {
+          "line": 14,
+          "text": "  import DDBOperations =  Com.Amazonaws.Dynamodb"
+        },
+        {
+          "line": 15,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 16,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 17,
+          "text": "  import UUID"
+        },
+        {
+          "line": 18,
+          "text": "  import ErrorMessages = KeyStoreErrorMessages"
+        },
+        {
+          "line": 19,
+          "text": "  import KmsArn"
+        },
+        {
+          "line": 20,
+          "text": "  import KMSKeystoreOperations"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 3,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "AwsCryptographyKeyStoreOperations.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/AwsCryptographyKeyStoreOperations.dfy",
+          "text": "include \"AwsCryptographyKeyStoreOperations.dfy\""
+        },
+        {
+          "include": "ErrorMessages.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+          "text": "include \"ErrorMessages.dfy\""
+        },
+        {
+          "include": "KmsArn.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+          "text": "include \"KmsArn.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 9,
+          "text": "module {:extern \"software.amazon.cryptography.keystore.internaldafny\"} KeyStore refines AbstractAwsCryptographyKeyStoreService"
+        }
+      ],
+      "source_sha256": "62678f09c92c146d54569290d7d724aef70ec33cf4d637beeba8cd50bc5c09f4"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KMSKeystoreOperations.dfy": {
+      "imports": [
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 12,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 13,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 14,
+          "text": "  import Seq"
+        },
+        {
+          "line": 15,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 16,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 17,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 18,
+          "text": "  import UTF8"
+        },
+        {
+          "line": 19,
+          "text": "  import Structure"
+        },
+        {
+          "line": 20,
+          "text": "  import opened AwsArnParsing"
+        },
+        {
+          "line": 21,
+          "text": "  import AwsKmsMrkMatchForDecrypt"
+        },
+        {
+          "line": 22,
+          "text": "  import KmsArn"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 3,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "Structure.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+          "text": "include \"Structure.dfy\""
+        },
+        {
+          "include": "../../AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy\""
+        },
+        {
+          "include": "../../AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy",
+          "text": "include \"../../AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy\""
+        },
+        {
+          "include": "../../../dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../../dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy\""
+        },
+        {
+          "include": "KmsArn.dfy",
+          "line": 8,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+          "text": "include \"KmsArn.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 10,
+          "text": "module {:options \"/functionSyntax:4\" } KMSKeystoreOperations {"
+        }
+      ],
+      "source_sha256": "2ee2cbe45531a5696915860c5535b51f949ffafc21916c71e38805ea3e21b163"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import AwsArnParsing"
+        },
+        {
+          "line": 11,
+          "text": "  import ErrorMessages = KeyStoreErrorMessages"
+        },
+        {
+          "line": 12,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 13,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 3,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "../../../dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../../dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy\""
+        },
+        {
+          "include": "ErrorMessages.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+          "text": "include \"ErrorMessages.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module {:options \"/functionSyntax:4\" } KmsArn {"
+        }
+      ],
+      "source_sha256": "fe91781cfd7438fb334f699ba78a36279ce437bb002dd90138ba5fc2b2e8c672"
+    },
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 10,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 11,
+          "text": "  import Types = AwsCryptographyKeyStoreTypes"
+        },
+        {
+          "line": 12,
+          "text": "  import DDB = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 13,
+          "text": "  import KMS = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 14,
+          "text": "  import UTF8"
+        },
+        {
+          "line": 15,
+          "text": "  import AwsArnParsing"
+        },
+        {
+          "line": 16,
+          "text": "  import KmsArn"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyKeyStoreTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyKeyStoreTypes.dfy\""
+        },
+        {
+          "include": "../../../dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+          "text": "include \"../../../dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"/functionSyntax:4\" } Structure {"
+        }
+      ],
+      "source_sha256": "f783c1d13ef60f1ccd15d623ce4029bc6d17525bb8efda9b38a056e405adb717"
+    },
+    "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 706,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 707,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 708,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 709,
+          "text": "  import opened Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 710,
+          "text": "  import Operations : AbstractAwsCryptographyPrimitivesOperations"
+        },
+        {
+          "line": 1202,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 1203,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 1204,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 1205,
+          "text": "  import opened Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../StandardLibrary/src/Index.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/Index.dfy",
+          "text": "include \"../../StandardLibrary/src/Index.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 5,
+          "text": "module {:extern \"software.amazon.cryptography.primitives.internaldafny.types\" } AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 704,
+          "text": "abstract module AbstractAwsCryptographyPrimitivesService"
+        },
+        {
+          "line": 1201,
+          "text": "abstract module AbstractAwsCryptographyPrimitivesOperations {"
+        }
+      ],
+      "source_sha256": "6e4059471bc5fa357129285cef4b9e2c5f03a9d4c917f814784183b9d75f8d0c"
+    },
+    "AwsCryptographyPrimitives/src/AESEncryption.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 10,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"AESEncryption\"} AESEncryption {"
+        }
+      ],
+      "source_sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047"
+    },
+    "AwsCryptographyPrimitives/src/AesKdfCtr.dfy": {
+      "imports": [
+        {
+          "line": 47,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 48,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 49,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 44,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 46,
+          "text": "module {:extern \"AesKdfCtr\"} AesKdfCtr {"
+        }
+      ],
+      "source_sha256": "bd9651afdfa4b365bd24d77358166de1c8f6baed8b44d298a2c9f88e4bbe32b0"
+    },
+    "AwsCryptographyPrimitives/src/AwsCryptographyPrimitivesOperations.dfy": {
+      "imports": [
+        {
+          "line": 17,
+          "text": "  import Random"
+        },
+        {
+          "line": 18,
+          "text": "  import AESEncryption"
+        },
+        {
+          "line": 19,
+          "text": "  import D = Digest"
+        },
+        {
+          "line": 20,
+          "text": "  import WrappedHMAC"
+        },
+        {
+          "line": 21,
+          "text": "  import WrappedHKDF"
+        },
+        {
+          "line": 22,
+          "text": "  import Signature"
+        },
+        {
+          "line": 23,
+          "text": "  import KdfCtr"
+        },
+        {
+          "line": 24,
+          "text": "  import RSAEncryption"
+        },
+        {
+          "line": 25,
+          "text": "  import ECDH"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        },
+        {
+          "include": "Random.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/Random.dfy",
+          "text": "include \"Random.dfy\""
+        },
+        {
+          "include": "WrappedHMAC.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographyPrimitives/src/WrappedHMAC.dfy",
+          "text": "include \"WrappedHMAC.dfy\""
+        },
+        {
+          "include": "WrappedHKDF.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographyPrimitives/src/WrappedHKDF.dfy",
+          "text": "include \"WrappedHKDF.dfy\""
+        },
+        {
+          "include": "./KDF/KdfCtr.dfy",
+          "line": 8,
+          "resolved_file": "AwsCryptographyPrimitives/src/KDF/KdfCtr.dfy",
+          "text": "include \"./KDF/KdfCtr.dfy\""
+        },
+        {
+          "include": "AESEncryption.dfy",
+          "line": 9,
+          "resolved_file": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+          "text": "include \"AESEncryption.dfy\""
+        },
+        {
+          "include": "Digest.dfy",
+          "line": 10,
+          "resolved_file": "AwsCryptographyPrimitives/src/Digest.dfy",
+          "text": "include \"Digest.dfy\""
+        },
+        {
+          "include": "RSAEncryption.dfy",
+          "line": 11,
+          "resolved_file": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+          "text": "include \"RSAEncryption.dfy\""
+        },
+        {
+          "include": "Signature.dfy",
+          "line": 12,
+          "resolved_file": "AwsCryptographyPrimitives/src/Signature.dfy",
+          "text": "include \"Signature.dfy\""
+        },
+        {
+          "include": "AesKdfCtr.dfy",
+          "line": 13,
+          "resolved_file": "AwsCryptographyPrimitives/src/AesKdfCtr.dfy",
+          "text": "include \"AesKdfCtr.dfy\""
+        },
+        {
+          "include": "ECDH.dfy",
+          "line": 14,
+          "resolved_file": "AwsCryptographyPrimitives/src/ECDH.dfy",
+          "text": "include \"ECDH.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 16,
+          "text": "module AwsCryptographyPrimitivesOperations refines AbstractAwsCryptographyPrimitivesOperations {"
+        }
+      ],
+      "source_sha256": "f3a3eaea1d058644d3f41986a43f3e86e717ca290a5118941614a062137cb9a1"
+    },
+    "AwsCryptographyPrimitives/src/Digest.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 10,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 11,
+          "text": "  import ExternDigest"
+        },
+        {
+          "line": 38,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 39,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 40,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module Digest {"
+        },
+        {
+          "line": 37,
+          "text": "module {:extern \"ExternDigest\" } ExternDigest {"
+        }
+      ],
+      "source_sha256": "becb7ddfeb3849bffcebe944e2b1fd977c633ab13971cc826afb9adac9d70f8b"
+    },
+    "AwsCryptographyPrimitives/src/ECDH.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"ECDH\"} ECDH {"
+        }
+      ],
+      "source_sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553"
+    },
+    "AwsCryptographyPrimitives/src/HKDF/HKDF.dfy": {
+      "imports": [
+        {
+          "line": 12,
+          "text": "  import opened HMAC"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 14,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 15,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 16,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 17,
+          "text": "  import Digest"
+        }
+      ],
+      "includes": [
+        {
+          "include": "HMAC.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+          "text": "include \"HMAC.dfy\""
+        },
+        {
+          "include": "../Digest.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/Digest.dfy",
+          "text": "include \"../Digest.dfy\""
+        },
+        {
+          "include": "../../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module HKDF {"
+        }
+      ],
+      "source_sha256": "0ac0a87c359f912a7f01c59d11f857dcd5e17d9aeed38896510c8a1f10ea3312"
+    },
+    "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 10,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 11,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 12,
+          "text": "  import HashDigest = Digest"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        },
+        {
+          "include": "../Digest.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/Digest.dfy",
+          "text": "include \"../Digest.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"-functionSyntax:4\"} {:extern \"HMAC\"} HMAC {"
+        }
+      ],
+      "source_sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8"
+    },
+    "AwsCryptographyPrimitives/src/Index.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import Operations = AwsCryptographyPrimitivesOperations"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        },
+        {
+          "include": "AwsCryptographyPrimitivesOperations.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/AwsCryptographyPrimitivesOperations.dfy",
+          "text": "include \"AwsCryptographyPrimitivesOperations.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:extern \"software.amazon.cryptography.primitives.internaldafny\" } AtomicPrimitives refines AbstractAwsCryptographyPrimitivesService {"
+        }
+      ],
+      "source_sha256": "e31159a0cf54192f72825dcf1cef1e25adb5c09716ccda8c1d4d91a979f2e92b"
+    },
+    "AwsCryptographyPrimitives/src/KDF/KdfCtr.dfy": {
+      "imports": [
+        {
+          "line": 13,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 14,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 15,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 16,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 17,
+          "text": "  import UTF8"
+        },
+        {
+          "line": 18,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 19,
+          "text": "  import HMAC"
+        },
+        {
+          "line": 20,
+          "text": "  import Digest"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../HKDF/HMAC.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+          "text": "include \"../HKDF/HMAC.dfy\""
+        },
+        {
+          "include": "../Digest.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/Digest.dfy",
+          "text": "include \"../Digest.dfy\""
+        },
+        {
+          "include": "../../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 12,
+          "text": "module KdfCtr {"
+        }
+      ],
+      "source_sha256": "022b22e04bd6306e3932ff0c3a8666470e49badbbc5719a49b92a46d2be5dca0"
+    },
+    "AwsCryptographyPrimitives/src/RSAEncryption.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 10,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"RSAEncryption\"} RSAEncryption {"
+        }
+      ],
+      "source_sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c"
+    },
+    "AwsCryptographyPrimitives/src/Random.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 10,
+          "text": "  import ExternRandom"
+        },
+        {
+          "line": 11,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 30,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 31,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 32,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module Random {"
+        },
+        {
+          "line": 29,
+          "text": "module {:extern \"ExternRandom\"} ExternRandom {"
+        }
+      ],
+      "source_sha256": "1615a1f69656e6b72721914540afaff90fe44f54cbd07726fa2837046e8570c0"
+    },
+    "AwsCryptographyPrimitives/src/Signature.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 10,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 11,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"Signature\"} Signature {"
+        }
+      ],
+      "source_sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561"
+    },
+    "AwsCryptographyPrimitives/src/WrappedHKDF.dfy": {
+      "imports": [
+        {
+          "line": 13,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 14,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 15,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 16,
+          "text": "  import StandardLibrary"
+        },
+        {
+          "line": 17,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 18,
+          "text": "  import HMAC"
+        },
+        {
+          "line": 19,
+          "text": "  import HKDF"
+        },
+        {
+          "line": 20,
+          "text": "  import Digest"
+        }
+      ],
+      "includes": [
+        {
+          "include": "HKDF/HKDF.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/src/HKDF/HKDF.dfy",
+          "text": "include \"HKDF/HKDF.dfy\""
+        },
+        {
+          "include": "HKDF/HMAC.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+          "text": "include \"HKDF/HMAC.dfy\""
+        },
+        {
+          "include": "Digest.dfy",
+          "line": 6,
+          "resolved_file": "AwsCryptographyPrimitives/src/Digest.dfy",
+          "text": "include \"Digest.dfy\""
+        },
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 7,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 12,
+          "text": "module WrappedHKDF {"
+        }
+      ],
+      "source_sha256": "911fb14775ee7b80d53919be96441acedebc7a40bc0a1464ad94efad3ba23363"
+    },
+    "AwsCryptographyPrimitives/src/WrappedHMAC.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 11,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        },
+        {
+          "line": 12,
+          "text": "  import Types = AwsCryptographyPrimitivesTypes"
+        },
+        {
+          "line": 13,
+          "text": "  import HMAC"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Model/AwsCryptographyPrimitivesTypes.dfy",
+          "line": 4,
+          "resolved_file": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+          "text": "include \"../Model/AwsCryptographyPrimitivesTypes.dfy\""
+        },
+        {
+          "include": "HKDF/HMAC.dfy",
+          "line": 5,
+          "resolved_file": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+          "text": "include \"HKDF/HMAC.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"-functionSyntax:4\"} WrappedHMAC {"
+        }
+      ],
+      "source_sha256": "d48c535c0c874ee0c7ea04bde5014f57bb8afa58549789f1fbe73a7fb0f1dd2a"
+    },
+    "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 2926,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 2927,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 2928,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 2929,
+          "text": "  import opened Types = ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 2948,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 2949,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 2950,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 2951,
+          "text": "  import opened Types = ComAmazonawsDynamodbTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../StandardLibrary/src/Index.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/Index.dfy",
+          "text": "include \"../../StandardLibrary/src/Index.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 5,
+          "text": "module {:extern \"software.amazon.cryptography.services.dynamodb.internaldafny.types\" } ComAmazonawsDynamodbTypes"
+        },
+        {
+          "line": 2925,
+          "text": "abstract module AbstractComAmazonawsDynamodbService {"
+        },
+        {
+          "line": 2947,
+          "text": "abstract module AbstractComAmazonawsDynamodbOperations {"
+        }
+      ],
+      "source_sha256": "cc4925ec6d9615fd1d7b88ca0a7b404287cbcd943b60f39732f78d0d18b1d2f7"
+    },
+    "ComAmazonawsDynamodb/src/Index.dfy": {
+      "imports": [],
+      "includes": [
+        {
+          "include": "../Model/ComAmazonawsDynamodbTypes.dfy",
+          "line": 4,
+          "resolved_file": "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+          "text": "include \"../Model/ComAmazonawsDynamodbTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"software.amazon.cryptography.services.dynamodb.internaldafny\"} Com.Amazonaws.Dynamodb refines AbstractComAmazonawsDynamodbService {"
+        }
+      ],
+      "source_sha256": "c7ed8b2d843321b015c1f5706580878276cf0e54d1f1c8abe7945858c6ed4eca"
+    },
+    "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 1992,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 1993,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 1994,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 1995,
+          "text": "  import opened Types = ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 2014,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 2015,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 2016,
+          "text": "  import opened UTF8"
+        },
+        {
+          "line": 2017,
+          "text": "  import opened Types = ComAmazonawsKmsTypes"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../StandardLibrary/src/Index.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/Index.dfy",
+          "text": "include \"../../StandardLibrary/src/Index.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 5,
+          "text": "module {:extern \"software.amazon.cryptography.services.kms.internaldafny.types\" } ComAmazonawsKmsTypes"
+        },
+        {
+          "line": 1991,
+          "text": "abstract module AbstractComAmazonawsKmsService {"
+        },
+        {
+          "line": 2013,
+          "text": "abstract module AbstractComAmazonawsKmsOperations {"
+        }
+      ],
+      "source_sha256": "f00be89450fbf446e36447fb8aa7ca3787776cc4a8984899fd22caaac46e8f7e"
+    },
+    "ComAmazonawsKms/src/Index.dfy": {
+      "imports": [],
+      "includes": [
+        {
+          "include": "../Model/ComAmazonawsKmsTypes.dfy",
+          "line": 4,
+          "resolved_file": "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy",
+          "text": "include \"../Model/ComAmazonawsKmsTypes.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"software.amazon.cryptography.services.kms.internaldafny\"} Com.Amazonaws.Kms refines AbstractComAmazonawsKmsService {"
+        }
+      ],
+      "source_sha256": "74027306a3909205065e93fe506ab47251603f621144cfcd7457126d8481c79b"
+    },
+    "StandardLibrary/src/Actions.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Seq"
+        },
+        {
+          "line": 11,
+          "text": "  import opened StandardLibrary.UInt"
+        },
+        {
+          "line": 12,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Collections/Sequences/Seq.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../../libraries/src/Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "MemoryMath.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/MemoryMath.dfy",
+          "text": "include \"MemoryMath.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module Actions {"
+        }
+      ],
+      "source_sha256": "4e9350e1c6358b7a4ad2cc79c1a3c4b39e83894f243e839ab2a781ee0dc99ab1"
+    },
+    "StandardLibrary/src/Base64.dfy": {
+      "imports": [
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 12,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 13,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        }
+      ],
+      "includes": [
+        {
+          "include": "StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"StandardLibrary.dfy\""
+        },
+        {
+          "include": "UInt.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"UInt.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 10,
+          "text": "module Base64 {"
+        }
+      ],
+      "source_sha256": "bfadb67a77d220759d0ecbb99ae5f62dca200f136b26acac3a7231bf893ea5fc"
+    },
+    "StandardLibrary/src/Base64Lemmas.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 11,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 12,
+          "text": "  import opened Base64"
+        }
+      ],
+      "includes": [
+        {
+          "include": "StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"StandardLibrary.dfy\""
+        },
+        {
+          "include": "UInt.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"UInt.dfy\""
+        },
+        {
+          "include": "Base64.dfy",
+          "line": 6,
+          "resolved_file": "StandardLibrary/src/Base64.dfy",
+          "text": "include \"Base64.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module Base64Lemmas {"
+        }
+      ],
+      "source_sha256": "26434ae07b61708fff4804a485a468cfa8738242f2b11ff5f1f45556214c9bb6"
+    },
+    "StandardLibrary/src/ConcurrentCall.dfy": {
+      "imports": [
+        {
+          "line": 27,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 28,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 29,
+          "text": "  import opened StandardLibrary.UInt"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        },
+        {
+          "include": "./UInt.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"./UInt.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 26,
+          "text": "module {:extern \"ConcurrentCall\"} ConcurrentCall {"
+        }
+      ],
+      "source_sha256": "4ac0015fd089fb84bf269596bb6f4c35cf0b976e2efb919a044a5d2ba809ddee"
+    },
+    "StandardLibrary/src/FloatCompare.dfy": {
+      "imports": [
+        {
+          "line": 22,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 23,
+          "text": "  import opened StandardLibrary"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../libraries/src/Wrappers.dfy\""
+        },
+        {
+          "include": "StandardLibrary.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"StandardLibrary.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 21,
+          "text": "module FloatCompare {"
+        }
+      ],
+      "source_sha256": "55b2b9384f8d7d027fa7aaefbceb52ae162996885d6d468e7da60b2cd5d26be7"
+    },
+    "StandardLibrary/src/GetOpt.dfy": {
+      "imports": [
+        {
+          "line": 110,
+          "text": "  import opened Wrappers"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Wrappers.dfy",
+          "line": 106,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../libraries/src/Wrappers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 109,
+          "text": "module {:options \"-functionSyntax:4\"} GetOpt {"
+        }
+      ],
+      "source_sha256": "42b2ebd98808194faec7bf3e7facf8571be40a10502add30d5e8b2816fa89c0d"
+    },
+    "StandardLibrary/src/HexStrings.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 9,
+          "text": "  import opened StandardLibrary.UInt"
+        }
+      ],
+      "includes": [
+        {
+          "include": "StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"StandardLibrary.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module HexStrings {"
+        }
+      ],
+      "source_sha256": "5781aef1d3c2208ecadcf589f8e080b892d698c90b421f47cbae289d3594e18e"
+    },
+    "StandardLibrary/src/Index.dfy": {
+      "imports": [],
+      "includes": [
+        {
+          "include": "../../libraries/src/MutableMap/MutableMap.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/MutableMap/MutableMap.dfy",
+          "text": "include \"../../libraries/src/MutableMap/MutableMap.dfy\""
+        },
+        {
+          "include": "./Actions.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/Actions.dfy",
+          "text": "include \"./Actions.dfy\""
+        },
+        {
+          "include": "./Base64.dfy",
+          "line": 6,
+          "resolved_file": "StandardLibrary/src/Base64.dfy",
+          "text": "include \"./Base64.dfy\""
+        },
+        {
+          "include": "./Base64Lemmas.dfy",
+          "line": 7,
+          "resolved_file": "StandardLibrary/src/Base64Lemmas.dfy",
+          "text": "include \"./Base64Lemmas.dfy\""
+        },
+        {
+          "include": "./ConcurrentCall.dfy",
+          "line": 8,
+          "resolved_file": "StandardLibrary/src/ConcurrentCall.dfy",
+          "text": "include \"./ConcurrentCall.dfy\""
+        },
+        {
+          "include": "./FloatCompare.dfy",
+          "line": 9,
+          "resolved_file": "StandardLibrary/src/FloatCompare.dfy",
+          "text": "include \"./FloatCompare.dfy\""
+        },
+        {
+          "include": "./GetOpt.dfy",
+          "line": 10,
+          "resolved_file": "StandardLibrary/src/GetOpt.dfy",
+          "text": "include \"./GetOpt.dfy\""
+        },
+        {
+          "include": "./HexStrings.dfy",
+          "line": 11,
+          "resolved_file": "StandardLibrary/src/HexStrings.dfy",
+          "text": "include \"./HexStrings.dfy\""
+        },
+        {
+          "include": "./MemoryMath.dfy",
+          "line": 12,
+          "resolved_file": "StandardLibrary/src/MemoryMath.dfy",
+          "text": "include \"./MemoryMath.dfy\""
+        },
+        {
+          "include": "./OsLang.dfy",
+          "line": 13,
+          "resolved_file": "StandardLibrary/src/OsLang.dfy",
+          "text": "include \"./OsLang.dfy\""
+        },
+        {
+          "include": "./Sets.dfy",
+          "line": 14,
+          "resolved_file": "StandardLibrary/src/Sets.dfy",
+          "text": "include \"./Sets.dfy\""
+        },
+        {
+          "include": "./Sorting.dfy",
+          "line": 15,
+          "resolved_file": "StandardLibrary/src/Sorting.dfy",
+          "text": "include \"./Sorting.dfy\""
+        },
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 16,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        },
+        {
+          "include": "./Streams.dfy",
+          "line": 17,
+          "resolved_file": "StandardLibrary/src/Streams.dfy",
+          "text": "include \"./Streams.dfy\""
+        },
+        {
+          "include": "./String.dfy",
+          "line": 18,
+          "resolved_file": "StandardLibrary/src/String.dfy",
+          "text": "include \"./String.dfy\""
+        },
+        {
+          "include": "./Time.dfy",
+          "line": 19,
+          "resolved_file": "StandardLibrary/src/Time.dfy",
+          "text": "include \"./Time.dfy\""
+        },
+        {
+          "include": "./UInt.dfy",
+          "line": 20,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"./UInt.dfy\""
+        },
+        {
+          "include": "./UTF8.dfy",
+          "line": 21,
+          "resolved_file": "StandardLibrary/src/UTF8.dfy",
+          "text": "include \"./UTF8.dfy\""
+        },
+        {
+          "include": "./UUID.dfy",
+          "line": 22,
+          "resolved_file": "StandardLibrary/src/UUID.dfy",
+          "text": "include \"./UUID.dfy\""
+        },
+        {
+          "include": "./WrappersInterop.dfy",
+          "line": 23,
+          "resolved_file": "StandardLibrary/src/WrappersInterop.dfy",
+          "text": "include \"./WrappersInterop.dfy\""
+        },
+        {
+          "include": "../../libraries/src/JSON/API.dfy",
+          "line": 24,
+          "resolved_file": "libraries/src/JSON/API.dfy",
+          "text": "include \"../../libraries/src/JSON/API.dfy\""
+        },
+        {
+          "include": "../../libraries/src/FileIO/FileIO.dfy",
+          "line": 25,
+          "resolved_file": "libraries/src/FileIO/FileIO.dfy",
+          "text": "include \"../../libraries/src/FileIO/FileIO.dfy\""
+        },
+        {
+          "include": "../../libraries/src/BoundedInts.dfy",
+          "line": 26,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../libraries/src/BoundedInts.dfy\""
+        },
+        {
+          "include": "../../libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy",
+          "line": 27,
+          "resolved_file": "libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy",
+          "text": "include \"../../libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy\""
+        }
+      ],
+      "module_declarations": [],
+      "source_sha256": "286617bcdc3894630b7fabefad4dd4ee8d7252368b8473cd783e1a336bc6f8fd"
+    },
+    "StandardLibrary/src/MemoryMath.dfy": {
+      "imports": [
+        {
+          "line": 13,
+          "text": "  import opened UInt"
+        },
+        {
+          "line": 14,
+          "text": "  import opened Wrappers"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Wrappers.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../libraries/src/Wrappers.dfy\""
+        },
+        {
+          "include": "UInt.dfy",
+          "line": 10,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"UInt.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 12,
+          "text": "module {:options \"--function-syntax:4\"} StandardLibrary.MemoryMath {"
+        }
+      ],
+      "source_sha256": "1976f5bd4b6d2cb855c8098a2f815f2d42d72c2f0df4ab57697c6c9b0212c8c7"
+    },
+    "StandardLibrary/src/OsLang.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 4,
+          "text": "module {:extern \"OsLang\"} OsLang {"
+        }
+      ],
+      "source_sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b"
+    },
+    "StandardLibrary/src/Sequence.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened UInt"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 11,
+          "text": "  import opened MemoryMath"
+        }
+      ],
+      "includes": [
+        {
+          "include": "MemoryMath.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/MemoryMath.dfy",
+          "text": "include \"MemoryMath.dfy\""
+        },
+        {
+          "include": "WrappersInterop.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/WrappersInterop.dfy",
+          "text": "include \"WrappersInterop.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module StandardLibrary.Sequence {"
+        }
+      ],
+      "source_sha256": "ce0b3cd6c501a908d4f3e1e778c7d068533252ec2f252aa1e3f68d6902428576"
+    },
+    "StandardLibrary/src/Sets.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 9,
+          "text": "  import Seq"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        },
+        {
+          "include": "../../libraries/src/Collections/Sequences/Seq.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../../libraries/src/Collections/Sequences/Seq.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:extern \"SortedSets\"} SortedSets {"
+        }
+      ],
+      "source_sha256": "08b57adc8107fbfbdfb8ea89ff984ca10054ef5d65eb0deff5e195dfaac7c599"
+    },
+    "StandardLibrary/src/Sorting.dfy": {
+      "imports": [
+        {
+          "line": 15,
+          "text": "  import StandardLibrary"
+        },
+        {
+          "line": 16,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        },
+        {
+          "include": "./UInt.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"./UInt.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module Sorting {"
+        }
+      ],
+      "source_sha256": "6ebdfaa79358535d55aaeee0eb04e09f4faa86a967870362bdbbb5a5763c22d5"
+    },
+    "StandardLibrary/src/StandardLibrary.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened U = UInt"
+        },
+        {
+          "line": 10,
+          "text": "  import opened MemoryMath"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../libraries/src/Wrappers.dfy\""
+        },
+        {
+          "include": "MemoryMath.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/MemoryMath.dfy",
+          "text": "include \"MemoryMath.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module StandardLibrary {"
+        }
+      ],
+      "source_sha256": "c900c832de2774dfc22e4ab944254d27dbea17e5fff10d18b7e3d4bbd70062c5"
+    },
+    "StandardLibrary/src/Streams.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 10,
+          "text": "  import opened StandardLibrary.MemoryMath"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        },
+        {
+          "include": "./MemoryMath.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/MemoryMath.dfy",
+          "text": "include \"./MemoryMath.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module Streams {"
+        }
+      ],
+      "source_sha256": "a99d44439291b585c735fae20494a44111d0dcad66d657ec604cb68f9ea20bb0"
+    },
+    "StandardLibrary/src/String.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Sequence"
+        },
+        {
+          "line": 10,
+          "text": "  import opened MemoryMath"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Wrappers.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../libraries/src/Wrappers.dfy\""
+        },
+        {
+          "include": "Sequence.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/Sequence.dfy",
+          "text": "include \"Sequence.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module StandardLibrary.String {"
+        }
+      ],
+      "source_sha256": "01ef6609561073286f6a96feb50268632c6cbcccb3b80e1908c9ec780686cc6b"
+    },
+    "StandardLibrary/src/Time.dfy": {
+      "imports": [
+        {
+          "line": 12,
+          "text": "  import opened StandardLibrary"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 14,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        },
+        {
+          "line": 15,
+          "text": "  import StandardLibrary.String"
+        },
+        {
+          "line": 16,
+          "text": "  import OsLang"
+        },
+        {
+          "line": 17,
+          "text": "  import UTF8"
+        },
+        {
+          "line": 18,
+          "text": "  import FileIO"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        },
+        {
+          "include": "./UInt.dfy",
+          "line": 5,
+          "resolved_file": "StandardLibrary/src/UInt.dfy",
+          "text": "include \"./UInt.dfy\""
+        },
+        {
+          "include": "./String.dfy",
+          "line": 6,
+          "resolved_file": "StandardLibrary/src/String.dfy",
+          "text": "include \"./String.dfy\""
+        },
+        {
+          "include": "./OsLang.dfy",
+          "line": 7,
+          "resolved_file": "StandardLibrary/src/OsLang.dfy",
+          "text": "include \"./OsLang.dfy\""
+        },
+        {
+          "include": "./UTF8.dfy",
+          "line": 8,
+          "resolved_file": "StandardLibrary/src/UTF8.dfy",
+          "text": "include \"./UTF8.dfy\""
+        },
+        {
+          "include": "../../libraries/src/FileIO/FileIO.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/FileIO/FileIO.dfy",
+          "text": "include \"../../libraries/src/FileIO/FileIO.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module {:extern \"Time\"} Time {"
+        }
+      ],
+      "source_sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39"
+    },
+    "StandardLibrary/src/UInt.dfy": {
+      "imports": [
+        {
+          "line": 6,
+          "text": "  import BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/BoundedInts.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../libraries/src/BoundedInts.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 5,
+          "text": "module StandardLibrary.UInt {"
+        }
+      ],
+      "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+    },
+    "StandardLibrary/src/UTF8.dfy": {
+      "imports": [
+        {
+          "line": 18,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 19,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 17,
+          "text": "module {:extern \"UTF8\"} UTF8 {"
+        }
+      ],
+      "source_sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13"
+    },
+    "StandardLibrary/src/UUID.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 8,
+          "text": "  import opened UInt = StandardLibrary.UInt"
+        }
+      ],
+      "includes": [
+        {
+          "include": "./StandardLibrary.dfy",
+          "line": 4,
+          "resolved_file": "StandardLibrary/src/StandardLibrary.dfy",
+          "text": "include \"./StandardLibrary.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:extern \"UUID\"} UUID {"
+        }
+      ],
+      "source_sha256": "c82ee108c529262a6134a5dff8197c2d9da7715ba0ca403fc1ce9ff055b33bfc"
+    },
+    "StandardLibrary/src/WrappersInterop.dfy": {
+      "imports": [
+        {
+          "line": 28,
+          "text": "  import opened Wrappers"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../libraries/src/Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../libraries/src/Wrappers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 26,
+          "text": "module StandardLibraryInterop {"
+        }
+      ],
+      "source_sha256": "80bf928090728b9de795a7ba6c30a277bf54d77b28619f728a3281f42857e3e3"
+    },
+    "libraries/src/BoundedInts.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 3,
+          "text": "module {:options \"-functionSyntax:4\"} BoundedInts {"
+        }
+      ],
+      "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+    },
+    "libraries/src/Collections/Sequences/MergeSort.dfy": {
+      "imports": [
+        {
+          "line": 12,
+          "text": "  import opened Relations"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../Relations.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Relations.dfy",
+          "text": "include \"../../Relations.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 10,
+          "text": "module {:options \"-functionSyntax:4\"} Seq.MergeSort {"
+        }
+      ],
+      "source_sha256": "b2cc46206224ce1bc5a1a1733a313472ff72627cfb6e3631dc199507dd450e75"
+    },
+    "libraries/src/Collections/Sequences/Seq.dfy": {
+      "imports": [
+        {
+          "line": 23,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 24,
+          "text": "  import opened MergeSort"
+        },
+        {
+          "line": 25,
+          "text": "  import opened Relations"
+        },
+        {
+          "line": 26,
+          "text": "  import Math"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 16,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        },
+        {
+          "include": "../../Math.dfy",
+          "line": 17,
+          "resolved_file": "libraries/src/Math.dfy",
+          "text": "include \"../../Math.dfy\""
+        },
+        {
+          "include": "MergeSort.dfy",
+          "line": 18,
+          "resolved_file": "libraries/src/Collections/Sequences/MergeSort.dfy",
+          "text": "include \"MergeSort.dfy\""
+        },
+        {
+          "include": "../../Relations.dfy",
+          "line": 19,
+          "resolved_file": "libraries/src/Relations.dfy",
+          "text": "include \"../../Relations.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 21,
+          "text": "module {:options \"-functionSyntax:4\"} Seq {"
+        }
+      ],
+      "source_sha256": "ad552d01024522f56e9414eb1f2c36587312ccb27c482ead6f5932ea5251eaa0"
+    },
+    "libraries/src/FileIO/FileIO.dfy": {
+      "imports": [
+        {
+          "line": 22,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 23,
+          "text": "  import opened BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Wrappers.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../Wrappers.dfy\""
+        },
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 21,
+          "text": "module {:options \"-functionSyntax:4\"} FileIO {"
+        }
+      ],
+      "source_sha256": "b6896dac29e2929f10375b3a8a0351932f10733be5b3e0fc3a118d2a04912802"
+    },
+    "libraries/src/Functions.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 16,
+          "text": "module {:options \"-functionSyntax:4\"} Functions {"
+        }
+      ],
+      "source_sha256": "c18ddc5cc928c0da9207b9efc9bcaff487af90a44bd8c179eb9cb1e96de1fbc7"
+    },
+    "libraries/src/JSON/API.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Errors"
+        },
+        {
+          "line": 11,
+          "text": "  import Values"
+        },
+        {
+          "line": 12,
+          "text": "  import Serializer"
+        },
+        {
+          "line": 13,
+          "text": "  import Deserializer"
+        },
+        {
+          "line": 14,
+          "text": "  import ZeroCopy = ZeroCopy.API"
+        }
+      ],
+      "includes": [
+        {
+          "include": "Serializer.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/JSON/Serializer.dfy",
+          "text": "include \"Serializer.dfy\""
+        },
+        {
+          "include": "Deserializer.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/Deserializer.dfy",
+          "text": "include \"Deserializer.dfy\""
+        },
+        {
+          "include": "ZeroCopy/API.dfy",
+          "line": 6,
+          "resolved_file": "libraries/src/JSON/ZeroCopy/API.dfy",
+          "text": "include \"ZeroCopy/API.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.API {"
+        }
+      ],
+      "source_sha256": "5bbe3545294564eb2a22d6f77e5f35f6f1c819e15925c121761865717daba560"
+    },
+    "libraries/src/JSON/ConcreteSyntax.Spec.dfy": {
+      "imports": [
+        {
+          "line": 6,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 8,
+          "text": "  import Vs = Utils.Views.Core"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Grammar"
+        }
+      ],
+      "includes": [
+        {
+          "include": "Grammar.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/JSON/Grammar.dfy",
+          "text": "include \"Grammar.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 5,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.ConcreteSyntax.Spec {"
+        }
+      ],
+      "source_sha256": "75d102f3de99219ad34f62fc0a4df20f1a3063c9f3a41e6c06ac19db8f3ab514"
+    },
+    "libraries/src/JSON/ConcreteSyntax.SpecProperties.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 11,
+          "text": "  import Vs = Utils.Views.Core"
+        },
+        {
+          "line": 12,
+          "text": "  import opened Grammar"
+        },
+        {
+          "line": 13,
+          "text": "  import Spec"
+        }
+      ],
+      "includes": [
+        {
+          "include": "ConcreteSyntax.Spec.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+          "text": "include \"ConcreteSyntax.Spec.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.ConcreteSyntax.SpecProperties"
+        }
+      ],
+      "source_sha256": "0c633b63e3c1cff38578d337f1c8d4557754475aca19632545cc00f4fe81e1b1"
+    },
+    "libraries/src/JSON/Deserializer.dfy": {
+      "imports": [
+        {
+          "line": 21,
+          "text": "  import Seq"
+        },
+        {
+          "line": 23,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 24,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 25,
+          "text": "  import opened Logarithm"
+        },
+        {
+          "line": 26,
+          "text": "  import opened Power"
+        },
+        {
+          "line": 27,
+          "text": "  import opened Utils.Str"
+        },
+        {
+          "line": 28,
+          "text": "  import opened UnicodeStrings"
+        },
+        {
+          "line": 30,
+          "text": "  import Values"
+        },
+        {
+          "line": 31,
+          "text": "  import Spec"
+        },
+        {
+          "line": 32,
+          "text": "  import opened Errors"
+        },
+        {
+          "line": 33,
+          "text": "  import opened Utils.Vectors"
+        },
+        {
+          "line": 34,
+          "text": "  import opened Grammar"
+        },
+        {
+          "line": 35,
+          "text": "  import opened Utils.Views.Core"
+        },
+        {
+          "line": 47,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 115,
+          "text": "    import opened BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 10,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 11,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        },
+        {
+          "include": "Utils/Views.dfy",
+          "line": 13,
+          "resolved_file": "libraries/src/JSON/Utils/Views.dfy",
+          "text": "include \"Utils/Views.dfy\""
+        },
+        {
+          "include": "Utils/Vectors.dfy",
+          "line": 14,
+          "resolved_file": "libraries/src/JSON/Utils/Vectors.dfy",
+          "text": "include \"Utils/Vectors.dfy\""
+        },
+        {
+          "include": "Errors.dfy",
+          "line": 15,
+          "resolved_file": "libraries/src/JSON/Errors.dfy",
+          "text": "include \"Errors.dfy\""
+        },
+        {
+          "include": "Values.dfy",
+          "line": 16,
+          "resolved_file": "libraries/src/JSON/Values.dfy",
+          "text": "include \"Values.dfy\""
+        },
+        {
+          "include": "Grammar.dfy",
+          "line": 17,
+          "resolved_file": "libraries/src/JSON/Grammar.dfy",
+          "text": "include \"Grammar.dfy\""
+        },
+        {
+          "include": "Spec.dfy",
+          "line": 18,
+          "resolved_file": "libraries/src/JSON/Spec.dfy",
+          "text": "include \"Spec.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 20,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Deserializer {"
+        },
+        {
+          "line": 46,
+          "text": "  module Uint16StrConversion refines Str.ParametricConversion {"
+        },
+        {
+          "line": 114,
+          "text": "  module ByteStrConversion refines Str.ParametricConversion {"
+        }
+      ],
+      "source_sha256": "a4ecdf932a1dadc9367da3870ce6845505cb36b861e03989d7aa30a3c14e91d0"
+    },
+    "libraries/src/JSON/Errors.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 10,
+          "text": "  import Utils.Str"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Wrappers.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../Wrappers.dfy\""
+        },
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        },
+        {
+          "include": "Utils/Str.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/Utils/Str.dfy",
+          "text": "include \"Utils/Str.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Errors {"
+        }
+      ],
+      "source_sha256": "65f1c6afd23d039475b152ab9b365821dd20fbbc80cfec83dbf6c34797137c2b"
+    },
+    "libraries/src/JSON/Grammar.dfy": {
+      "imports": [
+        {
+          "line": 13,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 14,
+          "text": "  import opened Utils.Views.Core"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        },
+        {
+          "include": "Utils/Views.dfy",
+          "line": 10,
+          "resolved_file": "libraries/src/JSON/Utils/Views.dfy",
+          "text": "include \"Utils/Views.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 12,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Grammar {"
+        }
+      ],
+      "source_sha256": "db3c98387ca574efca7feb99c69174025e75b9eb0a4789bfefe70dc64f32d5a5"
+    },
+    "libraries/src/JSON/Serializer.dfy": {
+      "imports": [
+        {
+          "line": 22,
+          "text": "  import Seq"
+        },
+        {
+          "line": 23,
+          "text": "  import Math"
+        },
+        {
+          "line": 24,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 25,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 26,
+          "text": "  import opened Utils.Str"
+        },
+        {
+          "line": 28,
+          "text": "  import Values"
+        },
+        {
+          "line": 29,
+          "text": "  import Spec"
+        },
+        {
+          "line": 30,
+          "text": "  import opened Errors"
+        },
+        {
+          "line": 31,
+          "text": "  import opened Utils.Vectors"
+        },
+        {
+          "line": 32,
+          "text": "  import opened Grammar"
+        },
+        {
+          "line": 33,
+          "text": "  import opened Utils.Views.Core"
+        },
+        {
+          "line": 60,
+          "text": "    import opened BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 10,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 11,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        },
+        {
+          "include": "../Math.dfy",
+          "line": 12,
+          "resolved_file": "libraries/src/Math.dfy",
+          "text": "include \"../Math.dfy\""
+        },
+        {
+          "include": "Utils/Views.dfy",
+          "line": 14,
+          "resolved_file": "libraries/src/JSON/Utils/Views.dfy",
+          "text": "include \"Utils/Views.dfy\""
+        },
+        {
+          "include": "Utils/Vectors.dfy",
+          "line": 15,
+          "resolved_file": "libraries/src/JSON/Utils/Vectors.dfy",
+          "text": "include \"Utils/Vectors.dfy\""
+        },
+        {
+          "include": "Errors.dfy",
+          "line": 16,
+          "resolved_file": "libraries/src/JSON/Errors.dfy",
+          "text": "include \"Errors.dfy\""
+        },
+        {
+          "include": "Values.dfy",
+          "line": 17,
+          "resolved_file": "libraries/src/JSON/Values.dfy",
+          "text": "include \"Values.dfy\""
+        },
+        {
+          "include": "Grammar.dfy",
+          "line": 18,
+          "resolved_file": "libraries/src/JSON/Grammar.dfy",
+          "text": "include \"Grammar.dfy\""
+        },
+        {
+          "include": "Spec.dfy",
+          "line": 19,
+          "resolved_file": "libraries/src/JSON/Spec.dfy",
+          "text": "include \"Spec.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 21,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Serializer {"
+        },
+        {
+          "line": 59,
+          "text": "  module ByteStrConversion refines Str.ParametricConversion {"
+        }
+      ],
+      "source_sha256": "e747550078be7fbe52d2ed0e124431e49d3ce2c2407863aec52d76b702416600"
+    },
+    "libraries/src/JSON/Spec.dfy": {
+      "imports": [
+        {
+          "line": 23,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 25,
+          "text": "  import opened Utils.Str"
+        },
+        {
+          "line": 26,
+          "text": "  import opened Values"
+        },
+        {
+          "line": 27,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 28,
+          "text": "  import opened Errors"
+        },
+        {
+          "line": 29,
+          "text": "  import opened UnicodeStrings"
+        },
+        {
+          "line": 30,
+          "text": "  import opened Logarithm"
+        },
+        {
+          "line": 32,
+          "text": "  import Seq"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 11,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        },
+        {
+          "include": "../NonlinearArithmetic/Logarithm.dfy",
+          "line": 12,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Logarithm.dfy",
+          "text": "include \"../NonlinearArithmetic/Logarithm.dfy\""
+        },
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 13,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "Values.dfy",
+          "line": 18,
+          "resolved_file": "libraries/src/JSON/Values.dfy",
+          "text": "include \"Values.dfy\""
+        },
+        {
+          "include": "Errors.dfy",
+          "line": 19,
+          "resolved_file": "libraries/src/JSON/Errors.dfy",
+          "text": "include \"Errors.dfy\""
+        },
+        {
+          "include": "Utils/Str.dfy",
+          "line": 20,
+          "resolved_file": "libraries/src/JSON/Utils/Str.dfy",
+          "text": "include \"Utils/Str.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 22,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Spec {"
+        }
+      ],
+      "source_sha256": "2e7f227497329cae74e5e3594209ccfcc7331f15fdcb37f42ea77693915b9b91"
+    },
+    "libraries/src/JSON/Utils/Cursors.dfy": {
+      "imports": [
+        {
+          "line": 9,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 12,
+          "text": "  import opened Vs = Views.Core"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Lx = Lexers.Core"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        },
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        },
+        {
+          "include": "Views.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/Utils/Views.dfy",
+          "text": "include \"Views.dfy\""
+        },
+        {
+          "include": "Lexers.dfy",
+          "line": 6,
+          "resolved_file": "libraries/src/JSON/Utils/Lexers.dfy",
+          "text": "include \"Lexers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Cursors {"
+        }
+      ],
+      "source_sha256": "119794f49eabf708a2fcfcb8fc7dd76f356c6f0e7fe4686134c3d9eace8d3f79"
+    },
+    "libraries/src/JSON/Utils/Lexers.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 9,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 21,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 22,
+          "text": "    import opened BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        },
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Lexers {"
+        },
+        {
+          "line": 7,
+          "text": "  module Core {"
+        },
+        {
+          "line": 20,
+          "text": "  module Strings {"
+        }
+      ],
+      "source_sha256": "aaf06c0b85ad0d6f8a960546b04cc0f0c7d5c541bf703258dd85890932fa9a24"
+    },
+    "libraries/src/JSON/Utils/Parsers.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 11,
+          "text": "  import opened Views.Core"
+        },
+        {
+          "line": 12,
+          "text": "  import opened Cursors"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        },
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        },
+        {
+          "include": "Cursors.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/Utils/Cursors.dfy",
+          "text": "include \"Cursors.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Parsers {"
+        }
+      ],
+      "source_sha256": "62ee60dbef3504a1afb5afe0cf9c23c01b3b82fa6e348ed95fc1dfff0e114a5d"
+    },
+    "libraries/src/JSON/Utils/Seq.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 3,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Seq {"
+        }
+      ],
+      "source_sha256": "67f5e70128445ad9a69560110dda8590e968045b59e16bfacaddc74164b0b546"
+    },
+    "libraries/src/JSON/Utils/Str.dfy": {
+      "imports": [
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 12,
+          "text": "  import opened Power"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Logarithm"
+        },
+        {
+          "line": 16,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 17,
+          "text": "    import opened Mul"
+        },
+        {
+          "line": 18,
+          "text": "    import opened DivMod"
+        },
+        {
+          "line": 19,
+          "text": "    import opened Power"
+        },
+        {
+          "line": 20,
+          "text": "    import opened Logarithm"
+        },
+        {
+          "line": 137,
+          "text": "    import opened Wrappers"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        },
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        },
+        {
+          "include": "../../NonlinearArithmetic/Mul.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Mul.dfy",
+          "text": "include \"../../NonlinearArithmetic/Mul.dfy\""
+        },
+        {
+          "include": "../../NonlinearArithmetic/DivMod.dfy",
+          "line": 6,
+          "resolved_file": "libraries/src/NonlinearArithmetic/DivMod.dfy",
+          "text": "include \"../../NonlinearArithmetic/DivMod.dfy\""
+        },
+        {
+          "include": "../../NonlinearArithmetic/Logarithm.dfy",
+          "line": 7,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Logarithm.dfy",
+          "text": "include \"../../NonlinearArithmetic/Logarithm.dfy\""
+        },
+        {
+          "include": "../../NonlinearArithmetic/Power.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Power.dfy",
+          "text": "include \"../../NonlinearArithmetic/Power.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 10,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Str {"
+        },
+        {
+          "line": 15,
+          "text": "  abstract module ParametricConversion {"
+        },
+        {
+          "line": 136,
+          "text": "  abstract module ParametricEscaping {"
+        },
+        {
+          "line": 171,
+          "text": "  module CharStrConversion refines ParametricConversion {"
+        },
+        {
+          "line": 175,
+          "text": "  module CharStrEscaping refines ParametricEscaping {"
+        }
+      ],
+      "source_sha256": "b4b31b26aced78181b598639dd37fb84dab21c5beb07312809b159c4bc2f4e2a"
+    },
+    "libraries/src/JSON/Utils/Vectors.dfy": {
+      "imports": [
+        {
+          "line": 7,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 8,
+          "text": "  import opened Wrappers"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        },
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 6,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Vectors {"
+        }
+      ],
+      "source_sha256": "2177696d256f53e3c0f55c5dac36cef4b92663181d88faa76a2e485cc1e3eb3a"
+    },
+    "libraries/src/JSON/Utils/Views.Writers.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 9,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 11,
+          "text": "  import opened Core"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        },
+        {
+          "include": "../../Wrappers.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../Wrappers.dfy\""
+        },
+        {
+          "include": "Views.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/Utils/Views.dfy",
+          "text": "include \"Views.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Views.Writers {"
+        }
+      ],
+      "source_sha256": "38df29905ad0510791b2e19517d0a382f5e3c5381767513ae05fbc40e231bd86"
+    },
+    "libraries/src/JSON/Utils/Views.dfy": {
+      "imports": [
+        {
+          "line": 6,
+          "text": "  import opened BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../BoundedInts.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../../BoundedInts.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 5,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Utils.Views.Core {"
+        }
+      ],
+      "source_sha256": "78784d64733d13b0ddbe9bc15b491a5746b2a2c65e086e09654967e3e6e85b86"
+    },
+    "libraries/src/JSON/Values.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 3,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.Values {"
+        }
+      ],
+      "source_sha256": "01df045edb629e5d048f1500c9cf33b495aa3db105c910484612bf7f4e345fd1"
+    },
+    "libraries/src/JSON/ZeroCopy/API.dfy": {
+      "imports": [
+        {
+          "line": 10,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Errors"
+        },
+        {
+          "line": 14,
+          "text": "  import Grammar"
+        },
+        {
+          "line": 15,
+          "text": "  import ConcreteSyntax.Spec"
+        },
+        {
+          "line": 16,
+          "text": "  import Serializer"
+        },
+        {
+          "line": 17,
+          "text": "  import Deserializer"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Grammar.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/JSON/Grammar.dfy",
+          "text": "include \"../Grammar.dfy\""
+        },
+        {
+          "include": "../ConcreteSyntax.Spec.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+          "text": "include \"../ConcreteSyntax.Spec.dfy\""
+        },
+        {
+          "include": "Serializer.dfy",
+          "line": 6,
+          "resolved_file": "libraries/src/JSON/ZeroCopy/Serializer.dfy",
+          "text": "include \"Serializer.dfy\""
+        },
+        {
+          "include": "Deserializer.dfy",
+          "line": 7,
+          "resolved_file": "libraries/src/JSON/ZeroCopy/Deserializer.dfy",
+          "text": "include \"Deserializer.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 9,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.ZeroCopy.API {"
+        }
+      ],
+      "source_sha256": "954c1d8f2788bf2aac5c87b0fc4eec910b26dcca08c0072a7996792ffa98c457"
+    },
+    "libraries/src/JSON/ZeroCopy/Deserializer.dfy": {
+      "imports": [
+        {
+          "line": 12,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 13,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 15,
+          "text": "    import ConcreteSyntax.Spec"
+        },
+        {
+          "line": 16,
+          "text": "    import Vs = Utils.Views.Core"
+        },
+        {
+          "line": 17,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 18,
+          "text": "    import opened Utils.Parsers"
+        },
+        {
+          "line": 19,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 20,
+          "text": "    import Errors"
+        },
+        {
+          "line": 21,
+          "text": "    import opened Seq = Utils.Seq"
+        },
+        {
+          "line": 92,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 94,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 95,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 96,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 113,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 114,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 115,
+          "text": "    import opened Params: SequenceParams"
+        },
+        {
+          "line": 117,
+          "text": "    import ConcreteSyntax.SpecProperties"
+        },
+        {
+          "line": 118,
+          "text": "    import opened Vs = Utils.Views.Core"
+        },
+        {
+          "line": 119,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 120,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 121,
+          "text": "    import Utils.Parsers"
+        },
+        {
+          "line": 122,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 458,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 459,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 461,
+          "text": "    import opened Vs = Utils.Views.Core"
+        },
+        {
+          "line": 462,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 463,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 464,
+          "text": "    import opened Errors"
+        },
+        {
+          "line": 465,
+          "text": "    import Utils.Cursors"
+        },
+        {
+          "line": 466,
+          "text": "    import Values"
+        },
+        {
+          "line": 502,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 503,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 505,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 506,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 507,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 509,
+          "text": "    import Strings"
+        },
+        {
+          "line": 510,
+          "text": "    import Numbers"
+        },
+        {
+          "line": 511,
+          "text": "    import Objects"
+        },
+        {
+          "line": 512,
+          "text": "    import Arrays"
+        },
+        {
+          "line": 513,
+          "text": "    import Constants"
+        },
+        {
+          "line": 515,
+          "text": "    import ConcreteSyntax.SpecProperties"
+        },
+        {
+          "line": 640,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 641,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 643,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 644,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 645,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 658,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 659,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 661,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 662,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 663,
+          "text": "    import opened LC = Utils.Lexers.Core"
+        },
+        {
+          "line": 664,
+          "text": "    import opened Utils.Lexers.Strings"
+        },
+        {
+          "line": 665,
+          "text": "    import opened Utils.Parsers"
+        },
+        {
+          "line": 666,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 710,
+          "text": "    import opened BoundedInts"
+        },
+        {
+          "line": 711,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 713,
+          "text": "    import opened Grammar"
+        },
+        {
+          "line": 714,
+          "text": "    import opened Utils.Cursors"
+        },
+        {
+          "line": 715,
+          "text": "    import opened Core"
+        },
+        {
+          "line": 827,
+          "text": "    import opened Strings"
+        },
+        {
+          "line": 828,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 846,
+          "text": "    import opened Params = ArrayParams"
+        },
+        {
+          "line": 876,
+          "text": "    import opened Wrappers"
+        },
+        {
+          "line": 877,
+          "text": "    import Strings"
+        },
+        {
+          "line": 961,
+          "text": "    import opened Params = ObjectParams"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Utils/Seq.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/JSON/Utils/Seq.dfy",
+          "text": "include \"../Utils/Seq.dfy\""
+        },
+        {
+          "include": "../Errors.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/JSON/Errors.dfy",
+          "text": "include \"../Errors.dfy\""
+        },
+        {
+          "include": "../Grammar.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/Grammar.dfy",
+          "text": "include \"../Grammar.dfy\""
+        },
+        {
+          "include": "../ConcreteSyntax.Spec.dfy",
+          "line": 6,
+          "resolved_file": "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+          "text": "include \"../ConcreteSyntax.Spec.dfy\""
+        },
+        {
+          "include": "../ConcreteSyntax.SpecProperties.dfy",
+          "line": 7,
+          "resolved_file": "libraries/src/JSON/ConcreteSyntax.SpecProperties.dfy",
+          "text": "include \"../ConcreteSyntax.SpecProperties.dfy\""
+        },
+        {
+          "include": "../Utils/Parsers.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/JSON/Utils/Parsers.dfy",
+          "text": "include \"../Utils/Parsers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 10,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.ZeroCopy.Deserializer {"
+        },
+        {
+          "line": 11,
+          "text": "  module Core {"
+        },
+        {
+          "line": 91,
+          "text": "  abstract module SequenceParams {"
+        },
+        {
+          "line": 112,
+          "text": "  abstract module Sequences {"
+        },
+        {
+          "line": 457,
+          "text": "  module API {"
+        },
+        {
+          "line": 501,
+          "text": "  module Values {"
+        },
+        {
+          "line": 639,
+          "text": "  module Constants {"
+        },
+        {
+          "line": 657,
+          "text": "  module Strings {"
+        },
+        {
+          "line": 709,
+          "text": "  module Numbers {"
+        },
+        {
+          "line": 826,
+          "text": "  module ArrayParams refines SequenceParams {"
+        },
+        {
+          "line": 845,
+          "text": "  module Arrays refines Sequences {"
+        },
+        {
+          "line": 875,
+          "text": "  module ObjectParams refines SequenceParams {"
+        },
+        {
+          "line": 960,
+          "text": "  module Objects refines Sequences {"
+        }
+      ],
+      "source_sha256": "e8a172f008cab470f1fb42d20d89688f461ee94612ea30ca44ce3eb6e20e4f72"
+    },
+    "libraries/src/JSON/ZeroCopy/Serializer.dfy": {
+      "imports": [
+        {
+          "line": 10,
+          "text": "  import opened BoundedInts"
+        },
+        {
+          "line": 11,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 13,
+          "text": "  import opened Seq = Utils.Seq"
+        },
+        {
+          "line": 14,
+          "text": "  import opened Errors"
+        },
+        {
+          "line": 15,
+          "text": "  import ConcreteSyntax.Spec"
+        },
+        {
+          "line": 16,
+          "text": "  import ConcreteSyntax.SpecProperties"
+        },
+        {
+          "line": 17,
+          "text": "  import opened Grammar"
+        },
+        {
+          "line": 18,
+          "text": "  import opened Utils.Views.Writers"
+        },
+        {
+          "line": 19,
+          "text": "  import opened Vs = Utils.Views.Core // DISCUSS: Module naming convention?"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Utils/Seq.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/JSON/Utils/Seq.dfy",
+          "text": "include \"../Utils/Seq.dfy\""
+        },
+        {
+          "include": "../Errors.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/JSON/Errors.dfy",
+          "text": "include \"../Errors.dfy\""
+        },
+        {
+          "include": "../ConcreteSyntax.Spec.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+          "text": "include \"../ConcreteSyntax.Spec.dfy\""
+        },
+        {
+          "include": "../ConcreteSyntax.SpecProperties.dfy",
+          "line": 6,
+          "resolved_file": "libraries/src/JSON/ConcreteSyntax.SpecProperties.dfy",
+          "text": "include \"../ConcreteSyntax.SpecProperties.dfy\""
+        },
+        {
+          "include": "../Utils/Views.Writers.dfy",
+          "line": 7,
+          "resolved_file": "libraries/src/JSON/Utils/Views.Writers.dfy",
+          "text": "include \"../Utils/Views.Writers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 9,
+          "text": "module {:options \"-functionSyntax:4\"} JSON.ZeroCopy.Serializer {"
+        }
+      ],
+      "source_sha256": "31c7529e5d4639521647f22d609ed3894e235ca6a04d5f72451ac85d884122f0"
+    },
+    "libraries/src/Math.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module {:options \"-functionSyntax:4\"} Math {"
+        }
+      ],
+      "source_sha256": "e08484e1a92123a6924404db86dcdc53bfa290ba9c12348852d6e58245f4fe0b"
+    },
+    "libraries/src/MutableMap/MutableMap.dfy": {
+      "imports": [
+        {
+          "line": 15,
+          "text": "  import opened Wrappers"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../../src/Wrappers.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../../src/Wrappers.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 14,
+          "text": "module {:extern \"DafnyLibraries\"} {:options \"-functionSyntax:4\"} DafnyLibraries {"
+        }
+      ],
+      "source_sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc"
+    },
+    "libraries/src/NonlinearArithmetic/DivMod.dfy": {
+      "imports": [
+        {
+          "line": 21,
+          "text": "  import opened DivInternals"
+        },
+        {
+          "line": 22,
+          "text": "  import DivINL = DivInternalsNonlinear"
+        },
+        {
+          "line": 23,
+          "text": "  import opened ModInternals"
+        },
+        {
+          "line": 24,
+          "text": "  import ModINL = ModInternalsNonlinear"
+        },
+        {
+          "line": 25,
+          "text": "  import opened MulInternals"
+        },
+        {
+          "line": 26,
+          "text": "  import opened Mul"
+        },
+        {
+          "line": 27,
+          "text": "  import opened GeneralInternals"
+        }
+      ],
+      "includes": [
+        {
+          "include": "Internals/DivInternalsNonlinear.dfy",
+          "line": 15,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/DivInternalsNonlinear.dfy",
+          "text": "include \"Internals/DivInternalsNonlinear.dfy\""
+        },
+        {
+          "include": "Internals/DivInternals.dfy",
+          "line": 16,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/DivInternals.dfy",
+          "text": "include \"Internals/DivInternals.dfy\""
+        },
+        {
+          "include": "Internals/GeneralInternals.dfy",
+          "line": 17,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+          "text": "include \"Internals/GeneralInternals.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 19,
+          "text": "module {:options \"-functionSyntax:4\"} DivMod {"
+        }
+      ],
+      "source_sha256": "2d5f38a370f508178b77541cd3f8c86d4d06a45668fecb03676c448c25387bfa"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/DivInternals.dfy": {
+      "imports": [
+        {
+          "line": 26,
+          "text": "  import opened GeneralInternals"
+        },
+        {
+          "line": 27,
+          "text": "  import opened ModInternals"
+        },
+        {
+          "line": 28,
+          "text": "  import opened ModInternalsNonlinear"
+        },
+        {
+          "line": 29,
+          "text": "  import opened DivInternalsNonlinear"
+        },
+        {
+          "line": 30,
+          "text": "  import opened MulInternals"
+        }
+      ],
+      "includes": [
+        {
+          "include": "GeneralInternals.dfy",
+          "line": 21,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+          "text": "include \"GeneralInternals.dfy\""
+        },
+        {
+          "include": "ModInternals.dfy",
+          "line": 22,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/ModInternals.dfy",
+          "text": "include \"ModInternals.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 24,
+          "text": "module {:options \"-functionSyntax:4\"} DivInternals {"
+        }
+      ],
+      "source_sha256": "eb82aebd02b691f9c3ab6614df0b68318e3fbbdee40c784f6300fb37ee8bc8b5"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/DivInternalsNonlinear.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module {:options \"-functionSyntax:4\"} DivInternalsNonlinear {"
+        }
+      ],
+      "source_sha256": "6a07abf6809ed4168e331ec9072e6ec7027ffaeab562b3231fb473e7da902e5c"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module {:options \"-functionSyntax:4\"} GeneralInternals {"
+        }
+      ],
+      "source_sha256": "cbb07ab98e5f0f37b9c788cfebe596a3a865d8a716a08bea4f36dbba71071d89"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/ModInternals.dfy": {
+      "imports": [
+        {
+          "line": 29,
+          "text": "  import opened GeneralInternals"
+        },
+        {
+          "line": 30,
+          "text": "  import opened Mul"
+        },
+        {
+          "line": 31,
+          "text": "  import opened MulInternalsNonlinear"
+        },
+        {
+          "line": 32,
+          "text": "  import opened MulInternals"
+        },
+        {
+          "line": 33,
+          "text": "  import opened ModInternalsNonlinear"
+        },
+        {
+          "line": 34,
+          "text": "  import opened DivInternalsNonlinear"
+        }
+      ],
+      "includes": [
+        {
+          "include": "GeneralInternals.dfy",
+          "line": 21,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+          "text": "include \"GeneralInternals.dfy\""
+        },
+        {
+          "include": "MulInternals.dfy",
+          "line": 22,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy",
+          "text": "include \"MulInternals.dfy\""
+        },
+        {
+          "include": "../Mul.dfy",
+          "line": 23,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Mul.dfy",
+          "text": "include \"../Mul.dfy\""
+        },
+        {
+          "include": "ModInternalsNonlinear.dfy",
+          "line": 24,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/ModInternalsNonlinear.dfy",
+          "text": "include \"ModInternalsNonlinear.dfy\""
+        },
+        {
+          "include": "DivInternalsNonlinear.dfy",
+          "line": 25,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/DivInternalsNonlinear.dfy",
+          "text": "include \"DivInternalsNonlinear.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 27,
+          "text": "module {:options \"-functionSyntax:4\"} ModInternals {"
+        }
+      ],
+      "source_sha256": "733d0529ffec836e09078f829bae36f3df07fbdbc681cef303a4efe406c4c1b8"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/ModInternalsNonlinear.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module {:options \"-functionSyntax:4\"} ModInternalsNonlinear {"
+        }
+      ],
+      "source_sha256": "3b44592d351353544048a3bef2056ea6f00dde6486f8fc04a6a5e30985b921a3"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy": {
+      "imports": [
+        {
+          "line": 18,
+          "text": "  import opened GeneralInternals"
+        },
+        {
+          "line": 19,
+          "text": "  import opened MulInternalsNonlinear"
+        }
+      ],
+      "includes": [
+        {
+          "include": "GeneralInternals.dfy",
+          "line": 13,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+          "text": "include \"GeneralInternals.dfy\""
+        },
+        {
+          "include": "MulInternalsNonlinear.dfy",
+          "line": 14,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/MulInternalsNonlinear.dfy",
+          "text": "include \"MulInternalsNonlinear.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 16,
+          "text": "module {:options \"-functionSyntax:4\"} MulInternals {"
+        }
+      ],
+      "source_sha256": "ab06bea0dc947373a416f719806c30aa7d8698f266db16f53bbf5d79fc5c044b"
+    },
+    "libraries/src/NonlinearArithmetic/Internals/MulInternalsNonlinear.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 11,
+          "text": "module {:options \"-functionSyntax:4\"} MulInternalsNonlinear {"
+        }
+      ],
+      "source_sha256": "b65cd134f7dbfecc33d8032937cbe5d71a41f0307acef3d2fb7968c83d00c528"
+    },
+    "libraries/src/NonlinearArithmetic/Logarithm.dfy": {
+      "imports": [
+        {
+          "line": 8,
+          "text": "  import opened Mul"
+        },
+        {
+          "line": 9,
+          "text": "  import opened DivMod"
+        },
+        {
+          "line": 10,
+          "text": "  import opened Power"
+        }
+      ],
+      "includes": [
+        {
+          "include": "Mul.dfy",
+          "line": 3,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Mul.dfy",
+          "text": "include \"Mul.dfy\""
+        },
+        {
+          "include": "DivMod.dfy",
+          "line": 4,
+          "resolved_file": "libraries/src/NonlinearArithmetic/DivMod.dfy",
+          "text": "include \"DivMod.dfy\""
+        },
+        {
+          "include": "Power.dfy",
+          "line": 5,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Power.dfy",
+          "text": "include \"Power.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 7,
+          "text": "module {:options \"-functionSyntax:4\"} Logarithm {"
+        }
+      ],
+      "source_sha256": "ae47342390ca64577da5c3180ae226b2961b8445864c30a905d06a690908522e"
+    },
+    "libraries/src/NonlinearArithmetic/Mul.dfy": {
+      "imports": [
+        {
+          "line": 20,
+          "text": "  import MulINL = MulInternalsNonlinear"
+        },
+        {
+          "line": 21,
+          "text": "  import opened MulInternals"
+        }
+      ],
+      "includes": [
+        {
+          "include": "Internals/MulInternalsNonlinear.dfy",
+          "line": 15,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/MulInternalsNonlinear.dfy",
+          "text": "include \"Internals/MulInternalsNonlinear.dfy\""
+        },
+        {
+          "include": "Internals/MulInternals.dfy",
+          "line": 16,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy",
+          "text": "include \"Internals/MulInternals.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 18,
+          "text": "module {:options \"-functionSyntax:4\"} Mul {"
+        }
+      ],
+      "source_sha256": "b4048a72bde544e376ce0f06fab48817f613fb34974456b43034159135c52147"
+    },
+    "libraries/src/NonlinearArithmetic/Power.dfy": {
+      "imports": [
+        {
+          "line": 21,
+          "text": "  import opened DivMod"
+        },
+        {
+          "line": 22,
+          "text": "  import opened GeneralInternals"
+        },
+        {
+          "line": 23,
+          "text": "  import opened Mul"
+        },
+        {
+          "line": 24,
+          "text": "  import opened MulInternals"
+        }
+      ],
+      "includes": [
+        {
+          "include": "DivMod.dfy",
+          "line": 15,
+          "resolved_file": "libraries/src/NonlinearArithmetic/DivMod.dfy",
+          "text": "include \"DivMod.dfy\""
+        },
+        {
+          "include": "Internals/GeneralInternals.dfy",
+          "line": 16,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+          "text": "include \"Internals/GeneralInternals.dfy\""
+        },
+        {
+          "include": "Mul.dfy",
+          "line": 17,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Mul.dfy",
+          "text": "include \"Mul.dfy\""
+        },
+        {
+          "include": "Internals/MulInternals.dfy",
+          "line": 18,
+          "resolved_file": "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy",
+          "text": "include \"Internals/MulInternals.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 20,
+          "text": "module {:options \"-functionSyntax:4\"} Power {"
+        }
+      ],
+      "source_sha256": "a91fc9ecd73d7a4f3291a3785739089ce43b06aaf710aa8c2c1b3d48d85ece7e"
+    },
+    "libraries/src/Relations.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module {:options \"-functionSyntax:4\"} Relations {"
+        }
+      ],
+      "source_sha256": "b28bca21ebba7b78b53b597ab6ca9ea7bdf0edacf45b14e6df2d7cefa37bb114"
+    },
+    "libraries/src/Unicode/Unicode.dfy": {
+      "imports": [
+        {
+          "line": 13,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 15,
+          "text": "  import Seq"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Wrappers.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../Wrappers.dfy\""
+        },
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 12,
+          "text": "module {:options \"-functionSyntax:4\"} Unicode {"
+        }
+      ],
+      "source_sha256": "800e6176ce6f144ba6878f7e23ec4b99e41aae0cbde96e39402d0d3804652216"
+    },
+    "libraries/src/Unicode/UnicodeEncodingForm.dfy": {
+      "imports": [
+        {
+          "line": 29,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 31,
+          "text": "  import Functions"
+        },
+        {
+          "line": 32,
+          "text": "  import Seq"
+        },
+        {
+          "line": 33,
+          "text": "  import Unicode"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../Wrappers.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../Wrappers.dfy\""
+        },
+        {
+          "include": "../Functions.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/Functions.dfy",
+          "text": "include \"../Functions.dfy\""
+        },
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 10,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "Unicode.dfy",
+          "line": 12,
+          "resolved_file": "libraries/src/Unicode/Unicode.dfy",
+          "text": "include \"Unicode.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 28,
+          "text": "abstract module {:options \"-functionSyntax:4\"} UnicodeEncodingForm {"
+        }
+      ],
+      "source_sha256": "9579d954ae4e0f23d3ff2899f88f4161a03a64455fefeb01bb31df5052b7700e"
+    },
+    "libraries/src/Unicode/UnicodeStrings.dfy": {
+      "imports": [
+        {
+          "line": 38,
+          "text": "  import Seq"
+        },
+        {
+          "line": 40,
+          "text": "  import opened Wrappers"
+        },
+        {
+          "line": 41,
+          "text": "  import opened BoundedInts"
+        }
+      ],
+      "includes": [
+        {
+          "include": "../BoundedInts.dfy",
+          "line": 30,
+          "resolved_file": "libraries/src/BoundedInts.dfy",
+          "text": "include \"../BoundedInts.dfy\""
+        },
+        {
+          "include": "../Wrappers.dfy",
+          "line": 31,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../Wrappers.dfy\""
+        },
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 32,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "Utf8EncodingForm.dfy",
+          "line": 33,
+          "resolved_file": "libraries/src/Unicode/Utf8EncodingForm.dfy",
+          "text": "include \"Utf8EncodingForm.dfy\""
+        },
+        {
+          "include": "Utf16EncodingForm.dfy",
+          "line": 34,
+          "resolved_file": "libraries/src/Unicode/Utf16EncodingForm.dfy",
+          "text": "include \"Utf16EncodingForm.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 36,
+          "text": "abstract module {:options \"-functionSyntax:4\"} AbstractUnicodeStrings {"
+        }
+      ],
+      "source_sha256": "db5341cae2cb6ea690861d4613b0e78e8dba0883a51966c5c0ce4c34ceda9c65"
+    },
+    "libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy": {
+      "imports": [
+        {
+          "line": 15,
+          "text": "  import Unicode"
+        },
+        {
+          "line": 16,
+          "text": "  import Utf8EncodingForm"
+        },
+        {
+          "line": 17,
+          "text": "  import Utf16EncodingForm"
+        }
+      ],
+      "includes": [
+        {
+          "include": "UnicodeStrings.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/Unicode/UnicodeStrings.dfy",
+          "text": "include \"UnicodeStrings.dfy\""
+        },
+        {
+          "include": "../Wrappers.dfy",
+          "line": 10,
+          "resolved_file": "libraries/src/Wrappers.dfy",
+          "text": "include \"../Wrappers.dfy\""
+        },
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 11,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 13,
+          "text": "module {:options \"-functionSyntax:4\"} UnicodeStrings refines AbstractUnicodeStrings {"
+        }
+      ],
+      "source_sha256": "e7794dc4ffd4248733e9c7ee959850006a548cf966ac4f8ab9573942abbccebe"
+    },
+    "libraries/src/Unicode/Utf16EncodingForm.dfy": {
+      "imports": [],
+      "includes": [
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "../Functions.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/Functions.dfy",
+          "text": "include \"../Functions.dfy\""
+        },
+        {
+          "include": "Unicode.dfy",
+          "line": 11,
+          "resolved_file": "libraries/src/Unicode/Unicode.dfy",
+          "text": "include \"Unicode.dfy\""
+        },
+        {
+          "include": "UnicodeEncodingForm.dfy",
+          "line": 12,
+          "resolved_file": "libraries/src/Unicode/UnicodeEncodingForm.dfy",
+          "text": "include \"UnicodeEncodingForm.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 15,
+          "text": "module {:options \"-functionSyntax:4\"} Utf16EncodingForm refines UnicodeEncodingForm {"
+        }
+      ],
+      "source_sha256": "08df2e95c323ea698dfb3d6fa392a2b1525184b151122d2a83f71cf84cf54be5"
+    },
+    "libraries/src/Unicode/Utf8EncodingForm.dfy": {
+      "imports": [],
+      "includes": [
+        {
+          "include": "../Collections/Sequences/Seq.dfy",
+          "line": 8,
+          "resolved_file": "libraries/src/Collections/Sequences/Seq.dfy",
+          "text": "include \"../Collections/Sequences/Seq.dfy\""
+        },
+        {
+          "include": "../Functions.dfy",
+          "line": 9,
+          "resolved_file": "libraries/src/Functions.dfy",
+          "text": "include \"../Functions.dfy\""
+        },
+        {
+          "include": "Unicode.dfy",
+          "line": 11,
+          "resolved_file": "libraries/src/Unicode/Unicode.dfy",
+          "text": "include \"Unicode.dfy\""
+        },
+        {
+          "include": "UnicodeEncodingForm.dfy",
+          "line": 12,
+          "resolved_file": "libraries/src/Unicode/UnicodeEncodingForm.dfy",
+          "text": "include \"UnicodeEncodingForm.dfy\""
+        }
+      ],
+      "module_declarations": [
+        {
+          "line": 18,
+          "text": "module {:options \"-functionSyntax:4\"} Utf8EncodingForm refines UnicodeEncodingForm {"
+        }
+      ],
+      "source_sha256": "72e000d6cc2d82b9057e2444f15893c8de71fb1c8b5f1113a321b3ce7c3ffb99"
+    },
+    "libraries/src/Wrappers.dfy": {
+      "imports": [],
+      "includes": [],
+      "module_declarations": [
+        {
+          "line": 8,
+          "text": "module {:options \"-functionSyntax:4\"} Wrappers {"
+        }
+      ],
+      "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+    }
+  },
+  "excerpts": [
+    {
+      "excerpt_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+      "file": "StandardLibrary/src/UInt.dfy",
+      "first_line": 1,
+      "last_line": 400,
+      "purpose": "source context",
+      "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+      "text": "// Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.\n// SPDX-License-Identifier: Apache-2.0\n\ninclude \"../../libraries/src/BoundedInts.dfy\"\nmodule StandardLibrary.UInt {\n  import BoundedInts\n\n  type uint8 = BoundedInts.uint8\n  type uint16 = BoundedInts.uint16\n  type uint32 = BoundedInts.uint32\n  type uint64 = BoundedInts.uint64\n  type int32 = BoundedInts.int32\n  type int64 = BoundedInts.int64\n  const UINT16_LIMIT := BoundedInts.UINT16_MAX as int + 1\n  const UINT32_LIMIT := BoundedInts.UINT32_MAX as int + 1\n  const UINT64_LIMIT := BoundedInts.UINT64_MAX as int + 1\n  const INT32_MAX_LIMIT := BoundedInts.INT32_MAX as int\n  const INT64_MAX_LIMIT := BoundedInts.INT64_MAX as int\n  const UINT64_MAX_LIMIT := BoundedInts.UINT64_MAX as int\n\n  predicate method UInt8Less(a: uint8, b: uint8) { a < b }\n\n  predicate method HasUint16Len<T>(s: seq<T>) {\n    |s| < UINT16_LIMIT\n  }\n\n  type seq16<T> = s: seq<T> | HasUint16Len(s)\n  type Uint8Seq16 = seq16<uint8>\n\n  predicate method HasUint32Len<T>(s: seq<T>) {\n    |s| < UINT32_LIMIT\n  }\n\n  type seq32<T> = s: seq<T> | HasUint32Len(s)\n  type Uint8Seq32 = seq32<uint8>\n\n  predicate method HasUint64Len<T>(s: seq<T>) {\n    |s| < UINT64_LIMIT\n  }\n\n  type seq64<T> = s: seq<T> | HasUint64Len(s)\n  type Uint8Seq64 = seq64<uint8>\n\n  predicate method HasUint16Size(s: nat) {\n    s < UINT16_LIMIT\n  }\n  predicate method HasUint32Size(s: nat) {\n    s < UINT32_LIMIT\n  }\n  predicate method HasUint64Size(s: nat) {\n    s < UINT64_LIMIT\n  }\n\n  function method UInt16ToSeq(x: uint16): (ret: seq<uint8>)\n    ensures |ret| == 2\n    ensures 0x100 * ret[0] as uint16 + ret[1] as uint16 == x\n  {\n    var b0 := (x / 0x100) as uint8;\n    var b1 := (x % 0x100) as uint8;\n    [b0, b1]\n  }\n\n  function method SeqToUInt16(s: seq<uint8>): (x: uint16)\n    requires |s| == 2\n    ensures UInt16ToSeq(x) == s\n    ensures x >= 0\n  {\n    var x0 := s[0 as uint32] as uint16 * 0x100;\n    x0 + s[1 as uint32] as uint16\n  }\n\n  function method SeqPosToUInt16(s: seq<uint8>, pos : uint64): (x: uint16)\n    requires HasUint64Len(s)\n    requires |s| >= pos as nat + 2\n    ensures UInt16ToSeq(x) == s[pos..pos+2]\n    ensures x >= 0\n  {\n    var x0 := s[pos] as uint16 * 0x100;\n    x0 + s[pos+1] as uint16\n  }\n\n  function method SeqPosToUInt32(s: seq<uint8>, pos : uint64): (x: uint32)\n    requires HasUint64Len(s)\n    requires |s| >= pos as nat + 4\n    ensures UInt32ToSeq(x) == s[pos..pos+4]\n  {\n    var x0 := s[pos] as uint32 * 0x100_0000;\n    var x1 := x0 + s[pos+1] as uint32 * 0x1_0000;\n    var x2 := x1 + s[pos+2] as uint32 * 0x100;\n    x2 + s[pos+3] as uint32\n  }\n\n  function method SeqPosToUInt64(s: seq<uint8>, pos : uint64): (x: uint64)\n    requires HasUint64Len(s)\n    requires pos as nat + 8 <= |s|\n    ensures UInt64ToSeq(x) == s[pos..pos+8]\n  {\n    var x0 := s[pos] as uint64 * 0x100_0000_0000_0000;\n    var x1 := x0 + s[pos+1] as uint64 * 0x1_0000_0000_0000;\n    var x2 := x1 + s[pos+2] as uint64 * 0x100_0000_0000;\n    var x3 := x2 + s[pos+3] as uint64 * 0x1_0000_0000;\n    var x4 := x3 + s[pos+4] as uint64 * 0x100_0000;\n    var x5 := x4 + s[pos+5] as uint64 * 0x1_0000;\n    var x6 := x5 + s[pos+6] as uint64 * 0x100;\n    var x := x6 + s[pos+7] as uint64;\n    assert x == SeqToUInt64(s[pos..pos+8]);\n    x\n  }\n\n  lemma SeqPosToUInt16Same(s: seq<uint8>, pos : uint64)\n    requires |s| < BoundedInts.UINT64_MAX as nat\n    requires |s| >= pos as nat + 2\n    ensures UInt16ToSeq(SeqPosToUInt16(s, pos)) == s[pos..pos+2]\n    ensures SeqToUInt16(s[pos..pos+2]) == SeqPosToUInt16(s, pos)\n  {}\n\n  lemma SeqPosToUInt32Same(s: seq<uint8>, pos : uint64)\n    requires |s| < BoundedInts.UINT64_MAX as nat\n    requires |s| >= pos as nat + 4\n    ensures UInt32ToSeq(SeqPosToUInt32(s, pos)) == s[pos..pos+4]\n    ensures SeqToUInt32(s[pos..pos+4]) == SeqPosToUInt32(s, pos)\n  {}\n\n  lemma SeqPosToUInt64Same(s: seq<uint8>, pos : uint64)\n    requires |s| < BoundedInts.UINT64_MAX as nat\n    requires |s| >= pos as nat + 8\n    ensures UInt64ToSeq(SeqPosToUInt64(s, pos)) == s[pos..pos+8]\n    ensures SeqToUInt64(s[pos..pos+8]) == SeqPosToUInt64(s, pos)\n  {}\n\n  lemma UInt16SeqSerializeDeserialize(x: uint16)\n    ensures SeqToUInt16(UInt16ToSeq(x)) == x\n  {}\n\n  lemma UInt16SeqDeserializeSerialize(s: seq<uint8>)\n    requires |s| == 2\n    ensures UInt16ToSeq(SeqToUInt16(s)) == s\n  {}\n\n  function method UInt32ToSeq(x: uint32): (ret: seq<uint8>)\n    ensures |ret| == 4\n    ensures 0x100_0000 * ret[0] as uint32 + 0x1_0000 * ret[1] as uint32 + 0x100 * ret[2] as uint32 + ret[3] as uint32 == x\n  {\n    var b0 := (x / 0x100_0000) as uint8;\n    var x0 := x - (b0 as uint32 * 0x100_0000);\n\n    var b1 := (x0 / 0x1_0000) as uint8;\n    var x1 := x0 - (b1 as uint32 * 0x1_0000);\n\n    var b2 := (x1 / 0x100) as uint8;\n    var b3 := (x1 % 0x100) as uint8;\n    [b0, b1, b2, b3]\n  }\n\n  function method SeqToUInt32(s: seq<uint8>): (x: uint32)\n    requires |s| == 4\n    ensures UInt32ToSeq(x) == s\n  {\n    var x0 := s[0 as uint32] as uint32 * 0x100_0000;\n    var x1 := x0 + s[1 as uint32] as uint32 * 0x1_0000;\n    var x2 := x1 + s[2 as uint32] as uint32 * 0x100;\n    x2 + s[3 as uint32] as uint32\n  }\n\n  lemma UInt32SeqSerializeDeserialize(x: uint32)\n    ensures SeqToUInt32(UInt32ToSeq(x)) == x\n  {}\n\n  lemma UInt32SeqDeserializeSerialize(s: seq<uint8>)\n    requires |s| == 4\n    ensures UInt32ToSeq(SeqToUInt32(s)) == s\n  {}\n\n  function method UInt64ToSeq(x: uint64): (ret: seq<uint8>)\n    ensures |ret| == 8\n    ensures 0x100_0000_0000_0000 * ret[0] as uint64 + 0x1_0000_0000_0000 * ret[1] as uint64 +\n            0x100_0000_0000 * ret[2] as uint64 + 0x1_0000_0000 * ret[3] as uint64 + 0x100_0000 * ret[4] as uint64 +\n            0x1_0000 * ret[5] as uint64 + 0x100 * ret[6] as uint64 + ret[7] as uint64 == x\n  {\n    var b0 := (x / 0x100_0000_0000_0000) as uint8;\n    var x0 := x - (b0 as uint64 * 0x100_0000_0000_0000);\n\n    var b1 := (x0 / 0x1_0000_0000_0000) as uint8;\n    var x1 := x0 - (b1 as uint64 * 0x1_0000_0000_0000);\n\n    var b2 := (x1 / 0x100_0000_0000) as uint8;\n    var x2 := x1 - (b2 as uint64 * 0x100_0000_0000);\n\n    var b3 := (x2 / 0x1_0000_0000) as uint8;\n    var x3 := x2 - (b3 as uint64 * 0x1_0000_0000);\n\n    var b4 := (x3 / 0x100_0000) as uint8;\n    var x4 := x3 - (b4 as uint64 * 0x100_0000);\n\n    var b5 := (x4 / 0x1_0000) as uint8;\n    var x5 := x4 - (b5 as uint64 * 0x1_0000);\n\n    var b6 := (x5 / 0x100) as uint8;\n    var b7 := (x5 % 0x100) as uint8;\n    [b0, b1, b2, b3, b4, b5, b6, b7]\n  }\n\n  function method SeqToUInt64(s: seq<uint8>): (x: uint64)\n    requires |s| == 8\n    ensures UInt64ToSeq(x) == s\n  {\n    var x0 := s[0 as uint32] as uint64 * 0x100_0000_0000_0000;\n    var x1 := x0 + s[1 as uint32] as uint64 * 0x1_0000_0000_0000;\n    var x2 := x1 + s[2 as uint32] as uint64 * 0x100_0000_0000;\n    var x3 := x2 + s[3 as uint32] as uint64 * 0x1_0000_0000;\n    var x4 := x3 + s[4 as uint32] as uint64 * 0x100_0000;\n    var x5 := x4 + s[5 as uint32] as uint64 * 0x1_0000;\n    var x6 := x5 + s[6 as uint32] as uint64 * 0x100;\n    var x := x6 + s[7 as uint32] as uint64;\n    UInt64SeqSerialize(x, s);\n    x\n  }\n\n  lemma UInt64SeqSerialize(x: uint64, s: seq<uint8>)\n    requires |s| == 8\n    requires 0x100_0000_0000_0000 * s[0] as uint64\n             + 0x1_0000_0000_0000 * s[1] as uint64\n             + 0x100_0000_0000 * s[2] as uint64\n             + 0x1_0000_0000 * s[3] as uint64\n             + 0x100_0000 * s[4] as uint64\n             + 0x1_0000 * s[5] as uint64\n             + 0x100 * s[6] as uint64\n             + s[7] as uint64 == x\n    ensures UInt64ToSeq(x) == s\n  {\n    calc {\n      UInt64ToSeq(x);\n    ==\n      UInt64ToSeq(s[0] as uint64 * 0x100_0000_0000_0000\n                  + s[1] as uint64 * 0x1_0000_0000_0000\n                  + s[2] as uint64 * 0x100_0000_0000\n                  + s[3] as uint64 * 0x1_0000_0000\n                  + s[4] as uint64 * 0x100_0000\n                  + s[5] as uint64 * 0x1_0000\n                  + s[6] as uint64 * 0x100\n                  + s[7] as uint64);\n    ==\n      var b0 := ((s[0] as uint64 * 0x100_0000_0000_0000\n                  + s[1] as uint64 * 0x1_0000_0000_0000\n                  + s[2] as uint64 * 0x100_0000_0000\n                  + s[3] as uint64 * 0x1_0000_0000\n                  + s[4] as uint64 * 0x100_0000\n                  + s[5] as uint64 * 0x1_0000\n                  + s[6] as uint64 * 0x100\n                  + s[7] as uint64) / 0x100_0000_0000_0000) as uint8;\n      assert b0 == s[0];\n      var x0 := (s[0] as uint64 * 0x100_0000_0000_0000\n                 + s[1] as uint64 * 0x1_0000_0000_0000\n                 + s[2] as uint64 * 0x100_0000_0000\n                 + s[3] as uint64 * 0x1_0000_0000\n                 + s[4] as uint64 * 0x100_0000\n                 + s[5] as uint64 * 0x1_0000\n                 + s[6] as uint64 * 0x100\n                 + s[7] as uint64) - (b0 as uint64 * 0x100_0000_0000_0000);\n      assert x0 == (s[1] as uint64 * 0x1_0000_0000_0000\n                    + s[2] as uint64 * 0x100_0000_0000\n                    + s[3] as uint64 * 0x1_0000_0000\n                    + s[4] as uint64 * 0x100_0000\n                    + s[5] as uint64 * 0x1_0000\n                    + s[6] as uint64 * 0x100\n                    + s[7] as uint64);\n\n      var b1 := (x0 / 0x1_0000_0000_0000) as uint8;\n      assert b1 == s[1];\n      var x1 := x0 - (b1 as uint64 * 0x1_0000_0000_0000);\n      assert x1 == (s[2] as uint64 * 0x100_0000_0000\n                    + s[3] as uint64 * 0x1_0000_0000\n                    + s[4] as uint64 * 0x100_0000\n                    + s[5] as uint64 * 0x1_0000\n                    + s[6] as uint64 * 0x100\n                    + s[7] as uint64);\n\n      var b2 := (x1 / 0x100_0000_0000) as uint8;\n      assert b2 == s[2];\n      var x2 := x1 - (b2 as uint64 * 0x100_0000_0000);\n      assert x2 == (s[3] as uint64 * 0x1_0000_0000\n                    + s[4] as uint64 * 0x100_0000\n                    + s[5] as uint64 * 0x1_0000\n                    + s[6] as uint64 * 0x100\n                    + s[7] as uint64);\n\n      var b3 := (x2 / 0x1_0000_0000) as uint8;\n      assert b3 == s[3];\n      var x3 := x2 - (b3 as uint64 * 0x1_0000_0000);\n      assert x3 == (s[4] as uint64 * 0x100_0000\n                    + s[5] as uint64 * 0x1_0000\n                    + s[6] as uint64 * 0x100\n                    + s[7] as uint64);\n\n      var b4 := (x3 / 0x100_0000) as uint8;\n      assert b4 == s[4];\n      var x4 := x3 - (b4 as uint64 * 0x100_0000);\n      assert x4 == (s[5] as uint64 * 0x1_0000\n                    + s[6] as uint64 * 0x100\n                    + s[7] as uint64);\n\n      var b5 := (x4 / 0x1_0000) as uint8;\n      assert b5 == s[5];\n      var x5 := x4 - (b5 as uint64 * 0x1_0000);\n      assert x5 == (s[6] as uint64 * 0x100 + s[7] as uint64);\n\n      var b6 := (x5 / 0x100) as uint8;\n      assert b6 == s[6];\n      var b7 := (x5 % 0x100) as uint8;\n      assert b7 == s[7];\n      [b0, b1, b2, b3, b4, b5, b6, b7];\n    ==\n      [s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7]];\n    ==\n      s;\n    }\n  }\n\n  lemma UInt64SeqSerializeDeserialize(x: uint64)\n    ensures SeqToUInt64(UInt64ToSeq(x)) == x\n  {}\n\n  lemma UInt64SeqDeserializeSerialize(s: seq<uint8>)\n    requires |s| == 8\n    ensures UInt64ToSeq(SeqToUInt64(s)) == s\n  {}\n\n  function SeqToNat(s: seq<uint8>): nat {\n    if s == [] then\n      0\n    else\n      var finalIndex := |s| - 1;\n      SeqToNat(s[..finalIndex]) * 0x100 + s[finalIndex] as nat\n  }\n\n  // By the following lemma, prepending a 0 to a byte sequence does not change its SeqToNat value\n  lemma SeqToNatZeroPrefix(s: seq<uint8>)\n    ensures SeqToNat(s) == SeqToNat([0] + s)\n  {\n    if s == [] {\n    } else {\n      var s' := [0] + s;\n      var sLength := |s|;\n      var sFinalIndex := sLength - 1;\n      calc {\n        SeqToNat(s);\n      ==\n        SeqToNat(s[..sFinalIndex]) * 0x100 + s[sFinalIndex] as nat;\n      ==\n        SeqToNat([0] + s[..sFinalIndex]) * 0x100 + s[sFinalIndex] as nat;\n      == { assert (s'[..sLength] == [0] + s[..sFinalIndex]) && s'[sLength] == s[sFinalIndex]; }\n        SeqToNat(s'[..sLength]) * 0x100 + s'[sLength] as nat;\n      ==\n        SeqToNat(s');\n      ==\n        SeqToNat([0] + s);\n      }\n    }\n  }\n\n  // By the following lemma, SeqToNat(s) == n is automatically true if the given preconditions are true\n  lemma SeqWithUInt32Suffix(s: seq<uint8>, n: nat)\n    requires n < UINT32_LIMIT\n    requires 4 <= |s|\n    requires var suffixStartIndex := |s| - 4;\n             (s[suffixStartIndex..] == UInt32ToSeq(n as uint32)) &&\n             (forall i :: 0 <= i < suffixStartIndex ==> s[i] == 0)\n    ensures SeqToNat(s) == n\n  {\n    if |s| == 4 {\n      calc {\n        SeqToNat(s);\n      ==\n        SeqToNat(s[..3])\n        * 0x100 + s[3] as nat;\n      ==  { assert s[..3][..2] == s[..2] && s[..3][2] == s[2]; }\n        (SeqToNat(s[..2])\n         * 0x100 + s[2] as nat)\n        * 0x100 + s[3] as nat;\n      ==  { assert s[..2][..1] == s[..1] && s[..2][1] == s[1]; }\n        ((SeqToNat(s[..1])\n          * 0x100 + s[1] as nat)\n         * 0x100 + s[2] as nat)\n        * 0x100 + s[3] as nat;\n      ==  { assert s[..1][..0] == s[..0] && s[..1][0] == s[0]; }\n        (((SeqToNat(s[..0])\n           * 0x100 + s[0] as nat)\n          * 0x100 + s[1] as nat)\n         * 0x100 + s[2] as nat)\n        * 0x100 + s[3] as nat;\n      ==\n        n;\n      }\n    } else {\n      assert s == [0] + s[1..];\n      SeqToNatZeroPrefix(s[1..]);\n      SeqWithUInt32Suffix(s[1..], n);\n    }\n  }\n}\n"
+    },
+    {
+      "excerpt_sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13",
+      "file": "StandardLibrary/src/UTF8.dfy",
+      "first_line": 1,
+      "last_line": 347,
+      "purpose": "source context",
+      "source_sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13",
+      "text": "// Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.\n// SPDX-License-Identifier: Apache-2.0\n\ninclude \"./StandardLibrary.dfy\"\n\n// Provides a function ValidUTF8 which checks if an array of bytes is a valid sequence of UTF8 code points.\n// Each code point of a UTF8 string is one of the following variants, ranging from one to four bytes:\n// Case 1 : 0xxxxxxx\n// Case 2 : 110xxxxx 10xxxxxx\n// Case 3 : 1110xxxx 10xxxxxx 10xxxxxx\n// Case 4 : 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx\n\n// The first uint8 of each code point is called the leading uint8, while the rest are called continuation bytes.\n\n// This does NOT perform any range checks on the values encoded.\n\nmodule {:extern \"UTF8\"} UTF8 {\n  import opened Wrappers\n  import opened UInt = StandardLibrary.UInt\n\n  type ValidUTF8Bytes = i: seq<uint8> | ValidUTF8Seq(i) witness []\n\n  // The tradeoff of assuming the external implementation of encode and decode is correct is worth the tradeoff\n  // of unlocking being able to express and hence prove so many other specifications\n  function method {:extern \"Encode\"} Encode(s: string): (res: Result<ValidUTF8Bytes, string>)\n    // US-ASCII only needs a single UTF-8 byte per character\n    ensures IsASCIIString(s) ==> res.Success? && |res.value| == |s|\n    // The following MUST be true for any correct implementation of Encode\n    // If it weren't, then data would be lost.\n    ensures res.Success? ==> Decode(res.value).Success? && Decode(res.value).value == s\n\n  // Decode return a Result, therefore doesn't need to require utf8 input\n  function method {:extern \"Decode\"} Decode(b: seq<uint8>): (res: Result<string, string>)\n    ensures res.Success? ==> ValidUTF8Seq(b)\n\n  // The next four functions are for the benefit of the extern implementation to call,\n  // avoiding direct references to generic datatype constructors\n  // since their calling pattern is different between different versions of Dafny\n  // (i.e. after 4.2, explicit type descriptors are required).\n\n  function method CreateEncodeSuccess(bytes: ValidUTF8Bytes): Result<ValidUTF8Bytes, string> {\n    Success(bytes)\n  }\n\n  function method CreateEncodeFailure(error: string): Result<ValidUTF8Bytes, string> {\n    Failure(error)\n  }\n\n  function method CreateDecodeSuccess(s: string): Result<string, string> {\n    Success(s)\n  }\n\n  function method CreateDecodeFailure(error: string): Result<string, string> {\n    Failure(error)\n  }\n\n  predicate method IsASCIIString(s: string) {\n    forall i :: 0 <= i < |s| ==> s[i] as int < 128\n  }\n\n  // Encode ASCII as UTF8 in a function, to allow use in ensures clause\n  // it's a ghost, because it's very expensive\n  // use explicit bytes in a constant, and then assert that it == EncodeAscii(\"whatever\")\n  function {:opaque} EncodeAscii(s : string) : (ret : ValidUTF8Bytes)\n    requires IsASCIIString(s)\n    ensures |s| == |ret|\n    ensures forall i | 0 <= i < |s| :: s[i] as uint8 == ret[i]\n  {\n    if |s| == 0 then\n      []\n    else\n      var x := [s[0] as uint8];\n      assert ValidUTF8Seq(x);\n      ValidUTF8Concat(x, EncodeAscii(s[1..]));\n      x + EncodeAscii(s[1..])\n  }\n\n  // if ascii strings are different, their encoding is also unique\n  lemma EncodeAsciiUnique2(x : string, y : string)\n    requires IsASCIIString(x) && IsASCIIString(y)\n    requires x != y\n    ensures EncodeAscii(x) != EncodeAscii(y)\n  {\n    reveal EncodeAscii();\n    if EncodeAscii(x) == EncodeAscii(y) {\n      if |EncodeAscii(x)| == 0 && |EncodeAscii(y)| == 0 {\n      } else if EncodeAscii(x)[0] == EncodeAscii(y)[0] {\n        assert EncodeAscii(x)[1..] != EncodeAscii(y)[1..] by {\n          EncodeAsciiUnique2(x[1..], y[1..]);\n        }\n      } else {\n      }\n    }\n  }\n\n  // if ascii strings are different, their encoding is also unique\n  lemma {:opaque} EncodeAsciiUnique()\n    ensures forall x : string, y : string :: IsASCIIString(x) && IsASCIIString(y) && x != y ==> EncodeAscii(x) != EncodeAscii(y)\n  {\n    forall x : string, y : string ensures IsASCIIString(x) && IsASCIIString(y) && x != y ==> EncodeAscii(x) != EncodeAscii(y) {\n      if IsASCIIString(x) && IsASCIIString(y) && x != y {\n        EncodeAsciiUnique2(x, y);\n      }\n    }\n  }\n\n  // These four really ought to be ghost, but we use them in tests.\n  predicate method Uses1Byte(s: seq<uint8>)\n    requires |s| >= 1\n  {\n    // Based on syntax detailed on https://tools.ietf.org/html/rfc3629#section-4\n    0x00 <= s[0] <= 0x7F\n  }\n\n  predicate method Uses2Bytes(s: seq<uint8>)\n    requires |s| >= 2\n  {\n    // Based on syntax detailed on https://tools.ietf.org/html/rfc3629#section-4\n    (0xC2 <= s[0] <= 0xDF) && (0x80 <= s[1] <= 0xBF)\n  }\n\n  predicate method Uses3Bytes(s: seq<uint8>)\n    requires |s| >= 3\n  {\n    // Based on syntax detailed on https://tools.ietf.org/html/rfc3629#section-4\n    ((s[0] == 0xE0) && (0xA0 <= s[1] <= 0xBF) && (0x80 <= s[2] <= 0xBF))\n    || ((0xE1 <= s[0] <= 0xEC) && (0x80 <= s[1] <= 0xBF) && (0x80 <= s[2] <= 0xBF))\n    || ((s[0] == 0xED) && (0x80 <= s[1] <= 0x9F) && (0x80 <= s[2] <= 0xBF))\n    || ((0xEE <= s[0] <= 0xEF) && (0x80 <= s[1] <= 0xBF) && (0x80 <= s[2] <= 0xBF))\n  }\n\n  predicate method Uses4Bytes(s: seq<uint8>)\n    requires |s| >= 4\n  {\n    // Based on syntax detailed on https://tools.ietf.org/html/rfc3629#section-4\n    ((s[0] == 0xF0) && (0x90 <= s[1] <= 0xBF) && (0x80 <= s[2] <= 0xBF) && (0x80 <= s[3] <= 0xBF))\n    || ((0xF1 <= s[0] <= 0xF3) && (0x80 <= s[1] <= 0xBF) && (0x80 <= s[2] <= 0xBF) && (0x80 <= s[3] <= 0xBF))\n    || ((s[0] == 0xF4) && (0x80 <= s[1] <= 0x8F) && (0x80 <= s[2] <= 0xBF) && (0x80 <= s[3] <= 0xBF))\n  }\n\n  predicate ValidUTF8Range(a: seq<uint8>, lo: nat, hi: nat)\n    requires lo <= hi <= |a|\n    decreases hi - lo\n  {\n    if lo == hi then\n      true\n    else\n      var r := a[lo..hi];\n      if Uses1Byte(r) then\n        ValidUTF8Range(a, lo + 1, hi)\n      else if 2 <= |r| && Uses2Bytes(r) then\n        ValidUTF8Range(a, lo + 2, hi)\n      else if 3 <= |r| && Uses3Bytes(r) then\n        ValidUTF8Range(a, lo + 3, hi)\n      else if 4 <= |r| && Uses4Bytes(r) then\n        ValidUTF8Range(a, lo + 4, hi)\n      else\n        false\n  } by method {\n\n    // The slice a[lo..hi] is un-optimized operations in Dafny.\n    // This means that their usage will result in a lot of data copying.\n    // Additional, it is very likely that these size of these sequences\n    // will be less than uint64.\n    // So writing an optimized version that only works on bounded types\n    // should further optimized this hot code.\n\n    if HasUint64Len(a) {\n      return BoundedValidUTF8Range(a, lo as uint64, hi as uint64);\n    }\n\n    if lo == hi {\n      assert ValidUTF8Range(a, lo, hi);\n      return true;\n    }\n\n    var i := lo;\n\n    while i < hi\n      invariant lo <= i <= hi\n      invariant ValidUTF8Range(a, lo, hi) == ValidUTF8Range(a, i, hi)\n      decreases hi - i\n    {\n      if\n        && i < hi\n        && 0x00 <= a[i] <= 0x7F\n      {\n        assert Uses1Byte(a[i..hi]);\n        i := i + 1;\n      } else if\n        && i + 1 < hi\n        && (0xC2 <= a[i] <= 0xDF)\n        && (0x80 <= a[i+1] <= 0xBF)\n      {\n        assert Uses2Bytes(a[i..hi]);\n        i := i + 2;\n      } else if\n        && i + 2 < hi\n        && (((a[i] == 0xE0) && (0xA0 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF))\n            || ((0xE1 <= a[i] <= 0xEC) && (0x80 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF))\n            || ((a[i] == 0xED) && (0x80 <= a[i + 1] <= 0x9F) && (0x80 <= a[i + 2] <= 0xBF))\n            || ((0xEE <= a[i] <= 0xEF) && (0x80 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF)))\n      {\n        assert Uses3Bytes(a[i..hi]);\n        i := i + 3;\n      } else if\n        && i + 3 < hi\n        && (((a[i] == 0xF0) && (0x90 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF) && (0x80 <= a[i + 3] <= 0xBF))\n            || ((0xF1 <= a[i] <= 0xF3) && (0x80 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF) && (0x80 <= a[i + 3] <= 0xBF))\n            || ((a[i] == 0xF4) && (0x80 <= a[i + 1] <= 0x8F) && (0x80 <= a[i + 2] <= 0xBF) && (0x80 <= a[i + 3] <= 0xBF)))\n      {\n        assert Uses4Bytes(a[i..hi]);\n        i := i + 4;\n      } else {\n        assert i < hi;\n        return false;\n      }\n    }\n\n    return true;\n  }\n\n  predicate BoundedValidUTF8Range(a: seq64<uint8>, lo: uint64, hi: uint64)\n    requires lo <= hi <= |a| as uint64\n    decreases hi - lo\n  {\n    ValidUTF8Range(a, lo as nat, hi as nat)\n  } by method {\n    if lo == hi {\n      assert ValidUTF8Range(a, lo as nat, hi as nat);\n      return true;\n    }\n\n    var i := lo;\n\n    while i < hi\n      invariant lo <= i <= hi\n      invariant ValidUTF8Range(a, lo as nat, hi as nat) == ValidUTF8Range(a, i as nat, hi as nat)\n      decreases hi - i\n    {\n      if\n        && i < hi\n        && 0x00 <= a[i] <= 0x7F\n      {\n        assert Uses1Byte(a[i..hi]);\n        i := i + 1;\n      } else if\n        && i < hi - 1\n        && (0xC2 <= a[i] <= 0xDF)\n        && (0x80 <= a[i+1] <= 0xBF)\n      {\n        assert Uses2Bytes(a[i..hi]);\n        i := i + 2;\n      } else if\n        && 2 <= hi\n        && i < hi - 2\n        && (((a[i] == 0xE0) && (0xA0 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF))\n            || ((0xE1 <= a[i] <= 0xEC) && (0x80 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF))\n            || ((a[i] == 0xED) && (0x80 <= a[i + 1] <= 0x9F) && (0x80 <= a[i + 2] <= 0xBF))\n            || ((0xEE <= a[i] <= 0xEF) && (0x80 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF)))\n      {\n        assert Uses3Bytes(a[i..hi]);\n        i := i + 3;\n      } else if\n        && 3 <= hi\n        && i < hi - 3\n        && (((a[i] == 0xF0) && (0x90 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF) && (0x80 <= a[i + 3] <= 0xBF))\n            || ((0xF1 <= a[i] <= 0xF3) && (0x80 <= a[i + 1] <= 0xBF) && (0x80 <= a[i + 2] <= 0xBF) && (0x80 <= a[i + 3] <= 0xBF))\n            || ((a[i] == 0xF4) && (0x80 <= a[i + 1] <= 0x8F) && (0x80 <= a[i + 2] <= 0xBF) && (0x80 <= a[i + 3] <= 0xBF)))\n      {\n        assert Uses4Bytes(a[i..hi]);\n        i := i + 4;\n      } else {\n        return false;\n      }\n    }\n\n    return true;\n  }\n\n  lemma ValidUTF8Embed(a: seq<uint8>, b: seq<uint8>, c: seq<uint8>, lo: nat, hi: nat)\n    requires lo <= hi <= |b|\n    ensures ValidUTF8Range(b, lo, hi) == ValidUTF8Range(a + b + c, |a| + lo, |a| + hi)\n    decreases hi - lo\n  {\n    if lo == hi {\n    } else {\n      var r := b[lo..hi];\n      var r' := (a + b + c)[|a| + lo..|a| + hi];\n      assert r == r';\n      if Uses1Byte(r) {\n        ValidUTF8Embed(a, b, c, lo + 1, hi);\n      } else if 2 <= |r| && Uses2Bytes(r) {\n        ValidUTF8Embed(a, b, c, lo + 2, hi);\n      } else if 3 <= |r| && Uses3Bytes(r) {\n        ValidUTF8Embed(a, b, c, lo + 3, hi);\n      } else if 4 <= |r| && Uses4Bytes(r) {\n        ValidUTF8Embed(a, b, c, lo + 4, hi);\n      }\n    }\n  }\n\n  predicate method ValidUTF8Seq(s: seq<uint8>) {\n    ValidUTF8Range(s, 0, |s|)\n  }\n\n  lemma {:vcs_split_on_every_assert} ValidUTF8Concat(s: seq<uint8>, t: seq<uint8>)\n    requires ValidUTF8Seq(s) && ValidUTF8Seq(t)\n    ensures ValidUTF8Seq(s + t)\n  {\n    var lo := 0;\n    while lo < |s|\n      invariant lo <= |s|\n      invariant ValidUTF8Range(s, lo, |s|)\n      invariant ValidUTF8Range(s + t, 0, |s + t|) ==> ValidUTF8Range(s + t, lo, |s + t|)\n      invariant ValidUTF8Range(s + t, lo, |s + t|) ==> ValidUTF8Range(s + t, 0, |s + t|)\n    {\n      var r := (s + t)[lo..];\n      if Uses1Byte(r) {\n        lo := lo + 1;\n      } else if 2 <= |r| && Uses2Bytes(r) {\n        lo := lo + 2;\n      } else if 3 <= |r| && Uses3Bytes(r) {\n        lo := lo + 3;\n      } else if 4 <= |r| && Uses4Bytes(r) {\n        lo := lo + 4;\n      }\n    }\n    assert ValidUTF8Seq(s + t) by {\n      ValidUTF8Embed(s, t, [], 0, |t|);\n      assert s + t == s + t + [] && lo == |s|;\n    }\n  }\n\n  lemma IsASCIIBytesIsValidUTF8(s: seq<uint8>)\n    requires forall i | 0 <= i < |s| :: Uses1Byte([s[i]])\n    ensures ValidUTF8Seq(s)\n  {\n    if |s| == 0 {\n    } else {\n      IsASCIIBytesIsValidUTF8(s[1..]);\n      assert ValidUTF8Seq(s[..1]);\n      ValidUTF8Concat(s[..1], s[1..]);\n      assert s[..1] + s[1..] == s;\n    }\n  }\n}\n"
+    },
+    {
+      "excerpt_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+      "file": "libraries/src/Wrappers.dfy",
+      "first_line": 1,
+      "last_line": 116,
+      "purpose": "source context",
+      "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+      "text": "// RUN: %verify \"%s\"\n\n/*******************************************************************************\n *  Copyright by the contributors to the Dafny Project\n *  SPDX-License-Identifier: MIT \n *******************************************************************************/\n\nmodule {:options \"-functionSyntax:4\"} Wrappers {\n\n  datatype Option<+T> = None | Some(value: T) {\n    function ToResult(): Result<T, string> {\n      match this\n      case Some(v) => Success(v)\n      case None() => Failure(\"Option is None\")\n    }\n\n    function ToResult'<R>(error: R): Result<T, R> {\n      match this\n      case Some(v) => Success(v)\n      case None() => Failure(error)\n    }\n\n    function UnwrapOr(default: T): T {\n      match this\n      case Some(v) => v\n      case None() => default\n    }\n\n    predicate IsFailure() {\n      None?\n    }\n\n    function PropagateFailure<U>(): Option<U>\n      requires None?\n    {\n      None\n    }\n\n    function Extract(): T\n      requires Some?\n    {\n      value\n    }\n  }\n\n  datatype Result<+T, +R> = | Success(value: T) | Failure(error: R) {\n    function ToOption(): Option<T>\n    {\n      match this\n      case Success(s) => Some(s)\n      case Failure(e) => None()\n    }\n\n    function UnwrapOr(default: T): T\n    {\n      match this\n      case Success(s) => s\n      case Failure(e) => default\n    }\n\n    predicate IsFailure() {\n      Failure?\n    }\n\n    function PropagateFailure<U>(): Result<U, R>\n      requires Failure?\n    {\n      Failure(this.error)\n    }\n\n    function MapFailure<NewR>(reWrap: R -> NewR): Result<T, NewR>\n    {\n      match this\n      case Success(s) => Success(s)\n      case Failure(e) => Failure(reWrap(e))\n    }\n\n    function Extract(): T\n      requires Success?\n    {\n      value\n    }\n  }\n\n  datatype Outcome<E> = Pass | Fail(error: E)\n  {\n    predicate IsFailure() {\n      Fail?\n    }\n    // Note: PropagateFailure returns a Result, not an Outcome.\n    function PropagateFailure<U>(): Result<U, E>\n      requires Fail?\n    {\n      Failure(this.error)\n    }\n    // Note: no Extract method\n  }\n\n  // A helper function to ensure a requirement is true at runtime\n  // :- Need(5 == |mySet|, \"The set MUST have 5 elements.\")\n  function Need<E>(condition: bool, error: E): (result: Outcome<E>)\n  {\n    if condition then Pass else Fail(error)\n  }\n\n  // An improvement over Need if the error type is more complex than a static string\n  // Replace\n  // Need(condition, ErrorFunction());\n  // with\n  // FNeed(condition, () => ErrorFunction());\n  function  FNeed<E>(condition: bool, error: () --> E): (result: Outcome<E>)\n    requires !condition ==> error.requires()\n  {\n    if condition then Pass else Fail(error())\n  }\n}\n"
+    },
+    {
+      "excerpt_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+      "file": "libraries/src/BoundedInts.dfy",
+      "first_line": 1,
+      "last_line": 59,
+      "purpose": "source context",
+      "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+      "text": "// RUN: %verify \"%s\"\n\nmodule {:options \"-functionSyntax:4\"} BoundedInts {\n  const TWO_TO_THE_0:   int := 1\n  const TWO_TO_THE_1:   int := 2\n  const TWO_TO_THE_2:   int := 4\n  const TWO_TO_THE_4:   int := 16\n  const TWO_TO_THE_5:   int := 32\n  const TWO_TO_THE_8:   int := 0x100\n  const TWO_TO_THE_16:  int := 0x10000\n  const TWO_TO_THE_24:  int := 0x1000000\n  const TWO_TO_THE_32:  int := 0x1_00000000\n  const TWO_TO_THE_40:  int := 0x100_00000000\n  const TWO_TO_THE_48:  int := 0x10000_00000000\n  const TWO_TO_THE_56:  int := 0x1000000_00000000\n  const TWO_TO_THE_64:  int := 0x1_00000000_00000000\n  const TWO_TO_THE_128: int := 0x1_00000000_00000000_00000000_00000000\n  const TWO_TO_THE_256: int := 0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000\n  const TWO_TO_THE_512: int :=\n    0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000\n\n  newtype uint8  = x: int | 0 <= x < TWO_TO_THE_8\n  newtype uint16 = x: int | 0 <= x < TWO_TO_THE_16\n  newtype uint32 = x: int | 0 <= x < TWO_TO_THE_32\n  newtype uint64 = x: int | 0 <= x < TWO_TO_THE_64\n\n  newtype int8  = x: int  | -0x80 <= x < 0x80\n  newtype int16 = x: int  | -0x8000 <= x < 0x8000\n  newtype int32 = x: int  | -0x8000_0000 <= x < 0x8000_0000\n  newtype int64 = x: int  | -0x8000_0000_0000_0000 <= x < 0x8000_0000_0000_0000\n\n  newtype nat8 = x: int   | 0 <= x < 0x80\n  newtype nat16 = x: int  | 0 <= x < 0x8000\n  newtype nat32 = x: int  | 0 <= x < 0x8000_0000\n  newtype nat64 = x: int  | 0 <= x < 0x8000_0000_0000_0000\n\n  const UINT8_MAX:  uint8  := 0xFF\n  const UINT16_MAX: uint16 := 0xFFFF\n  const UINT32_MAX: uint32 := 0xFFFF_FFFF\n  const UINT64_MAX: uint64 := 0xFFFF_FFFF_FFFF_FFFF\n\n  const INT8_MIN:  int8  := -0x80\n  const INT8_MAX:  int8  :=  0x7F\n  const INT16_MIN: int16 := -0x8000\n  const INT16_MAX: int16 :=  0x7FFF\n  const INT32_MIN: int32 := -0x8000_0000\n  const INT32_MAX: int32 :=  0x7FFFFFFF\n  const INT64_MIN: int64 := -0x8000_0000_0000_0000\n  const INT64_MAX: int64 :=  0x7FFFFFFF_FFFFFFFF\n\n  const NAT8_MAX:  nat8  := 0x7F\n  const NAT16_MAX: nat16 := 0x7FFF\n  const NAT32_MAX: nat32 := 0x7FFFFFFF\n  const NAT64_MAX: nat64 := 0x7FFFFFFF_FFFFFFFF\n\n  type byte = uint8\n  type bytes = seq<byte>\n  newtype opt_byte = c: int | -1 <= c < TWO_TO_THE_8\n}\n"
+    },
+    {
+      "excerpt_sha256": "e8f793c2b77998bedd34df78c08327b8fa8e16297b41e0d1d93bfd3e1711a863",
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "first_line": 9,
+      "last_line": 17,
+      "purpose": "original containing module/import environment (excerpt; not a replacement module)",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695",
+      "text": "module {:extern \"software.amazon.cryptography.materialproviders.internaldafny.types\" } AwsCryptographyMaterialProvidersTypes\n{\n  import opened Wrappers\n  import opened StandardLibrary.UInt\n  import opened UTF8\n  import AwsCryptographyKeyStoreTypes\n  import AwsCryptographyPrimitivesTypes\n  import ComAmazonawsDynamodbTypes\n  import ComAmazonawsKmsTypes\n"
+    },
+    {
+      "excerpt_sha256": "fb4ba6483a07dd3ffb206705a7f927a46f181198cdbbc65bdd5d751807bb529d",
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "first_line": 1341,
+      "last_line": 1341,
+      "purpose": "original type alias",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695",
+      "text": "  type EncryptionContext = map<Utf8Bytes, Utf8Bytes>\n"
+    },
+    {
+      "excerpt_sha256": "89993b2dc32ce57561481f6b1a2acaec3a9c0429b69c12ac0ba38693f63c6d6d",
+      "file": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "first_line": 1640,
+      "last_line": 1640,
+      "purpose": "original type alias",
+      "source_sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695",
+      "text": "  type Utf8Bytes = ValidUTF8Bytes\n"
+    }
+  ],
+  "omitted_or_partial_source_files": [
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/CanonicalEncryptionContext.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/AwsCryptographyKeyStoreOperations.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeyStoreTable.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeys.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/DDBKeystoreOperations.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/GetKeys.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KMSKeystoreOperations.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+    "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+    "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+    "AwsCryptographyPrimitives/src/AesKdfCtr.dfy",
+    "AwsCryptographyPrimitives/src/AwsCryptographyPrimitivesOperations.dfy",
+    "AwsCryptographyPrimitives/src/Digest.dfy",
+    "AwsCryptographyPrimitives/src/ECDH.dfy",
+    "AwsCryptographyPrimitives/src/HKDF/HKDF.dfy",
+    "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+    "AwsCryptographyPrimitives/src/Index.dfy",
+    "AwsCryptographyPrimitives/src/KDF/KdfCtr.dfy",
+    "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+    "AwsCryptographyPrimitives/src/Random.dfy",
+    "AwsCryptographyPrimitives/src/Signature.dfy",
+    "AwsCryptographyPrimitives/src/WrappedHKDF.dfy",
+    "AwsCryptographyPrimitives/src/WrappedHMAC.dfy",
+    "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+    "ComAmazonawsDynamodb/src/Index.dfy",
+    "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy",
+    "ComAmazonawsKms/src/Index.dfy",
+    "StandardLibrary/src/Actions.dfy",
+    "StandardLibrary/src/Base64.dfy",
+    "StandardLibrary/src/Base64Lemmas.dfy",
+    "StandardLibrary/src/ConcurrentCall.dfy",
+    "StandardLibrary/src/FloatCompare.dfy",
+    "StandardLibrary/src/GetOpt.dfy",
+    "StandardLibrary/src/HexStrings.dfy",
+    "StandardLibrary/src/Index.dfy",
+    "StandardLibrary/src/MemoryMath.dfy",
+    "StandardLibrary/src/OsLang.dfy",
+    "StandardLibrary/src/Sequence.dfy",
+    "StandardLibrary/src/Sets.dfy",
+    "StandardLibrary/src/Sorting.dfy",
+    "StandardLibrary/src/StandardLibrary.dfy",
+    "StandardLibrary/src/Streams.dfy",
+    "StandardLibrary/src/String.dfy",
+    "StandardLibrary/src/Time.dfy",
+    "StandardLibrary/src/UUID.dfy",
+    "StandardLibrary/src/WrappersInterop.dfy",
+    "libraries/src/Collections/Sequences/MergeSort.dfy",
+    "libraries/src/Collections/Sequences/Seq.dfy",
+    "libraries/src/FileIO/FileIO.dfy",
+    "libraries/src/Functions.dfy",
+    "libraries/src/JSON/API.dfy",
+    "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+    "libraries/src/JSON/ConcreteSyntax.SpecProperties.dfy",
+    "libraries/src/JSON/Deserializer.dfy",
+    "libraries/src/JSON/Errors.dfy",
+    "libraries/src/JSON/Grammar.dfy",
+    "libraries/src/JSON/Serializer.dfy",
+    "libraries/src/JSON/Spec.dfy",
+    "libraries/src/JSON/Utils/Cursors.dfy",
+    "libraries/src/JSON/Utils/Lexers.dfy",
+    "libraries/src/JSON/Utils/Parsers.dfy",
+    "libraries/src/JSON/Utils/Seq.dfy",
+    "libraries/src/JSON/Utils/Str.dfy",
+    "libraries/src/JSON/Utils/Vectors.dfy",
+    "libraries/src/JSON/Utils/Views.Writers.dfy",
+    "libraries/src/JSON/Utils/Views.dfy",
+    "libraries/src/JSON/Values.dfy",
+    "libraries/src/JSON/ZeroCopy/API.dfy",
+    "libraries/src/JSON/ZeroCopy/Deserializer.dfy",
+    "libraries/src/JSON/ZeroCopy/Serializer.dfy",
+    "libraries/src/Math.dfy",
+    "libraries/src/MutableMap/MutableMap.dfy",
+    "libraries/src/NonlinearArithmetic/DivMod.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/DivInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/DivInternalsNonlinear.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/ModInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/ModInternalsNonlinear.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/MulInternalsNonlinear.dfy",
+    "libraries/src/NonlinearArithmetic/Logarithm.dfy",
+    "libraries/src/NonlinearArithmetic/Mul.dfy",
+    "libraries/src/NonlinearArithmetic/Power.dfy",
+    "libraries/src/Relations.dfy",
+    "libraries/src/Unicode/Unicode.dfy",
+    "libraries/src/Unicode/UnicodeEncodingForm.dfy",
+    "libraries/src/Unicode/UnicodeStrings.dfy",
+    "libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy",
+    "libraries/src/Unicode/Utf16EncodingForm.dfy",
+    "libraries/src/Unicode/Utf8EncodingForm.dfy"
+  ],
+  "project": "aws",
+  "schema": "dafny-library-context-v1",
+  "source_bytes": 1303397,
+  "source_files": 102
+}
