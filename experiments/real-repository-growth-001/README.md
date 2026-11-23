@@ -8,7 +8,11 @@ records the exact scope. After reconnection and read-only integrity/fresh-state
 checks, the frozen runner was submitted once as **job 62928981** on
 nonpreemptible `shared`, one CPU/8 GB/four hours/no requeue. A single in-place
 move to live-confirmed nonpreemptible `test` then started the same job immediately,
-with unchanged resources, code and budget, and zero restarts. Results are pending.
+with unchanged resources, code and budget, and zero restarts. The job then
+[stopped before any model response](execution-001/RESULTS.md) on a host SDK
+credential-lifetime bug. One reservation is unscored, seven slots remain unused,
+and the ledger is closed. No sequential-growth model score exists. A separately
+versioned execution fix is being tested, without further provider calls.
 Both complete analyst reference scopes now verify. The
 [11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
 expectation. Together with the two full references, all 25 source controls match:
@@ -192,9 +196,9 @@ candidate, but cannot establish that every valid proof requires that helper.
 Do not collapse verified extension, observed API reuse and necessary proof
 dependence into a single metric.
 
-## Approved model ceiling — job 62928981 running
+## Original approved model ceiling — job 62928981 terminal
 
-Approved first collection: **at most eight new calls**, two independent
+The stopped first collection approved **at most eight new calls**, two independent
 lineages per repository and at most two stages per lineage. The minimum
 demonstration is four calls, one lineage per repository. Two repeated lineages
 provide a small repeatability check, not four independent task families or a
@@ -228,3 +232,17 @@ when it loads the first request. No model or native calls occurred during
 runner preparation or pre-submit checks. These inspected upstream seeds are development
 material; no held-out, broad generation or causal depth/sharing conclusion
 follows from this proposed pilot.
+
+The actual run reserved only slot-01 and received no response before
+`NoCredentialsError`; it is terminal and its unused capacity cannot be reassigned.
+The [offline SDK diagnostic](credential-diagnostic-001/README.md) validates a
+separate token-lifetime fix. Any replacement collection needs a reviewed new
+runtime and an explicit new execution decision; old frozen files remain unchanged.
+
+Execution-002 passed 70 isolated offline tests and independent source review,
+then its Cannon preflight exceeded the 220-second unit-suite cap. The
+[unreleased preparation and failure](execution-002/preparation-review-001.json)
+are preserved. A separately versioned offline preflight is being prepared with
+partial-log retention and a larger test-only time allowance; model/provider and
+native-verifier bounds are unchanged. No new paid authorization or submission
+exists.

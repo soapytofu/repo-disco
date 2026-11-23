@@ -1,6 +1,6 @@
 # Experiment log
 
-## Sequential real-source growth — approved pilot submitted once
+## Sequential real-source growth — execution stopped; SDK fix under review
 
 On November 22, Sophie [approved up to eight new calls](real-repository-growth-001/execution-001/approval-receipt-001.json),
 with no retries or reassignment. After reconnection and read-only source/tool,
@@ -9,7 +9,18 @@ once as **job 62928981** on nonpreemptible `shared`: one CPU, 8 GB, four hours,
 no requeue. A single in-place move to live-confirmed nonpreemptible `test`
 started that same job immediately with identical resources and zero restarts;
 the original submission and before/after scheduler evidence are preserved.
-It is running; no model outcome is reported yet.
+It stopped after 2m57s on `NoCredentialsError`: zero model responses, zero native
+checks, one closed unscored reservation and seven unused slots. The
+[23-file evidence and review](real-repository-growth-001/execution-001/RESULTS.md)
+are preserved; no complete-pilot score exists. The
+[exact-SDK offline diagnostic](real-repository-growth-001/credential-diagnostic-001/README.md)
+reproduces the token-lifetime bug and validates corrected handling without any
+network access. A separately versioned runner is under review; no restart or
+replacement collection is authorized.
+Execution-002 passed 70 isolated offline tests, but its Cannon test suite
+exceeded the 220-second preflight bound. That frozen package and failure are
+preserved; a separate offline-preflight revision is being prepared. This is
+not a model or native proof outcome.
 The [November 24 meeting brief](../docs/nada-2026-11-24-results-brief.md) separates
 the existing real-repository repair evidence from the pending sequential-growth result.
 

@@ -37,6 +37,35 @@ four-hour request. The same pending job was moved in place from `shared` to
 code/prompts/call cap. The scheduling inspection, single update and before/after
 records are preserved separately. No duplicate submission occurred.
 
+Job 62928981 subsequently stopped after 2m57s with `NoCredentialsError` on the
+first reserved request: zero returned responses, zero native invocations and
+no accepted model revision. The ledger is closed with one conservative
+`AMBIGUOUS_OR_UNSAVED` reservation and seven unused slots; there is no 0/8 model
+score. [Full stopped evidence and review](../experiments/real-repository-growth-001/execution-001/RESULTS.md)
+preserve all 23 transferred files and a reviewer empty-directory layout failure.
+The unchanged reviewer passes on a temporary file-identical reconstruction with
+only the omitted empty directory restored; no raw evidence or score changes.
+
+An [offline exact-SDK diagnostic](../experiments/real-repository-growth-001/credential-diagnostic-001/README.md)
+reproduces the credential bug: the host removed the bearer environment variable
+after client creation, before request-time authentication. Corrected scoped
+handling passes two fake-response calls and a terminal-error/no-retry check.
+All socket connections are blocked; zero network/provider/native calls or real
+credential reads occur. A separate execution-002 is being tested, with an
+independent [research assessment](nada-research-assessment-2026-11-24.md) of
+existing results and reevaluation criteria. No replacement execution is yet
+authorized, and the stopped ledger must not be reused.
+
+The separately frozen execution-002 passed 70 isolated offline tests and root
+plus independent source review. Its Cannon preflight then exceeded the
+220-second unit-test bound; it is **not released for execution**. The full
+available driver exception is preserved in its
+[preparation review](../experiments/real-repository-growth-001/execution-002/preparation-review-001.json).
+The old timeout path lost partial unit stdout, so no remote pass count is
+inferred. A separate execution-003 preparation will retain partial logs and
+allow more offline test time. Model, provider and native-verifier limits remain
+unchanged; no model calls or jobs were submitted during this preparation.
+
 The [November 24 meeting brief](nada-2026-11-24-results-brief.md) distinguishes
 the completed real-source repair result (7/16 original qualified accepts),
 separate syntax/resource diagnoses, 25 native growth controls and still-unrun
