@@ -14,12 +14,14 @@ extension of model-grown components, not a newly collected two-stage trajectory.
 
 Reference solutions, exact native unit inventories, targeted proof failures and
 coverage controls must be reviewed before collection. The initial AWS references
-pass, and the revised filter now passes all 59 native units. Splice has one
-remaining loop-frame proof failure after explicit versioned corrections; all
-earlier failures remain preserved.
+pass, and the revised filter now passes all 59 native units. The shift-based
+splice reference exceeds the fixed verifier resource limit. Its previously
+constructed snapshot/rebuild alternative is next for qualification under the
+same contracts and limit; all earlier failures remain preserved.
 See [initial native results](qualification-001/RESULTS.md) and
 [revised reference results](qualification-003/RESULTS.md), and
-[passing filter / remaining splice diagnostic](qualification-004/RESULTS.md).
+[passing filter / remaining splice diagnostic](qualification-004/RESULTS.md),
+and [splice resource failure](qualification-005/RESULTS.md).
 Only the current method/function body is editable; types,
 contracts, fixed specification helpers, upstream files, saved accepted code,
 termination clauses and the explicit source registration remain host-owned.
