@@ -1,0 +1,9 @@
+    var leftFrame := F.ReadU16Frame(input);
+    if leftFrame.Failure? then
+      Failure(leftFrame.error)
+    else
+      var rightFrame := F.ReadU16Frame(leftFrame.value.rest);
+      if rightFrame.Failure? then
+        Failure(rightFrame.error)
+      else
+        Success(Pair(rightFrame.value.payload, leftFrame.value.payload, rightFrame.value.rest))

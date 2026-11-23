@@ -9,11 +9,11 @@ ceiling. This experiment is in preparation. **No model request has been made.**
 | Project / source pin | First addition | Second addition | Verification scope |
 | --- | --- | --- | --- |
 | Dafny standard library, release v4.11.0 / `fcb2042d6d043a2634f0854338c08feeaaaf4ae2` | Append all values to an existing mutable dynamic array | Append a rotated sequence and return its exact appended interval | Three unchanged library source files, plus the current additions |
-| AWS Cryptographic Material Providers Library / `dab800a2a610253659d113ee6e4bf8a70b86d13a` | Read a U16 length-prefixed byte field with exact remaining suffix | Read one encryption-context key/value entry using the accepted field reader | 102 unchanged source files in the selected include closure, plus the additions |
+| AWS Cryptographic Material Providers Library / `dab800a2a610253659d113ee6e4bf8a70b86d13a` | Read a U16 length-prefixed byte field with exact remaining suffix | Read two consecutive raw byte fields using the accepted field reader | The three-file UInt / BoundedInts / Wrappers include closure, plus the additions |
 
 The additions are executable Dafny methods/function-methods under fixed host
-contracts. The AWS task reads a single entry, not a complete canonical context,
-and does not change or establish cryptographic security. The declared component
+contracts. The current AWS task reads raw byte fields; it does not validate UTF8,
+construct encryption-context maps, or establish cryptographic security. The declared component
 scopes are not claims that all source in either upstream repository is verified.
 AWS's pinned `libraries` submodule shares Dafny library ancestry; the two source
 projects are not statistically independent samples of all real software.
@@ -49,10 +49,15 @@ was rejected. A separate body-only revision reorders the existing invariant;
 job **63088122** verifies all **58 / 60** first-/second-stage units with zero
 errors or warnings. Original failures, source hashes and full logs remain in
 qualification-002; corrected evidence is in qualification-003. The unchanged
-baseline is reused, not rerun. Distinct negative controls are still pending.
+baseline is reused, not rerun. The nine distinct controls in job **63088528**
+all match their declared expectations: two valid alternatives, five proof
+failures and two omitted-module cases rejected for incomplete coverage.
+Every control preserves all 56 upstream passes. An actually failed AppendAll
+with passing AppendRotated is correctly rejected as a workspace. The three
+positive scopes and nine controls are reviewed in
+[native-profiles/stdlib-002](native-profiles/stdlib-002/).
 
-AWS source verification has not yet begun successfully. Its first two launches
-stopped during solver metadata checks. The saved second diagnostic establishes
+The first two AWS launches stopped during solver metadata checks. The saved second diagnostic establishes
 that the Ubuntu-packaged Z3 requires system-library versions absent on Cannon.
 Qualification-004 uses the Z3 project's checksum-pinned manylinux1 build of the
 same **4.12.1** solver version, retaining the exact Dafny **4.9.1** package and
@@ -60,6 +65,21 @@ source/resource settings. Both diagnostic streams are now saved before checking
 metadata success. The original launcher also used an unsupported `--version`
 spelling; its unsaved solver stream cannot be reconstructed or attributed to
 one cause. No model call occurred during these failures.
+
+The broad 102-file AWS baseline in job **63088520** did not qualify. It emitted
+array-initialization and nonlinear-arithmetic diagnostics in unchanged upstream
+files, reached the 900-second native wall cap, and ended with Slurm
+`OUT_OF_MEMORY` at 4 GB. Its CSV and native resource streams are empty; there is
+no complete proof inventory or numerical proof score. Only the baseline ran;
+both new references remained undispatched. All 440 transferred files and exact
+diagnostics are retained in [qualification-004](qualification-004/retrieved-aws/).
+
+Before any model collection, [aws/revision-002](aws/revision-002/) declares a
+new, narrower three-file UInt component and replaces the encryption-context
+entry task with a raw frame-pair reader. It retains the upstream source bytes,
+Dafny/Z3 versions, verifier flags, one CPU, 4 GB and the same native time/resource
+limits. Its three positive cases must qualify before nine distinct controls.
+The broader failed scope is preserved and is not being repaired or rescored.
 
 Passing references, meaningful broken bodies, omitted-module controls and a
 passing client with an unproved parent must all be reviewed before collection.
@@ -85,8 +105,9 @@ as failures, never repaired or rescored within this cohort. Provider ambiguity,
 missing evidence and source/tool drift stop dispatch. Exact prompts, native
 profiles, runtime and authorization must be frozen and reviewed before launch.
 
-The preceding budget snapshot has 16 slots allocated, seven returned requests
-and 84 slots unallocated. Earlier closed slots are not reused. The user's new
+The current prospective budget reserves 12 new slots in addition to the earlier
+16, for **28/100 allocated** and 72 unallocated. Seven earlier requests returned;
+this experiment has made none. Earlier closed slots are not reused. The user's new
 instruction authorizes this work within that ceiling; it does not authorize
 silently changing a frozen task after seeing responses.
 

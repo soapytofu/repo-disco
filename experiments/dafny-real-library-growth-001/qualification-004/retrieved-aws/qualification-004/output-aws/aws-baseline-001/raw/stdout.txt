@@ -1,0 +1,60 @@
+libraries/src/JSON/Utils/Views.Writers.dfy(117,12): Error: unless an initializer is provided for the array elements, a new array of 'byte' must have empty size
+    |
+117 |       bs := new byte[length];
+    |             ^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(30,6): Error: a precondition for this call could not be proved
+   |
+30 |       LemmaInductionHelper(n, f, x - n);
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(23,13): Related location: this is the precondition that could not be proved
+   |
+23 |     requires forall i {:trigger f(i), f(i + n)} :: i >= 0 && f(i) ==> f(i + n)
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(30,6): Error: a precondition for this call could not be proved
+   |
+30 |       LemmaInductionHelper(n, f, x - n);
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(24,13): Related location: this is the precondition that could not be proved
+   |
+24 |     requires forall i {:trigger f(i), f(i - n)} :: i < n  && f(i) ==> f(i - n)
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(35,6): Error: a precondition for this call could not be proved
+   |
+35 |       LemmaInductionHelper(n, f, x + n);
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(23,13): Related location: this is the precondition that could not be proved
+   |
+23 |     requires forall i {:trigger f(i), f(i + n)} :: i >= 0 && f(i) ==> f(i + n)
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(35,6): Error: a precondition for this call could not be proved
+   |
+35 |       LemmaInductionHelper(n, f, x + n);
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(24,13): Related location: this is the precondition that could not be proved
+   |
+24 |     requires forall i {:trigger f(i), f(i - n)} :: i < n  && f(i) ==> f(i - n)
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(36,13): Error: assertion might not hold
+   |
+36 |       assert f((x + n) - n);
+   |              ^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy(43,28): Error: a precondition for this call could not be proved
+   |
+43 |     forall i ensures f(i) { LemmaInductionHelper(1, f, i); }
+   |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy(24,13): Related location: this is the precondition that could not be proved
+   |
+24 |     requires forall i {:trigger f(i), f(i - n)} :: i < n  && f(i) ==> f(i - n)
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
