@@ -1,0 +1,28 @@
+test_actual_ops_driver_retains_timeout_records_and_persistent_evidence (test_preflight_timeout.PreflightTimeoutTests.test_actual_ops_driver_retains_timeout_records_and_persistent_evidence) ... ok
+test_sdk_records_and_incremental_unit_log_survive_timeout (test_preflight_timeout.PreflightTimeoutTests.test_sdk_records_and_incremental_unit_log_survive_timeout) ... ERROR
+test_sdk_timeout_retains_output_without_altering_30s_bound (test_preflight_timeout.PreflightTimeoutTests.test_sdk_timeout_retains_output_without_altering_30s_bound) ... ok
+test_separate_namespace_preserves_model_native_and_credential_components (test_preflight_timeout.PreflightTimeoutTests.test_separate_namespace_preserves_model_native_and_credential_components) ... ok
+test_unit_timeout_retains_partial_stdout_stderr_and_fixed_600s_limit (test_preflight_timeout.PreflightTimeoutTests.test_unit_timeout_retains_partial_stdout_stderr_and_fixed_600s_limit) ... ok
+test_transport_uses_only_socket_and_hard_timeout (test_ops.TransportAndSubmissionTests.test_transport_uses_only_socket_and_hard_timeout) ... ok
+test_cli_requires_probe_after_import_and_before_unit_suite (test_sdk_preflight.SdkRegressionIntegrationTests.test_cli_requires_probe_after_import_and_before_unit_suite) ... ok
+
+======================================================================
+ERROR: test_sdk_records_and_incremental_unit_log_survive_timeout (test_preflight_timeout.PreflightTimeoutTests.test_sdk_records_and_incremental_unit_log_survive_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-003/test_preflight_timeout.py", line 53, in test_sdk_records_and_incremental_unit_log_survive_timeout
+    code = preflight.main(['--draft', '--require-sdk', '--evidence-dir', str(evidence)])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-003/preflight.py", line 147, in main
+    evidence = prepare_evidence(args.evidence_dir, repo)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-003/preflight.py", line 38, in prepare_evidence
+    builder.require(not any(p.is_symlink() for p in (path, *path.parents)), 'Symlinked preflight evidence path')
+  File "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/real-repository-growth-001/execution-003/build_runtime.py", line 28, in require
+    raise ValueError(message)
+ValueError: Symlinked preflight evidence path
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.015s
+
+FAILED (errors=1)

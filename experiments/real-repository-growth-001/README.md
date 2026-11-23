@@ -11,8 +11,10 @@ move to live-confirmed nonpreemptible `test` then started the same job immediate
 with unchanged resources, code and budget, and zero restarts. The job then
 [stopped before any model response](execution-001/RESULTS.md) on a host SDK
 credential-lifetime bug. One reservation is unscored, seven slots remain unused,
-and the ledger is closed. No sequential-growth model score exists. A separately
-versioned execution fix is being tested, without further provider calls.
+and the ledger is closed. No sequential-growth model score exists. The corrected
+[execution-003](execution-003/preparation-review-001.json) is now ready after
+76 Cannon offline tests and three exact-SDK scenarios, without further provider
+calls. A separate paid execution decision remains required.
 Both complete analyst reference scopes now verify. The
 [11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
 expectation. Together with the two full references, all 25 source controls match:
@@ -242,7 +244,9 @@ runtime and an explicit new execution decision; old frozen files remain unchange
 Execution-002 passed 70 isolated offline tests and independent source review,
 then its Cannon preflight exceeded the 220-second unit-suite cap. The
 [unreleased preparation and failure](execution-002/preparation-review-001.json)
-are preserved. A separately versioned offline preflight is being prepared with
-partial-log retention and a larger test-only time allowance; model/provider and
-native-verifier bounds are unchanged. No new paid authorization or submission
-exists.
+are preserved. The separate execution-003 now passes all 76 Cannon offline tests
+and three exact-SDK scenarios. It retains partial logs, cleans up the complete
+offline process group before evidence capture, and uses a larger test-only time
+allowance. Model/provider and native-verifier bounds are unchanged. Six complete
+preflight artifacts and the full transcript are saved with the reviewed freeze.
+No new paid authorization, model output or submission exists.

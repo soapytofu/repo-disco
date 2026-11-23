@@ -6,10 +6,11 @@ pilot was submitted once as Cannon job **62928981**, then stopped with
 model responses and zero native checks**. This is an execution failure, not
 a 0/8 model score. The full evidence is preserved, and a separate offline test
 reproduced the SDK token-lifetime bug and validated corrected handling. A new
-runtime is being tested; the old ledger remains closed. Its 70 isolated tests
-passed, but the final Cannon test suite hit its 220-second offline-test bound;
-that failure is preserved while test logging/timing is revised separately.
-Sequential model growth is still unmeasured.
+runtime now passed **76/76 offline tests on Cannon plus three exact-SDK
+scenarios**. The intermediate 220-second preflight timeout and original failed
+run remain preserved. The corrected runtime is ready for a separate paid
+execution decision; the old ledger remains closed. Sequential model growth is
+still unmeasured.
 
 ## Main message
 
@@ -34,14 +35,14 @@ repair agent.
 | Separate guard diagnostic | Seven saved rejected outputs admitted without body edits; three distinct candidate files checked. | The original exclusions were evaluation-interface problems, not seven established mathematical failures. Outcomes are reported separately, not used to rescore the original pilot. |
 | Fixed-source verification-resource study | Saved Swap candidate **265/267** units at 20k; **267/267** at 100k. Upstream **267/267** at both limits. | A locally valid transparent implementation can raise downstream proof cost under unchanged contracts. This is one candidate, not a general structural effect. |
 | Growth-task native controls | **25/25 expected outcomes:** 8 passing scopes, 14 intended proof failures, 3 missing-coverage rejections. | The new tasks are feasible and the harness rejects important false-success cases. These are analyst controls, not model-generated extensions. |
-| Growth runner preparation | **57/57 final fake-transport/process tests on Cannon**; code, prompts and order frozen. | Request accounting, parent preservation and evidence handling are tested. These tests are not additional native proofs or model results. |
+| Corrected growth runner preparation | **76/76 offline tests on Cannon plus 3 exact-SDK scenarios**; frozen prompts/order unchanged. | Request accounting, parent preservation, SDK lifetime and evidence handling are tested. These tests are not additional native proofs or model results. |
 | Growth execution and diagnosis | **0 responses, 0 native checks**; first reservation stopped on a host credential bug. Three exact-SDK offline scenarios validate the cause/fix with network blocked. | The fake-client suite missed request-time SDK authentication. This provides no measure of the model's extension ability; the stopped scope is not retried or rescored. |
 
 Source reports: [repair results](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md),
 [guard diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md),
 [resource study](../experiments/real-repository-evaluation-stability-001/RESULTS.md),
 [growth controls](../experiments/real-repository-growth-001/controls-001/RESULTS.md),
-[runner preparation](../experiments/real-repository-growth-001/execution-001/preparation-review-001.json),
+[corrected runner preparation](../experiments/real-repository-growth-001/execution-003/preparation-review-001.json),
 [stopped execution](../experiments/real-repository-growth-001/execution-001/RESULTS.md).
 
 Original repair results by site:
@@ -134,8 +135,8 @@ and unlogged specification definitions remain explicit.
 3. This compact results table and a clear separation between measured repair,
    analyst feasibility controls and newly measured extension performance.
 
-The critical path is reviewed execution-fix readiness, a separate explicit
-decision for a fresh bounded run, then collection and evidence review. The old
+The critical path is a separate explicit decision for a fresh bounded run,
+then collection and evidence review; corrected-runner readiness is complete. The old
 run and its seven unused slots remain closed. A successful extension cannot be guaranteed. A complete
 failure diagnosis still answers how the current extender behaves; it must not
 be hidden by adding unbudgeted retries or changing the frozen tasks.

@@ -62,9 +62,22 @@ plus independent source review. Its Cannon preflight then exceeded the
 available driver exception is preserved in its
 [preparation review](../experiments/real-repository-growth-001/execution-002/preparation-review-001.json).
 The old timeout path lost partial unit stdout, so no remote pass count is
-inferred. A separate execution-003 preparation will retain partial logs and
+inferred. A separate execution-003 was then prepared to retain partial logs and
 allow more offline test time. Model, provider and native-verifier limits remain
 unchanged; no model calls or jobs were submitted during this preparation.
+
+That [execution-003 preparation](../experiments/real-repository-growth-001/execution-003/preparation-review-001.json)
+is now complete: **76/76 Cannon offline tests passed in 528.292 seconds**, plus
+all three exact-SDK dummy-token scenarios with zero provider/network requests.
+The final test-only limits are 600 seconds for units, 900 for the remote driver
+and 1,050 for transport including input checks. The driver owns and terminates
+the complete offline process group before its final evidence snapshot; timeout
+and normal-exit cleanup were independently reviewed. Six raw preflight files
+were reconstructed byte-exactly, all 4,164 runtime pins match, and old freezes,
+scores, prompts, parent rules and model/native limits are unchanged. Runtime
+SHA `e1ae9aa8b156f594c30e0ae17455577ed61c0b36e0520712929cb76c1b318711`
+is staged. No authorization, new model output or submission exists. A fresh
+up-to-eight-call decision is still required; earlier unused slots stay closed.
 
 The [November 24 meeting brief](nada-2026-11-24-results-brief.md) distinguishes
 the completed real-source repair result (7/16 original qualified accepts),
