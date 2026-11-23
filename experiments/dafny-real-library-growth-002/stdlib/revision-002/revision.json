@@ -1,0 +1,75 @@
+{
+  "actual_v2_native_status": "UNKNOWN",
+  "body_revision": "Explicit loop frames and allocation freshness, natural-number slice counters/bounds, sequence-prefix and update equalities.",
+  "failed_observations": [
+    {
+      "case_id": "filter-reference",
+      "diagnostic_count": 5,
+      "exit_code": 4,
+      "record_path": "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/record.json",
+      "run_id": "63162242:filter-reference",
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/StableFilterBelow.dfy": "2b03c9d4fdcb94dab5547feb82e38868155c5a2f031576610aa07401bb7e0ce1"
+      },
+      "status": "PRESERVED_NATIVE_PROOF_FAILURE"
+    },
+    {
+      "case_id": "splice-reference",
+      "diagnostic_count": 5,
+      "exit_code": 4,
+      "record_path": "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/record.json",
+      "run_id": "63162242:splice-reference",
+      "source_sha256": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+        "growth/SpliceRange.dfy": "446872d0c90b8cb1799ee9e0c8922cb0efe73557e9d0929be42928b597389df3"
+      },
+      "status": "PRESERVED_NATIVE_PROOF_FAILURE"
+    }
+  ],
+  "frame_rationale": "Exported PopFast has no explicit reads clause and modifies the object size/items fields. Opaque Valid? does not expose object membership in Repr. The new effect frame matches these API permissions without adding caller preconditions.",
+  "model_calls": 0,
+  "native_calls": 0,
+  "preserved_input_pins": {
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/raw/csv/TestResults/2026-11-23_14_35_54-0.csv": "1d1352d3fc790e3a8767f55094ffe8141e992c340f64590b937b43b5c923469d",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/raw/resources.txt": "66e92b8e6d966c19751d8795f490e5cdc05669c8a6bdd4b47507a3a9749904c3",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/raw/stdout.txt": "342395274bc9c1bd897ad43585592b16b227740006b0be0ef6d9a09b9ec03a06",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/record.json": "b857ee1f05d06b545bc160ada13e7f30747b99ed418b63f6c93591745ce39766",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/workspace/TestResults/2026-11-23_14_35_54-0.csv": "1d1352d3fc790e3a8767f55094ffe8141e992c340f64590b937b43b5c923469d",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/filter-reference/workspace/growth/StableFilterBelow.dfy": "2b03c9d4fdcb94dab5547feb82e38868155c5a2f031576610aa07401bb7e0ce1",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/raw/csv/TestResults/2026-11-23_14_36_00-0.csv": "e54f6bfb51628a88be227c6b747aea9b1b4039289a9c5bc28062db4ff9cde91e",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/raw/resources.txt": "666a128a8415ef9d0ba38cd7acdd7f0d9bb6919a6b5b93a5117e3105c099b7da",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/raw/stdout.txt": "e8c31c73c2b86d358fa34d29b0ab7058b95c273a3ad1d71c4f4c6a47cda5c66e",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/record.json": "f96c076b67c9a24235bb453ac6684bc6e2769aaf3124e1f85963c1513eba2dab",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/workspace/TestResults/2026-11-23_14_36_00-0.csv": "e54f6bfb51628a88be227c6b747aea9b1b4039289a9c5bc28062db4ff9cde91e",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "experiments/dafny-real-library-growth-002/qualification-001/retrieved-stdlib/qualification-001/output-stdlib/splice-reference/workspace/growth/SpliceRange.dfy": "446872d0c90b8cb1799ee9e0c8922cb0efe73557e9d0929be42928b597389df3",
+    "experiments/dafny-real-library-growth-002/stdlib/manifest.json": "e979b605b1b908a7348e2c81c37e6d88f0000fba029d195aa3542a60ee7c403d"
+  },
+  "prior_manifest_sha256": "e979b605b1b908a7348e2c81c37e6d88f0000fba029d195aa3542a60ee7c403d",
+  "protected_header_delta": {
+    "modifies": [
+      "a.Repr",
+      "a, a.Repr"
+    ],
+    "reads": [
+      "a, a.Repr",
+      "*"
+    ]
+  },
+  "schema": "dafny-library-harder-stdlib-revision-v2",
+  "unchanged": "All functional preconditions/postconditions, types, helper definitions, imports, exports, upstream and accepted-seed bytes, tool flags and limits."
+}

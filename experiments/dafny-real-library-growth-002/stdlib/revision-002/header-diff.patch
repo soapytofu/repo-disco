@@ -1,0 +1,26 @@
+--- stdlib/templates/StableFilterBelow.dfy
++++ stdlib/revision-002/templates/StableFilterBelow.dfy
+@@ -17,8 +17,8 @@
+       returns (removed: nat)
+     requires a.Valid?()
+     requires a.size == |a.items|
+-    reads a, a.Repr
+-    modifies a.Repr
++    reads *
++    modifies a, a.Repr
+     ensures a.Valid?()
+     ensures a.size == |a.items|
+     ensures a.items == KeepBelow(old(a.items), limit)
+--- stdlib/templates/SpliceRange.dfy
++++ stdlib/revision-002/templates/SpliceRange.dfy
+@@ -8,8 +8,8 @@
+     requires a.Valid?()
+     requires a.size == |a.items|
+     requires position + deleteCount <= a.size
+-    reads a, a.Repr
+-    modifies a.Repr
++    reads *
++    modifies a, a.Repr
+     ensures a.Valid?()
+     ensures a.size == |a.items|
+     ensures a.items == old(a.items)[..position] + replacement +

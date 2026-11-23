@@ -13,8 +13,13 @@ neither response is repaired, retried, or used as the other's parent. This is
 extension of model-grown components, not a newly collected two-stage trajectory.
 
 Reference solutions, exact native unit inventories, targeted proof failures and
-coverage controls must be reviewed before collection. Mathematical outcomes are
-currently unknown. Only the current method/function body is editable; types,
+coverage controls must be reviewed before collection. The initial AWS references
+pass; the array references have preserved frame/invariant proof failures and
+are undergoing explicit versioned corrections. The second reference run reduced
+the remaining diagnostics to one filter invariant and two splice obligations.
+See [initial native results](qualification-001/RESULTS.md) and
+[revised reference results](qualification-003/RESULTS.md).
+Only the current method/function body is editable; types,
 contracts, fixed specification helpers, upstream files, saved accepted code,
 termination clauses and the explicit source registration remain host-owned.
 
@@ -26,9 +31,10 @@ dispatch. There are no retries or reassigned slots.
 
 The user's existing 100-call ceiling covers this requested pilot. The latest
 completed budget snapshot allocates 28 calls, with 19 returned responses and
-nine unused slots permanently closed. Eight new slots would bring cumulative
-allocation to 36 and leave 64 unallocated. A fresh runtime-bound allocation and
-authorization will be written only after qualification and runner review.
+nine unused slots permanently closed. Eight new slots are now allocated in snapshot 007, bringing cumulative
+allocation to 36 and leaving 64 unallocated. No request has been dispatched for
+this cohort. Runtime-bound execution authorization waits for qualification and
+runner review.
 
 This is selected-component development evidence. The Standard Library ancestry
 shared with AWS, supplied contracts, prior exposure to the task families and
