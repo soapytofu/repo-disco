@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/tmp/repodisco-growth-005-isolated-001/repo/experiments/real-repository-growth-001/execution-005/preflight.py", line 196, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/tmp/repodisco-growth-005-isolated-001/repo/experiments/real-repository-growth-001/execution-005/preflight.py", line 154, in main
+    evidence = prepare_evidence(args.evidence_dir, repo)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/repodisco-growth-005-isolated-001/repo/experiments/real-repository-growth-001/execution-005/preflight.py", line 39, in prepare_evidence
+    builder.require(not any(p.is_symlink() for p in (path, *path.parents)), 'Symlinked preflight evidence path')
+  File "/private/tmp/repodisco-growth-005-isolated-001/repo/experiments/real-repository-growth-001/execution-005/build_runtime.py", line 30, in require
+    raise ValueError(message)
+ValueError: Symlinked preflight evidence path

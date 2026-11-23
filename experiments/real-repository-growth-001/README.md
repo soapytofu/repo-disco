@@ -10,13 +10,15 @@ raw files and the source-bound counterexample are saved. The
 eight allocated and 92 unallocated under the new 100-call ceiling. A separate
 failure-containment policy is the next preparation step; this run is not resumed.
 
-**Latest preparation:** [execution-004](execution-004/RESULTS.md) adds bounded,
-redacted AWS error evidence while preserving the frozen prompts, one-CPU limits,
-actual-parent requirement and no-retry policy. All 98 tests pass locally and on
-Cannon, along with five intercepted-SDK scenarios; the linked record retains full
-qualification logs and preparation history. During preparation no key was read or consumed, no
-authorization or submission was created, and no model or native calls occurred.
-This does not establish replacement-key access or a sequential-growth result.
+**Ready for the next collection:** [execution-005](execution-005/RESULTS.md)
+passes all **112 tests locally and on Cannon**, plus five intercepted-SDK
+scenarios. It contains a fully evidenced Dafny solver-resource failure within
+its lineage; the candidate remains unaccepted and its child is blocked, while
+independent lineages continue. Proof acceptance, prompts, limits and no-retry
+rules are unchanged. The exact package is staged; no new authorization or job
+exists. The next fresh cohort can allocate at most eight of the 92 unallocated
+calls under the existing ceiling. It needs a new private handoff because the
+previous job consumed it. Preparation made no model or native verifier calls.
 
 **Last collection stopped:** Sophie separately approved up to eight new calls for
 [execution-003](execution-003/approval-receipt-001.json), with no retries or

@@ -1,5 +1,19 @@
 # Experiment log
 
+## Sequential real-source growth — resource-outcome runner ready
+
+[Execution-005](real-repository-growth-001/execution-005/RESULTS.md) passes
+**112/112 tests locally and on Cannon**, plus five intercepted-SDK scenarios.
+It records a fully evidenced Dafny resource failure as an unaccepted stage,
+blocks its child and continues independent lineages. The source audit, named
+inventory, zero ordinary errors, resource diagnostic and completed process must
+agree; incomplete evidence or other unresolved execution failures still stop.
+Prompts, success criteria, native limits and request handling stay fixed. The
+old stopped run remains unchanged. Full code, test logs and exact saved-evidence
+replay are published. The package is staged, awaiting private handoff for a new
+maximum-eight-call allocation within the approved 100-call ceiling; no new
+authorization, submission, model call or native check occurred in preparation.
+
 ## Sequential real-source growth — first returned candidate, stopped cohort
 
 [Execution-004 job 63018923](real-repository-growth-001/execution-004/COLLECTION.md)

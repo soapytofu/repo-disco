@@ -19,10 +19,12 @@ access for that request only.
 Sophie approved a total ceiling of **100 new calls**, with confirmation before
 exceeding it. Eight are allocated, one used and seven unused in the closed
 allocation; **92 remain unallocated**. The [budget snapshot](../experiments/real-repository-growth-001/research-budget-20261123-002.json)
-records this. Next is a separately qualified policy that records complete,
-source-bound resource failures as unaccepted and blocks their children while
-continuing independent lineages. Missing evidence, process timeouts, integrity
-or provider failures remain terminal; prompts and proof acceptance stay fixed.
+records this. The separate [execution-005](../experiments/real-repository-growth-001/execution-005/RESULTS.md)
+now passes 112 tests locally and on Cannon plus five intercepted-SDK scenarios.
+It records complete, source-bound resource failures as unaccepted, blocks their
+children and continues independent lineages. Missing evidence, process timeouts,
+integrity or provider failures remain terminal; prompts and proof acceptance
+stay fixed. The next cohort is staged, awaiting private handoff; it has not run.
 
 ## Main message
 
@@ -47,14 +49,14 @@ repair agent.
 | Separate guard diagnostic | Seven saved rejected outputs admitted without body edits; three distinct candidate files checked. | The original exclusions were evaluation-interface problems, not seven established mathematical failures. Outcomes are reported separately, not used to rescore the original pilot. |
 | Fixed-source verification-resource study | Saved Swap candidate **265/267** units at 20k; **267/267** at 100k. Upstream **267/267** at both limits. | A locally valid transparent implementation can raise downstream proof cost under unchanged contracts. This is one candidate, not a general structural effect. |
 | Growth-task native controls | **25/25 expected outcomes:** 8 passing scopes, 14 intended proof failures, 3 missing-coverage rejections. | The new tasks are feasible and the harness rejects important false-success cases. These are analyst controls, not model-generated extensions. |
-| Current growth runner preparation | **98/98 tests locally and on Cannon plus 5 intercepted-SDK scenarios**; frozen prompts/order unchanged. | Request accounting, parent preservation, SDK lifetime and redacted failure evidence are tested. These tests are not additional native proofs or model results. |
+| Current growth runner preparation | **112/112 tests locally and on Cannon plus 5 intercepted-SDK scenarios**; frozen prompts/order unchanged. | Resource-failure containment, request accounting and parent preservation are tested. These are not additional native proofs or model results. |
 | First returned growth candidate | **0/1 observed accepts**, 267/267 upstream passes, new target out of resource; concrete order counterexample. Seven slots unattempted. | One incorrect model extension; incomplete cohort, not a 0/8 or 0/4 score. Earlier access failures remain separate. |
 
 Source reports: [repair results](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md),
 [guard diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md),
 [resource study](../experiments/real-repository-evaluation-stability-001/RESULTS.md),
 [growth controls](../experiments/real-repository-growth-001/controls-001/RESULTS.md),
-[current runner preparation](../experiments/real-repository-growth-001/execution-004/RESULTS.md),
+[current runner preparation](../experiments/real-repository-growth-001/execution-005/RESULTS.md),
 [first stopped execution](../experiments/real-repository-growth-001/execution-001/RESULTS.md),
 [earlier access-denied execution](../experiments/real-repository-growth-001/execution-003/RESULTS.md).
 

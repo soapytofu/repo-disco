@@ -10,6 +10,24 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 23: bounded resource-outcome runner qualified for a fresh cohort
+
+The separate [execution-005](../experiments/real-repository-growth-001/execution-005/RESULTS.md)
+passed 100 core tests plus 12 resource-policy tests both locally and on Cannon;
+all five intercepted-SDK scenarios also pass on Cannon. This corrects the
+collection limitation exposed by the first returned growth candidate: a complete,
+source-bound Dafny solver-resource failure remains unaccepted, blocks its child,
+and permits other independent lineages to continue. No proof acceptance rule,
+prompt, native limit or request/retry setting changes. The old result is preserved.
+
+All 4,170 prior frozen inputs and 22 copy origins match. The new 4,189-file
+package is frozen and staged; all raw tests, the one corrected preflight-log
+regression and retrospective policy replay are saved. Preparation made zero
+model or native calls. A new cohort may allocate at most eight from the 92 calls
+still unallocated under Sophie's existing 100-call ceiling. The last job consumed
+the private handoff, so another private handoff is required before fresh
+authorization/submission. No new paid job is active.
+
 ## November 23: first returned growth candidate, resource-limited cohort stopped
 
 Sophie approved at most **100 new model calls**, with confirmation before going
