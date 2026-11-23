@@ -1,0 +1,14 @@
+    var i: nat := 0;
+    while i < |values|
+      invariant i <= |values|
+      invariant fresh(a.Repr - old(a.Repr))
+      invariant a.Valid?()
+      invariant a.items == old(a.items) + values[..i]
+      invariant a.size == old(a.size) + i
+      invariant a.capacity >= old(a.capacity)
+      decreases |values| - i
+    {
+      assert values[..i + 1] == values[..i] + [values[i]];
+      a.Push(values[i]);
+      i := i + 1;
+    }

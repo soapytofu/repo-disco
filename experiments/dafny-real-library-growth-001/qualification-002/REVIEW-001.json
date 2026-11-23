@@ -1,0 +1,48 @@
+{
+  "source_and_raw_audit": [
+    {
+      "project": "stdlib",
+      "transfer_files_checked": 61,
+      "cases": [
+        {
+          "case": "append-reference",
+          "exit_code": 4,
+          "source_files": 4,
+          "passed": 57,
+          "failures": [
+            "RepoDiscoStdAppend.AppendAll (correctness)"
+          ],
+          "timeout": false
+        },
+        {
+          "case": "baseline",
+          "exit_code": 0,
+          "source_files": 3,
+          "passed": 56,
+          "failures": [],
+          "timeout": false
+        },
+        {
+          "case": "rotate-reference",
+          "exit_code": 4,
+          "source_files": 5,
+          "passed": 59,
+          "failures": [
+            "RepoDiscoStdAppend.AppendAll (correctness)"
+          ],
+          "timeout": false
+        }
+      ]
+    },
+    {
+      "project": "aws",
+      "transfer_files_checked": 325,
+      "cases": []
+    }
+  ],
+  "model_calls": 0,
+  "all_new_references_qualified": false,
+  "aws_source_verifications": 0,
+  "aws_missing_solver_streams": "Collector asserted before saving them; not recoverable or fabricated.",
+  "stdlib_failure": "AppendAll loop invariant reads current representation before freshness invariant; Rotate correctness passes while its helper fails, so neither reference is accepted."
+}

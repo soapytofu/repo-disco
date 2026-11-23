@@ -1,0 +1,161 @@
+{
+  "changed_body_names": [
+    "append-reference",
+    "append-reverse",
+    "rotate-direct"
+  ],
+  "expected_inventory": {
+    "append_total_units": 58,
+    "baseline_passed_units": 56,
+    "new_append_units": [
+      "RepoDiscoStdAppend.AppendAll (well-formedness)",
+      "RepoDiscoStdAppend.AppendAll (correctness)"
+    ],
+    "new_rotate_units": [
+      "RepoDiscoStdRotate.AppendRotated (well-formedness)",
+      "RepoDiscoStdRotate.AppendRotated (correctness)"
+    ],
+    "note": "Labels/counts are observed in the preserved original run. Revised commands must report every baseline unit plus the applicable new units; a passing child does not mask failed parent correctness.",
+    "rotate_total_units": 60
+  },
+  "first_native_phase": {
+    "baseline_repeated": false,
+    "case_ids": [
+      "append-reference",
+      "rotate-reference"
+    ],
+    "native_invocations": 2,
+    "requires_new_source_bound_inventory_review": true
+  },
+  "model_calls": 0,
+  "model_execution_authorized": false,
+  "native_calls": 0,
+  "native_status": "UNKNOWN",
+  "original_input_sha256": {
+    "bodies/append-alternative.txt": "1a2b321d158579eafea6b018b5430c88222cccd26e96756859e715488f374ba5",
+    "bodies/append-empty.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bodies/append-reference.txt": "1ac9435071c67692d769f25a7b542a2c2c2dc5c671a69e97a3fce91dfa62a37a",
+    "bodies/append-reverse.txt": "57d13e0dd15fd286a43445116ef032aaaa42d0cce08d68fe2f5e86d94be4097b",
+    "bodies/rotate-direct.txt": "f1fa66af26819d9fcec8cf281dd59801829c9a1dca73fdb9d273e8f2257e95ec",
+    "bodies/rotate-empty.txt": "9a7bcc94b1f47397f46cdb7052136af2109fb2d235dd070fab9282d0ba9ae145",
+    "bodies/rotate-original-order.txt": "4f62e1fbb58115d5867c081c89522475ec5cf1c05f32cba1fafc62570e728b0f",
+    "bodies/rotate-reference.txt": "3d94cc7f8175dfa1d2beb9c153004c1360d3421a4826659455c2f39a474adf57",
+    "build.py": "195f9ad4c027ce1d929e246cbf8dab99d3a7e8854f81a2fab97b4498f3fa45ad",
+    "cases.json": "f884d27668aff4e419259b2f80efa119088c0d76cf06df33203cf9ad0b7d0257",
+    "design.json": "e1fbf8307e68f09d0b524b791b8ce31fe07c13eb6dd2ceeb7c73a27e4ac37725",
+    "templates/AppendAll.dfy": "de77d48cca380fa5e8279633cecff4ccb9b36bb128db7b598e5b746e241553b2",
+    "templates/AppendRotated.dfy": "0e7d57cb38832d9a036a4116141147aaa42ff98faf38bbd94f0f252ab317daaa",
+    "upstream/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "upstream/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "upstream/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "upstream/source-manifest.json": "16886204e621883ea5717beda879a113f24e01bcc0bdbd5270402f42c69b81c5"
+  },
+  "original_job": "63086889",
+  "original_observation": "AppendAll correctness failed at a.Valid?() loop invariant: insufficient reads clause; Rotate correctness passed under the unproved parent contract.",
+  "permitted_change": "Move the existing freshness invariant immediately before a.Valid?() in exactly three loop bodies; no changed statements, contracts, declarations, decreases clauses, or invariant formulas.",
+  "preserved_native_evidence_sha256": {
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/append-reference/raw/csv/TestResults/2026-11-23_10_20_00-0.csv": "d2f1c0e756f85285b0c7fec4163e0610f78477ae0b79c8842b2b52a2feafa600",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/append-reference/raw/resources.txt": "2a034d323de6b947ca4f480130fbfb603d6ebe07c034df6036e063e9bd535491",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/append-reference/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/append-reference/raw/stdout.txt": "364e15c14d2bb61bd835083bce531665754df3d7a4701376be8bb4e9916444cd",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/append-reference/record.json": "657f23db339a63cc3dd0bf0b5bf33f03f67a0a2ee0645b7e075d363259c6e88b",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/raw/csv/TestResults/2026-11-23_10_19_55-0.csv": "c2680d56754305e0843ce4a24c8febbae9ef3cfb66c861086c137b8c86ed7291",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/raw/resources.txt": "1e68c0346641d6cb8aee2041abce7285e212084c318442099bd42cf0cefb2d00",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/raw/stdout.txt": "db7ab6d449a6a9c1215db4313f68a43304a8e800974dff3e9a0e80f29b999a77",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/baseline/record.json": "f56f907db0228b2a5a3a0b1cc76cec6626dadeeed9b03087234e2458ce175ecf",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/environment.json": "b719bcc943f99fa33baa73b58f52ce26150f5e4a373883646389a60800edcb18",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/rotate-reference/raw/csv/TestResults/2026-11-23_10_20_06-0.csv": "a96fb2fb0bb2d935686ad5320357378bd581919d632ace9cc7af8838ebf6345d",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/rotate-reference/raw/resources.txt": "e8ab4d105051b00b8c43b45c608b6c879167b273b3d6c8efcb9a6e4f59a7b3d2",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/rotate-reference/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/rotate-reference/raw/stdout.txt": "862c982a54e0590ae3f7e39bb1e57cc0d25fee66dcc1d548de6b266c02befd51",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/rotate-reference/record.json": "4ba13936bc15517ad979e6db0bc5b707f376c92a82417480e97be206fce81274",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/solver-version.stdout": "b9483dbdbdeee09f019dde3ba63e9aa51e41c2c40194e9308f494476001c2462",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/summary.json": "1d825a4b07045399f0f8024330cd8633f6fea76015fd42fcffad29b692d9688c",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/tool-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qualification-002/retrieved-stdlib/qualification-002/output-stdlib/tool-version.stdout": "2e4243de9dcb2a6464f6e6e20031511043025167bf72bf67a6bdf0de213717ef"
+  },
+  "rationale": "At a havoced loop head the current representation footprint may differ from the entry footprint. Freshness is the available fact that constrains newly introduced objects before checking the reads footprint of a.Valid?(). This is a proposed body repair, not a proved result.",
+  "remaining_controls": {
+    "case_ids": [
+      "append-alternative",
+      "append-empty",
+      "append-reverse",
+      "rotate-direct",
+      "rotate-empty",
+      "rotate-original-order",
+      "rotate-unproved-append",
+      "append-omitted",
+      "rotate-omitted"
+    ],
+    "dispatch_allowed": false,
+    "gate": "Both revised positive references and exact old/new native inventories must pass review first.",
+    "native_invocations": 9
+  },
+  "schema": "dafny-stdlib-invariant-order-revision-v1",
+  "source_changes": [
+    {
+      "body": "append-reference",
+      "case": "append-reference",
+      "new_sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d",
+      "old_sha256": "4aab7e6b26dd797711ad2cf9c931fe232abd9fddfc36296c1b59132d6679a3d8",
+      "source": "growth/AppendAll.dfy"
+    },
+    {
+      "body": "append-reverse",
+      "case": "append-reverse",
+      "new_sha256": "2d9a52856a1a7db387b3348ff4bb909d95c58fe7718b8f510ac78b4c0e6cf244",
+      "old_sha256": "af1d206d259f54f11676fb5a45e2dc7c17baaf8f4a552af919e542af02b87634",
+      "source": "growth/AppendAll.dfy"
+    },
+    {
+      "body": "append-reference",
+      "case": "rotate-reference",
+      "new_sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d",
+      "old_sha256": "4aab7e6b26dd797711ad2cf9c931fe232abd9fddfc36296c1b59132d6679a3d8",
+      "source": "growth/AppendAll.dfy"
+    },
+    {
+      "body": "append-reference",
+      "case": "rotate-direct",
+      "new_sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d",
+      "old_sha256": "4aab7e6b26dd797711ad2cf9c931fe232abd9fddfc36296c1b59132d6679a3d8",
+      "source": "growth/AppendAll.dfy"
+    },
+    {
+      "body": "rotate-direct",
+      "case": "rotate-direct",
+      "new_sha256": "f9d34c63d636ae4be0797ce1fcff091e4360d2ce33333553617c5e8a7f3e7e15",
+      "old_sha256": "87165f02c45a2791b838f6ee762e14213e9c20ea56b3071bab495ec32da25178",
+      "source": "growth/AppendRotated.dfy"
+    },
+    {
+      "body": "append-reference",
+      "case": "rotate-empty",
+      "new_sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d",
+      "old_sha256": "4aab7e6b26dd797711ad2cf9c931fe232abd9fddfc36296c1b59132d6679a3d8",
+      "source": "growth/AppendAll.dfy"
+    },
+    {
+      "body": "append-reference",
+      "case": "rotate-original-order",
+      "new_sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d",
+      "old_sha256": "4aab7e6b26dd797711ad2cf9c931fe232abd9fddfc36296c1b59132d6679a3d8",
+      "source": "growth/AppendAll.dfy"
+    },
+    {
+      "body": "append-reference",
+      "case": "rotate-omitted",
+      "new_sha256": "19dc54f0acbef44e11a010670e4514ef5697d4ebc9c4e1e7c124c466bc4a847d",
+      "old_sha256": "4aab7e6b26dd797711ad2cf9c931fe232abd9fddfc36296c1b59132d6679a3d8",
+      "source": "growth/AppendAll.dfy"
+    }
+  ],
+  "unchanged_bodies": [
+    "append-alternative",
+    "append-empty",
+    "rotate-empty",
+    "rotate-original-order",
+    "rotate-reference"
+  ]
+}

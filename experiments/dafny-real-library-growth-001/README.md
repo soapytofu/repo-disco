@@ -41,6 +41,26 @@ despite `sbatch --chdir`. Its full evidence is retained under
 versioned correction binds the execution directory explicitly. No automatic
 retry, source repair, model call or score change occurred.
 
+The original standard-library baseline subsequently passed all 56 logged units.
+Its first new reference failed because a loop invariant read the current dynamic
+representation before the freshness invariant established permission to do so.
+The second method passed under that unproved helper contract, so the workspace
+was rejected. A separate body-only revision reorders the existing invariant;
+job **63088122** verifies all **58 / 60** first-/second-stage units with zero
+errors or warnings. Original failures, source hashes and full logs remain in
+qualification-002; corrected evidence is in qualification-003. The unchanged
+baseline is reused, not rerun. Distinct negative controls are still pending.
+
+AWS source verification has not yet begun successfully. Its first two launches
+stopped during solver metadata checks. The saved second diagnostic establishes
+that the Ubuntu-packaged Z3 requires system-library versions absent on Cannon.
+Qualification-004 uses the Z3 project's checksum-pinned manylinux1 build of the
+same **4.12.1** solver version, retaining the exact Dafny **4.9.1** package and
+source/resource settings. Both diagnostic streams are now saved before checking
+metadata success. The original launcher also used an unsupported `--version`
+spelling; its unsaved solver stream cannot be reconstructed or attributed to
+one cause. No model call occurred during these failures.
+
 Passing references, meaningful broken bodies, omitted-module controls and a
 passing client with an unproved parent must all be reviewed before collection.
 Whole-scope acceptance needs exact named native inventories, inherited warning

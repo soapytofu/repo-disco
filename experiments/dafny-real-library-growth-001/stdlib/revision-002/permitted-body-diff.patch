@@ -1,0 +1,44 @@
+--- stdlib/bodies/append-reference.txt
++++ stdlib/revision-002/bodies/append-reference.txt
+@@ -1,11 +1,11 @@
+     var i: nat := 0;
+     while i < |values|
+       invariant i <= |values|
++      invariant fresh(a.Repr - old(a.Repr))
+       invariant a.Valid?()
+       invariant a.items == old(a.items) + values[..i]
+       invariant a.size == old(a.size) + i
+       invariant a.capacity >= old(a.capacity)
+-      invariant fresh(a.Repr - old(a.Repr))
+       decreases |values| - i
+     {
+       assert values[..i + 1] == values[..i] + [values[i]];
+--- stdlib/bodies/append-reverse.txt
++++ stdlib/revision-002/bodies/append-reverse.txt
+@@ -1,10 +1,10 @@
+     var i: nat := 0;
+     while i < |values|
+       invariant i <= |values|
++      invariant fresh(a.Repr - old(a.Repr))
+       invariant a.Valid?()
+       invariant a.size == old(a.size) + i
+       invariant a.capacity >= old(a.capacity)
+-      invariant fresh(a.Repr - old(a.Repr))
+       decreases |values| - i
+     {
+       a.Push(values[|values| - i - 1]);
+--- stdlib/bodies/rotate-direct.txt
++++ stdlib/revision-002/bodies/rotate-direct.txt
+@@ -5,11 +5,11 @@
+       invariant i <= |rotated|
+       invariant |rotated| == |values|
+       invariant start == old(a.size)
++      invariant fresh(a.Repr - old(a.Repr))
+       invariant a.Valid?()
+       invariant a.items == old(a.items) + rotated[..i]
+       invariant a.size == start + i
+       invariant a.capacity >= old(a.capacity)
+-      invariant fresh(a.Repr - old(a.Repr))
+       decreases |rotated| - i
+     {
+       assert rotated[..i + 1] == rotated[..i] + [rotated[i]];

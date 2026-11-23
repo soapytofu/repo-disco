@@ -1,0 +1,9 @@
+{
+  "reason": "Slurm --chdir does not redefine SLURM_SUBMIT_DIR; original script changed back to SSH home directory before Python.",
+  "prior_job": "63085478",
+  "prior_native_calls": 0,
+  "prior_model_calls": 0,
+  "fix": "Submit with cwd=root and explicit exported REPODISCO_EXECUTION_ROOT; script requires and enters this exact root.",
+  "sources_and_limits_unchanged": true,
+  "automatic_retry": false
+}
