@@ -1,10 +1,11 @@
 # November 24 meeting: real-repository repair and growth
 
 Evidence checkpoint: November 22, 2026, Eastern. The approved eight-call growth
-pilot was submitted once as Cannon job **62928981** on nonpreemptible `shared`,
-with one CPU, 8 GB, a four-hour limit and no requeue. Its first recorded status
-is pending, with no model output yet. Its outcome must be added after the saved
-evidence is reviewed; no extension success rate is available yet.
+pilot was submitted once as Cannon job **62928981** on `shared`, then moved in
+place to live-confirmed nonpreemptible `test` when priority delayed its start.
+It is now running with the same one CPU, 8 GB, four-hour limit and no requeue
+or restart. Its outcome must be added after the saved evidence is reviewed;
+no extension success rate is available yet.
 
 ## Main message
 

@@ -6,7 +6,10 @@ On November 22, Sophie [approved up to eight new calls](real-repository-growth-0
 with no retries or reassignment. After reconnection and read-only source/tool,
 handoff-metadata, queue and partition checks, the exact runner was submitted
 once as **job 62928981** on nonpreemptible `shared`: one CPU, 8 GB, four hours,
-no requeue. Its first recorded state is pending; no model outcome is reported.
+no requeue. A single in-place move to live-confirmed nonpreemptible `test`
+started that same job immediately with identical resources and zero restarts;
+the original submission and before/after scheduler evidence are preserved.
+It is running; no model outcome is reported yet.
 The [November 24 meeting brief](../docs/nada-2026-11-24-results-brief.md) separates
 the existing real-repository repair evidence from the pending sequential-growth result.
 

@@ -6,8 +6,10 @@ Sophie explicitly approved at most eight new requests with no retries or
 reassignment; [the approval receipt](execution-001/approval-receipt-001.json)
 records the exact scope. After reconnection and read-only integrity/fresh-state
 checks, the frozen runner was submitted once as **job 62928981** on
-nonpreemptible `shared`, one CPU/8 GB/four hours/no requeue. The initial state is
-pending, with no model output. Both complete analyst reference scopes now verify. The
+nonpreemptible `shared`, one CPU/8 GB/four hours/no requeue. A single in-place
+move to live-confirmed nonpreemptible `test` then started the same job immediately,
+with unchanged resources, code and budget, and zero restarts. Results are pending.
+Both complete analyst reference scopes now verify. The
 [11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
 expectation. Together with the two full references, all 25 source controls match:
 eight passing scopes, fourteen intended proof failures and three native-success
@@ -190,7 +192,7 @@ candidate, but cannot establish that every valid proof requires that helper.
 Do not collapse verified extension, observed API reuse and necessary proof
 dependence into a single metric.
 
-## Approved model ceiling — job 62928981 pending
+## Approved model ceiling — job 62928981 running
 
 Approved first collection: **at most eight new calls**, two independent
 lineages per repository and at most two stages per lineage. The minimum

@@ -29,7 +29,13 @@ one runtime/output and a 24-hour expiry. Its initial status is pending, with no
 model output. Submission, authorization and pre-submit records are saved in
 [execution-001](../experiments/real-repository-growth-001/execution-001/).
 No second submission or alternate runner is permitted; the next step is to
-follow this job and audit its full evidence.
+follow this job and audit its full evidence. A subsequent live check found
+`test` UP with `PreemptMode=OFF` and a 12-hour maximum, sufficient for the fixed
+four-hour request. The same pending job was moved in place from `shared` to
+`test`, started immediately on holy8a26602, and retains one CPU/8 GB,
+`Requeue=0`, `Restarts=0`, the original submission ID and unchanged frozen
+code/prompts/call cap. The scheduling inspection, single update and before/after
+records are preserved separately. No duplicate submission occurred.
 
 The [November 24 meeting brief](nada-2026-11-24-results-brief.md) distinguishes
 the completed real-source repair result (7/16 original qualified accepts),
