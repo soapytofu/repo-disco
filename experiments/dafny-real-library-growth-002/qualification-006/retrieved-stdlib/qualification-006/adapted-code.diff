@@ -1,0 +1,170 @@
+--- qualification-005/collect.py
++++ qualification-006/collect.py
+@@ -16,7 +16,7 @@
+ import time
+ 
+ ROOT = Path(__file__).resolve().parent
+-REFERENCE_IDS = {'stdlib': ['splice-reference']}
++REFERENCE_IDS = {'stdlib': ['splice-alternative']}
+ 
+ 
+ def require(ok, message):
+@@ -42,7 +42,7 @@
+             'Unexpected configuration options')
+     cases = config.get('cases')
+     require(isinstance(cases,list) and [c.get('id') for c in cases] == REFERENCE_IDS[project],
+-            'Exactly the one revised splice reference is dispatchable')
++            'Exactly the existing splice alternative is dispatchable')
+     require(len({c.get('task_id') for c in cases}) == 1, 'Only the splice task is dispatchable')
+     for case in cases:
+         require(set(case) == {'id','task_id','role','workspace_dir','source_sha256','command_files'}
+--- qualification-005/ops.py
++++ qualification-006/ops.py
+@@ -20,7 +20,7 @@
+ SOCKET=Path.home()/".ssh/repodisco-codex-21.sock"
+ HOST="sophiezeng@login.rc.fas.harvard.edu"
+ PYTHON="/n/home13/sophiezeng/.conda/envs/repodisco/bin/python"
+-REMOTE_BASE="/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-005"
++REMOTE_BASE="/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/qualification-006"
+ MAX_ARCHIVE_BYTES=2*1024**3
+ MAX_STAGE_BYTES=8*1024**2
+ MAX_PROGRAM_BYTES=16*1024**2
+@@ -137,7 +137,7 @@
+ def settings(project):
+     require(project=='stdlib', 'Only revised Stdlib references are dispatchable')
+     return dict(project=project,root=REMOTE_BASE+'/'+project,
+-                job_name='g2q005-'+project,freeze='qualification-005/freezes/'+project+'.json')
++                job_name='g2q006-'+project,freeze='qualification-006/freezes/'+project+'.json')
+ 
+ 
+ def identity(project):
+@@ -148,11 +148,11 @@
+     require(frozen.get('schema')=='dafny-growth-reference-freeze-v1'
+             and frozen.get('project')==project
+             and frozen.get('reference_case_ids')==REFERENCE_IDS[project], 'Unreviewed dispatch freeze')
+-    required={'qualification-005/'+name for name in
++    required={'qualification-006/'+name for name in
+               ('ops.py','collect.py','review.py','run.sbatch','native_scorer.py','tool-profiles.json','test_runtime.py')}
+-    required.add('qualification-005/configs/'+project+'.json')
+-    required.add('qualification-005/reference-metadata/'+project+'.json')
+-    required.update('qualification-005/inherited-profiles/'+name for name in
++    required.add('qualification-006/configs/'+project+'.json')
++    required.add('qualification-006/reference-metadata/'+project+'.json')
++    required.update('qualification-006/inherited-profiles/'+name for name in
+                     ('stdlib-stage0.json','stdlib-stage1.json'))
+     require(required <= set(frozen['files']), 'Runtime omits an operational input')
+     for name,digest in frozen['files'].items():
+@@ -242,7 +242,7 @@
+     require(not (root/'preflight.intent.json').exists() and not (root/'preflight-001.json').exists(),
+             'Preflight already attempted')
+     save(root/'preflight.intent.json',dict(runtime_sha256=digest,no_retry=True))
+-    argv=[PYTHON,'-B','-m','unittest','discover','-s',str(root/'qualification-005'),'-p','test_*.py','-v']
++    argv=[PYTHON,'-B','-m','unittest','discover','-s',str(root/'qualification-006'),'-p','test_*.py','-v']
+     started=time.monotonic()
+     try:
+         result=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=60)
+@@ -286,7 +286,7 @@
+     argv=['sbatch','--parsable','--partition=test','--nodes=1','--ntasks=1','--cpus-per-task=1',
+           '--mem=4G','--time=01:00:00','--no-requeue','--job-name='+selected['job_name'],
+           '--chdir='+str(root),'--export=ALL,REPODISCO_FREEZE_SHA='+digest+',REPODISCO_EXECUTION_ROOT='+str(root),
+-          str(root/'qualification-005/run.sbatch'),selected['project']]
++          str(root/'qualification-006/run.sbatch'),selected['project']]
+     record=dict(runtime_sha256=digest,argv=argv)
+     try:
+         result=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=30)
+--- qualification-005/review.py
++++ qualification-006/review.py
+@@ -21,7 +21,7 @@
+     ops.require(project=='stdlib', 'This revision has no AWS review/dispatch')
+     name='stdlib-stage1.json' if 'growth/AppendAll.dfy' in case['source_sha256'] else 'stdlib-stage0.json'
+     path=ROOT/'inherited-profiles'/name
+-    return ops.read(path),dict(path='qualification-005/inherited-profiles/'+name,sha256=ops.sha(path.read_bytes()))
++    return ops.read(path),dict(path='qualification-006/inherited-profiles/'+name,sha256=ops.sha(path.read_bytes()))
+ 
+ 
+ def review_case(config,case,folder,annotation,inherited,inherited_pin,job):
+@@ -123,7 +123,7 @@
+     annotations={entry['id']:entry for entry in metadata['references']}
+     results=[];absent=[]
+     for case in config['cases']:
+-        folder=archive/'qualification-005'/f'output-{project}'/case['id']
++        folder=archive/'qualification-006'/f'output-{project}'/case['id']
+         if not (folder/'record.json').is_file():
+             absent.append(case['id']);continue
+         inherited,pin=select_inherited(project,case)
+--- qualification-005/run.sbatch
++++ qualification-006/run.sbatch
+@@ -15,6 +15,6 @@
+ export PATH="$CONDA_PREFIX/bin:$PATH"
+ export PYTHONDONTWRITEBYTECODE=1
+ export OMP_NUM_THREADS=1
+-exec "$CONDA_PREFIX/bin/python" -B -u qualification-005/collect.py \
+-  "qualification-005/configs/$1.json" "qualification-005/output-$1" \
++exec "$CONDA_PREFIX/bin/python" -B -u qualification-006/collect.py \
++  "qualification-006/configs/$1.json" "qualification-006/output-$1" \
+   --expected-freeze-sha "${REPODISCO_FREEZE_SHA:?Missing pinned runtime hash}"
+--- qualification-005/test_runtime.py
++++ qualification-006/test_runtime.py
+@@ -37,7 +37,7 @@
+ 
+ 
+ class CollectorTests(unittest.TestCase):
+-    def test_only_two_exact_references_and_pinned_settings_are_dispatchable(self):
++    def test_only_exact_alternative_and_pinned_settings_are_dispatchable(self):
+         for project in ('stdlib',):
+             valid=config_fixture(project);collect.validate_config(valid)
+             variants=[]
+@@ -65,7 +65,7 @@
+ 
+     def run_fake(self,project,timeout_index=None,change_source=False):
+         with tempfile.TemporaryDirectory() as folder:
+-            package=Path(folder).resolve();q=package/'qualification-005';q.mkdir()
++            package=Path(folder).resolve();q=package/'qualification-006';q.mkdir()
+             config=config_fixture(project)
+             executable=package/'synthetic-tool-not-executed';executable.write_text('SYNTHETIC ONLY\n')
+             config['dafny']=str(executable)
+@@ -129,12 +129,16 @@
+         with self.assertRaises(ValueError):collect.validate_config(value)
+ 
+     def test_passed_filter_is_not_dispatchable_or_repeated(self):
+-        self.assertEqual(collect.REFERENCE_IDS,{'stdlib':['splice-reference']})
++        self.assertEqual(collect.REFERENCE_IDS,{'stdlib':['splice-alternative']})
+         value=config_fixture();value['cases'][0]['id']='filter-reference'
+         with self.assertRaises(ValueError):collect.validate_config(value)
+         value=config_fixture();extra=copy.deepcopy(value['cases'][0]);extra['id']='filter-reference'
+         value['cases'].append(extra)
+         with self.assertRaises(ValueError):collect.validate_config(value)
++    def test_resource_failed_shifting_reference_cannot_be_retried(self):
++        value=config_fixture();value['cases'][0]['id']='splice-reference'
++        with self.assertRaises(ValueError):collect.validate_config(value)
++
+     def test_source_drift_is_preserved_before_failure(self):self.run_fake('stdlib',change_source=True)
+ 
+     def test_process_streams_timeout_and_exclusive_records(self):
+@@ -172,7 +176,7 @@
+     def setUp(self):
+         self.temp=tempfile.TemporaryDirectory();self.base=Path(self.temp.name).resolve()
+         self.selected=ops.settings('stdlib');self.selected['root']=str(self.base/'remote')
+-        self.files={'qualification-005/run.sbatch':b'# SYNTHETIC NEVER SUBMIT\n','source/A.dfy':b'module A {}\n'}
++        self.files={'qualification-006/run.sbatch':b'# SYNTHETIC NEVER SUBMIT\n','source/A.dfy':b'module A {}\n'}
+         frozen=dict(schema='dafny-growth-reference-freeze-v1',project='stdlib',
+             reference_case_ids=collect.REFERENCE_IDS['stdlib'],files={n:ops.sha(v) for n,v in self.files.items()})
+         self.freeze=ops.canonical(frozen);self.digest=ops.sha(self.freeze)
+@@ -222,7 +226,7 @@
+         with self.assertRaises(ValueError):ops.fresh_state(state,self.selected)
+ 
+     def test_generated_inspection_uses_exact_frozen_output_location(self):
+-        root=Path(self.selected['root']);output=root/'qualification-005/output-stdlib'
++        root=Path(self.selected['root']);output=root/'qualification-006/output-stdlib'
+         output.mkdir(parents=True)
+         program=ops.remote_program('inspect',self.selected,self.digest)
+         captured=io.StringIO()
+@@ -270,7 +274,7 @@
+ 
+     def test_full_archive_preserves_inventory_and_remote_exclusive_intent(self):
+         root=self.ready();ops.save(root/'submission.json',{'job_id':'123'})
+-        ops.write(root/'qualification-005/output-stdlib/record.json',b'{"synthetic":true}')
++        ops.write(root/'qualification-006/output-stdlib/record.json',b'{"synthetic":true}')
+         with mock.patch.object(ops,'command',side_effect=self.fake_cluster):
+             files,estimate=ops.transfer_files(self.selected,self.digest,'123')
+             archive=ops.fetch_remote(self.selected,self.digest,'123',estimate)

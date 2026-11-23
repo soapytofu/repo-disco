@@ -18,11 +18,11 @@ size-bounded frame validation. Native references currently pass 59, 81 and 79
 units for filter, counted frames and tagged frames, preserving every inherited
 unit. The shifting splice reference exhausts the unchanged 1M resource limit;
 all proof revisions and failures are published. Its already-constructed rebuild
-alternative is staged for a first native check under the same limit.
+alternative now passes all 60 units under the same limit in job 63180476.
 
-The Cannon connection closed during read-only pre-submission inspection; no
-alternative job was submitted. One reconnect question is pending. Remaining
-controls, exact prompts and final runtime review precede collection. The planned
+The Cannon connection was restored; the alternative was submitted once after
+fresh state inspection. Remaining controls, exact prompts and final runtime
+review precede collection. The planned
 eight independent calls (four tasks twice, no retries) are allocated within the
 approved 100-call ceiling: 36 allocated, 64 unallocated, still 19 returned from
 earlier cohorts. No request from this new study has been dispatched. Existing

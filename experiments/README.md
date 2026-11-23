@@ -5,8 +5,8 @@
 [Four new tasks](dafny-real-library-growth-002/) cover stable filtering, range
 splicing, counted frame decoding and tag/budget validation. Three reference
 scopes pass all 59/81/79 units; the shift-based splice reference exceeds the fixed
-resource limit. The existing rebuild alternative is staged but not submitted:
-the shared Cannon connection closed during read-only pre-submission inspection.
+resource limit. After reconnection, the existing rebuild alternative passed all
+60 units at the unchanged limit in its single native check (job 63180476).
 Full source revisions, raw failures, passing evidence and offline logs are saved.
 Remaining controls and final prompt/runtime review gate the eight-call pilot;
 no new model request has occurred. The allocation is 36/100, with 19 earlier
