@@ -1,0 +1,54 @@
+    ghost var original := a.items;
+    var originalSize: nat := a.size;
+    var read: nat := 0;
+    var write: nat := 0;
+    while read < originalSize
+      modifies a, a.Repr
+      invariant fresh(a.Repr - old(a.Repr))
+      invariant a.Valid?()
+      invariant a.size == originalSize == |a.items|
+      invariant originalSize == |original|
+      invariant write <= read <= originalSize
+      invariant a.items[..write] == KeepBelow(original[..read], limit)
+      invariant a.items[read..] == original[read..]
+      decreases originalSize - read
+    {
+      var value := a.At(read);
+      assert value == original[read];
+      assert original[..read + 1][..read] == original[..read];
+      assert original[..read + 1][read] == value;
+      assert KeepBelow(original[..read + 1], limit) ==
+        KeepBelow(original[..read], limit) + (if value < limit then [value] else []);
+      assert a.items[read..][1..] == original[read..][1..];
+      assert a.items[read + 1..] == a.items[read..][1..];
+      assert original[read + 1..] == original[read..][1..];
+      assert a.items[read + 1..] == original[read + 1..];
+      if value < limit {
+        ghost var previous := a.items;
+        a.Put(write, value);
+        assert a.items == previous[write := value];
+        assert a.items[..write + 1] == previous[..write] + [value];
+        assert a.items[read + 1..] == previous[read + 1..];
+        write := write + 1;
+      }
+      assert a.items[read + 1..] == original[read + 1..];
+      read := read + 1;
+    }
+    assert read == originalSize;
+    assert original[..read] == original;
+    assert a.items[..write] == KeepBelow(original, limit);
+    while a.size > write
+      modifies a, a.Repr
+      invariant fresh(a.Repr - old(a.Repr))
+      invariant a.Valid?()
+      invariant write <= a.size <= originalSize
+      invariant a.size == |a.items|
+      invariant a.items[..write] == KeepBelow(original, limit)
+      decreases a.size - write
+    {
+      ghost var previous := a.items;
+      a.PopFast();
+      assert a.items[..write] == previous[..write];
+    }
+    assert a.size == write;
+    removed := originalSize - write;

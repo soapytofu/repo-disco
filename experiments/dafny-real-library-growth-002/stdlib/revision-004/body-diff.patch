@@ -1,0 +1,13 @@
+--- stdlib/revision-003/bodies/splice-reference.txt
++++ stdlib/revision-004/bodies/splice-reference.txt
+@@ -88,8 +88,10 @@
+     var workingSize: nat := a.size;
+     assert position + replacementSize <= targetSize <= workingSize;
+     var index: nat := 0;
++    label FillStart:
+     while index < replacementSize
+       modifies a, a.Repr
++      invariant fresh@FillStart(a.Repr - old@FillStart(a.Repr))
+       invariant fresh(a.Repr - old(a.Repr))
+       invariant a.Valid?()
+       invariant a.size == workingSize == |a.items|

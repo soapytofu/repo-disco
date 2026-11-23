@@ -30,6 +30,15 @@ proof failures remain failures; collection is not extended to reach a favorable
 score. Infrastructure, source-integrity or ambiguous provider failures stop
 dispatch. There are no retries or reassigned slots.
 
+The primary outcome is strict acceptance of the complete selected workspace,
+reported separately for each task (two planned responses each). Also report
+parser/guard admission, proof versus resource failure, preserved inherited
+coverage, request IDs, token counts and verification time. Undispatched requests
+and ambiguous provider outcomes have no proof score. Any observed calls to
+supplied APIs are descriptive; alternative direct implementations are valid.
+The earlier twelve accepted additions remain a separate, simpler development
+cohort, not a matched control or evidence of a causal difficulty difference.
+
 The user's existing 100-call ceiling covers this requested pilot. The latest
 completed budget snapshot allocates 28 calls, with 19 returned responses and
 nine unused slots permanently closed. Eight new slots are now allocated in snapshot 007, bringing cumulative
