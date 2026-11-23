@@ -10,6 +10,25 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 23: fresh growth pilot submitted under a new total ceiling
+
+Sophie approved at most **100 new model calls**, with confirmation before going
+beyond that ceiling. The first allocation is the frozen **eight-call** growth
+pilot; 92 calls remain unallocated and all older closed ledgers stay separate.
+[Budget receipt](../experiments/real-repository-growth-001/research-budget-20261123-001.json),
+[exact authorization](../experiments/real-repository-growth-001/execution-004/authorization.json)
+and the [single submission](../experiments/real-repository-growth-001/execution-004/submissions/model.json)
+bind the approved scope. Fresh checks verified all 4,170 runtime pins, both
+container images and 287 Dafny/3,873 Vest tool files, a private regular handoff,
+and no matching existing output or job. No handoff content was read by those checks.
+
+Job **63018923** started on live-confirmed nonpreemptible `shared`, with one
+CPU, 8 GB, four hours, no requeue and zero restarts. It makes at most one response
+per stage and blocks a child after a failed parent without reassigning its slot.
+Results remain pending; no model-growth score is claimed before native and
+source-lineage review. Later batches must address a specified research question,
+retain failures and stay inside the cumulative ceiling.
+
 ## November 23: growth runner with bounded AWS error evidence
 
 Sophie requested preparation and testing only, with **no model calls**. The

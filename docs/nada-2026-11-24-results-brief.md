@@ -1,13 +1,25 @@
 # November 24 meeting: real-repository repair and growth
 
-Evidence checkpoint: November 22, 2026, Eastern. **Real-source repair results
+Evidence checkpoint: November 23, 2026, Eastern. **Real-source repair results
 are available; sequential model-generated growth remains unmeasured.** The
 first growth attempt stopped on a host credential-lifetime bug, reproduced and
 corrected offline. The separately approved corrected run, **job 62950853**, then
 stopped with `AccessDeniedException` before any model response or verifier call.
 Both complete evidence archives are preserved and both ledgers are closed.
-The access restriction needs account-owner investigation; the saved log lacks
-AWS's detailed denial message. Neither stopped run is a 0/8 model score.
+The saved log lacks AWS's detailed denial message, so the original access
+restriction is not established from that run. Neither stopped run is a 0/8
+model score. The separate execution-004 adds bounded, redacted error evidence
+and passes 98 tests locally and on Cannon plus five intercepted-SDK scenarios.
+These offline checks do not establish access for a replacement key.
+
+Sophie has now approved a total ceiling of **100 new calls**, with confirmation
+required before exceeding it. The first allocation is the existing frozen
+**eight-call** growth pilot; 92 calls remain unallocated. Previous closed ledgers
+are not reused. The [budget receipt](../experiments/real-repository-growth-001/research-budget-20261123-001.json)
+records this decision. The fresh frozen collection was submitted once as
+**job 63018923** and started on nonpreemptible `shared`, with one CPU, 8 GB,
+four hours and no requeue. No new growth outcome is claimed before response,
+native-evidence and lineage review.
 
 ## Main message
 
@@ -32,14 +44,14 @@ repair agent.
 | Separate guard diagnostic | Seven saved rejected outputs admitted without body edits; three distinct candidate files checked. | The original exclusions were evaluation-interface problems, not seven established mathematical failures. Outcomes are reported separately, not used to rescore the original pilot. |
 | Fixed-source verification-resource study | Saved Swap candidate **265/267** units at 20k; **267/267** at 100k. Upstream **267/267** at both limits. | A locally valid transparent implementation can raise downstream proof cost under unchanged contracts. This is one candidate, not a general structural effect. |
 | Growth-task native controls | **25/25 expected outcomes:** 8 passing scopes, 14 intended proof failures, 3 missing-coverage rejections. | The new tasks are feasible and the harness rejects important false-success cases. These are analyst controls, not model-generated extensions. |
-| Corrected growth runner preparation | **76/76 offline tests on Cannon plus 3 exact-SDK scenarios**; frozen prompts/order unchanged. | Request accounting, parent preservation, SDK lifetime and evidence handling are tested. These tests are not additional native proofs or model results. |
+| Current growth runner preparation | **98/98 tests locally and on Cannon plus 5 intercepted-SDK scenarios**; frozen prompts/order unchanged. | Request accounting, parent preservation, SDK lifetime and redacted failure evidence are tested. These tests are not additional native proofs or model results. |
 | Growth collection attempts | **0 responses, 0 native checks in each stopped run**: first a host credential bug, then an access denial after the correction. | No extension-performance score. The host bug was reproduced offline; the specific access restriction remains unknown. Both ledgers stay closed. |
 
 Source reports: [repair results](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md),
 [guard diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md),
 [resource study](../experiments/real-repository-evaluation-stability-001/RESULTS.md),
 [growth controls](../experiments/real-repository-growth-001/controls-001/RESULTS.md),
-[corrected runner preparation](../experiments/real-repository-growth-001/execution-003/preparation-review-001.json),
+[current runner preparation](../experiments/real-repository-growth-001/execution-004/RESULTS.md),
 [first stopped execution](../experiments/real-repository-growth-001/execution-001/RESULTS.md),
 [current access-denied execution](../experiments/real-repository-growth-001/execution-003/RESULTS.md).
 
@@ -103,6 +115,16 @@ lineage. A blocked child is undispatched, not a failed model response. If an
 infrastructure error stops collection, show the partial cohort and unattempted
 slots; do not fabricate a complete eight-call score.
 
+The primary numerical result will be completed two-addition lineages, separated
+as **Dafny-VMC /2** and **Vest /2**, and **/4 overall** only for a fully accounted
+cohort without an unresolved infrastructure stop. Secondary counts will show
+first-stage acceptance among its returned responses, second-stage acceptance
+among responses with an accepted parent, and observed parent-API calls among
+completed children. Report guard/type/proof/resource/operational outcomes and
+undispatched children separately, plus total input/output tokens and native time.
+Those denominators are fixed before seeing the model outputs. Two repetitions
+per project remain descriptive feasibility evidence, not independent task families.
+
 The full-scope success rule checks old code as well as each addition. Dafny uses
 28 explicit upstream inputs and 267 original named units, plus registered new
 targets. Vest verifies the qualified default vest_dev/vest_lib/vstd scope and
@@ -133,13 +155,19 @@ and unlogged specification definitions remain explicit.
 3. This compact results table and a clear separation between measured repair,
    analyst feasibility controls and newly measured extension performance.
 
-These growth deliverables depend on resolving provider access and a separately
-authorized collection; job 62950853 is terminal and fully reviewed. Its seven
+These growth deliverables depend on a successful, audited fresh collection;
+the eight-call allocation is now approved, while job 62950853 remains terminal
+and fully reviewed. Its seven
 unused slots and the older scope remain closed. If access is unresolved by the
 meeting, present the existing repair results, downstream proof-cost example
 and coverage controls, and say plainly that model-generated growth was not
 measured. An access failure does not answer whether the extender can solve the
 tasks; do not replace that missing result with analyst references or retries.
+
+The 100-call ceiling is not a target. Further batches should answer a specific
+question raised by the evidence, with their tasks, comparison and budget fixed
+before dispatch. Retain unsuccessful cohorts; do not keep sampling the same
+tasks until the displayed success rate improves.
 
 The [independent research assessment](nada-research-assessment-2026-11-24.md)
 sets out when to revise the guard, context, one-shot design or task choice based

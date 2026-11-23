@@ -1,5 +1,15 @@
 # Experiment log
 
+## Sequential real-source growth — fresh collection running
+
+The [execution-004 allocation](real-repository-growth-001/execution-004/approval-receipt-001.json)
+uses at most eight calls within the newly approved
+[100-call total ceiling](real-repository-growth-001/research-budget-20261123-001.json).
+Job **63018923** was submitted once and started on nonpreemptible `shared`, with
+one CPU, 8 GB, four hours and no requeue. Frozen prompts and no-retry/actual-parent
+requirements are unchanged. Outcome and lineage evidence are pending review;
+the older terminal collections and all historical scores remain unchanged.
+
 ## Sequential real-source growth — AWS error-logging preparation
 
 The separate [execution-004 preparation](real-repository-growth-001/execution-004/RESULTS.md)

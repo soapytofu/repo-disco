@@ -1,10 +1,18 @@
 # Sequential additions to qualified real repositories
 
+**Current collection:** the [fresh eight-call allocation](execution-004/approval-receipt-001.json)
+is within Sophie's separately approved [100-new-call ceiling](research-budget-20261123-001.json).
+Job **63018923** was submitted once and started on nonpreemptible `shared`, one
+CPU, 8 GB, four hours and no requeue. It uses the unchanged frozen pilot and
+execution-004; child calls require accepted parents and failed/unused slots are
+not reassigned. No model-growth outcome is claimed until the full evidence is
+retrieved and reviewed. The earlier terminal collections remain closed.
+
 **Latest preparation:** [execution-004](execution-004/RESULTS.md) adds bounded,
 redacted AWS error evidence while preserving the frozen prompts, one-CPU limits,
 actual-parent requirement and no-retry policy. All 98 tests pass locally and on
 Cannon, along with five intercepted-SDK scenarios; the linked record retains full
-qualification logs and preparation history. No key was read or consumed, no
+qualification logs and preparation history. During preparation no key was read or consumed, no
 authorization or submission was created, and no model or native calls occurred.
 This does not establish replacement-key access or a sequential-growth result.
 
@@ -16,7 +24,8 @@ unscored, seven slots remain unused and the ledger is closed. The
 [full 23-file archive and successful evidence review](execution-003/RESULTS.md)
 are published separately from the earlier credential bug. AWS's detailed
 denial message was not saved; account-owner access investigation is needed.
-Sequential model growth is still unmeasured. No active job or retry exists.
+Sequential model growth is still unmeasured. That earlier run has no active job
+or authorized retry; the separately approved new collection is recorded above.
 
 Prepared November 18, 2026. This is **nonpaid task construction and verifier-only
 qualification**, followed by bounded-runner preparation. On November 22,
