@@ -1,0 +1,192 @@
+{
+  "schema": "repodisco-aws-draft-controls-v1",
+  "status": "DRAFT_NATIVE_UNKNOWN",
+  "no_native_or_model_calls": true,
+  "positive_gate_first": true,
+  "target_paths": {
+    "stage1": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "stage2": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/RepoDiscoContextEntry.dfy"
+  },
+  "cases": [
+    {
+      "id": "stage1-reference",
+      "source": "draft/overlay/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+      "expected": "PASS",
+      "scope": "stage1"
+    },
+    {
+      "id": "stage2-reference",
+      "source": "draft/overlay/AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/RepoDiscoContextEntry.dfy",
+      "expected": "PASS",
+      "scope": "stage1+stage2"
+    },
+    {
+      "id": "stage1-always-failure",
+      "file": "draft/negatives/stage1-always-failure.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1"
+    },
+    {
+      "id": "stage1-wrong-suffix",
+      "file": "draft/negatives/stage1-wrong-suffix.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1"
+    },
+    {
+      "id": "stage1-wrong-payload",
+      "file": "draft/negatives/stage1-wrong-payload.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1"
+    },
+    {
+      "id": "stage2-always-failure",
+      "file": "draft/negatives/stage2-always-failure.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1+stage2"
+    },
+    {
+      "id": "stage2-swapped-fields",
+      "file": "draft/negatives/stage2-swapped-fields.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1+stage2"
+    },
+    {
+      "id": "stage2-wrong-suffix",
+      "file": "draft/negatives/stage2-wrong-suffix.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1+stage2"
+    },
+    {
+      "id": "stage2-no-utf8-check",
+      "file": "draft/negatives/stage2-no-utf8-check.dfy",
+      "expected": "PROOF_FAILURE",
+      "scope": "stage1+stage2"
+    },
+    {
+      "id": "unproved-parent-passing-child",
+      "sources": {
+        "stage1": "draft/negatives/stage1-always-failure.dfy",
+        "stage2": "draft/overlay/AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/RepoDiscoContextEntry.dfy"
+      },
+      "expected": "PARENT_PROOF_FAILURE_WORKSPACE_REJECTED",
+      "note": "Native diagnostics must actually show the parent failing; a locally passing child under its assumed contract cannot accept the workspace. The child's exact native outcome is not predetermined."
+    },
+    {
+      "id": "stage2-omitted-from-roots",
+      "sources": {
+        "stage1": "draft/overlay/StandardLibrary/src/RepoDiscoU16Frame.dfy"
+      },
+      "expected": "COVERAGE_REJECTION",
+      "note": "A host coverage negative: expected stage2 target absent, regardless of native exit zero. Do not call this a native proof failure."
+    }
+  ],
+  "required_runtime_examples": [
+    {
+      "input": [],
+      "expected_stage1": "Failure",
+      "expected_stage2": "Failure"
+    },
+    {
+      "input": [
+        0
+      ],
+      "expected_stage1": "Failure",
+      "expected_stage2": "Failure"
+    },
+    {
+      "input": [
+        0,
+        2,
+        65
+      ],
+      "expected_stage1": "Failure",
+      "expected_stage2": "Failure"
+    },
+    {
+      "input": [
+        0,
+        0,
+        7
+      ],
+      "expected_stage1": "Success(payload=[],rest=[7])",
+      "expected_stage2": "Failure"
+    },
+    {
+      "input": [
+        0,
+        0,
+        0,
+        0,
+        42
+      ],
+      "expected_stage1": "Success(payload=[],rest=[0,0,42])",
+      "expected_stage2": "Success(context={[]:[]},rest=[42])"
+    },
+    {
+      "input": [
+        0,
+        1,
+        65,
+        0,
+        1,
+        66,
+        99
+      ],
+      "expected_stage1": "Success(payload=[65],rest=[0,1,66,99])",
+      "expected_stage2": "Success(context={[65]:[66]},rest=[99])"
+    },
+    {
+      "input": [
+        0,
+        1,
+        255,
+        0,
+        0
+      ],
+      "expected_stage1": "Success(payload=[255],rest=[0,0])",
+      "expected_stage2": "Failure(invalidUTF8key)"
+    },
+    {
+      "input": [
+        0,
+        0,
+        0,
+        1,
+        255
+      ],
+      "expected_stage1": "Success(payload=[],rest=[0,1,255])",
+      "expected_stage2": "Failure(invalidUTF8value)"
+    },
+    {
+      "input": [
+        0,
+        0,
+        0,
+        2,
+        65
+      ],
+      "expected_stage1": "Success(payload=[],rest=[0,2,65])",
+      "expected_stage2": "Failure(truncatedvalue)"
+    },
+    {
+      "input": [
+        0,
+        2,
+        194,
+        162,
+        0,
+        0,
+        88
+      ],
+      "expected_stage1": "Success(payload=[194,162],rest=[0,0,88])",
+      "expected_stage2": "Success(context={[194,162]:[]},rest=[88])"
+    }
+  ],
+  "qualification_notes": [
+    "No reference/control has run natively yet.",
+    "A frontend error does not satisfy a proof-failure expectation.",
+    "Bad target body and omitted root are separate controls.",
+    "Runtime example expectations are proposed checks, not executed results.",
+    "Guard tests must reject header/contract/provider/registration/accepted-parent changes, new assume/axiom/verify-false/bypass attributes, and stale/missing proof receipts."
+  ]
+}

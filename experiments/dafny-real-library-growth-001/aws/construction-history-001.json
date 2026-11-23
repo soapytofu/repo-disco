@@ -1,0 +1,30 @@
+{
+  "schema": "repodisco-aws-case-construction-history-v1",
+  "initial_attempt": {
+    "command": "python3 -B experiments/dafny-real-library-growth-001/aws/build_cases.py",
+    "exit_code": 1,
+    "error_type": "ValueError",
+    "error_message": "Upstream source drift: AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/CanonicalEncryptionContext.dfy",
+    "outputs_created": false,
+    "native_calls": 0,
+    "model_calls": 0
+  },
+  "diagnosis": "Initial Python source was overescaped while being written through JavaScript: include regex used literal backslash-s, and Git blob framing used literal backslash-zero instead of a NUL byte. Independent direct checks showed the actual canonical serializer file matched both SHA-256 and Git blob pins; there was no upstream source drift.",
+  "correction": "Changed include regex to whitespace matching and blob framing to bytes([0]). No upstream source or draft Dafny source changed.",
+  "corrected_attempt": {
+    "exit_code": 0,
+    "status": "OFFLINE_CASE_CONSTRUCTION_COMPLETE",
+    "original_sources": 102,
+    "original_source_bytes": 1303397,
+    "case_source_counts": [
+      102,
+      103,
+      104
+    ],
+    "native_outcomes": "UNKNOWN",
+    "native_calls": 0,
+    "model_calls": 0
+  },
+  "static_review": "construction-review-001.json",
+  "scope": "Offline construction only; no duplicate or retried native/model experiment."
+}

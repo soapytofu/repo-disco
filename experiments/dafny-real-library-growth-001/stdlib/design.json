@@ -1,0 +1,225 @@
+{
+  "baseline_source_files": [
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy"
+  ],
+  "baseline_source_sha256": {
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+  },
+  "caveats": [
+    "All additions/reference alternatives are analyst-authored executable Dafny drafts, not model-generated repositories or mathematical proof evidence.",
+    "The DynamicArray Valid? body and backing data field remain hidden; the extension uses the documented exported contracts rather than revealing representation details.",
+    "This is append-oriented library extension under supplied contracts, not discovery of a reusable abstraction or a necessary two-file edit task.",
+    "Both zero-length input and pivots at either endpoint are legitimate cases; no unnecessary nonempty precondition is imposed.",
+    "Verification assumes Dafny execution semantics and does not prove host memory availability, amortized complexity or runtime performance.",
+    "Per-case copies preserve exact upstream source bytes; explicit command_files define checked scope, staging alone is not coverage.",
+    "No held-out, causal sharing/depth, or language-performance claim is justified by this one selected component."
+  ],
+  "commit": "fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+  "coverage_policy": {
+    "all_new_emitted_units_required": true,
+    "all_original_successful_native_units_required": true,
+    "baseline_required_review": [
+      "Native CSV/stdout/stderr and exact source/command/tool/resource bindings",
+      "Complete original named-unit inventory; assess constructors, reads/validity obligations, all actual provider obligations",
+      "Named AppendAll/AppendRotated outcomes plus all emitted new units",
+      "Exact inherited warnings; new warning/frontend/resource/timeout categories separate",
+      "Wrong cases must fail named proof targets, not parse; omitted cases must native-pass but lack required target",
+      "Unproved-parent case requires AppendAll failure and AppendRotated pass under its assumed contract, still reject workspace"
+    ],
+    "case_count": 12,
+    "cases_file": "cases.json",
+    "explicit_file_argv": true,
+    "fixed_total_declarations_if_unlogged": "Record explicit source-bound inventory exceptions after baseline review; never call them logged passes",
+    "implicit_config_globs": false,
+    "initial_native_dispatch": [
+      "baseline",
+      "append-reference",
+      "rotate-reference"
+    ],
+    "later_controls_require_reviewed_reference_gate": true,
+    "missing_new_target_is_failure_even_if_exit_zero": true,
+    "named_correctness_targets_required": true,
+    "native_obligation_counts": null,
+    "native_status": "UNKNOWN",
+    "unknown_new_unlogged_units_allowed": false
+  },
+  "deliberate_counterexamples": {
+    "append-empty": {
+      "expected": [
+        9,
+        1
+      ],
+      "initial": [
+        9
+      ],
+      "values": [
+        1
+      ],
+      "wrong": [
+        9
+      ]
+    },
+    "append-reverse": {
+      "expected": [
+        9,
+        1,
+        2
+      ],
+      "initial": [
+        9
+      ],
+      "values": [
+        1,
+        2
+      ],
+      "wrong": [
+        9,
+        2,
+        1
+      ]
+    },
+    "rotate-empty": {
+      "expected": [
+        9,
+        2,
+        3,
+        1
+      ],
+      "initial": [
+        9
+      ],
+      "pivot": 1,
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "wrong": [
+        9
+      ]
+    },
+    "rotate-original-order": {
+      "expected": [
+        9,
+        2,
+        3,
+        1
+      ],
+      "initial": [
+        9
+      ],
+      "pivot": 1,
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "wrong": [
+        9,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "dependency_edges": [
+    [
+      "Std.DynamicArray",
+      "Std.BoundedInts"
+    ],
+    [
+      "Std.DynamicArray",
+      "Std.Wrappers"
+    ]
+  ],
+  "model_calls": 0,
+  "model_execution_authorized": false,
+  "native_calls": 0,
+  "parent_policy": {
+    "api_reuse_is_descriptive_not_required": true,
+    "both_new_methods_must_verify": true,
+    "direct_child_implementation_allowed": true,
+    "model_handler_implemented": false,
+    "parent_bytes_immutable": true,
+    "stage_two_parent": "Future actual accepted stage-one source and native receipt from the same lineage; never substitute analyst references",
+    "unproved_parent_child_pass_is_success": false,
+    "upstream_immutable": true
+  },
+  "project_scope": "Dependency-closed DynamicArray component, not all Dafny standard libraries",
+  "repository": "dafny-lang/dafny",
+  "schema": "repodisco-stdlib-dynamic-array-growth-design-v1",
+  "source_manifest_sha256": "16886204e621883ea5717beda879a113f24e01bcc0bdbd5270402f42c69b81c5",
+  "source_urls": {
+    "LICENSE.txt": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/LICENSE.txt",
+    "Source/DafnyStandardLibraries/Makefile": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/Source/DafnyStandardLibraries/Makefile",
+    "Source/DafnyStandardLibraries/README.md": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/Source/DafnyStandardLibraries/README.md",
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "Source/DafnyStandardLibraries/src/Std/dfyconfig.toml": "https://github.com/dafny-lang/dafny/blob/fcb2042d6d043a2634f0854338c08feeaaaf4ae2/Source/DafnyStandardLibraries/src/Std/dfyconfig.toml"
+  },
+  "stages": [
+    {
+      "alternative": "Recursive Push of head followed by AppendAll of tail",
+      "declaration": "RepoDiscoStdAppend.AppendAll",
+      "frame": "reads a,a.Repr; modifies pre-state a.Repr, plus freshly allocated objects by Dafny semantics",
+      "id": "stdlib-append",
+      "input": "A valid existing DynamicArray and an executable input sequence",
+      "native_status": "UNKNOWN",
+      "new_behavior": "Append every input value in its original order while preserving all prior elements",
+      "path": "growth/AppendAll.dfy",
+      "reference": "Iterative Push with exact sequence-prefix, size, validity, capacity, freshness and decreasing-index invariants",
+      "specification": [
+        "a.items == old(a.items) + values",
+        "a.size == old(a.size) + |values|",
+        "a.Valid?()",
+        "a.capacity >= old(a.capacity)",
+        "fresh(a.Repr - old(a.Repr))"
+      ]
+    },
+    {
+      "alternative": "Direct Push loop over the rotated batch, with no AppendAll call; admissible, separately observed reuse=0",
+      "declaration": "RepoDiscoStdRotate.AppendRotated",
+      "id": "stdlib-rotate",
+      "input": "A valid DynamicArray, an executable sequence, and pivot in0..length",
+      "native_status": "UNKNOWN",
+      "new_behavior": "Append a cyclic left rotation of the batch and return its exact physical index interval",
+      "path": "growth/AppendRotated.dfy",
+      "reference": "Use actual accepted AppendAll on suffix then prefix; thread its updated representation and fresh allocation facts across two calls",
+      "specification": [
+        "a.items == old(a.items) + (values[pivot..] + values[..pivot])",
+        "start == old(a.size)",
+        "end == a.size == start + |values|",
+        "a.Valid?()",
+        "a.capacity >= old(a.capacity)",
+        "fresh(a.Repr - old(a.Repr))"
+      ]
+    }
+  ],
+  "status": "DRAFT_CONSTRUCTION_NATIVE_UNKNOWN",
+  "tag": "v4.11.0",
+  "toolchain": {
+    "adaptive_escalation": false,
+    "cpus": 1,
+    "default_standard_library_bundle_allowed": false,
+    "outer_native_wall_seconds": 360,
+    "required_release": "Dafny4.11.0",
+    "resource_limit": 1000000,
+    "semantic_options": {
+      "enforce-determinism": true,
+      "general-newtypes": true,
+      "general-traits": "datatype",
+      "reads-clauses-on-methods": true,
+      "track-print-effects": true,
+      "type-system-refresh": true,
+      "warn-contradictory-assumptions": false,
+      "warn-redundant-assumptions": false
+    },
+    "tool_binary_and_solver_identity": "Root qualified toolchain must be checked on compute; not observed by this construction",
+    "verification_time_limit_seconds": 300
+  }
+}

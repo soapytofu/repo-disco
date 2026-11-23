@@ -1,0 +1,6 @@
+    start := a.size;
+    Append.AppendAll(a, values[pivot..]);
+    Append.AppendAll(a, values[..pivot]);
+    end := a.size;
+    assert (old(a.items) + values[pivot..]) + values[..pivot]
+        == old(a.items) + (values[pivot..] + values[..pivot]);

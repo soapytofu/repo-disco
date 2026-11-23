@@ -1,0 +1,40 @@
+# This workflow reads the project.properties
+# into the environment variables
+# and then creates an output variable for `dafnyVersion`, `dafnyVerifyVersion`
+# and `dafnyRustVersion`
+name: Dafny Versions
+
+on:
+  workflow_call:
+    outputs:
+      version:
+        description: "The dafny version"
+        value: ${{ jobs.getDafnyVersion.outputs.version }}
+      verifyVersion:
+        description: "The dafny version for verification"
+        value: ${{ jobs.getDafnyVersion.outputs.verifyVersion }}
+      rustVersion:
+        description: "The dafny version when translating to Rust"
+        value: ${{ jobs.getDafnyVersion.outputs.rustVersion }}
+
+permissions:
+  contents: read
+
+jobs:
+  getDafnyVersion:
+    runs-on: codebuild-CryptoToolsCI-linux-aws-cryptographic-material-providers-library-${{ github.run_id }}-${{ github.run_attempt }}
+    outputs:
+      version: ${{ steps.read_property.outputs.dafnyVersion }}
+      verifyVersion: ${{ steps.read_property.outputs.dafnyVerifyVersion }}
+      rustVersion: ${{ steps.read_property.outputs.dafnyRustVersion }}
+    steps:
+      - uses: actions/checkout@v6
+      # No Docker action here: CodeBuild runners share IPs, so pulls from Docker Hub hit its rate limit.
+      - name: Read version from Properties-file
+        id: read_property
+        shell: bash
+        run: |
+          for property in dafnyVersion dafnyVerifyVersion dafnyRustVersion; do
+            value=$(grep "^${property}=" project.properties | cut -d= -f2-)
+            echo "${property}=${value}" >> "$GITHUB_OUTPUT"
+          done

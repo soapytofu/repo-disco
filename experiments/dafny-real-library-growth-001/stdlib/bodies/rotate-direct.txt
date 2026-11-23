@@ -1,0 +1,19 @@
+    var rotated := values[pivot..] + values[..pivot];
+    start := a.size;
+    var i: nat := 0;
+    while i < |rotated|
+      invariant i <= |rotated|
+      invariant |rotated| == |values|
+      invariant start == old(a.size)
+      invariant a.Valid?()
+      invariant a.items == old(a.items) + rotated[..i]
+      invariant a.size == start + i
+      invariant a.capacity >= old(a.capacity)
+      invariant fresh(a.Repr - old(a.Repr))
+      decreases |rotated| - i
+    {
+      assert rotated[..i + 1] == rotated[..i] + [rotated[i]];
+      a.Push(rotated[i]);
+      i := i + 1;
+    }
+    end := a.size;

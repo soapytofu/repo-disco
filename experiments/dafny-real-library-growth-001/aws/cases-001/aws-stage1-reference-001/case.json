@@ -1,0 +1,842 @@
+{
+  "id": "aws-stage1-reference-001",
+  "workspace": "cases-001/aws-stage1-reference-001/workspace",
+  "kind": "analyst-reference",
+  "expected_native_outcome": "PASS",
+  "observed_native_outcome": "UNKNOWN",
+  "new_targets_provisional": [
+    "RepoDiscoU16Frame.ReadU16Frame"
+  ],
+  "explicit_root_files": [
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/CanonicalEncryptionContext.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/AwsCryptographyKeyStoreOperations.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeyStoreTable.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeys.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/DDBKeystoreOperations.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/GetKeys.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KMSKeystoreOperations.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+    "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+    "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+    "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+    "AwsCryptographyPrimitives/src/AesKdfCtr.dfy",
+    "AwsCryptographyPrimitives/src/AwsCryptographyPrimitivesOperations.dfy",
+    "AwsCryptographyPrimitives/src/Digest.dfy",
+    "AwsCryptographyPrimitives/src/ECDH.dfy",
+    "AwsCryptographyPrimitives/src/HKDF/HKDF.dfy",
+    "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+    "AwsCryptographyPrimitives/src/Index.dfy",
+    "AwsCryptographyPrimitives/src/KDF/KdfCtr.dfy",
+    "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+    "AwsCryptographyPrimitives/src/Random.dfy",
+    "AwsCryptographyPrimitives/src/Signature.dfy",
+    "AwsCryptographyPrimitives/src/WrappedHKDF.dfy",
+    "AwsCryptographyPrimitives/src/WrappedHMAC.dfy",
+    "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+    "ComAmazonawsDynamodb/src/Index.dfy",
+    "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy",
+    "ComAmazonawsKms/src/Index.dfy",
+    "StandardLibrary/src/Actions.dfy",
+    "StandardLibrary/src/Base64.dfy",
+    "StandardLibrary/src/Base64Lemmas.dfy",
+    "StandardLibrary/src/ConcurrentCall.dfy",
+    "StandardLibrary/src/FloatCompare.dfy",
+    "StandardLibrary/src/GetOpt.dfy",
+    "StandardLibrary/src/HexStrings.dfy",
+    "StandardLibrary/src/Index.dfy",
+    "StandardLibrary/src/MemoryMath.dfy",
+    "StandardLibrary/src/OsLang.dfy",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "StandardLibrary/src/Sequence.dfy",
+    "StandardLibrary/src/Sets.dfy",
+    "StandardLibrary/src/Sorting.dfy",
+    "StandardLibrary/src/StandardLibrary.dfy",
+    "StandardLibrary/src/Streams.dfy",
+    "StandardLibrary/src/String.dfy",
+    "StandardLibrary/src/Time.dfy",
+    "StandardLibrary/src/UInt.dfy",
+    "StandardLibrary/src/UTF8.dfy",
+    "StandardLibrary/src/UUID.dfy",
+    "StandardLibrary/src/WrappersInterop.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Collections/Sequences/MergeSort.dfy",
+    "libraries/src/Collections/Sequences/Seq.dfy",
+    "libraries/src/FileIO/FileIO.dfy",
+    "libraries/src/Functions.dfy",
+    "libraries/src/JSON/API.dfy",
+    "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+    "libraries/src/JSON/ConcreteSyntax.SpecProperties.dfy",
+    "libraries/src/JSON/Deserializer.dfy",
+    "libraries/src/JSON/Errors.dfy",
+    "libraries/src/JSON/Grammar.dfy",
+    "libraries/src/JSON/Serializer.dfy",
+    "libraries/src/JSON/Spec.dfy",
+    "libraries/src/JSON/Utils/Cursors.dfy",
+    "libraries/src/JSON/Utils/Lexers.dfy",
+    "libraries/src/JSON/Utils/Parsers.dfy",
+    "libraries/src/JSON/Utils/Seq.dfy",
+    "libraries/src/JSON/Utils/Str.dfy",
+    "libraries/src/JSON/Utils/Vectors.dfy",
+    "libraries/src/JSON/Utils/Views.Writers.dfy",
+    "libraries/src/JSON/Utils/Views.dfy",
+    "libraries/src/JSON/Values.dfy",
+    "libraries/src/JSON/ZeroCopy/API.dfy",
+    "libraries/src/JSON/ZeroCopy/Deserializer.dfy",
+    "libraries/src/JSON/ZeroCopy/Serializer.dfy",
+    "libraries/src/Math.dfy",
+    "libraries/src/MutableMap/MutableMap.dfy",
+    "libraries/src/NonlinearArithmetic/DivMod.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/DivInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/DivInternalsNonlinear.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/ModInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/ModInternalsNonlinear.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy",
+    "libraries/src/NonlinearArithmetic/Internals/MulInternalsNonlinear.dfy",
+    "libraries/src/NonlinearArithmetic/Logarithm.dfy",
+    "libraries/src/NonlinearArithmetic/Mul.dfy",
+    "libraries/src/NonlinearArithmetic/Power.dfy",
+    "libraries/src/Relations.dfy",
+    "libraries/src/Unicode/Unicode.dfy",
+    "libraries/src/Unicode/UnicodeEncodingForm.dfy",
+    "libraries/src/Unicode/UnicodeStrings.dfy",
+    "libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy",
+    "libraries/src/Unicode/Utf16EncodingForm.dfy",
+    "libraries/src/Unicode/Utf8EncodingForm.dfy",
+    "libraries/src/Wrappers.dfy"
+  ],
+  "source_files": [
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/Model/AwsCryptographyMaterialProvidersTypes.dfy",
+      "bytes": 152387,
+      "sha256": "67732010efb15d1989f4fc473c6f6ed1899efca714e5f982de0261ac56706695",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "af51e21e8bdff53fb80d32b9c00c4ebf5ab00b5f"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/AwsArnParsing.dfy",
+      "bytes": 18776,
+      "sha256": "bd5d2fca7c15946907f29016c3db02512d9d89d2b7a838af21cb42fbb97dabbf",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "9f9512a934123d3ff83841cc3836c388293adcd1"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/CanonicalEncryptionContext.dfy",
+      "bytes": 2255,
+      "sha256": "dd42099a01c00f8ed04af39080b5724d77301d0ab0aaf6c22e938401142f9685",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "84964671109b5229ad69ece3104fa42a117fe073"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsMrkMatchForDecrypt.dfy",
+      "bytes": 3597,
+      "sha256": "7bcb531c646277aaea062dde0ca7b93a5ed40fe99f13da2a41b6b57527df57d2",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "f5511a125a79c4b3173f401795e7067727a173bb"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographicMaterialProviders/src/Keyrings/AwsKms/AwsKmsUtils.dfy",
+      "bytes": 11508,
+      "sha256": "bacf0fa41fdd6125a95137103caef9c49bcc37a3fef081c8352838b1f08bbc71",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "ec8726925b255e52ef945d3a576e420c943df9be"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/Model/AwsCryptographyKeyStoreTypes.dfy",
+      "bytes": 27300,
+      "sha256": "9431617f51f73172efc4f6889f67013b05ce7a584baa75e0f7a4977b8eaabb41",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "a3710457989f821002c287acf7ae68c9ffb6d8dc"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/AwsCryptographyKeyStoreOperations.dfy",
+      "bytes": 11675,
+      "sha256": "0809f98945ef87a71b3f46a225946563e6093449e0f0b26032901209a1fe3845",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "5b6494a23335f191fce149f9257d9f6efbda63c4"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeyStoreTable.dfy",
+      "bytes": 9594,
+      "sha256": "d333419746d56143fdd56b8390b308c1e474229755ad0274f3e8b847680960cd",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "d0b8626b0560654a788b1f14e9bd516b3bd0f222"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/CreateKeys.dfy",
+      "bytes": 35539,
+      "sha256": "9f2113f4b8901039c495aa91b1382308f06a2ae9bd5f0a0c48d1fb9c94c7c82b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "5b6a7199d3bb4f18b0048acffc8d67963bfcc6c5"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/DDBKeystoreOperations.dfy",
+      "bytes": 16072,
+      "sha256": "3a35b2af06f56009b56617d994cc91b0cbb5a457e28e38408bca4640c37f38c3",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "63d7985e6fd49ff7b1a7869da8fde193f5f0d2f0"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/ErrorMessages.dfy",
+      "bytes": 1611,
+      "sha256": "839518987c7cb5e74b5f8413ac7d0a8b66aa3d04a43a7b4d89cd13609b24e71e",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "bd13b61656f94fa3ab4903792912529030fd2cc0"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/GetKeys.dfy",
+      "bytes": 27150,
+      "sha256": "bc1768707d48041d2020eac0b6002c6adb6a5cc53d0577169e3764965a4ee2e7",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "8605e8efd8c2fc6df4d254b0408ca3d1b92dca8f"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Index.dfy",
+      "bytes": 8711,
+      "sha256": "62678f09c92c146d54569290d7d724aef70ec33cf4d637beeba8cd50bc5c09f4",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "550b8c9be112be323fb623635c86c069301a0d7a"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KMSKeystoreOperations.dfy",
+      "bytes": 12295,
+      "sha256": "2ee2cbe45531a5696915860c5535b51f949ffafc21916c71e38805ea3e21b163",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "068ddefb250727bfd5e63601dd52e5fe1df959a3"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/KmsArn.dfy",
+      "bytes": 1569,
+      "sha256": "fe91781cfd7438fb334f699ba78a36279ce437bb002dd90138ba5fc2b2e8c672",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "b98cd2e8ec476d18490b26852b87b86c83c00845"
+    },
+    {
+      "path": "AwsCryptographicMaterialProviders/dafny/AwsCryptographyKeyStore/src/Structure.dfy",
+      "bytes": 28423,
+      "sha256": "f783c1d13ef60f1ccd15d623ce4029bc6d17525bb8efda9b38a056e405adb717",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "39a82ed937291628f8fb8d7c2e8cecb9aced2b92"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/Model/AwsCryptographyPrimitivesTypes.dfy",
+      "bytes": 69586,
+      "sha256": "6e4059471bc5fa357129285cef4b9e2c5f03a9d4c917f814784183b9d75f8d0c",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "7714244df62aed60361ecc5a000eda28e2af7369"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/AESEncryption.dfy",
+      "bytes": 6892,
+      "sha256": "490f3bd37004602d6af3d65a7cc9ffd7ff8acbf367aa3d2baa431621be108047",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "7317a9f7f0184b744cd0d6d5f3787d8973364a1d"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/AesKdfCtr.dfy",
+      "bytes": 2950,
+      "sha256": "bd9651afdfa4b365bd24d77358166de1c8f6baed8b44d298a2c9f88e4bbe32b0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "c85f6e8867b2aa45e6a12807ea93fcec7eba38cc"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/AwsCryptographyPrimitivesOperations.dfy",
+      "bytes": 9334,
+      "sha256": "f3a3eaea1d058644d3f41986a43f3e86e717ca290a5118941614a062137cb9a1",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "bc450c7ae1d150d7a3893fcab3ee2b7fd7d04b42"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/Digest.dfy",
+      "bytes": 2017,
+      "sha256": "becb7ddfeb3849bffcebe944e2b1fd977c633ab13971cc826afb9adac9d70f8b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "0313848dd66a7d115ad5363376edf45ffc10b027"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/ECDH.dfy",
+      "bytes": 8280,
+      "sha256": "a05911cb4cde516663a4b0426ebc1a9e1bf28f33787b99ebc4727481855fd553",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "f099c92a6c17d20dc98b098341e987f7d425d749"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/HKDF/HKDF.dfy",
+      "bytes": 7402,
+      "sha256": "0ac0a87c359f912a7f01c59d11f857dcd5e17d9aeed38896510c8a1f10ea3312",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "62195d0ef4d328f2da8df6f111667c38808d2cd7"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/HKDF/HMAC.dfy",
+      "bytes": 3827,
+      "sha256": "2da3633a283977242707a1feffde14c4b94406c15c2308af9b56dc6db3c04cd8",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "64942b80ac10d0b073b4b532af0c6e9042dfd215"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/Index.dfy",
+      "bytes": 1316,
+      "sha256": "e31159a0cf54192f72825dcf1cef1e25adb5c09716ccda8c1d4d91a979f2e92b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "0e49b31506630e627156069913318abf462f9dbe"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/KDF/KdfCtr.dfy",
+      "bytes": 5667,
+      "sha256": "022b22e04bd6306e3932ff0c3a8666470e49badbbc5719a49b92a46d2be5dca0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "3567691bc418cd47ba54966faae61c3e95133088"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/RSAEncryption.dfy",
+      "bytes": 3946,
+      "sha256": "ff5b98c0d189a69cfad883e1bb6a162222f81c67deeb511d92f580c1b03b311c",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "bfdeb11f8f43455bcb683c8d738418ed39bf14d4"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/Random.dfy",
+      "bytes": 1611,
+      "sha256": "1615a1f69656e6b72721914540afaff90fe44f54cbd07726fa2837046e8570c0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "50e8d2a3e1602afffa381814f7d9306d40f6ac8d"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/Signature.dfy",
+      "bytes": 4660,
+      "sha256": "0fdff826d77671e0d0647eabc857794032152c0fc02ab6171d8f1e0faf03b561",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "4e0c7175bfdb8f4c837409a775babce665cfa400"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/WrappedHKDF.dfy",
+      "bytes": 3303,
+      "sha256": "911fb14775ee7b80d53919be96441acedebc7a40bc0a1464ad94efad3ba23363",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "259e569dc3cdee111c570e824ad11b811d1e4356"
+    },
+    {
+      "path": "AwsCryptographyPrimitives/src/WrappedHMAC.dfy",
+      "bytes": 1002,
+      "sha256": "d48c535c0c874ee0c7ea04bde5014f57bb8afa58549789f1fbe73a7fb0f1dd2a",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "59a10af35f2a5db8a4cce0a1ecdefca423204ea7"
+    },
+    {
+      "path": "ComAmazonawsDynamodb/Model/ComAmazonawsDynamodbTypes.dfy",
+      "bytes": 187330,
+      "sha256": "cc4925ec6d9615fd1d7b88ca0a7b404287cbcd943b60f39732f78d0d18b1d2f7",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "b5c3c9fe41cdad89f1feeb1b11ab9b69cc216dcc"
+    },
+    {
+      "path": "ComAmazonawsDynamodb/src/Index.dfy",
+      "bytes": 718,
+      "sha256": "c7ed8b2d843321b015c1f5706580878276cf0e54d1f1c8abe7945858c6ed4eca",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "d030b2f3cbabeec4253e897919c8b2dfed8dcb1d"
+    },
+    {
+      "path": "ComAmazonawsKms/Model/ComAmazonawsKmsTypes.dfy",
+      "bytes": 128596,
+      "sha256": "f00be89450fbf446e36447fb8aa7ca3787776cc4a8984899fd22caaac46e8f7e",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "ff5520a289b67c89bbd5e86341c5d2902b26cb49"
+    },
+    {
+      "path": "ComAmazonawsKms/src/Index.dfy",
+      "bytes": 1290,
+      "sha256": "74027306a3909205065e93fe506ab47251603f621144cfcd7457126d8481c79b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "0817cba10e43df171b178e3f990d88f239855e95"
+    },
+    {
+      "path": "StandardLibrary/src/Actions.dfy",
+      "bytes": 11114,
+      "sha256": "4e9350e1c6358b7a4ad2cc79c1a3c4b39e83894f243e839ab2a781ee0dc99ab1",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "536676873eaac91fc638bbc981bde8d0f59a7ea1"
+    },
+    {
+      "path": "StandardLibrary/src/Base64.dfy",
+      "bytes": 19108,
+      "sha256": "bfadb67a77d220759d0ecbb99ae5f62dca200f136b26acac3a7231bf893ea5fc",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "179353fcc0822d172f4454b10dd3701ed7a6f4d8"
+    },
+    {
+      "path": "StandardLibrary/src/Base64Lemmas.dfy",
+      "bytes": 6239,
+      "sha256": "26434ae07b61708fff4804a485a468cfa8738242f2b11ff5f1f45556214c9bb6",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "e4090d1f5dc15437833053b099a9c5f26dd63a7a"
+    },
+    {
+      "path": "StandardLibrary/src/ConcurrentCall.dfy",
+      "bytes": 1210,
+      "sha256": "4ac0015fd089fb84bf269596bb6f4c35cf0b976e2efb919a044a5d2ba809ddee",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "75d5565cbc7ff3b99d71bc7d1c98c7de5aeeb936"
+    },
+    {
+      "path": "StandardLibrary/src/FloatCompare.dfy",
+      "bytes": 6405,
+      "sha256": "55b2b9384f8d7d027fa7aaefbceb52ae162996885d6d468e7da60b2cd5d26be7",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "334246a4f4db27afbb549d1a1d807a9384b4cf33"
+    },
+    {
+      "path": "StandardLibrary/src/GetOpt.dfy",
+      "bytes": 28938,
+      "sha256": "42b2ebd98808194faec7bf3e7facf8571be40a10502add30d5e8b2816fa89c0d",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "54f344f609f1fe338722003fd79437d3f9de28f9"
+    },
+    {
+      "path": "StandardLibrary/src/HexStrings.dfy",
+      "bytes": 4046,
+      "sha256": "5781aef1d3c2208ecadcf589f8e080b892d698c90b421f47cbae289d3594e18e",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "ad05494f6488477bad79bd977854e10bfec73163"
+    },
+    {
+      "path": "StandardLibrary/src/Index.dfy",
+      "bytes": 853,
+      "sha256": "286617bcdc3894630b7fabefad4dd4ee8d7252368b8473cd783e1a336bc6f8fd",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "1e4a69a4cff9033d32d5f40ef97828e92be13884"
+    },
+    {
+      "path": "StandardLibrary/src/MemoryMath.dfy",
+      "bytes": 2430,
+      "sha256": "1976f5bd4b6d2cb855c8098a2f815f2d42d72c2f0df4ab57697c6c9b0212c8c7",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "9648f8bfbec716a0ef1691a907dce04e3b019c4c"
+    },
+    {
+      "path": "StandardLibrary/src/OsLang.dfy",
+      "bytes": 848,
+      "sha256": "9c99effb4e7b1969214f090bac6283f7776cdd7457ab5baf0bce8dafc4310f1b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "83c289a049b31466e675507d4cadb12a4d4a598f"
+    },
+    {
+      "path": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+      "bytes": 1862,
+      "sha256": "0332a94dd8e24ce29534105871a13aa6f256df509b6dafc855832674b7798e7f",
+      "origin": "analyst-reference",
+      "git_blob_sha": null
+    },
+    {
+      "path": "StandardLibrary/src/Sequence.dfy",
+      "bytes": 2987,
+      "sha256": "ce0b3cd6c501a908d4f3e1e778c7d068533252ec2f252aa1e3f68d6902428576",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "802b2f9a07d439a94b59e3feb6a7f80015610cef"
+    },
+    {
+      "path": "StandardLibrary/src/Sets.dfy",
+      "bytes": 1413,
+      "sha256": "08b57adc8107fbfbdfb8ea89ff984ca10054ef5d65eb0deff5e195dfaac7c599",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "7a86152720d103778704816999b601671a232786"
+    },
+    {
+      "path": "StandardLibrary/src/Sorting.dfy",
+      "bytes": 4675,
+      "sha256": "6ebdfaa79358535d55aaeee0eb04e09f4faa86a967870362bdbbb5a5763c22d5",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "f5ad9174502426d4a5d74d2aefdf6acf4e927e35"
+    },
+    {
+      "path": "StandardLibrary/src/StandardLibrary.dfy",
+      "bytes": 16967,
+      "sha256": "c900c832de2774dfc22e4ab944254d27dbea17e5fff10d18b7e3d4bbd70062c5",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "334d34c62296df7ec42a1d1934ef0165205afb56"
+    },
+    {
+      "path": "StandardLibrary/src/Streams.dfy",
+      "bytes": 8919,
+      "sha256": "a99d44439291b585c735fae20494a44111d0dcad66d657ec604cb68f9ea20bb0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "41196026f1810a5d4289b77b3fa62da0190aed93"
+    },
+    {
+      "path": "StandardLibrary/src/String.dfy",
+      "bytes": 10975,
+      "sha256": "01ef6609561073286f6a96feb50268632c6cbcccb3b80e1908c9ec780686cc6b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "8ced445a57056eb3344abf08cc307068723fa8d2"
+    },
+    {
+      "path": "StandardLibrary/src/Time.dfy",
+      "bytes": 5868,
+      "sha256": "cdf79f47f520da3027c19e2489852518a233923a482927d70b09e07392728e39",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "77ca4bf5e175f3dc55edf6ba8926101b44036f6c"
+    },
+    {
+      "path": "StandardLibrary/src/UInt.dfy",
+      "bytes": 13355,
+      "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "c203fcce15d5d93b63714e9729e56f234a587a27"
+    },
+    {
+      "path": "StandardLibrary/src/UTF8.dfy",
+      "bytes": 12003,
+      "sha256": "537e354b07e6ccf5bdc6920ed02ff04127772e51db0881b128ccf38b8a539a13",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "a1f951674a081f1aa62e2ab584349a9f0f6395fc"
+    },
+    {
+      "path": "StandardLibrary/src/UUID.dfy",
+      "bytes": 1807,
+      "sha256": "c82ee108c529262a6134a5dff8197c2d9da7715ba0ca403fc1ce9ff055b33bfc",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "ae0602a60e19fe6cc54cdddb548c821368546234"
+    },
+    {
+      "path": "StandardLibrary/src/WrappersInterop.dfy",
+      "bytes": 1678,
+      "sha256": "80bf928090728b9de795a7ba6c30a277bf54d77b28619f728a3281f42857e3e3",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "ed4aa216f04c10ea4c4531202218ea40298695f6"
+    },
+    {
+      "path": "libraries/src/BoundedInts.dfy",
+      "bytes": 2342,
+      "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "d479f3bf2f5220b6a8fa5263ec1a57d986c1cfd0"
+    },
+    {
+      "path": "libraries/src/Collections/Sequences/MergeSort.dfy",
+      "bytes": 2042,
+      "sha256": "b2cc46206224ce1bc5a1a1733a313472ff72627cfb6e3631dc199507dd450e75",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "f4121e5f3d7c170c744097b53b2746fc4c220ec5"
+    },
+    {
+      "path": "libraries/src/Collections/Sequences/Seq.dfy",
+      "bytes": 30343,
+      "sha256": "ad552d01024522f56e9414eb1f2c36587312ccb27c482ead6f5932ea5251eaa0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "ab0043b9684ef6907a878a1df4dd7b25b6b5d64b"
+    },
+    {
+      "path": "libraries/src/FileIO/FileIO.dfy",
+      "bytes": 3569,
+      "sha256": "b6896dac29e2929f10375b3a8a0351932f10733be5b3e0fc3a118d2a04912802",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "4ba7f8e8655a61256525cb65ebd26b4b64a8c91a"
+    },
+    {
+      "path": "libraries/src/Functions.dfy",
+      "bytes": 820,
+      "sha256": "c18ddc5cc928c0da9207b9efc9bcaff487af90a44bd8c179eb9cb1e96de1fbc7",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "8436f50fbf6c6a7fb46a39e27c559f2c7eac0a97"
+    },
+    {
+      "path": "libraries/src/JSON/API.dfy",
+      "bytes": 1148,
+      "sha256": "5bbe3545294564eb2a22d6f77e5f35f6f1c819e15925c121761865717daba560",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "74f9c89edb43d22922f974364e8dfb4a3903ed55"
+    },
+    {
+      "path": "libraries/src/JSON/ConcreteSyntax.Spec.dfy",
+      "bytes": 3147,
+      "sha256": "75d102f3de99219ad34f62fc0a4df20f1a3063c9f3a41e6c06ac19db8f3ab514",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "20510aabdab14b508e2c2b0861b4710dbcdf655c"
+    },
+    {
+      "path": "libraries/src/JSON/ConcreteSyntax.SpecProperties.dfy",
+      "bytes": 1980,
+      "sha256": "0c633b63e3c1cff38578d337f1c8d4557754475aca19632545cc00f4fe81e1b1",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "bb125ba9da951c2375da86e45bc0a5ebfa9d53c9"
+    },
+    {
+      "path": "libraries/src/JSON/Deserializer.dfy",
+      "bytes": 6423,
+      "sha256": "a4ecdf932a1dadc9367da3870ce6845505cb36b861e03989d7aa30a3c14e91d0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "6b2a77a984bd651e3172eacab16a17f686852d45"
+    },
+    {
+      "path": "libraries/src/JSON/Errors.dfy",
+      "bytes": 2053,
+      "sha256": "65f1c6afd23d039475b152ab9b365821dd20fbbc80cfec83dbf6c34797137c2b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "891cffc3d397ec06bd7ca7fc19046790c0c721d0"
+    },
+    {
+      "path": "libraries/src/JSON/Grammar.dfy",
+      "bytes": 4428,
+      "sha256": "db3c98387ca574efca7feb99c69174025e75b9eb0a4789bfefe70dc64f32d5a5",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "c32b8b3cda11f6ac5246e92f86cb7ecb75e2f5f1"
+    },
+    {
+      "path": "libraries/src/JSON/Serializer.dfy",
+      "bytes": 4669,
+      "sha256": "e747550078be7fbe52d2ed0e124431e49d3ce2c2407863aec52d76b702416600",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "1f936debcd8c45715d12a3df45e4da48e83dbc7b"
+    },
+    {
+      "path": "libraries/src/JSON/Spec.dfy",
+      "bytes": 4796,
+      "sha256": "2e7f227497329cae74e5e3594209ccfcc7331f15fdcb37f42ea77693915b9b91",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "6ab90bde91bd79c6884b2657e9800ce2e083a108"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Cursors.dfy",
+      "bytes": 9673,
+      "sha256": "119794f49eabf708a2fcfcb8fc7dd76f356c6f0e7fe4686134c3d9eace8d3f79",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "5be9838ef54475152af8aa72b174b05bf603c443"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Lexers.dfy",
+      "bytes": 1631,
+      "sha256": "aaf06c0b85ad0d6f8a960546b04cc0f0c7d5c541bf703258dd85890932fa9a24",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "aaa9b3e741322c26552f26b983c9bb2d6582e7b6"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Parsers.dfy",
+      "bytes": 2342,
+      "sha256": "62ee60dbef3504a1afb5afe0cf9c23c01b3b82fa6e348ed95fc1dfff0e114a5d",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "637a24bda3a933161530c173ee519eee5f8d6e62"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Seq.dfy",
+      "bytes": 542,
+      "sha256": "67f5e70128445ad9a69560110dda8590e968045b59e16bfacaddc74164b0b546",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "3293db29b93618474c546f84582089d23e35be52"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Str.dfy",
+      "bytes": 8180,
+      "sha256": "b4b31b26aced78181b598639dd37fb84dab21c5beb07312809b159c4bc2f4e2a",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "00cbed19a96a41fe2d004e4096ee2c98b0ce6e5c"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Vectors.dfy",
+      "bytes": 5874,
+      "sha256": "2177696d256f53e3c0f55c5dac36cef4b92663181d88faa76a2e485cc1e3eb3a",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "726e4d4d7a409016786575342316cf494367470b"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Views.Writers.dfy",
+      "bytes": 2944,
+      "sha256": "38df29905ad0510791b2e19517d0a382f5e3c5381767513ae05fbc40e231bd86",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "bbdb6ca6b6246156ff54178f8642e09c3c0b8327"
+    },
+    {
+      "path": "libraries/src/JSON/Utils/Views.dfy",
+      "bytes": 3340,
+      "sha256": "78784d64733d13b0ddbe9bc15b491a5746b2a2c65e086e09654967e3e6e85b86",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "4fcafef5a6d07af32d9769b42eff4c113e697381"
+    },
+    {
+      "path": "libraries/src/JSON/Values.dfy",
+      "bytes": 403,
+      "sha256": "01df045edb629e5d048f1500c9cf33b495aa3db105c910484612bf7f4e345fd1",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "76952ec2a2310c094706a7be47999e7671be1fad"
+    },
+    {
+      "path": "libraries/src/JSON/ZeroCopy/API.dfy",
+      "bytes": 1528,
+      "sha256": "954c1d8f2788bf2aac5c87b0fc4eec910b26dcca08c0072a7996792ffa98c457",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "21b1cc84665ebcef2f77dd23a9eac92a4cd59042"
+    },
+    {
+      "path": "libraries/src/JSON/ZeroCopy/Deserializer.dfy",
+      "bytes": 41693,
+      "sha256": "e8a172f008cab470f1fb42d20d89688f461ee94612ea30ca44ce3eb6e20e4f72",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "898af31f0a3b640d86f9415f62b1be3ff8f6a0ca"
+    },
+    {
+      "path": "libraries/src/JSON/ZeroCopy/Serializer.dfy",
+      "bytes": 14387,
+      "sha256": "31c7529e5d4639521647f22d609ed3894e235ca6a04d5f72451ac85d884122f0",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "c56e44b575b88d8168065be708fc5f686618ec78"
+    },
+    {
+      "path": "libraries/src/Math.dfy",
+      "bytes": 585,
+      "sha256": "e08484e1a92123a6924404db86dcdc53bfa290ba9c12348852d6e58245f4fe0b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "17cf15f21c5d576f34547339e338c6b2cb60d330"
+    },
+    {
+      "path": "libraries/src/MutableMap/MutableMap.dfy",
+      "bytes": 3861,
+      "sha256": "3e796c6cb9e37fbf2b0e06d0d4bcc4a8860a47dde41968c547fdb44a3ea171cc",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "3233c35d856e4146f630f4ad3e6fa04e57f14eee"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/DivMod.dfy",
+      "bytes": 49411,
+      "sha256": "2d5f38a370f508178b77541cd3f8c86d4d06a45668fecb03676c448c25387bfa",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "e3a97d83967f7580aee0a6b97fb4dade9e1ca164"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/DivInternals.dfy",
+      "bytes": 7359,
+      "sha256": "eb82aebd02b691f9c3ab6614df0b68318e3fbbdee40c784f6300fb37ee8bc8b5",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "921a2fea19c62ee62dc622f61de9f3bc7ecc839e"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/DivInternalsNonlinear.dfy",
+      "bytes": 1298,
+      "sha256": "6a07abf6809ed4168e331ec9072e6ec7027ffaeab562b3231fb473e7da902e5c",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "a9f8de03f671f1487d1891aa4ba9e6903035a20a"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/GeneralInternals.dfy",
+      "bytes": 1198,
+      "sha256": "cbb07ab98e5f0f37b9c788cfebe596a3a865d8a716a08bea4f36dbba71071d89",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "15073cda452d5e80d7cedef90cd12697593289ea"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/ModInternals.dfy",
+      "bytes": 11371,
+      "sha256": "733d0529ffec836e09078f829bae36f3df07fbdbc681cef303a4efe406c4c1b8",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "aa4fb0827365869ba40990e20348ad7092879bc9"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/ModInternalsNonlinear.dfy",
+      "bytes": 1418,
+      "sha256": "3b44592d351353544048a3bef2056ea6f00dde6486f8fc04a6a5e30985b921a3",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "69f64943d8ef1fc5845d1d5ffccef012be4d398c"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/MulInternals.dfy",
+      "bytes": 5178,
+      "sha256": "ab06bea0dc947373a416f719806c30aa7d8698f266db16f53bbf5d79fc5c044b",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "448405d2fbf540b3da6d422c8b37fda53632d084"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Internals/MulInternalsNonlinear.dfy",
+      "bytes": 1624,
+      "sha256": "b65cd134f7dbfecc33d8032937cbe5d71a41f0307acef3d2fb7968c83d00c528",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "e6a6cad3cb931511113a2d43d44aa6ee33ea8c24"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Logarithm.dfy",
+      "bytes": 2867,
+      "sha256": "ae47342390ca64577da5c3180ae226b2961b8445864c30a905d06a690908522e",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "9a5e2bff6a38626f3611d5fb9c17a2ce089a7b31"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Mul.dfy",
+      "bytes": 19691,
+      "sha256": "b4048a72bde544e376ce0f06fab48817f613fb34974456b43034159135c52147",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "66d7605c6ba3c1367b8c2f0068a9c2746ea505c4"
+    },
+    {
+      "path": "libraries/src/NonlinearArithmetic/Power.dfy",
+      "bytes": 18048,
+      "sha256": "a91fc9ecd73d7a4f3291a3785739089ce43b06aaf710aa8c2c1b3d48d85ece7e",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "eac1f66cc553a624f6ea6e60e30d131e4efc4ddc"
+    },
+    {
+      "path": "libraries/src/Relations.dfy",
+      "bytes": 3154,
+      "sha256": "b28bca21ebba7b78b53b597ab6ca9ea7bdf0edacf45b14e6df2d7cefa37bb114",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "05ddc704e2070e4fc9f887e1bddd883508c1028e"
+    },
+    {
+      "path": "libraries/src/Unicode/Unicode.dfy",
+      "bytes": 2373,
+      "sha256": "800e6176ce6f144ba6878f7e23ec4b99e41aae0cbde96e39402d0d3804652216",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "6e9376c3f8e35967693a2f536dd7af22c7155f2b"
+    },
+    {
+      "path": "libraries/src/Unicode/UnicodeEncodingForm.dfy",
+      "bytes": 12660,
+      "sha256": "9579d954ae4e0f23d3ff2899f88f4161a03a64455fefeb01bb31df5052b7700e",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "250127a7bebd20ad6763cd460245bc03741fbc05"
+    },
+    {
+      "path": "libraries/src/Unicode/UnicodeStrings.dfy",
+      "bytes": 2202,
+      "sha256": "db5341cae2cb6ea690861d4613b0e78e8dba0883a51966c5c0ce4c34ceda9c65",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "879edcc82e9dc8bad0301285a547e8d415e4e015"
+    },
+    {
+      "path": "libraries/src/Unicode/UnicodeStringsWithoutUnicodeChar.dfy",
+      "bytes": 1906,
+      "sha256": "e7794dc4ffd4248733e9c7ee959850006a548cf966ac4f8ab9573942abbccebe",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "9c5b5f595309858921ed1255379245cec4f0c139"
+    },
+    {
+      "path": "libraries/src/Unicode/Utf16EncodingForm.dfy",
+      "bytes": 4957,
+      "sha256": "08df2e95c323ea698dfb3d6fa392a2b1525184b151122d2a83f71cf84cf54be5",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "88c64780dac9fa8aaf733295908049255894a3df"
+    },
+    {
+      "path": "libraries/src/Unicode/Utf8EncodingForm.dfy",
+      "bytes": 9249,
+      "sha256": "72e000d6cc2d82b9057e2444f15893c8de71fb1c8b5f1113a321b3ce7c3ffb99",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "8a41129db00928a065e8fda3589a1de52d7aa2f8"
+    },
+    {
+      "path": "libraries/src/Wrappers.dfy",
+      "bytes": 2663,
+      "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+      "origin": "pinned-upstream",
+      "git_blob_sha": "608d24a56607fd04da13a5c4307398f0abbd76bc"
+    }
+  ],
+  "counts": {
+    "upstream_sources": 102,
+    "additions": 1
+  }
+}
