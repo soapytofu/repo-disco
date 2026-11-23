@@ -1,0 +1,91 @@
+module RepoDiscoStableFilter {
+  import DA = Std.DynamicArray
+  export
+    reveals KeepBelow
+    provides DA, StableFilterBelow
+
+  function KeepBelow(xs: seq<int>, limit: int): seq<int>
+    ensures |KeepBelow(xs, limit)| <= |xs|
+    decreases |xs|
+  {
+    if |xs| == 0 then []
+    else KeepBelow(xs[..|xs| - 1], limit) +
+         (if xs[|xs| - 1] < limit then [xs[|xs| - 1]] else [])
+  }
+
+  method StableFilterBelow(a: DA.DynamicArray<int>, limit: int)
+      returns (removed: nat)
+    requires a.Valid?()
+    requires a.size == |a.items|
+    reads *
+    modifies a, a.Repr
+    ensures a.Valid?()
+    ensures a.size == |a.items|
+    ensures a.items == KeepBelow(old(a.items), limit)
+    ensures removed + a.size == old(a.size)
+    ensures fresh(a.Repr - old(a.Repr))
+    decreases a.size
+  {
+    // BEGIN REPLACEMENT
+var n := a.size;
+var i := 0;
+ghost var original := a.items;
+
+while i < a.size
+  invariant a.Valid?()
+  invariant 0 <= i <= a.size
+  invariant a.size <= n
+  invariant i + (n - a.size) <= n
+  invariant a.items == KeepBelow(original[..i + (n - a.size)], limit)
+  invariant fresh(a.Repr - old(a.Repr))
+  decreases a.size - i
+{
+  var v := a.At(i);
+  if v >= limit {
+    // Remove element at position i by shifting
+    ghost var oldItems := a.items;
+    ghost var oldSize := a.size;
+    var j := i;
+    while j < a.size - 1
+      invariant a.Valid?()
+      invariant i <= j < a.size
+      invariant a.size == oldSize
+      invariant a.items == oldItems[..j] + oldItems[j+1..]
+      invariant fresh(a.Repr - old(a.Repr))
+    {
+      var next := a.At(j + 1);
+      a.Put(j, next);
+      j := j + 1;
+    }
+    a.PopFast();
+    // After removal, a.items == oldItems[..i] + oldItems[i+1..]
+    // We need to prove: a.items == KeepBelow(original[..i + (n - a.size)], limit)
+    assert a.items == oldItems[..i] + oldItems[i+1..];
+    // oldItems == KeepBelow(original[..i + (n - oldSize)], limit)
+    // Now n - a.size == n - oldSize + 1, so i + (n - a.size) == i + (n - oldSize) + 1
+    var idx := i + (n - oldSize);
+    assert original[..idx + 1] == original[..idx] + [original[idx]];
+    assert original[idx] == v;
+    assert v >= limit;
+    assert KeepBelow(original[..idx + 1], limit) == KeepBelow(original[..idx], limit);
+    assert oldItems == KeepBelow(original[..idx], limit);
+    // oldItems[..i] + oldItems[i+1..] == KeepBelow without element at i
+    // But actually v was not in KeepBelow result, so this needs care
+    // Actually v WAS at position i in oldItems, so oldItems[i] == v >= limit is wrong
+    // Wait, oldItems == KeepBelow(..., limit), so all elements < limit
+    // This means v < limit, contradiction with v >= limit branch
+    // No wait - oldItems[i] is at position i in the filtered result
+    // The element v comes from a.At(i) which reads from a.data[i]
+    // After filtering iterations, a.items has only elements < limit up to position i
+    // But we haven't filtered position i yet - we're checking if a.items[i] >= limit
+    // So a.items[i] could be >= limit
+    // Need to reconsider the invariant
+  } else {
+    i := i + 1;
+  }
+}
+
+removed := n - a.size;
+    // END REPLACEMENT
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"ghost var oldItems := a.items;\\nghost var prefix := oldItems[..position];\\nghost var suffix := oldItems[position + deleteCount..];\\n\\nvar newSize := a.size - deleteCount + |replacement|;\\n\\n// Create a new array to hold the result\\nvar newCapacity := if newSize > a.capacity then newSize else a.capacity;\\nvar newData := new T[newCapacity](i requires 0 <= i < newCapacity => \\n  if i < position then a.data[i]\\n  else if i < position + |replacement| then replacement[i - position]\\n  else if i < newSize then a.data[i - |replacement| + deleteCount]\\n  else a.data[0]);\\n\\n// Copy prefix\\nvar i := 0;\\nwhile i < position\\n  invariant 0 <= i <= position\\n  invariant newData[..i] == oldItems[..i]\\n  invariant forall j :: i <= j < newCapacity ==> newData[j] == (\\n    if j < position then a.data[j]\\n    else if j < position + |replacement| then replacement[j - position]\\n    else if j < newSize then a.data[j - |replacement| + deleteCount]\\n    else a.data[0])\\n{\\n  newData[i] := a.data[i];\\n  i := i + 1;\\n}\\n\\nassert newData[..position] == prefix;\\n\\n// Copy replacement\\nvar j := 0;\\nwhile j < |replacement|\\n  invariant 0 <= j <= |replacement|\\n  invariant newData[..position] == prefix\\n  invariant newData[position..position + j] == replacement[..j]\\n{\\n  newData[position + j] := replacement[j];\\n  j := j + 1;\\n}\\n\\nassert newData[..position] == prefix;\\nassert newData[position..position + |replacement|] == replacement;\\n\\n// Copy suffix\\nvar k := 0;\\nvar suffixLen := a.size - position - deleteCount;\\nwhile k < suffixLen\\n  invariant 0 <= k <= suffixLen\\n  invariant newData[..position] == prefix\\n  invariant newData[position..position + |replacement|] == replacement\\n  invariant newData[position + |replacement|..position + |replacement| + k] == suffix[..k]\\n{\\n  newData[position + |replacement| + k] := a.data[position + deleteCount + k];\\n  k := k + 1;\\n}\\n\\nassert newData[..position] == prefix;\\nassert newData[position..position + |replacement|] == replacement;\\nassert newData[position + |replacement|..newSize] == suffix;\\nassert newData[..newSize] == prefix + replacement + suffix;\\n\\na.data := newData;\\na.size := newSize;\\na.capacity := newCapacity;\\na.items := prefix + replacement + suffix;\\na.Repr := {a, a.data};\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"ghost var oldItems := a.items;\\nghost var prefix := oldItems[..position];\\nghost var suffix := oldItems[position + deleteCount..];\\n\\nvar newSize := a.size - deleteCount + |replacement|;\\n\\n// Create a new array to hold the result\\nvar newCapacity := if newSize > a.capacity then newSize else a.capacity;\\nvar newData := new T[newCapacity](i requires 0 <= i < newCapacity => \\n  if i < position then a.data[i]\\n  else if i < position + |replacement| then replacement[i - position]\\n  else if i < newSize then a.data[i - |replacement| + deleteCount]\\n  else a.data[0]);\\n\\n// Copy prefix\\nvar i := 0;\\nwhile i < position\\n  invariant 0 <= i <= position\\n  invariant newData[..i] == oldItems[..i]\\n  invariant forall j :: i <= j < newCapacity ==> newData[j] == (\\n    if j < position then a.data[j]\\n    else if j < position + |replacement| then replacement[j - position]\\n    else if j < newSize then a.data[j - |replacement| + deleteCount]\\n    else a.data[0])\\n{\\n  newData[i] := a.data[i];\\n  i := i + 1;\\n}\\n\\nassert newData[..position] == prefix;\\n\\n// Copy replacement\\nvar j := 0;\\nwhile j < |replacement|\\n  invariant 0 <= j <= |replacement|\\n  invariant newData[..position] == prefix\\n  invariant newData[position..position + j] == replacement[..j]\\n{\\n  newData[position + j] := replacement[j];\\n  j := j + 1;\\n}\\n\\nassert newData[..position] == prefix;\\nassert newData[position..position + |replacement|] == replacement;\\n\\n// Copy suffix\\nvar k := 0;\\nvar suffixLen := a.size - position - deleteCount;\\nwhile k < suffixLen\\n  invariant 0 <= k <= suffixLen\\n  invariant newData[..position] == prefix\\n  invariant newData[position..position + |replacement|] == replacement\\n  invariant newData[position + |replacement|..position + |replacement| + k] == suffix[..k]\\n{\\n  newData[position + |replacement| + k] := a.data[position + deleteCount + k];\\n  k := k + 1;\\n}\\n\\nassert newData[..position] == prefix;\\nassert newData[position..position + |replacement|] == replacement;\\nassert newData[position + |replacement|..newSize] == suffix;\\nassert newData[..newSize] == prefix + replacement + suffix;\\n\\na.data := newData;\\na.size := newSize;\\na.capacity := newCapacity;\\na.items := prefix + replacement + suffix;\\na.Repr := {a, a.data};\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 6138,
+    "outputTokens": 740,
+    "totalTokens": 6878,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "df24af68-8d09-4d29-820d-ffabcc0a067c",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "df24af68-8d09-4d29-820d-ffabcc0a067c",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 23:03:42 GMT",
+        "content-type": "application/json",
+        "content-length": "2643",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "df24af68-8d09-4d29-820d-ffabcc0a067c"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"ghost var oldItems := a.items;\\nghost var prefix := oldItems[..position];\\nghost var suffix := oldItems[position + deleteCount..];\\n\\nvar newSize := a.size - deleteCount + |replacement|;\\n\\n// Create a new array to hold the result\\nvar newCapacity := if newSize > a.capacity then newSize else a.capacity;\\nvar newData := new T[newCapacity](i requires 0 <= i < newCapacity => \\n  if i < position then a.data[i]\\n  else if i < position + |replacement| then replacement[i - position]\\n  else if i < newSize then a.data[i - |replacement| + deleteCount]\\n  else a.data[0]);\\n\\n// Copy prefix\\nvar i := 0;\\nwhile i < position\\n  invariant 0 <= i <= position\\n  invariant newData[..i] == oldItems[..i]\\n  invariant forall j :: i <= j < newCapacity ==> newData[j] == (\\n    if j < position then a.data[j]\\n    else if j < position + |replacement| then replacement[j - position]\\n    else if j < newSize then a.data[j - |replacement| + deleteCount]\\n    else a.data[0])\\n{\\n  newData[i] := a.data[i];\\n  i := i + 1;\\n}\\n\\nassert newData[..position] == prefix;\\n\\n// Copy replacement\\nvar j := 0;\\nwhile j < |replacement|\\n  invariant 0 <= j <= |replacement|\\n  invariant newData[..position] == prefix\\n  invariant newData[position..position + j] == replacement[..j]\\n{\\n  newData[position + j] := replacement[j];\\n  j := j + 1;\\n}\\n\\nassert newData[..position] == prefix;\\nassert newData[position..position + |replacement|] == replacement;\\n\\n// Copy suffix\\nvar k := 0;\\nvar suffixLen := a.size - position - deleteCount;\\nwhile k < suffixLen\\n  invariant 0 <= k <= suffixLen\\n  invariant newData[..position] == prefix\\n  invariant newData[position..position + |replacement|] == replacement\\n  invariant newData[position + |replacement|..position + |replacement| + k] == suffix[..k]\\n{\\n  newData[position + |replacement| + k] := a.data[position + deleteCount + k];\\n  k := k + 1;\\n}\\n\\nassert newData[..position] == prefix;\\nassert newData[position..position + |replacement|] == replacement;\\nassert newData[position + |replacement|..newSize] == suffix;\\nassert newData[..newSize] == prefix + replacement + suffix;\\n\\na.data := newData;\\na.size := newSize;\\na.capacity := newCapacity;\\na.items := prefix + replacement + suffix;\\na.Repr := {a, a.data};\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 6138,
+      "outputTokens": 740,
+      "totalTokens": 6878,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 7575
+    }
+  }
+}

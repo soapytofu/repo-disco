@@ -1,0 +1,11 @@
+{
+  "cwd": "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco",
+  "audit_command": "python3 -B experiments/dafny-real-library-growth-002/execution-001/reviews/independent-collection-001/audit_saved.py",
+  "read_commands": [
+    "rg --files experiments/dafny-real-library-growth-002/execution-001/retrieved-001 | head -80",
+    "rg --files experiments/dafny-real-library-growth-002/execution-001 | rg '(submission|transfer|authorization|review-collection|collection-review|accounting|receipt)'",
+    "sed -n '1,110p' experiments/dafny-real-library-growth-002/stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy"
+  ],
+  "inspection_method": "Manual full response/body, raw diagnostic and export-list reading, followed by the exact archive/source/metadata/guard/native replay saved as audit_saved.py. No subprocess/native/provider invocation in replay. Root independently owns the production collection reviewer.",
+  "initial_audit_correction": "audit-history-001 preserves the first audit helper source and its direct Python tuple/list equality mistake; corrected canonical JSON comparison is used in the final source."
+}

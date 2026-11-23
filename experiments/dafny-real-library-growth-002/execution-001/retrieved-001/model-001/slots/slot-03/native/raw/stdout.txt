@@ -1,0 +1,57 @@
+growth/SpliceRange.dfy(41,45): Warning: unusual indentation in right-hand operand of ==> (which ends at line 45, column 19); do you perhaps need parentheses?
+   |
+41 |   invariant forall j :: i <= j < newCapacity ==> newData[j] == (
+   |                                              ^^^
+
+growth/SpliceRange.dfy(31,25): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+31 |   if i < position then a.data[i]
+   |                          ^^^^
+
+growth/SpliceRange.dfy(33,29): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+33 |   else if i < newSize then a.data[i - |replacement| + deleteCount]
+   |                              ^^^^
+
+growth/SpliceRange.dfy(34,9): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+34 |   else a.data[0]);
+   |          ^^^^
+
+growth/SpliceRange.dfy(42,27): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+42 |     if j < position then a.data[j]
+   |                            ^^^^
+
+growth/SpliceRange.dfy(44,31): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+44 |     else if j < newSize then a.data[j - |replacement| + deleteCount]
+   |                                ^^^^
+
+growth/SpliceRange.dfy(45,11): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+45 |     else a.data[0])
+   |            ^^^^
+
+growth/SpliceRange.dfy(47,18): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+47 |   newData[i] := a.data[i];
+   |                   ^^^^
+
+growth/SpliceRange.dfy(76,45): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+76 |   newData[position + |replacement| + k] := a.data[position + deleteCount + k];
+   |                                              ^^^^
+
+growth/SpliceRange.dfy(85,2): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+85 | a.data := newData;
+   |   ^^^^
+
+growth/SpliceRange.dfy(89,16): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+89 | a.Repr := {a, a.data};
+   |                 ^^^^
+
+10 resolution/type errors detected in BoundedInts.dfy
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/execution-001/model-001/slots/slot-03/native/workspace/TestResults/2026-11-23_18_03_45-0.csv

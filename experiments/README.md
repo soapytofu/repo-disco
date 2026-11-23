@@ -1,16 +1,17 @@
 # Experiment log
 
-## November 23: varied Dafny extensions — native qualification in progress
+## November 23: varied Dafny extensions — three responses before frontend stop
 
-[Four new tasks](dafny-real-library-growth-002/) cover stable filtering, range
-splicing, counted frame decoding and tag/budget validation. Three reference
-scopes pass all 59/81/79 units; the shift-based splice reference exceeds the fixed
-resource limit. After reconnection, the existing rebuild alternative passed all
-60 units at the unchanged limit in its single native check (job 63180476).
-Full source revisions, raw failures, passing evidence and offline logs are saved.
-Remaining controls and final prompt/runtime review gate the eight-call pilot;
-no new model request has occurred. The allocation is 36/100, with 19 earlier
-returned responses and 64 unallocated slots. No prior result was changed.
+[Job 63210633](dafny-real-library-growth-002/execution-001/COLLECTION.md) returned
+one verified counted-frame decoder (81 units), one filter invariant failure and
+one splice visibility failure from unexported `a.data` accesses. All three
+outputs passed extraction/edit guards, with three unique IDs, zero SDK retries
+and 25,719 tokens. The frozen frontend-error rule closed five undispatched slots;
+there is no complete balanced eight-trial score. The 398-file evidence archive
+and strict partial-accounting replay are saved. Before collection, four selected
+references and 26 controls matched all 30 active expectations; earlier resource
+failures remain preserved. Current totals are 22 returned calls, 36 allocated
+slots and 64 unallocated within the 100-call ceiling. No old score changed.
 
 ## November 23: model-generated library growth — twelve of twelve accepted
 

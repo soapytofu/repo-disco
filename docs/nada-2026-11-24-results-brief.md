@@ -1,9 +1,10 @@
 # November 24: real-source repository repair and growth
 
-Reviewed November 23, 2026. **We now have 12 verified executable Dafny additions
-forming six complete two-stage chains on selected real library components,
-plus two complete Vest proof-extension chains.** The earlier Dafny-VMC growth
-attempts still failed; their results are unchanged.
+Reviewed November 23, 2026. **Earlier results include 12 verified executable
+Dafny additions forming six two-stage chains, plus two Vest proof-extension
+chains. A new, more varied partial pilot adds one verified recursive decoder
+and exposes failures in loop invariants and module visibility.** The earlier
+Dafny-VMC growth attempts still failed; their results are unchanged.
 
 ## Project overview and timeline
 
@@ -42,6 +43,34 @@ task chain, not several independent task families.
 [New Dafny collection and full logs](../experiments/dafny-real-library-growth-001/execution-001/COLLECTION.md),
 [new source/request/native audit](../experiments/dafny-real-library-growth-001/execution-001/collection-review-001.json),
 [earlier Vest/Dafny-VMC collection](../experiments/real-repository-growth-001/execution-005/COLLECTION.md).
+
+## New varied-task pilot: stopped early
+
+| Task | Observed result |
+| --- | --- |
+| Stable filtering | 0/1 accepted; a loop invariant is false at entry for any nonempty input |
+| Counted frame decoder | **1/1 accepted; all 81 units pass**, including 77 inherited |
+| Generic splice | 0/1 accepted; directly accesses an unexported `data` field |
+| Tagged/bounded pair | Unobserved |
+
+All three responses passed JSON extraction and the edit guard. The frozen rule
+to stop on frontend errors closed five undispatched slots after the splice
+failure. **This is one accepted addition among three observed responses, not a
+completed balanced eight-trial result.** There were zero SDK retries and
+25,719 tokens. All sources and diagnostics are preserved.
+
+The decoder reuses the actual saved `ReadU16Frame` and recursively handles an
+arbitrary requested count, proving exact payload order, re-encoding and suffix
+preservation. It also reveals the parent definition. The filter failure is a
+bad proof annotation, not an established wrong-output example. The splice
+failure shows that seeing implementation source did not make the model respect
+the exported API. The harness correctly rejected both failed candidates.
+
+This also identifies a design choice to revisit: a future independent-task
+cohort should consider counting fully captured candidate frontend errors as
+trial failures and continuing, while still stopping on infrastructure, integrity
+or provider ambiguity. That policy would be frozen prospectively; this run is
+closed. [Results and full audit](../experiments/dafny-real-library-growth-002/execution-001/COLLECTION.md).
 
 ## Concrete executable extension example
 
@@ -118,5 +147,6 @@ All original scores and stopped-run evidence are preserved.
 
 **Takeaway:** “We can show verified successive executable additions on real
 Dafny library components and successive proofs on Vest, using the model's own
-accepted code. The pipeline works on these tasks; the next research question is
-how far it generalizes and which feedback or tools help when it fails.”
+accepted code. More varied tasks expose invariant and API-boundary failures.
+The pipeline rejects these errors, but the stop policy truncated this pilot;
+we need a balanced follow-up to assess which feedback or tools help.”

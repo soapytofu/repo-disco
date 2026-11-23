@@ -1,0 +1,68 @@
+ghost var oldItems := a.items;
+ghost var prefix := oldItems[..position];
+ghost var suffix := oldItems[position + deleteCount..];
+
+var newSize := a.size - deleteCount + |replacement|;
+
+// Create a new array to hold the result
+var newCapacity := if newSize > a.capacity then newSize else a.capacity;
+var newData := new T[newCapacity](i requires 0 <= i < newCapacity => 
+  if i < position then a.data[i]
+  else if i < position + |replacement| then replacement[i - position]
+  else if i < newSize then a.data[i - |replacement| + deleteCount]
+  else a.data[0]);
+
+// Copy prefix
+var i := 0;
+while i < position
+  invariant 0 <= i <= position
+  invariant newData[..i] == oldItems[..i]
+  invariant forall j :: i <= j < newCapacity ==> newData[j] == (
+    if j < position then a.data[j]
+    else if j < position + |replacement| then replacement[j - position]
+    else if j < newSize then a.data[j - |replacement| + deleteCount]
+    else a.data[0])
+{
+  newData[i] := a.data[i];
+  i := i + 1;
+}
+
+assert newData[..position] == prefix;
+
+// Copy replacement
+var j := 0;
+while j < |replacement|
+  invariant 0 <= j <= |replacement|
+  invariant newData[..position] == prefix
+  invariant newData[position..position + j] == replacement[..j]
+{
+  newData[position + j] := replacement[j];
+  j := j + 1;
+}
+
+assert newData[..position] == prefix;
+assert newData[position..position + |replacement|] == replacement;
+
+// Copy suffix
+var k := 0;
+var suffixLen := a.size - position - deleteCount;
+while k < suffixLen
+  invariant 0 <= k <= suffixLen
+  invariant newData[..position] == prefix
+  invariant newData[position..position + |replacement|] == replacement
+  invariant newData[position + |replacement|..position + |replacement| + k] == suffix[..k]
+{
+  newData[position + |replacement| + k] := a.data[position + deleteCount + k];
+  k := k + 1;
+}
+
+assert newData[..position] == prefix;
+assert newData[position..position + |replacement|] == replacement;
+assert newData[position + |replacement|..newSize] == suffix;
+assert newData[..newSize] == prefix + replacement + suffix;
+
+a.data := newData;
+a.size := newSize;
+a.capacity := newCapacity;
+a.items := prefix + replacement + suffix;
+a.Repr := {a, a.data};

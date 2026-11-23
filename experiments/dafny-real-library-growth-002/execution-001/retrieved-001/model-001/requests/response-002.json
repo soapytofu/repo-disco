@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"if count == 0 then\\n  assert HasCountedFrames(input, 0);\\n  assert BoundedPayloads([]);\\n  assert EncodeFrames([]) == [];\\n  Success(Batch([], input))\\nelse\\n  reveal F.ReadU16Frame();\\n  var frameResult := F.ReadU16Frame(input);\\n  if frameResult.Failure? then\\n    assert !F.HasFrame(input);\\n    assert !HasCountedFrames(input, count);\\n    Failure(frameResult.error)\\n  else\\n    var payload := frameResult.value.payload;\\n    var rest := frameResult.value.rest;\\n    assert F.HasFrame(input);\\n    assert payload == F.FramePayload(input);\\n    assert rest == F.FrameRest(input);\\n    assert U.HasUint16Len(payload);\\n    var recursiveResult := ReadCountedFrames(rest, count - 1);\\n    if recursiveResult.Failure? then\\n      assert !HasCountedFrames(rest, count - 1);\\n      assert !HasCountedFrames(input, count);\\n      Failure(recursiveResult.error)\\n    else\\n      var subPayloads := recursiveResult.value.payloads;\\n      var finalRest := recursiveResult.value.rest;\\n      assert HasCountedFrames(rest, count - 1);\\n      assert HasCountedFrames(input, count);\\n      var payloads := [payload] + subPayloads;\\n      assert |payloads| == count;\\n      assert BoundedPayloads(subPayloads);\\n      assert U.HasUint16Len(payload);\\n      assert payloads[1..] == subPayloads;\\n      assert BoundedPayloads(payloads);\\n      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest;\\n      assert rest == EncodeFrames(subPayloads) + finalRest;\\n      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payloads[0]| as U.uint16) + payloads[0] + EncodeFrames(payloads[1..]);\\n      assert payloads[0] == payload;\\n      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(subPayloads);\\n      assert input == EncodeFrames(payloads) + finalRest;\\n      Success(Batch(payloads, finalRest))\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"if count == 0 then\\n  assert HasCountedFrames(input, 0);\\n  assert BoundedPayloads([]);\\n  assert EncodeFrames([]) == [];\\n  Success(Batch([], input))\\nelse\\n  reveal F.ReadU16Frame();\\n  var frameResult := F.ReadU16Frame(input);\\n  if frameResult.Failure? then\\n    assert !F.HasFrame(input);\\n    assert !HasCountedFrames(input, count);\\n    Failure(frameResult.error)\\n  else\\n    var payload := frameResult.value.payload;\\n    var rest := frameResult.value.rest;\\n    assert F.HasFrame(input);\\n    assert payload == F.FramePayload(input);\\n    assert rest == F.FrameRest(input);\\n    assert U.HasUint16Len(payload);\\n    var recursiveResult := ReadCountedFrames(rest, count - 1);\\n    if recursiveResult.Failure? then\\n      assert !HasCountedFrames(rest, count - 1);\\n      assert !HasCountedFrames(input, count);\\n      Failure(recursiveResult.error)\\n    else\\n      var subPayloads := recursiveResult.value.payloads;\\n      var finalRest := recursiveResult.value.rest;\\n      assert HasCountedFrames(rest, count - 1);\\n      assert HasCountedFrames(input, count);\\n      var payloads := [payload] + subPayloads;\\n      assert |payloads| == count;\\n      assert BoundedPayloads(subPayloads);\\n      assert U.HasUint16Len(payload);\\n      assert payloads[1..] == subPayloads;\\n      assert BoundedPayloads(payloads);\\n      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest;\\n      assert rest == EncodeFrames(subPayloads) + finalRest;\\n      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payloads[0]| as U.uint16) + payloads[0] + EncodeFrames(payloads[1..]);\\n      assert payloads[0] == payload;\\n      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(subPayloads);\\n      assert input == EncodeFrames(payloads) + finalRest;\\n      Success(Batch(payloads, finalRest))\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 11341,
+    "outputTokens": 666,
+    "totalTokens": 12007,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "7ecdd980-9822-49d8-a780-37a3fc101511",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "7ecdd980-9822-49d8-a780-37a3fc101511",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 23:03:20 GMT",
+        "content-type": "application/json",
+        "content-length": "2220",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "7ecdd980-9822-49d8-a780-37a3fc101511"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"if count == 0 then\\n  assert HasCountedFrames(input, 0);\\n  assert BoundedPayloads([]);\\n  assert EncodeFrames([]) == [];\\n  Success(Batch([], input))\\nelse\\n  reveal F.ReadU16Frame();\\n  var frameResult := F.ReadU16Frame(input);\\n  if frameResult.Failure? then\\n    assert !F.HasFrame(input);\\n    assert !HasCountedFrames(input, count);\\n    Failure(frameResult.error)\\n  else\\n    var payload := frameResult.value.payload;\\n    var rest := frameResult.value.rest;\\n    assert F.HasFrame(input);\\n    assert payload == F.FramePayload(input);\\n    assert rest == F.FrameRest(input);\\n    assert U.HasUint16Len(payload);\\n    var recursiveResult := ReadCountedFrames(rest, count - 1);\\n    if recursiveResult.Failure? then\\n      assert !HasCountedFrames(rest, count - 1);\\n      assert !HasCountedFrames(input, count);\\n      Failure(recursiveResult.error)\\n    else\\n      var subPayloads := recursiveResult.value.payloads;\\n      var finalRest := recursiveResult.value.rest;\\n      assert HasCountedFrames(rest, count - 1);\\n      assert HasCountedFrames(input, count);\\n      var payloads := [payload] + subPayloads;\\n      assert |payloads| == count;\\n      assert BoundedPayloads(subPayloads);\\n      assert U.HasUint16Len(payload);\\n      assert payloads[1..] == subPayloads;\\n      assert BoundedPayloads(payloads);\\n      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest;\\n      assert rest == EncodeFrames(subPayloads) + finalRest;\\n      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payloads[0]| as U.uint16) + payloads[0] + EncodeFrames(payloads[1..]);\\n      assert payloads[0] == payload;\\n      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(subPayloads);\\n      assert input == EncodeFrames(payloads) + finalRest;\\n      Success(Batch(payloads, finalRest))\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 11341,
+      "outputTokens": 666,
+      "totalTokens": 12007,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6252
+    }
+  }
+}

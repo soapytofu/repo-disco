@@ -10,34 +10,35 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 23: four more varied additions under qualification
+## November 23: varied additions reveal proof and API-boundary failures
 
-[Varied library growth](../experiments/dafny-real-library-growth-002/) adds stable
-array filtering, generic range splicing, counted frame decoding and tagged,
-size-bounded frame validation. Native references currently pass 59, 81 and 79
-units for filter, counted frames and tagged frames, preserving every inherited
-unit. The shifting splice reference exhausts the unchanged 1M resource limit;
-all proof revisions and failures are published. Its already-constructed rebuild
-alternative now passes all 60 units under the same limit in job 63180476.
+The [new frozen pilot](../experiments/dafny-real-library-growth-002/execution-001/COLLECTION.md)
+stopped after three returned responses: one counted-frame addition passed all
+81 units, one filter failed its loop invariant on entry, and one splice accessed
+the unexported DynamicArray.data field. All three passed extraction/edit guards.
+The frontend-error stop rule closed five undispatched slots; tagged-frame
+validation and all second replicates remain unobserved. This is not a completed
+balanced eight-call score. Job 63210633 used one CPU for 83 seconds, three unique
+request IDs, zero SDK retries and 25,719 tokens. Full evidence/accounting replay
+passed for the 398-file archive; no sources were repaired or rescored.
 
-The Cannon connection was restored; the alternative was submitted once after
-fresh state inspection. Remaining controls, exact prompts and final runtime
-review precede collection. The first 26 control checks matched 24 expectations;
-the two remaining shifting-derived splice cases exhausted the resource limit.
-They stay preserved; two separately versioned controls using the verified
-rebuild alternative now match both intended ordinary proof failures in job
-63185390 (22 seconds, one CPU). All four omitted-coverage cases were correctly rejected,
-and AWS controls show passing callers cannot mask failed helpers. The planned
-eight independent calls (four tasks twice, no retries) are allocated within the
-approved 100-call ceiling: 36 allocated, 64 unallocated, still 19 returned from
-earlier cohorts. No request from this new study has been dispatched. Existing
-model results are unchanged; these new analyst observations are not model scores.
-The final active gate now has 30/30 expected observations (four references plus
-26 controls), with original resource failures preserved outside the active set.
-Four exact prompts and the eight-slot order are frozen; the 54-file execution
-package passes all 98 offline tests locally, in isolation and on Cannon, plus
-the actual eight-slot renderer simulation. No provider client or key access was
-used for preflight. A fresh private handoff remains before authorized collection.
+These tasks were qualified before collection. The final active gate has 30/30
+expected observations: four passing references and 26 controls, including four
+native-success coverage omissions and actual failed-helper/passing-caller cases.
+Three earlier splice resource failures remain preserved outside that active
+matrix. The selected filter/splice/counted/tagged references pass 59/60/81/79
+units under unchanged project limits. Analyst success establishes feasibility,
+not model performance.
+
+Four exact prompts and the eight-slot order remain frozen. The 54-file runner
+passed all 98 offline tests locally, in isolation and on Cannon, plus the actual
+eight-slot renderer simulation without provider/native calls. The original stop
+policy worked as specified but truncated balanced data collection on an ordinary
+candidate frontend failure; a future policy change must be prospective.
+The [new budget observation](../experiments/dafny-real-library-growth-002/research-budget-20261123-008.json)
+records 22 returned calls, 36 allocated slots, 14 permanently closed unused slots
+and 64 unallocated within the user's 100-call ceiling. No current job remains
+active and no old ledger is resumed. All earlier model results remain unchanged.
 
 ## November 23: twelve executable Dafny additions verified
 

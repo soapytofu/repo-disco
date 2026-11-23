@@ -5,6 +5,14 @@ Standard Library and AWS MPL UInt component snapshots. The earlier pilot
 accepted all twelve append/frame additions. Those results motivate tasks with
 new reasoning demands; they do not establish these tasks are harder for models.
 
+**Current result: terminal partial cohort.** Job 63210633 returned three
+responses: counted-frame decoding passed, filtering failed a loop invariant,
+and splicing failed on accesses to an unexported field. The frozen frontend-error
+stop rule closed the remaining five slots. All three outputs passed extraction
+and the edit guard; there were zero SDK retries and 25,719 tokens. This is one
+accepted addition among three observed responses, not a balanced eight-trial
+score. See [results and full evidence](execution-001/COLLECTION.md).
+
 The planned tasks are stable array filtering, generic array splicing, counted
 frame decoding, and tagged/size-bounded frame validation. Each is an independent
 addition to a fixed source snapshot that includes previously accepted model
@@ -37,11 +45,12 @@ Only the current method/function body is editable; types,
 contracts, fixed specification helpers, upstream files, saved accepted code,
 termination clauses and the explicit source registration remain host-owned.
 
-The bounded pilot will allocate at most **eight new calls**: four tasks times
+The bounded pilot allocated at most **eight new calls**: four tasks times
 two fresh contexts. Task order is reversed for the second replicate. Ordinary
 proof failures remain failures; collection is not extended to reach a favorable
-score. Infrastructure, source-integrity or ambiguous provider failures stop
-dispatch. There are no retries or reassigned slots.
+score. The frozen policy also stops on candidate frontend errors, new warnings,
+infrastructure, source-integrity or ambiguous provider failures. There are no
+retries or reassigned slots.
 
 The primary outcome is strict acceptance of the complete selected workspace,
 reported separately for each task (two planned responses each). Also report
@@ -52,16 +61,14 @@ supplied APIs are descriptive; alternative direct implementations are valid.
 The earlier twelve accepted additions remain a separate, simpler development
 cohort, not a matched control or evidence of a causal difficulty difference.
 
-The user's existing 100-call ceiling covers this requested pilot. The latest
-completed budget snapshot allocates 28 calls, with 19 returned responses and
-nine unused slots permanently closed. Eight new slots are now allocated in snapshot 007, bringing cumulative
-allocation to 36 and leaving 64 unallocated. No request has been dispatched for
-this cohort. The [four prompts and eight-slot order](pilot/README.md) are frozen.
-The [bounded runner](execution-001/README.md) is staged: 98 tests pass locally,
-in the isolated manifest package and on Cannon; the actual eight-slot renderer
-simulation also passes without provider or native calls. A fresh private handoff
-and hash-bound execution authorization remain before submission; the existing
-user approval covers this eight-call scope.
+The [budget observation](research-budget-20261123-008.json) records 36 slots
+allocated within the user's 100-call ceiling, 22 returned responses across the
+session, 14 permanently closed unused slots and 64 unallocated. The current
+claim/ledger is terminal; its five undispatched slots cannot be reused.
+The [four prompts and eight-slot order](pilot/README.md) and
+[bounded runner](execution-001/README.md) remain frozen. Before collection,
+98 tests passed locally, in the isolated package and on Cannon; the actual
+eight-slot renderer simulation passed without provider or native calls.
 
 This is selected-component development evidence. The Standard Library ancestry
 shared with AWS, supplied contracts, prior exposure to the task families and

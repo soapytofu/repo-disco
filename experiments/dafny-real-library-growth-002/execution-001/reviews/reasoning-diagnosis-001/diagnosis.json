@@ -1,0 +1,352 @@
+{
+  "findings": {
+    "slot-01": {
+      "additional_source_only_observation": {
+        "line": 53,
+        "not_an_additional_reported_native_error": true,
+        "reason": "The inner invariant equates a.items of oldSize elements with oldItems[..j] + oldItems[j+1..], which has oldSize-1 elements before PopFast. It describes completed deletion too early. For oldItems=[2,1], i=j=0, limit=2, its two sides are [2,1] and [1]."
+      },
+      "counterexample": {
+        "capacity": 1,
+        "invariant_lhs": [
+          1
+        ],
+        "invariant_rhs": [],
+        "items": [
+          1
+        ],
+        "kind": "Analytical counterexample to the assertion, not a native execution or runtime-output counterexample",
+        "limit": 2,
+        "manual_executable_trace": "Ignoring proof annotations, At(0)=1 < 2, so i becomes 1; loop ends with items=[1], removed=0, which meets the requested result on this input. This trace does not establish general correctness.",
+        "representation": "A valid one-element array with Repr={a,data}, data=[1].",
+        "size": 1
+      },
+      "entry_substitution": "n=a.size, i=0, original=a.items imply a.items == KeepBelow(original[..0], limit) == [].",
+      "finding": "False loop invariant on entry; no wrong-output counterexample is established.",
+      "limitation": "Recognizable shift-and-pop intent is not proof that the complete executable body is correct.",
+      "reported_source_line": 39,
+      "source_line_references": {
+        "initialization": [
+          30,
+          31,
+          32
+        ],
+        "inner_invariant": 53,
+        "model_comments_noticing_invariant_issue": [
+          73,
+          82
+        ],
+        "outer_invariant": 39,
+        "pop": 60
+      }
+    },
+    "slot-02": {
+      "finding": "Successful parameterized recursive counted-frame extension of the exact saved model-grown frame API.",
+      "native_label_note": "Dafny emits the function proof as ReadCountedFrames (well-formedness). That actual label is used; no fabricated separate correctness label.",
+      "reasoning": [
+        "count=0 succeeds with no payloads and the whole input as remainder, even if that input is malformed as a frame.",
+        "For positive count, first-frame failure or recursive failure propagates and establishes failure of HasCountedFrames.",
+        "Recursion consumes the actual frame remainder and decreases count; successful payloads retain order and have exactly the requested count and uint16 length bounds.",
+        "The parent reconstruction identity and recursive identity combine to prove the full input equals encoded payloads plus finalRest; the exact suffix postcondition is included in the verified fixed contract."
+      ],
+      "reuse": {
+        "explicit_parent_reveal_sites": 1,
+        "pair_api_called": false,
+        "parent_body_lines": [
+          39,
+          63
+        ],
+        "parent_contract_lines": [
+          26,
+          35
+        ],
+        "parent_file": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+        "parent_sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "qualification": "This reveals the opaque parent body. It is observed API reuse with body visibility, not demonstrated contract-only abstraction; necessity, minimality and causal benefit were not tested.",
+        "syntactic_parent_application_sites": 1,
+        "syntactic_self_recursive_application_sites": 1
+      },
+      "source_line_references": {
+        "feasibility_predicate": [
+          10,
+          14
+        ],
+        "first_frame_failure": [
+          53,
+          56
+        ],
+        "fixed_contracts": [
+          33,
+          42
+        ],
+        "parent_call": 52,
+        "parent_reveal": 51,
+        "payload_count_and_bounds": [
+          74,
+          79
+        ],
+        "recursive_call": 64,
+        "recursive_failure": [
+          65,
+          68
+        ],
+        "reencoding_chain": [
+          80,
+          85
+        ],
+        "success": 86,
+        "zero_count": [
+          45,
+          49
+        ]
+      }
+    },
+    "slot-03": {
+      "append_api_called": false,
+      "data_access_lines": [
+        31,
+        33,
+        34,
+        42,
+        44,
+        45,
+        47,
+        76,
+        85,
+        89
+      ],
+      "export_lines": [
+        5,
+        19
+      ],
+      "export_reason": "The prompt displays the exact whole upstream file, including its implementation, but the default export provides At, Put, Push, PopFast and other listed members, not DynamicArray.data. Reading that source text does not import the hidden field into RepoDiscoSplice.",
+      "export_source": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+      "finding": "Model source violates the exact default export boundary; native resolution fails before proof checking.",
+      "guard_interpretation": "The body passed the bounded edit/grammar guard and preserved fixed sources. Full language/API name resolution is delegated to Dafny; accepting the replacement for native checking is not itself a guard defect. The saved native result rejects the candidate and the frozen host policy marks it terminal.",
+      "hidden_field_declaration_line": 36,
+      "indentation_warning_ends_at_line": 45,
+      "indentation_warning_line": 41,
+      "limitation": "The header-only CSV has zero proof rows, so no mathematical correctness or runtime-output conclusion is inferred. The indentation warning is separate from the ten resolution errors, not a warning-only outcome.",
+      "resolution_errors": 10
+    }
+  },
+  "inspected_files": {
+    "execution-001/retrieved-001/model-001/slots/slot-01/body.txt": "4d65ba12c4e8dc855d2cad171133d44f267077b881f53de8c927def93261cec9",
+    "execution-001/retrieved-001/model-001/slots/slot-01/candidate/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "execution-001/retrieved-001/model-001/slots/slot-01/candidate/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "execution-001/retrieved-001/model-001/slots/slot-01/candidate/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "execution-001/retrieved-001/model-001/slots/slot-01/candidate/growth/StableFilterBelow.dfy": "de7157539a791397857b54397e88d34b8f88f7932602f42f042b1573206a4319",
+    "execution-001/retrieved-001/model-001/slots/slot-01/edit-review.json": "bcc5f51a23bf0e878968002250f0bc5344b7adc7fcb32ea0a0358595127df0c8",
+    "execution-001/retrieved-001/model-001/slots/slot-01/envelope.json": "5943a7fb0846391a2fd9d2fdc9ac7aa76eaafc7200a49725109aa4d98c4ba3c8",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native-profile.json": "c48a8e685ec9e846f47158d18ee764347d1a573bf96c00d166ea982203e59f01",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native-review.json": "c37c7423e98efd249f229fb41809f0326854bd018461cd40fc6390cf5f639ee0",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/raw/csv/TestResults/2026-11-23_18_03_04-0.csv": "c8d18bf37bc389aaf52ed874b919fe69f5c39c27af016264702ff92281eec052",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/raw/resources.txt": "1ed1fdca7ce239ea65d24bf5ca5356ef98b0d4c4dda95fb9efe9064bcc7395d6",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/raw/stdout.txt": "15a996764e7e8f12c871c0c94e96fca53b75ed73a6b66f184206769c681c33df",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/record.json": "88c7888ff7eb7997c268a340fce03eb25fbb90d17bde0804a7e52f37501150e0",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "execution-001/retrieved-001/model-001/slots/slot-01/native/workspace/growth/StableFilterBelow.dfy": "de7157539a791397857b54397e88d34b8f88f7932602f42f042b1573206a4319",
+    "execution-001/retrieved-001/model-001/slots/slot-01/outcome.json": "50f6ba19a905e2d4e409c5a7fb30a27f7f138540451453b1700f2075cce2738c",
+    "execution-001/retrieved-001/model-001/slots/slot-01/prompt.json": "ca7a04cda2d6937972c61fe80a8343482d8a99478cd65d6ecd392ff816568604",
+    "execution-001/retrieved-001/model-001/slots/slot-01/response-binding.json": "4f5c15e01f1ae1f4babd0b67fe979b071df6672c0817df5da2a057548a18d5ac",
+    "execution-001/retrieved-001/model-001/slots/slot-02/body.txt": "360e70f468c2a98ed7526f54241b17b69b340195c2db94d776031d03860a259f",
+    "execution-001/retrieved-001/model-001/slots/slot-02/candidate/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "8a9bfd096ff57a5728b5e2c2d9aa5fd43d2a947ee114fca8d270a487bdca2ada",
+    "execution-001/retrieved-001/model-001/slots/slot-02/candidate/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "execution-001/retrieved-001/model-001/slots/slot-02/candidate/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "execution-001/retrieved-001/model-001/slots/slot-02/candidate/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "execution-001/retrieved-001/model-001/slots/slot-02/candidate/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "execution-001/retrieved-001/model-001/slots/slot-02/candidate/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "execution-001/retrieved-001/model-001/slots/slot-02/edit-review.json": "642a51f492a106e3ec379889506a575591f0856729e376417a255815b7a33b82",
+    "execution-001/retrieved-001/model-001/slots/slot-02/envelope.json": "fa6a4ab0339d25db162a5c4cda8897d83e51069de1e5313fde969a56ab2d4400",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native-profile.json": "ede77b27bf7b73564a754e292503f2c6f929069e14b5d674703c57c7d2077253",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native-review.json": "78315f92fd52fde9051fa4ab589628aa23155ab960957801670d4edb4ba7ce16",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/raw/csv/TestResults/2026-11-23_18_03_23-0.csv": "d06d13fd57dfc9aea83c66610e5dfb3c81603ecb6002ea8c67d2dbc3057926f8",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/raw/resources.txt": "f1bd540df6bfbf9b3ff851721951b94097e2733ec358b0d7a84e5af97c2c5994",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/raw/stdout.txt": "11e8da5ff6c50ff5b6dfdf7350c32f3f33c6a0f74b1a25a88a915078d7fc650d",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/record.json": "c559e5c15bed426d16d84dde04a2872844030540b36bc8b372a0ba36b6fda5ad",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/workspace/StandardLibrary/src/RepoDiscoFrameBatch.dfy": "8a9bfd096ff57a5728b5e2c2d9aa5fd43d2a947ee114fca8d270a487bdca2ada",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "execution-001/retrieved-001/model-001/slots/slot-02/native/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "execution-001/retrieved-001/model-001/slots/slot-02/outcome.json": "4e626bd453ffe05b96855564496ab4c12a1078ee363a2b76840fed0781b26931",
+    "execution-001/retrieved-001/model-001/slots/slot-02/prompt.json": "9a02955d515971376bea1765b1d810d0c9a5d52e6b170404c8d708c2d3c9b35a",
+    "execution-001/retrieved-001/model-001/slots/slot-02/response-binding.json": "a46a4a72b1f8f95a6c16384d1dda6a9977e04418d9cea50b5e339b5abeca2d6f",
+    "execution-001/retrieved-001/model-001/slots/slot-03/body.txt": "122bf249eef45e7511c9993c5bc77c27cd0f53de3ef59a9189ea361656d9e388",
+    "execution-001/retrieved-001/model-001/slots/slot-03/candidate/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "execution-001/retrieved-001/model-001/slots/slot-03/candidate/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "execution-001/retrieved-001/model-001/slots/slot-03/candidate/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "execution-001/retrieved-001/model-001/slots/slot-03/candidate/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "execution-001/retrieved-001/model-001/slots/slot-03/candidate/growth/SpliceRange.dfy": "eb2792c1f0b32f5bd699e2f5bf62328a6ab19444609187dd07c31594cc5dfd03",
+    "execution-001/retrieved-001/model-001/slots/slot-03/edit-review.json": "d0af225b264cd230a218ff0994f7b5aff53698fac84e95594b0c0e2d26c0d96b",
+    "execution-001/retrieved-001/model-001/slots/slot-03/envelope.json": "7a323d2b9d2dc5941b31133944cd48e80acf9d6852244f369e8c59dbe339413a",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native-profile.json": "bedfce590bd58d18280bc0e52d20f8369ed827016ee69020f28f458136877bda",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native-review.json": "604a4654977d33351f6d42b6be594fa63f47a59a8d6a5cca28f2ab19f582ff99",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/raw/csv/TestResults/2026-11-23_18_03_45-0.csv": "9d1467d8d66cefea4159016fc7e26b4378d28bd9c3db498178b5cb49b5f28499",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/raw/resources.txt": "da94e4fac3850c4b7900c25a73ed92cd8cf4cb33353b4f77c739112baf823088",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/raw/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/raw/stdout.txt": "90840c37aa6db815698511bc65b636a4f993b0d992b658f7110e5a81a32ceff9",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/record.json": "6ad818de0850075ae1c6304fa383e9ded9396febf0c4d68845d8cf735c59e22f",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/workspace/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/workspace/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/workspace/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/workspace/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "execution-001/retrieved-001/model-001/slots/slot-03/native/workspace/growth/SpliceRange.dfy": "eb2792c1f0b32f5bd699e2f5bf62328a6ab19444609187dd07c31594cc5dfd03",
+    "execution-001/retrieved-001/model-001/slots/slot-03/outcome.json": "ae38bf926431ead7c04cb295e9430c1359c81fc5e83317939c87c752db295aa0",
+    "execution-001/retrieved-001/model-001/slots/slot-03/prompt.json": "3c1a8964f07d9d32ee8b49929c6ce1d08c5ff053b7bbfcd308ce11de5810931c",
+    "execution-001/retrieved-001/model-001/slots/slot-03/response-binding.json": "51696729c070df16f7ff2da04583a445e1030a93e905aef3a96118bbe35336c2"
+  },
+  "limitations": [
+    "No aggregate result is assigned to undispatched or uninspected slots.",
+    "These observations do not establish broad model capability, causal reuse/structure effects, general cross-project performance or held-out generalization.",
+    "Analytical traces and inferred source issues are distinguished from saved native diagnostics."
+  ],
+  "new_model_calls": 0,
+  "new_native_verifier_calls": 0,
+  "observations": {
+    "slot-01": {
+      "accepted": false,
+      "body_sha256": "4d65ba12c4e8dc855d2cad171133d44f267077b881f53de8c927def93261cec9",
+      "category": "PROOF_FAILURE",
+      "checks": {
+        "candidate_equals_native_source_bytes": true,
+        "csv_counts_match_saved_review": true,
+        "fixed_template_plus_exact_body_reconstructs_candidate": true,
+        "prompt_fixed_source_bytes_exact": true,
+        "raw_capture_hashes_match": true,
+        "source_maps_before_after_unchanged": true,
+        "tools_before_after_unchanged": true
+      },
+      "csv_rows": 59,
+      "failed_units": 1,
+      "native_elapsed_seconds": 3.787649404956028,
+      "native_exit": 4,
+      "native_run_id": "dafny-real-library-growth-002-execution-001:7f3f447aece74333921cd397f7d00b5f:slot-01",
+      "new_named_units": [
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_04-0.csv",
+          "name": "RepoDiscoStableFilter.StableFilterBelow (correctness)",
+          "outcome": "Failed",
+          "row": 3
+        },
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_04-0.csv",
+          "name": "RepoDiscoStableFilter.KeepBelow (well-formedness)",
+          "outcome": "Passed",
+          "row": 4
+        },
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_04-0.csv",
+          "name": "RepoDiscoStableFilter.StableFilterBelow (well-formedness)",
+          "outcome": "Passed",
+          "row": 5
+        }
+      ],
+      "passed_units": 58,
+      "prompt_fixed_files": 3,
+      "proof_coverage_complete": true,
+      "request_id": "d6e463d6-43a5-4256-9602-e4b8da6e74fd",
+      "saved_outcome": "NATIVE_REJECTED",
+      "source_files": 4,
+      "target": "growth/StableFilterBelow.dfy",
+      "target_sha256": "de7157539a791397857b54397e88d34b8f88f7932602f42f042b1573206a4319",
+      "task": "stdlib-filter",
+      "warnings": 0
+    },
+    "slot-02": {
+      "accepted": true,
+      "body_sha256": "360e70f468c2a98ed7526f54241b17b69b340195c2db94d776031d03860a259f",
+      "category": "VERIFIED",
+      "checks": {
+        "candidate_equals_native_source_bytes": true,
+        "csv_counts_match_saved_review": true,
+        "fixed_template_plus_exact_body_reconstructs_candidate": true,
+        "prompt_fixed_source_bytes_exact": true,
+        "raw_capture_hashes_match": true,
+        "source_maps_before_after_unchanged": true,
+        "tools_before_after_unchanged": true
+      },
+      "csv_rows": 81,
+      "failed_units": 0,
+      "native_elapsed_seconds": 6.71098929294385,
+      "native_exit": 0,
+      "native_run_id": "dafny-real-library-growth-002-execution-001:7f3f447aece74333921cd397f7d00b5f:slot-02",
+      "new_named_units": [
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_23-0.csv",
+          "name": "RepoDiscoFrameBatch.ReadCountedFrames (well-formedness)",
+          "outcome": "Passed",
+          "row": 3
+        },
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_23-0.csv",
+          "name": "RepoDiscoFrameBatch.HasCountedFrames (well-formedness)",
+          "outcome": "Passed",
+          "row": 4
+        },
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_23-0.csv",
+          "name": "RepoDiscoFrameBatch.EncodeFrames (well-formedness)",
+          "outcome": "Passed",
+          "row": 22
+        },
+        {
+          "csv": "csv/TestResults/2026-11-23_18_03_23-0.csv",
+          "name": "RepoDiscoFrameBatch.BoundedPayloads (well-formedness)",
+          "outcome": "Passed",
+          "row": 28
+        }
+      ],
+      "passed_units": 81,
+      "prompt_fixed_files": 5,
+      "proof_coverage_complete": true,
+      "request_id": "7ecdd980-9822-49d8-a780-37a3fc101511",
+      "saved_outcome": "ACCEPTED",
+      "source_files": 6,
+      "target": "StandardLibrary/src/RepoDiscoFrameBatch.dfy",
+      "target_sha256": "8a9bfd096ff57a5728b5e2c2d9aa5fd43d2a947ee114fca8d270a487bdca2ada",
+      "task": "aws-batch",
+      "warnings": 0
+    },
+    "slot-03": {
+      "accepted": false,
+      "body_sha256": "122bf249eef45e7511c9993c5bc77c27cd0f53de3ef59a9189ea361656d9e388",
+      "category": "FRONTEND_RESOLUTION_FAILURE",
+      "checks": {
+        "candidate_equals_native_source_bytes": true,
+        "csv_counts_match_saved_review": true,
+        "fixed_template_plus_exact_body_reconstructs_candidate": true,
+        "prompt_fixed_source_bytes_exact": true,
+        "raw_capture_hashes_match": true,
+        "source_maps_before_after_unchanged": true,
+        "tools_before_after_unchanged": true
+      },
+      "csv_rows": 0,
+      "failed_units": 0,
+      "native_elapsed_seconds": 1.2262918939813972,
+      "native_exit": 2,
+      "native_run_id": "dafny-real-library-growth-002-execution-001:7f3f447aece74333921cd397f7d00b5f:slot-03",
+      "new_named_units": [],
+      "passed_units": 0,
+      "prompt_fixed_files": 4,
+      "proof_coverage_complete": false,
+      "request_id": "df24af68-8d09-4d29-820d-ffabcc0a067c",
+      "saved_outcome": "TERMINAL_NATIVE_FAILURE",
+      "source_files": 5,
+      "target": "growth/SpliceRange.dfy",
+      "target_sha256": "eb2792c1f0b32f5bd699e2f5bf62328a6ab19444609187dd07c31594cc5dfd03",
+      "task": "stdlib-splice",
+      "warnings": 1
+    }
+  },
+  "schema": "repodisco-saved-candidate-reasoning-diagnosis-v1",
+  "scope": "Only actual saved slots 01-03; partial cohort, selected library components.",
+  "score_changes": 0,
+  "source_repairs": 0,
+  "status": "READ_ONLY_DIAGNOSIS_COMPLETE"
+}

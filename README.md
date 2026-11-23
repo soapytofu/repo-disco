@@ -2,7 +2,7 @@
 
 Research on extending verified program discovery toward multi-module repositories, built on Formal Disco.
 
-**Latest evidence (November 23): [twelve executable Dafny additions](experiments/dafny-real-library-growth-001/execution-001/COLLECTION.md)** verified across six two-stage lineages on selected Standard Library and AWS UInt components. The [next four extension tasks](experiments/dafny-real-library-growth-002/) are undergoing native qualification before an eight-call pilot; no new model requests have run. See the [current research progress](docs/research-progress.md) and [November 24 meeting brief](docs/nada-2026-11-24-results-brief.md). These are constrained component studies, not whole-project or held-out results.
+**Latest evidence (November 23): [the varied Dafny pilot](experiments/dafny-real-library-growth-002/execution-001/COLLECTION.md)** returned one verified recursive frame decoder, one filter proof failure and one splice API-visibility failure. Its frozen frontend-error rule stopped the remaining five slots, so the eight-trial comparison is incomplete. The earlier [12/12 executable additions across six two-stage lineages](experiments/dafny-real-library-growth-001/execution-001/COLLECTION.md) remain unchanged. See [research progress](docs/research-progress.md) and the [November 24 meeting brief](docs/nada-2026-11-24-results-brief.md). These are constrained component studies, not whole-project or held-out results.
 
 **Start here: [Cannon, Dafny, OpenAI, and AWS Bedrock setup](docs/setup/README.md).** The guide includes session recovery, private key entry, verification checks, and pilot reproduction instructions.
 
