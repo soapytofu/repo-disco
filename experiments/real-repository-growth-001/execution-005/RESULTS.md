@@ -1,5 +1,8 @@
 # Bounded resource-outcome runner preparation
 
+Subsequent authorized collection: [job 63033780 is running](COLLECTION.md).
+The preparation record below describes the earlier offline checkpoint.
+
 Prepared November 23, 2026. **No additional model or native verifier calls**
 were made to construct or qualify execution-005. This is host-policy preparation,
 not a model repair or additional mathematical verification result. The first

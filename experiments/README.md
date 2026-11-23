@@ -1,5 +1,15 @@
 # Experiment log
 
+## Fresh sequential growth cohort — single submission running
+
+[Execution-005 job 63033780](real-repository-growth-001/execution-005/COLLECTION.md)
+started on nonpreemptible `shared`, one CPU/8 GB, no requeue or restarts. The
+fresh eight-call maximum is within the approved 100-new-call ceiling; 16 slots
+are allocated across both new cohorts and 84 remain unallocated. All previous
+terminal ledgers remain closed. Prompts and proof acceptance are fixed; a
+failed parent blocks its child without retry or reassignment. Collection is
+in progress; no full cohort score is claimed before evidence review.
+
 ## Sequential real-source growth — resource-outcome runner ready
 
 [Execution-005](real-repository-growth-001/execution-005/RESULTS.md) passes

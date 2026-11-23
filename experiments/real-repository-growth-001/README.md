@@ -1,5 +1,10 @@
 # Sequential additions to qualified real repositories
 
+**Active collection:** [job 63033780](execution-005/COLLECTION.md) started on
+nonpreemptible `shared`, one CPU/8 GB, no requeue or restarts. It has at most
+eight fresh calls, no retries/reassignment, within the existing 100-call ceiling.
+Full cohort and native evidence are pending; older failures remain unchanged.
+
 **Latest collection:** [job 63018923](execution-004/COLLECTION.md) returned one
 admitted Dafny candidate, then stopped on its verifier resource failure. All 267
 upstream units pass; the new MoveToFront body is incorrect on a concrete
@@ -15,10 +20,9 @@ passes all **112 tests locally and on Cannon**, plus five intercepted-SDK
 scenarios. It contains a fully evidenced Dafny solver-resource failure within
 its lineage; the candidate remains unaccepted and its child is blocked, while
 independent lineages continue. Proof acceptance, prompts, limits and no-retry
-rules are unchanged. The exact package is staged; no new authorization or job
-exists. The next fresh cohort can allocate at most eight of the 92 unallocated
-calls under the existing ceiling. It needs a new private handoff because the
-previous job consumed it. Preparation made no model or native verifier calls.
+rules are unchanged. The exact package was staged and then separately authorized under the
+existing ceiling after Sophie confirmed a private handoff. The active collection
+is linked above. Preparation itself made no model or native verifier calls.
 
 **Last collection stopped:** Sophie separately approved up to eight new calls for
 [execution-003](execution-003/approval-receipt-001.json), with no retries or

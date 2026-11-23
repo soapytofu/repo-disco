@@ -17,14 +17,16 @@ remain separate closed records. The latest invocation establishes working
 access for that request only.
 
 Sophie approved a total ceiling of **100 new calls**, with confirmation before
-exceeding it. Eight are allocated, one used and seven unused in the closed
-allocation; **92 remain unallocated**. The [budget snapshot](../experiments/real-repository-growth-001/research-budget-20261123-002.json)
-records this. The separate [execution-005](../experiments/real-repository-growth-001/execution-005/RESULTS.md)
+exceeding it. Sixteen slots are allocated across the closed first cohort
+and the fresh eight-call cohort; **84 remain unallocated**. The earlier
+allocation used one request and closed seven unused slots. The [budget snapshot](../experiments/real-repository-growth-001/research-budget-20261123-003.json)
+records the new allocation. The separate [execution-005](../experiments/real-repository-growth-001/execution-005/RESULTS.md)
 now passes 112 tests locally and on Cannon plus five intercepted-SDK scenarios.
 It records complete, source-bound resource failures as unaccepted, blocks their
 children and continues independent lineages. Missing evidence, process timeouts,
 integrity or provider failures remain terminal; prompts and proof acceptance
-stay fixed. The next cohort is staged, awaiting private handoff; it has not run.
+stay fixed. The fresh cohort is now running as [job 63033780](../experiments/real-repository-growth-001/execution-005/COLLECTION.md),
+with one CPU and no retries. Its full outcome is pending review.
 
 ## Main message
 

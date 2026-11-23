@@ -10,6 +10,19 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 23: fresh eight-call growth cohort running
+
+After Sophie confirmed private handoff readiness, the [fresh allocation and
+single submission](../experiments/real-repository-growth-001/execution-005/COLLECTION.md)
+started as job **63033780**, at 04:20:15 Eastern on nonpreemptible `shared`.
+One CPU, 8 GB, four hours, no requeue or restarts. Fresh inspection matched all
+4,189 source pins, both container images and 4,160 verifier-tool files. There
+was no prior output, ledger, authorization or matching job. The fresh scope is
+at most eight calls within the existing 100-call ceiling; 16 slots are allocated
+across two cohorts and 84 remain unallocated. The earlier one-response failure
+and its seven closed unused slots are unchanged. Results and actual-parent
+lineage evidence are pending; no complete cohort score exists yet.
+
 ## November 23: bounded resource-outcome runner qualified for a fresh cohort
 
 The separate [execution-005](../experiments/real-repository-growth-001/execution-005/RESULTS.md)
