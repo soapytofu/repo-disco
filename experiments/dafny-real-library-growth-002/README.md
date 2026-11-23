@@ -14,11 +14,12 @@ extension of model-grown components, not a newly collected two-stage trajectory.
 
 Reference solutions, exact native unit inventories, targeted proof failures and
 coverage controls must be reviewed before collection. The initial AWS references
-pass; the array references have preserved frame/invariant proof failures and
-are undergoing explicit versioned corrections. The second reference run reduced
-the remaining diagnostics to one filter invariant and two splice obligations.
+pass, and the revised filter now passes all 59 native units. Splice has one
+remaining loop-frame proof failure after explicit versioned corrections; all
+earlier failures remain preserved.
 See [initial native results](qualification-001/RESULTS.md) and
-[revised reference results](qualification-003/RESULTS.md).
+[revised reference results](qualification-003/RESULTS.md), and
+[passing filter / remaining splice diagnostic](qualification-004/RESULTS.md).
 Only the current method/function body is editable; types,
 contracts, fixed specification helpers, upstream files, saved accepted code,
 termination clauses and the explicit source registration remain host-owned.
