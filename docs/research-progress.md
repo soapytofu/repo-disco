@@ -34,6 +34,12 @@ an account-owner check of existing settings/logs is pending. No key or model
 test is requested. This is distinct from the prior host credential-lifetime
 bug and provides no evidence about the model's reasoning performance.
 
+A separate [provider-error metadata component](../experiments/real-repository-growth-001/provider-error-diagnostic-001/README.md)
+passed nine synthetic offline tests, with full logs and root review. It retains
+only allowlisted, bounded fields and redacts explicitly supplied secret strings.
+The component remains unintegrated; no frozen runner changed and no further
+provider or native calls were made. It cannot recover the missing denial details.
+
 ## November 22: initial growth attempt and correction history
 
 Sophie explicitly approved the frozen maximum of eight new calls, with no

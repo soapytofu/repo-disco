@@ -59,6 +59,14 @@ error; the original AWS explanation, request ID and HTTP status are absent.
 They cannot be recovered from these saved files. This logging limitation is
 part of the result and must not be concealed by fabricating error details.
 
+A separate [offline metadata adapter](../provider-error-diagnostic-001/README.md)
+now extracts five allowlisted fields from synthetic SDK-shaped error records,
+with explicit literal-secret redaction and bounded text. Nine focused tests and
+root source/log review pass. It is not integrated into this frozen runner and
+cannot recover the missing actual denial details, check permissions or authorize
+another request. Any future integration must preserve the original exception
+and the request gate's terminal behavior.
+
 The archive does not identify a particular IAM rule, model entitlement, key
 expiry, region restriction or billing issue. AWS's
 [Bedrock error guidance](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)

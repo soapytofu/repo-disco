@@ -1,0 +1,26 @@
+{
+  "schema": "repodisco-offline-provider-error-root-review-v1",
+  "status": "PASS_OFFLINE_ONLY",
+  "final_focused_tests": 9,
+  "final_source_and_transcript_hashes_match": true,
+  "prior_source_and_transcript_preserved": true,
+  "frozen_execution_changes": false,
+  "runner_integration": false,
+  "models_or_native_verifiers_called": false,
+  "credential_or_network_access": false,
+  "provider_cause_inferred": false,
+  "root_repeated_unchanged_tests": false,
+  "source_sha256": {
+    "README.md": "226ee702e1c729258aa8d667cdbcc5aeb1ba9b7736757b975d1028f9f00e198f",
+    "provider_error.py": "5cc3ee6a22ac4a8cbcb6128db02fdfaf8901d92c78f440d0b2844454c6db7625",
+    "test_provider_error.py": "9c62f11f03b40ed706249c155295adef3372ac15ecac5d95f0ef809904d2e12a"
+  },
+  "review_notes": [
+    "Inspected pure exact-dictionary extraction; only five declared fields can leave the adapter.",
+    "Unknown and malformed values remain null; no HTTP status, retry count or cause is inferred from an exception name.",
+    "Redaction is only exact literal caller-supplied values; it does not detect unlisted or transformed secrets.",
+    "Future integration must supply known secrets, preserve and re-raise the original error even if diagnostic extraction fails, and retain the terminal request-gate behavior.",
+    "The nine synthetic tests are local component evidence, not an SDK integration test, permission check, model response or proof.",
+    "Original AccessDeniedException details remain unrecoverable from the stopped archive."
+  ]
+}
