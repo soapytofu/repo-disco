@@ -1,39 +1,50 @@
 # Sequential additions to qualified real repositories
 
-**Active collection:** [job 63033780](execution-005/COLLECTION.md) started on
-nonpreemptible `shared`, one CPU/8 GB, no requeue or restarts. It has at most
-eight fresh calls, no retries/reassignment, within the existing 100-call ceiling.
-Full cohort and native evidence are pending; older failures remain unchanged.
+**Latest reviewed result:** [job 63033780](execution-005/COLLECTION.md) completed
+**2/2 Vest two-addition lineages and 0/2 Dafny-VMC lineages**. Four of six returned
+additions were accepted, with zero retries and two blocked child slots. Both
+Vest children explicitly use their own accepted model parent; all parent source
+bytes remain protected. Both Dafny additions exhausted the fixed resource limit.
+One is demonstrably incorrect; the different second candidate remains unproved.
+All 14,403 source/log files and full native/lineage evidence passed offline review.
+The job took 1h10m26s on one CPU and used 244,001 model tokens. No job is active.
 
-**Latest collection:** [job 63018923](execution-004/COLLECTION.md) returned one
+The [current budget](research-budget-20261123-004.json) has seven returned requests
+across two new cohorts, 16 allocated slots and 84 unallocated under the 100-call
+ceiling. All unused slots and older ledgers remain closed. These are selected
+fixed-contract implementation/proof tasks, with one response per stage. Vest
+adds a proof library, not an executable parser. See the
+[November 24 meeting brief](../../docs/nada-2026-11-24-results-brief.md).
+
+**Earlier stopped collection:** [job 63018923](execution-004/COLLECTION.md) returned one
 admitted Dafny candidate, then stopped on its verifier resource failure. All 267
 upstream units pass; the new MoveToFront body is incorrect on a concrete
 three-element input. There are **0/1 observed accepted additions**, no complete
 pilot/lineage score, and seven undispatched slots in the closed ledger. All 156
 raw files and the source-bound counterexample are saved. The
-[budget snapshot](research-budget-20261123-002.json) records one request used,
-eight allocated and 92 unallocated under the new 100-call ceiling. A separate
-failure-containment policy is the next preparation step; this run is not resumed.
+[historical budget snapshot](research-budget-20261123-002.json) recorded one request
+used, eight allocated and 92 unallocated at that checkpoint. The later separate
+cohort used the qualified failure-containment policy; this old run was not resumed.
 
-**Ready for the next collection:** [execution-005](execution-005/RESULTS.md)
+**Runner qualification:** [execution-005](execution-005/RESULTS.md)
 passes all **112 tests locally and on Cannon**, plus five intercepted-SDK
 scenarios. It contains a fully evidenced Dafny solver-resource failure within
 its lineage; the candidate remains unaccepted and its child is blocked, while
 independent lineages continue. Proof acceptance, prompts, limits and no-retry
 rules are unchanged. The exact package was staged and then separately authorized under the
-existing ceiling after Sophie confirmed a private handoff. The active collection
-is linked above. Preparation itself made no model or native verifier calls.
+existing ceiling after Sophie confirmed a private handoff. The completed
+collection is linked above. Preparation itself made no model or native calls.
 
-**Last collection stopped:** Sophie separately approved up to eight new calls for
+**Earlier access-denied attempt:** Sophie separately approved up to eight new calls for
 [execution-003](execution-003/approval-receipt-001.json), with no retries or
 reassignment. **Job 62950853 ended with AccessDeniedException** after 2m42s,
 before a model response or native verifier call. Its one reservation is
 unscored, seven slots remain unused and the ledger is closed. The
 [full 23-file archive and successful evidence review](execution-003/RESULTS.md)
 are published separately from the earlier credential bug. AWS's detailed
-denial message was not saved; account-owner access investigation is needed.
-Sequential model growth is still unmeasured. That earlier run has no active job
-or authorized retry; the separately approved new collection is recorded above.
+denial message was not saved. No model-growth result exists for that attempt.
+It has no active job or authorized retry; the separately approved and completed
+new collection is recorded above.
 
 Prepared November 18, 2026. This is **nonpaid task construction and verifier-only
 qualification**, followed by bounded-runner preparation. On November 22,
@@ -46,7 +57,7 @@ move to live-confirmed nonpreemptible `test` then started the same job immediate
 with unchanged resources, code and budget, and zero restarts. The job then
 [stopped before any model response](execution-001/RESULTS.md) on a host SDK
 credential-lifetime bug. One reservation is unscored, seven slots remain unused,
-and the ledger is closed. No sequential-growth model score exists. The corrected
+and the ledger is closed. That attempt has no sequential-growth model score. The corrected
 [execution-003](execution-003/preparation-review-001.json) is now ready after
 76 Cannon offline tests and three exact-SDK scenarios, without further provider
 calls. The subsequent separate execution approval is recorded above.

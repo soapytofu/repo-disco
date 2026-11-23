@@ -1,0 +1,23 @@
+[package]
+name = "vest_tests"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[features]
+# Forwards to `vest_lib/error-trace`, which records the full named-format call
+# stack on failures. The chain assertions in the error tests require it.
+error-trace = ["vest_lib/error-trace"]
+
+[dependencies]
+vstd = { workspace = true, features = ["std"] }
+vest_lib = { workspace = true, features = ["std"] }
+
+[package.metadata.verus]
+verify = true
+
+[package.metadata.verus.ide]
+extra_args = "--expand-errors"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(verus_only)"] }

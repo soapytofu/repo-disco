@@ -1,0 +1,22 @@
+[package]
+name = "vest"
+version = "0.2.3"
+edition.workspace = true
+license.workspace = true
+description = "Vest: A DSL for specifying and generating fast, formally verified parsers and serializers"
+repository.workspace = true
+readme = "README.md"
+keywords = ["vest", "verus", "verification", "parsing", "combinators"]
+categories = ["development-tools", "parsing"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pest = "2.7"
+pest_derive = { version = "2.7", features = ["grammar-extras"] }
+itertools = "0.11.0"
+clap = { version = "4.4.7", features = ["derive"] }
+ariadne = { version = "0.5.1", features = ["auto-color"] }
+quote = "1.0"
+proc-macro2 = { version = "1.0", features = ["span-locations"] }
+heck = "0.5"

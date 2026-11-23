@@ -1,0 +1,54 @@
+{
+  "text": "{\"replacement\":\"let fmt = frame_format();\\nlet v = frame_value(payload);\\nfmt.theorem_serialize_dps_parse_roundtrip(v, tail);\\nfmt.lemma_serialize_dps_len(v, tail);\\nfmt.lemma_serialize_dps_prepend(v, tail);\\nlet encoded = encode_frame(payload, tail);\\nlet n = frame_len(payload) as int;\\nassert(fmt.consistent(v));\\nassert(fmt.byte_len(v) == frame_len(payload));\\nassert(encoded.len() == frame_len(payload) + tail.len());\\nassert(encoded[n..] =~= tail);\"}",
+  "content": [
+    {
+      "text": "{\"replacement\":\"let fmt = frame_format();\\nlet v = frame_value(payload);\\nfmt.theorem_serialize_dps_parse_roundtrip(v, tail);\\nfmt.lemma_serialize_dps_len(v, tail);\\nfmt.lemma_serialize_dps_prepend(v, tail);\\nlet encoded = encode_frame(payload, tail);\\nlet n = frame_len(payload) as int;\\nassert(fmt.consistent(v));\\nassert(fmt.byte_len(v) == frame_len(payload));\\nassert(encoded.len() == frame_len(payload) + tail.len());\\nassert(encoded[n..] =~= tail);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 58995,
+    "outputTokens": 175,
+    "totalTokens": 59170,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "31179980-1bb2-489f-805a-953c0c0c93e9",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "31179980-1bb2-489f-805a-953c0c0c93e9",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 09:27:00 GMT",
+        "content-type": "application/json",
+        "content-length": "790",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "31179980-1bb2-489f-805a-953c0c0c93e9"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"replacement\":\"let fmt = frame_format();\\nlet v = frame_value(payload);\\nfmt.theorem_serialize_dps_parse_roundtrip(v, tail);\\nfmt.lemma_serialize_dps_len(v, tail);\\nfmt.lemma_serialize_dps_prepend(v, tail);\\nlet encoded = encode_frame(payload, tail);\\nlet n = frame_len(payload) as int;\\nassert(fmt.consistent(v));\\nassert(fmt.byte_len(v) == frame_len(payload));\\nassert(encoded.len() == frame_len(payload) + tail.len());\\nassert(encoded[n..] =~= tail);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 58995,
+      "outputTokens": 175,
+      "totalTokens": 59170,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4250
+    }
+  }
+}

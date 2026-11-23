@@ -1,191 +1,138 @@
 # November 24 meeting: real-repository repair and growth
 
-Evidence checkpoint: November 23, 2026, Eastern. **Real-source repair results
-are available. The first returned growth candidate is incorrect; the growth
-cohort stopped before a complete lineage evaluation.** Job **63018923** returned
-one admitted Dafny MoveToFront body, with one unique request ID, zero SDK retries
-and 2,290 tokens. Its native check preserves all 267 upstream passes but exhausts
-the new function's resource budget. A concrete input also demonstrates that its
-output order violates the fixed specification.
+Reviewed November 23, 2026. **We now have two complete model-generated,
+two-stage proof-extension trajectories on Vest.** Both second additions use
+their own accepted first-stage proof. Neither Dafny lineage completed under
+the fixed verification budget.
 
-The frozen runner stops on every verifier resource failure. Seven slots were
-therefore undispatched; **0/1 observed additions were accepted**, with no full
-8-slot or 4-lineage score. Vest and all second-stage tasks remain unattempted.
-[Full evidence and counterexample](../experiments/real-repository-growth-001/execution-004/COLLECTION.md)
-are saved. Earlier credential/access failures had no returned responses and
-remain separate closed records. The latest invocation establishes working
-access for that request only.
+## Project overview and status
 
-Sophie approved a total ceiling of **100 new calls**, with confirmation before
-exceeding it. Sixteen slots are allocated across the closed first cohort
-and the fresh eight-call cohort; **84 remain unallocated**. The earlier
-allocation used one request and closed seven unused slots. The [budget snapshot](../experiments/real-repository-growth-001/research-budget-20261123-003.json)
-records the new allocation. The separate [execution-005](../experiments/real-repository-growth-001/execution-005/RESULTS.md)
-now passes 112 tests locally and on Cannon plus five intercepted-SDK scenarios.
-It records complete, source-bound resource failures as unaccepted, blocks their
-children and continues independent lineages. Missing evidence, process timeouts,
-integrity or provider failures remain terminal; prompts and proof acceptance
-stay fixed. The fresh cohort is now running as [job 63033780](../experiments/real-repository-growth-001/execution-005/COLLECTION.md),
-with one CPU and no retries. Its full outcome is pending review.
+RepoDisco extends Formal Disco toward verified repositories with interacting
+modules. The original research question asks how dependency depth, API reuse
+and shared proofs affect whole-repository completion. Following Nada's feedback,
+the current milestone tests progressive extension on pinned **Dafny-VMC and
+Vest**, a Verus codebase.
 
-## Main message
+The initial Weeks 1–4 setup, baseline and repository-infrastructure milestones
+are complete. Current work is controlled corpus/evaluation and real-repository
+growth. Broader independent-project evaluation, held-out testing and fine-tuning
+remain unfinished. These growth results do not yet answer the causal structural
+research question.
 
-We moved from constructed Dafny tasks to pinned source from **Dafny-VMC and
-Vest**, a Verus project. The system can make constrained repairs that preserve
-contracts and pass the full declared verification scope. The next experiment
-tests Nada's suggestion directly: start with a real repository, accept a new
-verified addition, and extend that exact accepted revision again.
+## New result: successive additions on real source
 
-These are two research/library codebases, not a representative sample of
-production software. They are inspected development projects, not held-out
-families. The current extender is a controlled generation-and-verification
-pipeline with one response per stage; it is not an unrestricted autonomous
-repair agent.
+| Project and chain | First addition accepted | Second addition accepted | Complete lineages |
+| --- | ---: | ---: | ---: |
+| Dafny-VMC: stable MoveToFront → ordered PickPair | 0/2 | Both blocked; no calls | **0/2** |
+| Vest: length-prefixed frame proof → counted-batch proof | 2/2 | 2/2 | **2/2** |
+| Overall | 2/4 | 2/2 eligible children | **2/4 planned** |
 
-## Results already available
+**Four of six returned additions were accepted.** All six passed the parser and
+edit guard. Six unique request IDs, zero SDK retries, no ambiguous requests;
+two child slots remained unused. Usage was **244,001 tokens**. The job took
+**1h10m26s on one CPU**, including preparation and full verification.
 
-| Evidence | Result | Defensible interpretation |
-| --- | --- | --- |
-| Original real-source repair pilot | **7/16 qualified accepts; 8/16 complete-proof outputs**. Seven guard rejections and one native type error. | Successful repairs on existing Dafny and Verus source. The two pass columns overlap. The primary result remains 7/16. |
-| Feedback comparison within that pilot | Diagnostics **3/8** qualified accepts versus notice **4/8**; full-proof passes **4/8 in each arm**. | No demonstrated feedback advantage on these four task sites; guard admission and an operational warning affect the result. |
-| Separate guard diagnostic | Seven saved rejected outputs admitted without body edits; three distinct candidate files checked. | The original exclusions were evaluation-interface problems, not seven established mathematical failures. Outcomes are reported separately, not used to rescore the original pilot. |
-| Fixed-source verification-resource study | Saved Swap candidate **265/267** units at 20k; **267/267** at 100k. Upstream **267/267** at both limits. | A locally valid transparent implementation can raise downstream proof cost under unchanged contracts. This is one candidate, not a general structural effect. |
-| Growth-task native controls | **25/25 expected outcomes:** 8 passing scopes, 14 intended proof failures, 3 missing-coverage rejections. | The new tasks are feasible and the harness rejects important false-success cases. These are analyst controls, not model-generated extensions. |
-| Current growth runner preparation | **112/112 tests locally and on Cannon plus 5 intercepted-SDK scenarios**; frozen prompts/order unchanged. | Resource-failure containment, request accounting and parent preservation are tested. These are not additional native proofs or model results. |
-| First returned growth candidate | **0/1 observed accepts**, 267/267 upstream passes, new target out of resource; concrete order counterexample. Seven slots unattempted. | One incorrect model extension; incomplete cohort, not a 0/8 or 0/4 score. Earlier access failures remain separate. |
+The frozen design uses Claude Opus 4.5, two fresh lineages per project, one
+response per stage and no repair loop. A failed parent blocks its child.
+Second-stage success is conditional on first-stage acceptance. These are two
+repetitions of a selected chain per project, not four independent task families.
 
-Source reports: [repair results](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md),
-[guard diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md),
-[resource study](../experiments/real-repository-evaluation-stability-001/RESULTS.md),
-[growth controls](../experiments/real-repository-growth-001/controls-001/RESULTS.md),
-[current runner preparation](../experiments/real-repository-growth-001/execution-005/RESULTS.md),
-[first stopped execution](../experiments/real-repository-growth-001/execution-001/RESULTS.md),
-[earlier access-denied execution](../experiments/real-repository-growth-001/execution-003/RESULTS.md).
+[Full results, code, responses and native logs](../experiments/real-repository-growth-001/execution-005/COLLECTION.md)
+and [source/lineage/accounting audit](../experiments/real-repository-growth-001/execution-005/collection-review-001.json).
 
-Original repair results by site:
+## One concrete extension trajectory
 
-| Site | Qualified accepts / returned responses | Full-proof outputs / returned responses |
-| --- | ---: | ---: |
-| Dafny-VMC sequence swap | 0/4 | 0/4 |
-| Dafny-VMC small shuffle | 3/4 | 3/4 |
-| Vest blanket roundtrip | 3/4 | 4/4 |
-| Vest Pair roundtrip | 1/4 | 1/4 |
+The host supplies a bounded length-prefixed frame specification: decoding
+recovers the payload, consumes exactly the frame length, and preserves trailing
+bytes. Claude supplies a proof body using Vest's existing serialization theorems.
+That first proof passes the full declared repository scope.
 
-The swap row records four **guard rejections before verification**, not four
-native proof failures. Later guard/resource diagnostics are separate evidence.
-One full-proof Vest result was excluded by the original policy because of a
-Cargo cleanup warning. All sixteen requests had unique IDs and zero SDK retries.
-
-## One concrete cross-module example to show
-
-In the accepted Vest Pair repair, the first component was serialized using an
-intermediate buffer, but the starting proof applied its roundtrip theorem to
-the original buffer. The model aligned the theorem call with the actual state:
+The next prompt contains that **actual accepted source**. Claude then proves
+the counted-batch property by applying the frame theorem to the encoded
+remainder and proving the rest recursively:
 
 ```rust
-// Induced starting proof
-self.0.theorem_serialize_dps_parse_roundtrip(v.0, obuf);
-
-// Accepted model repair
-self.0.theorem_serialize_dps_parse_roundtrip(v.0, serialized1);
+frame_roundtrip(first, encode_batch(rest, tail));
+batch_roundtrip(rest, tail);
 ```
 
-This is an excerpt, not the entire repair or a minimality claim. The accepted
-body also establishes the relevant length and remainder facts. It connects
-Pair's specifications with child-format theorems and core trait contracts while
-leaving signatures and other source fixed. Show the
-[actual candidate](../experiments/real-repository-repair-pilot-001/execution-001/model-001/slot-09/candidate.txt)
-and its [native observation](../experiments/real-repository-repair-pilot-001/execution-001/verification-vest-001/slot-09/observation.json)
-if asked. The starting failure was deliberately introduced; it was not a newly
-discovered upstream bug.
+This is an excerpt from the [accepted first batch proof](../experiments/real-repository-growth-001/execution-005/retrieved-001/model-001/slot-04/native/workspace/vest_dev/src/formats/growth_batch.rs).
+Both completed children explicitly call their accepted frame theorem once;
+both parent files are byte-identical between stages. The other lineage produces
+different proof bodies.
 
-## The frozen extension experiment
+**Scope:** the specifications, API declarations and edit boundaries are host
+supplied. The model fills proof bodies. Vest demonstrates specification/proof
+library growth, not executable parser generation or discovery of new requirements.
+An observed API call shows reuse, not that every valid proof must use that API.
 
-| Real seed | First addition | Second addition, only after its parent passes |
+## What failed, and how to interpret it
+
+Both Dafny first additions exhausted the fixed resource limit while all **267
+upstream units still passed**. The new function was the sole unsuccessful unit.
+There were no added warnings or native wall timeouts.
+
+The first body has a concrete algorithmic error: on `[0,1,2]`, `k=2`, it
+returns `[1,2,0]` instead of the required `[2,0,1]`. Its exact source repeats
+the earlier candidate with a saved counterexample. The second body uses a
+different swap; that counterexample does not apply. It remains **unproved at
+the fixed budget**, rather than established mathematically wrong.
+
+The current setup therefore succeeds at the selected Vest proof-composition
+tasks and has no accepted Dafny algorithm extension in this small cohort.
+This is not a controlled Dafny-versus-Verus comparison: tasks, context sizes,
+toolchains and resource behavior differ. The next diagnostic should separate
+the second Dafny candidate's proof/resource issue from the first one's semantic
+bug before choosing a fixed-budget feedback intervention.
+
+## Earlier results worth retaining
+
+| Evidence | Result | Interpretation |
 | --- | --- | --- |
-| Dafny-VMC | Stable MoveToFront, preserving order of the remaining elements, length and multiset | Ordered PickPair from two original indices, with the actual accepted MoveToFront source protected |
-| Vest | U16-length frame roundtrip proof with exact consumption and suffix preservation | Recursive counted-batch proof over the actual accepted frame API |
+| Real-source repair pilot | **7/16 qualified accepts; 8/16 full-proof outputs** | Successful constrained repairs on existing Dafny-VMC and Vest sites. Seven outputs were initially guard-rejected; later diagnostics remain separate. |
+| Its feedback comparison | Diagnostics **3/8** vs notice **4/8** qualified; full-proof **4/8 each** | No demonstrated feedback advantage on these real-source task sites. |
+| Fixed-source Swap resource diagnostic | Candidate **265/267** units at 20k, **267/267** at 100k; upstream passes at both | A changed transparent implementation can alter downstream proof cost without changing its contracts. |
+| Growth qualification controls | **25/25 expected outcomes:** 8 passing scopes, 14 intended proof failures, 3 coverage rejections | Task feasibility and important false-success checks; these are analyst controls, not model successes. |
 
-Two independent lineages per repository, at most two stages each: **eight calls
-maximum**, one fresh response per stage, no retries or reassignment. Model and
-settings are fixed by the [pilot freeze](../experiments/real-repository-growth-001/pilot/README.md).
-The model is Claude Opus 4.5 through Bedrock; this pilot has no iterative feedback
-repair loop. Vest adds a specification/proof library, not executable parser
-generation. A successful direct second-stage proof is admissible; actual calls
-to the first-stage API are recorded separately.
+Sources: [repair pilot](../experiments/real-repository-repair-pilot-001/execution-001/RESULTS.md),
+[separate guard diagnostic](../experiments/real-repository-guard-diagnostic-001/RESULTS.md),
+[resource study](../experiments/real-repository-evaluation-stability-001/RESULTS.md),
+[growth controls](../experiments/real-repository-growth-001/controls-001/RESULTS.md).
+The earlier constructed-task repair result of **27/32**, including diagnostics
+16/16 versus notice 11/16, is a separate cohort and not a matched real-world
+generalization comparison. All original scores and stopped runs remain unchanged.
 
-Report the four prespecified lineages individually: first-stage outcome,
-second-stage outcome or blocked reason, source/parent hashes, complete proof
-coverage, observed API use, model tokens and native time/resources. Report both
-stage acceptance among returned responses and completion of both additions per
-lineage. A blocked child is undispatched, not a failed model response. If an
-infrastructure error stops collection, show the partial cohort and unattempted
-slots; do not fabricate a complete eight-call score.
+## Design choices to defend
 
-The primary numerical result will be completed two-addition lineages, separated
-as **Dafny-VMC /2** and **Vest /2**, and **/4 overall** only for a fully accounted
-cohort without an unresolved infrastructure stop. Secondary counts will show
-first-stage acceptance among its returned responses, second-stage acceptance
-among responses with an accepted parent, and observed parent-API calls among
-completed children. Report guard/type/proof/resource/operational outcomes and
-undispatched children separately, plus total input/output tokens and native time.
-Those denominators are fixed before seeing the model outputs. Two repetitions
-per project remain descriptive feasibility evidence, not independent task families.
+- **Fixed contracts and body edits:** make success measurable and prevent
+  weakening the requested behavior. This limits the claim to constrained completion.
+- **Full declared verification scope:** check old code and every addition,
+  including required proof inventory and warnings. A passing child cannot hide
+  an unproved parent, and omitted registration cannot count as success.
+- **Actual accepted parents:** preserve the model's first addition exactly
+  before requesting its child; report observed API reuse separately.
+- **One response per stage:** establish an auditable feasibility baseline and
+  cost before evaluating feedback or additional tools.
 
-The full-scope success rule checks old code as well as each addition. Dafny uses
-28 explicit upstream inputs and 267 original named units, plus registered new
-targets. Vest verifies the qualified default vest_dev/vest_lib/vstd scope and
-preserves the 5,410 original timed occurrences with their multiplicities; native
-crate totals are a separate measure. Neither claim means every optional feature
-or file in the upstream Git repository is verified. Existing trust assumptions
-and unlogged specification definitions remain explicit.
+Vest retained all **5,410 upstream timed occurrences**, passing 5,411 at stage
+one and 5,416 at stage two. Those are timing records, not unique new obligations;
+six fixed frame spec definitions are explicitly unlogged. Coverage is the
+qualified default project scope, not every optional feature. Inherited trusted
+code and warning profiles remain explicit. The two projects are inspected
+development codebases, not held-out or representative production samples.
 
-## Design choices and how to defend them
+## Three questions for Nada
 
-| Choice | Reason | Limit to acknowledge |
-| --- | --- | --- |
-| Start from pinned real repositories | Test existing APIs, language syntax, dependencies and verification tooling beyond constructed snippets. | Two selected projects and public-code exposure limit generalization. |
-| Host fixes contracts; model changes declared bodies | Keep the requested behavior measurable and prevent weakening the task to obtain a pass. | Tests contract-guided implementation/proof completion, not discovery of requirements or abstractions. |
-| Preserve and verify the old scope | Local proof success can conceal a failed helper or missing module. Coverage controls exercise both cases. | Coverage is the explicitly declared scope under inherited trust assumptions. |
-| Child uses the actual accepted parent | Establish a real growing trajectory rather than replacing the parent with an analyst solution. | A call to the parent API is evidence of use, not proof that every valid solution needs it. |
-| Curated source context, full-scope verification | Give complete selected APIs within a bounded prompt while checking all required dependencies afterward. | This context policy may affect performance; it is not an evaluated retrieval method. |
-| One response per stage, fixed order and no retries | Obtain interpretable initial feasibility with auditable cost and no hidden repair budget. | This is not the best attainable performance of a tool-using agent. |
-| Separate guard, type, proof, warning and resource outcomes | Avoid treating infrastructure or admission problems as mathematical reasoning failures. | The original evaluation policy remains part of the original result; later improvements are versioned. |
-| One CPU for the qualified serial execution | Matches the measured workload and addresses the cluster allocation warning. | Runtime remains toolchain-, source- and machine-dependent. |
+1. Does fixed-contract progressive growth capture the intended contribution,
+   or should the next milestone include executable extensions or model-proposed APIs?
+2. Which additional independent repositories or task types would make the
+   evaluation convincing beyond these two selected chains?
+3. After diagnosing the Dafny resource failures, should the next controlled
+   comparison prioritize verifier/counterexample feedback, retrieval tools,
+   or a fixed iterative repair budget?
 
-## What should be ready by Tuesday afternoon
-
-1. Audited growth results with every attempted/blocked stage accounted for and
-   full responses, source lineage and native logs on GitHub.
-2. One inspected extension trajectory or failure case per project, including
-   whether the second addition actually uses its accepted parent API.
-3. This compact results table and a clear separation between measured repair,
-   analyst feasibility controls and newly measured extension performance.
-
-These growth deliverables depend on a successful, audited fresh collection;
-the eight-call allocation is now approved, while job 62950853 remains terminal
-and fully reviewed. Its seven
-unused slots and the older scope remain closed. If access is unresolved by the
-meeting, present the existing repair results, downstream proof-cost example
-and coverage controls, and say plainly that model-generated growth was not
-measured. An access failure does not answer whether the extender can solve the
-tasks; do not replace that missing result with analyst references or retries.
-
-The 100-call ceiling is not a target. Further batches should answer a specific
-question raised by the evidence, with their tasks, comparison and budget fixed
-before dispatch. Retain unsuccessful cohorts; do not keep sampling the same
-tasks until the displayed success rate improves.
-
-The [independent research assessment](nada-research-assessment-2026-11-24.md)
-sets out when to revise the guard, context, one-shot design or task choice based
-on actual failure categories, rather than repeatedly sampling until success.
-
-Questions for Nada:
-
-1. Should the main contribution now be progressive contract-guided growth on
-   real repositories, with verifier-guided repair as a later tool ablation?
-2. Which additional independent projects or task types would best challenge the
-   limitations of these two selected seeds?
-3. For the next comparison, should we prioritize richer verifier/counterexample
-   feedback, retrieval tools, or an iterative repair budget—and which baseline
-   would make that comparison most informative?
+**Takeaway to say aloud:** “We can now show two successive, fully checked model
+proof additions on a real Vest repository, with actual parent reuse. The
+Dafny attempts expose a semantic error and an unresolved proof/resource limit.
+We have a working measurement pipeline and concrete results, with a narrow
+feasibility claim and clear next experiments.”

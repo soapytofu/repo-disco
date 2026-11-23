@@ -1,14 +1,20 @@
 # Experiment log
 
-## Fresh sequential growth cohort — single submission running
+## November 23: sequential model growth — two complete Vest lineages
 
 [Execution-005 job 63033780](real-repository-growth-001/execution-005/COLLECTION.md)
-started on nonpreemptible `shared`, one CPU/8 GB, no requeue or restarts. The
-fresh eight-call maximum is within the approved 100-new-call ceiling; 16 slots
-are allocated across both new cohorts and 84 remain unallocated. All previous
-terminal ledgers remain closed. Prompts and proof acceptance are fixed; a
-failed parent blocks its child without retry or reassignment. Collection is
-in progress; no full cohort score is claimed before evidence review.
+completed in 1h10m26s on one CPU. **Vest completed 2/2 two-addition lineages;
+Dafny-VMC completed 0/2.** Four of six returned additions were accepted; both
+Vest children use their exact accepted model parent. The two Dafny additions
+exhausted the fixed resource budget and their children were blocked. One has
+an exact-source counterexample; the second is a different, unproved algorithm.
+Six unique request IDs, zero SDK retries, 244,001 tokens, six native invocations.
+All 14,403 transferred files, protected sources, raw proof inventories and parent
+links passed review. No added warnings or native wall timeouts. Full logs and
+both archival-transport corrections are retained. The 100-call budget has seven
+returned requests across two new cohorts, 16 allocated slots and 84 unallocated;
+unused slots and all historical ledgers remain closed. This is fixed-contract
+proof-library growth on two selected task chains, not held-out generalization.
 
 ## Sequential real-source growth — resource-outcome runner ready
 

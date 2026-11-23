@@ -1,6 +1,8 @@
 # Bounded resource-outcome runner preparation
 
-Subsequent authorized collection: [job 63033780 is running](COLLECTION.md).
+Subsequent authorized collection: [job 63033780 is complete and reviewed](COLLECTION.md):
+two complete Vest lineages, four accepted additions from six returned responses,
+and two resource-limited Dafny additions with blocked children.
 The preparation record below describes the earlier offline checkpoint.
 
 Prepared November 23, 2026. **No additional model or native verifier calls**

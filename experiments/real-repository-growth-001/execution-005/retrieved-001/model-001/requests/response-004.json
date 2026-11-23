@@ -1,0 +1,54 @@
+{
+  "text": "{\"replacement\":\"let fmt = frame_format();\\nlet v = frame_value(payload);\\nfmt.theorem_serialize_dps_parse_roundtrip(v, tail);\\nfmt.lemma_serialize_dps_len(v, tail);\\nfmt.lemma_serialize_dps_prepend(v, tail);\\nlet encoded = encode_frame(payload, tail);\\nlet n = frame_len(payload) as int;\\nassert(fmt.spec_parse(encoded) == Some((n, v)));\\nassert(decode_frame(encoded) == Some((n, payload)));\\nassert(encoded.len() == frame_len(payload) + tail.len());\\nassert(encoded[n..] =~= tail);\"}",
+  "content": [
+    {
+      "text": "{\"replacement\":\"let fmt = frame_format();\\nlet v = frame_value(payload);\\nfmt.theorem_serialize_dps_parse_roundtrip(v, tail);\\nfmt.lemma_serialize_dps_len(v, tail);\\nfmt.lemma_serialize_dps_prepend(v, tail);\\nlet encoded = encode_frame(payload, tail);\\nlet n = frame_len(payload) as int;\\nassert(fmt.spec_parse(encoded) == Some((n, v)));\\nassert(decode_frame(encoded) == Some((n, payload)));\\nassert(encoded.len() == frame_len(payload) + tail.len());\\nassert(encoded[n..] =~= tail);\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 58995,
+    "outputTokens": 182,
+    "totalTokens": 59177,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "7808f0b4-dbe7-4e5a-81fb-f094af254792",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "7808f0b4-dbe7-4e5a-81fb-f094af254792",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 09:58:15 GMT",
+        "content-type": "application/json",
+        "content-length": "818",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "7808f0b4-dbe7-4e5a-81fb-f094af254792"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"replacement\":\"let fmt = frame_format();\\nlet v = frame_value(payload);\\nfmt.theorem_serialize_dps_parse_roundtrip(v, tail);\\nfmt.lemma_serialize_dps_len(v, tail);\\nfmt.lemma_serialize_dps_prepend(v, tail);\\nlet encoded = encode_frame(payload, tail);\\nlet n = frame_len(payload) as int;\\nassert(fmt.spec_parse(encoded) == Some((n, v)));\\nassert(decode_frame(encoded) == Some((n, payload)));\\nassert(encoded.len() == frame_len(payload) + tail.len());\\nassert(encoded[n..] =~= tail);\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 58995,
+      "outputTokens": 182,
+      "totalTokens": 59177,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4257
+    }
+  }
+}

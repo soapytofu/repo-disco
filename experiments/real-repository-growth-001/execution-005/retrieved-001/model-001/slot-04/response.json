@@ -1,0 +1,54 @@
+{
+  "text": "{\"replacement\":\"if payloads.len() == 0 {\\n} else {\\n    let first = payloads[0];\\n    let rest = payloads.drop_first();\\n    frame_roundtrip(first, encode_batch(rest, tail));\\n    batch_roundtrip(rest, tail);\\n    let encoded_rest = encode_batch(rest, tail);\\n    let encoded = encode_frame(first, encoded_rest);\\n    assert(encoded == encode_batch(payloads, tail));\\n    let n_first = frame_len(first) as int;\\n    let n_rest = batch_len(rest) as int;\\n    assert(decode_frame(encoded) == Some((n_first, first)));\\n    assert(encoded.len() == frame_len(first) + encoded_rest.len());\\n    assert(encoded[n_first..] =~= encoded_rest);\\n    assert(decode_batch(encoded_rest, rest.len()) == Some((n_rest, rest)));\\n    assert(encoded_rest.len() == batch_len(rest) + tail.len());\\n    assert(encoded_rest[n_rest..] =~= tail);\\n    assert(0 <= n_first <= encoded.len());\\n    assert(decode_batch(encoded[n_first..], (payloads.len() - 1) as nat) == Some((n_rest, rest)));\\n    assert(n_first + n_rest == batch_len(payloads) as int);\\n    assert(seq![first] + rest =~= payloads);\\n    assert(decode_batch(encoded, payloads.len()) == Some((batch_len(payloads) as int, payloads)));\\n    assert(encoded.len() == batch_len(payloads) + tail.len());\\n    assert(encoded[batch_len(payloads) as int..] =~= tail);\\n}\"}",
+  "content": [
+    {
+      "text": "{\"replacement\":\"if payloads.len() == 0 {\\n} else {\\n    let first = payloads[0];\\n    let rest = payloads.drop_first();\\n    frame_roundtrip(first, encode_batch(rest, tail));\\n    batch_roundtrip(rest, tail);\\n    let encoded_rest = encode_batch(rest, tail);\\n    let encoded = encode_frame(first, encoded_rest);\\n    assert(encoded == encode_batch(payloads, tail));\\n    let n_first = frame_len(first) as int;\\n    let n_rest = batch_len(rest) as int;\\n    assert(decode_frame(encoded) == Some((n_first, first)));\\n    assert(encoded.len() == frame_len(first) + encoded_rest.len());\\n    assert(encoded[n_first..] =~= encoded_rest);\\n    assert(decode_batch(encoded_rest, rest.len()) == Some((n_rest, rest)));\\n    assert(encoded_rest.len() == batch_len(rest) + tail.len());\\n    assert(encoded_rest[n_rest..] =~= tail);\\n    assert(0 <= n_first <= encoded.len());\\n    assert(decode_batch(encoded[n_first..], (payloads.len() - 1) as nat) == Some((n_rest, rest)));\\n    assert(n_first + n_rest == batch_len(payloads) as int);\\n    assert(seq![first] + rest =~= payloads);\\n    assert(decode_batch(encoded, payloads.len()) == Some((batch_len(payloads) as int, payloads)));\\n    assert(encoded.len() == batch_len(payloads) + tail.len());\\n    assert(encoded[batch_len(payloads) as int..] =~= tail);\\n}\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 59913,
+    "outputTokens": 475,
+    "totalTokens": 60388,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "9ff8e89b-c9b6-444d-8b9b-a859ca359b7e",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "9ff8e89b-c9b6-444d-8b9b-a859ca359b7e",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 09:44:00 GMT",
+        "content-type": "application/json",
+        "content-length": "1650",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "9ff8e89b-c9b6-444d-8b9b-a859ca359b7e"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"replacement\":\"if payloads.len() == 0 {\\n} else {\\n    let first = payloads[0];\\n    let rest = payloads.drop_first();\\n    frame_roundtrip(first, encode_batch(rest, tail));\\n    batch_roundtrip(rest, tail);\\n    let encoded_rest = encode_batch(rest, tail);\\n    let encoded = encode_frame(first, encoded_rest);\\n    assert(encoded == encode_batch(payloads, tail));\\n    let n_first = frame_len(first) as int;\\n    let n_rest = batch_len(rest) as int;\\n    assert(decode_frame(encoded) == Some((n_first, first)));\\n    assert(encoded.len() == frame_len(first) + encoded_rest.len());\\n    assert(encoded[n_first..] =~= encoded_rest);\\n    assert(decode_batch(encoded_rest, rest.len()) == Some((n_rest, rest)));\\n    assert(encoded_rest.len() == batch_len(rest) + tail.len());\\n    assert(encoded_rest[n_rest..] =~= tail);\\n    assert(0 <= n_first <= encoded.len());\\n    assert(decode_batch(encoded[n_first..], (payloads.len() - 1) as nat) == Some((n_rest, rest)));\\n    assert(n_first + n_rest == batch_len(payloads) as int);\\n    assert(seq![first] + rest =~= payloads);\\n    assert(decode_batch(encoded, payloads.len()) == Some((batch_len(payloads) as int, payloads)));\\n    assert(encoded.len() == batch_len(payloads) + tail.len());\\n    assert(encoded[batch_len(payloads) as int..] =~= tail);\\n}\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 59913,
+      "outputTokens": 475,
+      "totalTokens": 60388,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6428
+    }
+  }
+}

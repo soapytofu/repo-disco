@@ -1,0 +1,27 @@
+[workspace]
+members = [
+    "vest",
+    "vest_lib",
+    "vest_asn1",
+    "vest_tests",
+    "vest_asn1_tests",
+    "vest_dev",
+    "vest_bench",
+    "guide",
+]
+default-members = ["vest", "vest_lib", "vest_asn1"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/secure-foundations/vest"
+
+[workspace.dependencies]
+vstd = { version = "=0.0.0-2026-10-25-0158", default-features = false }
+vest_lib = { path = "vest_lib", default-features = false }
+
+[profile.bench]
+lto = "fat"
+opt-level = 3
+codegen-units = 1

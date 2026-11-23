@@ -1,0 +1,35 @@
+[package]
+name = "vest_lib"
+version = "0.2.3"
+edition.workspace = true
+license.workspace = true
+description = "Verified parser and serializer combinators in Verus"
+repository.workspace = true
+documentation = "https://secure-foundations.github.io/vest/vest_lib/"
+readme = "README.md"
+keywords = ["verus", "verification", "parser", "serializer", "combinators"]
+categories = ["parsing", "no-std"]
+exclude = ["doc.sh"]
+
+[features]
+default = ["std"]
+std = ["alloc", "vstd/std"]
+alloc = ["vstd/alloc"]
+# Records the full named-format call stack on parse and prepare failures.
+# Off by default: it puts a `Vec` inside `ParseError`/`PreSerializeError`, which
+# makes both types heap-owning and 64 bytes wide, so every `?` in a generated
+# parser has to carry and drop them. The innermost failing format name is always
+# retained regardless of this feature.
+error-trace = ["alloc"]
+
+[dependencies]
+vstd.workspace = true
+
+[package.metadata.verus]
+verify = true
+
+[package.metadata.verus.ide]
+extra_args = "--expand-errors"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(verus_only)", 'cfg(verus_keep_ghost)'] }

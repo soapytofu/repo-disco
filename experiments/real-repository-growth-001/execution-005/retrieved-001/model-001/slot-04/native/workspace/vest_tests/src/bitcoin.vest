@@ -1,0 +1,90 @@
+//! Bitcoin block and transaction wire formats.
+
+!LITTLE_ENDIAN
+
+// Bitcoin block headers are exactly 80 bytes.
+// Hashes are stored in Bitcoin's internal byte order.
+block_header = {
+  version: u32,
+  previous_block_hash: [u8; 32],
+  merkle_root_hash: [u8; 32],
+  timestamp: u32,
+  bits: u32,
+  nonce: u32,
+}
+
+block = {
+  header: block_header,
+  @transaction_count: btc_varint,
+  transactions: [tx; @transaction_count],
+}
+
+// BIP 144 places a zero marker and a currently defined flag of 1 between the
+// version and input count. Canonical CompactSize encodes zero as that marker.
+tx = {
+  version: u32,
+  @marker_or_input_count: btc_varint,
+  payload: choose(@marker_or_input_count) {
+    0 => tx_with_witness,
+    _ => tx_without_witness(@marker_or_input_count),
+  },
+}
+
+tx_with_witness = {
+  const flag: u8 = 1,
+  @input_count: btc_varint,
+  inputs: [txin; @input_count],
+  @output_count: btc_varint,
+  outputs: [txout; @output_count],
+  witnesses: [witness; @input_count],
+  lock_time: lock_time,
+}
+
+tx_without_witness(@input_count: btc_varint) = {
+  inputs: [txin; @input_count],
+  @output_count: btc_varint,
+  outputs: [txout; @output_count],
+  lock_time: lock_time,
+}
+
+// The interpretation of nLockTime changes at 500,000,000, but both variants
+// have the same four-byte little-endian representation.
+lock_time = choose {
+  BlockHeight(u32 | { 0..499999999 }),
+  Timestamp(u32 | { 500000000.. }),
+}
+
+txin = {
+  previous_output: outpoint,
+  script_sig: script,
+  sequence: u32,
+}
+
+outpoint = {
+  transaction_hash: [u8; 32],
+  output_index: u32,
+}
+
+txout = {
+  // Bitcoin Core interprets this as int64_t. Vest uses the bit-equivalent u64;
+  // consensus validity imposes the nonnegative monetary range separately.
+  value: u64,
+  script_pubkey: script,
+}
+
+script = {
+  @length: btc_varint,
+  bytes: [u8; @length],
+}
+
+// BIP 144 encodes one witness stack per input. The stack count and every item
+// length are canonical CompactSize values.
+witness = {
+  @item_count: btc_varint,
+  items: [witness_item; @item_count],
+}
+
+witness_item = {
+  @length: btc_varint,
+  bytes: [u8; @length],
+}

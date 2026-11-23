@@ -1,0 +1,44 @@
+my_enum = enum {
+  A = 0x01,
+  B = 0x02,
+  C = 0x03,
+}
+
+enum_constraints = {
+  foo: my_enum | A,
+  bar: my_enum | !B,
+  baz: my_enum | { A, C },
+  const tag: my_enum = A,
+}
+
+my_typed_enum = enum {
+  X = 0x01u16,
+  Y = 0x02u16,
+  Z = 0x03u16,
+}
+
+typed_enum_constraints = {
+  foo: my_typed_enum | X,
+  bar: my_typed_enum | !Y,
+  baz: my_typed_enum | { X, Z },
+  const tag: my_typed_enum = X,
+}
+
+// A choice may dispatch on a refined tag. The refinement rejects the excluded
+// variants before the choice runs, while unknown values of an open enum still
+// reach the wildcard.
+open_kind = enum {
+  P = 0x01,
+  Q = 0x02,
+  R = 0x03,
+  ...
+}
+
+refined_dispatch = {
+  @kind: open_kind | !{ Q, R },
+  @len: u8,
+  body: [u8; @len] >>= choose(@kind) {
+    P => u8,
+    _ => Tail,
+  },
+}

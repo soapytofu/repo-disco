@@ -1,0 +1,74 @@
+[![CI](https://github.com/secure-foundations/vest/actions/workflows/ci.yml/badge.svg)](https://github.com/secure-foundations/vest/actions/workflows/ci.yml)
+[![Guide](https://img.shields.io/badge/docs-guide-blue)](https://secure-foundations.github.io/vest/guide/)
+[![API](https://img.shields.io/badge/docs-vest__lib-blue)](https://secure-foundations.github.io/vest/vest_lib/)
+[![Crates.io - vest](https://img.shields.io/crates/v/vest?label=vest)](https://crates.io/crates/vest)
+[![Crates.io - vest_lib](https://img.shields.io/crates/v/vest_lib?label=vest_lib)](https://crates.io/crates/vest_lib)
+[![Zulip](https://img.shields.io/badge/zulip-join%20chat-brightgreen.svg)](https://verus-lang.zulipchat.com/)
+
+# <img src=".github/assets/vest-logo.svg" alt="Vest" height="72px">
+
+Vest is a framework based on [Verus](https://github.com/verus-lang/verus) for building verified, secure, and performant parsers and serializers for binary data formats in Rust.
+A binary data format *specifies* constraints and inter-dependencies on structured data, as well as how that data is represented in bytes;
+a parser/serializer *implements* that specification by mechanically translating between the structured data and its flat byte representation.
+Binary formats are ubiquitous in [networking](https://en.wikipedia.org/wiki/Communication_protocol#Message_encoding), [data storage](https://en.wikipedia.org/wiki/List_of_file_formats), and [cryptography](https://en.wikipedia.org/wiki/Cryptography_standards#Internet_Requests_for_Comments_(RFCs)),
+and are often both performance-critical and security-critical.
+
+Vest consists of several core components:
+
+* `vest_lib`, a verified combinator library in Rust for building formats (parsers, serializers, and their data types) compositionally.
+* `vest` DSL, a domain-specific language for describing formats concisely; and a compiler that automatically generates verified Rust code (leveraging the combinator library `vest_lib`) from format descriptions in the DSL.
+* `vest_asn1`, a compiler for ASN.1 schemas that automatically generates verified parsers and serializers (leveraging the verified backend ASN.1 combinators in `vest_lib`), supporting both Distinguished Encoding Rules (DER) and Basic Encoding Rules (BER).
+* Vest-CBOR, a verified generic CBOR codec (built on top of `vest_lib` combinators) supporting general CBOR and a [partial deterministic profile](https://secure-foundations.github.io/vest/guide/cbor.html).
+
+Vest-generated parsers and serializers are provably memory-safe, arithmetically safe, panic-free, and terminating when their API preconditions hold; parsers accept arbitrary input bytes, while serializers require values consistent with the format and sufficient output space.
+More importantly, they are guaranteed to satisfy a suite of [*security properties*](https://secure-foundations.github.io/vest/guide/guarantees.html), making them immune to entire classes of attacks that have historically plagued unverified, hand-written code.
+
+<p align="center">
+  <img src=".github/assets/vest-example.png" alt="Vest DSL describing TLS handshake messages">
+</p>
+
+## Status
+
+Vest is a research tool under active development. The DSL and ASN.1 frontend are *not* by themselves verified and could contain bugs. Some language and format features are still unsupported, and APIs may change. The [language reference](https://secure-foundations.github.io/vest/guide/dsl/reference.html) and [ASN.1 support table](https://secure-foundations.github.io/vest/guide/asn1/support.html) document current limitations. Each Vest release pins its compatible [Verus release](verus.json).
+
+Vest 2.0 is a substantial redesign. Existing users should read the [migration guide](RELEASE_NOTES-v0.2.0.md) before upgrading.
+
+## Documentation
+
+- The [Vest guide](https://secure-foundations.github.io/vest/guide/) covers installation, the DSL, generated Rust APIs, formal guarantees, and the ASN.1 frontend.
+- The [`vest_lib` documentation](https://secure-foundations.github.io/vest/vest_lib/) describes the nitty-gritty (spec, proof, and exec) of Vest's trait system, format combinators, the reasoning principles, etc.
+
+## Examples of using Vest
+
+- Vest DSL examples include [TLS](vest_tests/src/tls.vest), [Bitcoin](vest_tests/src/bitcoin.vest), [WireGuard](vest_tests/src/wireguard.vest), and smaller ones covering [bit fields](vest_tests/src/bits.vest), [dependent choices and TLV](vest_tests/src/tlv.vest), and [nested structures](vest_tests/src/nested_access.vest).
+- The ASN.1 frontend includes a [curated CMS schema](vest_asn1/rfcs/CMS-RFC5652-Curated.asn1) and its [generated, formally verified codec](vest_asn1_tests/src/generated_cms.rs), alongside smaller [DER](vest_asn1/tests/fixtures/fixture.asn1), [BER](vest_asn1/tests/fixtures/fixture_ber.asn1), and [mixed-rule](vest_asn1/tests/fixtures/fixture_mixed.asn1) schemas.
+- [`vest_dev/src/formats`](vest_dev/src/formats) contains example formats written directly with `vest_lib` combinators, including [mapped formats](vest_dev/src/formats/mapped.rs), [dependent formats](vest_dev/src/formats/dependent.rs), and [recursive formats](vest_dev/src/formats/fix.rs).
+
+## Benchmarks
+
+[`vest_bench`](vest_bench) contains reproducible Criterion benchmarks for Vest-generated parsers and serializers. It includes focused microformats that compare Vest with hand-written Rust implementations, and real-format benchmarks that compare Vest with open-source Rust libraries for TLS, Bitcoin, CMS, and CBOR.
+
+## Getting in touch and reporting issues
+
+Please report `vest_lib` issues and DSL/ASN.1 compiler bugs through [GitHub Issues](https://github.com/secure-foundations/vest/issues). For questions, help, or design discussions, join the [Verus Zulip](https://verus-lang.zulipchat.com/) and mention **Vest** in the topic or message.
+
+## Publication
+
+Vest was introduced in [“Vest: Verified, Secure, High-Performance Parsing and Serialization for Rust”](https://tracycy.com/papers/vest-usenix-security25.pdf) at the 2025 USENIX Security Symposium.
+
+```bibtex
+@inproceedings {vest,
+	author = {Yi Cai and Pratap Singh and Zhengyao Lin and Jay Bosamiya and Joshua Gancher and Milijana Surbatovich and Bryan Parno},
+	title = {{Vest}: Verified, Secure, {High-Performance} Parsing and Serialization for Rust},
+	booktitle = {34th USENIX Security Symposium (USENIX Security 25)},
+	year = {2025},
+	isbn = {978-1-939133-52-6},
+	address = {Seattle, WA},
+	pages = {6917--6935},
+	url = {https://www.usenix.org/conference/usenixsecurity25/presentation/cai-yi},
+	publisher = {USENIX Association},
+	month = aug
+}
+```
+
+Vest is available under the [MIT License](LICENSE).

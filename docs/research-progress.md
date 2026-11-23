@@ -10,18 +10,33 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 23: fresh eight-call growth cohort running
+## November 23: sequential growth measured on the two real seeds
 
-After Sophie confirmed private handoff readiness, the [fresh allocation and
-single submission](../experiments/real-repository-growth-001/execution-005/COLLECTION.md)
-started as job **63033780**, at 04:20:15 Eastern on nonpreemptible `shared`.
-One CPU, 8 GB, four hours, no requeue or restarts. Fresh inspection matched all
-4,189 source pins, both container images and 4,160 verifier-tool files. There
-was no prior output, ledger, authorization or matching job. The fresh scope is
-at most eight calls within the existing 100-call ceiling; 16 slots are allocated
-across two cohorts and 84 remain unallocated. The earlier one-response failure
-and its seven closed unused slots are unchanged. Results and actual-parent
-lineage evidence are pending; no complete cohort score exists yet.
+The [fresh frozen cohort](../experiments/real-repository-growth-001/execution-005/COLLECTION.md)
+is complete and reviewed: **Vest 2/2 complete two-addition lineages; Dafny-VMC
+0/2; overall 2/4 planned lineages.** Four of six returned additions were accepted,
+with six unique IDs, zero SDK retries, no ambiguous requests and 244,001 tokens.
+Both Vest children explicitly use their own byte-identical accepted frame proof.
+Both Dafny parents exhausted the fixed resource limit and blocked their children.
+The first repeats an exactly source-bound algorithmic counterexample; the second
+uses a different swap and has no established counterexample. Neither was rescored.
+
+Job **63033780** finished in 1h10m26s on one nonpreemptible CPU. All 14,403 archive
+files, six source sets, native coverage and two parent-child links passed review.
+Every Dafny run retains 267 upstream passes; Vest retains 5,410 upstream timed
+occurrences, passing 5,411 at stage one and 5,416 at stage two. No added warnings
+or native wall timeout. The first read-only download timed out; the next hit an
+argument-size limit. Both failures and the successful bounded stdin transfer are
+preserved without changing model/native execution or evidence.
+
+The [budget snapshot](../experiments/real-repository-growth-001/research-budget-20261123-004.json)
+records seven returned requests across the two new cohorts, 16 allocated slots,
+84 unallocated and no active job. Earlier ledgers and scores remain unchanged.
+This establishes selected fixed-contract proof-library growth, not unrestricted
+repository synthesis or a causal language/depth comparison. Next: diagnose the
+second Dafny proof/resource issue, then choose a fixed-budget feedback or broader
+task comparison. The [November 24 brief](nada-2026-11-24-results-brief.md) now
+separates these real growth results from repair results and analyst controls.
 
 ## November 23: bounded resource-outcome runner qualified for a fresh cohort
 

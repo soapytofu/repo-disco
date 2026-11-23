@@ -1,0 +1,54 @@
+{
+  "text": "{\"replacement\":\"if payloads.len() == 0 {\\n    assert(encode_batch(payloads, tail) == tail);\\n    assert(decode_batch(tail, 0) == Some((0int, Seq::empty())));\\n    assert(batch_len(payloads) == 0);\\n    assert(encode_batch(payloads, tail).len() == batch_len(payloads) + tail.len());\\n    assert(encode_batch(payloads, tail)[batch_len(payloads) as int..] =~= tail);\\n} else {\\n    let first = payloads[0];\\n    let rest = payloads.drop_first();\\n    assert(payload_fits(first));\\n    assert(batch_fits(rest));\\n    batch_roundtrip(rest, tail);\\n    let rest_encoded = encode_batch(rest, tail);\\n    assert(decode_batch(rest_encoded, rest.len()) == Some((batch_len(rest) as int, rest)));\\n    assert(rest_encoded.len() == batch_len(rest) + tail.len());\\n    assert(rest_encoded[batch_len(rest) as int..] =~= tail);\\n    frame_roundtrip(first, rest_encoded);\\n    let full_encoded = encode_frame(first, rest_encoded);\\n    assert(decode_frame(full_encoded) == Some((frame_len(first) as int, first)));\\n    assert(full_encoded.len() == frame_len(first) + rest_encoded.len());\\n    assert(full_encoded[frame_len(first) as int..] =~= rest_encoded);\\n    let n_frame = frame_len(first) as int;\\n    assert(full_encoded[n_frame..] == rest_encoded);\\n    assert(decode_batch(full_encoded[n_frame..], rest.len()) == Some((batch_len(rest) as int, rest)));\\n    assert(encode_batch(payloads, tail) == full_encoded);\\n    assert(batch_len(payloads) == frame_len(first) + batch_len(rest));\\n    let total = batch_len(payloads) as int;\\n    assert(decode_batch(full_encoded, payloads.len()) == Some((total, payloads))) by {\\n        assert(0 <= n_frame <= full_encoded.len());\\n        assert(seq![first] + rest =~= payloads);\\n    }\\n    assert(full_encoded.len() == batch_len(payloads) + tail.len());\\n    assert(full_encoded[total..] =~= tail) by {\\n        assert(full_encoded[n_frame..] =~= rest_encoded);\\n        assert(rest_encoded[batch_len(rest) as int..] =~= tail);\\n        assert(total == n_frame + batch_len(rest) as int);\\n        assert(full_encoded[total..] =~= full_encoded[n_frame..][batch_len(rest) as int..]);\\n    }\\n}\"}",
+  "content": [
+    {
+      "text": "{\"replacement\":\"if payloads.len() == 0 {\\n    assert(encode_batch(payloads, tail) == tail);\\n    assert(decode_batch(tail, 0) == Some((0int, Seq::empty())));\\n    assert(batch_len(payloads) == 0);\\n    assert(encode_batch(payloads, tail).len() == batch_len(payloads) + tail.len());\\n    assert(encode_batch(payloads, tail)[batch_len(payloads) as int..] =~= tail);\\n} else {\\n    let first = payloads[0];\\n    let rest = payloads.drop_first();\\n    assert(payload_fits(first));\\n    assert(batch_fits(rest));\\n    batch_roundtrip(rest, tail);\\n    let rest_encoded = encode_batch(rest, tail);\\n    assert(decode_batch(rest_encoded, rest.len()) == Some((batch_len(rest) as int, rest)));\\n    assert(rest_encoded.len() == batch_len(rest) + tail.len());\\n    assert(rest_encoded[batch_len(rest) as int..] =~= tail);\\n    frame_roundtrip(first, rest_encoded);\\n    let full_encoded = encode_frame(first, rest_encoded);\\n    assert(decode_frame(full_encoded) == Some((frame_len(first) as int, first)));\\n    assert(full_encoded.len() == frame_len(first) + rest_encoded.len());\\n    assert(full_encoded[frame_len(first) as int..] =~= rest_encoded);\\n    let n_frame = frame_len(first) as int;\\n    assert(full_encoded[n_frame..] == rest_encoded);\\n    assert(decode_batch(full_encoded[n_frame..], rest.len()) == Some((batch_len(rest) as int, rest)));\\n    assert(encode_batch(payloads, tail) == full_encoded);\\n    assert(batch_len(payloads) == frame_len(first) + batch_len(rest));\\n    let total = batch_len(payloads) as int;\\n    assert(decode_batch(full_encoded, payloads.len()) == Some((total, payloads))) by {\\n        assert(0 <= n_frame <= full_encoded.len());\\n        assert(seq![first] + rest =~= payloads);\\n    }\\n    assert(full_encoded.len() == batch_len(payloads) + tail.len());\\n    assert(full_encoded[total..] =~= tail) by {\\n        assert(full_encoded[n_frame..] =~= rest_encoded);\\n        assert(rest_encoded[batch_len(rest) as int..] =~= tail);\\n        assert(total == n_frame + batch_len(rest) as int);\\n        assert(full_encoded[total..] =~= full_encoded[n_frame..][batch_len(rest) as int..]);\\n    }\\n}\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 59920,
+    "outputTokens": 768,
+    "totalTokens": 60688,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "04c17d30-61d5-4d80-ae62-926948105fdf",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "04c17d30-61d5-4d80-ae62-926948105fdf",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 10:15:39 GMT",
+        "content-type": "application/json",
+        "content-length": "2488",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "04c17d30-61d5-4d80-ae62-926948105fdf"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"replacement\":\"if payloads.len() == 0 {\\n    assert(encode_batch(payloads, tail) == tail);\\n    assert(decode_batch(tail, 0) == Some((0int, Seq::empty())));\\n    assert(batch_len(payloads) == 0);\\n    assert(encode_batch(payloads, tail).len() == batch_len(payloads) + tail.len());\\n    assert(encode_batch(payloads, tail)[batch_len(payloads) as int..] =~= tail);\\n} else {\\n    let first = payloads[0];\\n    let rest = payloads.drop_first();\\n    assert(payload_fits(first));\\n    assert(batch_fits(rest));\\n    batch_roundtrip(rest, tail);\\n    let rest_encoded = encode_batch(rest, tail);\\n    assert(decode_batch(rest_encoded, rest.len()) == Some((batch_len(rest) as int, rest)));\\n    assert(rest_encoded.len() == batch_len(rest) + tail.len());\\n    assert(rest_encoded[batch_len(rest) as int..] =~= tail);\\n    frame_roundtrip(first, rest_encoded);\\n    let full_encoded = encode_frame(first, rest_encoded);\\n    assert(decode_frame(full_encoded) == Some((frame_len(first) as int, first)));\\n    assert(full_encoded.len() == frame_len(first) + rest_encoded.len());\\n    assert(full_encoded[frame_len(first) as int..] =~= rest_encoded);\\n    let n_frame = frame_len(first) as int;\\n    assert(full_encoded[n_frame..] == rest_encoded);\\n    assert(decode_batch(full_encoded[n_frame..], rest.len()) == Some((batch_len(rest) as int, rest)));\\n    assert(encode_batch(payloads, tail) == full_encoded);\\n    assert(batch_len(payloads) == frame_len(first) + batch_len(rest));\\n    let total = batch_len(payloads) as int;\\n    assert(decode_batch(full_encoded, payloads.len()) == Some((total, payloads))) by {\\n        assert(0 <= n_frame <= full_encoded.len());\\n        assert(seq![first] + rest =~= payloads);\\n    }\\n    assert(full_encoded.len() == batch_len(payloads) + tail.len());\\n    assert(full_encoded[total..] =~= tail) by {\\n        assert(full_encoded[n_frame..] =~= rest_encoded);\\n        assert(rest_encoded[batch_len(rest) as int..] =~= tail);\\n        assert(total == n_frame + batch_len(rest) as int);\\n        assert(full_encoded[total..] =~= full_encoded[n_frame..][batch_len(rest) as int..]);\\n    }\\n}\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 59920,
+      "outputTokens": 768,
+      "totalTokens": 60688,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 8487
+    }
+  }
+}
