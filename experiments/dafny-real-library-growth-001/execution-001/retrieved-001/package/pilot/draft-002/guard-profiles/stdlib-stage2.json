@@ -1,0 +1,32 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT",
+    "kind": "method",
+    "path": "growth/AppendRotated.dfy",
+    "template_utf8": "module RepoDiscoStdRotate {\n  import DA = Std.DynamicArray\n  import Append = RepoDiscoStdAppend\n  export provides DA, AppendRotated\n\n  method AppendRotated<T>(a: DA.DynamicArray<T>, values: seq<T>, pivot: nat)\n      returns (start: nat, end: nat)\n    requires a.Valid?()\n    requires pivot <= |values|\n    reads a, a.Repr\n    modifies a.Repr\n    ensures a.Valid?()\n    ensures a.items == old(a.items) + (values[pivot..] + values[..pivot])\n    ensures start == old(a.size)\n    ensures end == a.size\n    ensures end == start + |values|\n    ensures a.capacity >= old(a.capacity)\n    ensures fresh(a.Repr - old(a.Repr))\n    decreases |values|\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": {
+    "addition_path": "growth/AppendAll.dfy",
+    "guard_profile_sha256": "9b1e72f21f492c225221c2ca0d1adf4c28fc2533d3affca217c037c39fcc61d4",
+    "stage_id": "append-all"
+  },
+  "project": "stdlib",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 2,
+  "stage_id": "append-rotated",
+  "verification_inputs": [
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+    "growth/AppendAll.dfy",
+    "growth/AppendRotated.dfy"
+  ]
+}

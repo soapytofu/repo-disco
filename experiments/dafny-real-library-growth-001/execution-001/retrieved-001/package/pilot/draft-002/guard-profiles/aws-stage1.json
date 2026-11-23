@@ -1,0 +1,27 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT",
+    "kind": "function",
+    "path": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "template_utf8": "include \"UInt.dfy\"\ninclude \"../../libraries/src/Wrappers.dfy\"\n\nmodule RepoDiscoU16Frame {\n  import U = StandardLibrary.UInt\n  import opened Wrappers\n\n  datatype Frame = Frame(payload: seq<U.uint8>, rest: seq<U.uint8>)\n\n  predicate method HasFrame(input: seq<U.uint8>) {\n    2 <= |input| && 2 + (U.SeqToUInt16(input[..2]) as nat) <= |input|\n  }\n\n  function method FramePayload(input: seq<U.uint8>): seq<U.uint8>\n    requires HasFrame(input)\n  {\n    input[2..2 + (U.SeqToUInt16(input[..2]) as nat)]\n  }\n\n  function method FrameRest(input: seq<U.uint8>): seq<U.uint8>\n    requires HasFrame(input)\n  {\n    input[2 + (U.SeqToUInt16(input[..2]) as nat)..]\n  }\n\n  function method {:opaque} ReadU16Frame(input: seq<U.uint8>)\n    : (result: Result<Frame, string>)\n    ensures result.Success? <==> HasFrame(input)\n    ensures result.Success? ==>\n      result.value.payload == FramePayload(input) &&\n      result.value.rest == FrameRest(input)\n    ensures result.Success? ==> U.HasUint16Len(result.value.payload)\n    ensures result.Success? ==>\n      input == U.UInt16ToSeq(|result.value.payload| as U.uint16) +\n               result.value.payload + result.value.rest\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n\n"
+  },
+  "base_source_sha256": {
+    "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": null,
+  "project": "aws",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 1,
+  "stage_id": "u16-frame",
+  "verification_inputs": [
+    "StandardLibrary/src/UInt.dfy",
+    "libraries/src/BoundedInts.dfy",
+    "libraries/src/Wrappers.dfy",
+    "StandardLibrary/src/RepoDiscoU16Frame.dfy"
+  ]
+}

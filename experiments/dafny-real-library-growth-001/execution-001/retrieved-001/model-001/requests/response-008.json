@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"    reveal F.ReadU16Frame();\\n    var firstResult := F.ReadU16Frame(input);\\n    if firstResult.Failure? then\\n      Failure(firstResult.error)\\n    else\\n      var firstFrame := firstResult.value;\\n      var secondResult := F.ReadU16Frame(firstFrame.rest);\\n      if secondResult.Failure? then\\n        Failure(secondResult.error)\\n      else\\n        var secondFrame := secondResult.value;\\n        assert F.HasFrame(input);\\n        assert F.HasFrame(F.FrameRest(input));\\n        assert HasFramePair(input);\\n        var left := firstFrame.payload;\\n        var right := secondFrame.payload;\\n        var rest := secondFrame.rest;\\n        assert left == F.FramePayload(input);\\n        assert firstFrame.rest == F.FrameRest(input);\\n        assert right == F.FramePayload(F.FrameRest(input));\\n        assert rest == F.FrameRest(F.FrameRest(input));\\n        assert U.HasUint16Len(left);\\n        assert U.HasUint16Len(right);\\n        assert input == U.UInt16ToSeq(|left| as U.uint16) + left + firstFrame.rest;\\n        assert firstFrame.rest == U.UInt16ToSeq(|right| as U.uint16) + right + rest;\\n        assert input == U.UInt16ToSeq(|left| as U.uint16) + left +\\n                         U.UInt16ToSeq(|right| as U.uint16) + right + rest;\\n        Success(Pair(left, right, rest))\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"    reveal F.ReadU16Frame();\\n    var firstResult := F.ReadU16Frame(input);\\n    if firstResult.Failure? then\\n      Failure(firstResult.error)\\n    else\\n      var firstFrame := firstResult.value;\\n      var secondResult := F.ReadU16Frame(firstFrame.rest);\\n      if secondResult.Failure? then\\n        Failure(secondResult.error)\\n      else\\n        var secondFrame := secondResult.value;\\n        assert F.HasFrame(input);\\n        assert F.HasFrame(F.FrameRest(input));\\n        assert HasFramePair(input);\\n        var left := firstFrame.payload;\\n        var right := secondFrame.payload;\\n        var rest := secondFrame.rest;\\n        assert left == F.FramePayload(input);\\n        assert firstFrame.rest == F.FrameRest(input);\\n        assert right == F.FramePayload(F.FrameRest(input));\\n        assert rest == F.FrameRest(F.FrameRest(input));\\n        assert U.HasUint16Len(left);\\n        assert U.HasUint16Len(right);\\n        assert input == U.UInt16ToSeq(|left| as U.uint16) + left + firstFrame.rest;\\n        assert firstFrame.rest == U.UInt16ToSeq(|right| as U.uint16) + right + rest;\\n        assert input == U.UInt16ToSeq(|left| as U.uint16) + left +\\n                         U.UInt16ToSeq(|right| as U.uint16) + right + rest;\\n        Success(Pair(left, right, rest))\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 10677,
+    "outputTokens": 436,
+    "totalTokens": 11113,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "d2a71e1e-01f4-4642-a4df-da85d92fd150",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "d2a71e1e-01f4-4642-a4df-da85d92fd150",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 18:51:35 GMT",
+        "content-type": "application/json",
+        "content-length": "1651",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "d2a71e1e-01f4-4642-a4df-da85d92fd150"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"    reveal F.ReadU16Frame();\\n    var firstResult := F.ReadU16Frame(input);\\n    if firstResult.Failure? then\\n      Failure(firstResult.error)\\n    else\\n      var firstFrame := firstResult.value;\\n      var secondResult := F.ReadU16Frame(firstFrame.rest);\\n      if secondResult.Failure? then\\n        Failure(secondResult.error)\\n      else\\n        var secondFrame := secondResult.value;\\n        assert F.HasFrame(input);\\n        assert F.HasFrame(F.FrameRest(input));\\n        assert HasFramePair(input);\\n        var left := firstFrame.payload;\\n        var right := secondFrame.payload;\\n        var rest := secondFrame.rest;\\n        assert left == F.FramePayload(input);\\n        assert firstFrame.rest == F.FrameRest(input);\\n        assert right == F.FramePayload(F.FrameRest(input));\\n        assert rest == F.FrameRest(F.FrameRest(input));\\n        assert U.HasUint16Len(left);\\n        assert U.HasUint16Len(right);\\n        assert input == U.UInt16ToSeq(|left| as U.uint16) + left + firstFrame.rest;\\n        assert firstFrame.rest == U.UInt16ToSeq(|right| as U.uint16) + right + rest;\\n        assert input == U.UInt16ToSeq(|left| as U.uint16) + left +\\n                         U.UInt16ToSeq(|right| as U.uint16) + right + rest;\\n        Success(Pair(left, right, rest))\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 10677,
+      "outputTokens": 436,
+      "totalTokens": 11113,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4107
+    }
+  }
+}

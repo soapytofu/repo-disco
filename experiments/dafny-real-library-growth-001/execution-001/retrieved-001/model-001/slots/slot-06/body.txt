@@ -1,0 +1,27 @@
+
+    if |input| < 2 then
+      Failure("Input too short to read length prefix")
+    else
+      var lengthBytes := input[..2];
+      var length := U.SeqToUInt16(lengthBytes);
+      var lengthNat := length as nat;
+      if |input| < 2 + lengthNat then
+        Failure("Input too short for frame payload")
+      else
+        var payload := input[2..2 + lengthNat];
+        var rest := input[2 + lengthNat..];
+        assert HasFrame(input);
+        assert payload == FramePayload(input);
+        assert rest == FrameRest(input);
+        assert U.HasUint16Len(payload) by {
+          assert |payload| == lengthNat;
+          assert lengthNat < U.UINT16_LIMIT;
+        }
+        assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest by {
+          U.UInt16SeqDeserializeSerialize(lengthBytes);
+          assert U.UInt16ToSeq(length) == lengthBytes;
+          assert |payload| as U.uint16 == length;
+          assert input == lengthBytes + payload + rest;
+        }
+        Success(Frame(payload, rest))
+  

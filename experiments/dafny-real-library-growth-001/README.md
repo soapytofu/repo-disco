@@ -2,8 +2,9 @@
 
 Prepared November 23, 2026 under Sophie's instruction to qualify the suggested
 Dafny projects, run a small pilot, then proceed within the existing 100-new-call
-ceiling. The frozen runner is tested and staged; a renewed private credential
-handoff is needed before the authorized collection. **No model request has been made.**
+ceiling. **The model collection is complete: 12/12 additions accepted and six
+complete two-stage lineages**, with zero retries, errors or warnings. See the
+[reviewed results and full logs](execution-001/COLLECTION.md).
 
 ## Two selected component scopes
 
@@ -106,6 +107,15 @@ verification coverage.
 
 ## Execution readiness
 
+Job **63153129** subsequently completed in 4m27s on one CPU. The four pilot
+additions all passed, then all eight declared expansion additions passed.
+Each selected component completed three lineages. All six children preserved
+their own accepted parent and contain two ordinary calls to it; AWS children
+also reveal the parent definition. Full 738-file evidence and offline replay
+confirm 12 unique requests and 102,737 tokens. The 12-call allocation is closed;
+the [new cumulative snapshot](research-budget-20261123-006.json) records 19
+returned requests, 28 allocated slots and 72 unallocated under the 100-call cap.
+
 The final [pilot draft-002](pilot/draft-002/scope.json) and
 [execution-001 runtime](execution-001/runtime-freeze.json) bind both completed
 qualification gates. All **75 runner/operations tests pass on Cannon**. The
@@ -118,9 +128,9 @@ streams and synthetic artifacts are retained in [execution reviews](execution-00
 The runtime pins 53 files (SHA `69d07a07241982e21bf06cf16ed038187c8fd2d2a7fff1e71443515745f49548`).
 The live host requires a separate fresh hash-bound execution record, an
 exclusive permanent allocation claim, and native tool preflight on a compute
-node before loading the private handoff. No model authorization file, allocation
-claim, model output or submission has yet been created. The current Cannon
-connection works; the previous collection consumed its private handoff.
+node before loading the private handoff. Those requirements were met by the
+recorded authorization, permanent allocation claim and one submission retained
+with the collection. The preparation tests accessed no private handoff.
 
 ## Bounded collection design
 
@@ -138,9 +148,9 @@ as failures, never repaired or rescored within this cohort. Provider ambiguity,
 missing evidence and source/tool drift stop dispatch. Exact prompts, native
 profiles, runtime and authorization must be frozen and reviewed before launch.
 
-The current prospective budget reserves 12 new slots in addition to the earlier
+The preserved pre-run budget reserved 12 new slots in addition to the earlier
 16, for **28/100 allocated** and 72 unallocated. Seven earlier requests returned;
-this experiment has made none. Earlier closed slots are not reused. The user's new
+this experiment subsequently returned all twelve. Earlier closed slots are not reused. The user's new
 instruction authorizes this work within that ceiling; it does not authorize
 silently changing a frozen task after seeing responses.
 

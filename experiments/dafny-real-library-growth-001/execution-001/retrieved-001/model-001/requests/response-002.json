@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"\\n    if |input| < 2 then\\n      Failure(\\\"Input too short to read length\\\")\\n    else\\n      var lenBytes := input[..2];\\n      var len := U.SeqToUInt16(lenBytes) as nat;\\n      if 2 + len > |input| then\\n        Failure(\\\"Input too short for frame payload\\\")\\n      else\\n        var payload := input[2..2 + len];\\n        var rest := input[2 + len..];\\n        assert HasFrame(input);\\n        assert payload == FramePayload(input);\\n        assert rest == FrameRest(input);\\n        assert U.HasUint16Len(payload) by {\\n          assert len < U.UINT16_LIMIT;\\n          assert |payload| == len;\\n        }\\n        assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest by {\\n          U.UInt16SeqDeserializeSerialize(lenBytes);\\n          assert U.UInt16ToSeq(U.SeqToUInt16(lenBytes)) == lenBytes;\\n          assert |payload| as U.uint16 == U.SeqToUInt16(lenBytes);\\n          assert U.UInt16ToSeq(|payload| as U.uint16) == lenBytes;\\n          assert input[..2] + input[2..2 + len] + input[2 + len..] == input;\\n        }\\n        Success(Frame(payload, rest))\\n  \"}",
+  "content": [
+    {
+      "text": "{\"body\":\"\\n    if |input| < 2 then\\n      Failure(\\\"Input too short to read length\\\")\\n    else\\n      var lenBytes := input[..2];\\n      var len := U.SeqToUInt16(lenBytes) as nat;\\n      if 2 + len > |input| then\\n        Failure(\\\"Input too short for frame payload\\\")\\n      else\\n        var payload := input[2..2 + len];\\n        var rest := input[2 + len..];\\n        assert HasFrame(input);\\n        assert payload == FramePayload(input);\\n        assert rest == FrameRest(input);\\n        assert U.HasUint16Len(payload) by {\\n          assert len < U.UINT16_LIMIT;\\n          assert |payload| == len;\\n        }\\n        assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest by {\\n          U.UInt16SeqDeserializeSerialize(lenBytes);\\n          assert U.UInt16ToSeq(U.SeqToUInt16(lenBytes)) == lenBytes;\\n          assert |payload| as U.uint16 == U.SeqToUInt16(lenBytes);\\n          assert U.UInt16ToSeq(|payload| as U.uint16) == lenBytes;\\n          assert input[..2] + input[2..2 + len] + input[2 + len..] == input;\\n        }\\n        Success(Frame(payload, rest))\\n  \"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 9906,
+    "outputTokens": 388,
+    "totalTokens": 10294,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "9ef02885-d531-4dbe-96a5-2fa32a783bb5",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "9ef02885-d531-4dbe-96a5-2fa32a783bb5",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 23 Nov 2026 18:49:53 GMT",
+        "content-type": "application/json",
+        "content-length": "1453",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "9ef02885-d531-4dbe-96a5-2fa32a783bb5"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"\\n    if |input| < 2 then\\n      Failure(\\\"Input too short to read length\\\")\\n    else\\n      var lenBytes := input[..2];\\n      var len := U.SeqToUInt16(lenBytes) as nat;\\n      if 2 + len > |input| then\\n        Failure(\\\"Input too short for frame payload\\\")\\n      else\\n        var payload := input[2..2 + len];\\n        var rest := input[2 + len..];\\n        assert HasFrame(input);\\n        assert payload == FramePayload(input);\\n        assert rest == FrameRest(input);\\n        assert U.HasUint16Len(payload) by {\\n          assert len < U.UINT16_LIMIT;\\n          assert |payload| == len;\\n        }\\n        assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + rest by {\\n          U.UInt16SeqDeserializeSerialize(lenBytes);\\n          assert U.UInt16ToSeq(U.SeqToUInt16(lenBytes)) == lenBytes;\\n          assert |payload| as U.uint16 == U.SeqToUInt16(lenBytes);\\n          assert U.UInt16ToSeq(|payload| as U.uint16) == lenBytes;\\n          assert input[..2] + input[2..2 + len] + input[2 + len..] == input;\\n        }\\n        Success(Frame(payload, rest))\\n  \"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 9906,
+      "outputTokens": 388,
+      "totalTokens": 10294,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4914
+    }
+  }
+}

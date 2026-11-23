@@ -10,6 +10,29 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 23: twelve executable Dafny additions verified
+
+The new [library growth collection](../experiments/dafny-real-library-growth-001/execution-001/COLLECTION.md)
+completed **12/12 accepted additions and 6/6 two-stage lineages**: three
+AppendAll→AppendRotated lineages on Dafny Standard Library and three
+ReadU16Frame→ReadFramePair lineages on AWS MPL's UInt component. All four pilot
+additions passed, followed by all eight declared expansion additions. All six
+children preserve their actual accepted parent and contain two ordinary calls
+to it; AWS children also unfold the parent definition. The three standard-library
+solutions at each stage repeat exactly, limiting the diversity claim.
+
+Job **63153129** completed in **4m27s on one CPU**. The 738-file source/prompt/
+native audit confirms 12 unique request IDs, zero SDK retries, zero warnings or
+failed units, and **102,737 tokens**. These are verified executable-language
+bodies, not a generated-program performance benchmark. The declared scopes are
+three unchanged upstream files each plus additions; the broader AWS baseline
+failed qualification and remains preserved. All earlier scores are unchanged.
+This is a small feasibility/calibration result, not whole-project or held-out
+generalization. The [updated budget](../experiments/dafny-real-library-growth-001/research-budget-20261123-006.json)
+closes this allocation: 19 returned calls across the current session, 28 slots
+allocated and 72 unallocated. No job remains active. The [November 24 brief](nada-2026-11-24-results-brief.md)
+now includes both these successes and the earlier Dafny-VMC failures.
+
 ## November 23: two additional Dafny component chains qualified
 
 The [Dafny-library growth study](../experiments/dafny-real-library-growth-001/)

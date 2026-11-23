@@ -1,5 +1,18 @@
 # Experiment log
 
+## November 23: model-generated library growth — twelve of twelve accepted
+
+[Library growth job 63153129](dafny-real-library-growth-001/execution-001/COLLECTION.md)
+completed **12/12 accepted executable-code additions and six complete two-stage
+lineages**. Dafny Standard Library and AWS UInt each completed three lineages.
+Four pilot additions and all eight expansion additions passed; all six children
+preserved and called their accepted model parent. There were 12 unique IDs,
+zero SDK retries/errors/warnings, 102,737 tokens, and 4m27s on one CPU. Full
+738-file evidence, offline replay and source/lineage audit are saved. These are
+four fixed stage tasks on selected three-file components, with repeated solutions
+and shared library ancestry; no whole-project or held-out claim. Older results
+remain unchanged. Current allocation is closed; no further calls were started.
+
 ## November 23: Dafny Standard Library and AWS UInt growth ready
 
 [Dafny-library growth](dafny-real-library-growth-001/) qualifies two executable

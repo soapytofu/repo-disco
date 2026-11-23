@@ -1,0 +1,27 @@
+{
+  "addition": {
+    "begin_marker": "    // BEGIN REPLACEMENT\n",
+    "end_marker": "    // END REPLACEMENT",
+    "kind": "method",
+    "path": "growth/AppendAll.dfy",
+    "template_utf8": "module RepoDiscoStdAppend {\n  import DA = Std.DynamicArray\n  export provides DA, AppendAll\n\n  method AppendAll<T>(a: DA.DynamicArray<T>, values: seq<T>)\n    requires a.Valid?()\n    reads a, a.Repr\n    modifies a.Repr\n    ensures a.Valid?()\n    ensures a.items == old(a.items) + values\n    ensures a.size == old(a.size) + |values|\n    ensures a.capacity >= old(a.capacity)\n    ensures fresh(a.Repr - old(a.Repr))\n    decreases |values|\n  {\n    // BEGIN REPLACEMENT\n    // END REPLACEMENT\n  }\n}\n"
+  },
+  "base_source_sha256": {
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+  },
+  "forbidden_identifiers": [],
+  "parent_requirement": null,
+  "project": "stdlib",
+  "registrations": {},
+  "schema": "dafny-library-edit-profile-v1",
+  "stage": 1,
+  "stage_id": "append-all",
+  "verification_inputs": [
+    "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+    "growth/AppendAll.dfy"
+  ]
+}
