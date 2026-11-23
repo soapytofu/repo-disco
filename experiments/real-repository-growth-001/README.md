@@ -1,8 +1,11 @@
 # Sequential additions to qualified real repositories
 
 Prepared November 18, 2026. This is **nonpaid task construction and verifier-only
-qualification**. No model requests are authorized or dispatched by
-this experiment. Both complete analyst reference scopes now verify. The
+qualification**, followed by bounded-runner preparation. On November 22,
+Sophie explicitly approved at most eight new requests with no retries or
+reassignment; [the approval receipt](execution-001/approval-receipt-001.json)
+records the exact scope. Collection has not been submitted and reconnection
+plus private handoff are pending. Both complete analyst reference scopes now verify. The
 [11 remaining Dafny and 12 Vest controls](controls-001/RESULTS.md) match every
 expectation. Together with the two full references, all 25 source controls match:
 eight passing scopes, fourteen intended proof failures and three native-success
@@ -11,7 +14,8 @@ and [proposed eight-call prompt freeze](pilot/README.md) are now reviewed.
 The [bounded execution package](execution-001/README.md) is now frozen, tested
 and staged. Its final Cannon preflight passed all 57 fake-transport/process
 tests; [preparation review](execution-001/preparation-review-001.json) binds the
-code, complete test logs and staging receipt. No model collection is authorized.
+code, complete test logs and staging receipt. The historical prompt/preparation
+freezes retain their original unapproved status; the new approval is separate.
 
 The first [native reference checks](qualification-001/RESULTS.md) are complete.
 Dafny job 61747428 exposed a namespace cycle before proof checking; its complete
@@ -184,9 +188,9 @@ candidate, but cannot establish that every valid proof requires that helper.
 Do not collapse verified extension, observed API reuse and necessary proof
 dependence into a single metric.
 
-## Prospective model budget — not authorized
+## Approved model ceiling — collection pending
 
-Recommended first collection: **at most eight new calls**, two independent
+Approved first collection: **at most eight new calls**, two independent
 lineages per repository and at most two stages per lineage. The minimum
 demonstration is four calls, one lineage per repository. Two repeated lineages
 provide a small repeatability check, not four independent task families or a
@@ -212,9 +216,10 @@ or model success. The prospective single job allocates one CPU, 8 GB and four
 hours; both native tools use one worker. The staged package pins 4,142 files and
 uses the qualified Python 3.11 environment.
 
-Existing model budgets are exhausted or terminal. Separate explicit approval
-for at most eight new calls and a private handoff remain required. No
-authorization, credential access, paid submission or new native run occurred
-during runner preparation. These inspected upstream seeds are development
+Earlier model budgets are exhausted or terminal. The separate eight-call
+approval is now recorded. A private handoff, authenticated state inspection and
+fresh runtime authorization remain required before a single submission. No
+credential access, paid submission or new native run occurred during runner
+preparation or the November 22 offline readiness review. These inspected upstream seeds are development
 material; no held-out, broad generation or causal depth/sharing conclusion
 follows from this proposed pilot.

@@ -1,6 +1,12 @@
 # Experiment log
 
-## Sequential real-source growth — controls verified, bounded runner ready
+## Sequential real-source growth — eight-call pilot approved, awaiting connection
+
+On November 22, Sophie [approved up to eight new calls](real-repository-growth-001/execution-001/approval-receipt-001.json),
+with no retries or reassignment. The exact frozen runner remains staged; no
+collection has been submitted. One reconnect/private-handoff question is pending.
+The [November 24 meeting brief](../docs/nada-2026-11-24-results-brief.md) separates
+the existing real-repository repair evidence from the pending sequential-growth result.
 
 [Task sources and plan](real-repository-growth-001/README.md) now define two
 dependent additions per qualified seed. Dafny-VMC adds stable movement followed
@@ -29,8 +35,9 @@ Cannon, with a separately tested launcher correction before the final Cannon
 run. Request accounting, restart rejection, fresh native evidence, actual-parent
 lineage and full saved-evidence replay are covered. The
 [preparation review](real-repository-growth-001/execution-001/preparation-review-001.json)
-binds the final code and full logs. Separate paid approval remains required;
-no new model or native calls were made during runner preparation.
+binds the final code and full logs. Paid approval is now recorded separately;
+private handoff and fresh submission checks remain. No new model or native
+calls were made during runner preparation or the current offline review.
 
 ## Evaluation stability — warnings and matched resource budgets
 

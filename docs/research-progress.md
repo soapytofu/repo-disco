@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 18, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 22, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,24 @@ Status: November 18, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Additional fixed-interface repair instances and matched feedback evaluations are now validated (see latest checkpoint). Full generation-corpus completion, reserved-family evaluation and training remain open. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 22: eight-call real-repository growth pilot approved
+
+Sophie explicitly approved the frozen maximum of eight new calls, with no
+retries or reassignment. The [approval receipt](../experiments/real-repository-growth-001/execution-001/approval-receipt-001.json)
+binds the exact existing pilot and runner hashes; prior closed scopes remain
+unchanged. Local source pins still match the published runtime, and no local
+run output, execution claim or submission exists. The saved Cannon socket has
+expired; one reconnect/private-handoff question is pending. No remote state is
+assumed until that authenticated connection is restored, and no new call or
+job has been launched.
+
+The [November 24 meeting brief](nada-2026-11-24-results-brief.md) distinguishes
+the completed real-source repair result (7/16 original qualified accepts),
+separate syntax/resource diagnoses, 25 native growth controls and still-unrun
+model growth. It records the design rationale, scope limitations and lineage
+metrics to report after collection. The critical path is one bounded execution,
+complete evidence review and concrete success/failure cases for the meeting.
 
 ## November 18: real-repository growth qualified; bounded pilot runner ready
 
