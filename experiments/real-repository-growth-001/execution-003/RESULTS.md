@@ -76,6 +76,11 @@ it does not diagnose this specific request.
 The next action is an account-owner review of **existing access settings and
 available audit records**, without another model test. Relevant identifiers:
 
+The [November 23 access-check guide](../../../docs/bedrock-growth-access-troubleshooting.md)
+gives exact CloudTrail filters, read-only metadata commands and the key-principal
+and global-profile permissions to inspect. No account checks have been performed
+by that guide and no inference is authorized.
+
 - Model/profile: `global.anthropic.claude-opus-4-5-20251101-v1:0`.
 - API/region: Bedrock Converse, `us-east-1`.
 - Dispatch reservation: November 23 at approximately 03:06:24 UTC
