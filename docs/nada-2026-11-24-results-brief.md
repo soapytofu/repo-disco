@@ -1,9 +1,10 @@
 # November 24 meeting: real-repository repair and growth
 
-Evidence checkpoint: November 22, 2026, Eastern. The eight-call growth pilot is
-approved, but has not been submitted. Reconnection and private credential
-handoff are pending. Its outcome must be added after the saved evidence is
-reviewed; no extension success rate is available yet.
+Evidence checkpoint: November 22, 2026, Eastern. The approved eight-call growth
+pilot was submitted once as Cannon job **62928981** on nonpreemptible `shared`,
+with one CPU, 8 GB, a four-hour limit and no requeue. Its first recorded status
+is pending, with no model output yet. Its outcome must be added after the saved
+evidence is reviewed; no extension success rate is available yet.
 
 ## Main message
 
@@ -126,8 +127,8 @@ and unlogged specification definitions remain explicit.
 3. This compact results table and a clear separation between measured repair,
    analyst feasibility controls and newly measured extension performance.
 
-The critical path is reconnection/private handoff, one bounded submitted job,
-then evidence review. A successful extension cannot be guaranteed. A complete
+The critical path is completion of the single submitted job, then evidence
+review. A successful extension cannot be guaranteed. A complete
 failure diagnosis still answers how the current extender behaves; it must not
 be hidden by adding unbudgeted retries or changing the frozen tasks.
 

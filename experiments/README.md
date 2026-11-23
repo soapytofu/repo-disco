@@ -1,10 +1,12 @@
 # Experiment log
 
-## Sequential real-source growth — eight-call pilot approved, awaiting connection
+## Sequential real-source growth — approved pilot submitted once
 
 On November 22, Sophie [approved up to eight new calls](real-repository-growth-001/execution-001/approval-receipt-001.json),
-with no retries or reassignment. The exact frozen runner remains staged; no
-collection has been submitted. One reconnect/private-handoff question is pending.
+with no retries or reassignment. After reconnection and read-only source/tool,
+handoff-metadata, queue and partition checks, the exact runner was submitted
+once as **job 62928981** on nonpreemptible `shared`: one CPU, 8 GB, four hours,
+no requeue. Its first recorded state is pending; no model outcome is reported.
 The [November 24 meeting brief](../docs/nada-2026-11-24-results-brief.md) separates
 the existing real-repository repair evidence from the pending sequential-growth result.
 
@@ -35,9 +37,9 @@ Cannon, with a separately tested launcher correction before the final Cannon
 run. Request accounting, restart rejection, fresh native evidence, actual-parent
 lineage and full saved-evidence replay are covered. The
 [preparation review](real-repository-growth-001/execution-001/preparation-review-001.json)
-binds the final code and full logs. Paid approval is now recorded separately;
-private handoff and fresh submission checks remain. No new model or native
-calls were made during runner preparation or the current offline review.
+binds the final code and full logs. Paid approval and the single submission are
+recorded separately. No new model or native calls were made during preparation
+or read-only pre-submit checks; actual collection outcomes remain pending.
 
 ## Evaluation stability — warnings and matched resource budgets
 

@@ -16,10 +16,20 @@ Sophie explicitly approved the frozen maximum of eight new calls, with no
 retries or reassignment. The [approval receipt](../experiments/real-repository-growth-001/execution-001/approval-receipt-001.json)
 binds the exact existing pilot and runner hashes; prior closed scopes remain
 unchanged. Local source pins still match the published runtime, and no local
-run output, execution claim or submission exists. The saved Cannon socket has
-expired; one reconnect/private-handoff question is pending. No remote state is
-assumed until that authenticated connection is restored, and no new call or
-job has been launched.
+run output, execution claim or submission existed at the initial check. Sophie
+then reconnected and completed the private handoff. Read-only checks confirmed
+all 4,142 staged pins, unchanged SDK versions, both pinned images and all 287
+Dafny/3,873 Vest tool files, no matching queue/output/ledger, and live
+nonpreemptible `shared` availability. No native or model calls were used for
+these checks.
+
+The exact runner was submitted **once as job 62928981**, one CPU, 8 GB, four
+hours, no requeue. The fresh authorization binds the approved eight-call scope,
+one runtime/output and a 24-hour expiry. Its initial status is pending, with no
+model output. Submission, authorization and pre-submit records are saved in
+[execution-001](../experiments/real-repository-growth-001/execution-001/).
+No second submission or alternate runner is permitted; the next step is to
+follow this job and audit its full evidence.
 
 The [November 24 meeting brief](nada-2026-11-24-results-brief.md) distinguishes
 the completed real-source repair result (7/16 original qualified accepts),
