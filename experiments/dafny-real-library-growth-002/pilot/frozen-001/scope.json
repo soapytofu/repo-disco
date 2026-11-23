@@ -1,0 +1,277 @@
+{
+  "schema": "dafny-library-independent-extension-scope-v1",
+  "batch_id": "dafny-real-library-growth-002-execution-001",
+  "max_calls": 8,
+  "independent_trials": true,
+  "adaptive_expansion": false,
+  "settings": {
+    "inference_config": {
+      "maxTokens": 4096,
+      "temperature": 1
+    },
+    "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+    "region": "us-east-1"
+  },
+  "execution_enabled": false,
+  "authorization_issued": false,
+  "projects": {
+    "stdlib-filter": {
+      "component": "Dafny Standard Library DynamicArray",
+      "stages": {
+        "1": {
+          "stage_id": "stable-filter-below",
+          "edit_profile": "stdlib/revision-004/profiles/stdlib-filter.json",
+          "native_profile": "native-profiles-001/control-gate-001/profiles/stdlib-filter.json",
+          "base_sources": {
+            "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+              "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+              "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+            },
+            "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+              "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+              "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+            },
+            "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+              "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+              "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+            }
+          },
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+            "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+            "wall_seconds": 360
+          },
+          "exact_payload_path": "pilot/frozen-001/payloads/stdlib-filter.json",
+          "target_file": "growth/StableFilterBelow.dfy"
+        }
+      }
+    },
+    "aws-batch": {
+      "component": "AWS MPL UInt selected component",
+      "stages": {
+        "1": {
+          "stage_id": "aws-batch",
+          "edit_profile": "aws/profiles/aws-batch.json",
+          "native_profile": "native-profiles-001/control-gate-001/profiles/aws-batch.json",
+          "base_sources": {
+            "StandardLibrary/src/RepoDiscoFramePair.dfy": {
+              "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+              "sha256": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda"
+            },
+            "StandardLibrary/src/RepoDiscoU16Frame.dfy": {
+              "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+              "sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939"
+            },
+            "StandardLibrary/src/UInt.dfy": {
+              "path": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+              "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+            },
+            "libraries/src/BoundedInts.dfy": {
+              "path": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+              "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+            },
+            "libraries/src/Wrappers.dfy": {
+              "path": "aws/seed/workspace/libraries/src/Wrappers.dfy",
+              "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+            }
+          },
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+            "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+            "wall_seconds": 900
+          },
+          "exact_payload_path": "pilot/frozen-001/payloads/aws-batch.json",
+          "target_file": "StandardLibrary/src/RepoDiscoFrameBatch.dfy"
+        }
+      }
+    },
+    "stdlib-splice": {
+      "component": "Dafny Standard Library DynamicArray",
+      "stages": {
+        "1": {
+          "stage_id": "splice-range",
+          "edit_profile": "stdlib/revision-004/profiles/stdlib-splice.json",
+          "native_profile": "native-profiles-001/control-gate-001/profiles/stdlib-splice.json",
+          "base_sources": {
+            "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+              "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+              "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+            },
+            "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+              "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+              "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+            },
+            "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+              "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+              "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+            },
+            "growth/AppendAll.dfy": {
+              "path": "stdlib/revision-004/base/growth/AppendAll.dfy",
+              "sha256": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26"
+            }
+          },
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+            "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+            "wall_seconds": 360
+          },
+          "exact_payload_path": "pilot/frozen-001/payloads/stdlib-splice.json",
+          "target_file": "growth/SpliceRange.dfy"
+        }
+      }
+    },
+    "aws-tagged": {
+      "component": "AWS MPL UInt selected component",
+      "stages": {
+        "1": {
+          "stage_id": "aws-tagged",
+          "edit_profile": "aws/profiles/aws-tagged.json",
+          "native_profile": "native-profiles-001/control-gate-001/profiles/aws-tagged.json",
+          "base_sources": {
+            "StandardLibrary/src/RepoDiscoFramePair.dfy": {
+              "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+              "sha256": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda"
+            },
+            "StandardLibrary/src/RepoDiscoU16Frame.dfy": {
+              "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+              "sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939"
+            },
+            "StandardLibrary/src/UInt.dfy": {
+              "path": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+              "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+            },
+            "libraries/src/BoundedInts.dfy": {
+              "path": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+              "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+            },
+            "libraries/src/Wrappers.dfy": {
+              "path": "aws/seed/workspace/libraries/src/Wrappers.dfy",
+              "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+            }
+          },
+          "native_adapter": {
+            "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+            "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+            "wall_seconds": 900
+          },
+          "exact_payload_path": "pilot/frozen-001/payloads/aws-tagged.json",
+          "target_file": "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy"
+        }
+      }
+    }
+  },
+  "slots": [
+    {
+      "id": "slot-01",
+      "project": "stdlib-filter",
+      "stage": 1,
+      "replicate": 1,
+      "cohort": "pilot",
+      "chain_id": "stdlib-filter-attempt-1"
+    },
+    {
+      "id": "slot-02",
+      "project": "aws-batch",
+      "stage": 1,
+      "replicate": 1,
+      "cohort": "pilot",
+      "chain_id": "aws-batch-attempt-1"
+    },
+    {
+      "id": "slot-03",
+      "project": "stdlib-splice",
+      "stage": 1,
+      "replicate": 1,
+      "cohort": "pilot",
+      "chain_id": "stdlib-splice-attempt-1"
+    },
+    {
+      "id": "slot-04",
+      "project": "aws-tagged",
+      "stage": 1,
+      "replicate": 1,
+      "cohort": "pilot",
+      "chain_id": "aws-tagged-attempt-1"
+    },
+    {
+      "id": "slot-05",
+      "project": "aws-tagged",
+      "stage": 1,
+      "replicate": 2,
+      "cohort": "pilot",
+      "chain_id": "aws-tagged-attempt-2"
+    },
+    {
+      "id": "slot-06",
+      "project": "stdlib-splice",
+      "stage": 1,
+      "replicate": 2,
+      "cohort": "pilot",
+      "chain_id": "stdlib-splice-attempt-2"
+    },
+    {
+      "id": "slot-07",
+      "project": "aws-batch",
+      "stage": 1,
+      "replicate": 2,
+      "cohort": "pilot",
+      "chain_id": "aws-batch-attempt-2"
+    },
+    {
+      "id": "slot-08",
+      "project": "stdlib-filter",
+      "stage": 1,
+      "replicate": 2,
+      "cohort": "pilot",
+      "chain_id": "stdlib-filter-attempt-2"
+    }
+  ],
+  "renderer": "pilot/render.py",
+  "runtime_inputs": [
+    "aws/profiles/aws-batch.json",
+    "aws/profiles/aws-tagged.json",
+    "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+    "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+    "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+    "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+    "aws/seed/workspace/libraries/src/Wrappers.dfy",
+    "execution-001/budget-snapshot.json",
+    "execution-001/execution-binding.json",
+    "execution-001/model.sbatch",
+    "execution-001/ops.py",
+    "execution-001/test_ops.py",
+    "native-profiles-001/control-gate-001/gate.json",
+    "native-profiles-001/control-gate-001/profiles/aws-batch.json",
+    "native-profiles-001/control-gate-001/profiles/aws-tagged.json",
+    "native-profiles-001/control-gate-001/profiles/stdlib-filter.json",
+    "native-profiles-001/control-gate-001/profiles/stdlib-splice.json",
+    "pilot/frozen-001/payloads/aws-batch.json",
+    "pilot/frozen-001/payloads/aws-tagged.json",
+    "pilot/frozen-001/payloads/stdlib-filter.json",
+    "pilot/frozen-001/payloads/stdlib-splice.json",
+    "pilot/frozen-001/renderer-inputs.json",
+    "pilot/preparation-inputs.json",
+    "pilot/prepare.py",
+    "pilot/render.py",
+    "pilot/test_prepare.py",
+    "pilot/test_render.py",
+    "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+    "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+    "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+    "stdlib/revision-004/base/growth/AppendAll.dfy",
+    "stdlib/revision-004/profiles/stdlib-filter.json",
+    "stdlib/revision-004/profiles/stdlib-splice.json"
+  ],
+  "execution_binding": {
+    "allocation_claim_path": "/n/home13/sophiezeng/formal-disco/outputs/research-budget-20261123/claims/dafny-varied-growth-8-001.json",
+    "allocation_id": "dafny-varied-growth-8-001",
+    "budget_session_id": "repodisco-new-research-20261123-100",
+    "budget_snapshot_input": "execution-001/budget-snapshot.json",
+    "budget_snapshot_path": "/n/home13/sophiezeng/formal-disco/outputs/research-budget-20261123/007.json",
+    "budget_snapshot_sha256": "6f50c9e087bad2350ad0eb1799d7dce7bdf113882a193b023be6300832bb6f91",
+    "output_path": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/execution-001/model-001",
+    "package_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/execution-001/package"
+  },
+  "preparation_input_sha256": "8ef9d41ef865424ecaf2a2f7ddd9e82f82ae30de0107e41c27f2088f53f9bff8",
+  "interpretation": "Four independent additions to fixed selected component snapshots; two fresh responses per task, not two-stage current-run growth."
+}

@@ -1,0 +1,2373 @@
+{
+  "base_file_occurrences": 17,
+  "blocking_findings": [],
+  "control_gate_input_files_checked": 1667,
+  "distinct_base_paths": 9,
+  "existing_tests_reviewed_not_rerun": 98,
+  "inspected_sha256": {
+    "aws/profiles/aws-batch.json": "ab82e1c37decc2e0b0d0af59abbdffe01529fe4a8c1c92a52b9016991d30bdc1",
+    "aws/profiles/aws-tagged.json": "6156ad1e642da52e708bb7772e06901f5b513308701f35d78093c7feea805e38",
+    "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+    "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+    "aws/seed/workspace/StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+    "aws/seed/workspace/libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+    "aws/seed/workspace/libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2",
+    "common/guard.py": "811d1172a96856100f534a0727ea878bc55f0d42dc93c3ca1559a6263926cf63",
+    "common/review_native.py": "0cb995d46d481affc8fbd0cbc018a0c53b19695fdb54fc60a6f06385d2303fe1",
+    "execution-001/README.md": "8123b315ae4868eaa83bddb3acd851fb9953ef45cf8add0252aada9650377eb2",
+    "execution-001/adaptation-origins.json": "db57776a97544a40f8d32d19956727ad8bd29379cc0752b745f3134cbf4100cc",
+    "execution-001/allocation.py": "f649f0ad9eb23557b7989933e8d74ccc58862ab8696dde26dfc86f2e28129160",
+    "execution-001/bounded_requests.py": "5e19a5855ae32f1f3ca6bcbb7db136aeab35c1d83f8e7f77fe582fec83dd366a",
+    "execution-001/budget-snapshot.json": "6f50c9e087bad2350ad0eb1799d7dce7bdf113882a193b023be6300832bb6f91",
+    "execution-001/build_runtime.py": "f17fc6e9999c54865bd8ee374201a04e29bd43febae274d1db45127066279d09",
+    "execution-001/copy-provenance.json": "82cd679a02b0203f97320e2f4ad25a02f94fbe8841f43e189fbfa413318c80a6",
+    "execution-001/credential_transport.py": "433e074f547dc9732e9ec5362c578c267e83d6cc3bbc543ebf2033e408c4b75e",
+    "execution-001/execution-binding.json": "2a9360f4db2f2cc88acf76e2347e4bff5c07c6127a228b59a44f6136f1a75b1c",
+    "execution-001/extract_response.py": "d2f007fdf5cbd5a194a0d21715192ffcc746a39cdb856355c606b9f2b7f2c62c",
+    "execution-001/model.sbatch": "d8ae3b5994182afbaf3a13a12b024823ad8e3fff671368f92020a8c91e8cc929",
+    "execution-001/native_host.py": "1f10911fb9fd53df3f62b49ef44186b9508fc7d4a0ef7b6efd618381d86952c8",
+    "execution-001/ops.py": "802acd061b8f578d8fa82a4edb7fe8d2aeb9dc13eea8af311787f061d644ebf4",
+    "execution-001/prior-budget-snapshot.json": "abbaec0fba2bfcdb815d88fe63176b9119e05920469bb3e7d1fa46f7c73f0423",
+    "execution-001/provider_error.py": "5cc3ee6a22ac4a8cbcb6128db02fdfaf8901d92c78f440d0b2844454c6db7625",
+    "execution-001/review_collection.py": "4a7a04ef698cd4843848b2fb4ae8b42da7e80a1286b7bfe43dd534970fa58442",
+    "execution-001/reviews/offline-003/receipt.json": "d42abf61752fe018a8df3e68000d7a067d052880cf88980a078f0fa8ed2a3887",
+    "execution-001/reviews/offline-003/stderr.txt": "b674717098d4fdd2efc78f53117669fde1c5f9b589a753201b5587d6665f2f68",
+    "execution-001/reviews/offline-003/stdout.txt": "6e6c6ad62a7bb7fc5fbd9a82ad2e27ad16dd8991226388918f11b7b242b87895",
+    "execution-001/run_pilot.py": "ccfe4e938cc7e6d0e1cb694e9ef7120697ad5a615510b20b33114ce1442ff768",
+    "execution-001/runtime-freeze.json": "13f21cc5b329db74761c1b833cc2b7722a8c784c0fea5933fa64c075978ef693",
+    "execution-001/runtime.py": "23c3c879dcfe3625081afb8b1b04b65edcec17b76d5797bcc9f9b12dda2a2681",
+    "execution-001/test_allocation.py": "9e5dcf5904d795b62543dfc61e022f82c17be9a3d1a8fda0e8633a698b1dba6f",
+    "execution-001/test_build_runtime.py": "dd0158f4aa5460053b06a37b042b38b916ea81af39f5bb2b2f0d00cb3c8620c3",
+    "execution-001/test_native_host.py": "07e145396f12f66e532832daccfb7e286be1594d75dfc4ae545268f5009ecfb7",
+    "execution-001/test_ops.py": "d3eb213f5438353613eb07cee94f94e4c100e9296669ccedcee714c8d202d22d",
+    "execution-001/test_review_collection.py": "c5f10054eeca8a2c1cafc1d1a0b77e96a9df1e855dabe61797626734890f0e41",
+    "execution-001/test_runner.py": "7093b75bdda5eb7b9cd13d572c58b230f614652c210ba05f9aa5dd2bedacdfe1",
+    "native-profiles-001/control-gate-001/gate.json": "34977084989b4d14dfa01cdf19bc8e9ab0a2b8479ec3aa00a72933a4e9ee934b",
+    "native-profiles-001/control-gate-001/profiles/aws-batch.json": "b0454d6f02e6fc5dd1b7a7f06631781c2902d7eb02b6931f71fc8c67402210cd",
+    "native-profiles-001/control-gate-001/profiles/aws-tagged.json": "5cd1ebff5d59ba880bc37e8a6d906c9313d9954f83ea952c5af2f9249da39fce",
+    "native-profiles-001/control-gate-001/profiles/stdlib-filter.json": "c48a8e685ec9e846f47158d18ee764347d1a573bf96c00d166ea982203e59f01",
+    "native-profiles-001/control-gate-001/profiles/stdlib-splice.json": "bedfce590bd58d18280bc0e52d20f8369ed827016ee69020f28f458136877bda",
+    "pilot/frozen-001/manifest.json": "23e077f33026c058fc62f9ebdfe077425aba39dd88f0290d772569d3f56f0a75",
+    "pilot/frozen-001/payloads/aws-batch.json": "f7a65e30bd98c111909a3084be79f3f4fb90438b20930ef10ed4c183195bc97d",
+    "pilot/frozen-001/payloads/aws-tagged.json": "4664dbe3f6cbc1879704f198d8c3931f5d0d396c470564b2b0d550cd12a62657",
+    "pilot/frozen-001/payloads/stdlib-filter.json": "5d5afbc76ae9337648bc3988079a1f9075eeb72eb860d6dceb5426c0c596fc61",
+    "pilot/frozen-001/payloads/stdlib-splice.json": "dc11a982883f081bfda8b72839dae83815bcab54ae17cdd5d15757009097edbb",
+    "pilot/frozen-001/renderer-inputs.json": "3dbc24fe67ef5893eb2b73757d0bc3dad259af10d5829a55215dcfc23e8338c5",
+    "pilot/frozen-001/scope.json": "9cc387ac234b259bdcee0450d59ed00e71a240bd86b95947ea88a10b404efd3a",
+    "pilot/preparation-inputs.json": "8ef9d41ef865424ecaf2a2f7ddd9e82f82ae30de0107e41c27f2088f53f9bff8",
+    "pilot/prepare.py": "46e87ee782cf9431f96d80a64c86e13121db4d42aaa39605f2ef615fc98fc63c",
+    "pilot/render.py": "cba1c6d69769b78ccab5004c0ea9d5c5b97e88c418c2d3f0eae1c48ca5761316",
+    "pilot/test_prepare.py": "54efb86afe6f442209f374360ea426992bc9d98168f6689ec92af5ec55e7df25",
+    "pilot/test_render.py": "eb641904f0e835fbf0b80d1606c034cac6731ff7f6cc7f56c60ef5ab89277579",
+    "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+    "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+    "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+    "stdlib/revision-004/base/growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26",
+    "stdlib/revision-004/profiles/stdlib-filter.json": "5a4152baaa84517e275c4f8a73089622ca91a0a3af9640e5a9c80fd3e52cc54b",
+    "stdlib/revision-004/profiles/stdlib-splice.json": "9d21053e8937c15d414d6af3ee39086a92404d27c8e7cad12b3c4cba838e7880"
+  },
+  "inspection_source_sha256": "c91437b060e1daf0020e63a4188074e89251105a6261018a44d6f008883083a0",
+  "model_calls": 0,
+  "native_calls": 0,
+  "network_calls": 0,
+  "new_tests_run": 0,
+  "prompt_freeze_files": 6,
+  "prompt_source_inputs": 32,
+  "renderer_input_files": 32,
+  "runtime_files": 54,
+  "runtime_sha256": "13f21cc5b329db74761c1b833cc2b7722a8c784c0fea5933fa64c075978ef693",
+  "status": "PASS_STATIC_REVIEW",
+  "tasks": {
+    "aws-batch": {
+      "adapter_wall_seconds": 900,
+      "empty_target_body": true,
+      "exact_base_files": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "payload_bytes": 28552,
+      "payload_sha256": "f7a65e30bd98c111909a3084be79f3f4fb90438b20930ef10ed4c183195bc97d",
+      "required_native_units": 81,
+      "target_path": "StandardLibrary/src/RepoDiscoFrameBatch.dfy",
+      "template_sha256": "9a58d75da382c0c295803d374f60ee2ad4cb5ca02bf1cb61efeb9d0c824b1c05",
+      "unlogged_definitions": [
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoFrameBatch.dfy",
+          "kind": "datatype",
+          "line": 8,
+          "name": "RepoDiscoFrameBatch.Batch",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Batch = Batch(payloads: seq<seq<U.uint8>>, rest: seq<U.uint8>)",
+          "source_sha256": "19218b1a745df80b28e4ec3cb8a4a38e01a36c4a0ea9112c51b0e7b426494b3b"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoFramePair.dfy",
+          "kind": "datatype",
+          "line": 8,
+          "name": "RepoDiscoFramePair.Pair",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Pair = Pair(left: seq<U.uint8>, right: seq<U.uint8>, rest: seq<U.uint8>)",
+          "source_sha256": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "kind": "datatype",
+          "line": 8,
+          "name": "RepoDiscoU16Frame.Frame",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Frame = Frame(payload: seq<U.uint8>, rest: seq<U.uint8>)",
+          "source_sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 8,
+          "name": "StandardLibrary.UInt.uint8",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint8 = BoundedInts.uint8",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 9,
+          "name": "StandardLibrary.UInt.uint16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint16 = BoundedInts.uint16",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 10,
+          "name": "StandardLibrary.UInt.uint32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint32 = BoundedInts.uint32",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 11,
+          "name": "StandardLibrary.UInt.uint64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint64 = BoundedInts.uint64",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 12,
+          "name": "StandardLibrary.UInt.int32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type int32 = BoundedInts.int32",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 13,
+          "name": "StandardLibrary.UInt.int64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type int64 = BoundedInts.int64",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "StandardLibrary.UInt.UINT16_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT16_LIMIT := BoundedInts.UINT16_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "StandardLibrary.UInt.UINT32_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT32_LIMIT := BoundedInts.UINT32_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "StandardLibrary.UInt.UINT64_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT64_LIMIT := BoundedInts.UINT64_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "StandardLibrary.UInt.INT32_MAX_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const INT32_MAX_LIMIT := BoundedInts.INT32_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "StandardLibrary.UInt.INT64_MAX_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const INT64_MAX_LIMIT := BoundedInts.INT64_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "StandardLibrary.UInt.UINT64_MAX_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT64_MAX_LIMIT := BoundedInts.UINT64_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 28,
+          "name": "StandardLibrary.UInt.Uint8Seq16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type Uint8Seq16 = seq16<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 35,
+          "name": "StandardLibrary.UInt.Uint8Seq32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type Uint8Seq32 = seq32<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 42,
+          "name": "StandardLibrary.UInt.Uint8Seq64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type Uint8Seq64 = seq64<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 21,
+          "name": "StandardLibrary.UInt.UInt8Less",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method UInt8Less(a: uint8, b: uint8) { a < b }",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 23,
+          "name": "StandardLibrary.UInt.HasUint16Len",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint16Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 30,
+          "name": "StandardLibrary.UInt.HasUint32Len",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint32Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 37,
+          "name": "StandardLibrary.UInt.HasUint64Len",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint64Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 44,
+          "name": "StandardLibrary.UInt.HasUint16Size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint16Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 47,
+          "name": "StandardLibrary.UInt.HasUint32Size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint32Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 50,
+          "name": "StandardLibrary.UInt.HasUint64Size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint64Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 4,
+          "name": "BoundedInts.TWO_TO_THE_0",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_0:   int := 1",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 5,
+          "name": "BoundedInts.TWO_TO_THE_1",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_1:   int := 2",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 6,
+          "name": "BoundedInts.TWO_TO_THE_2",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_2:   int := 4",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 7,
+          "name": "BoundedInts.TWO_TO_THE_4",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_4:   int := 16",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 8,
+          "name": "BoundedInts.TWO_TO_THE_5",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_5:   int := 32",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 9,
+          "name": "BoundedInts.TWO_TO_THE_8",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_8:   int := 0x100",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 10,
+          "name": "BoundedInts.TWO_TO_THE_16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_16:  int := 0x10000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 11,
+          "name": "BoundedInts.TWO_TO_THE_24",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_24:  int := 0x1000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 12,
+          "name": "BoundedInts.TWO_TO_THE_32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_32:  int := 0x1_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 13,
+          "name": "BoundedInts.TWO_TO_THE_40",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_40:  int := 0x100_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "BoundedInts.TWO_TO_THE_48",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_48:  int := 0x10000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "BoundedInts.TWO_TO_THE_56",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_56:  int := 0x1000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "BoundedInts.TWO_TO_THE_64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_64:  int := 0x1_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "BoundedInts.TWO_TO_THE_128",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_128: int := 0x1_00000000_00000000_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "BoundedInts.TWO_TO_THE_256",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_256: int := 0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "BoundedInts.TWO_TO_THE_512",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_512: int :=",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "type",
+          "line": 56,
+          "name": "BoundedInts.byte",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type byte = uint8",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "type",
+          "line": 57,
+          "name": "BoundedInts.bytes",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type bytes = seq<byte>",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 10,
+          "name": "Wrappers.Option",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Option<+T> = None | Some(value: T) {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 46,
+          "name": "Wrappers.Result",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Result<+T, +R> = | Success(value: T) | Failure(error: R) {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 85,
+          "name": "Wrappers.Outcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Outcome<E> = Pass | Fail(error: E)",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 11,
+          "name": "Wrappers.Option.ToResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult(): Result<T, string> {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 17,
+          "name": "Wrappers.Option.ToResult'",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult'<R>(error: R): Result<T, R> {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 23,
+          "name": "Wrappers.Option.UnwrapOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function UnwrapOr(default: T): T {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 29,
+          "name": "Wrappers.Option.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 33,
+          "name": "Wrappers.Option.PropagateFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function PropagateFailure<U>(): Option<U>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 47,
+          "name": "Wrappers.Result.ToOption",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOption(): Option<T>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 54,
+          "name": "Wrappers.Result.UnwrapOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function UnwrapOr(default: T): T",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 61,
+          "name": "Wrappers.Result.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 71,
+          "name": "Wrappers.Result.MapFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function MapFailure<NewR>(reWrap: R -> NewR): Result<T, NewR>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 87,
+          "name": "Wrappers.Outcome.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 101,
+          "name": "Wrappers.Need",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  function Need<E>(condition: bool, error: E): (result: Outcome<E>)",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        }
+      ]
+    },
+    "aws-tagged": {
+      "adapter_wall_seconds": 900,
+      "empty_target_body": true,
+      "exact_base_files": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda",
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939",
+        "StandardLibrary/src/UInt.dfy": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304",
+        "libraries/src/BoundedInts.dfy": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810",
+        "libraries/src/Wrappers.dfy": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+      },
+      "payload_bytes": 28700,
+      "payload_sha256": "4664dbe3f6cbc1879704f198d8c3931f5d0d396c470564b2b0d550cd12a62657",
+      "required_native_units": 79,
+      "target_path": "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy",
+      "template_sha256": "4a09abb171ec180647128502362fdc6ac57389dfa895b9a5df8cc1456b1f72f6",
+      "unlogged_definitions": [
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoFramePair.dfy",
+          "kind": "datatype",
+          "line": 8,
+          "name": "RepoDiscoFramePair.Pair",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Pair = Pair(left: seq<U.uint8>, right: seq<U.uint8>, rest: seq<U.uint8>)",
+          "source_sha256": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoTaggedFramePair.dfy",
+          "kind": "datatype",
+          "line": 9,
+          "name": "RepoDiscoTaggedFramePair.TaggedPair",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype TaggedPair = TaggedPair(payload: seq<U.uint8>, companion: seq<U.uint8>, rest: seq<U.uint8>)",
+          "source_sha256": "e215c56d5e4af754e362ead32d4b283b52b01dd148977d7d38880cfc11045af7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "kind": "datatype",
+          "line": 8,
+          "name": "RepoDiscoU16Frame.Frame",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Frame = Frame(payload: seq<U.uint8>, rest: seq<U.uint8>)",
+          "source_sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 8,
+          "name": "StandardLibrary.UInt.uint8",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint8 = BoundedInts.uint8",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 9,
+          "name": "StandardLibrary.UInt.uint16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint16 = BoundedInts.uint16",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 10,
+          "name": "StandardLibrary.UInt.uint32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint32 = BoundedInts.uint32",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 11,
+          "name": "StandardLibrary.UInt.uint64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type uint64 = BoundedInts.uint64",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 12,
+          "name": "StandardLibrary.UInt.int32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type int32 = BoundedInts.int32",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 13,
+          "name": "StandardLibrary.UInt.int64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type int64 = BoundedInts.int64",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "StandardLibrary.UInt.UINT16_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT16_LIMIT := BoundedInts.UINT16_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "StandardLibrary.UInt.UINT32_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT32_LIMIT := BoundedInts.UINT32_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "StandardLibrary.UInt.UINT64_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT64_LIMIT := BoundedInts.UINT64_MAX as int + 1",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "StandardLibrary.UInt.INT32_MAX_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const INT32_MAX_LIMIT := BoundedInts.INT32_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "StandardLibrary.UInt.INT64_MAX_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const INT64_MAX_LIMIT := BoundedInts.INT64_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "StandardLibrary.UInt.UINT64_MAX_LIMIT",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const UINT64_MAX_LIMIT := BoundedInts.UINT64_MAX as int",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 28,
+          "name": "StandardLibrary.UInt.Uint8Seq16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type Uint8Seq16 = seq16<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 35,
+          "name": "StandardLibrary.UInt.Uint8Seq32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type Uint8Seq32 = seq32<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "type",
+          "line": 42,
+          "name": "StandardLibrary.UInt.Uint8Seq64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type Uint8Seq64 = seq64<uint8>",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 21,
+          "name": "StandardLibrary.UInt.UInt8Less",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method UInt8Less(a: uint8, b: uint8) { a < b }",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 23,
+          "name": "StandardLibrary.UInt.HasUint16Len",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint16Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 30,
+          "name": "StandardLibrary.UInt.HasUint32Len",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint32Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 37,
+          "name": "StandardLibrary.UInt.HasUint64Len",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint64Len<T>(s: seq<T>) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 44,
+          "name": "StandardLibrary.UInt.HasUint16Size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint16Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 47,
+          "name": "StandardLibrary.UInt.HasUint32Size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint32Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "StandardLibrary/src/UInt.dfy",
+          "kind": "predicate",
+          "line": 50,
+          "name": "StandardLibrary.UInt.HasUint64Size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  predicate method HasUint64Size(s: nat) {",
+          "source_sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 4,
+          "name": "BoundedInts.TWO_TO_THE_0",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_0:   int := 1",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 5,
+          "name": "BoundedInts.TWO_TO_THE_1",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_1:   int := 2",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 6,
+          "name": "BoundedInts.TWO_TO_THE_2",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_2:   int := 4",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 7,
+          "name": "BoundedInts.TWO_TO_THE_4",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_4:   int := 16",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 8,
+          "name": "BoundedInts.TWO_TO_THE_5",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_5:   int := 32",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 9,
+          "name": "BoundedInts.TWO_TO_THE_8",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_8:   int := 0x100",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 10,
+          "name": "BoundedInts.TWO_TO_THE_16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_16:  int := 0x10000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 11,
+          "name": "BoundedInts.TWO_TO_THE_24",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_24:  int := 0x1000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 12,
+          "name": "BoundedInts.TWO_TO_THE_32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_32:  int := 0x1_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 13,
+          "name": "BoundedInts.TWO_TO_THE_40",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_40:  int := 0x100_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "BoundedInts.TWO_TO_THE_48",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_48:  int := 0x10000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "BoundedInts.TWO_TO_THE_56",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_56:  int := 0x1000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "BoundedInts.TWO_TO_THE_64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_64:  int := 0x1_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "BoundedInts.TWO_TO_THE_128",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_128: int := 0x1_00000000_00000000_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "BoundedInts.TWO_TO_THE_256",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_256: int := 0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "BoundedInts.TWO_TO_THE_512",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_512: int :=",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "type",
+          "line": 56,
+          "name": "BoundedInts.byte",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type byte = uint8",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/BoundedInts.dfy",
+          "kind": "type",
+          "line": 57,
+          "name": "BoundedInts.bytes",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type bytes = seq<byte>",
+          "source_sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 10,
+          "name": "Wrappers.Option",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Option<+T> = None | Some(value: T) {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 46,
+          "name": "Wrappers.Result",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Result<+T, +R> = | Success(value: T) | Failure(error: R) {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 85,
+          "name": "Wrappers.Outcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Outcome<E> = Pass | Fail(error: E)",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 11,
+          "name": "Wrappers.Option.ToResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult(): Result<T, string> {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 17,
+          "name": "Wrappers.Option.ToResult'",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult'<R>(error: R): Result<T, R> {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 23,
+          "name": "Wrappers.Option.UnwrapOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function UnwrapOr(default: T): T {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 29,
+          "name": "Wrappers.Option.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 33,
+          "name": "Wrappers.Option.PropagateFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function PropagateFailure<U>(): Option<U>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 47,
+          "name": "Wrappers.Result.ToOption",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOption(): Option<T>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 54,
+          "name": "Wrappers.Result.UnwrapOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function UnwrapOr(default: T): T",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 61,
+          "name": "Wrappers.Result.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 71,
+          "name": "Wrappers.Result.MapFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function MapFailure<NewR>(reWrap: R -> NewR): Result<T, NewR>",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 87,
+          "name": "Wrappers.Outcome.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "libraries/src/Wrappers.dfy",
+          "kind": "function",
+          "line": 101,
+          "name": "Wrappers.Need",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  function Need<E>(condition: bool, error: E): (result: Outcome<E>)",
+          "source_sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        }
+      ]
+    },
+    "stdlib-filter": {
+      "adapter_wall_seconds": 360,
+      "empty_target_body": true,
+      "exact_base_files": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+      },
+      "payload_bytes": 19200,
+      "payload_sha256": "5d5afbc76ae9337648bc3988079a1f9075eeb72eb860d6dceb5426c0c596fc61",
+      "required_native_units": 59,
+      "target_path": "growth/StableFilterBelow.dfy",
+      "template_sha256": "2c6351f80099088b893906ea32fa6c2e099c2abbf482f80b3c3d14af35baa49f",
+      "unlogged_definitions": [
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 5,
+          "name": "Std.BoundedInts.TWO_TO_THE_0",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_0:   int := 1",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 7,
+          "name": "Std.BoundedInts.TWO_TO_THE_1",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_1:   int := 2",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 8,
+          "name": "Std.BoundedInts.TWO_TO_THE_2",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_2:   int := 4",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 9,
+          "name": "Std.BoundedInts.TWO_TO_THE_4",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_4:   int := 16",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 10,
+          "name": "Std.BoundedInts.TWO_TO_THE_5",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_5:   int := 32",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 11,
+          "name": "Std.BoundedInts.TWO_TO_THE_7",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_7:   int := 0x80",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 12,
+          "name": "Std.BoundedInts.TWO_TO_THE_8",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_8:   int := 0x100",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 13,
+          "name": "Std.BoundedInts.TWO_TO_THE_15",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_15:  int := 0x8000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "Std.BoundedInts.TWO_TO_THE_16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_16:  int := 0x1_0000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "Std.BoundedInts.TWO_TO_THE_24",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_24:  int := 0x100_0000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "Std.BoundedInts.TWO_TO_THE_31",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_31:  int := 0x8000_0000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "Std.BoundedInts.TWO_TO_THE_32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_32:  int := 0x1_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "Std.BoundedInts.TWO_TO_THE_40",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_40:  int := 0x100_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "Std.BoundedInts.TWO_TO_THE_48",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_48:  int := 0x10000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 20,
+          "name": "Std.BoundedInts.TWO_TO_THE_56",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_56:  int := 0x1000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 21,
+          "name": "Std.BoundedInts.TWO_TO_THE_63",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_63:  int := 0x80000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 22,
+          "name": "Std.BoundedInts.TWO_TO_THE_64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_64:  int := 0x1_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 23,
+          "name": "Std.BoundedInts.TWO_TO_THE_127",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_127: int := 0x80000000_00000000_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 24,
+          "name": "Std.BoundedInts.TWO_TO_THE_128",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_128: int := 0x1_00000000_00000000_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 25,
+          "name": "Std.BoundedInts.TWO_TO_THE_256",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_256: int := 0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 26,
+          "name": "Std.BoundedInts.TWO_TO_THE_512",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_512: int :=",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "type",
+          "line": 66,
+          "name": "Std.BoundedInts.byte",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type byte = uint8",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "type",
+          "line": 67,
+          "name": "Std.BoundedInts.bytes",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type bytes = seq<byte>",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "class",
+          "line": 30,
+          "name": "Std.DynamicArray.DynamicArray",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  class DynamicArray<A> {",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 31,
+          "name": "Std.DynamicArray.DynamicArray.items",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    ghost var items: seq<A>",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 32,
+          "name": "Std.DynamicArray.DynamicArray.Repr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    ghost var Repr: set<object>",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 34,
+          "name": "Std.DynamicArray.DynamicArray.size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    var size: nat",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 35,
+          "name": "Std.DynamicArray.DynamicArray.capacity",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    var capacity: nat",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 36,
+          "name": "Std.DynamicArray.DynamicArray.data",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    var data: array<A>",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 20,
+          "name": "Std.Wrappers.Option",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Option<+T> = None | Some(value: T) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 23,
+          "name": "Std.Wrappers.Option.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 28,
+          "name": "Std.Wrappers.Option.PropagateFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function PropagateFailure<U>(): Option<U>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 42,
+          "name": "Std.Wrappers.Option.GetOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function GetOr(default: T): T {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 49,
+          "name": "Std.Wrappers.Option.ToResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult<E>(error: E): Result<T, E> {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 56,
+          "name": "Std.Wrappers.Option.ToOutcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOutcome<E>(error: E): Outcome<E> {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 63,
+          "name": "Std.Wrappers.Option.Map",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function Map<FC>(rewrap: Option<T> -> FC): FC",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 70,
+          "name": "Std.Wrappers.Result",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Result<+R, +E> = | Success(value: R) | Failure(error: E) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 73,
+          "name": "Std.Wrappers.Result.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 92,
+          "name": "Std.Wrappers.Result.GetOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function GetOr(default: R): R",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 100,
+          "name": "Std.Wrappers.Result.ToOption",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOption(): Option<R>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 108,
+          "name": "Std.Wrappers.Result.ToOutcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOutcome(): Outcome<E>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 116,
+          "name": "Std.Wrappers.Result.Map",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function Map<FC>(rewrap: Result<R,E> -> FC): FC",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 122,
+          "name": "Std.Wrappers.Result.MapFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function MapFailure<NewE>(reWrap: E -> NewE): Result<R, NewE>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 131,
+          "name": "Std.Wrappers.Outcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Outcome<+E> = Pass | Fail(error: E) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 133,
+          "name": "Std.Wrappers.Outcome.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 138,
+          "name": "Std.Wrappers.Outcome.PropagateFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function PropagateFailure(): Outcome<E>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 146,
+          "name": "Std.Wrappers.Outcome.ToOption",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOption<R>(r: R): Option<R>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 154,
+          "name": "Std.Wrappers.Outcome.ToResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult<R>(r: R): Result<R,E>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 162,
+          "name": "Std.Wrappers.Outcome.Map",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function Map<FC>(rewrap: Outcome<E> -> FC): FC",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 168,
+          "name": "Std.Wrappers.Outcome.MapFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function MapFailure<T,NewE>(rewrap: E-> NewE, default: T): Result<T, NewE>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 179,
+          "name": "Std.Wrappers.Outcome.Need",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    static function Need(condition: bool, error: E): (result: Outcome<E>)",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 187,
+          "name": "Std.Wrappers.OutcomeResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype OutcomeResult<+E> = Pass' | Fail'(error: E) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 188,
+          "name": "Std.Wrappers.OutcomeResult.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 201,
+          "name": "Std.Wrappers.Need",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  function Need<E>(condition: bool, error: E): (result: OutcomeResult<E>)",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        }
+      ]
+    },
+    "stdlib-splice": {
+      "adapter_wall_seconds": 360,
+      "empty_target_body": true,
+      "exact_base_files": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4",
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7",
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08",
+        "growth/AppendAll.dfy": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26"
+      },
+      "payload_bytes": 19797,
+      "payload_sha256": "dc11a982883f081bfda8b72839dae83815bcab54ae17cdd5d15757009097edbb",
+      "required_native_units": 60,
+      "target_path": "growth/SpliceRange.dfy",
+      "template_sha256": "ab36e1f43a6b74763a94f8adec489254ea6a2c6a6b4b19c797cea87651c8456a",
+      "unlogged_definitions": [
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 5,
+          "name": "Std.BoundedInts.TWO_TO_THE_0",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_0:   int := 1",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 7,
+          "name": "Std.BoundedInts.TWO_TO_THE_1",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_1:   int := 2",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 8,
+          "name": "Std.BoundedInts.TWO_TO_THE_2",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_2:   int := 4",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 9,
+          "name": "Std.BoundedInts.TWO_TO_THE_4",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_4:   int := 16",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 10,
+          "name": "Std.BoundedInts.TWO_TO_THE_5",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_5:   int := 32",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 11,
+          "name": "Std.BoundedInts.TWO_TO_THE_7",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_7:   int := 0x80",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 12,
+          "name": "Std.BoundedInts.TWO_TO_THE_8",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_8:   int := 0x100",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 13,
+          "name": "Std.BoundedInts.TWO_TO_THE_15",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_15:  int := 0x8000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 14,
+          "name": "Std.BoundedInts.TWO_TO_THE_16",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_16:  int := 0x1_0000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 15,
+          "name": "Std.BoundedInts.TWO_TO_THE_24",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_24:  int := 0x100_0000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 16,
+          "name": "Std.BoundedInts.TWO_TO_THE_31",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_31:  int := 0x8000_0000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 17,
+          "name": "Std.BoundedInts.TWO_TO_THE_32",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_32:  int := 0x1_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 18,
+          "name": "Std.BoundedInts.TWO_TO_THE_40",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_40:  int := 0x100_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 19,
+          "name": "Std.BoundedInts.TWO_TO_THE_48",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_48:  int := 0x10000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 20,
+          "name": "Std.BoundedInts.TWO_TO_THE_56",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_56:  int := 0x1000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 21,
+          "name": "Std.BoundedInts.TWO_TO_THE_63",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_63:  int := 0x80000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 22,
+          "name": "Std.BoundedInts.TWO_TO_THE_64",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_64:  int := 0x1_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 23,
+          "name": "Std.BoundedInts.TWO_TO_THE_127",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_127: int := 0x80000000_00000000_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 24,
+          "name": "Std.BoundedInts.TWO_TO_THE_128",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_128: int := 0x1_00000000_00000000_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 25,
+          "name": "Std.BoundedInts.TWO_TO_THE_256",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_256: int := 0x1_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "const",
+          "line": 26,
+          "name": "Std.BoundedInts.TWO_TO_THE_512",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  const TWO_TO_THE_512: int :=",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "type",
+          "line": 66,
+          "name": "Std.BoundedInts.byte",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type byte = uint8",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "kind": "type",
+          "line": 67,
+          "name": "Std.BoundedInts.bytes",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  type bytes = seq<byte>",
+          "source_sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "class",
+          "line": 30,
+          "name": "Std.DynamicArray.DynamicArray",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  class DynamicArray<A> {",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 31,
+          "name": "Std.DynamicArray.DynamicArray.items",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    ghost var items: seq<A>",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 32,
+          "name": "Std.DynamicArray.DynamicArray.Repr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    ghost var Repr: set<object>",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 34,
+          "name": "Std.DynamicArray.DynamicArray.size",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    var size: nat",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 35,
+          "name": "Std.DynamicArray.DynamicArray.capacity",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    var capacity: nat",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "kind": "field",
+          "line": 36,
+          "name": "Std.DynamicArray.DynamicArray.data",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    var data: array<A>",
+          "source_sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 20,
+          "name": "Std.Wrappers.Option",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Option<+T> = None | Some(value: T) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 23,
+          "name": "Std.Wrappers.Option.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 28,
+          "name": "Std.Wrappers.Option.PropagateFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function PropagateFailure<U>(): Option<U>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 42,
+          "name": "Std.Wrappers.Option.GetOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function GetOr(default: T): T {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 49,
+          "name": "Std.Wrappers.Option.ToResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult<E>(error: E): Result<T, E> {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 56,
+          "name": "Std.Wrappers.Option.ToOutcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOutcome<E>(error: E): Outcome<E> {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 63,
+          "name": "Std.Wrappers.Option.Map",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function Map<FC>(rewrap: Option<T> -> FC): FC",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 70,
+          "name": "Std.Wrappers.Result",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Result<+R, +E> = | Success(value: R) | Failure(error: E) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 73,
+          "name": "Std.Wrappers.Result.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 92,
+          "name": "Std.Wrappers.Result.GetOr",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function GetOr(default: R): R",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 100,
+          "name": "Std.Wrappers.Result.ToOption",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOption(): Option<R>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 108,
+          "name": "Std.Wrappers.Result.ToOutcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOutcome(): Outcome<E>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 116,
+          "name": "Std.Wrappers.Result.Map",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function Map<FC>(rewrap: Result<R,E> -> FC): FC",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 122,
+          "name": "Std.Wrappers.Result.MapFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function MapFailure<NewE>(reWrap: E -> NewE): Result<R, NewE>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 131,
+          "name": "Std.Wrappers.Outcome",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype Outcome<+E> = Pass | Fail(error: E) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 133,
+          "name": "Std.Wrappers.Outcome.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 138,
+          "name": "Std.Wrappers.Outcome.PropagateFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function PropagateFailure(): Outcome<E>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 146,
+          "name": "Std.Wrappers.Outcome.ToOption",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToOption<R>(r: R): Option<R>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 154,
+          "name": "Std.Wrappers.Outcome.ToResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function ToResult<R>(r: R): Result<R,E>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 162,
+          "name": "Std.Wrappers.Outcome.Map",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function Map<FC>(rewrap: Outcome<E> -> FC): FC",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 168,
+          "name": "Std.Wrappers.Outcome.MapFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    function MapFailure<T,NewE>(rewrap: E-> NewE, default: T): Result<T, NewE>",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 179,
+          "name": "Std.Wrappers.Outcome.Need",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    static function Need(condition: bool, error: E): (result: Outcome<E>)",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "datatype",
+          "line": 187,
+          "name": "Std.Wrappers.OutcomeResult",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  datatype OutcomeResult<+E> = Pass' | Fail'(error: E) {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "predicate",
+          "line": 188,
+          "name": "Std.Wrappers.OutcomeResult.IsFailure",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "    predicate IsFailure() {",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        {
+          "counted_as_pass": false,
+          "file": "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "kind": "function",
+          "line": 201,
+          "name": "Std.Wrappers.Need",
+          "reason": "No named CSV unit in this exact complete-scope observation; explicitly not a logged proof pass.",
+          "source_line": "  function Need<E>(condition: bool, error: E): (result: OutcomeResult<E>)",
+          "source_sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        }
+      ]
+    }
+  },
+  "unchanged_common_modules": 2,
+  "unchanged_transport_copies": 4
+}

@@ -42,5 +42,8 @@ request. Synthetic observations are rejected by the production review entry.
 
 Offline tests use fake transports and synthetic native records or Python child
 processes. They never call a provider, access credentials or invoke Dafny. The
-current code is preparation only; the qualification gate and final prompt/runtime
-freeze are not yet available.
+qualification gate now binds four passing references and 26 matching controls;
+four exact payloads and their eight-slot order are frozen. Execution additionally
+requires the reviewed runtime manifest, successful manifest-only preflight,
+fresh private handoff and hash-bound authorization. No execution state is
+created by these offline tests or prompt preparation.

@@ -1,0 +1,9 @@
+{
+  "status": "REVIEW_SCRIPT_SCHEMA_ERROR",
+  "error_type": "KeyError",
+  "field": "warning_policy",
+  "source_sha256": "5073f33276fa69284af925ffbb305add698f8124b91051eb174586d0f948dc9d",
+  "explanation": "The independent static checker initially assumed a warning_policy field. Actual frozen native profiles use inherited_warnings; an empty list requires zero warnings under the unchanged scorer. This was an audit-script mistake, not a runtime or qualification failure. No production file changed.",
+  "model_calls": 0,
+  "native_calls": 0
+}

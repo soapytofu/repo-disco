@@ -32,6 +32,12 @@ eight independent calls (four tasks twice, no retries) are allocated within the
 approved 100-call ceiling: 36 allocated, 64 unallocated, still 19 returned from
 earlier cohorts. No request from this new study has been dispatched. Existing
 model results are unchanged; these new analyst observations are not model scores.
+The final active gate now has 30/30 expected observations (four references plus
+26 controls), with original resource failures preserved outside the active set.
+Four exact prompts and the eight-slot order are frozen; the 54-file execution
+package passes all 98 offline tests locally, in isolation and on Cannon, plus
+the actual eight-slot renderer simulation. No provider client or key access was
+used for preflight. A fresh private handoff remains before authorized collection.
 
 ## November 23: twelve executable Dafny additions verified
 

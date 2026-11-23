@@ -30,6 +30,9 @@ The [control results](qualification-002/RESULTS.md) distinguish ordinary proof
 failures, omitted coverage and resource exhaustion; the [two new replacement
 controls](qualification-007/RESULTS.md) separately establish exact-content and
 unproved-helper rejection using the passing rebuild implementation.
+The [current 30-expectation gate](native-profiles-001/control-gate-001/gate.json)
+binds four selected references and 26 matching controls. Three earlier resource
+failures remain preserved outside that active matrix.
 Only the current method/function body is editable; types,
 contracts, fixed specification helpers, upstream files, saved accepted code,
 termination clauses and the explicit source registration remain host-owned.
@@ -53,8 +56,12 @@ The user's existing 100-call ceiling covers this requested pilot. The latest
 completed budget snapshot allocates 28 calls, with 19 returned responses and
 nine unused slots permanently closed. Eight new slots are now allocated in snapshot 007, bringing cumulative
 allocation to 36 and leaving 64 unallocated. No request has been dispatched for
-this cohort. Runtime-bound execution authorization waits for qualification and
-runner review.
+this cohort. The [four prompts and eight-slot order](pilot/README.md) are frozen.
+The [bounded runner](execution-001/README.md) is staged: 98 tests pass locally,
+in the isolated manifest package and on Cannon; the actual eight-slot renderer
+simulation also passes without provider or native calls. A fresh private handoff
+and hash-bound execution authorization remain before submission; the existing
+user approval covers this eight-call scope.
 
 This is selected-component development evidence. The Standard Library ancestry
 shared with AWS, supplied contracts, prior exposure to the task families and
