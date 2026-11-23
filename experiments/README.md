@@ -1,5 +1,16 @@
 # Experiment log
 
+## Sequential real-source growth — AWS error-logging preparation
+
+The separate [execution-004 preparation](real-repository-growth-001/execution-004/RESULTS.md)
+integrates bounded, redacted provider diagnostics tied to the terminal request
+and reservation. All 98 tests pass locally and on Cannon, along with five
+intercepted-SDK scenarios; full qualification logs and correction history are linked there.
+Frozen prompts, native/parent policies and one-CPU resources remain unchanged.
+No key inspection/consumption, model call, native verifier run, authorization or
+Slurm submission occurred. Old closed collections and scores are preserved;
+replacement-key access and sequential model growth remain unmeasured.
+
 ## Sequential real-source growth — access-denied collection preserved
 
 Sophie separately approved up to eight new calls for

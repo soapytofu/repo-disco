@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 22, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -9,6 +9,23 @@ Status: November 22, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 5–6 | Controlled dependency depth, API reuse, shared proofs; matched baselines; primary synthetic corpus | Six of 12 development instances are now implemented and verified: four C1 cases plus fresh move and restriction/merge. C1 calibration remains 27/32 strict passes; the two new map tasks matched all 76 verifier-control expectations with no model calls. Target-level logging is validated separately. The first map cohort stopped after ten dispatches; the subsequent fresh sixteen-call cohort is complete: fresh move 8/8, restriction/merge 4/8, all outputs admitted. Additional fixed-interface repair instances and matched feedback evaluations are now validated (see latest checkpoint). Full generation-corpus completion, reserved-family evaluation and training remain open. |
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
+
+## November 23: growth runner with bounded AWS error evidence
+
+Sophie requested preparation and testing only, with **no model calls**. The
+separate [execution-004](../experiments/real-repository-growth-001/execution-004/RESULTS.md)
+adds redacted error code/message, request ID, HTTP status and retry metadata,
+bound to the exact stopped reservation. Logging failures remain terminal and
+unscored. Frozen prompts, parent requirements, acceptance rules, one-CPU
+resources and no-retry policy are unchanged; prior ledgers stay closed.
+
+The final suite passes 98/98 tests both locally and on Cannon. Five additional
+intercepted-SDK scenarios pass on Cannon, including access denial and throttling
+with one attempt each.
+Full qualification outcomes and logs are linked above. No real key was read or
+consumed, no authorization or job was created, and no native verifier or model
+was called. Offline qualification does not establish replacement-key access or
+sequential model growth.
 
 ## November 22: corrected growth collection stopped on access denial
 
@@ -37,8 +54,10 @@ bug and provides no evidence about the model's reasoning performance.
 A separate [provider-error metadata component](../experiments/real-repository-growth-001/provider-error-diagnostic-001/README.md)
 passed nine synthetic offline tests, with full logs and root review. It retains
 only allowlisted, bounded fields and redacts explicitly supplied secret strings.
-The component remains unintegrated; no frozen runner changed and no further
-provider or native calls were made. It cannot recover the missing denial details.
+At that checkpoint the component was unintegrated; no frozen runner changed and
+no further provider or native calls were made. The separate November 23 runtime
+integrates it without editing this earlier execution. It cannot recover the
+missing denial details.
 
 ## November 22: initial growth attempt and correction history
 

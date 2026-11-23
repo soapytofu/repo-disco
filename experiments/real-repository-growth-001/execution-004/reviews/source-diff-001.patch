@@ -1,0 +1,820 @@
+--- experiments/real-repository-growth-001/execution-003/README.md
++++ experiments/real-repository-growth-001/execution-004/README.md
+@@ -1,158 +1,103 @@
+-# Separately versioned growth runner offline-preflight correction
++# Growth runner with bounded AWS error evidence
+ 
+-The first remote execution-002 preflight failed when its unit-test subprocess
+-exceeded 220 seconds. Its uncaught timeout lost the captured partial unit log;
+-all frozen code, staging records and the failed record remain unchanged. This
+-execution-003 package changes only the execution namespace and offline preflight
+-bounds/evidence handling. No model or native verifier was run by that failed
+-preflight, and no model result is inferred from it.
++This separately versioned execution-004 package preserves the frozen eight-slot
++growth proposal and adds diagnostics to a terminal transport failure. It is
++preparation only: **zero model calls are authorized by this package**. No key is
++read, checked, consumed or included during construction or offline preflight.
++The execution-003 AccessDeniedException and execution-001 credential failure
++remain closed and unchanged. This is not a restart or reassignment of their
++unused slots, and cannot recover their missing provider metadata.
+ 
+-The offline unit suite now has a 600-second cap, with 900 seconds for the remote
+-preflight driver and a 1,050-second transport envelope including pin checks and cleanup.
+-`--evidence-dir` names a fresh directory outside the packaged repository; SDK
+-records are saved before unit execution, and an unbuffered unit log is written
+-incrementally. Timeout failures retain partial stdout/stderr and remain failed
+-preflights. Existing evidence directories and prior records cannot be overwritten
+-or reused. The remote driver owns a POSIX process group containing preflight,
+-SDK probes and nested unit tests. It kills and reaps that group before taking
+-the authoritative evidence snapshot, including after a directly exited parent;
+-a residual group blocks the snapshot. The SDK probe remains capped at 30 seconds. Provider, model, native
+-verifier, Slurm, request-budget, retry and acceptance settings are unchanged.
++## Error handling
+ 
+-Only focused timeout, evidence and namespace regressions are run during this
+-preparation. Root must run the final full required-SDK remote suite once under
+-the reviewed new bound before any release. A longer offline cap is not proof
+-that the remote preflight passes.
++The unchanged `bounded_requests.py` persists a reservation before dispatch and
++closes it on transport/response failure. The credential wrapper now captures
++only the previously reviewed adapter's five fields:
+ 
+-This package prepares the previously frozen growth pilot for a possible future
+-execution after the stopped execution-001 run. **No model calls are authorized
+-by this new package.** It contains no
+-authorization file, credential, submitted job, accepted model parent or live
+-stage-two payload. Root must finish independent source review before constructing
+-`runtime-freeze.json`; a separate explicit human decision is needed before any
+-paid execution.
++- `Error.Code` and `Error.Message` (message limited to 512 characters).
++- `ResponseMetadata.RequestId`, `HTTPStatusCode` and `RetryAttempts`.
+ 
+-Job 62928981 stopped at its first reserved request with `NoCredentialsError`,
+-without a returned model response or native verification. Its conservative
+-`AMBIGUOUS_OR_UNSAVED` reservation and closed ledger remain unchanged. The
+-execution-003 namespace, runtime identity and remote destination are separate;
+-this package cannot resume that ledger or reuse its authorization.
++The loaded bearer token and any previously visible bearer token are supplied
++for literal redaction before truncation. Exception strings/tracebacks, headers,
++request bodies and environment/configuration dumps are never recorded. Missing
++or malformed fields remain null. No HTTP status, request ID or retry count is
++inferred from an exception class. Unlisted/transformed secrets cannot be
++detected by this literal adapter; it is not a general-purpose sanitizer.
+ 
+-The v1 client factory removed `AWS_BEARER_TOKEN_BEDROCK` before calling the
+-returned transport. This correction scopes the private token across both client
+-construction and the complete request invocation, since authentication can be
+-resolved at request time. The token is loaded once into memory, the prior
+-environment is restored in every `finally` path, and no newly exposed bearer
+-token remains during native verification. The unchanged native adapter also
+-removes provider credential variables before creating child processes. Errors
+-close both the scoped transport and the outer durable request gate; neither
+-retries. The installed boto3/botocore 1.43.115 behavior was reproduced separately with
+-dummy tokens and a fake HTTP boundary in `../credential-diagnostic-001/`. The
+-byte-exact `sdk_probe.py` is now mandatory in remote `--require-sdk` preflight:
+-it reproduces the old failure, tests two successful intercepted requests from
+-one dummy-token load, and checks terminal cleanup after one intercepted failure.
+-These are three offline SDK scenarios, not model requests or native proofs.
+-Every socket connection is forbidden and SDK credential/config inputs are empty
+-temporary files. Local preflight explicitly skips this regression if the SDK is
+-absent; that skip cannot authorize submission.
++Capture happens while the credential transport owns the in-memory token. The
++environment is restored on every exit. The original exception is re-raised,
++and a capture failure cannot reopen the transport. After the request gate has
++stopped, the host optionally writes `slot-NN/transport-error.json`, binding the
++redacted diagnostic to the exact request, reservation, runtime, slot and run.
++The stop record identifies SAVED, UNAVAILABLE, CAPTURE_FAILED or WRITE_FAILED.
++A partial failed write is preserved but is not interpreted as provider evidence.
++Error extraction/writing does not cause an automatic retry, child dispatch,
++response completion, proof score or accepted revision.
+ 
+-The saved-evidence reviewer also handles one files-only-transfer boundary:
+-an absent `accepted-heads` directory is equivalent to empty only when replay
+-expects no accepted heads. Any expected accepted revision still requires its
+-actual head file. This does not change source, proof or acceptance scoring.
+-The original failed reviewer observation and raw archive remain separate.
++The saved-evidence reviewer checks the error record's exact schema, bounds,
++hashes and reservation linkage. The diagnostic does not change the conservative
++`AMBIGUOUS_OR_UNSAVED` status or turn a stopped collection into a completed pilot.
++This checks trusted-host consistency; it does not authenticate arbitrary JSON
++as an independently observed AWS event.
+ 
+-All copied v1 source hashes and whether each file changed are recorded in
+-`copy-provenance.json`. In particular, `bounded_requests.py`, `native_host.py`
+-and `test_native_host.py` remain byte-for-byte copies. Frozen pilot prompts,
+-contracts, current-body scope, parent rules, model settings and native limits
+-are unchanged.
++## Unchanged experiment and native policies
+ 
+-The maximum is eight fresh requests: two independent lineages for each of
+-Dafny-VMC and Vest, with at most two sequential additions per lineage. One
+-response is allowed per stage, with no retry or feedback repair loop. An ordinary
+-proof or edit-guard rejection is an evaluated failed stage; its child is blocked
+-without reassignment. API ambiguity, integrity drift or unresolved native
+-execution stops future dispatch. Eight is a ceiling, not a target to fill.
++The prompt freeze remains
++`9f2e4c9602b4ce98740f2a3fa1dcf7bbef07d2b0693db8d92d9cc55546820f0c`, and the
++parent protocol freeze remains
++`9cf8cc81bd55f83a591c04c2877ab9a0ece3927fcddc31f6f3d42d7953d42057`.
++There are two independent lineages per project and at most two stages per
++lineage: Dafny-VMC MoveToFront then PickPair; Vest frame theorem then batch
++theorem. Vest adds specification/proof-library functionality. Each child is
++rendered from its actual accepted parent, with no reference fallback. A failed
++parent blocks its child without transferring its slot. Direct child
++implementations remain valid; observed API reuse is separate from proof success.
+ 
+-The immutable pilot remains the authority for prompts, model/settings, order,
+-contracts, output grammar and stage-two rendering. Child prompts require the
+-actual accepted first addition and its source-bound native receipt. Analyst
+-reference/control artifacts are host-side qualification evidence only; they are
+-not model context or accepted model parents. Synthetic test fixtures are included
+-only for explicit offline tests and must never enter live dispatch.
++All contracts, source coverage, protected edits, upstream snapshots, acceptance
++rules, native proof inventories, model/settings, order and output limits remain
++unchanged. One response per stage, independent contexts, no repair loop,
++no retries or reassignment. The SDK still has total_max_attempts=1.
++Provider ambiguity, integrity drift or unresolved native execution stops future
++dispatch. No model availability/connectivity probe is part of preflight.
+ 
+-`build_runtime.py inspect` resolves an explicit repository-relative input
+-inventory without writing a freeze. After root review, `freeze` creates the new
+-runtime manifest exclusively and refuses an existing manifest. No unrestricted
+-repository scan selects credentials, live ledgers or output directories. The
+-qualified upstream snapshots, proposal, policy, saved evidence, native closure
+-and execution sources are hash-bound. Existing cluster images and toolchains
+-remain at their qualified paths; the native host checks their exact hashes.
++The prospective job retains one node, one task, **one CPU, 8 GB and four hours**,
++with no requeue. Dafny uses resource limit 100,000 and a 300-second native wall
++cap. Vest uses one Cargo worker, one Verus thread and a 900-second wall cap.
++Both native verifiers run only on compute nodes. A live partition check must
++confirm shared is UP, PreemptMode=OFF and supports the fixed duration before
++any future submission. There is no resource escalation or duplicate submission.
+ 
+-The remote layout is
+-`~/formal-disco/outputs/real-repository-growth-001/execution-003/`, with exact
+-repository paths under `repo/`, a mirrored runtime manifest and `run.sbatch`, and
+-fresh output in `model-001/`. A supplied authorization is copied verbatim to
+-`authorization.json`; ops never manufactures approval. It must name Sophie Zeng,
+-state the explicit human approval basis, bind this runtime and pilot, cap new
+-requests at eight, prohibit retries/reassignment, and expire within 24 hours.
++## Offline qualification and future execution
+ 
+-Ops uses only authenticated socket 21 (or an explicitly supplied socket path),
+-batch mode, disabled fallback transport and hard subprocess timeouts. Submission
+-and every other remote operation use the qualified Conda interpreter at
+-`/n/home13/sophiezeng/.conda/envs/repodisco/bin/python`, with no system-Python
+-fallback. Submission
+-requires a passing fake-only remote preflight, fresh output/submission/ledger
+-state (including the exclusive execution claim), the authorization, private handoff metadata, and a live `shared` partition
+-check showing `PreemptMode=OFF`, `State=UP` and at least four hours. Handoff
+-contents are never read, hashed or printed by ops. Exclusive local intent and
+-remote lock survive failed or ambiguous submission; there is no retry/resume
+-operation. Older paid ledgers and results remain unchanged.
++`preflight.py --draft` reviews the explicit complete input closure before freeze.
++Unit tests use fake transport/native processes and synthetic errors. The
++installed-SDK regression uses dummy tokens, empty temporary AWS configuration,
++an intercepted HTTP boundary and forbidden socket connections. Its five cases
++cover the old token-lifetime defect, two successful synthetic responses, terminal
++connection failure, AccessDeniedException/403 and ThrottlingException/429. The
++last two check actual SDK parsing, redaction, request IDs/status/retry metadata
++and one-attempt behavior. They are not live AWS access tests. Missing SDK packages
++are explicitly skipped locally; `--require-sdk` on Cannon makes them mandatory.
++Full stdout/stderr, source pins and runtime versions are retained in reviews.
+ 
+-The job requests one node, one task, **one CPU, 8 GB and four hours**, with no
+-requeue. Dafny remains fixed at resource limit 100,000 and a 300-second native
+-wall cap; Vest uses one Cargo worker, one Verus thread and a 900-second native
+-wall cap. Up to four invocations of each native backend plus eight 180-second
+-provider reads account for 6,240 seconds before build/setup overhead. The Slurm
+-bound is fixed, not an adaptive escalation; the short `test` partition is not
+-assumed to support it.
++The new runtime manifest pins explicit source and test dependencies. Isolated
++manifest-only preflight checks relocation and the dependency closure. Old frozen
++sources and ledgers are not edited. `copy-provenance.json` records exact origins;
++the request gate, native adapter and pure five-field extractor remain byte-exact.
+ 
+-Preflight runs fake transport/native tests, the offline SDK regression and
+-`bash -n`. The import check records observed boto3/botocore versions and builds
+-a `Config` with 15-second connect/180-second read limits and one total SDK
+-attempt. The following regression constructs real SDK clients whose HTTP
+-boundary is replaced with synthetic responses; socket connections are forbidden.
+-Local preflight explicitly reports absent SDK packages and skips only that
+-regression; remote `--require-sdk` requires both imports and all three scenarios.
+-No provider or verifier is called. Logs preserve exact source hashes, full SDK
+-stdout/stderr, unit-test output and draft/frozen status. A relocated manifest-only
+-package must also pass preflight before staging is released.
++Root may stage this exact package and run fake-only Cannon preflight with
++`ops.py stage` and `ops.py preflight`, using authenticated socket21, disabled
++fallback transport and hard subprocess timeouts. The remote destination is
++`~/formal-disco/outputs/real-repository-growth-001/execution-004/`; the qualified
++interpreter is `/n/home13/sophiezeng/.conda/envs/repodisco/bin/python`.
++These commands do not access the private handoff or submit a Slurm job.
+ 
+-After a terminal job, fetch requires exactly one parent accounting row and
+-explicit terminal states for every relevant step. Similar-prefix IDs do not
+-substitute for the parent; suspended, stopped, unknown or live steps fail closed.
+-Before either endpoint is changed, a read-only regular-file inventory and local
+-free-space check reserve the full transfer plus headroom. Source bytes, responses,
+-request ledger, accepted records, native stdout/stderr, CSV/JSON, resource reports
+-and failures are preserved. Only the eight exact generated
+-`slot-NN/native/fresh-target` Cargo target directories are excluded, using the
+-same enumerator as the run's archive manifest; all native source workspaces
+-remain included. No scratch files are deleted. Raw native failures remain failures even if a later,
+-separately versioned diagnostic succeeds.
+-
+-Preparation entry points (for root after review):
+-
+-```text
+-python -B build_runtime.py inspect
+-python -B preflight.py --draft
+-python -B build_runtime.py freeze
+-python -B ops.py stage
+-python -B ops.py preflight
+-python -B ops.py submit --authorization /path/to/explicit-reviewed-authorization.json
+-python -B ops.py status
+-python -B ops.py fetch
+-```
+-
+-Only preparation and offline tests are in the current authorized scope. Listing
+-future commands does not authorize their execution.
++Future paid execution requires a **separate explicit user decision** and a fresh
++authorization binding this runtime, the unchanged prompt freeze, exact remote
++directory, at most eight new requests, no retries/reassignment and an expiry
++within 24 hours. No authorization is created by these instructions or ops.
++Inspect output/ledger/submission/queue state and require an exclusive submission
++lock before submitting. Existing claims cannot be reused by changing output
++paths. Full sources, responses, request IDs, diagnostics, resources, failures
++and accounting must be retrieved and reviewed. The handoff is consumed only by
++a subsequently authorized compute run; it never enters staging, logs or Git.
+--- experiments/real-repository-growth-001/execution-003/build_runtime.py
++++ experiments/real-repository-growth-001/execution-004/build_runtime.py
+@@ -12,7 +12,7 @@
+ 
+ ROOT = Path(__file__).resolve().parent
+ REPO = ROOT.parents[2]
+-REL = "experiments/real-repository-growth-001/execution-003"
++REL = "experiments/real-repository-growth-001/execution-004"
+ GROWTH = "experiments/real-repository-growth-001"
+ PILOT_SHA = "9f2e4c9602b4ce98740f2a3fa1dcf7bbef07d2b0693db8d92d9cc55546820f0c"
+ PROTOCOL_SHA = "9cf8cc81bd55f83a591c04c2877ab9a0ece3927fcddc31f6f3d42d7953d42057"
+@@ -20,7 +20,8 @@
+        "runtime.py", "run_pilot.py", "bounded_requests.py", "review.py", "test_runner.py",
+        "native_host.py", "test_native_host.py", "copy-provenance.json",
+        "credential_transport.py", "test_credential_transport.py", "sdk_probe.py",
+-       "test_sdk_preflight.py", "test_preflight_timeout.py")
++       "test_sdk_preflight.py", "test_preflight_timeout.py", "provider_error.py",
++       "test_provider_error.py", "test_error_logging.py")
+ 
+ 
+ def require(value, message):
+--- experiments/real-repository-growth-001/execution-003/credential_transport.py
++++ experiments/real-repository-growth-001/execution-004/credential_transport.py
+@@ -7,11 +7,51 @@
+ """
+ import os
+ import threading
++import copy
+ 
+ from bounded_requests import bedrock_transport, consume_key
++from provider_error import extract_provider_error
+ 
+ BEARER_ENV = 'AWS_BEARER_TOKEN_BEDROCK'
+ _MISSING = object()
++
++
++def empty_provider_error():
++    return {'Error': {'Code': None, 'Message': None},
++            'ResponseMetadata': {'RequestId': None, 'HTTPStatusCode': None, 'RetryAttempts': None}}
++
++
++def validate_failure_diagnostic(value):
++    """Validate an already redacted record; never read credentials or infer fields."""
++    if (type(value) is not dict or set(value) != {'schema', 'phase', 'capture_status', 'provider_error'} or
++            value['schema'] != 'repodisco-growth-transport-failure-v1' or
++            value['phase'] not in ('credential_load', 'client_construction', 'invocation_or_response') or
++            value['capture_status'] not in ('EXTRACTED', 'EXTRACTION_FAILED') or
++            type(value['provider_error']) is not dict or
++            extract_provider_error(value['provider_error']) != value['provider_error'] or
++            (value['capture_status'] == 'EXTRACTION_FAILED' and value['provider_error'] != empty_provider_error())):
++        raise ValueError('Invalid bounded transport diagnostic')
++    return copy.deepcopy(value)
++
++
++def capture_failure(error, phase, token, previous):
++    """Best-effort allowlisted extraction while this transport owns the token.
++
++    Never serialize the exception, traceback, headers, environment or request.
++    Literal loaded/previous bearer values are redacted before truncation. An
++    extractor/property error cannot replace the original transport exception.
++    """
++    record = dict(schema='repodisco-growth-transport-failure-v1', phase=phase,
++                  capture_status='EXTRACTION_FAILED', provider_error=empty_provider_error())
++    try:
++        secrets = tuple(value for value in (token, previous)
++                        if type(value) is str and 0 < len(value) <= 65536)
++        record['provider_error'] = extract_provider_error(getattr(error, 'response', None), secret_values=secrets)
++        record['capture_status'] = 'EXTRACTED'
++    except BaseException:
++        # Do not emit repr/type/message from the failed diagnostic operation.
++        pass
++    return record
+ 
+ 
+ def _restore(environ, previous):
+@@ -62,7 +102,12 @@
+         self._token = None
+         self._backend = None
+         self._failed = False
++        self._failure_diagnostic = None
+         self._lock = threading.Lock()
++
++    def failure_diagnostic(self):
++        """Only bounded, already redacted metadata leaves the private transport."""
++        return copy.deepcopy(self._failure_diagnostic)
+ 
+     def __call__(self, payload):
+         if not self._lock.acquire(blocking=False):
+@@ -71,15 +116,22 @@
+         try:
+             if self._failed:
+                 raise RuntimeError('Credential transport is terminal after failure')
++            phase = 'credential_load'
+             try:
+                 if self._token is None:
+                     self._token = _valid_token(self._token_loader())
+                 self._environ[BEARER_ENV] = self._token
++                phase = 'client_construction'
+                 if self._backend is None:
+                     self._backend = self._transport_factory(self._settings)
++                phase = 'invocation_or_response'
+                 return self._backend(payload)
+-            except BaseException:
++            except BaseException as error:
+                 self._failed = True
++                try:
++                    self._failure_diagnostic = capture_failure(error, phase, self._token, previous)
++                except BaseException:
++                    self._failure_diagnostic = None
+                 raise
+         finally:
+             _restore(self._environ, previous)
+--- experiments/real-repository-growth-001/execution-003/ops.py
++++ experiments/real-repository-growth-001/execution-004/ops.py
+@@ -19,12 +19,12 @@
+ 
+ ROOT = Path(__file__).resolve().parent
+ REPO = ROOT.parents[2]
+-REL = "experiments/real-repository-growth-001/execution-003"
+-REMOTE_SUFFIX = "formal-disco/outputs/real-repository-growth-001/execution-003"
++REL = "experiments/real-repository-growth-001/execution-004"
++REMOTE_SUFFIX = "formal-disco/outputs/real-repository-growth-001/execution-004"
+ SOCKET = Path.home() / ".ssh/repodisco-codex-21.sock"
+ HOST = "sophiezeng@login.rc.fas.harvard.edu"
+ REMOTE_PYTHON = "/n/home13/sophiezeng/.conda/envs/repodisco/bin/python"
+-JOB_NAME = "growth-model-8-003"
++JOB_NAME = "growth-model-8-004"
+ JOB_SECONDS = 14400
+ 
+ 
+@@ -156,7 +156,7 @@
+ CHECK = r'''import hashlib,json,sys
+ expected=EXPECTED_RUNTIME
+ repo=root/'repo'
+-code=repo/'experiments/real-repository-growth-001/execution-003'
++code=repo/'experiments/real-repository-growth-001/execution-004'
+ assert hashlib.sha256((root/'runtime-freeze.json').read_bytes()).hexdigest()==expected
+ assert (root/'runtime-freeze.json').read_bytes()==(code/'runtime-freeze.json').read_bytes()
+ freeze=json.loads((root/'runtime-freeze.json').read_bytes())
+@@ -300,7 +300,7 @@
+ assert pre['sdk']['required'] is True and pre['sdk']['installed'] is True and pre['sdk']['client_created'] is False
+ assert pre['sdk']['config']==dict(connect_timeout=15,read_timeout=180,retries=dict(mode='standard',total_max_attempts=1))
+ sdk_auth=pre['sdk_auth_regression']
+-assert sdk_auth['status']=='PASS' and sdk_auth['required'] is True and sdk_auth['returncode']==0 and sdk_auth['scenarios']==3
++assert sdk_auth['status']=='PASS' and sdk_auth['required'] is True and sdk_auth['returncode']==0 and sdk_auth['scenarios']==5
+ assert sdk_auth['record']['status']=='PASS' and sdk_auth['record']['real_credentials_read'] is False
+ assert all(sdk_auth['record'][field]==0 for field in ('model_calls','native_calls','provider_requests','socket_connection_attempts'))
+ raw_authorization=sys.stdin.buffer.read()
+--- experiments/real-repository-growth-001/execution-003/preflight.py
++++ experiments/real-repository-growth-001/execution-004/preflight.py
+@@ -47,7 +47,7 @@
+ def run_unit_suite(root, evidence=None):
+     command = [sys.executable, '-B', '-u', '-m', 'unittest', '-v',
+                'test_ops', 'test_native_host', 'test_runner', 'test_credential_transport',
+-               'test_sdk_preflight', 'test_preflight_timeout']
++               'test_sdk_preflight', 'test_preflight_timeout', 'test_provider_error', 'test_error_logging']
+     stream = (evidence / 'unit-tests.log').open('xb', buffering=0) if evidence is not None else None
+     timed_out = False
+     try:
+@@ -124,12 +124,14 @@
+             builder.require(record[field] == sdk[field], 'SDK versions changed during preflight')
+         expected = dict(probe=builder.sha(root / 'sdk_probe.py'),
+                         transport=builder.sha(root / 'bounded_requests.py'),
+-                        helper=builder.sha(root / 'credential_transport.py'))
++                        helper=builder.sha(root / 'credential_transport.py'),
++                        provider_error=builder.sha(root / 'provider_error.py'))
+         builder.require(record['sources'] == expected, 'SDK probe source mismatch')
+         builder.require([o['case'] for o in record['observations']] ==
+                         ['legacy_pop_before_request', 'scoped_two_successes',
+-                         'scoped_error_terminal_no_retry'], 'SDK regression scenarios differ')
+-        result.update(status='PASS', scenarios=3, record=record)
++                         'scoped_error_terminal_no_retry', 'scoped_access_denied_metadata',
++                         'scoped_throttled_metadata'], 'SDK regression scenarios differ')
++        result.update(status='PASS', scenarios=5, record=record)
+     except (ValueError, KeyError, TypeError) as exc:
+         result['validation_error'] = str(exc)
+     return result
+--- experiments/real-repository-growth-001/execution-003/review.py
++++ experiments/real-repository-growth-001/execution-004/review.py
+@@ -7,6 +7,54 @@
+ 
+ import runtime as r
+ import run_pilot as host
++from credential_transport import validate_failure_diagnostic
++
++
++def review_transport_error(out, run, package, ledger, summary):
++    """Bind diagnostic evidence to the stopped reservation; never rescore it."""
++    fatal = summary['fatal']
++    status = None if fatal is None else fatal.get('transport_diagnostic')
++    actual = {p.relative_to(out).as_posix() for p in out.glob('slot-*/transport-error.json')}
++    if fatal is not None:
++        r.require(r.read(out/'stop.json') == fatal, 'Stop record differs from summary')
++    if status is None:
++        r.require(not actual, 'Unclaimed transport diagnostic')
++        return None
++    r.require(type(status) is dict and status.get('status') in
++              ('SAVED', 'UNAVAILABLE', 'CAPTURE_FAILED', 'WRITE_FAILED'), 'Unknown diagnostic persistence status')
++    saved = status['status'] == 'SAVED'
++    r.require(set(status) == ({'status', 'slot_id', 'artifact_sha256'} if saved else {'status', 'slot_id'}),
++              'Unexpected diagnostic status fields')
++    slots = {x['slot_id']: x for x in package['order']}
++    r.require(status['slot_id'] in slots, 'Diagnostic outside frozen order')
++    slot = slots[status['slot_id']]
++    name = slot['slot_id']+'/transport-error.json'
++    if not saved:
++        # A partial failed write may be archived, but is not parsed as evidence.
++        r.require(actual <= ({name} if status['status'] == 'WRITE_FAILED' else set()),
++                  'Unexpected diagnostic for a failed/unavailable capture')
++        return dict(status=status['status'], slot_id=slot['slot_id'], proof_score=None)
++    r.require(actual == {name}, 'Missing or extra saved transport diagnostic')
++    raw = (out/name).read_bytes()
++    r.require(r.sha(raw) == status['artifact_sha256'], 'Transport diagnostic hash differs')
++    value = json.loads(raw)
++    r.require(type(value) is dict and set(value) == {'schema', 'run_id', 'runtime_sha256', 'slot_id', 'stage_id',
++              'reservation_sequence', 'request_sha256', 'reservation_sha256', 'error_type', 'diagnostic',
++              'returned_model_response', 'proof_score'}, 'Unexpected transport evidence fields')
++    entry = ledger['reservations'][-1]
++    r.require(value['schema'] == 'repodisco-growth-transport-error-evidence-v1' and
++              value['run_id'] == run['run_id'] and value['runtime_sha256'] == package['runtime_sha256'] and
++              value['slot_id'] == slot['slot_id'] == entry['attempt_id'] and value['stage_id'] == slot['stage_id'] and
++              type(value['reservation_sequence']) is int and value['reservation_sequence'] == entry['sequence'] and
++              value['request_sha256'] == r.sha((out/slot['slot_id']/'request.json').read_bytes()) and
++              value['reservation_sha256'] == r.sha(r.canonical(entry)) and
++              value['error_type'] == fatal['error_type'] == entry.get('error_type') and
++              ledger['closed'] is True and ledger['closed_reason'] == 'transport_or_response_failure' and
++              entry['status'] == 'AMBIGUOUS_OR_UNSAVED' and
++              value['returned_model_response'] is False and value['proof_score'] is None,
++              'Transport diagnostic does not match the terminal unscored reservation')
++    diagnostic = validate_failure_diagnostic(value['diagnostic'])
++    return dict(status='SAVED', slot_id=slot['slot_id'], diagnostic=diagnostic, proof_score=None)
+ 
+ 
+ def native_binding(api, value):
+@@ -45,6 +93,7 @@
+     r.require(ledger['closed'] is True and ledger['limit'] == r.LIMIT and ledger['deadline'] == run['deadline'] and
+               len(reservations) <= r.LIMIT, 'Open, overbudget or contradictory ledger')
+     r.require([x['sequence'] for x in reservations] == list(range(1, len(reservations) + 1)), 'Reservation sequence differs')
++    transport_error_audit = review_transport_error(out, run, package, ledger, summary)
+     order = package['order']
+     positions = {x['slot_id']: x for x in order}
+     r.require(len({x['attempt_id'] for x in reservations}) == len(reservations), 'Retried/reassigned slot')
+@@ -234,6 +283,7 @@
+                 synthetic=synthetic, experiment_complete=complete, reserved=len(reservations),
+                 completed_responses=summary['completed_responses'], reviewed_rows=audited,
+                 reservation_audit=reservation_audit,
++                transport_error_audit=transport_error_audit,
+                 accepted_stages=summary['accepted_stages'], completed_lineages=summary['completed_lineages'],
+                 model_calls_made_by_review=0, native_calls_made_by_review=0,
+                 stopped_run_has_no_complete_pilot_score=not complete)
+--- experiments/real-repository-growth-001/execution-003/run.sbatch
++++ experiments/real-repository-growth-001/execution-004/run.sbatch
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-#SBATCH --job-name=growth-model-8-003
++#SBATCH --job-name=growth-model-8-004
+ #SBATCH --nodes=1
+ #SBATCH --ntasks=1
+ #SBATCH --cpus-per-task=1
+@@ -13,6 +13,6 @@
+ export PYTHONDONTWRITEBYTECODE=1
+ export CARGO_BUILD_JOBS=1
+ exec /n/home13/sophiezeng/.conda/envs/repodisco/bin/python -B \
+-  repo/experiments/real-repository-growth-001/execution-003/run_pilot.py \
++  repo/experiments/real-repository-growth-001/execution-004/run_pilot.py \
+   --repo "$PWD/repo" --output "$PWD/model-001" \
+   --authorization "$PWD/authorization.json" --handoff "$HOME/.repodisco-bedrock-handoff"
+--- experiments/real-repository-growth-001/execution-003/run_pilot.py
++++ experiments/real-repository-growth-001/execution-004/run_pilot.py
+@@ -12,7 +12,7 @@
+ 
+ import runtime as r
+ from bounded_requests import RequestGate, durable_json
+-from credential_transport import ScopedBearerTransport, load_private_token
++from credential_transport import ScopedBearerTransport, load_private_token, validate_failure_diagnostic
+ 
+ 
+ def write_bytes(path, raw):
+@@ -22,6 +22,38 @@
+         stream.write(raw)
+         stream.flush()
+         os.fsync(stream.fileno())
++
++
++def persist_transport_failure(folder, slot, gate, error, diagnostic_reader, run_id, runtime_sha):
++    """Save optional metadata after the gate closes, without masking its error.
++
++    A diagnostic is not a returned response or a completed reservation. Any
++    capture/write failure stays terminal and cannot cause another dispatch.
++    """
++    status = dict(status='UNAVAILABLE', slot_id=slot['slot_id'])
++    try:
++        value = diagnostic_reader() if diagnostic_reader is not None else None
++        if value is None:
++            return status
++        diagnostic = validate_failure_diagnostic(value)
++        entry = gate.state['reservations'][-1]
++        r.require(gate.closed and entry['attempt_id'] == slot['slot_id'] and
++                  entry['status'] == 'AMBIGUOUS_OR_UNSAVED' and entry['error_type'] == type(error).__name__,
++                  'Diagnostic is not the terminal reservation')
++        record = dict(schema='repodisco-growth-transport-error-evidence-v1', run_id=run_id,
++                      runtime_sha256=runtime_sha, slot_id=slot['slot_id'], stage_id=slot['stage_id'],
++                      reservation_sequence=entry['sequence'],
++                      request_sha256=r.sha((folder/'request.json').read_bytes()),
++                      reservation_sha256=r.sha(r.canonical(entry)), error_type=type(error).__name__,
++                      diagnostic=diagnostic, returned_model_response=False, proof_score=None)
++        status['status'] = 'WRITE_FAILED'
++        raw = r.encode(record)
++        write_bytes(folder/'transport-error.json', raw)
++        return dict(status='SAVED', slot_id=slot['slot_id'], artifact_sha256=r.sha(raw))
++    except BaseException:
++        if status['status'] == 'UNAVAILABLE':
++            status['status'] = 'CAPTURE_FAILED'
++        return status
+ 
+ 
+ def original_sources(repo, project, api):
+@@ -165,7 +197,8 @@
+ 
+ 
+ def _execute(repo, out, transport, verifier, deadline, package, *, validate, clock=time.time,
+-             synthetic=False, audit_native=None, run_id=None, authority=None, execution_claim=None, environment=None):
++             synthetic=False, audit_native=None, run_id=None, authority=None, execution_claim=None, environment=None,
++             transport_diagnostic=None):
+     """Shared deterministic state machine. Only the CLI below selects live dependencies."""
+     repo, out = Path(repo).resolve(), Path(out)
+     renderer, api = r.load_context(repo)
+@@ -196,6 +229,7 @@
+     gate = RequestGate(out / 'requests', r.LIMIT, deadline, transport, clock=clock)
+     parents, originals, rows, ids = {}, {}, [], set()
+     fatal, verifier_attempts, invocation_counts = None, 0, []
++    transport_diagnostic_status = None
+     try:
+         for slot in package['order']:
+             validate()
+@@ -227,7 +261,12 @@
+                             renderer.render_stage2(slot['slot_id'], source_parent, parent.binding, evidence))
+             write_bytes(folder / 'request.json', renderer.encode(rendered['payload']))
+             durable_json(folder / 'rendering.json', rendered['rendering'])
+-            response = gate.invoke(rendered['payload'], task_id=slot['stage_id'], attempt_id=slot['slot_id'])
++            try:
++                response = gate.invoke(rendered['payload'], task_id=slot['stage_id'], attempt_id=slot['slot_id'])
++            except BaseException as error:
++                transport_diagnostic_status = persist_transport_failure(
++                    folder, slot, gate, error, transport_diagnostic, run_id, package['runtime_sha256'])
++                raise
+             durable_json(folder / 'response.json', response)
+             r.check_response(response, ids)
+             validate()
+@@ -319,6 +358,8 @@
+     except BaseException as error:
+         fatal = dict(error_type=type(error).__name__, after_completed_rows=len(rows),
+                      no_retry=True, no_resume=True)
++        if transport_diagnostic_status is not None:
++            fatal['transport_diagnostic'] = transport_diagnostic_status
+         durable_json(out / 'stop.json', fatal)
+     finally:
+         complete = fatal is None and len(rows) == r.LIMIT
+@@ -353,11 +394,12 @@
+ 
+ 
+ def simulate(repo, out, transport, verifier, *, deadline, acknowledge_synthetic=False,
+-             clock=time.time, package=None, validate=None, audit_native=None, run_id=None):
++             clock=time.time, package=None, validate=None, audit_native=None, run_id=None, transport_diagnostic=None):
+     r.require(acknowledge_synthetic is True, 'Explicit synthetic test opt-in required')
+     package = package or r.validate_package(repo)
+     return _execute(repo, out, transport, verifier, deadline, package, synthetic=True, clock=clock,
+-                    validate=validate or (lambda: r.validate_package(repo)), audit_native=audit_native, run_id=run_id)
++                    validate=validate or (lambda: r.validate_package(repo)), audit_native=audit_native, run_id=run_id,
++                    transport_diagnostic=transport_diagnostic)
+ 
+ 
+ def main(argv=None):
+@@ -416,7 +458,8 @@
+ 
+     summary = _execute(args.repo, args.output, transport, NativeVerifier(args.repo),
+                        auth['expires_at_epoch'], package, validate=validate, authority=auth_raw,
+-                       execution_claim=(actual_root/'execution.claim.json').read_bytes(), environment=environment)
++                       execution_claim=(actual_root/'execution.claim.json').read_bytes(), environment=environment,
++                       transport_diagnostic=private_transport.failure_diagnostic)
+     r.require(summary['status'] == 'COMPLETE', 'Run stopped; inspect preserved evidence, never restart')
+ 
+ 
+--- experiments/real-repository-growth-001/execution-003/runtime.py
++++ experiments/real-repository-growth-001/execution-004/runtime.py
+@@ -8,13 +8,13 @@
+ import time
+ 
+ ROOT = Path(__file__).resolve().parent
+-REL = 'experiments/real-repository-growth-001/execution-003'
++REL = 'experiments/real-repository-growth-001/execution-004'
+ PILOT = 'experiments/real-repository-growth-001/pilot'
+ PROTOCOL = 'experiments/real-repository-growth-001/protocol-003'
+ PILOT_SHA = '9f2e4c9602b4ce98740f2a3fa1dcf7bbef07d2b0693db8d92d9cc55546820f0c'
+ PROTOCOL_SHA = '9cf8cc81bd55f83a591c04c2877ab9a0ece3927fcddc31f6f3d42d7953d42057'
+ LIMIT = 8
+-EXECUTION_ID = 'real-repository-growth-001-execution-003'
++EXECUTION_ID = 'real-repository-growth-001-execution-004'
+ 
+ 
+ def require(value, message):
+--- experiments/real-repository-growth-001/execution-003/sdk_probe.py
++++ experiments/real-repository-growth-001/execution-004/sdk_probe.py
+@@ -65,9 +65,9 @@
+             import boto3
+             import botocore
+             from botocore.awsrequest import AWSResponse
+-            from botocore.exceptions import EndpointConnectionError, NoCredentialsError
+-
+-            def make_factory(*, fail=False):
++            from botocore.exceptions import ClientError, EndpointConnectionError, NoCredentialsError
++
++            def make_factory(*, fail=False, http_status=None):
+                 calls = dict(factories=0, intercepted_http=0, bearer_headers=[], retry_configuration=[])
+ 
+                 def factory(*args, **kwargs):
+@@ -84,6 +84,16 @@
+                         assert value == 'Bearer ' + TOKEN, 'Expected synthetic bearer authentication'
+                         if fail:
+                             raise EndpointConnectionError(endpoint_url='https://offline.invalid')
++                        if http_status is not None:
++                            error_code = 'AccessDeniedException' if http_status == 403 else 'ThrottlingException'
++                            body = json.dumps(dict(message='Synthetic rejection of '+TOKEN,
++                                                   __type=error_code)).encode()
++                            class ErrorRaw:
++                                def stream(self, *args, **kwargs):
++                                    yield body
++                            return AWSResponse(request.url, http_status,
++                                {'content-type': 'application/json', 'x-amzn-errortype': error_code,
++                                 'x-amzn-requestid': 'synthetic-error-'+str(http_status)}, ErrorRaw())
+                         body = json.dumps(dict(output=dict(message=dict(role='assistant', content=[dict(text='{}')])),
+                                                stopReason='end_turn', usage=dict(inputTokens=1, outputTokens=1, totalTokens=2),
+                                                metrics=dict(latencyMs=0))).encode()
+@@ -158,13 +168,45 @@
+             assert calls['intercepted_http'] == 1 and ENV not in os.environ
+             observations.append(dict(case='scoped_error_terminal_no_retry',
+                                      environment_restored_after_error=True, **calls))
++            # Exercise actual ClientError parsing for a denial and a normally
++            # retryable status. Both remain one intercepted attempt, never network.
++            for http_status, error_code, case in [
++                    (403, 'AccessDeniedException', 'scoped_access_denied_metadata'),
++                    (429, 'ThrottlingException', 'scoped_throttled_metadata')]:
++                factory, calls = make_factory(http_status=http_status)
++                fixed = helper.ScopedBearerTransport(settings, lambda: TOKEN,
++                    transport_factory=lambda s: transport.bedrock_transport(s, client_factory=factory))
++                try:
++                    fixed(payload)
++                except ClientError as error:
++                    assert error.response['Error']['Code'] == error_code
++                else:
++                    raise AssertionError('Synthetic service error was hidden')
++                diagnostic = fixed.failure_diagnostic()
++                expected_error = dict(Error=dict(Code=error_code, Message='Synthetic rejection of [REDACTED]'),
++                    ResponseMetadata=dict(RequestId='synthetic-error-'+str(http_status),
++                                          HTTPStatusCode=http_status, RetryAttempts=0))
++                assert diagnostic['provider_error'] == expected_error
++                assert TOKEN not in json.dumps(diagnostic)
++                assert diagnostic['phase'] == 'invocation_or_response' and diagnostic['capture_status'] == 'EXTRACTED'
++                assert ENV not in os.environ and calls['intercepted_http'] == 1
++                try:
++                    fixed(payload)
++                except RuntimeError:
++                    pass
++                else:
++                    raise AssertionError('Service failure allowed another dispatch')
++                assert calls['intercepted_http'] == 1 and ENV not in os.environ
++                observations.append(dict(case=case, diagnostic=diagnostic,
++                                         environment_restored_after_error=True, **calls))
+             assert not network_attempts
+             sdk_root = Path(botocore.__file__).parent
+             sdk_sources = {n: digest(sdk_root / n) for n in
+                            ['client.py', 'auth.py', 'signers.py', 'utils.py', 'tokens.py']}
+             result = dict(schema='repodisco-offline-sdk-auth-reproduction-v1', status='PASS',
+                           python=sys.version, boto3_version=boto3.__version__, botocore_version=botocore.__version__,
+-                          sources=dict(probe=digest(__file__), transport=digest(args.transport), helper=digest(args.helper)),
++                          sources=dict(probe=digest(__file__), transport=digest(args.transport), helper=digest(args.helper),
++                                       provider_error=digest(Path(args.helper).parent/'provider_error.py')),
+                           sdk_source_sha256=sdk_sources, observations=observations,
+                           socket_connection_attempts=len(network_attempts), provider_requests=0,
+                           model_calls=0, native_calls=0, real_credentials_read=False,
+--- experiments/real-repository-growth-001/execution-003/test_ops.py
++++ experiments/real-repository-growth-001/execution-004/test_ops.py
+@@ -25,7 +25,7 @@
+ 
+ 
+ def sdk_auth_record():
+-    return dict(status='PASS', required=True, returncode=0, scenarios=3,
++    return dict(status='PASS', required=True, returncode=0, scenarios=5,
+                 record=dict(status='PASS', real_credentials_read=False, model_calls=0,
+                             native_calls=0, provider_requests=0, socket_connection_attempts=0))
+ 
+@@ -44,7 +44,7 @@
+         self.assertIn('BatchMode=yes', argv)
+         self.assertIn('ProxyCommand=false', argv)
+         self.assertEqual(kwargs['timeout'], 17)
+-        self.assertIn('real-repository-growth-001/execution-003', argv[-1])
++        self.assertIn('real-repository-growth-001/execution-004', argv[-1])
+         self.assertEqual(shlex.split(argv[-1])[:3],
+                          ['/n/home13/sophiezeng/.conda/envs/repodisco/bin/python', '-B', '-c'])
+         self.assertNotIn('python3 -c', argv[-1])
+--- experiments/real-repository-growth-001/execution-003/test_preflight_timeout.py
++++ experiments/real-repository-growth-001/execution-004/test_preflight_timeout.py
+@@ -38,7 +38,7 @@
+         with tempfile.TemporaryDirectory() as temp:
+             evidence = Path(temp).resolve() / 'evidence'
+             sdk = dict(installed=True, required=True, synthetic=True)
+-            auth = dict(status='PASS', scenarios=3, synthetic=True)
++            auth = dict(status='PASS', scenarios=5, synthetic=True)
+             def fail(command, **kwargs):
+                 if command[0] == 'bash':
+                     return subprocess.CompletedProcess(command, 0)
+@@ -162,21 +162,26 @@
+     def test_normal_direct_exit_cleans_residual_group_before_evidence_snapshot(self):
+         self._remote_group_cleanup(timeout=False)
+ 
+-    def test_separate_namespace_preserves_model_native_and_credential_components(self):
+-        self.assertTrue(builder.REL.endswith('/execution-003'))
++    def test_separate_namespace_preserves_frozen_inputs_and_declares_logging_changes(self):
++        self.assertTrue(builder.REL.endswith('/execution-004'))
+         self.assertEqual(runtime.REL, builder.REL)
+         self.assertEqual(ops.REL, builder.REL)
+-        self.assertTrue(ops.REMOTE_SUFFIX.endswith('/execution-003'))
+-        self.assertEqual(runtime.EXECUTION_ID, 'real-repository-growth-001-execution-003')
+-        self.assertEqual(ops.JOB_NAME, 'growth-model-8-003')
++        self.assertTrue(ops.REMOTE_SUFFIX.endswith('/execution-004'))
++        self.assertEqual(runtime.EXECUTION_ID, 'real-repository-growth-001-execution-004')
++        self.assertEqual(ops.JOB_NAME, 'growth-model-8-004')
+         self.assertEqual((runtime.LIMIT, ops.JOB_SECONDS), (8, 14400))
+         origins = json.loads((ROOT/'copy-provenance.json').read_text())
+-        for name in ('run_pilot.py', 'bounded_requests.py', 'credential_transport.py',
+-                     'native_host.py', 'sdk_probe.py', 'review.py'):
++        for name in ('bounded_requests.py', 'native_host.py', 'provider_error.py', 'test_provider_error.py'):
+             self.assertFalse(origins[name]['modified'])
+             self.assertEqual(builder.sha(ROOT/name), origins[name]['sha256'])
+             self.assertEqual((ROOT/name).read_bytes(), (builder.REPO/origins[name]['source']).read_bytes())
+-        self.assertIn('execution-003/run_pilot.py', (ROOT/'run.sbatch').read_text())
++        for name in ('run_pilot.py', 'credential_transport.py', 'sdk_probe.py', 'review.py'):
++            self.assertTrue(origins[name]['modified'])
++            self.assertEqual(builder.sha(builder.REPO/origins[name]['source']), origins[name]['sha256'])
++            self.assertNotEqual(builder.sha(ROOT/name), origins[name]['sha256'])
++        self.assertEqual(runtime.PILOT_SHA,builder.PILOT_SHA)
++        self.assertEqual(runtime.PROTOCOL_SHA,builder.PROTOCOL_SHA)
++        self.assertIn('execution-004/run_pilot.py', (ROOT/'run.sbatch').read_text())
+ 
+ 
+ if __name__ == '__main__':
+--- experiments/real-repository-growth-001/execution-003/test_sdk_preflight.py
++++ experiments/real-repository-growth-001/execution-004/test_sdk_preflight.py
+@@ -25,10 +25,12 @@
+                 boto3_version='SYNTHETIC-VERSION', botocore_version='SYNTHETIC-VERSION',
+                 sources=dict(probe=builder.sha(ROOT / 'sdk_probe.py'),
+                              transport=builder.sha(ROOT / 'bounded_requests.py'),
+-                             helper=builder.sha(ROOT / 'credential_transport.py')),
++                             helper=builder.sha(ROOT / 'credential_transport.py'),
++                             provider_error=builder.sha(ROOT / 'provider_error.py')),
+                 observations=[dict(case=case) for case in
+                               ['legacy_pop_before_request', 'scoped_two_successes',
+-                               'scoped_error_terminal_no_retry']],
++                               'scoped_error_terminal_no_retry', 'scoped_access_denied_metadata',
++                               'scoped_throttled_metadata']],
+                 provider_requests=0, model_calls=0, native_calls=0,
+                 socket_connection_attempts=0, real_credentials_read=False,
+                 synthetic_responses_are_not_model_evidence=True)
+@@ -49,7 +51,7 @@
+                           return_value=subprocess.CompletedProcess([], 0, stdout=raw, stderr=b'fake stderr')) as run:
+             result = preflight.sdk_auth_regression(ROOT, sdk())
+         self.assertEqual(result['status'], 'PASS')
+-        self.assertEqual(result['scenarios'], 3)
++        self.assertEqual(result['scenarios'], 5)
+         self.assertEqual(result['stdout'], raw.decode())
+         self.assertEqual(result['stderr'], 'fake stderr')
+         self.assertEqual(run.call_count, 1)

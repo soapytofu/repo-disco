@@ -1,6 +1,14 @@
 # Sequential additions to qualified real repositories
 
-**Current collection stopped:** Sophie separately approved up to eight new calls for
+**Latest preparation:** [execution-004](execution-004/RESULTS.md) adds bounded,
+redacted AWS error evidence while preserving the frozen prompts, one-CPU limits,
+actual-parent requirement and no-retry policy. All 98 tests pass locally and on
+Cannon, along with five intercepted-SDK scenarios; the linked record retains full
+qualification logs and preparation history. No key was read or consumed, no
+authorization or submission was created, and no model or native calls occurred.
+This does not establish replacement-key access or a sequential-growth result.
+
+**Last collection stopped:** Sophie separately approved up to eight new calls for
 [execution-003](execution-003/approval-receipt-001.json), with no retries or
 reassignment. **Job 62950853 ended with AccessDeniedException** after 2m42s,
 before a model response or native verifier call. Its one reservation is
