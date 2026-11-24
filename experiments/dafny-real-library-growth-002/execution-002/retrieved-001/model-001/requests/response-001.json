@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"var oldItems := a.items;\\nvar n := a.size;\\nvar writeIdx := 0;\\nghost var kept: seq<int> := [];\\n\\nvar readIdx := 0;\\nwhile readIdx < n\\n  invariant 0 <= readIdx <= n\\n  invariant 0 <= writeIdx <= readIdx\\n  invariant a.Valid?()\\n  invariant a.size == n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.data == old(a.data)\\n  invariant kept == KeepBelow(oldItems[..readIdx], limit)\\n  invariant |kept| == writeIdx\\n  invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]\\n  invariant forall i :: readIdx <= i < n ==> a.data[i] == oldItems[i]\\n{\\n  var elem := a.data[readIdx];\\n  if elem < limit {\\n    a.data[writeIdx] := elem;\\n    kept := kept + [elem];\\n    writeIdx := writeIdx + 1;\\n  }\\n  readIdx := readIdx + 1;\\n  assert oldItems[..readIdx] == oldItems[..readIdx-1] + [oldItems[readIdx-1]];\\n}\\n\\nassert oldItems[..n] == oldItems;\\n\\nwhile a.size > writeIdx\\n  invariant a.Valid?()\\n  invariant writeIdx <= a.size <= n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.data == old(a.data)\\n  invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]\\n  invariant a.items == a.data[..a.size]\\n{\\n  a.PopFast();\\n}\\n\\nassert a.size == writeIdx;\\nassert a.items == a.data[..writeIdx];\\nassert forall i :: 0 <= i < writeIdx ==> a.items[i] == kept[i];\\nassert |a.items| == |kept|;\\nassert a.items == kept;\\n\\nremoved := n - writeIdx;\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"var oldItems := a.items;\\nvar n := a.size;\\nvar writeIdx := 0;\\nghost var kept: seq<int> := [];\\n\\nvar readIdx := 0;\\nwhile readIdx < n\\n  invariant 0 <= readIdx <= n\\n  invariant 0 <= writeIdx <= readIdx\\n  invariant a.Valid?()\\n  invariant a.size == n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.data == old(a.data)\\n  invariant kept == KeepBelow(oldItems[..readIdx], limit)\\n  invariant |kept| == writeIdx\\n  invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]\\n  invariant forall i :: readIdx <= i < n ==> a.data[i] == oldItems[i]\\n{\\n  var elem := a.data[readIdx];\\n  if elem < limit {\\n    a.data[writeIdx] := elem;\\n    kept := kept + [elem];\\n    writeIdx := writeIdx + 1;\\n  }\\n  readIdx := readIdx + 1;\\n  assert oldItems[..readIdx] == oldItems[..readIdx-1] + [oldItems[readIdx-1]];\\n}\\n\\nassert oldItems[..n] == oldItems;\\n\\nwhile a.size > writeIdx\\n  invariant a.Valid?()\\n  invariant writeIdx <= a.size <= n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.data == old(a.data)\\n  invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]\\n  invariant a.items == a.data[..a.size]\\n{\\n  a.PopFast();\\n}\\n\\nassert a.size == writeIdx;\\nassert a.items == a.data[..writeIdx];\\nassert forall i :: 0 <= i < writeIdx ==> a.items[i] == kept[i];\\nassert |a.items| == |kept|;\\nassert a.items == kept;\\n\\nremoved := n - writeIdx;\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 5966,
+    "outputTokens": 578,
+    "totalTokens": 6544,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "c5e1d43c-7380-4c86-9080-57929bf0f041",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "c5e1d43c-7380-4c86-9080-57929bf0f041",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 24 Nov 2026 17:27:09 GMT",
+        "content-type": "application/json",
+        "content-length": "1824",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "c5e1d43c-7380-4c86-9080-57929bf0f041"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"var oldItems := a.items;\\nvar n := a.size;\\nvar writeIdx := 0;\\nghost var kept: seq<int> := [];\\n\\nvar readIdx := 0;\\nwhile readIdx < n\\n  invariant 0 <= readIdx <= n\\n  invariant 0 <= writeIdx <= readIdx\\n  invariant a.Valid?()\\n  invariant a.size == n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.data == old(a.data)\\n  invariant kept == KeepBelow(oldItems[..readIdx], limit)\\n  invariant |kept| == writeIdx\\n  invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]\\n  invariant forall i :: readIdx <= i < n ==> a.data[i] == oldItems[i]\\n{\\n  var elem := a.data[readIdx];\\n  if elem < limit {\\n    a.data[writeIdx] := elem;\\n    kept := kept + [elem];\\n    writeIdx := writeIdx + 1;\\n  }\\n  readIdx := readIdx + 1;\\n  assert oldItems[..readIdx] == oldItems[..readIdx-1] + [oldItems[readIdx-1]];\\n}\\n\\nassert oldItems[..n] == oldItems;\\n\\nwhile a.size > writeIdx\\n  invariant a.Valid?()\\n  invariant writeIdx <= a.size <= n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.data == old(a.data)\\n  invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]\\n  invariant a.items == a.data[..a.size]\\n{\\n  a.PopFast();\\n}\\n\\nassert a.size == writeIdx;\\nassert a.items == a.data[..writeIdx];\\nassert forall i :: 0 <= i < writeIdx ==> a.items[i] == kept[i];\\nassert |a.items| == |kept|;\\nassert a.items == kept;\\n\\nremoved := n - writeIdx;\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 5966,
+      "outputTokens": 578,
+      "totalTokens": 6544,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6320
+    }
+  }
+}

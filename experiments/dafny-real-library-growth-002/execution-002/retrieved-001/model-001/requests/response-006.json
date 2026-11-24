@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"ghost var oldItems := a.items;\\nvar oldSize := a.size;\\nvar suffix := a.items[position + deleteCount..];\\n\\n// First, truncate to position\\nwhile a.size > position\\n  invariant a.Valid?()\\n  invariant a.size >= 0\\n  invariant a.size <= oldSize\\n  invariant a.items == oldItems[..a.size]\\n  invariant a.Repr == old(a.Repr)\\n  decreases a.size\\n{\\n  a.PopFast();\\n}\\n\\nassert a.items == oldItems[..position];\\n\\n// Now append replacement\\nAppend.AppendAll(a, replacement);\\n\\nassert a.items == oldItems[..position] + replacement;\\n\\n// Now append suffix\\nAppend.AppendAll(a, suffix);\\n\\nassert a.items == oldItems[..position] + replacement + suffix;\\nassert suffix == oldItems[position + deleteCount..];\\nassert a.items == oldItems[..position] + replacement + oldItems[position + deleteCount..];\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"ghost var oldItems := a.items;\\nvar oldSize := a.size;\\nvar suffix := a.items[position + deleteCount..];\\n\\n// First, truncate to position\\nwhile a.size > position\\n  invariant a.Valid?()\\n  invariant a.size >= 0\\n  invariant a.size <= oldSize\\n  invariant a.items == oldItems[..a.size]\\n  invariant a.Repr == old(a.Repr)\\n  decreases a.size\\n{\\n  a.PopFast();\\n}\\n\\nassert a.items == oldItems[..position];\\n\\n// Now append replacement\\nAppend.AppendAll(a, replacement);\\n\\nassert a.items == oldItems[..position] + replacement;\\n\\n// Now append suffix\\nAppend.AppendAll(a, suffix);\\n\\nassert a.items == oldItems[..position] + replacement + suffix;\\nassert suffix == oldItems[position + deleteCount..];\\nassert a.items == oldItems[..position] + replacement + oldItems[position + deleteCount..];\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 6138,
+    "outputTokens": 274,
+    "totalTokens": 6412,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "7d224a3d-0138-4240-a151-9bef443717c4",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "7d224a3d-0138-4240-a151-9bef443717c4",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 24 Nov 2026 17:28:51 GMT",
+        "content-type": "application/json",
+        "content-length": "1154",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "7d224a3d-0138-4240-a151-9bef443717c4"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"ghost var oldItems := a.items;\\nvar oldSize := a.size;\\nvar suffix := a.items[position + deleteCount..];\\n\\n// First, truncate to position\\nwhile a.size > position\\n  invariant a.Valid?()\\n  invariant a.size >= 0\\n  invariant a.size <= oldSize\\n  invariant a.items == oldItems[..a.size]\\n  invariant a.Repr == old(a.Repr)\\n  decreases a.size\\n{\\n  a.PopFast();\\n}\\n\\nassert a.items == oldItems[..position];\\n\\n// Now append replacement\\nAppend.AppendAll(a, replacement);\\n\\nassert a.items == oldItems[..position] + replacement;\\n\\n// Now append suffix\\nAppend.AppendAll(a, suffix);\\n\\nassert a.items == oldItems[..position] + replacement + suffix;\\nassert suffix == oldItems[position + deleteCount..];\\nassert a.items == oldItems[..position] + replacement + oldItems[position + deleteCount..];\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 6138,
+      "outputTokens": 274,
+      "totalTokens": 6412,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 4046
+    }
+  }
+}

@@ -1,5 +1,19 @@
 # Experiment log
 
+## November 24: balanced varied Dafny extensions — three of eight accepted
+
+[Fresh job 63440248](dafny-real-library-growth-002/execution-002/COLLECTION.md)
+completed **3/8 accepted additions**: filtering 0/2, counted decoding 1/2,
+splicing 0/2 and tagged/bounded pairs 2/2. Four failures are native resolution/
+type errors (hidden data or ghost-to-executable use); one is fixed-budget solver
+exhaustion. All eight passed extraction and edit guards, with eight unique
+request IDs, zero SDK retries, 73,890 tokens and 4m25s on one CPU. The revised
+runner completed the sample without accepting a failed candidate; prompts,
+success criteria and native limits stayed fixed. Full 550-file evidence and
+strict review are saved. Earlier scores and ledgers remain unchanged. The
+current session now has 30 returned calls, 44 allocated slots, 14 closed unused
+historical slots and 56 unallocated. No further calls were started.
+
 ## November 23: varied Dafny extensions — three responses before frontend stop
 
 [Job 63210633](dafny-real-library-growth-002/execution-001/COLLECTION.md) returned

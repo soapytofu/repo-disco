@@ -5,7 +5,16 @@ Standard Library and AWS MPL UInt component snapshots. The earlier pilot
 accepted all twelve append/frame additions. Those results motivate tasks with
 new reasoning demands; they do not establish these tasks are harder for models.
 
-**Current result: terminal partial cohort.** Job 63210633 returned three
+**Current result: fresh balanced cohort, 3/8 accepted.** Job 63440248 returned
+all eight responses under the same task prompts and native limits: filtering
+0/2, counted decoding 1/2, splicing 0/2 and tagged/bounded pairs 2/2. Four
+candidate frontend failures remained rejected while collection continued;
+one decoder exhausted its fixed solver budget. All eight passed extraction
+and the edit guard, with eight unique request IDs, zero SDK retries and
+73,890 tokens. The job completed in 4m25s on one CPU. See
+[final results and full evidence](execution-002/COLLECTION.md).
+
+**Earlier terminal partial cohort, unchanged.** Job 63210633 returned three
 responses: counted-frame decoding passed, filtering failed a loop invariant,
 and splicing failed on accesses to an unexported field. The frozen frontend-error
 stop rule closed the remaining five slots. All three outputs passed extraction
@@ -48,9 +57,12 @@ termination clauses and the explicit source registration remain host-owned.
 The bounded pilot allocated at most **eight new calls**: four tasks times
 two fresh contexts. Task order is reversed for the second replicate. Ordinary
 proof failures remain failures; collection is not extended to reach a favorable
-score. The frozen policy also stops on candidate frontend errors, new warnings,
-infrastructure, source-integrity or ambiguous provider failures. There are no
-retries or reassigned slots.
+score. The original execution-001 policy stopped on candidate frontend errors.
+Fresh execution-002 prospectively allows a rejected candidate with fully
+captured, source-bound frontend diagnostics to continue independent dispatch;
+it keeps the original success criteria. Unknown native failures,
+infrastructure, source-integrity or ambiguous provider failures still stop
+collection. There are no retries or reassigned slots.
 
 The primary outcome is strict acceptance of the complete selected workspace,
 reported separately for each task (two planned responses each). Also report
@@ -61,14 +73,18 @@ supplied APIs are descriptive; alternative direct implementations are valid.
 The earlier twelve accepted additions remain a separate, simpler development
 cohort, not a matched control or evidence of a causal difficulty difference.
 
-The [budget observation](research-budget-20261123-008.json) records 36 slots
-allocated within the user's 100-call ceiling, 22 returned responses across the
-session, 14 permanently closed unused slots and 64 unallocated. The current
-claim/ledger is terminal; its five undispatched slots cannot be reused.
+The [current budget observation](research-budget-20261123-010.json) records
+44 slots allocated within the user's 100-call ceiling, 30 returned responses
+across the session, 14 permanently closed unused slots and 56 unallocated.
+Both varied-pilot claims/ledgers are closed; the original five undispatched
+slots were not reused.
 The [four prompts and eight-slot order](pilot/README.md) and
 [bounded runner](execution-001/README.md) remain frozen. Before collection,
 98 tests passed locally, in the isolated package and on Cannon; the actual
 eight-slot renderer simulation passed without provider or native calls.
+The [fresh runner](execution-002/README.md) separately passed all 113 tests
+locally, in isolation and on Cannon before the new collection, with complete
+preparation and collection logs preserved.
 
 This is selected-component development evidence. The Standard Library ancestry
 shared with AWS, supplied contracts, prior exposure to the task families and

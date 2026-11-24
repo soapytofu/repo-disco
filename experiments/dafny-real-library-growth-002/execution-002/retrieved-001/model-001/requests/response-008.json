@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"var oldItems := a.items;\\nvar n := a.size;\\nvar kept: seq<int> := [];\\nvar i := 0;\\nvar w := 0;\\n\\nwhile i < n\\n  invariant 0 <= i <= n\\n  invariant 0 <= w <= i\\n  invariant a.Valid?()\\n  invariant a.size == n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.items == oldItems\\n  invariant kept == KeepBelow(oldItems[..i], limit)\\n  invariant |kept| == w\\n  invariant forall j :: 0 <= j < w ==> a.data[j] == kept[j]\\n  invariant forall j :: i <= j < n ==> a.data[j] == oldItems[j]\\n{\\n  var x := a.data[i];\\n  assert oldItems[..i+1] == oldItems[..i] + [oldItems[i]];\\n  if x < limit {\\n    a.data[w] := x;\\n    kept := kept + [x];\\n    w := w + 1;\\n  }\\n  i := i + 1;\\n}\\n\\nassert oldItems[..n] == oldItems;\\n\\nwhile a.size > w\\n  invariant a.Valid?()\\n  invariant w <= a.size <= n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant forall j :: 0 <= j < w ==> a.data[j] == kept[j]\\n{\\n  a.PopFast();\\n}\\n\\nassert a.size == w;\\nassert a.items == a.data[..w];\\nassert forall j :: 0 <= j < w ==> a.items[j] == kept[j];\\nassert a.items == kept;\\n\\nremoved := n - w;\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"var oldItems := a.items;\\nvar n := a.size;\\nvar kept: seq<int> := [];\\nvar i := 0;\\nvar w := 0;\\n\\nwhile i < n\\n  invariant 0 <= i <= n\\n  invariant 0 <= w <= i\\n  invariant a.Valid?()\\n  invariant a.size == n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.items == oldItems\\n  invariant kept == KeepBelow(oldItems[..i], limit)\\n  invariant |kept| == w\\n  invariant forall j :: 0 <= j < w ==> a.data[j] == kept[j]\\n  invariant forall j :: i <= j < n ==> a.data[j] == oldItems[j]\\n{\\n  var x := a.data[i];\\n  assert oldItems[..i+1] == oldItems[..i] + [oldItems[i]];\\n  if x < limit {\\n    a.data[w] := x;\\n    kept := kept + [x];\\n    w := w + 1;\\n  }\\n  i := i + 1;\\n}\\n\\nassert oldItems[..n] == oldItems;\\n\\nwhile a.size > w\\n  invariant a.Valid?()\\n  invariant w <= a.size <= n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant forall j :: 0 <= j < w ==> a.data[j] == kept[j]\\n{\\n  a.PopFast();\\n}\\n\\nassert a.size == w;\\nassert a.items == a.data[..w];\\nassert forall j :: 0 <= j < w ==> a.items[j] == kept[j];\\nassert a.items == kept;\\n\\nremoved := n - w;\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 5966,
+    "outputTokens": 503,
+    "totalTokens": 6469,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "1868153e-925c-49fe-b0df-20c9415d686e",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "1868153e-925c-49fe-b0df-20c9415d686e",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 24 Nov 2026 17:30:48 GMT",
+        "content-type": "application/json",
+        "content-length": "1524",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "1868153e-925c-49fe-b0df-20c9415d686e"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"var oldItems := a.items;\\nvar n := a.size;\\nvar kept: seq<int> := [];\\nvar i := 0;\\nvar w := 0;\\n\\nwhile i < n\\n  invariant 0 <= i <= n\\n  invariant 0 <= w <= i\\n  invariant a.Valid?()\\n  invariant a.size == n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant a.items == oldItems\\n  invariant kept == KeepBelow(oldItems[..i], limit)\\n  invariant |kept| == w\\n  invariant forall j :: 0 <= j < w ==> a.data[j] == kept[j]\\n  invariant forall j :: i <= j < n ==> a.data[j] == oldItems[j]\\n{\\n  var x := a.data[i];\\n  assert oldItems[..i+1] == oldItems[..i] + [oldItems[i]];\\n  if x < limit {\\n    a.data[w] := x;\\n    kept := kept + [x];\\n    w := w + 1;\\n  }\\n  i := i + 1;\\n}\\n\\nassert oldItems[..n] == oldItems;\\n\\nwhile a.size > w\\n  invariant a.Valid?()\\n  invariant w <= a.size <= n\\n  invariant a.capacity == old(a.capacity)\\n  invariant a.Repr == old(a.Repr)\\n  invariant forall j :: 0 <= j < w ==> a.data[j] == kept[j]\\n{\\n  a.PopFast();\\n}\\n\\nassert a.size == w;\\nassert a.items == a.data[..w];\\nassert forall j :: 0 <= j < w ==> a.items[j] == kept[j];\\nassert a.items == kept;\\n\\nremoved := n - w;\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 5966,
+      "outputTokens": 503,
+      "totalTokens": 6469,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 5491
+    }
+  }
+}

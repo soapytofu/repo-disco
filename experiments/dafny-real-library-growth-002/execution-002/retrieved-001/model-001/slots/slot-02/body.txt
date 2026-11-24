@@ -1,0 +1,45 @@
+if count == 0 then
+  assert HasCountedFrames(input, 0);
+  assert BoundedPayloads([]);
+  assert EncodeFrames([]) == [];
+  Success(Batch([], input))
+else
+  reveal F.ReadU16Frame();
+  var frameResult := F.ReadU16Frame(input);
+  if frameResult.Failure? then
+    assert !F.HasFrame(input);
+    assert !HasCountedFrames(input, count);
+    Failure(frameResult.error)
+  else
+    var payload := frameResult.value.payload;
+    var afterFrame := frameResult.value.rest;
+    assert F.HasFrame(input);
+    assert payload == F.FramePayload(input);
+    assert afterFrame == F.FrameRest(input);
+    assert U.HasUint16Len(payload);
+    var restResult := ReadCountedFrames(afterFrame, count - 1);
+    if restResult.Failure? then
+      assert !HasCountedFrames(afterFrame, count - 1);
+      assert !HasCountedFrames(input, count);
+      Failure(restResult.error)
+    else
+      var restPayloads := restResult.value.payloads;
+      var rest := restResult.value.rest;
+      assert HasCountedFrames(afterFrame, count - 1);
+      assert |restPayloads| == count - 1;
+      assert BoundedPayloads(restPayloads);
+      assert afterFrame == EncodeFrames(restPayloads) + rest;
+      var payloads := [payload] + restPayloads;
+      assert |payloads| == count;
+      assert payloads[0] == payload;
+      assert payloads[1..] == restPayloads;
+      assert U.HasUint16Len(payloads[0]);
+      assert BoundedPayloads(payloads[1..]);
+      assert BoundedPayloads(payloads);
+      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payloads[0]| as U.uint16) + payloads[0] + EncodeFrames(payloads[1..]);
+      assert EncodeFrames(payloads) == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(restPayloads);
+      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + afterFrame;
+      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(restPayloads) + rest;
+      assert input == EncodeFrames(payloads) + rest;
+      assert HasCountedFrames(input, count);
+      Success(Batch(payloads, rest))

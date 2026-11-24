@@ -1,0 +1,165 @@
+{
+  "control_gate": {
+    "path": "native-profiles-001/control-gate-001/gate.json",
+    "sha256": "34977084989b4d14dfa01cdf19bc8e9ab0a2b8479ec3aa00a72933a4e9ee934b"
+  },
+  "schema": "dafny-varied-pilot-preparation-v1",
+  "settings": {
+    "inference_config": {
+      "maxTokens": 4096,
+      "temperature": 1
+    },
+    "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+    "region": "us-east-1"
+  },
+  "tasks": {
+    "aws-batch": {
+      "base_sources": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": {
+          "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+          "sha256": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda"
+        },
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": {
+          "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939"
+        },
+        "StandardLibrary/src/UInt.dfy": {
+          "path": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+          "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        "libraries/src/BoundedInts.dfy": {
+          "path": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+          "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        "libraries/src/Wrappers.dfy": {
+          "path": "aws/seed/workspace/libraries/src/Wrappers.dfy",
+          "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        }
+      },
+      "component": "AWS MPL UInt selected component",
+      "description": "Decode exactly count consecutive U16-length payload frames. Preserve payload order and the unconsumed suffix, and satisfy the exact reconstruction and success-if-and-only-if contracts. For count zero, succeed without consuming input.",
+      "edit_profile": {
+        "path": "aws/profiles/aws-batch.json",
+        "sha256": "ab82e1c37decc2e0b0d0af59abbdffe01529fe4a8c1c92a52b9016991d30bdc1"
+      },
+      "native_adapter": {
+        "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+        "wall_seconds": 900
+      },
+      "native_profile": {
+        "canonical_sha256": "32fd4246f513e347722a7a0d23877cac6402264d4ab7693df8bfca576f4f13d9",
+        "path": "native-profiles-001/control-gate-001/profiles/aws-batch.json",
+        "sha256": "b0454d6f02e6fc5dd1b7a7f06631781c2902d7eb02b6931f71fc8c67402210cd"
+      }
+    },
+    "aws-tagged": {
+      "base_sources": {
+        "StandardLibrary/src/RepoDiscoFramePair.dfy": {
+          "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoFramePair.dfy",
+          "sha256": "71cc49e947f10f0717c8cdb2969ef6e27b0e88a948176ab082e6cc97a4ffddda"
+        },
+        "StandardLibrary/src/RepoDiscoU16Frame.dfy": {
+          "path": "aws/seed/workspace/StandardLibrary/src/RepoDiscoU16Frame.dfy",
+          "sha256": "7a2efb8f00acb9ab3dc7239ff6f363c50a0a275daef243a937003810532b2939"
+        },
+        "StandardLibrary/src/UInt.dfy": {
+          "path": "aws/seed/workspace/StandardLibrary/src/UInt.dfy",
+          "sha256": "78a8087ad152365e2947402286d62554860dd33b7ab2a1117e925e618232f304"
+        },
+        "libraries/src/BoundedInts.dfy": {
+          "path": "aws/seed/workspace/libraries/src/BoundedInts.dfy",
+          "sha256": "be64dfad94ddd7f6c4150322b4ad96f08ba1453eec0d167a2721a85ccbd2d810"
+        },
+        "libraries/src/Wrappers.dfy": {
+          "path": "aws/seed/workspace/libraries/src/Wrappers.dfy",
+          "sha256": "62c82fa69e1d6b0fde3622c07a891704dda51662668e77183f17c3e2916380e2"
+        }
+      },
+      "component": "AWS MPL UInt selected component",
+      "description": "Decode a tagged pair of U16-length frames under the specified payload budget. Require a nonempty first payload with the requested leading tag; return its remaining payload, the companion payload and the exact suffix. The budget counts the two returned payloads, excluding frame headers, the tag and the suffix.",
+      "edit_profile": {
+        "path": "aws/profiles/aws-tagged.json",
+        "sha256": "6156ad1e642da52e708bb7772e06901f5b513308701f35d78093c7feea805e38"
+      },
+      "native_adapter": {
+        "solver": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/z3-4.12.1-manylinux1/z3",
+        "toolchain_root": "/n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-001/toolchain-4.9.1/dafny",
+        "wall_seconds": 900
+      },
+      "native_profile": {
+        "canonical_sha256": "a55eda4f6d77e213bc52009b01bdbe9b301dc73945399a2282cc3bce25272b75",
+        "path": "native-profiles-001/control-gate-001/profiles/aws-tagged.json",
+        "sha256": "5cd1ebff5d59ba880bc37e8a6d906c9313d9954f83ea952c5af2f9249da39fce"
+      }
+    },
+    "stdlib-filter": {
+      "base_sources": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+          "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+          "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+          "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        }
+      },
+      "component": "Dafny Standard Library DynamicArray",
+      "description": "Stably retain exactly the dynamic-array elements strictly below limit, preserving their order, and return the number removed. The fixed contracts require validity, exact content, size and freshness.",
+      "edit_profile": {
+        "path": "stdlib/revision-004/profiles/stdlib-filter.json",
+        "sha256": "5a4152baaa84517e275c4f8a73089622ca91a0a3af9640e5a9c80fd3e52cc54b"
+      },
+      "native_adapter": {
+        "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+        "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+        "wall_seconds": 360
+      },
+      "native_profile": {
+        "canonical_sha256": "d07f4558c47162c9ab2af3a5bbffc3c7810453f70577789da2c8d6a028930fea",
+        "path": "native-profiles-001/control-gate-001/profiles/stdlib-filter.json",
+        "sha256": "c48a8e685ec9e846f47158d18ee764347d1a573bf96c00d166ea982203e59f01"
+      }
+    },
+    "stdlib-splice": {
+      "base_sources": {
+        "Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy": {
+          "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/BoundedInts.dfy",
+          "sha256": "4e209a0662b475a9cef4c78536f197f2d122cdba4278e243a773b5c69ab30fb4"
+        },
+        "Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy": {
+          "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/DynamicArray.dfy",
+          "sha256": "a55ebe2b2ba78856fb036689e852ac06ba3b6d3fad52619aed1b58dd6d7eeae7"
+        },
+        "Source/DafnyStandardLibraries/src/Std/Wrappers.dfy": {
+          "path": "stdlib/revision-004/base/Source/DafnyStandardLibraries/src/Std/Wrappers.dfy",
+          "sha256": "b0db6d1cfce218f358e01e0eed52fba5246f8b64e9b5113d8187620903dc4c08"
+        },
+        "growth/AppendAll.dfy": {
+          "path": "stdlib/revision-004/base/growth/AppendAll.dfy",
+          "sha256": "f80de476f36e56198d9fcf944b2b0749a28fe76a7a26efa0239e374a1cf54a26"
+        }
+      },
+      "component": "Dafny Standard Library DynamicArray",
+      "description": "Replace the specified contiguous range of a generic dynamic array with replacement, preserving the old prefix and suffix exactly. Satisfy the fixed validity, size, content and freshness contracts.",
+      "edit_profile": {
+        "path": "stdlib/revision-004/profiles/stdlib-splice.json",
+        "sha256": "9d21053e8937c15d414d6af3ee39086a92404d27c8e7cad12b3c4cba838e7880"
+      },
+      "native_adapter": {
+        "solver": "/n/home13/sophiezeng/.conda/envs/repodisco/bin/z3",
+        "toolchain_root": "/n/home13/sophiezeng/tools/dafny-4.11.0/dafny",
+        "wall_seconds": 360
+      },
+      "native_profile": {
+        "canonical_sha256": "349e29c7b686c62c42fc34266dddbb528bd29c81619930b90a6093064d8b1bb3",
+        "path": "native-profiles-001/control-gate-001/profiles/stdlib-splice.json",
+        "sha256": "bedfce590bd58d18280bc0e52d20f8369ed827016ee69020f28f458136877bda"
+      }
+    }
+  }
+}

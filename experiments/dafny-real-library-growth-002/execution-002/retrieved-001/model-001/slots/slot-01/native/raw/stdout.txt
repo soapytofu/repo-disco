@@ -1,0 +1,57 @@
+growth/StableFilterBelow.dfy(43,14): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+43 |   invariant a.data == old(a.data)
+   |               ^^^^
+
+growth/StableFilterBelow.dfy(43,28): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+43 |   invariant a.data == old(a.data)
+   |                             ^^^^
+
+growth/StableFilterBelow.dfy(46,48): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+46 |   invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]
+   |                                                 ^^^^
+
+growth/StableFilterBelow.dfy(47,47): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+47 |   invariant forall i :: readIdx <= i < n ==> a.data[i] == oldItems[i]
+   |                                                ^^^^
+
+growth/StableFilterBelow.dfy(49,16): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+49 |   var elem := a.data[readIdx];
+   |                 ^^^^
+
+growth/StableFilterBelow.dfy(51,6): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+51 |     a.data[writeIdx] := elem;
+   |       ^^^^
+
+growth/StableFilterBelow.dfy(66,14): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+66 |   invariant a.data == old(a.data)
+   |               ^^^^
+
+growth/StableFilterBelow.dfy(66,28): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+66 |   invariant a.data == old(a.data)
+   |                             ^^^^
+
+growth/StableFilterBelow.dfy(67,48): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+67 |   invariant forall i :: 0 <= i < writeIdx ==> a.data[i] == kept[i]
+   |                                                 ^^^^
+
+growth/StableFilterBelow.dfy(68,25): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+68 |   invariant a.items == a.data[..a.size]
+   |                          ^^^^
+
+growth/StableFilterBelow.dfy(74,20): Error: member 'data' has not been imported in this scope and cannot be accessed here
+   |
+74 | assert a.items == a.data[..writeIdx];
+   |                     ^^^^
+
+11 resolution/type errors detected in BoundedInts.dfy
+Results File: /n/home13/sophiezeng/formal-disco/outputs/dafny-real-library-growth-002/execution-002/model-001/slots/slot-01/native/workspace/TestResults/2026-11-24_12_27_12-0.csv

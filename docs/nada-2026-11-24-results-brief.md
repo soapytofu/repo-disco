@@ -1,10 +1,11 @@
 # November 24: real-source repository repair and growth
 
-Reviewed November 23, 2026. **Earlier results include 12 verified executable
-Dafny additions forming six two-stage chains, plus two Vest proof-extension
-chains. A new, more varied partial pilot adds one verified recursive decoder
-and exposes failures in loop invariants and module visibility.** The earlier
-Dafny-VMC growth attempts still failed; their results are unchanged.
+Reviewed November 24, 2026. **We have 12 verified executable Dafny additions
+forming six two-stage chains, plus two Vest proof-extension chains. The fresh,
+more varied balanced pilot accepted 3/8 additions and exposes API-visibility,
+ghost/executable-boundary and solver-budget failures.** The earlier partial
+pilot and failed Dafny-VMC growth attempts remain unchanged. The system can
+extend selected real components, but its reliability on varied tasks is limited.
 
 ## Project overview and timeline
 
@@ -44,7 +45,39 @@ task chain, not several independent task families.
 [new source/request/native audit](../experiments/dafny-real-library-growth-001/execution-001/collection-review-001.json),
 [earlier Vest/Dafny-VMC collection](../experiments/real-repository-growth-001/execution-005/COLLECTION.md).
 
-## New varied-task pilot: stopped early
+## Latest varied-task pilot: complete balanced sample
+
+| Task | Accepted / responses | Failure or success evidence |
+| --- | ---: | --- |
+| Stable filtering | **0/2** | Both access the hidden `DynamicArray.data` field |
+| Counted frame decoder | **1/2** | One passes all 81 units; one exhausts the fixed solver budget |
+| Generic splice | **0/2** | Both pass ghost-derived sequences to executable code |
+| Tagged/bounded frame pair | **2/2** | Both pass all 79 units, including 77 inherited |
+| **Total** | **3/8** | **Four frontend failures; one resource failure** |
+
+Eight fresh independent responses, eight unique request IDs, zero SDK retries,
+**73,890 tokens**, **4m25s on one CPU**. Every response passed extraction and
+the edit guard; only the three clean full-scope native successes were accepted.
+No repair loop or extra feedback was used. The resource-limited decoder is
+unproved, not established mathematically wrong. All three accepted additions
+reuse saved generated APIs and also reveal definitions, so this is
+source-assisted composition.
+
+**Design change:** before this fresh cohort we tested and froze a policy that
+records fully captured candidate frontend errors as failed trials and continues
+independent collection. Same exact prompts, model settings, edit rules and
+native proof limits; 113 tests passed before execution. Integrity failures,
+provider ambiguity and unresolved execution still stop the runner. The
+[550-file archive and review](../experiments/dafny-real-library-growth-002/execution-002/COLLECTION.md)
+confirm all eight were evaluated. The change improves measurement completeness;
+it does not make the failed outputs correct.
+
+This contrasts with the earlier simpler 12/12 feasibility result, but tasks
+and cohorts differ: it is not a matched causal difficulty comparison. A useful
+next question is whether API/export-aware context and verifier feedback help
+these observed failures under an equal budget.
+
+## Earlier varied-task pilot: partial, preserved separately
 
 | Task | Observed result |
 | --- | --- |
@@ -66,11 +99,10 @@ bad proof annotation, not an established wrong-output example. The splice
 failure shows that seeing implementation source did not make the model respect
 the exported API. The harness correctly rejected both failed candidates.
 
-This also identifies a design choice to revisit: a future independent-task
-cohort should consider counting fully captured candidate frontend errors as
-trial failures and continuing, while still stopping on infrastructure, integrity
-or provider ambiguity. That policy would be frozen prospectively; this run is
-closed. [Results and full audit](../experiments/dafny-real-library-growth-002/execution-001/COLLECTION.md).
+That stopping policy motivated the prospective runner change used in the fresh
+cohort above. This earlier run remains closed and unchanged, and its three
+responses are not pooled into the new eight-trial score.
+[Original results and full audit](../experiments/dafny-real-library-growth-002/execution-001/COLLECTION.md).
 
 ## Concrete executable extension example
 
@@ -147,6 +179,7 @@ All original scores and stopped-run evidence are preserved.
 
 **Takeaway:** “We can show verified successive executable additions on real
 Dafny library components and successive proofs on Vest, using the model's own
-accepted code. More varied tasks expose invariant and API-boundary failures.
-The pipeline rejects these errors, but the stop policy truncated this pilot;
-we need a balanced follow-up to assess which feedback or tools help.”
+accepted code. The fresh balanced varied-task pilot accepted only 3/8: it
+reveals concrete API-boundary, ghost/executable and resource limitations. The
+pipeline rejects those failures. Next I want to test whether targeted feedback
+or tools improve them under a controlled budget.”

@@ -1,0 +1,54 @@
+{
+  "text": "{\"body\":\"ghost var oldItems := a.items;\\nghost var oldSize := a.size;\\nghost var oldRepr := a.Repr;\\n\\nvar prefix := oldItems[..position];\\nvar suffix := oldItems[position + deleteCount..];\\n\\n// Pop all elements from the array\\nwhile a.size > 0\\n  invariant a.Valid?()\\n  invariant a.items == oldItems[..a.size]\\n  invariant a.Repr == oldRepr\\n  decreases a.size\\n{\\n  a.PopFast();\\n}\\n\\nassert a.items == [];\\nassert a.size == 0;\\n\\n// Now push prefix\\nAppend.AppendAll(a, prefix);\\n\\nassert a.items == prefix;\\nassert a.size == |prefix|;\\n\\n// Now push replacement\\nAppend.AppendAll(a, replacement);\\n\\nassert a.items == prefix + replacement;\\nassert a.size == |prefix| + |replacement|;\\n\\n// Now push suffix\\nAppend.AppendAll(a, suffix);\\n\\nassert a.items == prefix + replacement + suffix;\\nassert prefix == oldItems[..position];\\nassert suffix == oldItems[position + deleteCount..];\"}",
+  "content": [
+    {
+      "text": "{\"body\":\"ghost var oldItems := a.items;\\nghost var oldSize := a.size;\\nghost var oldRepr := a.Repr;\\n\\nvar prefix := oldItems[..position];\\nvar suffix := oldItems[position + deleteCount..];\\n\\n// Pop all elements from the array\\nwhile a.size > 0\\n  invariant a.Valid?()\\n  invariant a.items == oldItems[..a.size]\\n  invariant a.Repr == oldRepr\\n  decreases a.size\\n{\\n  a.PopFast();\\n}\\n\\nassert a.items == [];\\nassert a.size == 0;\\n\\n// Now push prefix\\nAppend.AppendAll(a, prefix);\\n\\nassert a.items == prefix;\\nassert a.size == |prefix|;\\n\\n// Now push replacement\\nAppend.AppendAll(a, replacement);\\n\\nassert a.items == prefix + replacement;\\nassert a.size == |prefix| + |replacement|;\\n\\n// Now push suffix\\nAppend.AppendAll(a, suffix);\\n\\nassert a.items == prefix + replacement + suffix;\\nassert prefix == oldItems[..position];\\nassert suffix == oldItems[position + deleteCount..];\"}"
+    }
+  ],
+  "usage": {
+    "inputTokens": 6138,
+    "outputTokens": 310,
+    "totalTokens": 6448,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+  },
+  "stop_reason": "end_turn",
+  "request_id": "cd387e6a-334b-4e23-bbe7-ebe12da7d43b",
+  "retry_attempts": 0,
+  "raw_response": {
+    "ResponseMetadata": {
+      "RequestId": "cd387e6a-334b-4e23-bbe7-ebe12da7d43b",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 24 Nov 2026 17:27:50 GMT",
+        "content-type": "application/json",
+        "content-length": "1248",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "cd387e6a-334b-4e23-bbe7-ebe12da7d43b"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "output": {
+      "message": {
+        "role": "assistant",
+        "content": [
+          {
+            "text": "{\"body\":\"ghost var oldItems := a.items;\\nghost var oldSize := a.size;\\nghost var oldRepr := a.Repr;\\n\\nvar prefix := oldItems[..position];\\nvar suffix := oldItems[position + deleteCount..];\\n\\n// Pop all elements from the array\\nwhile a.size > 0\\n  invariant a.Valid?()\\n  invariant a.items == oldItems[..a.size]\\n  invariant a.Repr == oldRepr\\n  decreases a.size\\n{\\n  a.PopFast();\\n}\\n\\nassert a.items == [];\\nassert a.size == 0;\\n\\n// Now push prefix\\nAppend.AppendAll(a, prefix);\\n\\nassert a.items == prefix;\\nassert a.size == |prefix|;\\n\\n// Now push replacement\\nAppend.AppendAll(a, replacement);\\n\\nassert a.items == prefix + replacement;\\nassert a.size == |prefix| + |replacement|;\\n\\n// Now push suffix\\nAppend.AppendAll(a, suffix);\\n\\nassert a.items == prefix + replacement + suffix;\\nassert prefix == oldItems[..position];\\nassert suffix == oldItems[position + deleteCount..];\"}"
+          }
+        ]
+      }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+      "inputTokens": 6138,
+      "outputTokens": 310,
+      "totalTokens": 6448,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    },
+    "metrics": {
+      "latencyMs": 6998
+    }
+  }
+}

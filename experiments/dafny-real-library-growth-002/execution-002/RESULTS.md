@@ -1,5 +1,10 @@
 # Fresh eight-call runner preparation
 
+**Collection completed:** job 63440248 returned all eight responses; **3/8
+accepted, four frontend failures and one solver-resource failure**, with zero
+SDK retries. See [final results and full logs](COLLECTION.md). The preparation
+checkpoint below is retained; its tests preceded the live collection.
+
 The new prospective frontend policy is reviewed and frozen. **113/113 tests
 pass locally, in the manifest-only isolated package and on Cannon**. Both actual
 frozen-payload eight-slot simulations pass using only synthetic transports and

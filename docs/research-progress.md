@@ -1,6 +1,6 @@
 # Research progress and next milestone
 
-Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
+Status: November 24, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Research Proposal F26*, “Time Frame” (page 5), with methodology on pages 2–4. Weeks below are proposal-relative; a calendar start date has not been established here.
 
 | Proposal phase | Planned work | Current status / next action |
 | --- | --- | --- |
@@ -10,7 +10,30 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
-## November 24: fresh balanced varied-task cohort prepared
+## November 24: balanced varied-task cohort completes three of eight
+
+The [fresh eight-response collection](../experiments/dafny-real-library-growth-002/execution-002/COLLECTION.md)
+completed **3/8 accepted additions**: stable filtering 0/2, counted decoding
+1/2, generic splicing 0/2 and tagged/bounded frame pairs 2/2. All outputs passed
+extraction/edit guards. Filters accessed a hidden field; splices passed ghost
+data to executable methods. Those four frontend failures have no checked proof
+units. The remaining unsuccessful decoder exhausted its fixed solver limit,
+with 80 units passing and one resource failure; it has no established semantic
+counterexample. Each accepted AWS addition preserves all 77 inherited passes.
+
+Job 63440248 completed in **4m25s on one CPU**, with eight unique request IDs,
+zero SDK retries, no ambiguous outcomes and **73,890 tokens**. The complete
+550-file archive and production review yield `PASS_COMPLETE`, score 3/8. The
+new dispatch policy completed the planned sample while retaining strict
+acceptance; no repair, rerun or post-response feedback was used. The earlier
+partial cohort and 12/12 simpler additions remain separate and unchanged.
+This provides balanced development evidence of API-boundary and resource
+limitations, not a causal task-difficulty estimate or whole-project result.
+The [closed budget observation](../experiments/dafny-real-library-growth-002/research-budget-20261123-010.json)
+records 30 returned calls, 44 allocated slots, 14 historical closed unused
+slots and 56 unallocated. No job remains active.
+
+## November 24 preparation checkpoint: fresh balanced varied-task cohort
 
 The user approved a new eight-call cohort with the same four payloads and
 forward/reverse task order. [Execution-002](../experiments/dafny-real-library-growth-002/execution-002/RESULTS.md)

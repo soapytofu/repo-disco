@@ -1,0 +1,44 @@
+if count == 0 then
+  assert HasCountedFrames(input, 0);
+  assert BoundedPayloads([]);
+  assert EncodeFrames([]) == [];
+  Success(Batch([], input))
+else
+  reveal F.ReadU16Frame();
+  var frameResult := F.ReadU16Frame(input);
+  if frameResult.Failure? then
+    assert !F.HasFrame(input);
+    assert !HasCountedFrames(input, count);
+    Failure(frameResult.error)
+  else
+    var payload := frameResult.value.payload;
+    var afterFirst := frameResult.value.rest;
+    assert F.HasFrame(input);
+    assert payload == F.FramePayload(input);
+    assert afterFirst == F.FrameRest(input);
+    assert U.HasUint16Len(payload);
+    var restResult := ReadCountedFrames(afterFirst, count - 1);
+    if restResult.Failure? then
+      assert !HasCountedFrames(afterFirst, count - 1);
+      assert !HasCountedFrames(input, count);
+      Failure(restResult.error)
+    else
+      var restPayloads := restResult.value.payloads;
+      var rest := restResult.value.rest;
+      assert HasCountedFrames(afterFirst, count - 1);
+      assert |restPayloads| == count - 1;
+      assert BoundedPayloads(restPayloads);
+      assert afterFirst == EncodeFrames(restPayloads) + rest;
+      var allPayloads := [payload] + restPayloads;
+      assert |allPayloads| == count;
+      assert allPayloads[0] == payload;
+      assert allPayloads[1..] == restPayloads;
+      assert U.HasUint16Len(allPayloads[0]);
+      assert BoundedPayloads(allPayloads[1..]);
+      assert BoundedPayloads(allPayloads);
+      assert EncodeFrames(allPayloads) == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(restPayloads);
+      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + afterFirst;
+      assert input == U.UInt16ToSeq(|payload| as U.uint16) + payload + EncodeFrames(restPayloads) + rest;
+      assert input == EncodeFrames(allPayloads) + rest;
+      assert HasCountedFrames(input, count);
+      Success(Batch(allPayloads, rest))
