@@ -1,0 +1,83 @@
+{
+  "files": 63,
+  "native_verifier_calls": 0,
+  "provider_calls": 0,
+  "recorded_utc": "2026-11-24T03:11:24.255665+00:00",
+  "runs": [
+    {
+      "argv": [
+        "/usr/local/bin/python3.12",
+        "-B",
+        "build_runtime.py",
+        "build",
+        "--scope",
+        "execution-002/scope.json",
+        "--output",
+        "runtime-freeze.json"
+      ],
+      "elapsed_seconds": 0.10968613624572754,
+      "exit_code": 0,
+      "name": "freeze",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6c6ae70fa33b9fe8a4746cc6b6243d8e1b0cf1cac244e3830790ded8bddd79d2"
+    },
+    {
+      "argv": [
+        "/usr/local/bin/python3.12",
+        "-B",
+        "build_runtime.py",
+        "package",
+        "--manifest",
+        "/Users/sophiezeng/.codex/.chatgpt-projects/g-p-6acc447486088191906043549e66190c/research-notes/publish-repo-disco/experiments/dafny-real-library-growth-002/execution-002/runtime-freeze.json",
+        "--expected-sha",
+        "fbc37c8b30095998870ac6c40cc08c9974cdeb89e52d522ce906b41c3cb1310f",
+        "--destination",
+        "/var/folders/fg/t9ycgfj96hz25z7xzkh3zh680000gn/T/repodisco-fresh8-7ox1l_q0/package"
+      ],
+      "elapsed_seconds": 0.15042471885681152,
+      "exit_code": 0,
+      "name": "package",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ecc50f8c89f167209232f6f137cedf3e7755148fd9905006a4b7d8ea30548042"
+    },
+    {
+      "argv": [
+        "/usr/local/bin/python3.12",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_runner",
+        "test_native_host",
+        "test_build_runtime",
+        "test_allocation",
+        "test_ops",
+        "test_review_collection",
+        "test_frontend_policy"
+      ],
+      "elapsed_seconds": 8.085892915725708,
+      "exit_code": 0,
+      "name": "suite",
+      "stderr_sha256": "3cf766e312531f5ccbfe472320a835734bc5bd24d591c1e9e42b696220ef56a3",
+      "stdout_sha256": "6e6c6ad62a7bb7fc5fbd9a82ad2e27ad16dd8991226388918f11b7b242b87895"
+    },
+    {
+      "argv": [
+        "/usr/local/bin/python3.12",
+        "-B",
+        "/var/folders/fg/t9ycgfj96hz25z7xzkh3zh680000gn/T/repodisco-fresh8-7ox1l_q0/package/execution-002/test_render.py",
+        "--smoke",
+        "/var/folders/fg/t9ycgfj96hz25z7xzkh3zh680000gn/T/repodisco-fresh8-7ox1l_q0/package",
+        "execution-002/scope.json"
+      ],
+      "elapsed_seconds": 0.95762038230896,
+      "exit_code": 0,
+      "name": "renderer-smoke",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b8ce1b00d81eff4fd25003780a8cacd90a28483ab1381488e03125d343600a36"
+    }
+  ],
+  "runtime_sha256": "fbc37c8b30095998870ac6c40cc08c9974cdeb89e52d522ce906b41c3cb1310f",
+  "status": "PASS",
+  "synthetic_outcomes_only": true
+}

@@ -10,6 +10,20 @@ Status: November 23, 2026 (Eastern). Timeline source: Sophie Zeng's *HCRP Resear
 | Weeks 7–8 | Evaluate baseline model/agent configurations; construct training trajectories; fine-tune an open model | Requires a frozen task corpus and comparable evaluation budgets. Proposal targets four to five configurations where feasible. |
 | Weeks 9–10 | Held-out evaluation of fine-tuned versus base model; robustness, quantitative and qualitative analysis; final report | Reserve held-out repository families before training-data construction. |
 
+## November 24: fresh balanced varied-task cohort prepared
+
+The user approved a new eight-call cohort with the same four payloads and
+forward/reverse task order. [Execution-002](../experiments/dafny-real-library-growth-002/execution-002/RESULTS.md)
+changes only the prospective handling of fully captured candidate parse/type
+errors: reject that candidate and continue independent trials. Success still
+requires the unchanged native inventory, proof and warning checks. Missing or
+changed evidence, infrastructure failures and provider ambiguity remain terminal.
+All 113 tests pass locally, in a manifest-only package and on Cannon; actual
+eight-slot renderer simulations pass without model/native calls. The new
+allocation totals 44/100 slots, leaving 56 unallocated; all old claims stay closed.
+The package is staged and approved, with no new model result at this preparation
+checkpoint. The earlier three-response cohort remains unchanged below.
+
 ## November 23: varied additions reveal proof and API-boundary failures
 
 The [new frozen pilot](../experiments/dafny-real-library-growth-002/execution-001/COLLECTION.md)
